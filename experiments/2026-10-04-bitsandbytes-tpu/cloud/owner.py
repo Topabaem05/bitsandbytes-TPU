@@ -8,6 +8,7 @@ import math
 import os
 from pathlib import Path
 import signal
+import stat
 import sys
 import tempfile
 import time
@@ -28,11 +29,17 @@ def clamp(started, limit, reserve, clock=None):
 
 
 def preflight(packet, expected):
+    loose_manifest = packet / 'manifest.json'
+    if not stat.S_ISREG(loose_manifest.lstat().st_mode):
+        raise ValueError('PACKET_LOCAL_MANIFEST_NONREGULAR')
     if sha(packet / 'payload.zip') != expected:
         raise ValueError('PACKET_SHA')
     # Use the same consumer and canonical regular-file guard before any CLI instance.
     with tempfile.TemporaryDirectory(prefix='bnb-preflight-') as temporary:
-        manifest = verify_archive(packet / 'payload.zip', expected, Path(temporary) / 'payload')
+        target = Path(temporary) / 'payload'
+        manifest = verify_archive(packet / 'payload.zip', expected, target)
+        if loose_manifest.read_bytes() != (target / 'manifest.json').read_bytes():
+            raise ValueError('PACKET_LOCAL_MANIFEST_BYTES')
     for name, rec in manifest['files'].items():
         p = packet / name
         if p.is_symlink() or sha(p) != rec['sha256'] or p.stat().st_size != rec['bytes']:

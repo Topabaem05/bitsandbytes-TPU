@@ -258,13 +258,19 @@ def execute(base, packet_sha, allocation_epoch, phase):
             launch = json.loads((base / 'launch.json').read_text())
             require(receipt['cpu_status'] == 'PASS' and receipt['tpu_status'] == 'NOT_RUN' and launch['oracle_sha256'] == receipt['oracle_sha256'], 'EXPLICIT_RECOVERED_ORACLE_HASH_REQUIRED')
             deadline = receipt['science_deadline_epoch']
+            receipt.update(status='TPU_CHILD_RUNNING', tpu_status='RUNNING', tpu_attempted=True)
+            durable_json(receipt_path, receipt)
             rec = run_step(out, '12-tpu-probe', [str(x) for x in [installed, '-B', payload / 'probe_backend.py', 'execute', '--admission', payload / 'source-admission.json', '--admission-sha256', manifest['source_admission_sha256'], '--oracle', out / 'cpu-oracle', '--oracle-sha256', launch['oracle_sha256'], '--output', out / 'tpu-actual']], min(work_deadline, deadline), 1500, cwd=payload, tpu=True)
             receipt['steps'].append({'label': '12-tpu-probe', **rec})
-            require(not rec['cleanup']['errors'] and rec['exit_code'] in (0, 2), 'TPU_CHILD_UNQUALIFIED_OR_CLEANUP')
+            require(not rec['cleanup']['errors'] and not rec.get('error') and
+                    (rec['status'], rec['exit_code']) in {('PASS', 0), ('CHILD_FAILED', 2)},
+                    'TPU_CHILD_UNQUALIFIED_OR_CLEANUP')
             receipt.update(status='TPU_CHILD_TERMINAL_LOCAL_REVIEW_REQUIRED', tpu_status='PASS' if rec['exit_code'] == 0 else 'FAIL')
         else:
             raise ValueError('UNKNOWN_PHASE')
     except BaseException as error:
+        if phase == 'tpu' and receipt.get('tpu_status') == 'RUNNING':
+            receipt['tpu_status'] = 'ATTEMPTED_BLOCKED'
         receipt.update(status='BLOCKED', error={'type': type(error).__name__, 'message': str(error)})
     finally:
         durable_json(receipt_path, receipt)

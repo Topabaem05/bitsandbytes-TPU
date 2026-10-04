@@ -66,6 +66,80 @@ def test_consumer_wrong_metadata_before_cli(tmp_path, monkeypatch):
     assert calls == []
 
 
+def test_loose_manifest_matches_archive(tmp_path, monkeypatch):
+    p = make_zip(tmp_path)
+    current = tmp_path / 'current-owner'
+    current.mkdir()
+    monkeypatch.setattr(owner, 'HERE', current)
+    manifest = owner.preflight(p, remote.sha(p / 'payload.zip'))
+    assert manifest == json.loads((p / 'manifest.json').read_text())
+
+
+@pytest.mark.parametrize('mutation', ['bytes', 'symlink', 'directory'])
+def test_loose_manifest_rejected_before_cli(tmp_path, monkeypatch, mutation):
+    p = make_zip(tmp_path)
+    manifest = p / 'manifest.json'
+    saved = manifest.read_bytes()
+    manifest.unlink()
+    if mutation == 'bytes':
+        manifest.write_bytes(saved + b'\n')
+    elif mutation == 'symlink':
+        (p / 'manifest-target.json').write_bytes(saved)
+        manifest.symlink_to('manifest-target.json')
+    else:
+        manifest.mkdir()
+    calls = []
+    monkeypatch.setattr(owner, 'OfficialCLI', lambda *args: calls.append(args))
+    expected = 'PACKET_LOCAL_MANIFEST_BYTES' if mutation == 'bytes' else 'PACKET_LOCAL_MANIFEST_NONREGULAR'
+    with pytest.raises(ValueError, match=expected):
+        owner.drive(p, tmp_path / 'actual', remote.sha(p / 'payload.zip'),
+                    tmp_path / 'absent-gate', 'fixture', Path('fixture-python'), tmp_path / 'absent-identity')
+    assert calls == []
+    assert not (tmp_path / 'actual').exists()
+
+
+@pytest.mark.parametrize('exit_code,cleanup_errors,child_error,child_status,expected', [
+    (0, [], None, 'PASS', 'PASS'),
+    (2, [], None, 'CHILD_FAILED', 'FAIL'),
+    (1, [], None, 'CHILD_FAILED', 'ATTEMPTED_BLOCKED'),
+    (0, [{'operation': 'fixture_cleanup_refusal'}], None, 'BLOCKED_CLEANUP', 'ATTEMPTED_BLOCKED'),
+    (2, [{'operation': 'fixture_cleanup_refusal'}], None, 'BLOCKED_CLEANUP', 'ATTEMPTED_BLOCKED'),
+    (0, [], {'type': 'RuntimeError', 'message': 'fixture'}, 'PASS', 'ATTEMPTED_BLOCKED'),
+    (0, [], None, 'BLOCKED', 'ATTEMPTED_BLOCKED'),
+    (None, [], None, 'RAISE_FIXTURE', 'ATTEMPTED_BLOCKED'),
+])
+def test_tpu_attempt_status(tmp_path, monkeypatch, exit_code, cleanup_errors, child_error, child_status, expected):
+    payload, out = tmp_path / 'payload', tmp_path / 'records'
+    payload.mkdir()
+    out.mkdir()
+    (tmp_path / 'payload.zip').write_bytes(b'fixture packet')
+    manifest = {'files': {}, 'runtime_lock_sha256': 'runtime', 'source_admission_sha256': 'source'}
+    (payload / 'manifest.json').write_text(json.dumps(manifest))
+    (tmp_path / 'launch.json').write_text(json.dumps({'oracle_sha256': 'oracle'}))
+    receipt_path = out / 'receipt.json'
+    receipt_path.write_text(json.dumps({'status': 'CPU_ORACLE_READY_TPU_NOT_RUN', 'cpu_status': 'PASS',
+                                      'tpu_status': 'NOT_RUN', 'oracle_sha256': 'oracle',
+                                      'science_deadline_epoch': 2000, 'steps': [], 'error': None}))
+    def fake_step(*args, **kwargs):
+        running = json.loads(receipt_path.read_text())
+        assert running['status'] == 'TPU_CHILD_RUNNING'
+        assert running['tpu_status'] == 'RUNNING' and running['tpu_attempted'] is True
+        if child_status == 'RAISE_FIXTURE':
+            raise RuntimeError('fixture_before_child_record')
+        return {'status': child_status, 'exit_code': exit_code, 'error': child_error,
+                'cleanup': {'errors': cleanup_errors}}
+    monkeypatch.setattr(remote, 'run_step', fake_step)
+    result = remote.execute(tmp_path, remote.sha(tmp_path / 'payload.zip'), 1000, 'tpu')
+    receipt = json.loads(receipt_path.read_text())
+    assert receipt['tpu_attempted'] is True and receipt['tpu_status'] == expected
+    assert result == (1 if expected == 'ATTEMPTED_BLOCKED' else 0)
+    assert receipt['status'] == ('BLOCKED' if expected == 'ATTEMPTED_BLOCKED' else 'TPU_CHILD_TERMINAL_LOCAL_REVIEW_REQUIRED')
+    if child_status != 'RAISE_FIXTURE':
+        assert receipt['steps'][0]['exit_code'] == exit_code
+        assert receipt['steps'][0]['cleanup']['errors'] == cleanup_errors
+        assert receipt['steps'][0]['error'] == child_error
+
+
 def test_package_nested_receipt_and_projection(tmp_path):
     out = tmp_path / 'records'
     (out / 'tpu-actual').mkdir(parents=True)

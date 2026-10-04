@@ -1,5 +1,16 @@
 # Change log
 
+## 2026-10-04 — Packet and attempt record corrections
+
+- Compare the loose manifest with the archive before allocation.
+- Reject a symbolic link or directory in place of that manifest.
+- Record a TPU attempt before the child starts.
+- Keep numerical failures separate from execution and cleanup failures.
+
+Validation: The reviewer repeated 24 isolated tests; all passed in 0.17 seconds.
+The first Colab records stayed unchanged.
+Refer to [the owner correction record](docs/changes/task2-cloud-owner-fixes.md).
+
 ## 2026-10-04 — First actual Colab result
 
 - Record successful installation and the TPU runtime probe.
