@@ -35,11 +35,18 @@ def quantize_4bit(A, blocksize, quant_type, quant_storage):
     blocks = flat[:full].reshape(-1, 64)
     scales = blocks.abs().max(dim=-1)[0]
     # Match upstream multiplication by a reciprocal, including small scales.
-    scaled = (blocks * (1.0 / scales.clamp(min=1e-38).view(-1, 1))).clamp(-1, 1).reshape(-1)
+    # TPU may flush the small clamp value to zero. A zero block needs no scaling.
+    zero_blocks = scales == 0
+    normalizer = torch.where(zero_blocks, torch.ones_like(scales), scales.clamp(min=1e-38))
+    scaled_blocks = blocks * (1.0 / normalizer.view(-1, 1))
+    scaled = torch.where(zero_blocks.view(-1, 1), torch.zeros_like(blocks), scaled_blocks).clamp(-1, 1).reshape(-1)
     if remainder:
-        tail_scale = flat[full:].abs().max().clamp(min=1e-38)
+        tail_max = flat[full:].abs().max()
+        tail_scale = tail_max.clamp(min=1e-38)
         scales = torch.cat((scales, tail_scale.unsqueeze(0)))
-        scaled = torch.cat((scaled, (flat[full:] / tail_scale).clamp(-1, 1)))
+        tail_normalizer = torch.where(tail_max == 0, torch.ones_like(tail_max), tail_scale)
+        tail_values = torch.where(tail_max == 0, torch.zeros_like(flat[full:]), flat[full:] / tail_normalizer)
+        scaled = torch.cat((scaled, tail_values.clamp(-1, 1)))
     if scaled.numel() % 2:
         scaled = F.pad(scaled, (0, 1))
     # right=False: a value equal to a midpoint enters the lower bucket.

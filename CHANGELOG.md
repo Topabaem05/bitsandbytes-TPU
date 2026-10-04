@@ -1,5 +1,17 @@
 # Change log
 
+## 2026-10-04 — Zero-block normalization correction
+
+- Use a safe denominator for zero blocks and partial zero blocks.
+- Keep zero elements and odd padding at NF4 code `7`.
+- Add a failure fixture and isolated CPU subnormal controls.
+- Keep the fixed device cases and numerical tolerances unchanged.
+
+Validation: The reviewer repeated 81 package tests; all passed in 22.05 seconds.
+The previous calculation failed the zero control, and the corrected calculation passed it.
+The TPU repeat and CPU-to-TPU parameter transfer correction are still required.
+Refer to [the zero-block change record](docs/changes/task1-zero-normalization.md).
+
 ## 2026-10-04 — Native wrapper device result
 
 - Record the successful TPU runtime probe and all 42 CPU reference cases.
