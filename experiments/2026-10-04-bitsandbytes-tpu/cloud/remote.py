@@ -186,6 +186,10 @@ def execute(base, packet_sha, allocation_epoch, phase):
     require(sha(base / 'payload.zip') == packet_sha, 'PACKET_SHA')
     for name, rec in manifest['files'].items():
         require(sha(payload / name) == rec['sha256'], 'POST_UPLOAD_SOURCE_SHA')
+    diagnostic = manifest.get('experiment') == 'device-route-diagnostic'
+    if diagnostic:
+        require(manifest.get('diagnostic_only') is True and manifest.get('route_probe_sha256') ==
+                manifest['files'].get('probe_routes.py', {}).get('sha256'), 'ROUTE_PROBE_BINDING')
     out.mkdir(exist_ok=True)
     receipt_path = out / 'receipt.json'
     receipt = json.loads(receipt_path.read_text()) if receipt_path.exists() else {
@@ -254,7 +258,34 @@ def execute(base, packet_sha, allocation_epoch, phase):
             receipt['runtime_status'] = 'PASS_TPU_RUNTIME_PROBE_ONLY'
             step('11-cpu-oracle', [installed, '-B', payload / 'probe_backend.py', 'prepare', '--admission', payload / 'source-admission.json', '--admission-sha256', manifest['source_admission_sha256'], '--output', out / 'cpu-oracle'], deadline, 300)
             receipt.update(status='CPU_ORACLE_READY_TPU_NOT_RUN', cpu_status='PASS', oracle_sha256=sha(out / 'cpu-oracle/oracle-seal.json'))
+        elif phase == 'routes':
+            require(diagnostic, 'WRONG_SCIENTIFIC_VARIANT')
+            launch = json.loads((base / 'launch.json').read_text())
+            require(receipt['cpu_status'] == 'PASS' and receipt['tpu_status'] == 'NOT_RUN' and launch['oracle_sha256'] == receipt['oracle_sha256'], 'EXPLICIT_RECOVERED_ORACLE_HASH_REQUIRED')
+            receipt.update(status='DEVICE_ROUTE_CHILD_RUNNING', tpu_status='RUNNING', tpu_attempted=True)
+            durable_json(receipt_path, receipt)
+            deadline = min(work_deadline, receipt['science_deadline_epoch'])
+            rec = run_step(out, '12-device-routes', [str(x) for x in [installed, '-B', payload / 'probe_routes.py', 'execute',
+                           '--backend-probe', payload / 'probe_backend.py', '--admission', payload / 'source-admission.json',
+                           '--admission-sha256', manifest['source_admission_sha256'], '--oracle', out / 'cpu-oracle',
+                           '--oracle-sha256', launch['oracle_sha256'], '--deadline-epoch', deadline,
+                           '--output', out / 'device-routes']], deadline, 1500, cwd=payload, tpu=True)
+            receipt['steps'].append({'label': '12-device-routes', **rec})
+            require(not rec['cleanup']['errors'] and not rec.get('error') and
+                    (rec['status'], rec['exit_code']) == ('PASS', 0), 'ROUTE_CHILD_UNQUALIFIED_OR_CLEANUP')
+            result = json.loads((out / 'device-routes/receipt.json').read_text())
+            require(result.get('kind') == 'DEVICE_ROUTE_DIAGNOSTIC_ONLY' and result.get('status') == 'COMPLETE', 'ROUTE_RECEIPT_INCOMPLETE')
+            require(result.get('source_pre') == manifest['source_admission_sha256'] and
+                    result.get('source_post') == manifest['source_admission_sha256'] and
+                    result.get('source_admission_sha256') == manifest['source_admission_sha256'] and
+                    result.get('oracle_sha256') == launch['oracle_sha256'] and
+                    result.get('runtime_lock_sha256') == manifest['runtime_lock_sha256'], 'ROUTE_RECEIPT_BINDING')
+            require(type(result.get('pid')) is int and any(g.get('pid') == result['pid'] for g in rec['cleanup']['groups']) and
+                    isinstance(result.get('process_token'), str) and bool(result['process_token']), 'ROUTE_PROCESS_IDENTITY')
+            receipt.update(status='DEVICE_ROUTE_CHILD_TERMINAL_LOCAL_REVIEW_REQUIRED',
+                           tpu_status='DIAGNOSTIC_RECORDS_COMPLETE', diagnostic_only=True)
         elif phase == 'tpu':
+            require(not diagnostic, 'WRONG_SCIENTIFIC_VARIANT')
             launch = json.loads((base / 'launch.json').read_text())
             require(receipt['cpu_status'] == 'PASS' and receipt['tpu_status'] == 'NOT_RUN' and launch['oracle_sha256'] == receipt['oracle_sha256'], 'EXPLICIT_RECOVERED_ORACLE_HASH_REQUIRED')
             deadline = receipt['science_deadline_epoch']
@@ -269,7 +300,7 @@ def execute(base, packet_sha, allocation_epoch, phase):
         else:
             raise ValueError('UNKNOWN_PHASE')
     except BaseException as error:
-        if phase == 'tpu' and receipt.get('tpu_status') == 'RUNNING':
+        if phase in ('tpu', 'routes') and receipt.get('tpu_status') == 'RUNNING':
             receipt['tpu_status'] = 'ATTEMPTED_BLOCKED'
         receipt.update(status='BLOCKED', error={'type': type(error).__name__, 'message': str(error)})
     finally:
@@ -280,7 +311,7 @@ def execute(base, packet_sha, allocation_epoch, phase):
 
 def main():
     p = argparse.ArgumentParser(description=__doc__)
-    p.add_argument('operation', choices=['unpack', 'install', 'cpu', 'tpu', 'export', 'download', 'metadata'])
+    p.add_argument('operation', choices=['unpack', 'install', 'cpu', 'tpu', 'routes', 'export', 'download', 'metadata'])
     p.add_argument('--base', type=Path, required=True)
     p.add_argument('--packet-sha256')
     p.add_argument('--allocation-epoch', type=float)

@@ -1,5 +1,18 @@
 # Change log
 
+## 2026-10-04 — Device route diagnostic preparation
+
+- Add 34 fixed nonlinear cases and six module path cases.
+- Keep the CPU transfer error separate from alternative path results.
+- Identify the CPU checkpoint used by the restoration path.
+- Add independent gradient checks and the existing floating-point restoration tolerances.
+- Keep diagnostic record acceptance separate from M2 and M3 completion.
+
+Validation: The reviewer repeated 22 diagnostic tests and 49 owner tests; all passed.
+The tests include correct records, incorrect records, simulated cloud operations, archive recovery, and process cleanup.
+Actual TPU execution of this diagnostic is still required.
+Refer to [the diagnostic change record](docs/changes/task2-device-route-preparation.md).
+
 ## 2026-10-04 — Zero-block normalization correction
 
 - Use a safe denominator for zero blocks and partial zero blocks.

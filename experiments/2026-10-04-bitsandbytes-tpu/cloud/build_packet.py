@@ -34,12 +34,20 @@ def python_tree(root):
     return files
 
 
-def build(upstream, out, plugin_manifest_sha256):
+def build(upstream, out, plugin_manifest_sha256, *, experiment='api42', route_probe=None, route_probe_sha256=None):
+    if experiment not in {'api42', 'device-route-diagnostic'}:
+        raise ValueError('EXPERIMENT_VARIANT')
+    if experiment == 'device-route-diagnostic':
+        if route_probe is None or route_probe.is_symlink() or not route_probe.is_file() or sha(route_probe) != route_probe_sha256:
+            raise ValueError('ROUTE_PROBE_SOURCE')
+    elif route_probe is not None or route_probe_sha256 is not None:
+        raise ValueError('DIAGNOSTIC_PROBE_NOT_REQUESTED')
     if out.exists() or out.is_symlink():
         raise FileExistsError('FRESH_PACKET_REQUIRED')
     if subprocess.check_output(['git', '-C', str(upstream), 'rev-parse', 'HEAD'], text=True).strip() != COMMIT:
         raise ValueError('UPSTREAM_COMMIT')
-    runtime = HERE.parent / 'runtime'
+    scientific = PROJECT / 'experiments/2026-10-04-bitsandbytes-tpu'
+    runtime = scientific / 'runtime'
     if sha(runtime / 'requirements.lock.json') != RUNTIME_SHA:
         raise ValueError('RUNTIME_LOCK')
     plugin = PROJECT / 'packages/bitsandbytes-tpu'
@@ -77,7 +85,9 @@ def build(upstream, out, plugin_manifest_sha256):
     if python_tree(out / 'plugin/src/bitsandbytes_tpu') != plugin_manifest['installed_python_files']:
         raise ValueError('PLUGIN_COPIED_BYTES')
     for name in ('probe_backend.py', 'probe-profile.json', 'probe-inputs.json'):
-        shutil.copyfile(HERE.parent / name, out / name)
+        shutil.copyfile(scientific / name, out / name)
+    if experiment == 'device-route-diagnostic':
+        shutil.copyfile(route_probe, out / 'probe_routes.py')
     for name in ('resolve.py', 'probe_runtime.py', 'requirements.lock.json'):
         dest = out / 'runtime' / name
         dest.parent.mkdir(exist_ok=True)
@@ -96,6 +106,8 @@ def build(upstream, out, plugin_manifest_sha256):
                 'plugin_source_manifest_sha256': plugin_manifest_sha256,
                 'upstream_commit': COMMIT, 'upstream_source_url': f'https://github.com/bitsandbytes-foundation/bitsandbytes/tree/{COMMIT}',
                 'budget': {'total': 3600, 'install': 1200, 'science': 1800, 'retrieval': 600, 'cleanup': 60}}
+    if experiment == 'device-route-diagnostic':
+        manifest.update(experiment=experiment, diagnostic_only=True, route_probe_sha256=sha(out / 'probe_routes.py'))
     write(out / 'manifest.json', manifest)
     with zipfile.ZipFile(out / 'payload.zip', 'w', zipfile.ZIP_DEFLATED) as z:
         for name in sorted([*members, 'manifest.json']):
@@ -113,5 +125,9 @@ if __name__ == '__main__':
     p.add_argument('--upstream', type=Path, required=True)
     p.add_argument('--out', type=Path, required=True)
     p.add_argument('--plugin-manifest-sha256', required=True)
+    p.add_argument('--experiment', choices=['api42', 'device-route-diagnostic'], default='api42')
+    p.add_argument('--route-probe', type=Path)
+    p.add_argument('--route-probe-sha256')
     a = p.parse_args()
-    print(json.dumps(build(a.upstream, a.out, a.plugin_manifest_sha256), sort_keys=True))
+    print(json.dumps(build(a.upstream, a.out, a.plugin_manifest_sha256, experiment=a.experiment,
+                          route_probe=a.route_probe, route_probe_sha256=a.route_probe_sha256), sort_keys=True))

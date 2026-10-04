@@ -40,6 +40,12 @@ def preflight(packet, expected):
         manifest = verify_archive(packet / 'payload.zip', expected, target)
         if loose_manifest.read_bytes() != (target / 'manifest.json').read_bytes():
             raise ValueError('PACKET_LOCAL_MANIFEST_BYTES')
+    if manifest.get('experiment', 'api42') not in {'api42', 'device-route-diagnostic'}:
+        raise ValueError('EXPERIMENT_VARIANT')
+    if manifest.get('experiment') == 'device-route-diagnostic':
+        pin = manifest.get('route_probe_sha256')
+        if manifest.get('diagnostic_only') is not True or not isinstance(pin, str) or len(pin) != 64 or pin != manifest['files'].get('probe_routes.py', {}).get('sha256'):
+            raise ValueError('ROUTE_PROBE_BINDING')
     for name, rec in manifest['files'].items():
         p = packet / name
         if p.is_symlink() or sha(p) != rec['sha256'] or p.stat().st_size != rec['bytes']:
@@ -155,6 +161,9 @@ def drive(packet, output, expected, acceptance, acceptance_sha, cli_python, cli_
               'plugin_source_manifest_sha256': manifest['plugin_source_manifest_sha256'],
               'runtime_lock_sha256': manifest['runtime_lock_sha256'],
               'budget': manifest['budget'], 'one_allocation_only': True, 'provider_or_solver': 'FORBIDDEN'}
+    diagnostic = manifest.get('experiment') == 'device-route-diagnostic'
+    if diagnostic:
+        fields.update(experiment='device-route-diagnostic', diagnostic_only=True, route_probe_sha256=manifest['route_probe_sha256'])
     if any(gate.get(k) != v for k, v in fields.items()):
         raise PermissionError('EXACT_ROOT_ACCEPTANCE_REQUIRED')
     if gate.get('cli_identity_sha256') != sha(cli_identity):
@@ -173,6 +182,8 @@ def drive(packet, output, expected, acceptance, acceptance_sha, cli_python, cli_
              'session': session, 'allocation_attempts': 0, 'commands': [], 'cleanup_errors': [],
              'packet_sha256': expected, 'budget': manifest['budget'], 'remote_base': base,
              'provider_or_solver': 'NOT_RUN', 'started_utc': datetime.now(timezone.utc).isoformat()}
+    if diagnostic:
+        owner.update(experiment='device-route-diagnostic', diagnostic_only=True, api42_status='NOT_QUALIFIED')
     started = None
     prior = {sig: signal.getsignal(sig) for sig in (signal.SIGTERM, signal.SIGINT)}
 
@@ -261,8 +272,8 @@ def drive(packet, output, expected, acceptance, acceptance_sha, cli_python, cli_
         launch = output / 'launch.json'
         durable_json(launch, {'oracle_sha256': owner['recovered_oracle_sha256']})
         upload('12-oracle-admission', launch, base + '/launch.json')
-        operation('13-tpu', 'tpu', 1800)
-        phase_receipt('13-tpu', 'TPU_CHILD_TERMINAL_LOCAL_REVIEW_REQUIRED')
+        operation('13-tpu', 'routes' if diagnostic else 'tpu', 1800)
+        phase_receipt('13-tpu', 'DEVICE_ROUTE_CHILD_TERMINAL_LOCAL_REVIEW_REQUIRED' if diagnostic else 'TPU_CHILD_TERMINAL_LOCAL_REVIEW_REQUIRED')
         owner['status'] = 'CHILD_TERMINAL_RETRIEVAL_REQUIRED'
     except BaseException as error:
         owner.update(status='BLOCKED', original_error={'type': type(error).__name__, 'message': str(error)})
@@ -331,7 +342,10 @@ def drive(packet, output, expected, acceptance, acceptance_sha, cli_python, cli_
             log = (output / 'local-verifier.raw').open('wb', buffering=0)
             try:
                 with verify.guard(clamp(started, 120, 0)):
-                    proc = verify.launch([sys.executable, '-B', str(packet / 'probe_backend.py'), 'verify', '--admission-sha256', manifest['source_admission_sha256'], '--oracle', str(output / 'recovered/cpu-oracle'), '--oracle-sha256', owner['recovered_oracle_sha256'], '--actual', str(output / 'recovered/tpu-actual')], record=output / 'local-verifier-ownership.json', env=dict(os.environ, PYTHONDONTWRITEBYTECODE='1'), stdout=log, stderr=log)
+                    argv = [sys.executable, '-B', str(packet / ('probe_routes.py' if diagnostic else 'probe_backend.py')), 'verify', '--admission-sha256', manifest['source_admission_sha256'], '--oracle', str(output / 'recovered/cpu-oracle'), '--oracle-sha256', owner['recovered_oracle_sha256'], '--actual', str(output / ('recovered/device-routes' if diagnostic else 'recovered/tpu-actual'))]
+                    if diagnostic:
+                        argv += ['--backend-probe', str(packet / 'probe_backend.py')]
+                    proc = verify.launch(argv, record=output / 'local-verifier-ownership.json', env=dict(os.environ, PYTHONDONTWRITEBYTECODE='1'), stdout=log, stderr=log)
                     proc.wait()
                     owner['local_verifier_exit_code'] = proc.returncode
             finally:
@@ -345,7 +359,10 @@ def drive(packet, output, expected, acceptance, acceptance_sha, cli_python, cli_
                     except Exception as error:
                         verify.note_error('close_local_verifier', error)
                 owner['local_verifier_cleanup'] = verify.summary()
-            if owner['status'] == 'CHILD_TERMINAL_RETRIEVAL_REQUIRED' and not owner['local_verifier_cleanup']['errors'] and owner.get('local_verifier_exit_code') in (0, 2) and receipt['runtime_status'] == 'PASS_TPU_RUNTIME_PROBE_ONLY' and receipt['cpu_status'] == 'PASS' and receipt['tpu_status'] in ('PASS', 'FAIL') and all(not step['cleanup']['errors'] for step in receipt['steps']):
+            if diagnostic:
+                if owner['status'] == 'CHILD_TERMINAL_RETRIEVAL_REQUIRED' and not owner['local_verifier_cleanup']['errors'] and owner.get('local_verifier_exit_code') == 0 and receipt['runtime_status'] == 'PASS_TPU_RUNTIME_PROBE_ONLY' and receipt['cpu_status'] == 'PASS' and receipt['tpu_status'] == 'DIAGNOSTIC_RECORDS_COMPLETE' and receipt['status'] == 'DEVICE_ROUTE_CHILD_TERMINAL_LOCAL_REVIEW_REQUIRED' and all(not step['cleanup']['errors'] for step in receipt['steps']):
+                    owner.update(status='PASS_DEVICE_ROUTE_RECORDS', record_validation='PASS', api42_status='NOT_QUALIFIED')
+            elif owner['status'] == 'CHILD_TERMINAL_RETRIEVAL_REQUIRED' and not owner['local_verifier_cleanup']['errors'] and owner.get('local_verifier_exit_code') in (0, 2) and receipt['runtime_status'] == 'PASS_TPU_RUNTIME_PROBE_ONLY' and receipt['cpu_status'] == 'PASS' and receipt['tpu_status'] in ('PASS', 'FAIL') and all(not step['cleanup']['errors'] for step in receipt['steps']):
                 owner['status'] = 'PASS_TPU_API_PROBE' if owner['local_verifier_exit_code'] == 0 else 'FAIL_TPU_API_PROBE'
         except BaseException as error:
             owner['local_readback_error'] = {'type': type(error).__name__, 'message': str(error)}
@@ -372,4 +389,4 @@ if __name__ == '__main__':
     else:
         r = drive(a.packet.resolve(), a.output.resolve(), a.packet_sha256, a.root_acceptance, a.root_acceptance_sha256, a.cli_python, a.cli_identity)
         print(json.dumps(r))
-        raise SystemExit(0 if r['status'] == 'PASS_TPU_API_PROBE' else 2)
+        raise SystemExit(0 if r['status'] in ('PASS_TPU_API_PROBE', 'PASS_DEVICE_ROUTE_RECORDS') else 2)

@@ -19,6 +19,8 @@ The third run produced 17 TPU case records before a CPU-to-TPU parameter transfe
 Partial comparison found nine passing cases and eight failures in packed codes for zero inputs.
 The full 42-case test is not complete.
 Refer to [the third result](docs/changes/task2-colab-native.md).
+A [zero-block correction](docs/changes/task1-zero-normalization.md) passed 81 local package tests.
+Its actual TPU repeat is still required.
 
 The project name is **bitsandbytes-TPU**.
 The Python package name is `bitsandbytes-tpu`.

@@ -30,6 +30,7 @@ They are not additions to the official ASD-STE100 dictionary.
 | libtpu | The TPU runtime library. |
 | manifest | A file that records file names, byte counts, and hashes. |
 | matrix multiplication | The mathematical operation that multiplies two matrices. |
+| NaN | A floating-point value that represents an undefined numerical result. |
 | nested quantization | Quantization of the scales from a first quantization operation. |
 | NF4 | The bitsandbytes four-bit NormalFloat codebook and its format. |
 | nibble | Four bits within one byte. |
