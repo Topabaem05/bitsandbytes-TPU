@@ -1,5 +1,17 @@
 # Change log
 
+## 2026-10-04 — State and gradient experiment preparation
+
+- Add state reconstruction through the upstream public methods.
+- Add separate CPU, TPU save, and TPU restore phases.
+- Keep eight fixed linear cases and the existing numerical tolerances.
+- Check FP32 input and bias gradients with frozen base weights.
+
+Validation: The reviewer repeated 22 tests and eight subtests; all passed in 6.28 seconds.
+The Mac helper run passed all eight cases with no numerical or state differences.
+Qualified Linux and TPU execution stay `NOT_RUN`; M3 is not complete.
+Refer to [the state change record](docs/changes/task3-state-preparation.md).
+
 ## 2026-10-04 — Controlled document terms
 
 - Replace general words with simpler words from the writing standard.
@@ -51,7 +63,7 @@ Refer to [the package change record](docs/changes/task1.md).
 
 ## 2026-10-04 — Fixed Linux runtime files
 
-- Add an fixed wheel lock for the initial PyTorch/XLA runtime.
+- Add a fixed wheel lock for the initial PyTorch/XLA runtime.
 - Add Linux dependency checks and complete wheel integrity checks.
 - Add a separate TPU runtime probe.
 - Add 16 tests for valid and incorrect runtime files.
