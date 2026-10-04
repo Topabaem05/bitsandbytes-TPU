@@ -25,7 +25,8 @@ def test_backend_context_wraps_all_kernels_and_restores_excluded_key():
             assert not torch._C._dispatch_tls_is_dispatch_key_excluded(key)
             assert torch._is_functional_tensor(a[0])
             factory = torch.tensor([1., 2., 3.])
-            assert torch._is_functional_tensor(factory)
+            assert not torch._is_functional_tensor(factory)
+            # Ordinary CPU factories stay raw; XLA-style factories have a separate control.
             assert factory[:-1].shape == (2,)
             return function(*a, **kw)
         wrapped = f.functionalized_kernel(observed)
@@ -146,3 +147,93 @@ assert torch._C._dispatch_has_kernel_for_dispatch_key('bitsandbytes::dequantize_
 print(json.dumps({'rollback':True,'retry':True,'idempotent':True}))
 ''')
     assert all(got.values())
+
+
+def test_native_factory_wrapped_backend_avoids_functorch_double_wrap():
+    result = child('''
+import json,torch
+from bitsandbytes_tpu import reference as r
+from bitsandbytes_tpu.functionalization import functionalized_kernel
+key=torch._C.DispatchKey.Functionalize
+x=torch.linspace(-1,1,14)
+p,s=r.quantize_4bit(x,64,'nf4',torch.uint8)
+endpoint=torch.cat((-torch.ones(7),torch.ones(7)))
+ep,es=r.quantize_4bit(endpoint,64,'nf4',torch.uint8)
+bias=torch.tensor([-.5,.5]);a=torch.ones(3,7)
+cases=[(r.quantize_4bit,(x,64,'nf4',torch.uint8),True),
+ (r.dequantize_4bit,(p,s,64,'nf4',[2,7],torch.float32),True),
+ (r.gemm_4bit,(a,p,[2,7],s,64,'nf4',bias),False),
+ (r.gemm_4bit,(a,ep,[2,7],es,64,'nf4',bias),True)]
+expected=[fn(*args) for fn,args,_ in cases]
+# Isolated backend emulation: XLA lift_fresh returns a native functional tensor.
+# This child-only CPU registration is never installed by the package.
+lib=torch.library.Library('aten','IMPL','CPU')
+factory_calls=[]
+def lift(t):
+ assert not torch._is_functional_tensor(t)
+ factory_calls.append(True)
+ return torch._to_functional_tensor(t)
+lib.impl('lift_fresh',lift)
+try: torch.func.functionalize(r.quantize_4bit)(x,64,'nf4',torch.uint8)
+except RuntimeError as e:
+ assert '!at::functionalization::impl::isFunctionalTensor(tensor)' in str(e)
+ old_error=str(e)
+else: raise AssertionError('The earlier double-wrap mechanism was not reproduced')
+gemm_metrics=[]
+for (fn,args,exact),want in zip(cases,expected):
+ untouched=[(v,v.clone()) for v in args if isinstance(v,torch.Tensor)]
+ for excluded in [False,True]:
+  with torch._C._SetExcludeDispatchKeyGuard(key,excluded):
+   before=(str(torch._C._dispatch_tls_local_include_set()),str(torch._C._dispatch_tls_local_exclude_set()))
+   got=functionalized_kernel(fn)(*args)
+   assert before==(str(torch._C._dispatch_tls_local_include_set()),str(torch._C._dispatch_tls_local_exclude_set()))
+  assert all(torch.equal(v,before) for v,before in untouched)
+  if isinstance(want,tuple):
+   assert all(torch.equal(u,v) and not torch._is_functional_tensor(u) for u,v in zip(got,want))
+  else:
+   assert not torch._is_functional_tensor(got)
+   if exact: assert torch.equal(got,want)
+   else:
+    torch.testing.assert_close(got,want,rtol=1e-4,atol=1e-5)
+    gemm_metrics.append({'exact':torch.equal(got,want),'max_abs':float((got-want).abs().max()),'atol':1e-5,'rtol':1e-4})
+# View output and scale/output alias preserve data outside the output view.
+storage=torch.full((4,7),-99.);out=storage[1:3]
+assert functionalized_kernel(r.dequantize_4bit_out)(p,s,64,'nf4',[2,7],torch.float32,out) is None
+assert torch.equal(out,expected[1]) and torch.equal(storage[0],torch.full((7,),-99.))
+assert torch.equal(storage[3],torch.full((7,),-99.))
+# Use already prepared scalar packed data to avoid returning a factory wrapper as an input.
+ap=torch.full((1,1),7,dtype=torch.uint8);scale=torch.ones(1)
+assert functionalized_kernel(r.dequantize_4bit_out)(ap,scale,64,'nf4',[1],torch.float32,scale) is None
+assert torch.equal(scale,-torch.ones(1))
+# Failure restores both TLS sets and does not publish output mutation.
+bad=torch.full((7,2),-99.)
+with torch._C._SetExcludeDispatchKeyGuard(key,True):
+ before=(str(torch._C._dispatch_tls_local_include_set()),str(torch._C._dispatch_tls_local_exclude_set()))
+ try: functionalized_kernel(r.dequantize_4bit_out)(p,s,64,'nf4',[2,7],torch.float32,bad)
+ except ValueError: pass
+ else: raise AssertionError('Wrong output was accepted')
+ assert before==(str(torch._C._dispatch_tls_local_include_set()),str(torch._C._dispatch_tls_local_exclude_set()))
+assert torch.equal(bad,torch.full_like(bad,-99.))
+assert len(factory_calls)>1
+print(json.dumps({'old_assertion_reproduced':True,'four_kernels':True,'view_and_input_alias':True,'exception_restored':True,'factory_calls':len(factory_calls),'old_error':old_error,'gemm_metrics':gemm_metrics,'pure_inputs_unchanged':True}))
+''')
+    assert all(result[name] for name in ['old_assertion_reproduced','four_kernels','view_and_input_alias','exception_restored'])
+
+
+def test_native_wrapper_rejects_functional_inputs_and_metadata_mutations():
+    from bitsandbytes_tpu.functionalization import functionalized_kernel
+    x=torch.ones(2,3)
+    with pytest.raises(RuntimeError,match='unwrapped'):
+        functionalized_kernel(lambda a:a)(torch._to_functional_tensor(x))
+    before=x.clone()
+    with pytest.raises(RuntimeError,match='metadata'):
+        functionalized_kernel(lambda a:a.transpose_(0,1))(x)
+    assert torch.equal(x,before) and x.shape==(2,3)
+    # Repeated input identities stay one wrapper, including keyword arguments.
+    def aliases(a,*,b):
+        assert a is b
+        a.add_(2)
+        return {'value':b, 'view':b[:,1:]}
+    result=functionalized_kernel(aliases)(x,b=x)
+    assert torch.equal(x,torch.full_like(x,3))
+    assert torch.equal(result['value'],x) and torch.equal(result['view'],x[:,1:])

@@ -1,5 +1,18 @@
 # Change log
 
+## 2026-10-04 — Native tensor wrapper correction
+
+- Replace the functorch transform with native functional tensor wrappers.
+- Keep the caller's included dispatch keys and restore the local context.
+- Apply fixed-size input updates and reject metadata changes.
+- Add an isolated factory test that reproduces the second TPU assertion.
+
+Validation: The reviewer repeated 79 package tests; all passed in 20.08 seconds.
+The old transform failed the factory control, and the native wrapper passed all four kernel controls.
+The arithmetic, fixed inputs, and numerical tolerances stayed unchanged.
+An actual TPU repeat is still required.
+Refer to [the native wrapper change record](docs/changes/task1-native-functionalization.md).
+
 ## 2026-10-04 — Functionalization patch device result
 
 - Record the second successful runtime probe and 42 CPU reference cases.
