@@ -1,5 +1,16 @@
 # Change log
 
+## 2026-10-04 — Controlled document terms
+
+- Replace general words with simpler words from the writing standard.
+- Define more computer terms in the project glossary.
+- State the finite-input preconditions in the main design and README.
+- Record the local work for the module state milestone.
+
+Validation: The reviewer examined meanings, sentence lengths, and document links.
+No program source, fixed input, runtime lock, or numerical tolerance changed.
+This inspection does not give independent ASD-STE100 certification.
+
 ## 2026-10-04 — NF4 operations for XLA
 
 - Replace bucket selection with strict comparisons and an integer sum.

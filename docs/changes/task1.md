@@ -1,9 +1,9 @@
 # Task 1: NF4 reference backend
 
-Add an installable `bitsandbytes-tpu` plugin with the original backend entry point.
-Keep the original bitsandbytes classes and operator schemas.
+Add an installable `bitsandbytes-tpu` plugin with the upstream backend entry point.
+Keep the upstream bitsandbytes classes and operator schemas.
 Register four XLA operator overloads after source and ABI validation.
-Preserve existing CPU, CUDA, and XLA implementations.
+Keep existing CPU, CUDA, and XLA implementations.
 Add Torch reference kernels for non-nested NF4 with uint8 storage and block size 64.
 Use float32 and bfloat16 compute.
 Reject unsupported types, layouts, scales, and nested GEMM arguments.
@@ -18,6 +18,6 @@ A contiguous layout has no gaps between adjacent tensor elements.
 Add CPU differential tests and a real wheel installation control.
 Include the upstream MIT notice and project Apache license in the wheel.
 
-CPU results and registration entries do not establish actual TPU execution.
+CPU results and registration entries do not show actual TPU execution.
 The default nested NF4 module is outside this initial stage.
 No fused-kernel, memory, performance, or training result is claimed.

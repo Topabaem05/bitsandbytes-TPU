@@ -4,9 +4,9 @@
 
 Use [ASD-STE100 Issue 9](https://www.asd-ste100.org/assets/files/ASD-STE100_ISSUE9.pdf), dated 2025-01-15, for project documents.
 Use American English.
-Keep code identifiers, commands, quotations, and legal notices in their original form.
+Do not change code identifiers, commands, quotations, or legal notices.
 
-## Review procedure
+## Inspection procedure
 
 1. Use an approved dictionary word with its approved meaning and part of speech.
 2. Use the project glossary for necessary technical terms.
@@ -29,9 +29,9 @@ Record necessary computer and mathematical terms in [the glossary](terms.md).
 Record their part of speech and their specific meaning.
 Do not use a general vocabulary exception to avoid the dictionary rules.
 
-## Review limits
+## Inspection limits
 
 A sentence-length tool can find long sentences.
-It cannot establish correct meanings, grammar, or complete conformity with ASD-STE100.
+It cannot show correct meanings, grammar, or full conformity with ASD-STE100.
 The author and reviewer must examine the text.
 This project does not claim independent certification.

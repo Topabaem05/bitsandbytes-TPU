@@ -2,38 +2,38 @@
 
 ## Goal
 
-Make the original bitsandbytes NF4 API operate correctly on a TPU.
+Make the upstream bitsandbytes NF4 API operate correctly on a TPU.
 Then measure a Pallas implementation against the correct reference path.
 
 The plan has eight required milestones.
-A milestone is complete only when its tests pass and the reviewer accepts its evidence.
-Partial work does not count as a complete milestone.
-Previous Port2TPU results do not establish completion for this backend.
+A milestone is completed only when its tests give `PASS` results and the reviewer accepts its test records.
+Work that does not meet all requirements does not count as a completed milestone.
+Port2TPU results do not count for these backend milestones.
 
 ## Milestones
 
-| ID | Required result | Completion evidence | Status |
+| ID | Required result | Required test records | Status |
 | --- | --- | --- | --- |
-| M1 | Installable backend | Wheel installation, automatic registration, schema tests, and CPU differential tests | Complete: local CPU and package tests |
-| M2 | Actual TPU execution | Exact runtime, TPU device evidence, and original API output on Colab | In progress |
-| M3 | Original module state | Bias, gradients, saved state, and restoration in a new process | Not started |
-| M4 | Nested quantization | Original default statistics option and matching nested state | Not started |
+| M1 | Installable backend | Wheel installation, automatic registration, schema tests, and CPU differential tests | Completed: local CPU and package tests |
+| M2 | Actual TPU execution | Fixed runtime, TPU device test records, and upstream API output on Colab | In progress |
+| M3 | Upstream module state | Bias, gradients, saved state, and restoration in a new process | In progress: local test preparation |
+| M4 | Nested quantization | Upstream default statistics option and matching nested state | Not started |
 | M5 | QLoRA execution | Twenty steps, frozen base weights, and restoration after step ten | Not started |
-| M6 | Pallas NF4 kernel | Actual custom call, numerical tests, and compiler evidence for memory use | Not started |
+| M6 | Pallas NF4 kernel | Actual custom call, numerical tests, and compiler test records for memory use | Not started |
 | M7 | Measured performance | Raw time samples and memory measurements on the same TPU | Not started |
 | M8 | Repeated cloud results | Matching source and inputs on Colab and Kaggle, with resource closure | Not started |
 
 Accepted milestones: **1 of 8**.
-M1 passed review on 2026-10-04.
+The reviewer accepted M1 on 2026-10-04.
 The reviewer repeated 71 package tests on macOS with Python 3.12.14 and PyTorch 2.14.1.
-This result does not establish Linux PyTorch/XLA 2.9.0 or TPU execution.
-Update this count only after evidence review.
+This result does not show Linux PyTorch/XLA 2.9.0 or TPU execution.
+Update this count only after inspection of the test records.
 
 ## Work order
 
 1. Complete the package and CPU tests for M1.
 2. Resolve the runtime wheels and prepare the public API probe for M2.
-3. Review the local results before TPU allocation.
+3. Examine the local results before TPU allocation.
 4. Execute the smallest public API probe on Colab.
 5. Complete M3 and M4 before the QLoRA test.
 6. Complete M5 before the Pallas performance comparison.
@@ -46,13 +46,13 @@ The reviewer accepts each result before dependent work starts.
 ## First experiment
 
 Use NF4 with block size 64 and `uint8` storage.
-Test FP32 and BF16 separately.
+Do the FP32 tests and BF16 tests independently.
 Set `compress_statistics=False` for this first experiment.
-Use the original CPU implementation to produce reference data in the qualified Linux runtime.
-Seal the source, inputs, reference data, and tolerances before the TPU test.
+Use the upstream CPU implementation to calculate reference data in the qualified Linux runtime.
+Record the source, inputs, reference data, tolerances, and their hashes before the TPU test.
 
 Record CUDA comparison as `NOT_RUN` until an actual CUDA test exists.
-Do not describe CPU reference data as CUDA evidence.
+Do not describe CPU reference data as CUDA test records.
 
 ## QLoRA experiment
 
@@ -67,15 +67,15 @@ Compare the restored result with the uninterrupted result.
 
 Use five warm-up iterations.
 Then measure three groups of 30 iterations.
-Record compilation time separately from execution time.
+Record compilation time independently from execution time.
 Record the TPU type, compiler version, selected kernel, and all raw samples.
 Compare both paths on the same hardware with the same data.
 
-Report compiler memory estimates separately from allocator measurements.
+Report compiler memory estimates independently from allocator measurements.
 Do not report an unmeasured peak as a measured result.
 
 ## Limits
 
 The initial plan excludes FP4, eight-bit optimizers, and full bitsandbytes feature parity.
 Automatic Hugging Face device placement and multiple-host execution need separate requirements and tests.
-A failure remains a failure until a corrected implementation passes the unchanged test criteria.
+A failure stays a failure until a corrected implementation meets the unchanged test criteria.

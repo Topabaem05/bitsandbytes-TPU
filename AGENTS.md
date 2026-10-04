@@ -2,9 +2,9 @@
 
 ## Scope
 
-Use the original bitsandbytes public API as the product boundary.
+Use the upstream bitsandbytes public API as the product boundary.
 Read `docs/research-plan.md` before implementation work.
-Do not treat previous Port2TPU results as evidence for this backend.
+Do not treat previous Port2TPU results as test records for this backend.
 
 ## Documents
 
@@ -15,10 +15,10 @@ Record each logical change in `CHANGELOG.md`.
 
 ## Execution
 
-Use the worker model and review process that the user requested.
+Use the worker model and inspection process that the user requested.
 Workers must keep their changes within the assigned files.
 Workers must not commit or push unless the reviewer assigns that action.
-The reviewer must examine the change and its test evidence.
+The reviewer must examine the change and its test records.
 Then commit and push each accepted logical change.
 
 Keep local environments, wheel bodies, credentials, and raw provider logs outside Git.
@@ -28,6 +28,6 @@ Use small, selected fixtures for tests in Git.
 ## Claims
 
 Separate CPU tests, actual TPU tests, and performance measurements.
-Retain failures and tests that did not execute.
-Do not change a tolerance after an experiment to obtain a pass.
-Do not report completion without the required evidence.
+Keep failures and tests that did not execute.
+Do not change a tolerance after an experiment to get a pass.
+Do not report a completed milestone without the required test records.

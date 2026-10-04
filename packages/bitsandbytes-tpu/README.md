@@ -27,8 +27,8 @@ It does not show fused execution or a memory benefit.
 Nested quantization compresses the scales of the packed weights.
 This initial GEMM rejects all nested arguments.
 The default NF4 module uses nested quantization.
-Thus, this initial stage does not complete the first usable NF4 milestone.
-The initial stage rejects FP4, float16 compute, other block sizes, and float-backed packed storage.
+Thus, this initial step does not complete the first usable NF4 milestone.
+The initial step rejects FP4, float16 compute, other block sizes, and float-backed packed storage.
 
 ## Registration
 
@@ -45,7 +45,7 @@ The plugin does not replace the bitsandbytes classes or operator schemas.
 It does not replace CPU or CUDA kernels.
 Repeated calls to the loaded registration function have no more effect.
 An existing XLA kernel causes an error before registration starts.
-A registration failure removes partial registrations.
+A registration failure removes the registrations that the failed attempt added.
 
 The source test compares seven critical files with bitsandbytes revision
 `833649043474794b8fe7a4136e0c40faf077b2e0`.
@@ -53,7 +53,7 @@ It also compares the four operator schemas.
 It does not examine the entire installed distribution or native libraries.
 The source test uses hashes because bitsandbytes sets its version after backend loading.
 Package import does not import Torch, JAX, or PyTorch/XLA.
-Backend registration uses Torch but does not create a device client or tensor.
+Backend registration uses Torch but does not initialize a device client or allocate a tensor.
 
 ## Tests and limits
 
@@ -76,7 +76,7 @@ They include invalid input, source changes, registration conflicts, and a real w
 The temporary installation does not change the test environment.
 
 CPU tests and XLA registry entries do not show TPU execution.
-Actual PyTorch/XLA 2.9.0 execution, nested state, module state, and training remain untested.
+Actual PyTorch/XLA 2.9.0 execution, nested state, module state, and training are untested.
 The `xla` device declaration is an integration signal, not a device qualification result.
-The finite-input comparisons and integer reductions remain untested on XLA.
+The finite-input comparisons and integer reductions are untested on XLA.
 A later device run must show the actual execution path and fallback counters.

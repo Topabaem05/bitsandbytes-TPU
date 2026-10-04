@@ -2,7 +2,7 @@
 
 ## Required behavior
 
-An application imports the original `bitsandbytes` package.
+An application imports the upstream `bitsandbytes` package.
 The backend adds TPU implementations for the existing PyTorch operators.
 The application keeps `Linear4bit`, `Params4bit`, and `QuantState`.
 
@@ -16,8 +16,8 @@ The backend does not replace the application with a JAX program.
 | `registration.py` | Add implementations for the XLA dispatch key. |
 | `compatibility.py` | Compare the upstream version and operator schemas with the required values. |
 | `reference.py` | Execute NF4 operations with PyTorch tensors on the selected device. |
-| Pallas bridge | Connect a later Pallas kernel to a PyTorch/XLA custom call. |
-| Runtime resolver | Select exact Linux wheels and record their SHA-256 values. |
+| Pallas bridge | Connect a subsequent Pallas kernel to a PyTorch/XLA custom call. |
+| Runtime resolver | Select fixed Linux wheels and record their SHA-256 values. |
 | Experiment probe | Compare public API results with sealed reference data. |
 
 The package uses the `bitsandbytes.backends` entry point.
@@ -33,35 +33,39 @@ The first implementation uses these existing operators:
 - `bitsandbytes::dequantize_4bit`
 - `bitsandbytes::gemm_4bit`.
 
-The backend must preserve each operator schema, including output arguments.
-The backend must preserve the original packed format.
+The backend must keep each operator schema, including output arguments.
+The backend must keep the upstream packed format.
 Each byte contains two NF4 codes, with the first code in the high nibble.
-The implementation must preserve zero blocks, partial blocks, and the original quantization boundaries.
+The implementation must keep zero blocks, partial blocks, and the upstream quantization boundaries.
 
 The first tests use NF4, `uint8` storage, and block size 64.
 They use finite FP32 and BF16 input data.
+The caller must supply finite inputs and finite nonnegative scales.
+The backend does not promise value validation for data outside these preconditions.
+Incorrect structures still cause explicit errors.
+The experiment keeps its numerical tolerances and rejects CPU fallback.
 Nested quantization is a separate implementation step.
 
 `Linear4bit` uses `compress_statistics=True` by default.
 Thus, the first test without nested quantization is not the first usable milestone.
-The milestone requires the original default for this option.
+The milestone requires the upstream default for this option.
 The application must select `quant_type="nf4"` explicitly.
 
 ## Reference path
 
 The reference implementation keeps tensor operations on the selected device.
-It can restore the complete weight matrix before matrix multiplication.
-This path establishes numerical behavior.
-It does not establish the intended memory reduction.
+It can restore the full weight matrix before matrix multiplication.
+This path shows numerical behavior.
+It does not show the intended memory reduction.
 
 The tests must detect an unintended CPU execution path.
-An operator registration result alone does not establish TPU execution.
+An operator registration result alone does not show TPU execution.
 
 ## Pallas path
 
-The later kernel reads packed weights from TPU memory.
+The subsequent kernel reads packed weights from TPU memory.
 It restores a weight tile, applies its scales, and executes matrix multiplication.
-It must not store a complete restored weight matrix in TPU memory.
+It must not store a full restored weight matrix in TPU memory.
 
 The first tile candidate has dimensions 128 by 128 by 128.
 This candidate has no measured performance claim.
@@ -96,4 +100,4 @@ Its libtpu requirement differs from the PyTorch/XLA requirement.
 - [PyTorch/XLA Pallas bridge](https://github.com/pytorch/xla/blob/v2.9.0/torch_xla/experimental/custom_kernel.py)
 - [PyTorch/XLA JAX import guard](https://github.com/pytorch/xla/blob/v2.9.0/torch_xla/_internal/jax_workarounds.py)
 
-Source review date: 2026-10-04.
+Source inspection date: 2026-10-04.
