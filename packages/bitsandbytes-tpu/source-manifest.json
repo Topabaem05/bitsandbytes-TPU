@@ -13,14 +13,14 @@
     {
       "path": "src/bitsandbytes_tpu/compatibility.py",
       "installed_path": "bitsandbytes_tpu/compatibility.py",
-      "bytes": 4121,
-      "sha256": "f43bfd4f62b1a39cce2c97f2dbca45ceb6f78f055a43ad6d35e97d7ea7abc4e8"
+      "bytes": 3823,
+      "sha256": "3e4d5ca40269f963722934a20bbed2c3787ea875e1e8e1b21160891e0113a2cf"
     },
     {
       "path": "src/bitsandbytes_tpu/reference.py",
       "installed_path": "bitsandbytes_tpu/reference.py",
-      "bytes": 3993,
-      "sha256": "9a51d1382e9047537dc7716eab79a2f8652416242715280d43513626cf54c070"
+      "bytes": 4122,
+      "sha256": "29359773aa9645d8eb0cb0fe9248f612b6e3877ba6c8c7e91887c1d56e5fd939"
     },
     {
       "path": "src/bitsandbytes_tpu/registration.py",
@@ -31,13 +31,18 @@
   ],
   "installed_python_files": {
     "__init__.py": "c7ecdd758ed0d50f10e0b8fa3a17900143368ca6799bfa09e11bfe8118ab59db",
-    "compatibility.py": "f43bfd4f62b1a39cce2c97f2dbca45ceb6f78f055a43ad6d35e97d7ea7abc4e8",
-    "reference.py": "9a51d1382e9047537dc7716eab79a2f8652416242715280d43513626cf54c070",
+    "compatibility.py": "3e4d5ca40269f963722934a20bbed2c3787ea875e1e8e1b21160891e0113a2cf",
+    "reference.py": "29359773aa9645d8eb0cb0fe9248f612b6e3877ba6c8c7e91887c1d56e5fd939",
     "registration.py": "909c66351f501d076206b1198c482c9acffb5f53dbb6dd8194d8e011c6219bf8"
   },
   "limits": [
     "Actual XLA2.9 and TPU execution are not established.",
     "Nested quantization and the default NF4 module are not complete.",
     "No fused-kernel, memory, performance, or training result is claimed."
-  ]
+  ],
+  "value_contract": {
+    "finite_inputs_weights_bias": "CALLER_PRECONDITION",
+    "finite_nonnegative_scales": "CALLER_PRECONDITION",
+    "runtime_value_validation": "NOT_PROMISED_ON_ANY_DEVICE"
+  }
 }

@@ -123,7 +123,7 @@ def test_out_mutates_supplied_tensor_and_returns_none(reference):
     assert torch.equal(out, original_dequant(p, s, [2, 3], torch.float32))
 
 
-@pytest.mark.parametrize("change", ["fp4", "block", "storage", "dtype", "empty", "nan", "inf"])
+@pytest.mark.parametrize("change", ["fp4", "block", "storage", "dtype", "empty"])
 def test_quantizer_rejects_unsupported_input(reference, change):
     a = torch.ones(65); block = 64; kind = "nf4"; storage = torch.uint8
     if change == "fp4": kind = "fp4"
@@ -131,13 +131,11 @@ def test_quantizer_rejects_unsupported_input(reference, change):
     if change == "storage": storage = torch.float32
     if change == "dtype": a = a.half()
     if change == "empty": a = a[:0]
-    if change == "nan": a[0] = torch.nan
-    if change == "inf": a[0] = torch.inf
     with pytest.raises((ValueError, NotImplementedError, RuntimeError)):
         reference.quantize_4bit(a, block, kind, storage)
 
 
-@pytest.mark.parametrize("change", ["row", "flat", "size", "scales", "scale_dtype", "negative", "shape", "out"])
+@pytest.mark.parametrize("change", ["row", "flat", "size", "scales", "scale_dtype", "shape", "out"])
 def test_dequantizer_rejects_invalid_layout_or_state(reference, change):
     p, s = original_quant(torch.ones(65)); shape = [65]; dtype = torch.float32
     if change == "row": p = p.t()
@@ -145,7 +143,6 @@ def test_dequantizer_rejects_invalid_layout_or_state(reference, change):
     if change == "size": p = p[:-1]
     if change == "scales": s = s[:-1]
     if change == "scale_dtype": s = s.to(torch.uint8)
-    if change == "negative": s[0] = -1
     if change == "shape": shape = [0]
     with pytest.raises((ValueError, NotImplementedError, RuntimeError)):
         if change == "out":
@@ -196,3 +193,34 @@ def test_state_device_and_output_errors_do_not_publish_output(reference, change)
         else:
             reference.dequantize_4bit_out(p, s, 64, 'nf4', [2, 7], torch.float32, out)
     if out.device.type != 'meta': assert torch.equal(out, torch.full_like(out, -99.))
+
+
+def test_finite_quantizer_does_not_require_bucketize(reference, monkeypatch):
+    code = torch.tensor(CODE)
+    bounds = (code[:-1] + code[1:]) / 2
+    a = torch.cat((torch.tensor([-1., 1.]), bounds,
+                   torch.nextafter(bounds, torch.full_like(bounds, -torch.inf)),
+                   torch.nextafter(bounds, torch.full_like(bounds, torch.inf))))
+    want_p, want_s = original_quant(a)
+    def forbid(*args, **kwargs):
+        raise AssertionError('The bucketize operator was called')
+    monkeypatch.setattr(torch, 'bucketize', forbid)
+    p, s = reference.quantize_4bit(a, 64, 'nf4', torch.uint8)
+    assert torch.equal(p, want_p) and torch.equal(s, want_s)
+
+
+@pytest.mark.parametrize('dtype', [torch.float32, torch.bfloat16])
+def test_finite_math_does_not_require_device_assertions(reference, monkeypatch, dtype):
+    a = torch.linspace(-1, 1, 65).to(dtype)
+    p, s = original_quant(a)
+    def forbid(*args, **kwargs):
+        raise AssertionError('A device assertion was called')
+    monkeypatch.setattr(torch, '_assert_async', forbid)
+    got_p, got_s = reference.quantize_4bit(a, 64, 'nf4', torch.uint8)
+    assert torch.equal(got_p, p) and torch.equal(got_s, s)
+    decoded = reference.dequantize_4bit(p, s, 64, 'nf4', [5, 13], dtype)
+    out = torch.empty_like(decoded)
+    assert reference.dequantize_4bit_out(p, s, 64, 'nf4', [5, 13], dtype, out) is None
+    assert torch.equal(out, decoded)
+    result = reference.gemm_4bit(torch.ones(2, 13, dtype=dtype), p, [5, 13], s, 64, 'nf4', torch.zeros(5, dtype=dtype))
+    assert result.shape == (2, 5) and result.dtype == dtype

@@ -10,7 +10,7 @@ Source files:
 - [Operator schemas](https://github.com/bitsandbytes-foundation/bitsandbytes/blob/833649043474794b8fe7a4136e0c40faf077b2e0/bitsandbytes/_ops.py)
 
 The reference code preserves the scale rules, code table, midpoint selection, and packing order.
-It adds a limited input contract and device assertions.
+It adds structural input tests and explicit value preconditions.
 The source-derived parts retain the following upstream MIT notice.
 New package code uses the Apache License 2.0.
 

@@ -3,11 +3,13 @@
 The quantization and decoding rules derive from bitsandbytes default/ops.py.
 Copyright (c) Facebook, Inc. and its affiliates. MIT license.
 See THIRD_PARTY_NOTICES.md. No fused kernel or memory benefit is claimed.
+Inputs must be finite. Scales must be finite and nonnegative.
+These value preconditions are not tested inside the kernels.
 """
 import torch
 import torch.nn.functional as F
 
-from .compatibility import check_dtype, check_finite, check_kind, check_packed
+from .compatibility import check_dtype, check_kind, check_packed
 
 # Python values only. Import does not allocate a CPU or TPU tensor.
 NF4_CODE = (-1.0, -0.6961928009986877, -0.5250730514526367,
@@ -25,7 +27,6 @@ def quantize_4bit(A, blocksize, quant_type, quant_storage):
         raise NotImplementedError("Only uint8 packed storage is supported")
     if A.numel() == 0:
         raise ValueError("Empty weights are not supported")
-    check_finite(A)
     code = torch.tensor(NF4_CODE, dtype=torch.float32, device=A.device)
     bounds = (code[:-1] + code[1:]) / 2
     flat = A.reshape(-1).float()
@@ -41,7 +42,8 @@ def quantize_4bit(A, blocksize, quant_type, quant_storage):
         scaled = torch.cat((scaled, (flat[full:] / tail_scale).clamp(-1, 1)))
     if scaled.numel() % 2:
         scaled = F.pad(scaled, (0, 1))
-    codes = torch.bucketize(scaled, bounds, out_int32=True).to(torch.uint8)
+    # right=False: a value equal to a midpoint enters the lower bucket.
+    codes = (scaled.unsqueeze(-1) > bounds).sum(dim=-1, dtype=torch.int32).to(torch.uint8)
     packed = ((codes[::2] << 4) | codes[1::2]).unsqueeze(1)
     return packed, scales
 
@@ -75,10 +77,8 @@ def gemm_4bit(A, B, shapeB, absmax, blocksize, quant_type, bias=None,
         raise ValueError("GEMM needs rank2 or rank3 input and matching [N, K] weights")
     if A.device != B.device:
         raise ValueError("Input and packed weights must be on the same device")
-    check_finite(A)
     if bias is not None:
         if tuple(bias.shape) != (shapeB[0],) or bias.dtype != A.dtype or bias.device != A.device:
             raise ValueError("Bias must have shape [N] and the input dtype and device")
-        check_finite(bias)
     weights = dequantize_4bit(B, absmax, blocksize, quant_type, shapeB, A.dtype)
     return F.linear(A, weights, bias)

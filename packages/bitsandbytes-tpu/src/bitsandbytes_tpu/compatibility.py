@@ -57,11 +57,6 @@ def check_dtype(dtype):
         raise NotImplementedError("Only float32 and bfloat16 compute are supported")
 
 
-def check_finite(tensor):
-    # Keep the assertion on the input device. Do not use item(), cpu(), or numpy().
-    torch._assert_async(torch.isfinite(tensor).all(), "NF4 input must be finite")
-
-
 def check_packed(A, absmax, shape, dtype):
     check_dtype(dtype)
     if not shape or any(not isinstance(n, int) or isinstance(n, bool) or n <= 0 for n in shape):
@@ -75,6 +70,4 @@ def check_packed(A, absmax, shape, dtype):
         raise ValueError("Scales must be one float32 value per block; nested scales are not supported")
     if A.device != absmax.device:
         raise ValueError("Packed weights and scales must be on the same device")
-    check_finite(absmax)
-    torch._assert_async((absmax >= 0).all(), "NF4 scales must be nonnegative")
     return count
