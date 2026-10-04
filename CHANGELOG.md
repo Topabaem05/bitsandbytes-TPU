@@ -1,5 +1,17 @@
 # Change log
 
+## 2026-10-04 — Colab experiment owner
+
+- Add one Colab allocation with fixed source and runtime files.
+- Keep runtime, CPU reference, and TPU computation in separate processes.
+- Retrieve the full result archive, including nested receipts and partial records.
+- Attempt resource closure after failures and expired work limits.
+
+Validation: The reviewer repeated 12 isolated tests and the fixed packet preflight; all passed.
+The installed CLI identity also passed inspection without allocation.
+The actual experiment stays `NOT_RUN` at this preparation step.
+Refer to [the cloud change record](docs/changes/task2-cloud-preparation.md).
+
 ## 2026-10-04 — State and gradient experiment preparation
 
 - Add state reconstruction through the upstream public methods.
