@@ -1,5 +1,17 @@
 # Change log
 
+## 2026-10-04 — Public API experiment preparation
+
+- Add 42 fixed NF4 cases and a separate CPU reference procedure.
+- Add source and runtime identities to the experiment records.
+- Preserve the original BF16 module dtype and small-tensor transpose behavior.
+- Add result checks for missing data, CPU execution, and numerical differences.
+
+Validation: The reviewer repeated 25 isolated tests; all passed in 1.38 seconds.
+These tests use synthetic records and do not establish actual device behavior.
+The CPU reference experiment and TPU experiment remain `NOT_RUN`.
+Refer to [the probe change record](docs/changes/task2-probe.md).
+
 ## 2026-10-04 — Initial NF4 backend package
 
 - Add the installable `bitsandbytes-tpu` package and automatic backend registration.
