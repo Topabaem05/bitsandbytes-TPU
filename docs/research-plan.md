@@ -14,7 +14,7 @@ Previous Port2TPU results do not establish completion for this backend.
 
 | ID | Required result | Completion evidence | Status |
 | --- | --- | --- | --- |
-| M1 | Installable backend | Wheel installation, automatic registration, schema tests, and CPU differential tests | In progress |
+| M1 | Installable backend | Wheel installation, automatic registration, schema tests, and CPU differential tests | Complete: local CPU and package tests |
 | M2 | Actual TPU execution | Exact runtime, TPU device evidence, and original API output on Colab | In progress |
 | M3 | Original module state | Bias, gradients, saved state, and restoration in a new process | Not started |
 | M4 | Nested quantization | Original default statistics option and matching nested state | Not started |
@@ -23,7 +23,10 @@ Previous Port2TPU results do not establish completion for this backend.
 | M7 | Measured performance | Raw time samples and memory measurements on the same TPU | Not started |
 | M8 | Repeated cloud results | Matching source and inputs on Colab and Kaggle, with resource closure | Not started |
 
-Accepted milestones: **0 of 8**.
+Accepted milestones: **1 of 8**.
+M1 passed review on 2026-10-04.
+The reviewer repeated 71 package tests on macOS with Python 3.12.14 and PyTorch 2.14.1.
+This result does not establish Linux PyTorch/XLA 2.9.0 or TPU execution.
 Update this count only after evidence review.
 
 ## Work order

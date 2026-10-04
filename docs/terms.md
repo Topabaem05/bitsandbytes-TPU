@@ -8,15 +8,18 @@ They are not additions to the official ASD-STE100 dictionary.
 
 | Term | Meaning |
 | --- | --- |
+| ABI | The argument and result contract of a binary or operator interface. |
 | API | The public interface that application code uses. |
 | backend | The software that executes operations for a selected device. |
 | BF16 | The bfloat16 numerical data type. |
+| contiguous layout | A tensor layout without gaps between consecutive stored elements. |
 | CPU | A central processing unit. |
 | CUDA | The NVIDIA interface for GPU computation. |
 | dispatch key | The PyTorch identifier that selects an operator implementation. |
 | entry point | Package metadata that identifies a function for automatic discovery. |
 | FP16 | The IEEE binary16 numerical data type. |
 | FP32 | The IEEE binary32 numerical data type. |
+| GEMM | Matrix multiplication with an optional bias addition. |
 | gradient | A derivative that the training algorithm uses. |
 | hash | A digest that identifies file content. |
 | JAX | The JAX numerical software package. |
@@ -26,6 +29,7 @@ They are not additions to the official ASD-STE100 dictionary.
 | nested quantization | Quantization of the scales from a first quantization operation. |
 | NF4 | The bitsandbytes four-bit NormalFloat codebook and its format. |
 | nibble | Four bits within one byte. |
+| overload | A named form of an operator with a specific schema. |
 | operator schema | The declared arguments and results of a PyTorch operator. |
 | Pallas | The JAX interface for device kernel code. |
 | QLoRA | Adapter training with a quantized, frozen base model. |

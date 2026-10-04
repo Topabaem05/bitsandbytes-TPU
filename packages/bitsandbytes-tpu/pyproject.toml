@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bitsandbytes-tpu"
+version = "0.1.0"
+description = "An experimental XLA backend for the bitsandbytes NF4 API."
+requires-python = ">=3.10"
+license = "Apache-2.0 AND MIT"
+license-files = ["LICENSE", "THIRD_PARTY_NOTICES.md"]
+readme = "README.md"
+dependencies = [
+  "torch>=2.9,<3",
+  "bitsandbytes @ git+https://github.com/bitsandbytes-foundation/bitsandbytes.git@833649043474794b8fe7a4136e0c40faf077b2e0",
+]
+
+[project.entry-points."bitsandbytes.backends"]
+tpu = "bitsandbytes_tpu:register"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-ra"

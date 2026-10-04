@@ -4,7 +4,9 @@ A TPU backend for the original bitsandbytes API.
 
 ## Project status
 
-This project is at the initial implementation stage.
+The initial package milestone is complete.
+The reviewer repeated 71 CPU and package tests.
+Accepted milestones: **1 of 8**.
 The first target is NF4 quantization and `bitsandbytes.nn.Linear4bit` on a TPU.
 The project does not yet have an accepted TPU result for this backend.
 
@@ -60,7 +62,8 @@ The backend must give an explicit error for an option that it cannot execute.
 
 The package source is in `packages/bitsandbytes-tpu`.
 The experiment source is in `experiments`.
-Installation instructions will follow the first accepted package test.
+Refer to [the package document](packages/bitsandbytes-tpu/README.md) for the current scope and local tests.
+Use [the fixed runtime procedure](docs/changes/task2-runtime.md) for the planned Colab tests.
 
 Project documents use ASD-STE100 Issue 9 as their writing standard.
 Code identifiers retain their original spelling.
