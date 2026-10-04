@@ -15,7 +15,7 @@ Port2TPU results do not count for these backend milestones.
 | ID | Required result | Required test records | Status |
 | --- | --- | --- | --- |
 | M1 | Installable backend | Wheel installation, automatic registration, schema tests, and CPU differential tests | Completed: local CPU and package tests |
-| M2 | Actual TPU execution | Fixed runtime, TPU device test records, and upstream API output on Colab | In progress |
+| M2 | Actual TPU execution | Fixed runtime, TPU device test records, and upstream API output on Colab | In progress: functionalization correction |
 | M3 | Upstream module state | Bias, gradients, saved state, and restoration in a new process | In progress: local test preparation |
 | M4 | Nested quantization | Upstream default statistics option and matching nested state | Not started |
 | M5 | QLoRA execution | Twenty steps, frozen base weights, and restoration after step ten | Not started |

@@ -9,6 +9,9 @@ The reviewer repeated 71 CPU and package tests.
 Accepted milestones: **1 of 8**.
 The first target is NF4 quantization and `bitsandbytes.nn.Linear4bit` on a TPU.
 The project does not yet have an accepted TPU result for this backend.
+The first Colab run passed the TPU runtime probe and calculated all 42 CPU reference cases.
+NF4 execution stopped at a PyTorch functionalization assertion before the first case completed.
+Refer to [the first Colab result](docs/changes/task2-colab-first.md).
 
 The project name is **bitsandbytes-TPU**.
 The Python package name is `bitsandbytes-tpu`.

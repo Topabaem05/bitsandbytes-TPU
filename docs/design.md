@@ -88,7 +88,9 @@ The initial runtime does not require TorchTPU, Helion, or Qwix.
 | JAX | 0.7.1 |
 | jaxlib | 0.7.1 |
 
-These versions form a candidate until the actual runtime tests pass.
+The fixed runtime passed its first actual TPU probe on Colab.
+NF4 execution stopped before its first case completed.
+Refer to [the first Colab result](changes/task2-colab-first.md).
 Use the base JAX packages.
 Do not install the JAX TPU extra for this configuration.
 Its libtpu requirement differs from the PyTorch/XLA requirement.

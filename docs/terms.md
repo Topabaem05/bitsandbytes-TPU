@@ -49,6 +49,7 @@ They are not additions to the official ASD-STE100 dictionary.
 | SGD | Stochastic gradient descent. |
 | SHA-256 | The hash algorithm that produces a 256-bit digest. |
 | state_dict | The upstream PyTorch mapping of model state. |
+| functionalization | The PyTorch transformation that replaces tensor mutations and views with functional operations. |
 | tensor | A numerical array with a shape and data type. |
 | tile | A limited part of a matrix that a kernel processes. |
 | TPU | A Google Tensor Processing Unit. |

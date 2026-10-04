@@ -1,5 +1,18 @@
 # Change log
 
+## 2026-10-04 — First actual Colab result
+
+- Record successful installation and the TPU runtime probe.
+- Record all 42 completed CPU reference cases.
+- Keep the NF4 TPU assertion as a blocked result with zero completed cases.
+- Record full result retrieval and resource closure after the failure.
+
+Validation: The reviewer checked the full archive and all 42 sealed CPU records.
+The archive has 120 members and 82,927 bytes; all hashes and recovered bytes matched.
+The session stopped, the server was empty, and active usage was zero.
+M2 is not complete. No numerical tolerance changed.
+Refer to [the first Colab result](docs/changes/task2-colab-first.md).
+
 ## 2026-10-04 — Colab experiment owner
 
 - Add one Colab allocation with fixed source and runtime files.
