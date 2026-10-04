@@ -91,6 +91,8 @@ The initial runtime does not require TorchTPU, Helion, or Qwix.
 The fixed runtime passed its first actual TPU probe on Colab.
 NF4 execution stopped before its first case completed.
 Refer to [the first Colab result](changes/task2-colab-first.md).
+The third run produced partial NF4 results with zero-input code failures and a parameter transfer error.
+Refer to [the third Colab result](changes/task2-colab-native.md).
 Use the base JAX packages.
 Do not install the JAX TPU extra for this configuration.
 Its libtpu requirement differs from the PyTorch/XLA requirement.

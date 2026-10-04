@@ -15,6 +15,10 @@ Refer to [the first Colab result](docs/changes/task2-colab-first.md).
 The repeat with the first functionalization patch stopped at tensor creation.
 It also completed zero NF4 cases.
 Refer to [the repeat result](docs/changes/task2-colab-functionalized.md).
+The third run produced 17 TPU case records before a CPU-to-TPU parameter transfer failed.
+Partial comparison found nine passing cases and eight failures in packed codes for zero inputs.
+The full 42-case test is not complete.
+Refer to [the third result](docs/changes/task2-colab-native.md).
 
 The project name is **bitsandbytes-TPU**.
 The Python package name is `bitsandbytes-tpu`.

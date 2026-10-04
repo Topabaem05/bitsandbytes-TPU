@@ -15,11 +15,11 @@ Port2TPU results do not count for these backend milestones.
 | ID | Required result | Required test records | Status |
 | --- | --- | --- | --- |
 | M1 | Installable backend | Wheel installation, automatic registration, schema tests, and CPU differential tests | Completed: local CPU and package tests |
-| M2 | Actual TPU execution | Fixed runtime, TPU device test records, and upstream API output on Colab | In progress: functionalization correction |
+| M2 | Actual TPU execution | Fixed runtime, TPU device test records, and upstream API output on Colab | In progress: zero-input codes and parameter transfer |
 | M3 | Upstream module state | Bias, gradients, saved state, and restoration in a new process | In progress: local test preparation |
-| M4 | Nested quantization | Upstream default statistics option and matching nested state | Not started |
+| M4 | Nested quantization | Upstream default statistics option and matching nested state | In progress: local reference data |
 | M5 | QLoRA execution | Twenty steps, frozen base weights, and restoration after step ten | Not started |
-| M6 | Pallas NF4 kernel | Actual custom call, numerical tests, and compiler test records for memory use | Not started |
+| M6 | Pallas NF4 kernel | Actual custom call, numerical tests, and compiler test records for memory use | In progress: source inspection and design |
 | M7 | Measured performance | Raw time samples and memory measurements on the same TPU | Not started |
 | M8 | Repeated cloud results | Matching source and inputs on Colab and Kaggle, with resource closure | Not started |
 
@@ -28,6 +28,23 @@ The reviewer accepted M1 on 2026-10-04.
 The reviewer repeated 71 package tests on macOS with Python 3.12.14 and PyTorch 2.14.1.
 This result does not show Linux PyTorch/XLA 2.9.0 or TPU execution.
 Update this count only after inspection of the test records.
+
+## Current blockers
+
+The third Colab run produced 17 of the 42 TPU case records.
+Partial comparison found nine passing cases and eight packed-code failures for zero inputs.
+The upstream CPU-to-TPU `Linear4bit.to` path failed during parameter data assignment.
+The full result stays `BLOCKED`.
+Refer to [the third Colab record](changes/task2-colab-native.md).
+
+Correct the zero-input calculation without changes to the test tolerances.
+Test module construction on the target device and the public state restoration method independently.
+A successful alternative path does not show that CPU-to-TPU `.to` works.
+Keep that transfer requirement open until its own test passes.
+Do not replace the upstream classes or methods during execution.
+
+The Kaggle browser login does not supply the CLI credentials on this computer.
+M8 needs CLI authentication before the Kaggle test.
 
 ## Work order
 

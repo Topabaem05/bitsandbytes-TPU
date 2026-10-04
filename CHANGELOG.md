@@ -1,5 +1,18 @@
 # Change log
 
+## 2026-10-04 — Native wrapper device result
+
+- Record the successful TPU runtime probe and all 42 CPU reference cases.
+- Record 17 executed TPU cases, with nine partial passes and eight packed-code failures.
+- Keep the incompatible tensor type failure during `Params4bit._quantize`.
+- Keep the full 42-case result and M2 incomplete.
+
+Validation: Independent saved-array comparisons used the same fixed gates and gave matching results.
+All eight all-zero quantization cases failed packed-code equality.
+The 171-member result archive passed hash and byte checks.
+The session stopped, the server was empty, and active usage was zero.
+Refer to [the native wrapper result](docs/changes/task2-colab-native.md).
+
 ## 2026-10-04 — Native tensor wrapper correction
 
 - Replace the functorch transform with native functional tensor wrappers.

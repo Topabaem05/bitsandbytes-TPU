@@ -1,0 +1,328 @@
+{
+  "allocation_attempts": 1,
+  "bindings": {
+    "archive_member_inventory": {
+      "bytes": 26112,
+      "sha256": "39c122f57207ac6fe6ec44d8482ba3e84827948f38f3b5585c562d8c49e553ea"
+    },
+    "archive_parts_manifest": {
+      "bytes": 385,
+      "sha256": "4b13f4a55f4333c10ff4a9690435740b86dbc81ea860e33e0bbf100ecbcad691"
+    },
+    "archived_remote_receipt": {
+      "bytes": 26962,
+      "sha256": "5a2fcfae49dcf2a0fe8de36f7cbcba308a43d7f97229d04f261da6f2879c41a1"
+    },
+    "build_lock": {
+      "bytes": 7898,
+      "sha256": "65f27f3a93b4aa533d040225609bfb819fcf5ddbbc6f17456d0fcfd28bd6b546"
+    },
+    "cli_identity": {
+      "bytes": 2713,
+      "sha256": "d4134c308a86024c78262a402aea4fb0fb2ebf8ecbf99dd16d45305f170aaaf9"
+    },
+    "cpu_seal_before_tpu": {
+      "bytes": 8556,
+      "sha256": "9bdabecabc4a1e92ab1306917cd34d11ecda1671e294532704cc2aa0a442f086"
+    },
+    "cpu_seal_recovered": {
+      "bytes": 8556,
+      "sha256": "9bdabecabc4a1e92ab1306917cd34d11ecda1671e294532704cc2aa0a442f086"
+    },
+    "host_cleanup": {
+      "bytes": 887,
+      "sha256": "3adc4da784076cc675ab5b44d41b6445afa8140bde6ae4100cc13758881d433c"
+    },
+    "host_lifecycle": {
+      "bytes": 218,
+      "sha256": "df868be438db5f558fa08085a61b240acc1c8bbca77e1f471da97aca776f8c98"
+    },
+    "independent_partial_diagnostic": {
+      "bytes": 12489,
+      "sha256": "dbd11515de63a061b41214c5201df7c914d5168d90b41fbac90e79be8295bce8"
+    },
+    "independent_readback": {
+      "bytes": 3980,
+      "sha256": "9648e7f722ea130807c44b1b218fd81d328932afe86f8f79da3fdaca694189a2"
+    },
+    "inputs": {
+      "bytes": 132064,
+      "sha256": "d0c9cdf6a82449a56923499698f19bfd3cc8d13c042f1f5ad2bdf587701f5e54"
+    },
+    "installed_metadata": {
+      "bytes": 9237,
+      "sha256": "bc0e78b718d912c592f1130eecc332ba18c9179c91f502268bc31e0d99e3f522"
+    },
+    "local_verifier_ownership": {
+      "bytes": 1329,
+      "sha256": "4fd4153b8ed3cfd4c43040d66da41dfad9797d44285753ad69d8a3ae6a7590f5"
+    },
+    "owner_record": {
+      "bytes": 63610,
+      "sha256": "cd3e4d9b935d4e58674d87dd8b985076c73a7e7637bb10c63ebada3d8bd9c55f"
+    },
+    "owner_source": {
+      "bytes": 22501,
+      "sha256": "f98223cadd227c2a5563e6b01d5b22dbf5d1970d4b85b0b52f306077b854732c"
+    },
+    "packet": {
+      "bytes": 482868,
+      "sha256": "81ec62fb4eb0513ba623a6d346155c79491b3b7c51bbe0674f0abc4119497feb"
+    },
+    "packet_manifest": {
+      "bytes": 4640,
+      "sha256": "d95c0055f0e92d54da90ceaafd63dcba285514195add4621f0b91aa60f7b6b5e"
+    },
+    "parts": [
+      {
+        "bytes": 162383,
+        "name": "part-000001.bin",
+        "sha256": "218093c58e2769e1bbf3c7d038efbb667aa7bbf6d7f5279cfe20bbe1fa352ce3"
+      }
+    ],
+    "plugin_source_manifest": {
+      "bytes": 2569,
+      "sha256": "ef66f55d41e63048e3b52ccce6dbf124459c9ed8911f06ab069abef2c3c752aa"
+    },
+    "primary_error_log": {
+      "bytes": 1597,
+      "sha256": "dd5c36c25c3fb8dbe8a9f27169f8e21d7ddc7a0079da17ea95ddcfd3642d8998"
+    },
+    "probe": {
+      "bytes": 24512,
+      "sha256": "e8743e33e6a0454d5d05b77075d47a5c9f983cf32f3956c38f2b544f86f5ef6d"
+    },
+    "profile": {
+      "bytes": 3695,
+      "sha256": "ad53f6416bdabf6440f08b313963c947a468cd39afd413bfe41bb381c4a7a166"
+    },
+    "remote_receipt": {
+      "bytes": 27175,
+      "sha256": "a1a2228045be2aa5ac0d50096da4cc0c65d47020e9d893ed1d8c24d60a4b7e05"
+    },
+    "remote_source": {
+      "bytes": 18730,
+      "sha256": "02cd0b982e94e24a83d7d87aa83cbe0814d9e4938c0ec077b25407ddc82edc72"
+    },
+    "root_acceptance": {
+      "bytes": 1262,
+      "sha256": "6a4aa4875ddbd1e95520e194cfc12d6b4c05ede2fbff4d82cb1b25c67e8230de"
+    },
+    "root_partial_diagnostic": {
+      "bytes": 11043,
+      "sha256": "2f434a52f888acfb2fcdacb8fdf315e3b1b5e528779a5d8ec488f0ee7eb8d8be"
+    },
+    "runtime_lock": {
+      "bytes": 39667,
+      "sha256": "323371ff61c5fbcc4f79fd6a358cf2ba17cb72b907382a5ceaac07f91dc66ed6"
+    },
+    "runtime_result": {
+      "bytes": 5847,
+      "sha256": "33308c2cbbc4b870733d1dead2fc939d69b6854f2b037d0c74de32a7db81a6ac"
+    },
+    "source_admission": {
+      "bytes": 5295,
+      "sha256": "5a99422e09aebc6dc2f2c6d78a7a96550f31f68e16b90b927a1c50e63183a658"
+    },
+    "tpu_failure_receipt": {
+      "bytes": 9756,
+      "sha256": "ff81487cd7a260b2494eed35a0407c498fa4477b754154a27785e192f7c9fe29"
+    },
+    "whole_archive": {
+      "bytes": 162383,
+      "members": 171,
+      "sha256": "218093c58e2769e1bbf3c7d038efbb667aa7bbf6d7f5279cfe20bbe1fa352ce3"
+    }
+  },
+  "built_wheels": [
+    {
+      "bytes": 117055,
+      "name": "bitsandbytes-0.50.3.dev0-cp312-cp312-linux_x86_64.whl",
+      "sha256": "8a50b8e67d30df0c4b8f6f0aea67e73eefcec81e340021f85d70c9ea2f8ee7ab"
+    },
+    {
+      "bytes": 15364,
+      "name": "bitsandbytes_tpu-0.1.0-py3-none-any.whl",
+      "sha256": "176e52e6bd91a1b926ed39032694d34072c60a248494d3bfcd368b7a958f5afe"
+    }
+  ],
+  "closure": {
+    "budget_seconds": {
+      "cleanup": 60,
+      "install": 1200,
+      "retrieval": 600,
+      "science": 1800,
+      "total": 3600
+    },
+    "cleanup_errors": [],
+    "cli_process_groups": 34,
+    "driver_groups": 1,
+    "elapsed_lifecycle_seconds": 184.06285524368286,
+    "explicit_stop": "PASS",
+    "handler_restoration_errors": [],
+    "host_groups_absent_at_readback": 36,
+    "local_verifier_exit_code": 1,
+    "local_verifier_groups": 1,
+    "remote_cleanup_records": 12,
+    "remote_groups_reported_absent": 12,
+    "remote_handlers_and_timers_restored": true,
+    "server_empty_observed": true,
+    "usage_zero_observed": true
+  },
+  "cpu_reference": {
+    "completed_cases": 42,
+    "cuda_golden": "NOT_RUN",
+    "method": "pinned default quantize/dequantize bodies and CPU torch.nn.functional.linear",
+    "public_api": {
+      "Linear4bit": "bitsandbytes.nn.modules.Linear4bit",
+      "Params4bit": "bitsandbytes.nn.modules.Params4bit",
+      "original_class_identity": true
+    },
+    "requested_cases": 42,
+    "saved_records_verification": "PASS_FROZEN_VERIFY_ORACLE",
+    "source_admission_sha256": "5a99422e09aebc6dc2f2c6d78a7a96550f31f68e16b90b927a1c50e63183a658",
+    "status": "PASS_CPU_REFERENCE_RECORDS"
+  },
+  "date_utc": "2026-10-04",
+  "format": "bnb-tpu.native-colab-result.v1",
+  "independent_readback": {
+    "archive_parts": "PASS",
+    "checked_at_utc": "2026-10-04T06:34:14.338962+00:00",
+    "common_receipt_fields": "PASS",
+    "cpu_seal_source_and_42_records": "PASS",
+    "each_member_hash_size_and_recovered_bytes": "PASS",
+    "excluded_self_referential_export_fields": [
+      "archive_members_sha256",
+      "evidence_bytes",
+      "evidence_sha256"
+    ],
+    "owned_host_group_absence": "PASS",
+    "packet_bound_bytes": "PASS",
+    "partial_saved_array_comparison": "9_PASS_8_FAIL_SAME_FIXED_GATES",
+    "whole_zip_crc_hash_size": "PASS"
+  },
+  "limits": [
+    "The CPU reference does not provide a CUDA golden result.",
+    "Seventeen executed TPU cases do not complete the required 42-case matrix.",
+    "Eight saved all-zero quantization cases fail packed-code equality.",
+    "The post-execution source seal is missing.",
+    "The runtime probe does not complete the NF4 API milestone.",
+    "Raw records stay in a local cache outside public Git.",
+    "No performance, Pallas, QLoRA, or optimizer claim is made."
+  ],
+  "milestone_m2": "NOT_COMPLETE",
+  "native_wrapper_patch_qualified": false,
+  "previous_attempt": {
+    "kept_unchanged": true,
+    "report": {
+      "bytes": 8879,
+      "sha256": "59c51c690ef965e9fc7704c5a32625b1e1869437115886edf3f95e64167e79c4"
+    },
+    "status": "BLOCKED",
+    "whole_archive": {
+      "bytes": 82980,
+      "members": 120,
+      "sha256": "93c23e0bcf642debd779f8d22aef6f9cf7b94bd89e9fac0aa97fe0b9cef25fb6"
+    }
+  },
+  "retry_attempts": 0,
+  "runtime": {
+    "backend": "TPU",
+    "devices": [
+      "TPU:0"
+    ],
+    "gradient": [
+      2.0,
+      4.0
+    ],
+    "libtpu_library": {
+      "filename": "libtpu.so",
+      "sha256": "cdb7980d4332097b8e16576568e138ef54cf9fb8ed5aae2aeefbd0c5a425e94a"
+    },
+    "loss": 5.0,
+    "nf4_executed_in_runtime_probe": false,
+    "pallas_kernel_executed": false,
+    "python": "3.12.14",
+    "status": "PASS_TPU_RUNTIME_PROBE_ONLY",
+    "versions": {
+      "jax": "0.7.1",
+      "jaxlib": "0.7.1",
+      "libtpu": "0.0.21",
+      "torch": "2.9.0+cpu",
+      "torch-xla": "2.9.0"
+    }
+  },
+  "scope": "ONE_V6E1_RUNTIME_AND_42_CASE_NF4_API_PROBE",
+  "status": "BLOCKED",
+  "tpu_nf4": {
+    "case_ids_executed": [
+      "quant-float32-1-codes",
+      "quant-float32-1-zero",
+      "quant-float32-2-codes",
+      "quant-float32-2-zero",
+      "quant-float32-63-codes",
+      "quant-float32-63-zero",
+      "quant-float32-64-codes",
+      "quant-float32-64-zero",
+      "quant-float32-65-codes",
+      "quant-float32-65-zero",
+      "quant-float32-127-codes",
+      "quant-float32-127-zero",
+      "quant-float32-128-codes",
+      "quant-float32-128-zero",
+      "quant-float32-129-codes",
+      "quant-float32-129-zero",
+      "decode-float32-16codes"
+    ],
+    "child_exit_code": 1,
+    "completed_cases": 17,
+    "cpu_fallback_gate": "NOT_COMPLETED",
+    "error": {
+      "category": "INCOMPATIBLE_TENSOR_TYPE",
+      "location": "bitsandbytes/nn/modules.py:390",
+      "message": "variable.set_data(tensor): variable and tensor have incompatible tensor type.",
+      "operation": "Params4bit._quantize self.data assignment from CPU parameter to packed XLA data",
+      "type": "RuntimeError"
+    },
+    "failure_record_files": 53,
+    "numeric_comparison": "NOT_COMPLETE_FULL_42_CASE_MATRIX",
+    "partial_diagnostic": {
+      "all_zero_input_observation": {
+        "absmax_gate": "PASS_WITH_FIXED_TOLERANCE_FOR_EIGHT_SAVED_CASES",
+        "cpu_valid_code": 7,
+        "decoded_zero_gate": "PASS_FOR_EIGHT_SAVED_CASES",
+        "odd_padding_code": 7,
+        "tpu_valid_code": 0
+      },
+      "executed_cases": 17,
+      "failed_gate": "packed exact-code equality",
+      "failing_case_ids": [
+        "quant-float32-1-zero",
+        "quant-float32-2-zero",
+        "quant-float32-63-zero",
+        "quant-float32-64-zero",
+        "quant-float32-65-zero",
+        "quant-float32-127-zero",
+        "quant-float32-128-zero",
+        "quant-float32-129-zero"
+      ],
+      "failing_cases": 8,
+      "full_matrix": "NOT_COMPLETE",
+      "nonempty_hlo_and_metrics": "PASS_FOR_17_RECORDS_ONLY",
+      "passing_cases": 9,
+      "positive_execution_metrics": "PASS_FOR_17_RECORDS_ONLY",
+      "post_execution_source_seal": "NOT_RECORDED",
+      "same_fixed_gates_independently_reproduced": true,
+      "saved_record_cpu_fallback_checks": "PASS_FOR_17_RECORDS_ONLY",
+      "scope": "SAVED_ARRAY_DIAGNOSTIC_ONLY_NOT_MILESTONE_ACCEPTANCE"
+    },
+    "raw_child_receipt_status": "FAILED",
+    "raw_remote_receipt_tpu_status": "ATTEMPTED_BLOCKED",
+    "requested_cases": 42,
+    "source_post": "NOT_RECORDED_AFTER_FAILURE",
+    "source_pre_sha256": "5a99422e09aebc6dc2f2c6d78a7a96550f31f68e16b90b927a1c50e63183a658",
+    "status": "TPU_ATTEMPTED_BLOCKED",
+    "tpu_attempted": true
+  },
+  "upstream_commit": "833649043474794b8fe7a4136e0c40faf077b2e0"
+}
