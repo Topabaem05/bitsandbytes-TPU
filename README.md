@@ -12,6 +12,9 @@ The project does not yet have an accepted TPU result for this backend.
 The first Colab run passed the TPU runtime probe and calculated all 42 CPU reference cases.
 NF4 execution stopped at a PyTorch functionalization assertion before the first case completed.
 Refer to [the first Colab result](docs/changes/task2-colab-first.md).
+The repeat with the first functionalization patch stopped at tensor creation.
+It also completed zero NF4 cases.
+Refer to [the repeat result](docs/changes/task2-colab-functionalized.md).
 
 The project name is **bitsandbytes-TPU**.
 The Python package name is `bitsandbytes-tpu`.

@@ -1,0 +1,269 @@
+{
+  "allocation_attempts": 1,
+  "bindings": {
+    "archive_member_inventory": {
+      "bytes": 18046,
+      "sha256": "eb73b5335f306cc43b155f717c29efe515faba1a86dc10572000ec5f5353e6eb"
+    },
+    "archive_parts_manifest": {
+      "bytes": 383,
+      "sha256": "fc9815572118f4b353f34eeb99b4a2ab194c4fb05bdd33fe1b2e1cd3c9ec9e61"
+    },
+    "archived_remote_receipt": {
+      "bytes": 26980,
+      "sha256": "ed6253c472395060ad20974e7e0f6a5e0786ec009480839954da43a3bbd2cbae"
+    },
+    "build_lock": {
+      "bytes": 7898,
+      "sha256": "65f27f3a93b4aa533d040225609bfb819fcf5ddbbc6f17456d0fcfd28bd6b546"
+    },
+    "cli_identity": {
+      "bytes": 2713,
+      "sha256": "d4134c308a86024c78262a402aea4fb0fb2ebf8ecbf99dd16d45305f170aaaf9"
+    },
+    "cpu_seal_before_tpu": {
+      "bytes": 8556,
+      "sha256": "9d7c407440d1cc9ed77152c15acab25ae72b1ced97b69e07705d37b603932268"
+    },
+    "cpu_seal_recovered": {
+      "bytes": 8556,
+      "sha256": "9d7c407440d1cc9ed77152c15acab25ae72b1ced97b69e07705d37b603932268"
+    },
+    "host_cleanup": {
+      "bytes": 887,
+      "sha256": "7d191eb48b04851d730c251bd35edb5f6cc9b09ae9b2f31da02a68a40249d672"
+    },
+    "host_lifecycle": {
+      "bytes": 218,
+      "sha256": "70ebafed56c4b6e3e85c0e3d669e141810ae80e9f8bd55f6edc96ea01f0bfb8f"
+    },
+    "independent_readback": {
+      "bytes": 3387,
+      "sha256": "fd29f8ec6d17f6792e1e1852f6815992696a82883ddb9fc67d3fa19725fdcce4"
+    },
+    "inputs": {
+      "bytes": 132064,
+      "sha256": "d0c9cdf6a82449a56923499698f19bfd3cc8d13c042f1f5ad2bdf587701f5e54"
+    },
+    "installed_metadata": {
+      "bytes": 9237,
+      "sha256": "bc0e78b718d912c592f1130eecc332ba18c9179c91f502268bc31e0d99e3f522"
+    },
+    "local_verifier_ownership": {
+      "bytes": 1353,
+      "sha256": "9211fdc07630036d1ebb241fddf30fa9a438802565ba8ac6e0be2f605d4957f3"
+    },
+    "owner_record": {
+      "bytes": 63816,
+      "sha256": "6657bbd577a47884af68ba5b17d3719b6786707c8a381701fe8e73167c6c99d3"
+    },
+    "owner_source": {
+      "bytes": 22501,
+      "sha256": "f98223cadd227c2a5563e6b01d5b22dbf5d1970d4b85b0b52f306077b854732c"
+    },
+    "packet": {
+      "bytes": 482355,
+      "sha256": "67c014a293e4985c137e763ac7911972db9b49a33bdbe687776220a87443e57c"
+    },
+    "packet_manifest": {
+      "bytes": 4640,
+      "sha256": "bb96f2406a6ef06c0a9e570fdfc41701b9695e1d54959db44fc029309cf7f08d"
+    },
+    "parts": [
+      {
+        "bytes": 82980,
+        "name": "part-000001.bin",
+        "sha256": "93c23e0bcf642debd779f8d22aef6f9cf7b94bd89e9fac0aa97fe0b9cef25fb6"
+      }
+    ],
+    "plugin_source_manifest": {
+      "bytes": 2518,
+      "sha256": "6ae5fd7c3763696e0a65b046a3ce9e4aa1d86de9a28de6393e8f154d23bba030"
+    },
+    "primary_error_log": {
+      "bytes": 2354,
+      "sha256": "63c4fac7015eae973024dd65785b8835d7d511444c8004b3f69a9e8c2cfacc25"
+    },
+    "probe": {
+      "bytes": 24512,
+      "sha256": "e8743e33e6a0454d5d05b77075d47a5c9f983cf32f3956c38f2b544f86f5ef6d"
+    },
+    "profile": {
+      "bytes": 3695,
+      "sha256": "ad53f6416bdabf6440f08b313963c947a468cd39afd413bfe41bb381c4a7a166"
+    },
+    "remote_receipt": {
+      "bytes": 27192,
+      "sha256": "3bc47b4b502432f1c0290be70c83d95c3e02b83b961473b9861f55a00f3860d8"
+    },
+    "remote_source": {
+      "bytes": 18730,
+      "sha256": "02cd0b982e94e24a83d7d87aa83cbe0814d9e4938c0ec077b25407ddc82edc72"
+    },
+    "root_acceptance": {
+      "bytes": 1154,
+      "sha256": "1a75774ec64d548402a6151f4ff78daeec1816c85fae685dc7912c3728b475a3"
+    },
+    "runtime_lock": {
+      "bytes": 39667,
+      "sha256": "323371ff61c5fbcc4f79fd6a358cf2ba17cb72b907382a5ceaac07f91dc66ed6"
+    },
+    "runtime_result": {
+      "bytes": 5847,
+      "sha256": "9c8486d4ff47fd5d49737aa8ed43961337b99367b9b6d1a61bd551562eb97422"
+    },
+    "source_admission": {
+      "bytes": 5295,
+      "sha256": "7589fb7b4d0eb12d49154ea35c272252e4bf9e2225d9a41bebfc363b8d94e7a3"
+    },
+    "tpu_failure_receipt": {
+      "bytes": 1336,
+      "sha256": "8c0e661d9b989df87458890c9e16d629f0c6fe8d37de574cab60d85e24b1673f"
+    },
+    "whole_archive": {
+      "bytes": 82980,
+      "members": 120,
+      "sha256": "93c23e0bcf642debd779f8d22aef6f9cf7b94bd89e9fac0aa97fe0b9cef25fb6"
+    }
+  },
+  "built_wheels": [
+    {
+      "bytes": 117055,
+      "name": "bitsandbytes-0.50.3.dev0-cp312-cp312-linux_x86_64.whl",
+      "sha256": "72101821db52210cbb9f28968488774740e5a8eb2790c902a7feb4569289afaa"
+    },
+    {
+      "bytes": 14896,
+      "name": "bitsandbytes_tpu-0.1.0-py3-none-any.whl",
+      "sha256": "12e106eb3f52a07a66e8a15298f125e8156308561e3c54dbd8fbc5ba1bac6ba6"
+    }
+  ],
+  "closure": {
+    "budget_seconds": {
+      "cleanup": 60,
+      "install": 1200,
+      "retrieval": 600,
+      "science": 1800,
+      "total": 3600
+    },
+    "cleanup_errors": [],
+    "cli_process_groups": 34,
+    "driver_groups": 1,
+    "elapsed_lifecycle_seconds": 120.3663079738617,
+    "explicit_stop": "PASS",
+    "handler_restoration_errors": [],
+    "host_groups_absent_at_readback": 36,
+    "local_verifier_exit_code": 1,
+    "local_verifier_groups": 1,
+    "remote_cleanup_records": 12,
+    "remote_groups_reported_absent": 12,
+    "remote_handlers_and_timers_restored": true,
+    "server_empty_observed": true,
+    "usage_zero_observed": true
+  },
+  "cpu_reference": {
+    "completed_cases": 42,
+    "cuda_golden": "NOT_RUN",
+    "method": "pinned default quantize/dequantize bodies and CPU torch.nn.functional.linear",
+    "public_api": {
+      "Linear4bit": "bitsandbytes.nn.modules.Linear4bit",
+      "Params4bit": "bitsandbytes.nn.modules.Params4bit",
+      "original_class_identity": true
+    },
+    "requested_cases": 42,
+    "saved_records_verification": "PASS_FROZEN_VERIFY_ORACLE",
+    "source_admission_sha256": "7589fb7b4d0eb12d49154ea35c272252e4bf9e2225d9a41bebfc363b8d94e7a3",
+    "status": "PASS_CPU_REFERENCE_RECORDS"
+  },
+  "date_utc": "2026-10-04",
+  "format": "bnb-tpu.functionalized-colab-result.v1",
+  "functionalization_patch_qualified": false,
+  "independent_readback": {
+    "archive_parts": "PASS",
+    "checked_at_utc": "2026-10-04T06:16:23.119843+00:00",
+    "common_receipt_fields": "PASS",
+    "cpu_seal_source_and_42_records": "PASS",
+    "each_member_hash_size_and_recovered_bytes": "PASS",
+    "excluded_self_referential_export_fields": [
+      "archive_members_sha256",
+      "evidence_bytes",
+      "evidence_sha256"
+    ],
+    "owned_host_group_absence": "PASS",
+    "packet_bound_bytes": "PASS",
+    "whole_zip_crc_hash_size": "PASS"
+  },
+  "limits": [
+    "The CPU reference does not provide a CUDA golden result.",
+    "Zero completed TPU NF4 cases do not show numerical correctness.",
+    "The runtime probe does not complete the NF4 API milestone.",
+    "Raw records stay in a local cache outside public Git.",
+    "No performance, Pallas, QLoRA, or optimizer claim is made."
+  ],
+  "milestone_m2": "NOT_COMPLETE",
+  "previous_attempt": {
+    "kept_unchanged": true,
+    "report": {
+      "bytes": 8204,
+      "sha256": "2b6cc5ddb548272d4ce5fda50d6d6c966b4f2c63590938aa8fd510914fe7a5bc"
+    },
+    "status": "BLOCKED",
+    "whole_archive": {
+      "bytes": 82927,
+      "members": 120,
+      "sha256": "a22250ccedc84ba792ab6b5db08617cc9cc483a074274458b78c0b928ff8b070"
+    }
+  },
+  "retry_attempts": 0,
+  "runtime": {
+    "backend": "TPU",
+    "devices": [
+      "TPU:0"
+    ],
+    "gradient": [
+      2.0,
+      4.0
+    ],
+    "libtpu_library": {
+      "filename": "libtpu.so",
+      "sha256": "cdb7980d4332097b8e16576568e138ef54cf9fb8ed5aae2aeefbd0c5a425e94a"
+    },
+    "loss": 5.0,
+    "nf4_executed_in_runtime_probe": false,
+    "pallas_kernel_executed": false,
+    "python": "3.12.14",
+    "status": "PASS_TPU_RUNTIME_PROBE_ONLY",
+    "versions": {
+      "jax": "0.7.1",
+      "jaxlib": "0.7.1",
+      "libtpu": "0.0.21",
+      "torch": "2.9.0+cpu",
+      "torch-xla": "2.9.0"
+    }
+  },
+  "scope": "ONE_V6E1_RUNTIME_AND_42_CASE_NF4_API_PROBE",
+  "status": "BLOCKED",
+  "tpu_nf4": {
+    "child_exit_code": 1,
+    "completed_cases": 0,
+    "cpu_fallback_gate": "NOT_COMPLETED",
+    "error": {
+      "assertion_location": "FunctionalizeInterpreter.cpp:10",
+      "category": "PYTORCH_FUNCTIONALIZATION_INTERNAL_ASSERT",
+      "location": "bitsandbytes_tpu/reference.py:30",
+      "operation": "NF4 code-table tensor creation during quantize_4bit",
+      "type": "RuntimeError",
+      "wrapper_location": "bitsandbytes_tpu/functionalization.py:20"
+    },
+    "failure_record_files": 2,
+    "numeric_comparison": "NOT_RUN",
+    "raw_child_receipt_status": "FAILED",
+    "raw_remote_receipt_tpu_status": "ATTEMPTED_BLOCKED",
+    "requested_cases": 42,
+    "source_post": "NOT_RECORDED_AFTER_FAILURE",
+    "source_pre_sha256": "7589fb7b4d0eb12d49154ea35c272252e4bf9e2225d9a41bebfc363b8d94e7a3",
+    "status": "TPU_ATTEMPTED_BLOCKED",
+    "tpu_attempted": true
+  },
+  "upstream_commit": "833649043474794b8fe7a4136e0c40faf077b2e0"
+}

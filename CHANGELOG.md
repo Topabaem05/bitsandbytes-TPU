@@ -1,5 +1,18 @@
 # Change log
 
+## 2026-10-04 — Functionalization patch device result
+
+- Record the second successful runtime probe and 42 CPU reference cases.
+- Record a different assertion during NF4 tensor creation.
+- Keep the attempted TPU result as blocked, with zero completed cases.
+- Keep both raw runs and their resource closure records.
+
+Validation: The reviewer checked all 120 archive members and the sealed CPU records.
+The session stopped, the server was empty, and active usage was zero.
+The first functionalization patch did not qualify the TPU backend.
+M2 is not complete; the diagnosis must account for the XLA tensor wrapper.
+Refer to [the repeat result](docs/changes/task2-colab-functionalized.md).
+
 ## 2026-10-04 — XLA functionalization correction
 
 - Apply a local functionalization context to each Python XLA kernel.
