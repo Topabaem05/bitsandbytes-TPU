@@ -1,5 +1,17 @@
 # Change log
 
+## 2026-10-04 — XLA functionalization correction
+
+- Apply a local functionalization context to each Python XLA kernel.
+- Add a functionalization path for the mutable dequantization overload.
+- Keep output mutations and the selected device backend.
+- Extend registration conflict and rollback tests.
+
+Validation: The reviewer repeated 77 package tests; all passed in 22.07 seconds.
+The original NF4 arithmetic, 42 inputs, and numerical tolerances stayed unchanged.
+The actual TPU repeat is still required.
+Refer to [the functionalization change record](docs/changes/task1-functionalization.md).
+
 ## 2026-10-04 — Packet and attempt record corrections
 
 - Compare the loose manifest with the archive before allocation.

@@ -47,6 +47,14 @@ Repeated calls to the loaded registration function have no more effect.
 An existing XLA kernel causes an error before registration starts.
 A registration failure removes the registrations that the failed attempt added.
 
+Each XLA kernel uses a local functionalization context for its full Python body.
+Functionalization replaces intermediate views and mutations with tensor operations.
+The context keeps input and output mutations that the caller can see.
+The mutable dequantization overload also has a `Functionalize` implementation.
+It calls the existing default dequantization operator, then copies the result into the supplied output.
+This keeps device dispatch and the overload's None result.
+An existing `Functionalize` implementation causes an error before registration starts.
+
 The source test compares seven critical files with bitsandbytes revision
 `833649043474794b8fe7a4136e0c40faf077b2e0`.
 It also compares the four operator schemas.
@@ -76,6 +84,8 @@ They include invalid input, source changes, registration conflicts, and a real w
 The temporary installation does not change the test environment.
 
 CPU tests and XLA registry entries do not show TPU execution.
+The first TPU probe failed before its first NF4 result because of a functionalization error.
+The local context change passed CPU controls; a repeat TPU probe is required.
 Actual PyTorch/XLA 2.9.0 execution, nested state, module state, and training are untested.
 The `xla` device declaration is an integration signal, not a device qualification result.
 The finite-input comparisons and integer reductions are untested on XLA.

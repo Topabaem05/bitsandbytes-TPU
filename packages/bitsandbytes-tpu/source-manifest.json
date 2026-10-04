@@ -25,15 +25,22 @@
     {
       "path": "src/bitsandbytes_tpu/registration.py",
       "installed_path": "bitsandbytes_tpu/registration.py",
-      "bytes": 1731,
-      "sha256": "909c66351f501d076206b1198c482c9acffb5f53dbb6dd8194d8e011c6219bf8"
+      "bytes": 2479,
+      "sha256": "23dd0f2bd08634d87f579e2544f32ec298a19320bf5e69f61d3ca10b28de3662"
+    },
+    {
+      "path": "src/bitsandbytes_tpu/functionalization.py",
+      "installed_path": "bitsandbytes_tpu/functionalization.py",
+      "bytes": 1464,
+      "sha256": "19672dba0146e8d315b804efffeb92219933a2ce6b76076b39f05915d9de19a1"
     }
   ],
   "installed_python_files": {
     "__init__.py": "c7ecdd758ed0d50f10e0b8fa3a17900143368ca6799bfa09e11bfe8118ab59db",
     "compatibility.py": "3e4d5ca40269f963722934a20bbed2c3787ea875e1e8e1b21160891e0113a2cf",
     "reference.py": "29359773aa9645d8eb0cb0fe9248f612b6e3877ba6c8c7e91887c1d56e5fd939",
-    "registration.py": "909c66351f501d076206b1198c482c9acffb5f53dbb6dd8194d8e011c6219bf8"
+    "registration.py": "23dd0f2bd08634d87f579e2544f32ec298a19320bf5e69f61d3ca10b28de3662",
+    "functionalization.py": "19672dba0146e8d315b804efffeb92219933a2ce6b76076b39f05915d9de19a1"
   },
   "limits": [
     "Actual XLA2.9 and TPU execution are not established.",
@@ -44,5 +51,10 @@
     "finite_inputs_weights_bias": "CALLER_PRECONDITION",
     "finite_nonnegative_scales": "CALLER_PRECONDITION",
     "runtime_value_validation": "NOT_PROMISED_ON_ANY_DEVICE"
+  },
+  "functionalization": {
+    "xla_kernel_context": "LOCAL_torch.func.functionalize_MUTATIONS_AND_VIEWS",
+    "mutable_out_dispatch": "Functionalize_KEY_DEFAULT_DEVICE_DEQUANT_THEN_COPY",
+    "actual_xla_repeat": "NOT_RUN"
   }
 }
