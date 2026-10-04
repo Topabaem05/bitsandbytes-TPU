@@ -1,5 +1,17 @@
 # Change log
 
+## 2026-10-04 — Fixed Linux runtime files
+
+- Add an exact wheel lock for the initial PyTorch/XLA runtime.
+- Add Linux dependency checks and complete wheel integrity checks.
+- Add a separate TPU runtime probe.
+- Add 16 tests for valid and incorrect runtime files.
+
+Validation: The reviewer repeated all 16 tests and the complete checks for 35 wheels.
+The wheel files contain 572,327,598 bytes.
+Actual TPU execution remains `NOT_RUN`.
+Refer to [the runtime change record](docs/changes/task2-runtime.md).
+
 ## 2026-10-04 — Research baseline
 
 - Set the project name to bitsandbytes-TPU.
