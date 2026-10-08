@@ -1,5 +1,15 @@
 # Change log
 
+## 2026-10-09 — Kaggle queue cancellation
+
+- Retain the original deadline and the unexecuted scientific state.
+- Verify cancellation of the exact saved version and preserve its failed owner.
+- Verify all 95 local groups and close the experiment browser tab.
+
+Validation: The provider interface showed version 1 canceled with zero output bytes.
+No qualified CPU or TPU result was recovered; M8 remains unqualified.
+Refer to [the cancellation record](docs/changes/r8-queue-canceled.md).
+
 ## 2026-10-09 — Five native Colab cases accepted
 
 - Retain successful FP32, BF16, and explicit tail reference results.

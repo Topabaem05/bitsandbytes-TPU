@@ -1,0 +1,37 @@
+{
+  "actual_cpu_or_device_results": "ABSENT",
+  "all_local_groups_closed": 95,
+  "browser_tab_closed": true,
+  "closure": "ROOT_OBSERVED_CLOSED",
+  "closure_observed_after_deadline_seconds": 176.777,
+  "closure_observed_epoch": 1791495718.567,
+  "continuation_operations": {
+    "source": 1,
+    "status": 92
+  },
+  "continuation_submit_calls": 0,
+  "deadline_epoch": 1791495541.790394,
+  "error_code": "PENDING_AT_DEADLINE",
+  "experiment": "KAGGLE_M2_API42_TRANSFER4_PUBLIC_ZIP",
+  "host_finalization_sha256": "2f0e0cec81dfb52aae8b0ae76e1cd8e2e48d04c47cdf697ebce37d1ef20e934d",
+  "identity": {
+    "kernel_id": 137740638,
+    "owner": "topabaem",
+    "slug": "bnb-tpu-m2-zip-20261009-ba4f4502",
+    "version": 1
+  },
+  "local_provider_and_supervisor_groups_closed": 94,
+  "m8_status": "NOT_QUALIFIED",
+  "numerical_status": "NOT_RUN",
+  "original_failed_owner_preserved": true,
+  "outer_host_groups_closed": 1,
+  "owner_sha256": "b36dcbf4f4cde10452c10ed016967ec53d5f544f1af39367bebfe7a7a953746f",
+  "provider_status": "CANCELED",
+  "reason_for_capacity_wait": "UNKNOWN",
+  "record_validation": "NOT_RUN",
+  "root_closure_observation_sha256": "96ce0b32aa49f5b1a2f0d84576c40bb92879df1420a04594bd2dc0cd036b3fbf",
+  "scientific_state": "INCOMPLETE_REMOTE_UNCONFIRMED",
+  "screenshot_sha256": "7f714c65ac2cbf68bb4c88f5edd20688240d0b8f0c5f43e4f540cc6a3ac84896",
+  "status": "ROOT_OBSERVED_EXACT_VERSION_CANCELED",
+  "supervisor_sha256": "73382f92c922d3d3bb91e59aa7a2677b868a0a296aa66d1f7f070425d9d8b42a"
+}

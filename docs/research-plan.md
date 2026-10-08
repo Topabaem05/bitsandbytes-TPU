@@ -21,7 +21,7 @@ Port2TPU results do not count for these backend milestones.
 | M5 | QLoRA execution | Twenty steps, frozen base weights, and restoration after step ten | In progress: private CPU preparation; TPU test required |
 | M6 | Pallas NF4 kernel | Actual custom call, numerical tests, and compiler test records for memory use | In progress: five actual native diagnostic cases accepted; compiler memory and public integration required |
 | M7 | Measured performance | Raw time samples and memory measurements on the same TPU | In progress: local collector controls passed; actual measurements require accepted M6 |
-| M8 | Repeated cloud results | Matching source and inputs on Colab and Kaggle, with resource closure | In progress: bounded M2 repetition preparation passed local controls; actual device repetition and closure required |
+| M8 | Repeated cloud results | Matching source and inputs on Colab and Kaggle, with resource closure | In progress: exact Kaggle version canceled after queue deadline; scientific repetition remains required |
 
 Accepted milestones: **3 of 8**.
 The reviewer accepted M1 on 2026-10-04.
@@ -167,8 +167,9 @@ It admits the complete wrapper and adds one transport record to the unchanged sc
 The actual public ZIP readback passed, and Kaggle saved the exact private version.
 The [saved-version continuation](changes/r8-saved-version-continuation.md) passed 41 controls before and after adoption.
 It retrieves that version within the original deadline and requires independent provider closure.
-Actual scientific acceptance remains required.
-Actual immutable download, provider execution, and resource closure remain required.
+The [actual queue attempt](changes/r8-queue-canceled.md) produced no qualified CPU or TPU result.
+The exact version was canceled after the deadline; all 95 local groups and the experiment tab closed.
+Actual provider execution and scientific acceptance remain required.
 M8 requires an identified version, the accepted runtime and scientific results, and independent resource closure.
 The earlier [cloud inspection](research/2026-10-08/cloud.md) remains a dated source record.
 
