@@ -1,5 +1,15 @@
 # Change log
 
+## 2026-10-09 — Mosaic experiment allocation wait
+
+- Retain the V5E1 allocation wait and unexecuted marker and scientific stages.
+- Close the temporary tab and verify no active server session or usage.
+- Verify complete closure of all six CLI process groups.
+
+Validation: Resource observations passed inspection; no device experiment executed.
+The allocation cause remains unknown, and M6 remains unqualified.
+Refer to [the allocation record](docs/changes/r6-mosaic-allocation-wait.md).
+
 ## 2026-10-09 — Kaggle V5E8 request admission
 
 - Require the explicit V5E8 request and matching exact-version machine shape.

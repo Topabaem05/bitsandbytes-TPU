@@ -110,6 +110,8 @@ The [Mosaic conversion preparation](changes/r6-mosaic-preparation.md) passed 56 
 The official versioned passes preserve the fixed kernel's current intermediate representation exactly.
 The reviewer verified all 73 packet members and the explicit JAX 0.7.1 CPU interpreter.
 The new generation requires fresh Linux CPU and actual TPU records.
+Its [V5E1 allocation attempt](changes/r6-mosaic-allocation-wait.md) remained pending for 703.63 seconds without scientific execution.
+The reviewer closed the temporary tab and verified six closed CLI groups, no active session, and zero active usage.
 The [measurement preparation](changes/r7-measurement-preparation.md) passed 64 local controls and nine independent retained-record checks.
 Actual M7 collection requires accepted M6 results.
 BF16 gradients remain outside the fixed diagnostic scope.

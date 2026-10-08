@@ -1,0 +1,56 @@
+{
+  "accepted_milestones": 3,
+  "active_usage_zero": true,
+  "actual_TPU": "NOT_RUN",
+  "allocation_cause": "UNKNOWN",
+  "allocation_epoch": 1791486337.846,
+  "cli_groups_closed": 6,
+  "cli_readback": [
+    {
+      "groups": 1,
+      "path": ".work/root-mosaic-native-review/preconnect/cli/01-sessions/result.json",
+      "sha256": "7705b253f347b3d5e6925fd0489cc5056fe2f657b3a10011daa7c57c173082b7"
+    },
+    {
+      "groups": 1,
+      "path": ".work/root-mosaic-native-review/preconnect/cli/02-usage/result.json",
+      "sha256": "6637790a2841b1fb9442085d228d2f9ccda725e3978b2f2e8568f82bcc1c1e2b"
+    },
+    {
+      "groups": 1,
+      "path": ".work/root-mosaic-native-review/allocation-read/cli/01-sessions/result.json",
+      "sha256": "434d1b5dd70156e7c7258ebda93ad9e4cfb592e3aea08000da05fe23c7125978"
+    },
+    {
+      "groups": 1,
+      "path": ".work/root-mosaic-native-review/allocation-read/cli/02-usage/result.json",
+      "sha256": "ef370d5c1580a57eebbe09df858b0848a9bc449119c55a11ac9d25728ca447af"
+    },
+    {
+      "groups": 1,
+      "path": ".work/root-mosaic-native-review/after-browser-close/cli/01-sessions/result.json",
+      "sha256": "22dcc8df3f97d88915fe8d234a2d66cfdcec2f6ea05d82d2d3a552ff5aba6da7"
+    },
+    {
+      "groups": 1,
+      "path": ".work/root-mosaic-native-review/after-browser-close/cli/02-usage/result.json",
+      "sha256": "de63e576e8744062701935d636a48c92cf3d30c6f4b36d87419043d653a58cab"
+    }
+  ],
+  "m6": "NOT_QUALIFIED",
+  "marker_executed": false,
+  "original_deadline_epoch": 1791489937.846,
+  "payload_sha256": "6749df71f35a315593ef2cee86c801b3f59c7a2785946ae34d4c06396ff3668c",
+  "qualified_cpu": "NOT_RUN",
+  "requested_hardware": "V5E1",
+  "required_milestones": 8,
+  "review_date": "2026-10-09",
+  "reviewed_native_commit": "84d2f8c07d8fa32b6a19877f0cc7312801bf5209",
+  "screenshot_sha256": "5c026720d2f9ae012c7a0a81150d12d81cd51b4a53754f13f0140a5646ef8116",
+  "server_empty": true,
+  "software_installation": "NOT_RUN",
+  "status": "ALLOCATION_NOT_OBSERVED_NO_CODE_RUN",
+  "tab_closed": true,
+  "tab_closed_epoch": 1791487041.479,
+  "ui_wait_seconds": 703.6330001354218
+}
