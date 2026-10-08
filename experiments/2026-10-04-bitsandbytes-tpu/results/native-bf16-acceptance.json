@@ -1,0 +1,21 @@
+{
+  "accepted_date": "2026-10-09",
+  "accepted_result_path": "experiments/2026-10-04-bitsandbytes-tpu/results/native-bf16-colab.json",
+  "accepted_result_sha256": "fd15cb724a398b9079b0b97c19f66bd858fe3f7027e9ae9e1a0ff8983eb1a291",
+  "closure_status": "CLEANUP_VERIFIED",
+  "compiler_memory": "NOT_QUALIFIED",
+  "device_case_count": 5,
+  "format": "bnb-tpu.root-accepted-native-dependency.v1",
+  "m6_status": "NOT_QUALIFIED",
+  "native_adoption_revision": "a084a4d578362f9733453595ab208385cf70afba",
+  "native_generation": "mosaic-serde7-gather-bf16-fp32-v1",
+  "native_manifest_sha256": "30b820b90a4404a89da6e6c7b6fc91dbec47afbe06ae322eb5835b9eb0e70901",
+  "numerical_status": "PASS",
+  "performance": "NOT_MEASURED",
+  "profile_sha256": "ad53f6416bdabf6440f08b313963c947a468cd39afd413bfe41bb381c4a7a166",
+  "public_integration_backward": "NOT_QUALIFIED",
+  "record_validation": "PASS",
+  "runtime_lock_sha256": "323371ff61c5fbcc4f79fd6a358cf2ba17cb72b907382a5ceaac07f91dc66ed6",
+  "scope": "ACTUAL_BOUNDED_NATIVE_DEVICE_RECORDS_ONLY",
+  "status": "ROOT_ACCEPTED_NATIVE_DEVICE_RECORDS"
+}

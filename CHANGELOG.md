@@ -1,5 +1,15 @@
 # Change log
 
+## 2026-10-09 — Five native Colab cases accepted
+
+- Retain successful FP32, BF16, and explicit tail reference results.
+- Accept the bounded native dependency after independent numerical and graph inspection.
+- Verify all archives, process closure, runtime disconnection, and zero active usage.
+
+Validation: All five cases passed; BF16 outputs matched the independent CPU outputs exactly.
+Compiler memory and public integration remain required for M6.
+Refer to [the actual result](docs/changes/r6-bf16-colab.md).
+
 ## 2026-10-09 — BF16 matrix operand correction
 
 - Preserve decoded BF16 rounding before FP32 matrix operand conversion.
