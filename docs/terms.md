@@ -23,6 +23,7 @@ They are not additions to the official ASD-STE100 dictionary.
 | bitcast | Reinterpretation of the same bits as another numerical data type. |
 | checkpoint | Saved model and optimizer state used to restore execution. |
 | centered scale | An NF4 scale after subtraction of the scalar offset, before nested quantization. |
+| clamp | An operation that limits values to a specified lower and upper bound. |
 | CLI | A command-line interface. |
 | codebook | The numerical values that quantized codes identify. |
 | collector | Software that records raw measurements and their execution context. |
@@ -65,6 +66,7 @@ They are not additions to the official ASD-STE100 dictionary.
 | overload | A named form of an operator with a specific schema. |
 | offset | The scalar value subtracted before nested quantization and added after nested dequantization. |
 | operator schema | The declared arguments and results of a PyTorch operator. |
+| operand | An input value for a numerical or compiler operation. |
 | oracle | The identified reference calculation that supplies expected test values. |
 | profile | The fixed configuration and criteria for an experiment. |
 | profiler | A tool that records execution time, activity, or memory use. |
@@ -81,10 +83,12 @@ They are not additions to the official ASD-STE100 dictionary.
 | receipt | A structured record that identifies an execution and its returned artifacts. |
 | reference implementation | The implementation that defines the expected result for a comparison. |
 | registry | A structured record of registered software components or owned processes. |
+| reshape | An operation that changes array dimensions without changing the element count. |
 | revision | A specific state of a source repository, identified by its commit. |
 | reviewer | The person or agent that examines code and test records before acceptance. |
 | rounding | Selection of a representable numerical value from a more precise value. |
 | scale | A multiplier used to reconstruct numerical values from quantized codes. |
+| scalar | A single numerical value represented by an array with no dimensions. |
 | runtime | The installed software and execution environment for a program. |
 | SDK | The software development kit that supplies typed service request interfaces. |
 | SGD | Stochastic gradient descent. |

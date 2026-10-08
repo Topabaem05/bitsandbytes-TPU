@@ -4,6 +4,7 @@ import hashlib
 import importlib.util
 import io
 import json
+import os
 from pathlib import Path
 import socket
 import sys
@@ -13,8 +14,9 @@ import unittest
 from types import SimpleNamespace
 from unittest.mock import patch
 
-HERE=Path(__file__).resolve().parents[2];SCIENCE=HERE
-ROOT=next(p for p in HERE.parents if (p/'packages/bitsandbytes-tpu/pyproject.toml').is_file())
+ROOT=next(p for p in Path(__file__).resolve().parents if (p/'packages/bitsandbytes-tpu/pyproject.toml').is_file())
+SCIENCE=ROOT/'experiments/2026-10-04-bitsandbytes-tpu'
+HERE=Path(os.environ.get('BNB_PRIMITIVE_PARAMETER_SOURCE',SCIENCE/'probe_primitives.py')).resolve().parent
 def load(path,name):
  spec=importlib.util.spec_from_file_location(name,path);module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module);return module
 V=load(HERE/'probe_primitives.py','tested_primitives')
@@ -34,7 +36,8 @@ def builder_hlo(source,target,dims):
  return f'HloModule SYNTHETIC_BUILDER_ONLY\nENTRY bitcast (p: {shape(source,dims)}) -> {shape(target,dims)} {{\n p = {shape(source,dims)} parameter(0)\n ROOT result = {shape(target,dims)} bitcast-convert(p)\n}}\n'
 
 def row_hlo(name,source,ids,expected,call=True):
- """Typed direct or call/GTE bitcasts and explicit unique input lineages."""
+ """Synthetic values and direct/call witnesses; clamp uses retained actual HLO only."""
+ if name=='float-arithmetic':return (Path(__file__).resolve().parent/'fixtures/actual_float_arithmetic.hlo.txt').read_text()
  lines=[];functions=[];outputs=[]
  for key,value in source.items():lines.append(f' p{ids[key]} = {shape("s32" if value["dtype"]=="int32" else "f32",value["shape"])} parameter({ids[key]})')
  for i,(key,value) in enumerate(expected.items()):
@@ -90,6 +93,8 @@ def make_fixture(base,admission=None,admission_document_value=None,admission_pat
   for name in matrix[phase]:
    expected=EXPECTED[name];source=V.source_inputs(REF,DATA,name,EXPECTED['device-int-float']['float']);ids={k:i for i,k in enumerate(source)};hlo=row_hlo(name,source,ids,expected);stem=root/'raw'/name;stem.parent.mkdir(exist_ok=True);stem.with_suffix('.hlo.txt').write_text(hlo);stem.with_suffix('.metrics.txt').write_text('SYNTHETIC_ONLY\n')
    raw={'case_id':name,'pid':rec['pid'],'process_token':rec['process_token'],'status':'OBSERVED','source_inputs':source,'source_inputs_sha256':V.digest(source),'input_manifest_sha256':V.INPUT_SHA,'input_parameter_ids':ids,'parameter_values':{str(ids[k]):v for k,v in source.items()},'output_order':list(expected),'outputs':copy.deepcopy(expected),'placements':{k:'xla:0' for k in expected},'counters':{},'execution_metrics':{'ExecuteTime':[1,1.,[[1.,1.]]]},'synchronized':True,'builder_computations':{},'builder_source_sha256':V.BUILDER_SHA,'parameter_mapping_api':'LoweringContext.device_parameter_id_tensor_mapping+tensor_parameter_id','materialized_from':'device-int-float' if name=='float-arithmetic' else None}
+   if name=='float-arithmetic':
+    raw['fixture_scope']='SYNTHETIC_SCALAR_VALUES_NOT_ACTUAL_RECONSTRUCTION';raw['parameter_values'].update({'1':V.auxiliary_sources(REF,name)['clamp_max'],'2':V.auxiliary_sources(REF,name)['clamp_min']})
    raw['hlo_witnesses']=V.row_graph(B,H,name,raw,hlo,expected)
    if phase=='builder':
     for key,value in expected.items():

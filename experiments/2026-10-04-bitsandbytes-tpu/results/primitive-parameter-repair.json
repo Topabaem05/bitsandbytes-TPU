@@ -1,0 +1,174 @@
+{
+  "accepted_milestones": 3,
+  "actual_tpu": "NOT_RUN",
+  "adopted_files": [
+    {
+      "bytes": 24605,
+      "path": "cloud/primitive_contract.py",
+      "sha256": "35888719248865816d4a76d175cc74d8b401f0a3c26b7f9af20149fc8a38a0a1",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/primitive_contract.py"
+    },
+    {
+      "bytes": 3559,
+      "path": "cloud/tests/fixtures/actual_float_arithmetic.hlo.txt",
+      "sha256": "6d9b5d3ba2653ee4b47acb02585630474d2c0a277002f9fb09c441d502516f0f",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/tests/fixtures/actual_float_arithmetic.hlo.txt"
+    },
+    {
+      "bytes": 686,
+      "path": "cloud/tests/fixtures/actual_float_arithmetic.provenance.json",
+      "sha256": "f0503ec17e24102ad48ab364aeca6d1ff32479eca832b16ea4a6f8558b962dcb",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/tests/fixtures/actual_float_arithmetic.provenance.json"
+    },
+    {
+      "bytes": 23958,
+      "path": "cloud/tests/primitive_saved_fixture.py",
+      "sha256": "f3928b2f9731a3c9a86d3ded354af88cfbfcbe5dd33b7893d9a4ba96c87bbfcb",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/tests/primitive_saved_fixture.py"
+    },
+    {
+      "bytes": 4017,
+      "path": "cloud/tests/test_primitive_alias_guards.py",
+      "sha256": "1862ed148886defe9974641815731d669c839cc8b9a416fb5ac599ad352ab669",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/tests/test_primitive_alias_guards.py"
+    },
+    {
+      "bytes": 3878,
+      "path": "cloud/tests/test_primitive_parameter_admission.py",
+      "sha256": "bb32cbb10963f5ff4ecfd0540d9b4976eacb421c819e2a88fd5e8afa987d1b19",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/tests/test_primitive_parameter_admission.py"
+    },
+    {
+      "bytes": 11666,
+      "path": "cloud/tests/test_primitive_parameters.py",
+      "sha256": "a508cef46f786de40d7dc59d564bab959c0b011034326f0d254c4fd3ea4020e0",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/tests/test_primitive_parameters.py"
+    },
+    {
+      "bytes": 1352,
+      "path": "primitive-manifest.json",
+      "sha256": "e377614105391502a379b0a6c5b7a0d441e2a5e83b126c7c759140820a0e954c",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/primitive-manifest.json"
+    },
+    {
+      "bytes": 46342,
+      "path": "probe_primitives.py",
+      "sha256": "80ba23466e22f3695501aac64cc71affbfbccd458e4e8804b8b1f5bf275c2865",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/probe_primitives.py"
+    }
+  ],
+  "base_commit": "6dd834bab30e51ead985c1e85f742e0a4a92e623",
+  "format": "bnb-tpu.primitive-parameter-preparation.v1",
+  "fresh_qualified_cpu_oracle_required": true,
+  "m4": "NOT_QUALIFIED",
+  "packet": {
+    "manifest_sha256": "ed61b2db7dd86d21f471a23c8510e4a37d31f12cd307fb894b35d32f08e8ef5b",
+    "payload_bytes": 1084675,
+    "payload_sha256": "07a3a0650229ad32fcaa08e18233eebd4a7a6dc14791ae0e7f8859a845f30c2e",
+    "private_packet_byte_exact": true
+  },
+  "packet_member_count": 56,
+  "packet_review_sha256": "4b810c138cd5f74078c282b4c6d13e9ab6d7d026b8b4cd08f23c410658c938b6",
+  "private_adoption_map_sha256": "3ba7c5a743629e6c450c92df808fd3504a7b2d1fbcebd8cbdda21199c1733a3a",
+  "required_milestones": 8,
+  "retained_limitations": [
+    "Previous third-row scalar values and outputs remain unavailable.",
+    "Control arrays paired with the retained HLO are synthetic and do not replace actual observations.",
+    "Local control tests do not qualify Linux Torch/XLA or TPU arithmetic.",
+    "The complete diagnostic has 265 gates if native view is unsupported, or 269 if it is supported."
+  ],
+  "review_date_kst": "2026-10-09",
+  "scope": "TYPED_CLAMP_ROLE_AND_SOURCE_VALUE_GATES_NOT_COMPLETE_IR_SEMANTICS",
+  "source_basis": {
+    "actual_missing": [
+      "third row input_parameter_ids",
+      "third row parameter_values",
+      "third row outputs"
+    ],
+    "actual_value_inference": false,
+    "checked_date": "2026-10-09",
+    "revision": "5fab7053df86c8d503b98d9e7202ca8b8d4978c7",
+    "sources": [
+      {
+        "local_pinned_sha256": "85105171d16d84dd181f364128a8098d9a02d9934c6a9865f81b012a457fcf43",
+        "supports": "The device mapping includes all lowered device-data parameters; tensor_parameter_id matches device handles.",
+        "url": "https://github.com/pytorch/xla/blob/5fab7053df86c8d503b98d9e7202ca8b8d4978c7/torch_xla/csrc/init_python_bindings.cpp"
+      },
+      {
+        "local_pinned_sha256": "07fa25deab7bc0afc7823edfc12293bdba178fea004f2dc5fe596fd6ef24ef57",
+        "supports": "clamp_min forwards the supplied minimum and absent maximum.",
+        "url": "https://github.com/pytorch/xla/blob/5fab7053df86c8d503b98d9e7202ca8b8d4978c7/torch_xla/csrc/aten_xla_type.cpp"
+      },
+      {
+        "local_pinned_sha256": "4c659aaeb86959d0f043022cda8ea5e81dca98ced6296b243c4ae454a90b3ed6",
+        "supports": "GetMinMaxValues obtains dtype range and creates both scalar IR values.",
+        "url": "https://github.com/pytorch/xla/blob/5fab7053df86c8d503b98d9e7202ca8b8d4978c7/torch_xla/csrc/tensor_methods.cpp"
+      },
+      {
+        "local_pinned_sha256": "623081a384e7b6dd5fc1f8f8a351ff526a2e8a91054ba2d3ccec76136e1e38a2",
+        "supports": "F32 MinMaxValues uses the finite float range.",
+        "url": "https://github.com/pytorch/xla/blob/5fab7053df86c8d503b98d9e7202ca8b8d4978c7/torch_xla/csrc/helpers.cpp"
+      },
+      {
+        "local_pinned_sha256": null,
+        "supports": "GetIrValueForScalar creates DeviceData for non-special scalar values.",
+        "url": "https://github.com/pytorch/xla/blob/5fab7053df86c8d503b98d9e7202ca8b8d4978c7/torch_xla/csrc/xla_graph_executor.cpp"
+      }
+    ]
+  },
+  "status": "PREPARATION_ACCEPTED",
+  "unchanged_runtime_lock_sha256": "323371ff61c5fbcc4f79fd6a358cf2ba17cb72b907382a5ceaac07f91dc66ed6",
+  "verification": {
+    "builder_group_closed": true,
+    "canonical_controls": {
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0,
+      "tests": 44
+    },
+    "canonical_group_closed": true,
+    "canonical_junit_sha256": "43f2bef29a7f22c4a5761d62b1635ea150d239f766f1e188da0b0c2f940b299f",
+    "negative_controls": [
+      {
+        "case": "changed-input",
+        "error": "PAYLOAD_MEMBER_SHA",
+        "status": "REJECTED"
+      },
+      {
+        "case": "missing-helper",
+        "error": "PAYLOAD_INVENTORY",
+        "status": "REJECTED"
+      },
+      {
+        "case": "old-probe",
+        "error": "PAYLOAD_MEMBER_SHA",
+        "status": "REJECTED"
+      },
+      {
+        "case": "old-contract",
+        "error": "PAYLOAD_MEMBER_SHA",
+        "status": "REJECTED"
+      },
+      {
+        "case": "prior-parameter-source-manifest",
+        "error": "PRIMITIVE_SOURCE_BINDING:primitive_probe_sha256",
+        "status": "REJECTED"
+      },
+      {
+        "case": "old-source-manifest",
+        "error": "PRIMITIVE_SOURCE_BINDING:primitive_probe_sha256",
+        "status": "REJECTED"
+      },
+      {
+        "case": "old-actual-qualified-cpu-oracle",
+        "error": "BINDING_probe_sha256",
+        "oracle_seal_sha256": "c428451ae4cd9bcebb88856205b6cfb06758781f9600cc48c1359b683747399a",
+        "status": "REJECTED"
+      }
+    ],
+    "private_controls": 67,
+    "private_controls_sha256": "a5db136ed2695e6e0e8763a75d6d3681a0da8d71b62c7472c1282d4781f0f76f",
+    "private_groups_closed": 3,
+    "whitespace_exception": "The retained actual HLO fixture contains its original trailing blank line. Its bytes and provenance hash remain unchanged."
+  }
+}

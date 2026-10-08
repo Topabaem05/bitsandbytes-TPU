@@ -83,6 +83,9 @@ All four output and input byte comparisons passed inspection.
 The third case failed the parameter map requirement before it wrote its JSON record.
 The reviewer verified all 120 archive members and complete resource closure.
 Additional scalar parameters require source inspection and exact value observations before further arithmetic conclusions.
+The [parameter correction](changes/r4-primitive-parameter-repair.md) admits the two typed clamp parameters and retains failed observations.
+Its 67 independent controls and 44 focused controls after adoption passed.
+The new 56-member packet requires fresh qualified CPU and actual TPU observations.
 The failed result cannot authorize the saved-state supplement or an accepted M4 dependency.
 The private CPU preparations for M4, M5, and M6 do not qualify those device milestones.
 The [bounded native preparation](changes/r6-native-cloud-preparation.md) uses accepted M2 sources and can execute independently of the M4 repair.

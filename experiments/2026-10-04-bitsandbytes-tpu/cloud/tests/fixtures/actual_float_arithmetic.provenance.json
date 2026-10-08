@@ -1,0 +1,15 @@
+{
+  "actual_hlo_sha256": "6d9b5d3ba2653ee4b47acb02585630474d2c0a277002f9fb09c441d502516f0f",
+  "actual_parameter_values_available": false,
+  "actual_run": ".work/cloud-20261009-primitive-metric-v5-browser",
+  "actual_source_record": "recovered/primitives/builder/raw/float-arithmetic.hlo.txt",
+  "format": "bnb-tpu.primitive-parameter-fixture.v1",
+  "milestone_qualification": "NOT_QUALIFIED",
+  "scope": "ACTUAL_HLO_PLUS_SYNTHETIC_VALUE_RECORDS_ONLY",
+  "synthetic_assumed_parameter_roles": {
+    "clamp_max": 1,
+    "clamp_min": 2,
+    "float_input": 0
+  },
+  "synthetic_values_source": "pinned Torch/XLA clamp_min/GetMinMaxValues and FP32 dtype range; not recovered actual values"
+}

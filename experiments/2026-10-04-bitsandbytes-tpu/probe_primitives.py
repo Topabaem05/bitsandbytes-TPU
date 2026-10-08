@@ -190,12 +190,48 @@ def source_inputs(Ref,data,name,materialized=None):
  c=next(c for c in data['mean_cases'] if name=='mean-'+c['case_id'])
  return {'float_input':Ref.array(c['first_scales']+[2.125],[c['count']+1],'float32'),'count_input':Ref.array([float(c['count']),float(c['count'])+.5],[2],'float32')}
 
+def auxiliary_sources(Ref,name):
+ # Pinned clamp_min lowering creates min and the omitted dtype maximum as scalar device data.
+ if name!='float-arithmetic':return {}
+ return {'clamp_min':Ref.array([Ref.f32(1e-38)],[],'float32'),'clamp_max':Ref.array([Ref.from_bits(0x7f7fffff)],[],'float32')}
+
+def clamp_parameter_roles(B,H,hlo,order,outputs,input_id):
+ comps,entry=H.parse(hlo);nodes=comps[entry]['nodes'];w=H.witnesses(hlo,order,outputs)['clamp']
+ B.require('call_input' in w,'CLAMP_BUILDER_CALL');name=w['call_input'];node=nodes[name];seen=set()
+ while node['opcode'] in ('copy','reshape'):
+  B.require(name not in seen,'CLAMP_OUTPUT_ALIAS_CYCLE');seen.add(name)
+  B.require(node['dtype']=='f32' and node['shape']==[20] and len(node['deps'])==1,'CLAMP_OUTPUT_ALIAS')
+  child=nodes[node['deps'][0]]
+  if node['opcode']=='copy':B.require(child['dtype']==node['dtype'] and child['shape']==node['shape'],'CLAMP_OUTPUT_COPY')
+  else:B.require(child['dtype']==node['dtype'] and math.prod(child['shape'])==math.prod(node['shape']),'CLAMP_OUTPUT_RESHAPE')
+  name=node['deps'][0];node=child
+ B.require(node['opcode']=='clamp' and node['dtype']=='f32' and node['shape']==[20] and len(node['deps'])==3,'CLAMP_OPERATION')
+ B.require(H.input_lineage(comps,entry,node['deps'][1])['parameter']==input_id,'CLAMP_VALUE_INPUT')
+ roles={}
+ for role,index in (('clamp_min',0),('clamp_max',2)):
+  name=node['deps'][index];scalar=nodes[name];path=[];seen=set()
+  while scalar['opcode']!='parameter':
+   B.require(name not in seen,'CLAMP_SCALAR_ALIAS_CYCLE')
+   B.require(scalar['opcode'] in ('broadcast','copy','reshape') and scalar['dtype']=='f32' and len(scalar['deps'])==1,'CLAMP_SCALAR_LINEAGE');seen.add(name);child=nodes[scalar['deps'][0]]
+   B.require(child['dtype']=='f32','CLAMP_SCALAR_DTYPE')
+   if scalar['opcode']=='broadcast':B.require(child['shape']==[] and scalar['shape'] in ([],[20]) and re.search(r'dimensions\s*=\s*\{\s*\}',scalar['body']),'CLAMP_SCALAR_BROADCAST')
+   elif scalar['opcode']=='copy':B.require(child['shape']==scalar['shape'],'CLAMP_SCALAR_COPY')
+   else:B.require(math.prod(child['shape'])==math.prod(scalar['shape']),'CLAMP_SCALAR_ALIAS')
+   path.append(scalar['line']);name=scalar['deps'][0];scalar=child
+  B.require(scalar['dtype']=='f32' and scalar['shape']==[],'CLAMP_SCALAR_TYPE');roles[role]={'parameter':scalar['parameter'],'line':scalar['line'],'aliases':path}
+ B.require(len({input_id,*(v['parameter'] for v in roles.values())})==3,'CLAMP_PARAMETER_ROLES')
+ return roles
+
 def row_graph(B,H,name,raw,hlo,expected):
  order=list(expected);B.require(raw.get('output_order')==order,'OUTPUT_ORDER');input_ids=raw.get('input_parameter_ids');source=raw.get('source_inputs');mapping=raw.get('parameter_values')
  B.require(type(input_ids) is dict and set(input_ids)==set(source) and all(type(v) is int and v>=0 for v in input_ids.values()) and len(set(input_ids.values()))==len(input_ids),'INPUT_PARAMETER_IDS')
- B.require(type(mapping) is dict and set(mapping)=={str(v) for v in input_ids.values()},'PARAMETER_VALUE_MATRIX')
- types={input_ids[k]:('s32' if v['dtype']=='int32' else 'f32',v['shape']) for k,v in source.items()}
  observed_outputs={k:('s32' if v['dtype']=='int32' else 'f32',v['shape']) for k,v in expected.items()}
+ auxiliary=clamp_parameter_roles(B,H,hlo,order,observed_outputs,input_ids['float_input']) if name=='float-arithmetic' else {}
+ admitted_ids=set(input_ids.values())|{v['parameter'] for v in auxiliary.values()}
+ B.require(type(mapping) is dict and set(mapping)=={str(v) for v in admitted_ids},'PARAMETER_VALUE_MATRIX')
+ types={input_ids[k]:('s32' if v['dtype']=='int32' else 'f32',v['shape']) for k,v in source.items()};Ref,_=pure();aux_sources=auxiliary_sources(Ref,name)
+ for role,descriptor in auxiliary.items():
+  pid=descriptor['parameter'];validate_array(B,Ref,mapping[str(pid)],aux_sources[role]);types[pid]=('f32',[])
  direct={'native-bitcast':{'bits':input_ids.get('float_input'),'float':input_ids.get('int_input')},'host-float-bits':{'bits':input_ids.get('float_input')},'device-int-float':{'float':input_ids.get('int_input')}}
  links=direct.get(name,{'input_bits':input_ids.get('float_input'),'count_bits':input_ids.get('count_input')} if name.startswith('mean-') else {})
  witnesses=H.bound_witnesses(hlo,order,observed_outputs,links,types)
@@ -204,7 +240,9 @@ def row_graph(B,H,name,raw,hlo,expected):
   if key=='float' and name=='native-bitcast':required={input_ids['int_input']}
   if name.startswith('mean-') and key in ('sum_div','sum_reciprocal','ordered_div8'):required.add(input_ids['count_input'])
   if key=='count_bits':required={input_ids['count_input']}
+  if name=='float-arithmetic' and key=='clamp':required.update(v['parameter'] for v in auxiliary.values())
   B.require(set(w['parameters'])==required,'HLO_ARITHMETIC_INPUT_BINDING')
+ if auxiliary:witnesses['clamp']['auxiliary_parameters']=auxiliary
  return witnesses
 
 def make_device_outputs(B,K,torch,name,inputs,data,materialized):
@@ -226,13 +264,22 @@ def metrics_record(metrics,profile):
  evidence={'counters':{k:metrics.counter_value(k) for k in metrics.counter_names()},'execution_metrics':{k:v for k in profile['execution_metrics'] if (v:=metrics.metric_data(k)) is not None}}
  return json.loads(json.dumps(evidence,allow_nan=False))
 
+def retain_failed_row(B,prefix,raw,error):
+ # Preserve observed values before any validation failure; ERROR never qualifies a diagnostic row.
+ record=dict(raw,status='ERROR',error_type=type(error).__name__,error_message=str(error),traceback=traceback.format_exc())
+ try:B.write(prefix.with_suffix('.json'),record)
+ except (TypeError,ValueError):
+  partial=prefix.with_suffix('.partial.txt');partial.write_text(repr(raw))
+  identity={k:raw[k] for k in ('case_id','pid','process_token','input_manifest_sha256') if k in raw}
+  B.write(prefix.with_suffix('.json'),dict(identity,status='ERROR',error_type=type(error).__name__,error_message=str(error),traceback=traceback.format_exc(),partial_text=partial.name,partial_text_sha256=B.sha(partial)))
+
 def run_phase(B,R,P,A,N,S,args):
  token(B,args.process_token);token(B,args.parent_process_token);B.require(os.getppid()==args.parent_pid and os.getpgid(0)==args.parent_pid and os.getpid()!=args.parent_pid,'DIRECT_INHERITED_CHILD')
  B.require(number(args.deadline_epoch) and time.time()<args.deadline_epoch,'CHILD_DEADLINE');verify_cpu_oracle(B,R,P,A,N,S,args)
  output=Path(args.output);output.mkdir(parents=True,exist_ok=False);data=spec(B,N);matrix,expected=row_matrix(data);Ref,H=pure();profile,_=B.load_spec()
  rec=dict(binding(B,N,args),status='PARTIAL',pid=os.getpid(),pgid=os.getpgid(0),parent_pid=os.getppid(),process_token=args.process_token,parent_process_token=args.parent_process_token,
    phase=args.phase,deadline_epoch=args.deadline_epoch,oracle_sha256=args.oracle_sha256,precision_environment=P.precision_environment())
- path=output/'receipt.json'
+ path=output/'receipt.json';raw=None;prefix=None
  try:
   admission,roots=N.admit(B,A,args);rec['source_pre']=args.admission_sha256;rec['runtime']=B.runtime_check(True);P.validate_environment(B,rec['precision_environment'])
   import torch
@@ -247,8 +294,9 @@ def run_phase(B,R,P,A,N,S,args):
   device=xm.xla_device();B.require(device.type=='xla' and xm.xla_device_hw(device)=='TPU','ACTUAL_TPU');rec['device']={'type':'xla','hardware':'TPU','pjrt':'TPU'}
   rec.update(record_public(B,A,N,roots,torch,bnb));rec['dispatch']={k:torch._C._dispatch_has_kernel_for_dispatch_key('bitsandbytes::'+k,'XLA') for k in N.spec(B)[2]};B.require(all(rec['dispatch'].values()),'NESTED_DISPATCH')
   B.require(B.sha(xb.__file__)==load(HERE/'primitive_kernels.py','primitive_builder_pin').BUILDER_SHA,'BUILDER_SOURCE');K=load(HERE/'primitive_kernels.py','primitive_device_kernels')
-  rec['case_ids']=matrix[args.phase];materialized=None;materialized_record=None
+  rec['case_ids']=matrix[args.phase];materialized=None;materialized_record=None;raw=None;prefix=None
   for name in matrix[args.phase]:
+   raw=None;prefix=None
    B.require(time.time()<args.deadline_epoch,'ROW_DEADLINE');source=source_inputs(Ref,data,name,materialized_record)
    inputs={k:(materialized if name=='float-arithmetic' else torch.tensor(v['values'],dtype=getattr(torch,v['dtype']),device=device).reshape(v['shape'])) for k,v in source.items()}
    # Materialize uploads first. Parameter mapping is later recorded after graph execution.
@@ -259,20 +307,21 @@ def run_phase(B,R,P,A,N,S,args):
    except Exception as error:
     if args.phase!='native-view':raise
     raw.update(status='OBSERVED_UNSUPPORTED',reason='NATIVE_VIEW_EXCEPTION',error_type=type(error).__name__,error_message=str(error),traceback=traceback.format_exc(),**metrics_record(metrics,profile),outputs={},placements={})
-    prefix.with_suffix('.hlo.txt').write_text('NOT_RUN_NATIVE_VIEW_EXCEPTION\n');prefix.with_suffix('.metrics.txt').write_text(metrics.metrics_report() or 'NO_EXECUTION_OBSERVED\n');B.write(prefix.with_suffix('.json'),raw);continue
+    prefix.with_suffix('.hlo.txt').write_text('NOT_RUN_NATIVE_VIEW_EXCEPTION\n');prefix.with_suffix('.metrics.txt').write_text(metrics.metrics_report() or 'NO_EXECUTION_OBSERVED\n');B.write(prefix.with_suffix('.json'),raw);raw=None;prefix=None;continue
    order=list(expected[name]);B.require(list(tensors)==order,'DEVICE_OUTPUT_ORDER');raw['output_order']=order
    if any(v.device.type!='xla' for v in tensors.values()):
     B.require(args.phase=='native-view','BUILDER_HOST_OUTPUT');raw.update(status='OBSERVED_UNSUPPORTED',reason='NATIVE_VIEW_HOST_OUTPUT',outputs={},placements={k:str(v.device) for k,v in tensors.items()},**metrics_record(metrics,profile))
-    prefix.with_suffix('.hlo.txt').write_text('NOT_RUN_NATIVE_HOST_OUTPUT\n');prefix.with_suffix('.metrics.txt').write_text(metrics.metrics_report() or 'NO_EXECUTION_OBSERVED\n');B.write(prefix.with_suffix('.json'),raw);continue
+    prefix.with_suffix('.hlo.txt').write_text('NOT_RUN_NATIVE_HOST_OUTPUT\n');prefix.with_suffix('.metrics.txt').write_text(metrics.metrics_report() or 'NO_EXECUTION_OBSERVED\n');B.write(prefix.with_suffix('.json'),raw);raw=None;prefix=None;continue
    ctx=torch_xla._XLAC.lowering.LoweringContext('R4PrimitiveObservation');ctx.build(list(tensors.values()))
    comp=xb.computation_from_module_proto('R4PrimitiveObservation',ctx.hlo());hlo=xb.get_computation_hlo(comp);prefix.with_suffix('.hlo.txt').write_text(hlo)
    raw['input_parameter_ids']={k:ctx.tensor_parameter_id(v) for k,v in inputs.items()};parameter_tensors=ctx.device_parameter_id_tensor_mapping()
    xm.mark_step(wait=True);xm.wait_device_ops();raw.update(metrics_record(metrics,profile));raw['synchronized']=True
    prefix.with_suffix('.metrics.txt').write_text(metrics.metrics_report() or 'NO_EXECUTION_OBSERVED\n')
    if args.phase=='native-view' and any(k.startswith('aten::') and v>0 for k,v in raw['counters'].items()):
-    raw.update(status='OBSERVED_UNSUPPORTED',reason='NATIVE_VIEW_ATEN_FALLBACK',outputs={},placements={k:str(v.device) for k,v in tensors.items()});B.write(prefix.with_suffix('.json'),raw);continue
+    raw.update(status='OBSERVED_UNSUPPORTED',reason='NATIVE_VIEW_ATEN_FALLBACK',outputs={},placements={k:str(v.device) for k,v in tensors.items()});B.write(prefix.with_suffix('.json'),raw);raw=None;prefix=None;continue
    # Extraction is only an evidence boundary after synchronous execution, never kernel arithmetic.
    raw['parameter_values']={str(k):tensor_record(Ref,v) for k,v in parameter_tensors.items()};raw['outputs']={k:tensor_record(Ref,v) for k,v in tensors.items()};raw['placements']={k:str(v.device) for k,v in tensors.items()}
+   B.write(prefix.with_suffix('.json'),raw)
    raw['hlo_witnesses']=row_graph(B,H,name,raw,hlo,expected[name]);raw['builder_computations']={}
    for key,text in computations.items():
     p=prefix.parent/(name+'.'+key+'.builder.hlo.txt');p.write_text(text);value=expected[name][key];target='s32' if value['dtype']=='int32' else 'f32'
@@ -280,10 +329,13 @@ def run_phase(B,R,P,A,N,S,args):
    raw.update(status='OBSERVED',builder_source_sha256=K.BUILDER_SHA,parameter_mapping_api='LoweringContext.device_parameter_id_tensor_mapping+tensor_parameter_id',materialized_from='device-int-float' if name=='float-arithmetic' else None)
    P.validate_execution(B,raw);B.write(prefix.with_suffix('.json'),raw)
    if name=='device-int-float':materialized=tensors['float'];materialized_record=raw['outputs']['float'];rec['materialized_before_arithmetic']=True
+   raw=None;prefix=None
   N.public_methods(B,A,bnb,roots);A.verify_installed(B,admission,roots);rec.update(source_post=args.admission_sha256,status='COMPLETE',artifacts=B.inventory(output,'receipt.json'));S.durable_json(path,rec)
   return {'record_status':'COMPLETE','phase':args.phase},2 if args.phase=='native-view' and B.read(output/'raw/native-bitcast.json')['status']=='OBSERVED_UNSUPPORTED' else 0
- except BaseException:
-  rec['status']='FAILED';(output/'error.log').write_text(traceback.format_exc());rec['artifacts']=B.inventory(output,'receipt.json');S.durable_json(path,rec);raise
+ except BaseException as error:
+  rec['status']='FAILED';(output/'error.log').write_text(traceback.format_exc())
+  if raw is not None and prefix is not None:retain_failed_row(B,prefix,raw,error)
+  rec['artifacts']=B.inventory(output,'receipt.json');S.durable_json(path,rec);raise
 
 def bit_gate(actual,expected):
  return {'status':'PASS' if actual['bytes_sha256']==expected['bytes_sha256'] else 'FAIL','actual_bytes_sha256':actual['bytes_sha256'],'expected_bytes_sha256':expected['bytes_sha256']}
@@ -338,6 +390,8 @@ def verify(B,R,P,A,N,S,args):
    gates={key:bit_gate(raw['outputs'][key],value) for key,value in row_expected.items()}
    for key,value in raw['source_inputs'].items():
     actual=raw['parameter_values'][str(raw['input_parameter_ids'][key])];validate_array(B,Ref,actual,value);gates['parameter_'+key]=bit_gate(actual,value)
+   for role,value in auxiliary_sources(Ref,name).items():
+    pid=witness['clamp']['auxiliary_parameters'][role]['parameter'];gates['auxiliary_'+role]=bit_gate(raw['parameter_values'][str(pid)],value)
    computations=raw.get('builder_computations');B.require(type(computations) is dict and set(computations)==(set(row_expected) if phase=='builder' else set()),'BUILDER_COMPUTATION_MATRIX')
    for key,descriptor in computations.items():
     artifact=stem+'.'+key+'.builder.hlo.txt';phase_artifacts.add(artifact);B.require(type(descriptor) is dict and set(descriptor)=={'artifact','sha256','witness'} and descriptor['artifact']==artifact and descriptor['sha256']==B.sha(child/artifact),'BUILDER_COMPUTATION_SEAL')

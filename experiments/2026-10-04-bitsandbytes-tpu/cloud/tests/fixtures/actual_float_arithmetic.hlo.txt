@@ -1,0 +1,70 @@
+HloModule R4PrimitiveObservation.52, entry_computation_layout={(f32[20]{0}, f32[], f32[])->(s32[20]{0}, s32[20]{0}, s32[20]{0}, s32[20]{0}, s32[20]{0}, /*index=5*/s32[])}
+
+%R4PrimitiveBitcasts32.7 (p0.8: f32[20]) -> s32[20] {
+  %p0.8 = f32[20]{0} parameter(0)
+  ROOT %bitcast-convert.9 = s32[20]{0} bitcast-convert(f32[20]{0} %p0.8)
+}
+
+%R4PrimitiveBitcasts32.15 (p0.16: f32[20]) -> s32[20] {
+  %p0.16 = f32[20]{0} parameter(0)
+  ROOT %bitcast-convert.17 = s32[20]{0} bitcast-convert(f32[20]{0} %p0.16)
+}
+
+%R4PrimitiveBitcasts32.21 (p0.22: f32[20]) -> s32[20] {
+  %p0.22 = f32[20]{0} parameter(0)
+  ROOT %bitcast-convert.23 = s32[20]{0} bitcast-convert(f32[20]{0} %p0.22)
+}
+
+%R4PrimitiveBitcasts32.26 (p0.27: f32[20]) -> s32[20] {
+  %p0.27 = f32[20]{0} parameter(0)
+  ROOT %bitcast-convert.28 = s32[20]{0} bitcast-convert(f32[20]{0} %p0.27)
+}
+
+%R4PrimitiveBitcasts32.35 (p0.36: f32[20]) -> s32[20] {
+  %p0.36 = f32[20]{0} parameter(0)
+  ROOT %bitcast-convert.37 = s32[20]{0} bitcast-convert(f32[20]{0} %p0.36)
+}
+
+%MaxComputation.41 (x.42: f32[], y.43: f32[]) -> f32[] {
+  %x.42 = f32[] parameter(0)
+  %y.43 = f32[] parameter(1)
+  ROOT %maximum.44 = f32[] maximum(f32[] %x.42, f32[] %y.43)
+}
+
+%R4PrimitiveBitcasts32.47 (p0.48: f32[]) -> s32[] {
+  %p0.48 = f32[] parameter(0)
+  ROOT %bitcast-convert.49 = s32[] bitcast-convert(f32[] %p0.48)
+}
+
+ENTRY %R4PrimitiveObservation.52 (p0.3: f32[20], p1.30: f32[], p2.31: f32[]) -> (s32[20], s32[20], s32[20], s32[20], s32[20], /*index=5*/s32[]) {
+  %p0.3 = f32[20]{0} parameter(0)
+  %constant.2 = f32[] constant(0)
+  %constant.1 = f32[] constant(1)
+  %multiply.4 = f32[] multiply(f32[] %constant.2, f32[] %constant.1)
+  %broadcast.5 = f32[20]{0} broadcast(f32[] %multiply.4), dimensions={}
+  %add.6 = f32[20]{0} add(f32[20]{0} %p0.3, f32[20]{0} %broadcast.5)
+  %call.10 = s32[20]{0} call(f32[20]{0} %add.6), to_apply=%R4PrimitiveBitcasts32.7
+  %constant.11 = f32[] constant(1)
+  %broadcast.12 = f32[] broadcast(f32[] %constant.11), dimensions={}
+  %broadcast.13 = f32[20]{0} broadcast(f32[] %broadcast.12), dimensions={}
+  %multiply.14 = f32[20]{0} multiply(f32[20]{0} %p0.3, f32[20]{0} %broadcast.13)
+  %call.18 = s32[20]{0} call(f32[20]{0} %multiply.14), to_apply=%R4PrimitiveBitcasts32.15
+  %broadcast.19 = f32[20]{0} broadcast(f32[] %broadcast.12), dimensions={}
+  %divide.20 = f32[20]{0} divide(f32[20]{0} %p0.3, f32[20]{0} %broadcast.19)
+  %call.24 = s32[20]{0} call(f32[20]{0} %divide.20), to_apply=%R4PrimitiveBitcasts32.21
+  %abs.25 = f32[20]{0} abs(f32[20]{0} %p0.3)
+  %call.29 = s32[20]{0} call(f32[20]{0} %abs.25), to_apply=%R4PrimitiveBitcasts32.26
+  %p2.31 = f32[] parameter(2)
+  %broadcast.32 = f32[20]{0} broadcast(f32[] %p2.31), dimensions={}
+  %p1.30 = f32[] parameter(1)
+  %broadcast.33 = f32[20]{0} broadcast(f32[] %p1.30), dimensions={}
+  %clamp.34 = f32[20]{0} clamp(f32[20]{0} %broadcast.32, f32[20]{0} %p0.3, f32[20]{0} %broadcast.33)
+  %call.38 = s32[20]{0} call(f32[20]{0} %clamp.34), to_apply=%R4PrimitiveBitcasts32.35
+  %abs.39 = f32[20]{0} abs(f32[20]{0} %p0.3)
+  %constant.40 = f32[] constant(-3.40282347e+38)
+  %reduce.45 = f32[] reduce(f32[20]{0} %abs.39, f32[] %constant.40), dimensions={0}, to_apply=%MaxComputation.41
+  %reshape.46 = f32[] reshape(f32[] %reduce.45)
+  %call.50 = s32[] call(f32[] %reshape.46), to_apply=%R4PrimitiveBitcasts32.47
+  ROOT %tuple.51 = (s32[20]{0}, s32[20]{0}, s32[20]{0}, s32[20]{0}, s32[20]{0}, /*index=5*/s32[]) tuple(s32[20]{0} %call.10, s32[20]{0} %call.18, s32[20]{0} %call.24, s32[20]{0} %call.29, s32[20]{0} %call.38, /*index=5*/s32[] %call.50)
+}
+

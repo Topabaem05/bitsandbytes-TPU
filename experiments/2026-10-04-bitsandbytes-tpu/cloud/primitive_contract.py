@@ -17,14 +17,14 @@ MODE = 'arithmetic-primitives'
 VARIANT = 'arithmetic-v1'
 SCOPE = 'BOUNDED_FP32_BITS_MEAN_FTZ_DIAGNOSTIC'
 # Exact independently frozen scientific sources; preparation does not qualify a milestone.
-PROBE_SHA = '8797e42fd9fdaeff069b56e325999d232005664b172034386dc906fd58f7c09c'
+PROBE_SHA = '80ba23466e22f3695501aac64cc71affbfbccd458e4e8804b8b1f5bf275c2865'
 KERNEL_SHA = 'a532a70b86001f8d3cd755ddd95ed03ba78b2c5570e2e6b278e92577ec52f81a'
 INPUT_SHA = '7cb1be0bf806f3da98f9617f90ba99e042331ecbc07bf79799d779088919e5b5'
 REFERENCE_SHA = '7e0bc0f7e6cfbf049609001613157ba7fd3ec123b5e29b8ed104087d642b5ee8'
 HLO_SHA = '60f8ac1ea1b0a7ebfce27036da02470dae6ad1bb824dc894d462d6e54ce1a39b'
-SOURCES = {'probe_primitives.py': {'sha256': '8797e42fd9fdaeff069b56e325999d232005664b172034386dc906fd58f7c09c', 'bytes': 42027}, 'primitive_kernels.py': {'sha256': 'a532a70b86001f8d3cd755ddd95ed03ba78b2c5570e2e6b278e92577ec52f81a', 'bytes': 3343}, 'primitive-inputs.json': {'sha256': '7cb1be0bf806f3da98f9617f90ba99e042331ecbc07bf79799d779088919e5b5', 'bytes': 87001}, 'primitive_reference.py': {'sha256': '7e0bc0f7e6cfbf049609001613157ba7fd3ec123b5e29b8ed104087d642b5ee8', 'bytes': 3922}, 'hlo_bitcast.py': {'sha256': '60f8ac1ea1b0a7ebfce27036da02470dae6ad1bb824dc894d462d6e54ce1a39b', 'bytes': 9783}}
+SOURCES = {'probe_primitives.py': {'sha256': '80ba23466e22f3695501aac64cc71affbfbccd458e4e8804b8b1f5bf275c2865', 'bytes': 46342}, 'primitive_kernels.py': {'sha256': 'a532a70b86001f8d3cd755ddd95ed03ba78b2c5570e2e6b278e92577ec52f81a', 'bytes': 3343}, 'primitive-inputs.json': {'sha256': '7cb1be0bf806f3da98f9617f90ba99e042331ecbc07bf79799d779088919e5b5', 'bytes': 87001}, 'primitive_reference.py': {'sha256': '7e0bc0f7e6cfbf049609001613157ba7fd3ec123b5e29b8ed104087d642b5ee8', 'bytes': 3922}, 'hlo_bitcast.py': {'sha256': '60f8ac1ea1b0a7ebfce27036da02470dae6ad1bb824dc894d462d6e54ce1a39b', 'bytes': 9783}}
 STATE_SHA = '1233803f173b9e0d6e864e1fa3081f66408b357ffe17d925b0a69459514fb1f1'
-MANIFEST_SHA = '2aef8f7b159eae2facb9aef985f74c0e8873e47d4fc164c678a6a835b9f24f85'
+MANIFEST_SHA = 'e377614105391502a379b0a6c5b7a0d441e2a5e83b126c7c759140820a0e954c'
 BINDINGS = {'primitive_probe_sha256': 'probe_primitives.py',
             'primitive_kernels_sha256': 'primitive_kernels.py',
             'primitive_inputs_sha256': 'primitive-inputs.json',
@@ -342,7 +342,7 @@ def validate_report(report, packet):
             require(row['phase'] == 'native-view' and gates == {}, 'PRIMITIVE_UNSUPPORTED_SCOPE')
             continue
         parameters = module.source_inputs(Ref, data, name, expected['device-int-float']['float'])
-        require(type(gates) is dict and set(gates) == set(expected[name]) | {'parameter_' + key for key in parameters},
+        require(type(gates) is dict and set(gates) == set(expected[name]) | {'parameter_' + key for key in parameters} | {'auxiliary_' + key for key in module.auxiliary_sources(Ref, name)},
                 'PRIMITIVE_GATE_MATRIX')
         for gate in gates.values():
             require(type(gate) is dict and set(gate) == {'status', 'actual_bytes_sha256', 'expected_bytes_sha256'}
@@ -350,6 +350,9 @@ def validate_report(report, packet):
                             for key in ('actual_bytes_sha256', 'expected_bytes_sha256'))
                     and gate['status'] == ('PASS' if gate['actual_bytes_sha256'] == gate['expected_bytes_sha256'] else 'FAIL'),
                     'PRIMITIVE_GATE_STATUS')
+        for role, value in module.auxiliary_sources(Ref, name).items():
+            require(gates['auxiliary_' + role]['expected_bytes_sha256'] == value['bytes_sha256'],
+                    'PRIMITIVE_AUXILIARY_SOURCE_GATE')
         require(row.get('status') == ('PASS' if all(g['status'] == 'PASS' for g in gates.values()) else 'FAIL'),
                 'PRIMITIVE_ROW_STATUS')
     require(report.get('native_view_status') == ('UNSUPPORTED' if rows[0]['status'] == 'UNSUPPORTED' else 'SUPPORTED')

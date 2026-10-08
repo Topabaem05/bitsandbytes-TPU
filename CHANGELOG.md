@@ -1,5 +1,16 @@
 # Change log
 
+## 2026-10-09 — Arithmetic parameter correction
+
+- Admit the two typed clamp parameters with exact source value gates.
+- Require valid alias shapes and retain observations before validation failures.
+- Preserve numerical criteria and reject the previous CPU oracle.
+
+Validation: All 67 independent controls and 44 focused controls after adoption passed.
+All 56 packet members passed inspection, and seven incorrect cases failed admission.
+Actual arithmetic observations remain required; M4 remains unqualified.
+Refer to [the correction record](docs/changes/r4-primitive-parameter-repair.md).
+
 ## 2026-10-09 — Native decode layout failure
 
 - Retain the actual TPU shape-cast failure and four unexecuted cases.
