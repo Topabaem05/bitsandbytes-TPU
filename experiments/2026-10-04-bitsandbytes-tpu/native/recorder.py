@@ -1,5 +1,6 @@
 """Unadopted direct native recorder. Mirrors the pinned factory algorithm without replacing any installed method."""
 import hashlib
+import json
 from pathlib import Path
 import time
 
@@ -27,6 +28,14 @@ def make_recording_kernel(kernel,output_shape_dtype_fn,bridge,xla,torch):
     return call,calls
 
 
+def execution_evidence(metrics,B,P):
+    """Validate exactly the JSON evidence retained for recovered inspection."""
+    profile,_=B.load_spec()
+    evidence={'counters':{key:metrics.counter_value(key) for key in metrics.counter_names()},'execution_metrics':{key:value for key in profile['execution_metrics'] if (value:=metrics.metric_data(key)) is not None}}
+    evidence=json.loads(json.dumps(evidence,allow_nan=False))
+    P.validate_execution(B,evidence)
+    return evidence
+
 def capture_actual(actual,row,xla,xm,metrics,B,P,graph_name):
     """Capture one returned actual graph. No same-device reference runs in its measured interval."""
     V.require(row['status']=='RETURNED','NATIVE_RETURNED')
@@ -42,9 +51,7 @@ def capture_actual(actual,row,xla,xm,metrics,B,P,graph_name):
     metrics.clear_all();started=time.monotonic()
     xla._XLAC._xla_sync_multi([actual],devices=[],wait=True,sync_xla_data=True)
     xm.wait_device_ops();finished=time.monotonic()
-    profile,_=B.load_spec()
-    evidence={'counters':{key:metrics.counter_value(key) for key in metrics.counter_names()},'execution_metrics':{key:list(value) for key in profile['execution_metrics'] if (value:=metrics.metric_data(key)) is not None}}
-    P.validate_execution(B,evidence)
+    evidence=execution_evidence(metrics,B,P)
     execution={'api':'_xla_sync_multi','targets':['actual'],'wait':True,'wait_device_ops':True,'metrics_after_sync_before_output':True,'other_execution_in_interval':False,'graph_hash':graph_hash,'graph_hash_binding':'PRE_SYNC_IDENTIFIER_NOT_EXECUTABLE_LINK','started_monotonic':started,'finished_monotonic':finished}
     # Device-to-host tensor records are outside the execution evidence interval.
     output=B.tensor_record(actual)

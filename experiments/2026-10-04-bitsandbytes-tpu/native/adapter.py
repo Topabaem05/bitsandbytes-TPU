@@ -6,7 +6,7 @@ import math
 from pathlib import Path
 import sys
 
-KERNEL_SHA='fd2232f0795382d4637b361caefaa8760cd593bdad89e74fa32e37be9a82cced'
+KERNEL_SHA='ca2d28ea0857913115d97c4484e5d97eec60aefaa862c0c2eadf1e9eafdf4d87'
 BRIDGE_SHA='c347f8fcb4844fa8849109680ad81b94e221a2c8b011462553b48ec9f67e6338'
 GUARD_SHA='fd8c53eb24fb373fba35c938e00b1ef36caadf3eaf8a74d266528ec6602ad42f'
 

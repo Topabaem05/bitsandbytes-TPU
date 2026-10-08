@@ -1,0 +1,8 @@
+{
+  "bytes": 4038,
+  "no_outputs_included": true,
+  "not_current_oracle": true,
+  "scope": "IMMUTABLE_OLD_ACTUAL_CPU_SOURCE_SEAL_FOR_REJECTION_ONLY",
+  "sha256": "a17ccd6ad8a3a08533f82879a7a146368069fbe37361c22a32873a60ec959a43",
+  "source": ".work/cloud-20261009-native-browser-retry2/native-cpu/recovered/cpu-oracle/oracle-seal.json"
+}

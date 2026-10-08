@@ -1,0 +1,80 @@
+{
+  "artifacts": {
+    "direct-bf16.json": {
+      "bytes": 2519932,
+      "sha256": "538e7c3269e10d2ae89b4f5a5e9be6509d0a55321ecb175d74cca98c88961e83"
+    },
+    "direct-fp32.json": {
+      "bytes": 2812454,
+      "sha256": "b2437daae16ea73484a71c67fc5c1489791819a3c2107fbda10d9f5ef3dbd3a8"
+    },
+    "functional-bf16.json": {
+      "bytes": 2519936,
+      "sha256": "e8b3f4662bc06b64d21e43b85e77994d564ecb7713be8cdd34f9457a352710f4"
+    },
+    "functional-fp32.json": {
+      "bytes": 2812458,
+      "sha256": "1206b67ffe296b7c307769360539cd44d9be5226f8126c254de56a97c9ddc594"
+    },
+    "tail-reference-fp32.json": {
+      "bytes": 2828006,
+      "sha256": "475713a646bee4225c88f8f262db53f3f3e8c8181958820e3d4f1b96847714ef"
+    }
+  },
+  "case_ids": [
+    "direct-fp32",
+    "functional-fp32",
+    "direct-bf16",
+    "functional-bf16",
+    "tail-reference-fp32"
+  ],
+  "cpu_runtime": {
+    "machine": "x86_64",
+    "platform": "linux",
+    "python": "3.12",
+    "torch": "2.9.0+cpu"
+  },
+  "kind": "R6_CPU_ORACLE",
+  "no_xla_jax_import": true,
+  "parent_pid": 3028,
+  "pgid": 5794,
+  "pid": 5794,
+  "plugin_python_files": {
+    "__init__.py": "c7ecdd758ed0d50f10e0b8fa3a17900143368ca6799bfa09e11bfe8118ab59db",
+    "compatibility.py": "13e0a6c941514c1fb709a289a51cbd22375159122ab2e2953f74c31b803e3f8c",
+    "functionalization.py": "e04656503739b24b7251fa1a2cdc028bded34e77b0d8a1c0982fc07bbfbf626d",
+    "reference.py": "0ad17773f18d8f69715af52644c0f94617d93228bc1927287058a6211ed6bb9e",
+    "registration.py": "23dd0f2bd08634d87f579e2544f32ec298a19320bf5e69f61d3ca10b28de3662"
+  },
+  "process_token": "190e8ca0bb2643031e8f1cab1b3d690a",
+  "profile_sha256": "ad53f6416bdabf6440f08b313963c947a468cd39afd413bfe41bb381c4a7a166",
+  "protocol_sha256": "9206a1007c2895b6215085f6104fa2c8f1091a38238561010c49ce78185690bc",
+  "protocol_source_sha256": "7fa666e54f7e6b82b7388745e548f7b1847f2bb8573adaab6998202e79f9d27d",
+  "qualified_runtime": true,
+  "runtime_lock_sha256": "323371ff61c5fbcc4f79fd6a358cf2ba17cb72b907382a5ceaac07f91dc66ed6",
+  "source_post": "29990cb6e282b1b7c1ca4585cfdc3c723871104f47ad155ca53e168c4385b69d",
+  "source_pre": "29990cb6e282b1b7c1ca4585cfdc3c723871104f47ad155ca53e168c4385b69d",
+  "source_variant": "M2_CANONICAL_NON_NESTED_R2_PATCH",
+  "sources": {
+    "adapter.py": "7a293cf6f1db9123dda06a10e8c23b00459d0188bf8f07dc72db0f42471b627a",
+    "bootstrap.py": "7ed51ad613dbd6c0cbaa76575ae1da5d68b205e8b88c9e702cf206c09bb2150d",
+    "cleanup_lifecycle.py": "6557b3522ec68ddcd9106027d08e89e872eb90587eae8cbff2859ac5668cbf76",
+    "coordinator.py": "2c83baf3e4b8eaa91cbdc5602f633670614b5d70ef0a93abebbd9fc4ee51ae63",
+    "device_diagnostic.py": "e2d4c301617749485b5e13c238018b072533bd3814298fa6721af35ab31219d0",
+    "graph_binding.py": "79f446e39a8f04a89197df28897176b2b8f207b031e04da7dccad02c38a5d4e6",
+    "kernel.py": "fd2232f0795382d4637b361caefaa8760cd593bdad89e74fa32e37be9a82cced",
+    "lifecycle.py": "4ef29a2c673ab7dadce5a965bff18e51f4850134af2dfb5f44b3d3153949f986",
+    "prepare_oracle.py": "7b25b6d1f025d029a99d7e2502d64dc704fa9262f226f3ab83f3eb325d6d442d",
+    "proto_contract.py": "4341ecdaa273f449f42e6ffadad345c4abe7259d6a666067918528a70fc6aa8a",
+    "protocol.json": "9206a1007c2895b6215085f6104fa2c8f1091a38238561010c49ce78185690bc",
+    "protocol.py": "7fa666e54f7e6b82b7388745e548f7b1847f2bb8573adaab6998202e79f9d27d",
+    "recorder.py": "ce1c2e88a8992dc481606a344af38fa3d314f47af7b5b3022e0546f4409e7a01",
+    "state_child_owner.py": "36b10c2fc62e210fd5fb0d194213b660a44687137f8ab4c9d80dc0587f8f8ad5",
+    "verifier.py": "4c0e60e602f84c6d54bec02d08f71f61c5171e68e485dde0d6ef2cb9673a8bb3",
+    "verify_run.py": "5ccb93d0a680b38734e0e642f611822880bd2b7dddbf279f2daf84a09da9d44a"
+  },
+  "status": "COMPLETE",
+  "upstream_default_sha256": "e39afd16dca6e6f34a14305ade0ba4acbb49dc2c7a9baf937341d7e33b682819",
+  "upstream_python_map_sha256": "29990cb6e282b1b7c1ca4585cfdc3c723871104f47ad155ca53e168c4385b69d",
+  "upstream_utils_sha256": "dc564f2fbf13dba81388a23d4c87167dd54da04af8f17b0db52685fe42b11c84"
+}

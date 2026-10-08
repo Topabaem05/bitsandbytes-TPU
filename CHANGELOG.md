@@ -1,5 +1,18 @@
 # Change log
 
+## 2026-10-09 — Native kernel and diagnostic correction
+
+- Replace unsupported dynamic slices with fixed slices and conditional selection.
+- Synchronize functional tensors before the original backend wrapper receives them.
+- Convert complete metric samples to JSON before unchanged validation.
+- Require the new native source manifest and a fresh qualified CPU oracle.
+- Add source, wrapper, metric, and optional Pallas regression tests.
+
+Validation: The reviewer repeated 68 preparation controls within their stated local scopes.
+After adoption, three containers with 26 diagnostic, seven Pallas, and 33 cloud controls passed.
+Actual TPU execution and M6 qualification remain required.
+Refer to [the correction record](docs/changes/r6-native-repair.md).
+
 ## 2026-10-09 — Arithmetic allocation wait
 
 - Retain the browser allocation wait and the unexecuted arithmetic diagnostic.

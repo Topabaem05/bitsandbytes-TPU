@@ -18,12 +18,19 @@ import protocol as S
 import base64
 import recorder as E
 import verifier as V
-PINS_SHA='01563e5ae4d00b6bc6d56bc61847ec6fa5628e5573fc51b21e5ad8d149ca3836'
+PINS_SHA='d0347afc7cb7941fea38deabba128c1a105377b4a6e28a97a22482a5a15dc4f3'
 
 def write(path,value):
     path=Path(path);path.parent.mkdir(parents=True,exist_ok=True);path.write_text(json.dumps(value,sort_keys=True,indent=2,allow_nan=False)+'\n')
 def load(path,name):
     spec=importlib.util.spec_from_file_location(name,path);module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module);return module
+
+def functional_backend_call(wrapped,torch,activation,packed,shape,scales,blocksize,quant_type):
+    """Call the original backend wrapper with synchronized, unwrapped operands."""
+    return D.native_boundary(
+        lambda raw_activation,raw_packed,raw_scales: wrapped(
+            raw_activation,raw_packed,shape,raw_scales,blocksize,quant_type),
+        torch,activation,packed,scales)
 
 def run(args):
     output=Path(args.output);output.mkdir(parents=True,exist_ok=False)
@@ -81,7 +88,7 @@ def run(args):
                 graph_name='r6-boundary-'+args.process_token[:12]+'-'+name
                 torch_xla._XLAC._set_current_graph_name(graph_name)
                 before=len(adapter.events);native_before=len(native_calls)
-                actual=(wrapped if use_wrapper else adapter)(a,packed,(n,k),scales,64,'nf4')
+                actual=functional_backend_call(wrapped,torch,a,packed,(n,k),scales,64,'nf4') if use_wrapper else adapter(a,packed,(n,k),scales,64,'nf4')
                 prefix.parent.mkdir(parents=True,exist_ok=True)
                 if rows==128:
                     D.require(len(native_calls)==native_before+1,'ONE_ACTUAL_NATIVE_CALL')
@@ -98,7 +105,7 @@ def run(args):
                     prefix.with_suffix('.mosaic-body.bin').write_bytes(base64.b64decode(json.loads(raw['native_boundary']['payload'])['custom_call_config']['body'],validate=True))
                 else:
                     metrics.clear_all();torch_xla._XLAC._xla_sync_multi([actual],devices=[],wait=True);xm.wait_device_ops()
-                    profile,_=B.load_spec();raw['counters']={key:metrics.counter_value(key) for key in metrics.counter_names()};raw['execution_metrics']={key:list(value) for key in profile['execution_metrics'] if (value:=metrics.metric_data(key)) is not None};P.validate_execution(B,raw)
+                    raw.update(E.execution_evidence(metrics,B,P))
                     raw['output']=B.tensor_record(actual)
                 profile,_=B.load_spec();raw['cpu_reference']=B.tensor_record(cpu_expected);raw['selected_events']=adapter.events[before:]
                 # Same-device reference happens after the retained actual-only execution interval.

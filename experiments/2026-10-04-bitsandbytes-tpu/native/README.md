@@ -3,7 +3,9 @@
 This diagnostic uses `M2_CANONICAL_NON_NESTED_R2_PATCH` and the fixed Linux runtime.
 It does not qualify the nested M4 plugin.
 `manifest.json` and its 23 listed source files retain the exact reviewed recorder23 bytes.
-The native source manifest is `b25c5d2bf128b5164538c06267ec3a2f55a001a1a7f86eb63142153842eb3909`.
+The native source manifest is `c533a0b7ac754318ce4d6baa64e0e14d7961941983ffdf726d4b57177e865a14`.
+The [correction record](../../../docs/changes/r6-native-repair.md) describes the kernel, wrapper, and metric changes.
+The earlier actual CPU oracle does not qualify this source generation.
 
 The explicit cloud mode is `m6-native-boundary`.
 The builder requires an independently reviewed M2 dependency record and its hash.

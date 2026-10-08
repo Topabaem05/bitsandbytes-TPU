@@ -1,0 +1,99 @@
+{
+  "accepted_milestones": 3,
+  "actual_TPU": "NOT_RUN",
+  "candidate_generation": "r6-kernel-harness-combined-v1",
+  "checked_local_date": "2026-10-09",
+  "compiler_memory": "UNKNOWN",
+  "historical_base_cloud_revision_scope": "Historical cloud foundation only; per-file manifest identifies actual bytes",
+  "libtpu_layout_and_backend_passes": "NOT_RUN",
+  "m6": "NOT_QUALIFIED",
+  "native_manifest_sha256": "c533a0b7ac754318ce4d6baa64e0e14d7961941983ffdf726d4b57177e865a14",
+  "original_actual_errors": "RETAINED",
+  "packet": {
+    "actual_tpu": "NOT_RUN",
+    "archive_members_checked": 69,
+    "generation": "r6-kernel-harness-combined-v1",
+    "installation": "NOT_RUN",
+    "m6": "NOT_QUALIFIED",
+    "manifest_sha256": "d6c3194db0a080719db2d35b20751c6195bc83ca0d9402084f8e0b5708e4f43d",
+    "members": 69,
+    "native_manifest_sha256": "c533a0b7ac754318ce4d6baa64e0e14d7961941983ffdf726d4b57177e865a14",
+    "payload_bytes": 1047862,
+    "payload_sha256": "43f79facbccf5558ebbdd52fb90088022d47b46d5f54a2d4f027a4ca08eea91e",
+    "provider_calls": 0,
+    "qualified_linux_cpu": "NOT_RUN",
+    "scope": "PRIVATE_NO_DISPATCH",
+    "source_admission_sha256": "8b2b3e26e2e7c98c0fde52f51663bed84999ac733dcbc39573ef8b3aeca4f9a1",
+    "status": "GENUINE_PACKET_BUILD_PREFLIGHT_PASS",
+    "upstream_archive_method": "ACTUAL_GIT_ARCHIVE_FIXED_COMMIT_NO_SUBSTITUTION"
+  },
+  "performance": "NOT_RUN",
+  "public_plugin_source": "UNCHANGED",
+  "qualified_Linux_CPU_for_this_generation": "NOT_RUN",
+  "regression_map_sha256": "ba716ae1210d90d64abb2ead0d04c65bff0fae56067d731dedafbf774d2ff4af",
+  "retained_worker_regression_failure": "Initial test used identical halves; preserved failure; fixture corrected to distinct block codes without tolerance or production changes",
+  "root_distinct_focused_controls": 68,
+  "root_harness_and_admission_controls": 31,
+  "root_incorrect_lowerable_half_rejection_controls": 1,
+  "root_post_adoption_containers": 3,
+  "root_post_adoption_controls": {
+    "diagnostic_admission": 26,
+    "inherited_cloud": 33,
+    "pallas": 7
+  },
+  "root_post_adoption_xml_sha256": "d565ac2a0aee9304c836a63ad7e7ac91da58a13d6e95f8d87258357f4999fdeb",
+  "root_prior_kernel_review_sha256": "2b55207f987966f74153257a50ddac8eb8b8fe72142ef4c9378fcead2fa381fd",
+  "root_review_sha256": "d299ea847613bbb366fc2c2cd36d54343a0b293ae95296e17146a5bba34c6576",
+  "root_runtime_and_source_controls": 8,
+  "root_runtime_report_sha256": "92d7ac3269cf16208b42bf436ec7b8c93ab6f407e1ff2198c7dbc417ee79acce",
+  "root_same_kernel_interpret_controls": 18,
+  "root_same_kernel_target_frontend_controls": 10,
+  "root_xml_sha256": "4a29e8736d39e6e2a8e09e1d5cef12a476def5c943d1cc232260ec9d18b74fff",
+  "source_files": {
+    "experiments/2026-10-04-bitsandbytes-tpu/cloud/native_contract.py": {
+      "before_sha256": "ea79e20e633410b1a4af632069db92b2ca08ee2eb45c7a5a9b9e6c3280133bf6",
+      "bytes": 10978,
+      "sha256": "33d0b7d5898f4b130a041089680fb9d9efa4bd84ed0356a574565af74c702855",
+      "source": "cloud/native_contract.py"
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/native/adapter.py": {
+      "before_sha256": "7a293cf6f1db9123dda06a10e8c23b00459d0188bf8f07dc72db0f42471b627a",
+      "bytes": 5992,
+      "sha256": "26f9afc9227a6d39573f885cbc867f05723509da6f106567f875ce1dd0fa30c5",
+      "source": "native/adapter.py"
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/native/device_diagnostic.py": {
+      "before_sha256": "e2d4c301617749485b5e13c238018b072533bd3814298fa6721af35ab31219d0",
+      "bytes": 15074,
+      "sha256": "138d5c23bb5104b9c3dff5b63063b2058d866863ce8338f8c8fd2327c0d9d7ad",
+      "source": "native/device_diagnostic.py"
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/native/kernel.py": {
+      "before_sha256": "fd2232f0795382d4637b361caefaa8760cd593bdad89e74fa32e37be9a82cced",
+      "bytes": 4586,
+      "sha256": "ca2d28ea0857913115d97c4484e5d97eec60aefaa862c0c2eadf1e9eafdf4d87",
+      "source": "native/kernel.py"
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/native/manifest.json": {
+      "before_sha256": "b25c5d2bf128b5164538c06267ec3a2f55a001a1a7f86eb63142153842eb3909",
+      "bytes": 3471,
+      "sha256": "c533a0b7ac754318ce4d6baa64e0e14d7961941983ffdf726d4b57177e865a14",
+      "source": "native/manifest.json"
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/native/recorder.py": {
+      "before_sha256": "ce1c2e88a8992dc481606a344af38fa3d314f47af7b5b3022e0546f4409e7a01",
+      "bytes": 4564,
+      "sha256": "53a9f3c79338d21be340435a5e64f62e20af32c4ee3e67e09fbd8159bc19a40b",
+      "source": "native/recorder.py"
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/native/source-pins.json": {
+      "before_sha256": "01563e5ae4d00b6bc6d56bc61847ec6fa5628e5573fc51b21e5ad8d149ca3836",
+      "bytes": 1740,
+      "sha256": "d0347afc7cb7941fea38deabba128c1a105377b4a6e28a97a22482a5a15dc4f3",
+      "source": "native/source-pins.json"
+    }
+  },
+  "source_map_sha256": "228da197e6199551d821202a5a082f16dd4436e1773beed6a437dfe06b534b16",
+  "status": "REVIEWED_NATIVE_REPAIR_PREPARATION",
+  "verifier_and_numerical_criteria": "UNCHANGED"
+}

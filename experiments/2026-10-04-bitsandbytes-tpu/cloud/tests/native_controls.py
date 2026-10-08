@@ -29,7 +29,9 @@ def prepare():
 
 def make_records(packet,manifest,base):
  base.mkdir();records=base/'records';records.mkdir();shutil.copytree(OUT/'cpu-fixture',records/'cpu-oracle')
- S=NC.module(packet);seal=S.read(records/'cpu-oracle/oracle-seal.json');seal.update(cpu_runtime={'python':'3.12','torch':'2.9.0+cpu','platform':'linux','machine':'x86_64'},qualified_runtime=True,pid=34000,pgid=34000,parent_pid=32000,process_token='3'*32);S.write(records/'cpu-oracle/oracle-seal.json',seal)
+ S=NC.module(packet);seal=S.read(records/'cpu-oracle/oracle-seal.json');seal.update(sources=S.sources(),cpu_runtime={'python':'3.12','torch':'2.9.0+cpu','platform':'linux','machine':'x86_64'},qualified_runtime=True,pid=34000,pgid=34000,parent_pid=32000,process_token='3'*32);S.write(records/'cpu-oracle/oracle-seal.json',seal)
+ # This is a synthetic current-generation source seal over retained CPU values.
+ # The immutable original corpus/seal is unchanged and is not current device evidence.
  # Source controls and wheel proofs are synthetic, declared only in this isolated driver.
  fixtures=load(ROOT/'experiments/2026-10-04-bitsandbytes-tpu/cloud/tests/test_transfer_cloud.py','native_controls_legacy_fixture')
  write(records/'source-controls.json',fixtures.controls_fixture());admission=NC.read(packet/'source-admission.json')

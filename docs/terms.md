@@ -43,6 +43,7 @@ They are not additions to the official ASD-STE100 dictionary.
 | HLO | The high-level operation representation used by XLA. |
 | high-water value | The largest memory usage reported by an allocator within its own measurement scope. |
 | JAX | The JAX numerical software package. |
+| JSON | A text format for structured data. |
 | implementation | The code that performs a specified software operation. |
 | fixture | Fixed data that a software test uses. |
 | kernel | A function that executes a device computation. |
@@ -99,6 +100,7 @@ They are not additions to the official ASD-STE100 dictionary.
 | uint8 | An unsigned eight-bit integer data type. |
 | VMEM | The vector memory used by TPU kernel computations. |
 | wheel | A Python package distribution in wheel format. |
+| wrapper | An object or function that adds behavior around an existing tensor or function. |
 | XLA | The compiler system that PyTorch/XLA uses. |
 
 ## Technical verbs
@@ -114,5 +116,6 @@ They are not additions to the official ASD-STE100 dictionary.
 | initialize | Set the initial state of a software component. |
 | quantize | Convert numerical values into codes and scales. |
 | register | Add an implementation to the PyTorch operator registry. |
+| synchronize | Complete pending tensor updates or specified device operations before the next action. |
 
 Use these verbs only for the specified computer or mathematical process.
