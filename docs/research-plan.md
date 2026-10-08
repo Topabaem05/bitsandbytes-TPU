@@ -158,6 +158,10 @@ The exact draft remained inactive, both `v1` requests returned HTTP 404, and all
 A smaller transport script must preserve the identical scientific ZIP before another reviewed submission.
 The [public payload transport](changes/r8-public-payload.md) passed 40 controls before and after adoption.
 It admits the complete wrapper and adds one transport record to the unchanged scientific archive.
+The actual public ZIP readback passed, and Kaggle saved the exact private version.
+The [saved-version continuation](changes/r8-saved-version-continuation.md) passed 41 controls before and after adoption.
+It retrieves that version within the original deadline and requires independent provider closure.
+Actual scientific acceptance remains required.
 Actual immutable download, provider execution, and resource closure remain required.
 M8 requires an identified version, the accepted runtime and scientific results, and independent resource closure.
 The earlier [cloud inspection](research/2026-10-08/cloud.md) remains a dated source record.

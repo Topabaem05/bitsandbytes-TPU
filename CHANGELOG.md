@@ -1,5 +1,15 @@
 # Change log
 
+## 2026-10-09 — Exact saved Kaggle version retrieval
+
+- Admit the two exact save reference forms for one known version.
+- Retrieve existing records within the original deadline and preserve the original failed owner.
+- Require independent provider closure and retain unchanged scientific recovery.
+
+Validation: All 28 admission controls and 13 closure controls passed before and after adoption.
+The actual public ZIP readback passed; actual Kaggle scientific acceptance remains required.
+Refer to [the continuation record](docs/changes/r8-saved-version-continuation.md).
+
 ## 2026-10-09 — Actual gather results on Colab
 
 - Retain two successful FP32 native cases and the BF16 compiler type error.

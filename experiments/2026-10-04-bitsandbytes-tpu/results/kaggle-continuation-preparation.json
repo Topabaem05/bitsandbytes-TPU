@@ -1,0 +1,49 @@
+{
+  "actual_M8": "NOT_QUALIFIED",
+  "actual_saved_version": {
+    "scientific_acceptance": "NOT_RUN",
+    "source_readback": "PASS",
+    "status_at_inspection": "QUEUED",
+    "version": 1
+  },
+  "format": "M8_SAVED_VERSION_CONTINUATION_PREPARATION_V1",
+  "production_and_control_files": 9,
+  "public_download": {
+    "bytes": 983676,
+    "child_closed": true,
+    "fetch_receipt_sha256": "15ea3396f241df1e6e64b23e958d76a9613a0b3e66f4491a526de157ac1bfa98",
+    "http_status": 200,
+    "kaggle_execution": "NOT_RUN",
+    "members": 45,
+    "sha256": "654641d70a43bb1154097301b8ba41dfe5d2f95d16a2dd0e01c181e69eead80a",
+    "status": "ROOT_ACTUAL_PUBLIC_DOWNLOAD_PASS"
+  },
+  "reviewed_date": "2026-10-09",
+  "root_control_records": {
+    "adopted-closure/results.json": {
+      "count": 13,
+      "sha256": "51e879db6669f108eb9ca270a99cc5d10a1ca4f436cd7abad4756494e27792a3"
+    },
+    "adopted-portable/results.json": {
+      "count": 28,
+      "sha256": "de5dc8b0f0b892561b8211be55ff753d29797268dc21e479af22526c86f43c0c"
+    },
+    "closure-controls/results.json": {
+      "count": 13,
+      "sha256": "51e879db6669f108eb9ca270a99cc5d10a1ca4f436cd7abad4756494e27792a3"
+    },
+    "controls/results.json": {
+      "count": 28,
+      "sha256": "9aaef31b716374fee59ed448fae240b98df6ad5b8e5027e181cd327aef702b78"
+    }
+  },
+  "source_review": {
+    "canonical_files": 10,
+    "post_source_read_body_ast": "EXACT_CANONICAL",
+    "production_files": 3,
+    "provider_calls": 0,
+    "source_map_sha256": "aa876ec051e7cf9b943a67db05c5653b52b49ff04e710e50aa63451641632f6c",
+    "status": "ROOT_SOURCE_AND_UNCHANGED_RECOVERY_BODY_PASS"
+  },
+  "submit_calls_by_continuation": 0
+}

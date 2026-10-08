@@ -1,0 +1,20 @@
+{
+  "canonical": {
+    "batch.py": "30af975218b7283d76a9129d76336671c7100f3bf12a78fd7a2256501db28305",
+    "build_download_candidate.py": "d1cf7230cef9f2cda6566840df802d5674925479edc2b094aa0adc2fdb90809b",
+    "installed-source-pins.json": "2a4b414f644bd8920deb6ab89f03b86aa9bb81e381d258b1de7cb5b4a92304b2",
+    "payload_transport.py": "18e3b711c3a82f592892b06eaa3933907d444df39b21ab46387a8b7f53e459c7",
+    "process_provider.py": "b53cf34ab127fa17c250e89ff966226a1c0087e3830372dcbf57d1d4bf608c84",
+    "recover_download.py": "7e02ac1d932548c1f112068ae31b03cd3dc731e1cc12961604758f998975f2f2",
+    "recovery.py": "715b609fe46cfa8377d7c4437501c755549f5ee5f5f95135136ce979da0aa73e",
+    "runner.py": "b77029fa8b6cf191e3e0cecf70a30d431abce93d05e28bd7cddb3570953e6e45",
+    "sdk_worker.py": "c33fc21a6b2405edb56486cfcc8881e683432bb0b2bd686ed66ab2c4eb49541b",
+    "supervisor.py": "69941df7721a7b246de780b43347daee21571ed6bb992a3965e9cb7eea1e00f1"
+  },
+  "format": "M8_CONTINUATION_SOURCE_MAP_V1",
+  "production": {
+    "continue_owner.py": "f27ff78d63b1f9f039ed43b1ca9885958445a492fdc193a96f8c1bdb6c875dd9",
+    "continued_runner.py": "cb48c320c1fc3f831a8a7ad60bf613f8ede95ee57ccd38b3e145d9d22a88cbae",
+    "save_reference.py": "d16783b4ad05949f2c1a1ebbfdb6596368fd7512d2078c9cbd8d91d973dcd4d8"
+  }
+}
