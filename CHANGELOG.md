@@ -1,5 +1,15 @@
 # Change log
 
+## 2026-10-09 — Actual compiler flag rejection
+
+- Retain the unsupported flag error before native numerical execution.
+- Verify the qualified CPU records and all three returned archives.
+- Verify process closure, runtime disconnection, and zero active usage.
+
+Validation: Nine independent controls passed; all five device cases remain unexecuted.
+No raw compiler dump was produced, and M6 remains unqualified.
+Refer to [the failure record](docs/changes/r6-compiler-flag-colab-failure.md).
+
 ## 2026-10-09 — Compiler capture with accepted native records
 
 - Bind the actual accepted native result through the compiler packet and all phase gates.

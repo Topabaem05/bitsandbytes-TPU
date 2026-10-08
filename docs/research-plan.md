@@ -140,6 +140,11 @@ Compiler memory records and public integration remain required for M6.
 The [accepted-dependency compiler mode](changes/r6-compiler-accepted-preparation.md) passed 131 canonical controls.
 It preserves the ordinary native path and requires a fresh qualified CPU oracle before compiler capture.
 Raw capture does not establish selected executable identity or allocator peak.
+The [actual compiler attempt](changes/r6-compiler-flag-colab-failure.md) passed its fresh five-case CPU gate.
+The fixed runtime rejected a dump flag before native numerical execution.
+All five device cases remain unexecuted, and the compiler archive contains no raw dumps.
+Independent archive and resource closure inspection passed.
+Inspect runtime flag support before a new compiler generation executes.
 The [measurement preparation](changes/r7-measurement-preparation.md) passed 64 local controls and nine independent retained-record checks.
 Actual M7 collection requires accepted M6 results.
 BF16 gradients remain outside the fixed diagnostic scope.
