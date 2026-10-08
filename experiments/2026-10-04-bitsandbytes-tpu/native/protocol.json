@@ -1,0 +1,49 @@
+{
+  "case_ids": [
+    "direct-fp32",
+    "functional-fp32",
+    "direct-bf16",
+    "functional-bf16",
+    "tail-reference-fp32"
+  ],
+  "cpu_oracle": "Pinned upstream default _dequantize_4bit_compute body with only compile decorator removed, pinned utils NF4 literals, CPU torch.nn.functional.linear; no plugin output as oracle",
+  "jax": "0.7.1",
+  "jaxlib": "0.7.1",
+  "kind": "R6_NATIVE_BOUNDARY_PROTOCOL_V1",
+  "libtpu": "0.0.21",
+  "m4_source_compatibility": "NOT_QUALIFIED",
+  "m6_public_integration": "NOT_QUALIFIED",
+  "native_case_ids": [
+    "direct-fp32",
+    "functional-fp32",
+    "direct-bf16",
+    "functional-bf16"
+  ],
+  "patch_manifest_sha256": "e745fbf21aac10ed9118167a131d6505bf6dbe03e1fab0a669c663b26c5a5732",
+  "plugin_python_files": {
+    "__init__.py": "c7ecdd758ed0d50f10e0b8fa3a17900143368ca6799bfa09e11bfe8118ab59db",
+    "compatibility.py": "13e0a6c941514c1fb709a289a51cbd22375159122ab2e2953f74c31b803e3f8c",
+    "functionalization.py": "e04656503739b24b7251fa1a2cdc028bded34e77b0d8a1c0982fc07bbfbf626d",
+    "reference.py": "0ad17773f18d8f69715af52644c0f94617d93228bc1927287058a6211ed6bb9e",
+    "registration.py": "23dd0f2bd08634d87f579e2544f32ec298a19320bf5e69f61d3ca10b28de3662"
+  },
+  "precision": "highest",
+  "recipes": {
+    "activation": "((arange(M*K)%31)-15)/32, cast to case dtype",
+    "codes": "(arange(N*K)*7)%16; high nibble first",
+    "scales": "(arange(N*K/64)%17)/8 FP32",
+    "tail_rows": 129
+  },
+  "runtime_lock_sha256": "323371ff61c5fbcc4f79fd6a358cf2ba17cb72b907382a5ceaac07f91dc66ed6",
+  "shapes": {
+    "blocksize": 64,
+    "k": 512,
+    "m": 128,
+    "n": 256,
+    "q": 2
+  },
+  "source_variant": "M2_CANONICAL_NON_NESTED_R2_PATCH",
+  "torch": "2.9.0+cpu",
+  "torch_xla": "2.9.0",
+  "upstream_revision": "833649043474794b8fe7a4136e0c40faf077b2e0"
+}

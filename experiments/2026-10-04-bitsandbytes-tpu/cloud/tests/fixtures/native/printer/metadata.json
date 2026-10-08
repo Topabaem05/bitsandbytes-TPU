@@ -1,0 +1,8 @@
+{
+  "scope": "ACTUAL_LOCAL_JAX071_PARSER_PRINTER_NO_COMPILATION_NO_EXECUTION",
+  "jax": "0.7.1",
+  "jaxlib": "0.7.1",
+  "torch_xla_api": "SOURCE_CONTRACT_ONLY_NOT_EXECUTED",
+  "payload": "{\"custom_call_config\":{\"body\":\"TUzvUnN5bnRoZXRpYyBwcm90b2NvbCBmaXh0dXJl\",\"needs_layout_passes\":true}}",
+  "cases": 2
+}

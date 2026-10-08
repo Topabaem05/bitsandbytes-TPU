@@ -18,6 +18,7 @@ HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE / 'ownership'))
 from cleanup_lifecycle import Ownership
 from lifecycle import durable_json
+import native_contract as NC
 from remote import sha, verify_archive, verify_experiment, verify_transfer_payload, validate_source_controls, TRANSFER_BINDINGS, TRANSFER_PATCH_MANIFEST_SHA, STATE_BINDINGS
 from nested_contract import (NESTED_BINDINGS,NESTED_SCOPE,NESTED_SOURCE_SHA,NESTED_PLUGIN_MANIFEST_SHA,
     NESTED_FILES,verify_nested_payload,nested_cli)
@@ -51,12 +52,13 @@ def preflight(packet, expected):
         p = packet / name
         if p.is_symlink() or sha(p) != rec['sha256'] or p.stat().st_size != rec['bytes']:
             raise ValueError('PACKET_LOCAL_FILE')
-    if manifest.get('experiment') in {'transfer-api42', 'state-roundtrip', 'nested-79', 'nested-state-8'}:
+    if manifest.get('experiment') in {'transfer-api42', 'state-roundtrip', 'nested-79', 'nested-state-8', 'm6-native-boundary'}:
         verify_transfer_payload(packet, manifest)
     if manifest.get('experiment') in {'nested-79','nested-state-8'}:
         verify_nested_payload(packet,manifest)
     if manifest.get('experiment')=='nested-state-8':
         verify_state_payload(packet,manifest)
+    if manifest.get('experiment')==NC.MODE: NC.payload(packet,manifest)
     for p in HERE.rglob('*.py'):
         if 'tests' in p.relative_to(HERE).parts or p.name == 'build_packet.py':
             continue
@@ -174,7 +176,8 @@ def drive(packet, output, expected, acceptance, acceptance_sha, cli_python, cli_
     nested_state = experiment=='nested-state-8'
     nested = experiment in {'nested-79','nested-state-8'}
     state = experiment == 'state-roundtrip'
-    transfer = experiment in {'transfer-api42', 'state-roundtrip', 'nested-79', 'nested-state-8'}
+    native = experiment == 'm6-native-boundary'
+    transfer = experiment in {'transfer-api42', 'state-roundtrip', 'nested-79', 'nested-state-8', 'm6-native-boundary'}
     if diagnostic:
         fields.update(experiment=experiment, diagnostic_only=True, route_probe_sha256=manifest['route_probe_sha256'])
     if precision:
@@ -191,6 +194,8 @@ def drive(packet, output, expected, acceptance, acceptance_sha, cli_python, cli_
         if state:
             fields.update({field: manifest[field] for field in STATE_BINDINGS})
             fields['state_scope'] = manifest['state_scope']
+    if native:
+        fields.update(native_manifest_sha256=NC.MANIFEST_SHA,m2_dependency_sha256=manifest['m2_dependency_sha256'],native_source_variant=NC.VARIANT,native_scope=manifest['native_scope'])
     adopting=browser_adoption is not None or browser_adoption_sha256 is not None
     adoption=None
     if adopting:
@@ -228,6 +233,7 @@ def drive(packet, output, expected, acceptance, acceptance_sha, cli_python, cli_
         owner.update(experiment=experiment, precision='highest', api42_status='NOT_QUALIFIED', m3_status='NOT_QUALIFIED')
         if state:
             owner['api42_status'] = 'NOT_REPEATED'
+    if native: owner.update(m6_status='NOT_QUALIFIED',m4_source_compatibility='NOT_QUALIFIED',native_source_variant=NC.VARIANT,optimized_executable_link='UNKNOWN',compiler_body_memory_allocator='NOT_QUALIFIED')
     adoption_verified=False
     started = None
     prior = {sig: signal.getsignal(sig) for sig in (signal.SIGTERM, signal.SIGINT)}
@@ -345,7 +351,18 @@ def drive(packet, output, expected, acceptance, acceptance_sha, cli_python, cli_
         phase_receipt('10-cpu', 'CPU_ORACLE_READY_TPU_NOT_RUN')
         download('11-cpu-seal', base + '/records/cpu-oracle/oracle-seal.json', output / 'cpu-oracle-seal.json', reserve=660)
         seal = json.loads((output / 'cpu-oracle-seal.json').read_text())
-        if seal.get('runtime_lock_sha256') != manifest['runtime_lock_sha256'] or seal.get('source_admission_sha256') != manifest['source_admission_sha256']:
+        if native:
+            cpu_receipt=phase_receipt('11-native-cpu','CPU_ORACLE_READY_TPU_NOT_RUN')
+            native_cpu=output/'native-cpu';native_cpu.mkdir()
+            download('11a-native-inventory',base+'/records/native-cpu-inventory.json',native_cpu/'inventory.json',reserve=660)
+            download('11b-native-parts',base+'/native-cpu-parts/manifest.json',native_cpu/'parts-manifest.json',reserve=660)
+            import transport
+            parts=transport.validate_manifest(json.loads((native_cpu/'parts-manifest.json').read_text()),cpu_receipt['native_cpu_evidence_sha256'],cpu_receipt['native_cpu_evidence_bytes']);(native_cpu/'parts').mkdir()
+            for i,part in enumerate(parts['parts']): download('11c-native-part-'+str(i),base+'/native-cpu-parts/'+part['name'],native_cpu/'parts'/part['name'],reserve=660)
+            transport.assemble(native_cpu/'parts-manifest.json',native_cpu/'parts',native_cpu/'evidence.zip',expected_manifest_sha256=sha(native_cpu/'parts-manifest.json'),expected_sha256=cpu_receipt['native_cpu_evidence_sha256'],expected_bytes=cpu_receipt['native_cpu_evidence_bytes'])
+            recovered_cpu=NC.recover_cpu(native_cpu,cpu_receipt);native_gate=NC.cpu_gate(packet,recovered_cpu,cpu_receipt);owner['native_root_oracle_gate']=native_gate
+            if sha(output/'cpu-oracle-seal.json')!=native_gate['oracle_sha256']:raise ValueError('NATIVE_STANDALONE_ARCHIVED_ORACLE_SEAL')
+        elif seal.get('runtime_lock_sha256') != manifest['runtime_lock_sha256'] or seal.get('source_admission_sha256') != manifest['source_admission_sha256']:
             raise ValueError('RECOVERED_ORACLE_BINDING')
         owner['recovered_oracle_sha256'] = sha(output / 'cpu-oracle-seal.json')
         if nested_state:
@@ -364,10 +381,10 @@ def drive(packet, output, expected, acceptance, acceptance_sha, cli_python, cli_
                 raise ValueError('RECOVERED_NESTED_STATE_ORACLE_BINDING')
             owner['recovered_oracle_sha256']=sha(output/'state-cpu-oracle-seal.json')
         launch = output / 'launch.json'
-        durable_json(launch, {'oracle_sha256': owner['recovered_oracle_sha256'],**({'nested_oracle_sha256':owner['recovered_nested_oracle_sha256']} if nested_state else {})})
+        durable_json(launch,native_gate if native else {'oracle_sha256': owner['recovered_oracle_sha256'],**({'nested_oracle_sha256':owner['recovered_nested_oracle_sha256']} if nested_state else {})})
         upload('12-oracle-admission', launch, base + '/launch.json')
-        operation('13-tpu', 'nested-state' if nested_state else 'nested' if nested else 'state' if state else 'transfer' if transfer else 'precision' if precision else 'routes' if diagnostic else 'tpu', 1800)
-        phase_receipt('13-tpu', 'NESTED_STATE_CHILD_TERMINAL_LOCAL_REVIEW_REQUIRED' if nested_state else 'NESTED_CHILD_TERMINAL_LOCAL_REVIEW_REQUIRED' if nested else 'STATE_CHILD_TERMINAL_LOCAL_REVIEW_REQUIRED' if state else 'TRANSFER_CHILD_TERMINAL_LOCAL_REVIEW_REQUIRED' if transfer else
+        operation('13-tpu', 'native' if native else 'nested-state' if nested_state else 'nested' if nested else 'state' if state else 'transfer' if transfer else 'precision' if precision else 'routes' if diagnostic else 'tpu', 1800)
+        phase_receipt('13-tpu', 'NATIVE_CHILD_TERMINAL_LOCAL_REVIEW_REQUIRED' if native else 'NESTED_STATE_CHILD_TERMINAL_LOCAL_REVIEW_REQUIRED' if nested_state else 'NESTED_CHILD_TERMINAL_LOCAL_REVIEW_REQUIRED' if nested else 'STATE_CHILD_TERMINAL_LOCAL_REVIEW_REQUIRED' if state else 'TRANSFER_CHILD_TERMINAL_LOCAL_REVIEW_REQUIRED' if transfer else
                       'PRECISION_CHILD_TERMINAL_LOCAL_REVIEW_REQUIRED' if precision else
                       'DEVICE_ROUTE_CHILD_TERMINAL_LOCAL_REVIEW_REQUIRED' if diagnostic else 'TPU_CHILD_TERMINAL_LOCAL_REVIEW_REQUIRED')
         owner['status'] = 'CHILD_TERMINAL_RETRIEVAL_REQUIRED'
@@ -462,6 +479,9 @@ def drive(packet, output, expected, acceptance, acceptance_sha, cli_python, cli_
                         argv += [str(x) for x in nested_cli(packet)]
                     if state:
                         argv += ['--patch-manifest', str(packet / 'patches/params4bit-xla-v1.json'), '--parent-receipt-sha256', receipt['state_parent_sha256']]
+                    if native:
+                        if receipt.get('native_expected_sha256')!=sha(output/'recovered/native/expected.json') or receipt.get('native_outer_owner_sha256')!=sha(output/'recovered/steps/12-native-parent/ownership.json') or receipt.get('oracle_sha256')!=native_gate['oracle_sha256']:raise ValueError('NATIVE_RECOVERED_BOUNDARY_SEALS')
+                        argv=[sys.executable,'-B',str(packet/'native/verify_run.py'),'--actual',str(output/'recovered/native'),'--oracle',str(output/'native-cpu/recovered/cpu-oracle'),'--oracle-sha256',native_gate['oracle_sha256'],'--admission-sha256',manifest['source_admission_sha256'],'--expected-sha256',receipt['native_expected_sha256'],'--outer-ownership',str(output/'recovered/steps/12-native-parent/ownership.json'),'--outer-ownership-sha256',receipt['native_outer_owner_sha256'],'--output',str(output/'verify.json')]
                     proc = verify.launch(argv, record=output / 'local-verifier-ownership.json', env=dict(os.environ, PYTHONDONTWRITEBYTECODE='1'), stdout=log, stderr=error_log)
                     proc.wait()
                     owner['local_verifier_exit_code'] = proc.returncode
@@ -477,7 +497,11 @@ def drive(packet, output, expected, acceptance, acceptance_sha, cli_python, cli_
                         except Exception as error:
                             verify.note_error('close_local_verifier', error)
                 owner['local_verifier_cleanup'] = verify.summary()
-            if transfer:
+            if native:
+                report=json.loads((output/'verify.json').read_text())
+                bound=(receipt.get('experiment')==NC.MODE and receipt.get('native_manifest_sha256')==NC.MANIFEST_SHA and receipt.get('native_source_variant')==NC.VARIANT and receipt.get('native_oracle_gate_sha256')==sha(output/'launch.json') and receipt.get('source_admission_sha256')==manifest['source_admission_sha256'] and receipt.get('allocation_epoch')==started and receipt.get('native_parent_sha256')==sha(output/'recovered/native/parent.json'))
+                if owner['status']=='CHILD_TERMINAL_RETRIEVAL_REQUIRED' and owner.get('local_verifier_exit_code')==0 and not owner['local_verifier_cleanup']['errors'] and bound and report.get('status')=='BOUNDED_NATIVE_DIAGNOSTIC_PASS' and report.get('actual_device') is True and report.get('m6')=='NOT_QUALIFIED' and receipt.get('tpu_status')=='NATIVE_RECORDS_TERMINAL' and receipt.get('status')=='NATIVE_CHILD_TERMINAL_LOCAL_REVIEW_REQUIRED' and all(not s['cleanup']['errors'] for s in receipt['steps']):owner.update(status='PASS_BOUNDED_NATIVE_DIAGNOSTIC',record_validation='PASS',m6_status='NOT_QUALIFIED',m4_source_compatibility='NOT_QUALIFIED',optimized_executable_link='UNKNOWN',compiler_body_memory_allocator='NOT_QUALIFIED')
+            elif transfer:
                 report = json.loads((output / 'local-verifier.raw').read_text())
                 durable_json(output / 'verify.json', report)
                 valid = (report.get('record_validation') == 'PASS' and report.get('m3_status') == 'NOT_QUALIFIED' and
@@ -585,4 +609,4 @@ if __name__ == '__main__':
     else:
         r = drive(a.packet.resolve(), a.output.resolve(), a.packet_sha256, a.root_acceptance, a.root_acceptance_sha256, a.cli_python, a.cli_identity,**({'browser_adoption':a.browser_adoption,'browser_adoption_sha256':a.browser_adoption_sha256} if a.browser_adoption is not None or a.browser_adoption_sha256 is not None else {}))
         print(json.dumps(r))
-        raise SystemExit(0 if r['status'] in ('PASS_TPU_API_PROBE', 'PASS_DEVICE_ROUTE_RECORDS', 'PASS_PRECISION_RECORDS', 'PASS_TPU_TRANSFER_API42', 'PASS_TPU_STATE_RECORDS', 'PASS_TPU_NESTED_RECORDS', 'PASS_TPU_NESTED_STATE_RECORDS') else 2)
+        raise SystemExit(0 if r['status'] in ('PASS_TPU_API_PROBE', 'PASS_DEVICE_ROUTE_RECORDS', 'PASS_PRECISION_RECORDS', 'PASS_TPU_TRANSFER_API42', 'PASS_TPU_STATE_RECORDS', 'PASS_TPU_NESTED_RECORDS', 'PASS_TPU_NESTED_STATE_RECORDS','PASS_BOUNDED_NATIVE_DIAGNOSTIC') else 2)

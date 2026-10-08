@@ -1,0 +1,13 @@
+HloModule printer_fixture_bf16, entry_computation_layout={(bf16[128,512]{1,0}, u8[65536,1]{1,0}, f32[2048]{0})->bf16[128,256]{1,0}}
+
+ENTRY %fixture (a: bf16[128,512], b: u8[65536,1], s: f32[2048]) -> bf16[128,256] {
+  %a = bf16[128,512]{1,0} parameter(0)
+  %b = u8[65536,1]{1,0} parameter(1)
+  %br = u8[256,2,128]{2,1,0} reshape(%b)
+  %bt = u8[2,256,128]{2,1,0} transpose(%br), dimensions={1,0,2}
+  %s = f32[2048]{0} parameter(2)
+  %sr = f32[256,2,4]{2,1,0} reshape(%s)
+  %st = f32[2,256,4]{2,1,0} transpose(%sr), dimensions={1,0,2}
+  ROOT %cc = bf16[128,256]{1,0} custom-call(%a, %bt, %st), custom_call_target="tpu_custom_call", operand_layout_constraints={bf16[128,512]{1,0}, u8[2,256,128]{2,1,0}, f32[2,256,4]{2,1,0}}, backend_config={"custom_call_config":{"body":"TUzvUnN5bnRoZXRpYyBwcm90b2NvbCBmaXh0dXJl","needs_layout_passes":true}}
+}
+

@@ -1,0 +1,73 @@
+{
+  "status": "PASS_LOCAL_PREPARATION_REVIEW",
+  "checked_date": "2026-10-08",
+  "actual_tpu": "NOT_RUN",
+  "qualified_linux_cpu": "NOT_RUN",
+  "m6": "NOT_QUALIFIED",
+  "source_variant": "M2_CANONICAL_NON_NESTED_R2_PATCH",
+  "native_manifest_sha256": "b25c5d2bf128b5164538c06267ec3a2f55a001a1a7f86eb63142153842eb3909",
+  "sources_unchanged": 23,
+  "root_recorder_controls": 55,
+  "root_cloud_controls": 33,
+  "root_portable_controls": {
+    "owner": 13,
+    "manifest_bootstrap": 12,
+    "phase_after_fixture_correction": 8,
+    "complete_wrapper_repeat": "NOT_RUN_AFTER_SCOPED_CORRECTION"
+  },
+  "worker_existing_cloud_controls": 399,
+  "local_jax071_parser_cases": 2,
+  "local_cpu_cases": 5,
+  "local_cpu_values": 164096,
+  "local_cpu_runtime": "macOS arm64 Python 3.12.14 Torch 2.14.1 UNQUALIFIED",
+  "retained_portable_failure": "The selected fixture omitted host/launch.json. The initial wrapper stopped before the simulated phase request. The corrected selector includes that exact verified member. All eight affected controls passed separately. Production sources were unchanged.",
+  "compiler_dumps": "OFF",
+  "executable_identity": "UNKNOWN",
+  "allocator_peak": "UNKNOWN",
+  "compiler_memory": "NOT_QUALIFIED",
+  "packet_review": {
+    "status": "PASS_ROOT_PACKET_REVIEW_NO_DISPATCH",
+    "build": {
+      "manifest_sha256": "130b51f970e15c95e6ceb0fbf7d7b48cb59bf51b3bbaa0f51e5a3c5bc215b366",
+      "payload_sha256": "ad400e51a414544b467f9feaeebdae41d2924e586b709f4fa39391570efc4b9d",
+      "payload_bytes": 1039190,
+      "members": 68,
+      "scope": "PRIVATE_NO_DISPATCH",
+      "m6": "NOT_QUALIFIED"
+    },
+    "members_verified": 68,
+    "source_variant": "M2_CANONICAL_NON_NESTED_R2_PATCH",
+    "native_manifest_sha256": "b25c5d2bf128b5164538c06267ec3a2f55a001a1a7f86eb63142153842eb3909",
+    "m2_dependency_sha256": "5daf942832153c6d6505f1ec4c941294cb8c376f28927b2f9cfc5b3d86a962fc",
+    "git_archive_method": "ACTUAL_PINNED_GIT_ARCHIVE",
+    "cli_identity_sha256": "d4134c308a86024c78262a402aea4fb0fb2ebf8ecbf99dd16d45305f170aaaf9",
+    "M6": "NOT_QUALIFIED"
+  },
+  "source_files": {
+    "cloud/build_native_packet.py": {
+      "bytes": 3553,
+      "sha256": "9b8023023230241d92f28e5f6945d36c73a9ac4acbb7f59c51391c33be293754"
+    },
+    "cloud/native_contract.py": {
+      "bytes": 10978,
+      "sha256": "ea79e20e633410b1a4af632069db92b2ca08ee2eb45c7a5a9b9e6c3280133bf6"
+    }
+  },
+  "root_test_records": [
+    {
+      "file": "control-results.json",
+      "bytes": 2813,
+      "sha256": "9d9b259b6b7108e7e80af5a1c4fcc74890872a84719d2f8417543c6f2ef40126"
+    },
+    {
+      "file": "results.json",
+      "bytes": 1624,
+      "sha256": "9959b1f384c693f40d230fd7547993232027bd7b8c4151d796f02960d9aeb24e"
+    },
+    {
+      "file": "results.json",
+      "bytes": 1404,
+      "sha256": "10c29adc338366cec911a60ee9b27f1f18948526b4eee88b91053cef8098f49d"
+    }
+  ]
+}

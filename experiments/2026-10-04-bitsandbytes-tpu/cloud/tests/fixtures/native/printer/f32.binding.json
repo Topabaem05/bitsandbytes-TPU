@@ -1,0 +1,10 @@
+{
+  "status": "MAPPED_PRINTER_GRAPH_BINDING_PASS",
+  "context_proto_sha256": "0df7a9617722de02cd6f8d008e2db62b8402e230e983dc9c299371731cd44428",
+  "printer_proto_sha256": "0df7a9617722de02cd6f8d008e2db62b8402e230e983dc9c299371731cd44428",
+  "printer_hlo_sha256": "7b81e5310b2d42060b757fddf3c554c9fbd782e916ee1a84d19704ece5d54ca1",
+  "native_payload_sha256": "bdbdfbd1cda73e67dc27c787228f077a30774ae4693c24511aca9ff1b768ce4d",
+  "parameter_shape_dtype_binding": "PASS",
+  "parameter_values": "REQUIRES_SEPARATE_FIXED_INPUT_VERIFIER",
+  "executed_executable_link": "UNKNOWN"
+}

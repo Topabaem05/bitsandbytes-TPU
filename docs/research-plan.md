@@ -70,6 +70,8 @@ Actual marker identification passed, and the [79-case run](changes/r4-nested-col
 The exact nested statistics and code failures require an arithmetic repair under unchanged criteria.
 The failed result cannot authorize the saved-state supplement or an accepted M4 dependency.
 The private CPU preparations for M4, M5, and M6 do not qualify those device milestones.
+The [bounded native preparation](changes/r6-native-cloud-preparation.md) uses accepted M2 sources and can execute independently of the M4 repair.
+It requires actual native graph and output records before a separate compiler memory experiment.
 The [measurement preparation](changes/r7-measurement-preparation.md) passed 64 local controls and nine independent retained-record checks.
 Actual M7 collection requires accepted M6 results.
 BF16 gradients remain outside the fixed diagnostic scope.
@@ -90,6 +92,9 @@ Refer to [the cloud inspection](research/2026-10-08/cloud.md).
 6. Complete M5 QLoRA execution and checkpoint restoration.
 7. Qualify M6, then measure M7 on the same TPU as the correct reference path.
 8. Repeat the accepted payload on Kaggle for M8, with independent version and closure records.
+
+The bounded M6 native diagnostic can proceed during M4 repair because it uses the separate accepted M2 source variant.
+This independent work does not qualify nested execution or change the M5 dependency.
 
 Task identifiers R1 through R8 in the decision table define the remaining outputs and acceptance conditions.
 Use GPT-6.1 sol with high reasoning for worker tasks.

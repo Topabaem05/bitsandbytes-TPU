@@ -1,5 +1,17 @@
 # Change log
 
+## 2026-10-08 — Native Pallas cloud preparation
+
+- Add the bounded native diagnostic with 23 fixed source files.
+- Require complete CPU oracle recovery and source verification before the device phase.
+- Retain graph content, actual output synchronization, numerical results, and exact resource closure.
+- Keep compiler memory, executable identity, and performance outside this diagnostic result.
+
+Validation: The reviewer repeated 55 recorder controls and 33 cloud controls; all passed.
+Local parser and CPU results also passed, within their unqualified runtime scope.
+M6 remains unqualified.
+Refer to [the native preparation](docs/changes/r6-native-cloud-preparation.md).
+
 ## 2026-10-08 — Measurement collector preparation
 
 - Add fixed time sampling and separate setup, compilation, and allocator records.
