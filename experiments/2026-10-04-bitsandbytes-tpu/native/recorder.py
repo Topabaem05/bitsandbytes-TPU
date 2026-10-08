@@ -6,6 +6,7 @@ import time
 
 import verifier as V
 import graph_binding as G
+import mosaic_compatibility as C
 
 BRIDGE_SHA='c347f8fcb4844fa8849109680ad81b94e221a2c8b011462553b48ec9f67e6338'
 
@@ -20,7 +21,14 @@ def make_recording_kernel(kernel,output_shape_dtype_fn,bridge,xla,torch):
         V.require(isinstance(output_spec,list) and len(output_spec)==1,'SINGLE_OUTPUT_SPEC')
         shapes=[shape for shape,_ in output_spec];dtypes=[dtype for _,dtype in output_spec]
         row={'status':'STARTED','native_api':'_xla_tpu_custom_call','calls':1,'payload':payload,'payload_sha256':V.digest(payload),'metadata':[{'shape':list(v.shape),'dtype':str(v.dtype).removeprefix('torch.')} for v in tensor_args],'tensor_args':tuple(tensor_args),'output_shapes':[list(v) for v in shapes],'output_dtypes':[str(v).removeprefix('torch.') for v in dtypes]}
+        row.update(status='TRACE_RETURNED',calls=0,original_payload=payload,original_payload_sha256=V.digest(payload))
         calls.append(row)
+        try:
+            payload,audit=C.convert_payload(payload,hashlib.sha256(payload.encode()).hexdigest())
+            row.update(payload=payload,payload_sha256=V.digest(payload),payload_conversion=audit,status='STARTED',calls=1)
+        except Exception as error:
+            row.update(status='CONVERSION_FAILED',conversion_error={'type':type(error).__name__,'message':str(error)})
+            raise
         # Exact captured payload and original ordered tensors go directly to the actual native binding.
         outputs=xla._XLAC._xla_tpu_custom_call(tensor_args,payload,shapes,dtypes)
         V.require(len(outputs)==1,'SINGLE_NATIVE_OUTPUT');row['status']='RETURNED'

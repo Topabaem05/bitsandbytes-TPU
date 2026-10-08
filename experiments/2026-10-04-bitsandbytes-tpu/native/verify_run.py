@@ -7,12 +7,13 @@ import traceback
 import protocol as S
 import verifier as V
 import graph_binding as G
+import conversion_recovery as C
 
 
 def flag(argv,name):
     S.require(isinstance(argv,list) and argv.count('--'+name)==1,'ARGV_FLAG_'+name);i=argv.index('--'+name);S.require(i+1<len(argv),'ARGV_FLAG_'+name);return argv[i+1]
 
-def verify(actual,oracle,oracle_sha,admission_sha,expected_sha,outer,*,actual_device=True):
+def verify(actual,oracle,oracle_sha,admission_sha,expected_sha,outer,*,actual_device=True,mosaic_audit_python=None,audit_deadline_epoch=None):
     root=Path(actual);parent=S.read(root/'parent.json');expected=S.read(root/'expected.json');seal,cases=S.oracle(oracle,oracle_sha,qualified=actual_device)
     S.require(parent.get('kind')=='R6_NATIVE_BOUNDARY_PARENT' and parent.get('status')=='COMPLETE' and not parent.get('error'),'PARENT_TERMINAL')
     S.require(parent.get('source_variant')==S.spec()['source_variant'] and parent.get('source_pre')==parent.get('source_post')==parent.get('source_admission_sha256')==admission_sha,'PARENT_SOURCE_VARIANT')
@@ -43,6 +44,12 @@ def verify(actual,oracle,oracle_sha,admission_sha,expected_sha,outer,*,actual_de
     S.require(receipt.get('m6_status')=='NOT_QUALIFIED' and receipt.get('registration')=='NOT_EXECUTED' and receipt.get('backward_memory_performance')=='NOT_RUN','QUALIFICATION_SCOPE')
     S.require(receipt.get('cases')==[{'name':name,'status':'PASS'} for name in S.spec()['case_ids']],'COMPLETE_CASE_MATRIX')
     S.check_inventory(root/'device',receipt['artifacts'],('receipt.json',))
+    # Independent frontend replay precedes actual graph/config/execution verification.
+    conversion_rows={}
+    for name in S.spec()['native_case_ids']:
+        prefix=root/'device/raw'/name;record=S.read(prefix.with_suffix('.boundary-record.json'));row=record['native_boundary']
+        C.artifacts(prefix,row);conversion_rows[name]=row
+    conversion_replay=C.replay(conversion_rows,mosaic_audit_python,audit_deadline_epoch)
     B=S.load(S.HERE/'probe_backend.py','r6verifyB');P=S.load(S.HERE/'probe_precision.py','r6verifyP');P.validate_environment(B,receipt['precision_environment']);reports=[]
     for name in S.spec()['native_case_ids']:
         raw=S.read(root/'device/raw'/(name+'.json'));record=S.read(root/'device/raw'/(name+'.boundary-record.json'))
@@ -60,12 +67,13 @@ def verify(actual,oracle,oracle_sha,admission_sha,expected_sha,outer,*,actual_de
         S.require((root/'device/raw'/(name+'.context.textproto')).stat().st_size>0,'RETAINED_CONTEXT_PROTO_TEXT')
     tail=S.read(root/'device/raw/tail-reference-fp32.json');V.array(tail['output']);S.require(tail['output']['shape']==cases['tail-reference-fp32']['cpu_reference']['shape'] and tail['output']['dtype']==cases['tail-reference-fp32']['cpu_reference']['dtype'],'TAIL_ARRAY_IDENTITY');P.validate_execution(B,tail);S.require(tail.get('status')=='PASS' and tail['inputs']==cases['tail-reference-fp32']['inputs'] and tail['selected_events'][0]['path']=='SAME_DEVICE_REFERENCE','EXPLICIT_TAIL_REFERENCE')
     gate=B.numeric(tail['output']['values'],cases['tail-reference-fp32']['cpu_reference']['values'],profile['tolerances']['fp32_forward_gradient']);S.require(gate['status']=='PASS','TAIL_INDEPENDENT_ORACLE')
-    return {'status':'BOUNDED_NATIVE_DIAGNOSTIC_PASS' if actual_device else 'OFFLINE_SHAPED_FIXTURE_PASS','source_variant':S.spec()['source_variant'],'native_cases':reports,'tail_gate':gate,'oracle_sha256':oracle_sha,'expected_sha256':expected_sha,'actual_device':actual_device,'optimized_executable_link':'UNKNOWN','compiler_body_memory_allocator':'NOT_QUALIFIED','public_integration_backward':'NOT_QUALIFIED','m4_source_compatibility':'NOT_QUALIFIED','m6':'NOT_QUALIFIED'}
+    return {'status':'BOUNDED_NATIVE_DIAGNOSTIC_PASS' if actual_device else 'OFFLINE_SHAPED_FIXTURE_PASS','source_variant':S.spec()['source_variant'],'native_cases':reports,'independent_conversion_replay':conversion_replay,'tail_gate':gate,'oracle_sha256':oracle_sha,'expected_sha256':expected_sha,'actual_device':actual_device,'optimized_executable_link':'UNKNOWN','compiler_body_memory_allocator':'NOT_QUALIFIED','public_integration_backward':'NOT_QUALIFIED','m4_source_compatibility':'NOT_QUALIFIED','m6':'NOT_QUALIFIED'}
 
 if __name__=='__main__':
     parser=argparse.ArgumentParser(description=__doc__)
-    for name in ('actual','oracle','oracle-sha256','admission-sha256','expected-sha256','outer-ownership','outer-ownership-sha256','output'):parser.add_argument('--'+name,required=True)
+    for name in ('actual','oracle','oracle-sha256','admission-sha256','expected-sha256','outer-ownership','outer-ownership-sha256','output','mosaic-audit-python'):parser.add_argument('--'+name,required=True)
+    parser.add_argument('--audit-deadline-epoch',type=float,required=True)
     args=parser.parse_args()
-    try:S.require(S.sha(args.outer_ownership)==args.outer_ownership_sha256,'INDEPENDENT_OUTER_OWNER_HASH');report=verify(args.actual,args.oracle,args.oracle_sha256,args.admission_sha256,args.expected_sha256,S.read(args.outer_ownership));code=0
+    try:S.require(S.sha(args.outer_ownership)==args.outer_ownership_sha256,'INDEPENDENT_OUTER_OWNER_HASH');report=verify(args.actual,args.oracle,args.oracle_sha256,args.admission_sha256,args.expected_sha256,S.read(args.outer_ownership),mosaic_audit_python=args.mosaic_audit_python,audit_deadline_epoch=args.audit_deadline_epoch);code=0
     except Exception as error:report={'status':'REJECTED','error':str(error),'traceback':traceback.format_exc(),'m6':'NOT_QUALIFIED'};code=2
     S.write(args.output,report);raise SystemExit(code)

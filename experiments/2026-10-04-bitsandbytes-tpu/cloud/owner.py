@@ -45,6 +45,21 @@ def native_readback_missing(owner, receipt, output, native_gate):
     return missing
 
 
+def host_frontend_preflight(packet,python,output):
+    """Close the externally owned CPU frontend group before any provider activity."""
+    directory=output/'audit-preflight-ownership';directory.mkdir(exist_ok=False)
+    frontend=Ownership(directory);deadline=time.time()+45
+    with frontend.guard(45):
+        with (output/'audit-preflight.stdout').open('wb')as log,(output/'audit-preflight.stderr').open('wb')as err:
+            child=frontend.launch([sys.executable,'-B',str(packet/'native/audit_preflight.py'),'--python',str(python),'--output',str(output/'audit-preflight.json'),'--deadline-epoch',str(deadline)],record=output/'audit-preflight-launch.json',env=dict(os.environ,PYTHONDONTWRITEBYTECODE='1'),stdout=log,stderr=err);child.wait()
+            if child.returncode!=0:raise ValueError('MOSAIC_FRONTEND_PREFLIGHT_REJECTED')
+    closure=frontend.summary()
+    if closure['errors']or any(g.get('status')!='CLEANUP_VERIFIED'for g in closure['groups']):raise ValueError('MOSAIC_FRONTEND_PREFLIGHT_CLEANUP')
+    report=json.loads((output/'audit-preflight.json').read_text())
+    if report['python_sha256']!=sha(python) or not(report['report']['runtime']['jax']==report['report']['runtime']['jaxlib']=='0.7.1'):raise ValueError('MOSAIC_FRONTEND_PREFLIGHT_IDENTITY')
+    return {'audit_sha256':sha(output/'audit-preflight.json'),'python':str(python),'python_sha256':sha(python),'runtime':report['report']['runtime'],'cleanup':closure,'provider_calls':0}
+
+
 def clamp(started, limit, reserve, clock=None):
     value = min(limit, started + 3600 - (clock or time.time)() - reserve)
     if not math.isfinite(value) or value <= 0:
@@ -178,7 +193,7 @@ def verify_result(out, receipt):
     return inventory
 
 
-def drive(packet, output, expected, acceptance, acceptance_sha, cli_python, cli_identity, *, api=None, simulated=False, browser_adoption=None, browser_adoption_sha256=None):
+def drive(packet, output, expected, acceptance, acceptance_sha, cli_python, cli_identity, *, api=None, simulated=False, browser_adoption=None, browser_adoption_sha256=None,mosaic_audit_python=None):
     manifest = preflight(packet, expected)
     if sha(acceptance) != acceptance_sha:
         raise PermissionError('ROOT_ACCEPTANCE_SHA')
@@ -214,7 +229,9 @@ def drive(packet, output, expected, acceptance, acceptance_sha, cli_python, cli_
             fields.update({field: manifest[field] for field in STATE_BINDINGS})
             fields['state_scope'] = manifest['state_scope']
     if native:
-        fields.update(native_manifest_sha256=NC.MANIFEST_SHA,m2_dependency_sha256=manifest['m2_dependency_sha256'],native_source_variant=NC.VARIANT,native_scope=manifest['native_scope'])
+        if mosaic_audit_python is None or not Path(mosaic_audit_python).is_absolute() or not Path(mosaic_audit_python).is_file():raise PermissionError('EXPLICIT_MOSAIC_AUDIT_INTERPRETER_REQUIRED')
+        fields.update(mosaic_audit_python=str(mosaic_audit_python),mosaic_audit_python_sha256=sha(mosaic_audit_python))
+        fields.update(native_generation=manifest['native_generation'],native_manifest_sha256=NC.MANIFEST_SHA,m2_dependency_sha256=manifest['m2_dependency_sha256'],native_source_variant=NC.VARIANT,native_scope=manifest['native_scope'])
     if primitive:
         fields.update(**{field:manifest[field] for field in PC.BINDINGS},primitive_variant=PC.VARIANT,
                       primitive_scope=PC.SCOPE,primitive_diagnostic_only=True)
@@ -240,6 +257,7 @@ def drive(packet, output, expected, acceptance, acceptance_sha, cli_python, cli_
         raise ValueError('SIMULATION_REQUIRES_FAKE_API')
     output.mkdir(parents=True)
     durable_json(output / 'root-acceptance.json', gate)
+    if native:frontend=host_frontend_preflight(packet,mosaic_audit_python,output)
     api = api or OfficialCLI(cli_python, output)
     session = adoption['session'] if adopting else 'bnb-tpu-first-' + datetime.now(timezone.utc).strftime('%Y%m%d-%H%M%S')
     base = '/content/bnb-tpu-first'
@@ -255,7 +273,7 @@ def drive(packet, output, expected, acceptance, acceptance_sha, cli_python, cli_
         owner.update(experiment=experiment, precision='highest', api42_status='NOT_QUALIFIED', m3_status='NOT_QUALIFIED')
         if state:
             owner['api42_status'] = 'NOT_REPEATED'
-    if native: owner.update(m6_status='NOT_QUALIFIED',m4_source_compatibility='NOT_QUALIFIED',native_source_variant=NC.VARIANT,optimized_executable_link='UNKNOWN',compiler_body_memory_allocator='NOT_QUALIFIED')
+    if native: owner.update(mosaic_frontend_preflight=frontend,m6_status='NOT_QUALIFIED',m4_source_compatibility='NOT_QUALIFIED',native_source_variant=NC.VARIANT,optimized_executable_link='UNKNOWN',compiler_body_memory_allocator='NOT_QUALIFIED')
     adoption_verified=False
     started = None
     prior = {sig: signal.getsignal(sig) for sig in (signal.SIGTERM, signal.SIGINT)}
@@ -534,7 +552,7 @@ def drive(packet, output, expected, acceptance, acceptance_sha, cli_python, cli_
                         argv += ['--patch-manifest', str(packet / 'patches/params4bit-xla-v1.json'), '--parent-receipt-sha256', receipt['state_parent_sha256']]
                     if native:
                         if receipt.get('native_expected_sha256')!=sha(output/'recovered/native/expected.json') or receipt.get('native_outer_owner_sha256')!=sha(output/'recovered/steps/12-native-parent/ownership.json') or receipt.get('oracle_sha256')!=native_gate['oracle_sha256']:raise ValueError('NATIVE_RECOVERED_BOUNDARY_SEALS')
-                        argv=[sys.executable,'-B',str(packet/'native/verify_run.py'),'--actual',str(output/'recovered/native'),'--oracle',str(output/'native-cpu/recovered/cpu-oracle'),'--oracle-sha256',native_gate['oracle_sha256'],'--admission-sha256',manifest['source_admission_sha256'],'--expected-sha256',receipt['native_expected_sha256'],'--outer-ownership',str(output/'recovered/steps/12-native-parent/ownership.json'),'--outer-ownership-sha256',receipt['native_outer_owner_sha256'],'--output',str(output/'verify.json')]
+                        argv=[sys.executable,'-B',str(packet/'native/verify_run.py'),'--actual',str(output/'recovered/native'),'--oracle',str(output/'native-cpu/recovered/cpu-oracle'),'--oracle-sha256',native_gate['oracle_sha256'],'--admission-sha256',manifest['source_admission_sha256'],'--expected-sha256',receipt['native_expected_sha256'],'--outer-ownership',str(output/'recovered/steps/12-native-parent/ownership.json'),'--outer-ownership-sha256',receipt['native_outer_owner_sha256'],'--output',str(output/'verify.json'),'--mosaic-audit-python',str(mosaic_audit_python),'--audit-deadline-epoch',str(time.time()+clamp(started,110,0))]
                     proc = verify.launch(argv, record=output / 'local-verifier-ownership.json', env=dict(os.environ, PYTHONDONTWRITEBYTECODE='1'), stdout=log, stderr=error_log)
                     proc.wait()
                     owner['local_verifier_exit_code'] = proc.returncode
@@ -671,6 +689,7 @@ if __name__ == '__main__':
     p.add_argument('--root-acceptance-sha256', required=True)
     p.add_argument('--cli-python', type=Path, required=True)
     p.add_argument('--cli-identity', type=Path, required=True)
+    p.add_argument('--mosaic-audit-python',type=Path)
     p.add_argument('--preflight-only', action='store_true')
     a = p.parse_args()
     if a.preflight_only:
@@ -678,6 +697,6 @@ if __name__ == '__main__':
         verify_cli_identity(a.cli_python, json.loads(a.cli_identity.read_text()))
         print(json.dumps({'status': 'LOCAL_PREFLIGHT_NO_CLI', 'files': len(m['files']), 'CLI_file_identity': 'PASS_NO_API'}))
     else:
-        r = drive(a.packet.resolve(), a.output.resolve(), a.packet_sha256, a.root_acceptance, a.root_acceptance_sha256, a.cli_python, a.cli_identity,**({'browser_adoption':a.browser_adoption,'browser_adoption_sha256':a.browser_adoption_sha256} if a.browser_adoption is not None or a.browser_adoption_sha256 is not None else {}))
+        r = drive(a.packet.resolve(), a.output.resolve(), a.packet_sha256, a.root_acceptance, a.root_acceptance_sha256, a.cli_python, a.cli_identity,mosaic_audit_python=a.mosaic_audit_python,**({'browser_adoption':a.browser_adoption,'browser_adoption_sha256':a.browser_adoption_sha256} if a.browser_adoption is not None or a.browser_adoption_sha256 is not None else {}))
         print(json.dumps(r))
         raise SystemExit(0 if r['status'] in ('PASS_TPU_API_PROBE', 'PASS_DEVICE_ROUTE_RECORDS', 'PASS_PRECISION_RECORDS', 'PASS_TPU_TRANSFER_API42', 'PASS_TPU_STATE_RECORDS', 'PASS_TPU_NESTED_RECORDS', 'PASS_TPU_NESTED_STATE_RECORDS','PASS_BOUNDED_NATIVE_DIAGNOSTIC', 'PASS_PRIMITIVE_RECORDS') else 2)

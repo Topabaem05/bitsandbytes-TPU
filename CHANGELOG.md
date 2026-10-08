@@ -1,5 +1,15 @@
 # Change log
 
+## 2026-10-09 — Mosaic version conversion preparation
+
+- Convert the retained Mosaic module from version 8 to version 7 with the pinned official passes.
+- Independently repeat conversion during recovery and preserve graph and numerical checks.
+- Check the explicit CPU interpreter before allocation and stop later cases after a runtime error.
+
+Validation: All 56 independent controls and all 73 packet members passed inspection.
+The fixed runtime and kernel remain unchanged; actual TPU execution remains required.
+Refer to [the preparation record](docs/changes/r6-mosaic-preparation.md).
+
 ## 2026-10-09 — Kaggle error record correction
 
 - Retain bounded error classifications without raw response messages or credentials.

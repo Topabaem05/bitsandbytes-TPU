@@ -13,6 +13,15 @@
   "libtpu": "0.0.21",
   "m4_source_compatibility": "NOT_QUALIFIED",
   "m6_public_integration": "NOT_QUALIFIED",
+  "mosaic_conversion": {
+    "exact_current_ir_roundtrip_required": true,
+    "generation": "mosaic-serde7-v1",
+    "official_serde_required": true,
+    "recovered_independent_cpu_frontend": "EXPLICIT_JAX_JAXLIB_0.7.1_PYTHON_3.12.14",
+    "runtime_change": "NONE",
+    "source_version": 8,
+    "target_version": 7
+  },
   "native_case_ids": [
     "direct-fp32",
     "functional-fp32",

@@ -18,7 +18,7 @@ import protocol as S
 import base64
 import recorder as E
 import verifier as V
-PINS_SHA='d0347afc7cb7941fea38deabba128c1a105377b4a6e28a97a22482a5a15dc4f3'
+PINS_SHA='2cb1808f6c6148e6d898a152c960dfc2cfa3f9f748c6d35adfcb7833f0334602'
 
 def write(path,value):
     path=Path(path);path.parent.mkdir(parents=True,exist_ok=True);path.write_text(json.dumps(value,sort_keys=True,indent=2,allow_nan=False)+'\n')
@@ -50,7 +50,7 @@ def run(args):
         D.require(sys.platform=='linux' and D.sha(args.source_pins)==PINS_SHA,'FIXED_PLATFORM_SOURCE_PINS')
         pins=json.loads(Path(args.source_pins).read_text())['files']
         def check(path,key):D.require(D.sha(path)==pins[key],'PINNED_HELPER_'+key)
-        check(args.backend_probe,'experiments/2026-10-04-bitsandbytes-tpu/probe_backend.py');check(args.admission_helper,'experiments/2026-10-04-bitsandbytes-tpu/transfer_admission.py');check(args.precision_probe,'experiments/2026-10-04-bitsandbytes-tpu/probe_precision.py');check(args.kernel,'.work/r6-pallas-preparation/kernel.py')
+        check(args.backend_probe,'experiments/2026-10-04-bitsandbytes-tpu/probe_backend.py');check(args.admission_helper,'experiments/2026-10-04-bitsandbytes-tpu/transfer_admission.py');check(args.precision_probe,'experiments/2026-10-04-bitsandbytes-tpu/probe_precision.py');check(args.kernel,'.work/r6-pallas-preparation/kernel.py');check(E.C.__file__,'experiments/2026-10-04-bitsandbytes-tpu/native/mosaic_compatibility.py')
         B=load(args.backend_probe,'r6_device_B');A=load(args.admission_helper,'r6_device_A');P=load(args.precision_probe,'r6_device_P')
         P.validate_environment(B,P.precision_environment());receipt['precision_environment']=P.precision_environment();receipt['runtime']=B.runtime_check(True)
         D.require(importlib.metadata.version('jax')==importlib.metadata.version('jaxlib')=='0.7.1' and importlib.metadata.version('libtpu')=='0.0.21','FIXED_JAX_LIBTPU')
@@ -78,8 +78,12 @@ def run(args):
         torch_xla._XLAC._set_current_graph_name('r6-transfer-'+args.process_token[:12])
         packed=cpu_packed.to(device);scales=cpu_scales.to(device)
         settings=[('direct-fp32',torch.float32,False,128),('functional-fp32',torch.float32,True,128),('direct-bf16',torch.bfloat16,False,128),('functional-bf16',torch.bfloat16,True,128),('tail-reference-fp32',torch.float32,False,129)]
+        first_failure=None
         for name,dtype,use_wrapper,rows in settings:
             native_before=len(native_calls);prefix=output/'raw'/name;raw={'name':name,'status':'ERROR','pid':os.getpid(),'process_token':args.process_token,'scope':'DIRECT_ADAPTER_OR_FUNCTIONAL_WRAPPER_NO_PUBLIC_REGISTRATION'}
+            if first_failure is not None:
+                raw.update(status='NOT_RUN',reason='SHARED_XLA_STATE_AFTER_FIRST_FAILURE',first_failure=first_failure)
+                write(prefix.with_suffix('.json'),raw);receipt['cases'].append({'name':name,'status':raw['status']});write(output/'receipt.json',receipt);continue
             try:
                 D.require(time.time()<args.deadline_epoch,'OWNER_DEADLINE');torch_xla._XLAC._set_current_graph_name('r6-preparation-'+args.process_token[:12]+'-'+name);cpu_a=(((torch.arange(rows*k)%31)-15).float()/32).reshape(rows,k).to(dtype);a=cpu_a.to(device)
                 cpu_expected=torch.tensor(oracle_cases[name]['cpu_reference']['values'],dtype=dtype).reshape(rows,n)
@@ -100,7 +104,10 @@ def run(args):
                     if any(not math.isfinite(v) for v in captured['output']['values']):write(prefix.with_suffix('.nonfinite-output.json'),{'forensic_only':True,'shape':captured['output']['shape'],'dtype':captured['output']['dtype'],'values':[v if math.isfinite(v) else repr(v) for v in captured['output']['values']]})
                     V.array(captured['output'])
                     raw.update(captured)
-                    raw.update(protocol='R6_NATIVE_BOUNDARY_V1',scope='ACTUAL_NATIVE_BOUNDARY',owner={key:receipt[key] for key in ('pid','pgid','parent_pid','process_token','parent_process_token','deadline_epoch')},case=name,hlo_sha256=D.sha(prefix.with_suffix('.hlo.txt')),selected_path={'path':'PALLAS_CANDIDATE','calls':1,'fallback':False},source_pins={'kernel':D.sha(args.kernel),'bridge':D.BRIDGE_SHA,'reference':D.sha(R.__file__),'backend':D.sha(B.__file__),'precision':D.sha(P.__file__),'adapter':D.sha(D.__file__),'recorder':D.sha(E.__file__),'diagnostic':D.sha(__file__)})
+                    raw.update(protocol='R6_NATIVE_BOUNDARY_V1',scope='ACTUAL_NATIVE_BOUNDARY',owner={key:receipt[key] for key in ('pid','pgid','parent_pid','process_token','parent_process_token','deadline_epoch')},case=name,hlo_sha256=D.sha(prefix.with_suffix('.hlo.txt')),selected_path={'path':'PALLAS_CANDIDATE','calls':1,'fallback':False},source_pins={'kernel':D.sha(args.kernel),'bridge':D.BRIDGE_SHA,'reference':D.sha(R.__file__),'backend':D.sha(B.__file__),'precision':D.sha(P.__file__),'adapter':D.sha(D.__file__),'recorder':D.sha(E.__file__),'diagnostic':D.sha(__file__),'mosaic_converter':D.sha(E.C.__file__)})
+                    prefix.with_suffix('.original-native-config.json').write_text(raw['native_boundary']['original_payload'])
+                    prefix.with_suffix('.original-mosaic-body.bin').write_bytes(base64.b64decode(json.loads(raw['native_boundary']['original_payload'])['custom_call_config']['body'],validate=True))
+                    write(prefix.with_suffix('.conversion-audit.json'),raw['native_boundary']['payload_conversion'])
                     prefix.with_suffix('.native-config.json').write_text(raw['native_boundary']['payload'])
                     prefix.with_suffix('.mosaic-body.bin').write_bytes(base64.b64decode(json.loads(raw['native_boundary']['payload'])['custom_call_config']['body'],validate=True))
                 else:
@@ -122,6 +129,7 @@ def run(args):
                 raw['status']='PASS' if all(gate['status']=='PASS' for gate in raw['gates'].values()) else 'NUMERICAL_FAIL'
             except Exception as error:
                 if 'native_calls' in locals() and 'native_before' in locals():write(prefix.with_suffix('.native-failure.json'),[{key:value for key,value in row.items() if key!='tensor_args'} for row in native_calls[native_before:]])
+                first_failure={'case':name,'error_type':type(error).__name__,'error_message':str(error)};receipt['first_failure']=first_failure
                 raw.update(status='ERROR',error_type=type(error).__name__,error_message=str(error),traceback=traceback.format_exc());prefix.parent.mkdir(parents=True,exist_ok=True);prefix.with_suffix('.error.log').write_text(raw['traceback'])
             write(prefix.with_suffix('.json'),raw);receipt['cases'].append({'name':name,'status':raw['status']});write(output/'receipt.json',receipt)
         receipt['status']='COMPLETE';receipt['numerical_status']='PASS' if all(row['status']=='PASS' for row in receipt['cases']) else 'FAIL'

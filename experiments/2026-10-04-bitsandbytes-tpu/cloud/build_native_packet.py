@@ -5,21 +5,21 @@ HERE=Path(__file__).resolve().parent;ROOT=HERE.parents[2];CLOUD=HERE;sys.path.in
 import build_packet as B
 import native_contract as NC
 FROZEN=HERE.parent/'native'
-APPROVED_COMMIT='d9d7f664f405f40fda4388cb3fa7730de6b9c04d'
+APPROVED_COMMIT='949a5582d8759dc53871801c4c34c4fbfff25907'
 def build(upstream,out,*,candidate,candidate_sha,m2_dependency,m2_dependency_sha):
-    NC.require(candidate_sha==NC.MANIFEST_SHA and NC.sha(Path(candidate)/'manifest.json')==candidate_sha,'REVIEWED_RECORDER23_HASH')
+    NC.require(candidate_sha==NC.MANIFEST_SHA and NC.sha(Path(candidate)/'manifest.json')==candidate_sha,'REVIEWED_MOSAIC27_HASH')
     NC.require(NC.sha(m2_dependency)==m2_dependency_sha,'M2_DEPENDENCY_HASH')
     scientific=ROOT/'experiments/2026-10-04-bitsandbytes-tpu'
     paths={'route_probe':scientific/'probe_routes.py','precision_probe':scientific/'probe_precision.py','transfer_probe':scientific/'probe_transfer.py','transfer_admission':scientific/'transfer_admission.py','patch_manifest':ROOT/'patches/params4bit-xla-v1.json','source_controls':ROOT/'tests/test_transfer_source.py'}
     B.build(Path(upstream),Path(out),NC.sha(ROOT/'packages/bitsandbytes-tpu/source-manifest.json'),experiment='transfer-api42',**paths,**{n+'_sha256':NC.sha(p)for n,p in paths.items()})
     out=Path(out);manifest=B.sha(out/'manifest.json');m=NC.read(out/'manifest.json')
     for name,record in NC.SOURCES.items():
-        source=Path(candidate)/name;NC.require(not source.is_symlink() and NC.sha(source)==record['sha256'] and source.stat().st_size==record['bytes'],'RECORDER23_FILE:'+name);target=out/'native'/name;target.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(source,target)
+        source=Path(candidate)/name;NC.require(not source.is_symlink() and NC.sha(source)==record['sha256'] and source.stat().st_size==record['bytes'],'MOSAIC27_FILE:'+name);target=out/'native'/name;target.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(source,target)
     shutil.copyfile(Path(candidate)/'manifest.json',out/'native/manifest.json');shutil.copyfile(m2_dependency,out/'m2-dependency.json')
     m['files']={p.relative_to(out).as_posix():{'sha256':NC.sha(p),'bytes':p.stat().st_size}for p in sorted(out.rglob('*'))if p.is_file() and p.name not in {'manifest.json','payload.zip'}}
     # The nested native manifest is a payload file.
     m['files']['native/manifest.json']={'sha256':NC.MANIFEST_SHA,'bytes':(out/'native/manifest.json').stat().st_size}
-    m.update(experiment=NC.MODE,native_manifest_sha256=NC.MANIFEST_SHA,m2_dependency_sha256=m2_dependency_sha,native_source_variant=NC.VARIANT,native_scope='BOUNDED_NATIVE_BOUNDARY_ONLY',base_cloud_revision=APPROVED_COMMIT,m6_status='NOT_QUALIFIED',optimized_executable_link='UNKNOWN')
+    m.update(experiment=NC.MODE,native_manifest_sha256=NC.MANIFEST_SHA,m2_dependency_sha256=m2_dependency_sha,native_source_variant=NC.VARIANT,native_scope='BOUNDED_NATIVE_BOUNDARY_ONLY',native_generation='mosaic-serde7-v1',base_cloud_revision=APPROVED_COMMIT,m6_status='NOT_QUALIFIED',optimized_executable_link='UNKNOWN')
     B.write(out/'manifest.json',m);NC.payload(out,m)
     with zipfile.ZipFile(out/'payload.zip','w',zipfile.ZIP_DEFLATED)as z:
         for n in sorted([*m['files'],'manifest.json']):

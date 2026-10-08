@@ -106,6 +106,10 @@ The compiler supported versions through 7; the first native payload used version
 Four subsequent cases failed during their initial XLA synchronization.
 All records were recovered, and resource closure passed inspection.
 Inspect the pinned serialization passes before the next native attempt.
+The [Mosaic conversion preparation](changes/r6-mosaic-preparation.md) passed 56 independent controls.
+The official versioned passes preserve the fixed kernel's current intermediate representation exactly.
+The reviewer verified all 73 packet members and the explicit JAX 0.7.1 CPU interpreter.
+The new generation requires fresh Linux CPU and actual TPU records.
 The [measurement preparation](changes/r7-measurement-preparation.md) passed 64 local controls and nine independent retained-record checks.
 Actual M7 collection requires accepted M6 results.
 BF16 gradients remain outside the fixed diagnostic scope.
