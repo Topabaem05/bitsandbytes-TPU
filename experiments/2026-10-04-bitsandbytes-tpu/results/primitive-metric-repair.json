@@ -1,0 +1,88 @@
+{
+  "actual_new_device": "NOT_RUN",
+  "adoption_map_sha256": "137f61a833a4970b24078c733ce314d69a2d53cef382ff1574915e7a9525da34",
+  "canonical_controls": {
+    "failed": 0,
+    "passed": 24,
+    "seconds": 0.13,
+    "xml_sha256": "6e1b824421304c65ac791519eb84fba4176ee2e6a60c633a66d501d01f785166"
+  },
+  "dictionary_verification": "PARTIAL_PROJECT_GUIDE_AND_GLOSSARY_NO_CERTIFICATION",
+  "files": {
+    "cloud/primitive_contract.py": {
+      "bytes": 24310,
+      "role": "production",
+      "sha256": "2faf4b6e6b5dde396db5219fd4c1c59331e9fb2a9faf9b4041151498c85ff397",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/primitive_contract.py"
+    },
+    "cloud/tests/test_primitive_metric_admission.py": {
+      "bytes": 3852,
+      "role": "regression",
+      "sha256": "c8c07eb4a9cc45f3cc5dde09b0de2de6ba0367e6847ec41fb074ba2fb5b6b1a7",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/tests/test_primitive_metric_admission.py"
+    },
+    "cloud/tests/test_primitive_metrics.py": {
+      "bytes": 5287,
+      "role": "regression",
+      "sha256": "e4be7e32ca50e54b43ea18912108f46d2289a6951dfb0654076350172063b5bc",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/tests/test_primitive_metrics.py"
+    },
+    "primitive-manifest.json": {
+      "bytes": 1352,
+      "role": "production",
+      "sha256": "2aef8f7b159eae2facb9aef985f74c0e8873e47d4fc164c678a6a835b9f24f85",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/primitive-manifest.json"
+    },
+    "probe_primitives.py": {
+      "bytes": 42027,
+      "role": "production",
+      "sha256": "8797e42fd9fdaeff069b56e325999d232005664b172034386dc906fd58f7c09c",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/probe_primitives.py"
+    }
+  },
+  "kernel_inputs_tolerances_runtime": "UNCHANGED",
+  "local_controls": {
+    "failed": 0,
+    "passed": 24,
+    "xml_sha256": "040035cce19271f4c66f1cdf3414f289aefa4e13942893604784c471b06e364a"
+  },
+  "m4_status": "NOT_QUALIFIED",
+  "packet": {
+    "actual_tpu": "NOT_RUN",
+    "changed_files": [
+      "cloud/primitive_contract.py",
+      "primitive-manifest.json",
+      "probe_primitives.py"
+    ],
+    "manifest_sha256": "6523be2c2f605a9fee25b7d90ed1bbae1d173cfd78989e1b03e751de1eb8d9c4",
+    "members": 56,
+    "negative_controls": [
+      {
+        "case": "changed-input",
+        "error": "PAYLOAD_MEMBER_SHA",
+        "status": "REJECTED"
+      },
+      {
+        "case": "old-probe",
+        "error": "PAYLOAD_MEMBER_SHA",
+        "status": "REJECTED"
+      }
+    ],
+    "packet_bytes": 1082421,
+    "packet_sha256": "97a1eba5455a954ac436ed6512d599564e36003d04eeaa2ed64e3017af97b3ec",
+    "prior_packet_sha256": "81bc114f3a77138e368d71f7779e76659791f466d08a2e9a6def00dfdc5d9ef9",
+    "provider_calls": 0,
+    "qualified_cpu": "NOT_RUN",
+    "status": "ROOT_PACKET_AUDIT_PASS"
+  },
+  "primary_source_revision": "5fab7053df86c8d503b98d9e7202ca8b8d4978c7",
+  "prior_actual_cpu_oracle": "REJECTED_NEW_PROBE_BINDING_WITHOUT_MUTATION",
+  "private_controls": {
+    "failed": 0,
+    "passed": 24,
+    "seconds": 0.14
+  },
+  "scope": "METRIC_SERIALIZATION_ONLY",
+  "status": "ROOT_METRIC_REPAIR_ACCEPTED",
+  "verified_date": "2026-10-09"
+}

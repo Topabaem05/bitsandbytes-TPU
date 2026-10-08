@@ -76,7 +76,8 @@ The reviewer closed the temporary tab and verified an empty server list and zero
 The [actual V5E1 arithmetic run](changes/r4-primitive-v5-record-failure.md) passed its qualified CPU gate.
 The native tensor view used fallback, and the first builder record failed metric serialization.
 All 113 archive members and complete resource closure passed inspection.
-A metric collector correction is required before the remaining arithmetic observations.
+The [metric correction](changes/r4-primitive-metric-repair.md) passed 24 controls before and after adoption.
+Its fresh 56-member packet requires a new qualified CPU oracle and actual arithmetic observations.
 The failed result cannot authorize the saved-state supplement or an accepted M4 dependency.
 The private CPU preparations for M4, M5, and M6 do not qualify those device milestones.
 The [bounded native preparation](changes/r6-native-cloud-preparation.md) uses accepted M2 sources and can execute independently of the M4 repair.

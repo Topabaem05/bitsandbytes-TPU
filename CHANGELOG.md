@@ -1,5 +1,16 @@
 # Change log
 
+## 2026-10-09 — Arithmetic metric correction
+
+- Convert complete metric tuples to JSON before the unchanged validator.
+- Bind the corrected probe to a new scientific manifest and cloud contract.
+- Reject the previous CPU oracle and preserve all actual failure records.
+
+Validation: All 24 focused controls passed before and after adoption.
+All 56 fresh packet members passed inspection, and two incorrect packets failed admission.
+Actual TPU arithmetic remains required; M4 is unqualified.
+Refer to [the correction record](docs/changes/r4-primitive-metric-repair.md).
+
 ## 2026-10-09 — Kaggle submission failure
 
 - Retain HTTP 400 and the original ambiguous submission state without a retry.

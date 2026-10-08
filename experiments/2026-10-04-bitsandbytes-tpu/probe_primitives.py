@@ -223,7 +223,8 @@ def make_device_outputs(B,K,torch,name,inputs,data,materialized):
  return out,computations
 
 def metrics_record(metrics,profile):
- return {'counters':{k:metrics.counter_value(k) for k in metrics.counter_names()},'execution_metrics':{k:list(v) for k in profile['execution_metrics'] if (v:=metrics.metric_data(k)) is not None}}
+ evidence={'counters':{k:metrics.counter_value(k) for k in metrics.counter_names()},'execution_metrics':{k:v for k in profile['execution_metrics'] if (v:=metrics.metric_data(k)) is not None}}
+ return json.loads(json.dumps(evidence,allow_nan=False))
 
 def run_phase(B,R,P,A,N,S,args):
  token(B,args.process_token);token(B,args.parent_process_token);B.require(os.getppid()==args.parent_pid and os.getpgid(0)==args.parent_pid and os.getpid()!=args.parent_pid,'DIRECT_INHERITED_CHILD')

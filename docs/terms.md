@@ -106,6 +106,7 @@ They are not additions to the official ASD-STE100 dictionary.
 | TPU | A Google Tensor Processing Unit. |
 | transpose | A change in the order of array axes. |
 | transport | The software component that sends network requests and returns their responses. |
+| tuple | A Python sequence whose elements cannot change after creation. |
 | upstream package | The external bitsandbytes package at the pinned source revision. |
 | uint8 | An unsigned eight-bit integer data type. |
 | VMEM | The vector memory used by TPU kernel computations. |
