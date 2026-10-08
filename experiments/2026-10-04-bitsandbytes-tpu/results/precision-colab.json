@@ -1,0 +1,681 @@
+{
+  "accepted_milestones": {
+    "completed": 1,
+    "required": 8
+  },
+  "api42_status": "NOT_QUALIFIED",
+  "archive": {
+    "bytes": 199795,
+    "independent_readback": "ALL_MEMBERS_MATCH_RECOVERED_BYTES",
+    "members": 176,
+    "sha256": "9a04a522d28b6be74caa8ba5479d4ef496eba6d0cbd973c230c00207eded365b"
+  },
+  "bf16_gradients": "NOT_RUN",
+  "bindings": {
+    "actual_acceptance": {
+      "bytes": 2054,
+      "sha256": "5a88228c35dbb879a23809bd9d5a22f2b84db2492617e2752f9e882aed17df88"
+    },
+    "api42_probe": {
+      "bytes": 24512,
+      "sha256": "e8743e33e6a0454d5d05b77075d47a5c9f983cf32f3956c38f2b544f86f5ef6d"
+    },
+    "archive": {
+      "bytes": 199795,
+      "sha256": "9a04a522d28b6be74caa8ba5479d4ef496eba6d0cbd973c230c00207eded365b"
+    },
+    "archive_inventory": {
+      "bytes": 28305,
+      "sha256": "641bdcc891c1ae84d60828a9ecb3701fe0e2d99822cd8e2f529540fd461742a7"
+    },
+    "archived_remote_receipt": {
+      "bytes": 27425,
+      "sha256": "1da40012d06ac434cf3e89e1ee21549e3a8572f0e5df5857c65bc11d2f684540"
+    },
+    "build_lock": {
+      "bytes": 7898,
+      "sha256": "65f27f3a93b4aa533d040225609bfb819fcf5ddbbc6f17456d0fcfd28bd6b546"
+    },
+    "cpu_seal_before_tpu": {
+      "bytes": 8556,
+      "sha256": "e1965888a138bb2f372772039e3556013fdcc729d09a9ce24da6b51eeae6730b"
+    },
+    "cpu_seal_recovered": {
+      "bytes": 8556,
+      "sha256": "e1965888a138bb2f372772039e3556013fdcc729d09a9ce24da6b51eeae6730b"
+    },
+    "default_receipt": {
+      "bytes": 5244,
+      "sha256": "8f9047665a7bc92c7118fc1ad7ec43e04b74ea6ac341a4a5efd03f9f2083c064"
+    },
+    "high_receipt": {
+      "bytes": 5235,
+      "sha256": "f238c1b40263a7d60fefcd3f71364bd6ae1be1952ad5db7a738838ed0815a155"
+    },
+    "highest_receipt": {
+      "bytes": 5244,
+      "sha256": "64e83957c3d6d352678698bd061f6c00704030861b000888cd2b6fd0e7f1efb8"
+    },
+    "host_driver_finalization": {
+      "bytes": 2302,
+      "sha256": "bda9b7f0415a019c0d00f3e284a69ebb8d7958233ef19fa910c474b86784a457"
+    },
+    "independent_readback": {
+      "bytes": 12553,
+      "sha256": "ff4ccf76fa41b28889f523d29d409dc2911a07cf5c9c1b9aa88cd2667960fd5b"
+    },
+    "inputs": {
+      "bytes": 132064,
+      "sha256": "d0c9cdf6a82449a56923499698f19bfd3cc8d13c042f1f5ad2bdf587701f5e54"
+    },
+    "installed_metadata": {
+      "bytes": 9237,
+      "sha256": "bc0e78b718d912c592f1130eecc332ba18c9179c91f502268bc31e0d99e3f522"
+    },
+    "owner_record": {
+      "bytes": 63737,
+      "sha256": "90dd0be13141a40b445c01fff06bf8d60ed89466518bcea52c1feb33d89da8b1"
+    },
+    "owner_source": {
+      "bytes": 27265,
+      "sha256": "3bd73633dede572843e500319d3bcb50a264e0d0a8d4bfef27fa372f81fec55e"
+    },
+    "packet": {
+      "bytes": 502552,
+      "sha256": "5a36ee9900a36a79812c9f683bc0b41255c10f7fc283ace241f859c4e2016c25"
+    },
+    "packet_manifest": {
+      "bytes": 5172,
+      "sha256": "fee45a942c0aee3e0de361c825c2b52addec48df9e095a4dc38e9dab1359fff4"
+    },
+    "plugin_manifest": {
+      "bytes": 2803,
+      "sha256": "be2ba05deb82b4bd59635dfe4c4b1518cd60b00ec92459b1a69d66f584250cd0"
+    },
+    "precision_parent_receipt": {
+      "bytes": 13722,
+      "sha256": "37a04b57e5977468405966fb2c3a87116e74b7c1481e0efff7c883817bebca23"
+    },
+    "precision_probe": {
+      "bytes": 35743,
+      "sha256": "e0534955507e5f91e67ecddfffc738a367ad752e69a4eea7ae8052c6d76a8852"
+    },
+    "profile": {
+      "bytes": 3695,
+      "sha256": "ad53f6416bdabf6440f08b313963c947a468cd39afd413bfe41bb381c4a7a166"
+    },
+    "remote_receipt": {
+      "bytes": 27638,
+      "sha256": "fa61387172875116418f9e530bbce70bd6203bc786e4afa4c682ba6aa980b8d3"
+    },
+    "remote_source": {
+      "bytes": 24802,
+      "sha256": "5132199136a08fbd3172923eff15ccd9ab7da00d93aebf2a86d8b6009dac8ca4"
+    },
+    "route_probe": {
+      "bytes": 26296,
+      "sha256": "feae751734e57c741b1bdade004ff7ca3c041ee7eb3b7086b531bc6be433038e"
+    },
+    "runtime_lock": {
+      "bytes": 39667,
+      "sha256": "323371ff61c5fbcc4f79fd6a358cf2ba17cb72b907382a5ceaac07f91dc66ed6"
+    },
+    "runtime_probe": {
+      "bytes": 5846,
+      "sha256": "3b37d8519e665270b3aaf8d243d876a157f745cbbb68b1fe956913ad0a973b3c"
+    },
+    "source_admission": {
+      "bytes": 5295,
+      "sha256": "4734554539d7bf6aafc81ca5a0584af858a9eb10ba0881c4ed3511afeddba1bd"
+    },
+    "verifier_report": {
+      "bytes": 43815,
+      "sha256": "807196b069a54acebe2e778f6ae36174e5291922402d43b49162ea562fe0eacd"
+    }
+  },
+  "closure": {
+    "allocation_attempts": 1,
+    "cleanup_errors": [],
+    "handler_restoration_errors": [],
+    "host_driver_cleanup_errors": [],
+    "host_driver_seconds": 181.03728887499892,
+    "owner_seconds": 179.33351397514343,
+    "server_empty_observed": true,
+    "status": "CLOSED",
+    "usage_zero_observed": true
+  },
+  "comparison": {
+    "default_matches_retained_oct4": [
+      "target_constructor/linear-float32-rank2-bias1",
+      "from_prequantized/linear-float32-rank2-bias1",
+      "target_constructor/linear-bfloat16-rank2-bias1",
+      "from_prequantized/linear-bfloat16-rank2-bias1"
+    ],
+    "nf4_outputs_equal_oracle_all_modes": true,
+    "plain_and_module_fp32_outputs_equal_all_modes": true
+  },
+  "cpu_oracle_cases": 42,
+  "cpu_oracle_scope": "Pinned default Python implementation; CUDA comparison NOT_RUN",
+  "decision": {
+    "limits": [
+      "Both high and highest passed this fixed diagnostic.",
+      "This does not qualify other shapes or all API42 cases.",
+      "CPU-to-XLA transfer and new-process TPU state restoration remain open.",
+      "No performance or memory benefit is measured."
+    ],
+    "next_correctness_precision": "highest",
+    "timing": "Set once before TPU graphs in each fresh process"
+  },
+  "device": {
+    "assignment_hardware": "V6E1",
+    "devices": [
+      "TPU:0"
+    ],
+    "provider": "Colab",
+    "runtime_backend": "TPU"
+  },
+  "execution_rows": 15,
+  "failed_gate_count": 6,
+  "format": "bnb-tpu.precision-colab-result.v1",
+  "gate_count": 81,
+  "m3_status": "NOT_QUALIFIED",
+  "modes": [
+    {
+      "mode": "default",
+      "numerical_status": "FAIL",
+      "pid": 1683,
+      "precision": {
+        "before_graph": true,
+        "readback": "default",
+        "requested": "default",
+        "set_calls": 1
+      },
+      "rows": [
+        {
+          "case_id": "linear-float32-rank2-bias1",
+          "gates": {
+            "db": {
+              "max_abs": 0.0,
+              "status": "PASS"
+            },
+            "dx": {
+              "max_abs": 0.0010573863983154297,
+              "status": "FAIL"
+            },
+            "y": {
+              "max_abs": 0.0012758970260620117,
+              "status": "FAIL"
+            }
+          },
+          "numerical_status": "FAIL",
+          "route": "plain"
+        },
+        {
+          "case_id": "linear-float32-rank2-bias1",
+          "gates": {
+            "absmax": {
+              "max_abs": 0.0,
+              "status": "PASS"
+            },
+            "code": {
+              "max_abs": 0.0,
+              "status": "PASS"
+            },
+            "db": {
+              "max_abs": 0.0,
+              "status": "PASS"
+            },
+            "decoded": {
+              "max_abs": 0.0,
+              "status": "PASS"
+            },
+            "dx": {
+              "max_abs": 0.0010573863983154297,
+              "status": "FAIL"
+            },
+            "packed": {
+              "max_abs": 0,
+              "status": "PASS"
+            },
+            "y": {
+              "max_abs": 0.0012758970260620117,
+              "status": "FAIL"
+            }
+          },
+          "numerical_status": "FAIL",
+          "route": "target_constructor"
+        },
+        {
+          "case_id": "linear-float32-rank2-bias1",
+          "gates": {
+            "absmax": {
+              "max_abs": 0.0,
+              "status": "PASS"
+            },
+            "code": {
+              "max_abs": 0.0,
+              "status": "PASS"
+            },
+            "db": {
+              "max_abs": 0.0,
+              "status": "PASS"
+            },
+            "decoded": {
+              "max_abs": 0.0,
+              "status": "PASS"
+            },
+            "dx": {
+              "max_abs": 0.0010573863983154297,
+              "status": "FAIL"
+            },
+            "packed": {
+              "max_abs": 0,
+              "status": "PASS"
+            },
+            "y": {
+              "max_abs": 0.0012758970260620117,
+              "status": "FAIL"
+            }
+          },
+          "numerical_status": "FAIL",
+          "route": "from_prequantized"
+        },
+        {
+          "case_id": "linear-bfloat16-rank2-bias1",
+          "gates": {
+            "absmax": {
+              "max_abs": 0.0,
+              "status": "PASS"
+            },
+            "code": {
+              "max_abs": 0.0,
+              "status": "PASS"
+            },
+            "decoded": {
+              "max_abs": 0.0,
+              "status": "PASS"
+            },
+            "packed": {
+              "max_abs": 0,
+              "status": "PASS"
+            },
+            "y": {
+              "max_abs": 0.0,
+              "status": "PASS"
+            }
+          },
+          "numerical_status": "PASS",
+          "route": "target_constructor"
+        },
+        {
+          "case_id": "linear-bfloat16-rank2-bias1",
+          "gates": {
+            "absmax": {
+              "max_abs": 0.0,
+              "status": "PASS"
+            },
+            "code": {
+              "max_abs": 0.0,
+              "status": "PASS"
+            },
+            "decoded": {
+              "max_abs": 0.0,
+              "status": "PASS"
+            },
+            "packed": {
+              "max_abs": 0,
+              "status": "PASS"
+            },
+            "y": {
+              "max_abs": 0.0,
+              "status": "PASS"
+            }
+          },
+          "numerical_status": "PASS",
+          "route": "from_prequantized"
+        }
+      ]
+    },
+    {
+      "mode": "high",
+      "numerical_status": "PASS",
+      "pid": 2281,
+      "precision": {
+        "before_graph": true,
+        "readback": "high",
+        "requested": "high",
+        "set_calls": 1
+      },
+      "rows": [
+        {
+          "case_id": "linear-float32-rank2-bias1",
+          "gates": {
+            "db": {
+              "max_abs": 0.0,
+              "status": "PASS"
+            },
+            "dx": {
+              "max_abs": 1.773238182067871e-06,
+              "status": "PASS"
+            },
+            "y": {
+              "max_abs": 3.129243850708008e-06,
+              "status": "PASS"
+            }
+          },
+          "numerical_status": "PASS",
+          "route": "plain"
+        },
+        {
+          "case_id": "linear-float32-rank2-bias1",
+          "gates": {
+            "absmax": {
+              "max_abs": 0.0,
+              "status": "PASS"
+            },
+            "code": {
+              "max_abs": 0.0,
+              "status": "PASS"
+            },
+            "db": {
+              "max_abs": 0.0,
+              "status": "PASS"
+            },
+            "decoded": {
+              "max_abs": 0.0,
+              "status": "PASS"
+            },
+            "dx": {
+              "max_abs": 1.773238182067871e-06,
+              "status": "PASS"
+            },
+            "packed": {
+              "max_abs": 0,
+              "status": "PASS"
+            },
+            "y": {
+              "max_abs": 3.129243850708008e-06,
+              "status": "PASS"
+            }
+          },
+          "numerical_status": "PASS",
+          "route": "target_constructor"
+        },
+        {
+          "case_id": "linear-float32-rank2-bias1",
+          "gates": {
+            "absmax": {
+              "max_abs": 0.0,
+              "status": "PASS"
+            },
+            "code": {
+              "max_abs": 0.0,
+              "status": "PASS"
+            },
+            "db": {
+              "max_abs": 0.0,
+              "status": "PASS"
+            },
+            "decoded": {
+              "max_abs": 0.0,
+              "status": "PASS"
+            },
+            "dx": {
+              "max_abs": 1.773238182067871e-06,
+              "status": "PASS"
+            },
+            "packed": {
+              "max_abs": 0,
+              "status": "PASS"
+            },
+            "y": {
+              "max_abs": 3.129243850708008e-06,
+              "status": "PASS"
+            }
+          },
+          "numerical_status": "PASS",
+          "route": "from_prequantized"
+        },
+        {
+          "case_id": "linear-bfloat16-rank2-bias1",
+          "gates": {
+            "absmax": {
+              "max_abs": 0.0,
+              "status": "PASS"
+            },
+            "code": {
+              "max_abs": 0.0,
+              "status": "PASS"
+            },
+            "decoded": {
+              "max_abs": 0.0,
+              "status": "PASS"
+            },
+            "packed": {
+              "max_abs": 0,
+              "status": "PASS"
+            },
+            "y": {
+              "max_abs": 0.0,
+              "status": "PASS"
+            }
+          },
+          "numerical_status": "PASS",
+          "route": "target_constructor"
+        },
+        {
+          "case_id": "linear-bfloat16-rank2-bias1",
+          "gates": {
+            "absmax": {
+              "max_abs": 0.0,
+              "status": "PASS"
+            },
+            "code": {
+              "max_abs": 0.0,
+              "status": "PASS"
+            },
+            "decoded": {
+              "max_abs": 0.0,
+              "status": "PASS"
+            },
+            "packed": {
+              "max_abs": 0,
+              "status": "PASS"
+            },
+            "y": {
+              "max_abs": 0.0,
+              "status": "PASS"
+            }
+          },
+          "numerical_status": "PASS",
+          "route": "from_prequantized"
+        }
+      ]
+    },
+    {
+      "mode": "highest",
+      "numerical_status": "PASS",
+      "pid": 2879,
+      "precision": {
+        "before_graph": true,
+        "readback": "highest",
+        "requested": "highest",
+        "set_calls": 1
+      },
+      "rows": [
+        {
+          "case_id": "linear-float32-rank2-bias1",
+          "gates": {
+            "db": {
+              "max_abs": 0.0,
+              "status": "PASS"
+            },
+            "dx": {
+              "max_abs": 5.960464477539063e-08,
+              "status": "PASS"
+            },
+            "y": {
+              "max_abs": 1.1920928955078125e-07,
+              "status": "PASS"
+            }
+          },
+          "numerical_status": "PASS",
+          "route": "plain"
+        },
+        {
+          "case_id": "linear-float32-rank2-bias1",
+          "gates": {
+            "absmax": {
+              "max_abs": 0.0,
+              "status": "PASS"
+            },
+            "code": {
+              "max_abs": 0.0,
+              "status": "PASS"
+            },
+            "db": {
+              "max_abs": 0.0,
+              "status": "PASS"
+            },
+            "decoded": {
+              "max_abs": 0.0,
+              "status": "PASS"
+            },
+            "dx": {
+              "max_abs": 5.960464477539063e-08,
+              "status": "PASS"
+            },
+            "packed": {
+              "max_abs": 0,
+              "status": "PASS"
+            },
+            "y": {
+              "max_abs": 1.1920928955078125e-07,
+              "status": "PASS"
+            }
+          },
+          "numerical_status": "PASS",
+          "route": "target_constructor"
+        },
+        {
+          "case_id": "linear-float32-rank2-bias1",
+          "gates": {
+            "absmax": {
+              "max_abs": 0.0,
+              "status": "PASS"
+            },
+            "code": {
+              "max_abs": 0.0,
+              "status": "PASS"
+            },
+            "db": {
+              "max_abs": 0.0,
+              "status": "PASS"
+            },
+            "decoded": {
+              "max_abs": 0.0,
+              "status": "PASS"
+            },
+            "dx": {
+              "max_abs": 5.960464477539063e-08,
+              "status": "PASS"
+            },
+            "packed": {
+              "max_abs": 0,
+              "status": "PASS"
+            },
+            "y": {
+              "max_abs": 1.1920928955078125e-07,
+              "status": "PASS"
+            }
+          },
+          "numerical_status": "PASS",
+          "route": "from_prequantized"
+        },
+        {
+          "case_id": "linear-bfloat16-rank2-bias1",
+          "gates": {
+            "absmax": {
+              "max_abs": 0.0,
+              "status": "PASS"
+            },
+            "code": {
+              "max_abs": 0.0,
+              "status": "PASS"
+            },
+            "decoded": {
+              "max_abs": 0.0,
+              "status": "PASS"
+            },
+            "packed": {
+              "max_abs": 0,
+              "status": "PASS"
+            },
+            "y": {
+              "max_abs": 0.0,
+              "status": "PASS"
+            }
+          },
+          "numerical_status": "PASS",
+          "route": "target_constructor"
+        },
+        {
+          "case_id": "linear-bfloat16-rank2-bias1",
+          "gates": {
+            "absmax": {
+              "max_abs": 0.0,
+              "status": "PASS"
+            },
+            "code": {
+              "max_abs": 0.0,
+              "status": "PASS"
+            },
+            "decoded": {
+              "max_abs": 0.0,
+              "status": "PASS"
+            },
+            "packed": {
+              "max_abs": 0,
+              "status": "PASS"
+            },
+            "y": {
+              "max_abs": 0.0,
+              "status": "PASS"
+            }
+          },
+          "numerical_status": "PASS",
+          "route": "from_prequantized"
+        }
+      ]
+    }
+  ],
+  "numerical_fail_rows": 3,
+  "numerical_pass_rows": 12,
+  "numerical_status": "FAIL",
+  "owner_status": "PASS_PRECISION_RECORDS",
+  "precision_environment": {
+    "XLA_DOWNCAST_BF16": null,
+    "XLA_FLAGS": null,
+    "XLA_USE_BF16": null,
+    "XLA_USE_F32_FOR_BF16": null
+  },
+  "record_validation": "PASS",
+  "reviewed_date": "2026-10-08",
+  "runtime_probe": {
+    "gradient": [
+      2.0,
+      4.0
+    ],
+    "loss": 5.0,
+    "status": "PASS_TPU_RUNTIME_PROBE_ONLY"
+  },
+  "runtime_versions": {
+    "jax": "0.7.1",
+    "jaxlib": "0.7.1",
+    "libtpu": "0.0.21",
+    "torch": "2.9.0+cpu",
+    "torch-xla": "2.9.0"
+  },
+  "source_commit": "6df26afcb161b97665f9485c97e4f36f2bc58637",
+  "task_r1_status": "ACCEPTED_CONTROLLED_COMPARISON"
+}

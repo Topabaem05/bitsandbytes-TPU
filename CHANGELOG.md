@@ -1,5 +1,19 @@
 # Change log
 
+## 2026-10-08 — Colab precision comparison
+
+- Record the controlled comparison of `default`, `high`, and `highest` on Colab V6E1.
+- Keep the `default` FP32 failures and exact matches with the earlier module outputs.
+- Record passing fixed gates for `high` and `highest`.
+- Select `highest` for the next correctness experiments before graph construction.
+- Keep public transfer, full API42, and new-process state restoration open.
+
+Validation: The reviewer independently compared 15 records and 81 numerical gates.
+All 176 archive members matched the recovered bytes and hashes.
+The session stopped, the server was empty, and active usage was zero.
+R1 is accepted; completed milestones remain 1 of 8.
+Refer to [the Colab precision result](docs/changes/r1-precision-colab.md).
+
 ## 2026-10-08 — Precision diagnostic preparation
 
 - Compare native XLA precision in three separate processes.

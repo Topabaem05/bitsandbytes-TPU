@@ -8,14 +8,15 @@ The initial package milestone is completed.
 The reviewer repeated 71 CPU and package tests.
 Accepted milestones: **1 of 8**.
 The first target is NF4 quantization and `bitsandbytes.nn.Linear4bit` on a TPU.
-The latest Colab diagnostic passed 34 nonlinear numerical cases and two BF16 module routes.
-Two FP32 module routes failed their forward and input-gradient gates.
-The original CPU-to-XLA module transfer failed for both data types.
-The BF16 routes did not test gradients.
+The latest Colab comparison passed its fixed FP32 gates with native precision `high` and `highest`.
+The `default` mode reproduced the earlier forward and input-gradient failures.
+The next correctness experiments will use `highest` before graph construction.
+The original CPU-to-XLA module transfer still requires a source correction and device tests.
+BF16 forward controls passed; BF16 gradients remain untested.
 Four executed module routes passed reconstruction within the same process.
 This does not establish restoration in a new process.
 The full 42-case API test and milestones M2 and M3 remain unqualified.
-Refer to [the latest diagnostic](docs/changes/task2-colab-routes.md).
+Refer to [the precision result](docs/changes/r1-precision-colab.md).
 
 The [October 8 source inspection](docs/research/2026-10-08/README.md) covers each design area before further implementation.
 It contains current documentation, original papers, fixed source revisions, and explicit version limits.
@@ -24,6 +25,7 @@ The inspection did not change the runtime, code, or numerical tolerances.
 
 Earlier failure records remain available:
 
+- [Device route comparison](docs/changes/task2-colab-routes.md).
 - [First Colab run](docs/changes/task2-colab-first.md).
 - [Functionalization repeat](docs/changes/task2-colab-functionalized.md).
 - [Third Colab run](docs/changes/task2-colab-native.md).

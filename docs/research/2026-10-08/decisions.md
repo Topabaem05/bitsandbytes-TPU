@@ -44,9 +44,10 @@ Commit and push each accepted logical change with its change log entry.
 
 ## Open questions
 
-The BF16 operand-rounding witness supports the FP32 precision hypothesis.
-It does not prove the effective device precision in the earlier run.
-Only a controlled device comparison can resolve that question.
+The subsequent [R1 Colab comparison](../../changes/r1-precision-colab.md) passed with `high` and `highest`.
+The `default` mode reproduced the earlier FP32 error with unchanged inputs and tolerances.
+Use `highest` for the next correctness experiments.
+R1 is accepted; the full API42 matrix still requires device records.
 
 The tensor swap proposal uses behavior from a fixed PyTorch implementation.
 It still needs an inspection of failure recovery and actual TPU behavior.

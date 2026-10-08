@@ -15,7 +15,7 @@ Port2TPU results do not count for these backend milestones.
 | ID | Required result | Required test records | Status |
 | --- | --- | --- | --- |
 | M1 | Installable backend | Wheel installation, automatic registration, schema tests, and CPU differential tests | Completed: local CPU and package tests |
-| M2 | Actual TPU execution | Fixed runtime, TPU device test records, and upstream API output on Colab | In progress: FP32 accuracy and parameter transfer |
+| M2 | Actual TPU execution | Fixed runtime, TPU device test records, and upstream API output on Colab | In progress: parameter transfer and full API42; precision comparison accepted |
 | M3 | Upstream module state | Bias, gradients, saved state, and restoration in a new process | In progress: local preparation and reconstruction within one process |
 | M4 | Nested quantization | Upstream default statistics option and matching nested state | In progress: source inspection and local reference data |
 | M5 | QLoRA execution | Twenty steps, frozen base weights, and restoration after step ten | Not started |
@@ -42,22 +42,20 @@ Keep source-supported facts separate from hypotheses and proposed tests.
 
 ## Current blockers
 
-The latest Colab diagnostic passed all 34 nonlinear cases under the fixed numerical requirements.
-Two BF16 module routes passed their numerical comparisons.
-Two FP32 module routes failed the forward and input-gradient requirements.
-The BF16 routes did not test gradients.
-Both original CPU-to-XLA transfers failed during parameter data assignment.
-The diagnostic numerical result is `FAIL`.
-The full API42 matrix and M3 remain unqualified.
-Refer to [the latest Colab record](changes/task2-colab-routes.md).
+The reviewer accepted the R1 Colab precision comparison on 2026-10-08.
+Native precision `high` and `highest` passed all fixed gates in this diagnostic.
+The `default` mode reproduced the earlier FP32 forward and input-gradient failures.
+Use `highest` before graph construction for the next correctness experiments.
+Refer to [the precision result](changes/r1-precision-colab.md).
 
-The source inspection identifies native XLA precision as a hypothesis for the FP32 error.
-A controlled device comparison must establish the effective setting and its result.
-Compare construction and the public state restoration method independently from the original transfer.
-A successful alternative path does not show that CPU-to-TPU `.to` works.
+The original CPU-to-XLA transfers failed during parameter data assignment in the earlier run.
+An explicit source correction now requires local controls and actual device tests.
 Keep that transfer requirement open until its own test passes.
-Examine an explicit source correction before adoption.
 Do not replace the upstream classes or methods dynamically during execution.
+The next transfer experiment must also execute the complete fixed API42 matrix.
+The full API42 matrix and M3 remain unqualified.
+Restoration in a new process requires separate device records.
+BF16 gradients remain outside the fixed diagnostic scope.
 
 The previous Kaggle inspection found no usable CLI credentials.
 This source inspection did not repeat account authentication.
@@ -67,10 +65,10 @@ Refer to [the cloud inspection](research/2026-10-08/cloud.md).
 
 ## Work order
 
-1. Complete the source inspection for each design area.
-2. Compare XLA precision settings in separate processes with fixed inputs and tolerances.
-3. Resolve public CPU-to-XLA parameter transfer with examined source and isolated controls.
-4. Complete the full M2 API matrix and M3 restoration in a new process.
+1. Keep the accepted source inspection and R1 precision records as the basis for the next changes.
+2. Examine the public CPU-to-XLA transfer correction with compatible and rejected-conversion controls.
+3. Execute the transfer controls and complete M2 API matrix with `highest` on Colab.
+4. Complete M3 restoration in a new process with the accepted source and runtime.
 5. Complete M4 nested quantization with the identified reference implementation.
 6. Complete M5 QLoRA execution and checkpoint restoration.
 7. Qualify M6, then measure M7 on the same TPU as the correct reference path.
