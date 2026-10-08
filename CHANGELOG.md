@@ -1,5 +1,15 @@
 # Change log
 
+## 2026-10-09 — Kaggle public payload transport
+
+- Retain the exact scientific ZIP at a fixed repository path for commit-bound download.
+- Admit the complete wrapper and verify the added transport record before scientific recovery.
+- Preserve original failures and record cleanup uncertainty without a false closure claim.
+
+Validation: All 40 controls passed before and after adoption; original scientific bytes and numerical criteria remain fixed.
+Actual Kaggle execution and provider closure remain required.
+Refer to [the preparation record](docs/changes/r8-public-payload.md).
+
 ## 2026-10-09 — Native gather decode preparation
 
 - Replace the rejected reshape with a gather that preserves nibble and scale order.

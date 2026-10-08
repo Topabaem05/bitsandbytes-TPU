@@ -117,8 +117,6 @@ The [Mosaic conversion preparation](changes/r6-mosaic-preparation.md) passed 56 
 The official versioned passes preserve the fixed kernel's current intermediate representation exactly.
 The reviewer verified all 73 packet members and the explicit JAX 0.7.1 CPU interpreter.
 The new generation requires fresh Linux CPU and actual TPU records.
-The [gather decode correction](changes/r6-gather-decode.md) passed 52 independent controls and the canonical packet preflight.
-Its source map preserves the original numerical criteria and requires a fresh qualified CPU oracle.
 The [portable conversion controls](changes/r6-mosaic-portable-controls.md) passed all 35 cases before and after adoption.
 The corrected rejection helper also rejects a fake successful verifier; production sources remain unchanged.
 Its [V5E1 allocation attempt](changes/r6-mosaic-allocation-wait.md) remained pending for 703.63 seconds without scientific execution.
@@ -126,7 +124,8 @@ The reviewer closed the temporary tab and verified six closed CLI groups, no act
 The [fresh V5E1 experiment](changes/r6-mosaic-layout-failure.md) passed its five-case CPU gate and reached TPU layout compilation.
 The first case failed an unsupported shape cast; the remaining four cases were not executed.
 Independent conversion replay, all 110 archive members, and complete resource closure passed inspection.
-A decode layout correction must preserve nibble order, scaling, and numerical criteria before another native attempt.
+The [gather decode correction](changes/r6-gather-decode.md) passed 52 independent controls and the canonical packet preflight.
+Its source map preserves the original numerical criteria and requires a fresh qualified CPU oracle.
 The [measurement preparation](changes/r7-measurement-preparation.md) passed 64 local controls and nine independent retained-record checks.
 Actual M7 collection requires accepted M6 results.
 BF16 gradients remain outside the fixed diagnostic scope.
@@ -152,6 +151,9 @@ It requires exact saved-version hardware readback and a new experiment identity.
 The [V5E8 submission](changes/r8-v5-source-size-failure.md) returned HTTP 400 with a retained `SOURCE_SIZE` classification.
 The exact draft remained inactive, both `v1` requests returned HTTP 404, and all five local groups closed.
 A smaller transport script must preserve the identical scientific ZIP before another reviewed submission.
+The [public payload transport](changes/r8-public-payload.md) passed 40 controls before and after adoption.
+It admits the complete wrapper and adds one transport record to the unchanged scientific archive.
+Actual immutable download, provider execution, and resource closure remain required.
 M8 requires an identified version, the accepted runtime and scientific results, and independent resource closure.
 The earlier [cloud inspection](research/2026-10-08/cloud.md) remains a dated source record.
 

@@ -45,6 +45,8 @@ They are not additions to the official ASD-STE100 dictionary.
 | hash | A digest that identifies file content. |
 | HBM | High-bandwidth memory attached to an accelerator. |
 | HLO | The high-level operation representation used by XLA. |
+| HTTP | The request and response protocol used by the download transport. |
+| HTTPS | HTTP carried through a TLS connection. |
 | high-water value | The largest memory usage reported by an allocator within its own measurement scope. |
 | JAX | The JAX numerical software package. |
 | JSON | A text format for structured data. |
@@ -109,6 +111,7 @@ They are not additions to the official ASD-STE100 dictionary.
 | tile | A limited part of a matrix that a kernel processes. |
 | timestamp | A recorded clock value for an event or interval boundary. |
 | TPU | A Google Tensor Processing Unit. |
+| TLS | The protocol that protects a connection and verifies the server certificate. |
 | transpose | A change in the order of array axes. |
 | transport | The software component that sends network requests and returns their responses. |
 | tuple | A Python sequence whose elements cannot change after creation. |
