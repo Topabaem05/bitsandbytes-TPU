@@ -1,0 +1,63 @@
+{
+  "accepted_milestones": {
+    "completed": 1,
+    "required": 8
+  },
+  "allocation_attempts": 1,
+  "api42_status": "NOT_QUALIFIED",
+  "bindings": {
+    "allocation_log": {
+      "bytes": 25280,
+      "sha256": "72f828a2fd9ce4a97ec97df1a8b8904b4ce2d63a19775ffc5211f32b82976799"
+    },
+    "delayed_readiness": {
+      "bytes": 2358,
+      "sha256": "7f7d1b4e24dc3d0aa9826ccd9c96383e015e71ac65ee5e661d91eb1a68d5bb59"
+    },
+    "host_finalization": {
+      "bytes": 2300,
+      "sha256": "b491d26755fd3f1c118a05b2646498423d49562a0befffd5f93c733b0cfebdd0"
+    },
+    "manifest": {
+      "bytes": 6705,
+      "sha256": "0b536478286cd92614c8ce700a59d72d47feee61800856eef3bd530c642d4e95"
+    },
+    "owner": {
+      "bytes": 14851,
+      "sha256": "9c03cc903bb948581f899434f41d3dd182bf08ff20e14f3c20ac9f1254416553"
+    },
+    "packet": {
+      "bytes": 946038,
+      "sha256": "e6157b159396ee0a7ce07814f650edf5dfd31e6be900592f58f1130b7a3eee82"
+    }
+  },
+  "closure": {
+    "cleanup_errors": [],
+    "delayed_server_empty": true,
+    "delayed_usage_zero": true,
+    "handler_restoration_errors": [],
+    "host_cleanup_errors": [],
+    "host_seconds": 124.79135116600082,
+    "owner_seconds": 123.44770789146423,
+    "server_empty_observed": true,
+    "usage_zero_observed": true
+  },
+  "cpu_oracle": "NOT_RUN",
+  "experiment": "transfer-api42",
+  "failure": {
+    "phase": "provider assignment POST",
+    "read_timeout_seconds": 120,
+    "type": "requests.ReadTimeout"
+  },
+  "format": "bnb-tpu.transfer-allocation-result.v1",
+  "installation": "NOT_RUN",
+  "m3_status": "NOT_QUALIFIED",
+  "next_action": "One bounded repeat with unchanged payload after delayed empty-server and zero-usage observations.",
+  "requested_hardware": "V6E1",
+  "reviewed_date": "2026-10-08",
+  "runtime_probe": "NOT_RUN",
+  "source_commit": "9d40c8db33a7c95a62de9f6e3ce9018c8dd18cd5",
+  "source_controls": "NOT_RUN",
+  "status": "BLOCKED_DURING_ALLOCATION",
+  "tpu_cases_executed": 0
+}

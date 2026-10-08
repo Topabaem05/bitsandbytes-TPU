@@ -1,5 +1,16 @@
 # Change log
 
+## 2026-10-08 — Colab transfer allocation timeout
+
+- Retain the provider timeout during the first R2 TPU allocation request.
+- Record zero executed scientific cases and unqualified API42 and M3 status.
+- Confirm an empty server, zero active usage, and closed local processes.
+- Repeat the server and usage queries before one bounded repeat with the same payload.
+
+Validation: The reviewer examined the allocation error, owner records, process closure, and later server observations.
+No runtime installation or scientific calculation executed.
+Refer to [the allocation record](docs/changes/r2-colab-allocation-timeout.md).
+
 ## 2026-10-08 — Public transfer experiment preparation
 
 - Add the exact reviewed `Params4bit._quantize` patch and its complete source inventory.
