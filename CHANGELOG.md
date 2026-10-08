@@ -1,5 +1,18 @@
 # Change log
 
+## 2026-10-08 — Colab nested bootstrap failure
+
+- Retain the first nested experiment failure before installation or numerical work.
+- Identify the missing sibling import path under the actual notebook entry point.
+- Record zero executed science cases and the absent phase receipt.
+- Verify exact runtime closure, an empty server list, and zero active usage.
+
+Validation: The reviewer inspected both retained tracebacks and all host and CLI cleanup records.
+The run used one allocation and closed after approximately 77.22 seconds.
+The required receipt prevented a false successful result despite zero CLI exit codes.
+Accepted milestones remain three of eight.
+Refer to [the failure record](docs/changes/r4-bootstrap-failure.md).
+
 ## 2026-10-08 — Nested quantization experiment preparation
 
 - Add an explicit six-file plugin variant with seven operator schemas.

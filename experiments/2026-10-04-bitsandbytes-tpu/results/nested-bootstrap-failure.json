@@ -1,0 +1,62 @@
+{
+  "accepted_milestones": 3,
+  "artifact_bindings": {
+    ".work/cloud-20261008-nested/cli/08-unpack/stdout-stderr.raw": {
+      "bytes": 3000,
+      "sha256": "aeebd7ecbfd1e66d475794b8666acef16fe2fa62ed9607e2597c12027daa4da3"
+    },
+    ".work/cloud-20261008-nested/cli/09-install-receipt/stdout-stderr.raw": {
+      "bytes": 97,
+      "sha256": "3075cc1566cb38b3d9b7dc75dd61208f62c53c7a4ec4e86f14e7ae4891f8a87b"
+    },
+    ".work/cloud-20261008-nested/cli/09-install/stdout-stderr.raw": {
+      "bytes": 3000,
+      "sha256": "7f67716cbbb52abe4fe2295a297b3cee0758cca3006cb247379a8d7dc3d33583"
+    },
+    ".work/cloud-20261008-nested/owner.json": {
+      "bytes": 46393,
+      "sha256": "c3aef69fe79e4c44c61fa2b723c7da017bd953f6b07c01e5a05f3c840b3dbc97"
+    },
+    ".work/root-r4-adoption/host-owner/host-finalization.json": {
+      "bytes": 2297,
+      "sha256": "33dd640913be252b512cc032691b41cf59de3d7f5b6e59bdd75d2449da38b794"
+    },
+    ".work/root-r4-adoption/nested-acceptance.json": {
+      "bytes": 2914,
+      "sha256": "c04b57e6107ad92e0fe509114ca9b1eb4cc0eabd433ba61b661693f961f8cf98"
+    }
+  },
+  "cause": "remote.py imports nested_contract as a sibling; runpy.run_path does not prepend its directory to sys.path",
+  "cli_status_limit": "Unpack and install commands returned zero despite notebook tracebacks. Missing phase receipt blocked the owner.",
+  "closure": {
+    "active_usage_zero": true,
+    "allocation_attempts": 1,
+    "driver_exit_code": 2,
+    "host_and_cli_processes": "CLEANUP_VERIFIED",
+    "lifecycle_seconds": 77.22184705734253,
+    "server_empty": true
+  },
+  "date": "2026-10-08",
+  "driver_sha256": "5681499ea913bbdd600e9f122825faef7ad1a298b09da2452869d3112314379f",
+  "evidence_archive": "NOT_CREATED",
+  "executed_commit": "f387c96406fdbf9e2f62c46b793266378ce07a36",
+  "experiment": "nested-79",
+  "installation": "NOT_RUN_BEFORE_MODULE_IMPORT_FAILURE",
+  "m4_status": "NOT_QUALIFIED",
+  "notebook_bootstrap_python": "3.13 from retained traceback; qualified interpreter did not install",
+  "observed_error": "ModuleNotFoundError: No module named nested_contract",
+  "original_error": {
+    "message": "CLI_STEP_BLOCKED:09-install-receipt",
+    "type": "RuntimeError"
+  },
+  "packet_sha256": "7f70d80421a3dcac6a08a0c5a7d04a43ae3d60d85dadb7b85504e7201a133eb6",
+  "qualified_cpu_oracle": "NOT_RUN",
+  "remote_sha256": "5b9b54f4e2121ad845a158f54ee170e3cd2f7aa0a415e47c810fffa94d1e25dd",
+  "retrieval_error": {
+    "message": "CLI_STEP_BLOCKED:20-critical-receipt",
+    "type": "RuntimeError"
+  },
+  "science_cases": 0,
+  "status": "BLOCKED_REMOTE_BOOTSTRAP_IMPORT",
+  "tpu_science": "NOT_RUN"
+}
