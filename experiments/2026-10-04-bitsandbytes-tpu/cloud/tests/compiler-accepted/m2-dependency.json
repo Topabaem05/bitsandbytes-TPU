@@ -1,0 +1,9 @@
+{
+  "accepted_result_sha256": "83119421cb7b7b08653079b55c57f4762b1fedb6c6d46df67279322391cdc540",
+  "kind": "ROOT_M2_DEPENDENCY_ACCEPTANCE",
+  "patch_manifest_sha256": "e745fbf21aac10ed9118167a131d6505bf6dbe03e1fab0a669c663b26c5a5732",
+  "runtime_lock_sha256": "323371ff61c5fbcc4f79fd6a358cf2ba17cb72b907382a5ceaac07f91dc66ed6",
+  "source_admission_sha256": "8b2b3e26e2e7c98c0fde52f51663bed84999ac733dcbc39573ef8b3aeca4f9a1",
+  "source_variant": "M2_CANONICAL_NON_NESTED_R2_PATCH",
+  "status": "ACCEPTED_ACTUAL_M2"
+}

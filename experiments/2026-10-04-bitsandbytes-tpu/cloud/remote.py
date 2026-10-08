@@ -24,6 +24,8 @@ _native_spec=importlib.util.spec_from_file_location('_bnb_admitted_native_contra
 NC=importlib.util.module_from_spec(_native_spec);_native_spec.loader.exec_module(NC)
 _transport_spec=importlib.util.spec_from_file_location('_bnb_admitted_byte_transport',HERE/'transport.py')
 _transport=importlib.util.module_from_spec(_transport_spec);_transport_spec.loader.exec_module(_transport)
+_compiler_spec=importlib.util.spec_from_file_location('_bnb_compiler_cloud_contract',HERE/'compiler_cloud_contract.py')
+CC=importlib.util.module_from_spec(_compiler_spec);_compiler_spec.loader.exec_module(CC)
 
 PRECISION_ROUTE_PROBE_SHA = 'feae751734e57c741b1bdade004ff7ca3c041ee7eb3b7086b531bc6be433038e'
 TRANSFER_PATCH_MANIFEST_SHA = 'e745fbf21aac10ed9118167a131d6505bf6dbe03e1fab0a669c663b26c5a5732'
@@ -75,12 +77,12 @@ def require(value, message):
 
 def verify_experiment(manifest):
     experiment = manifest.get('experiment', 'api42')
-    require(experiment in {'api42', 'device-route-diagnostic', 'precision-diagnostic', 'transfer-api42', 'state-roundtrip', 'nested-79', 'nested-state-8', 'm6-native-boundary', PC.MODE}, 'EXPERIMENT_VARIANT')
+    require(experiment in {'api42', 'device-route-diagnostic', 'precision-diagnostic', 'transfer-api42', 'state-roundtrip', 'nested-79', 'nested-state-8', 'm6-native-boundary', CC.MODE, PC.MODE}, 'EXPERIMENT_VARIANT')
     if experiment in {'device-route-diagnostic', 'precision-diagnostic'}:
         pin = manifest.get('route_probe_sha256')
         require(manifest.get('diagnostic_only') is True and isinstance(pin, str) and len(pin) == 64 and
                 pin == manifest['files'].get('probe_routes.py', {}).get('sha256'), 'ROUTE_PROBE_BINDING')
-    if experiment in {'precision-diagnostic', 'transfer-api42', 'state-roundtrip', 'nested-79', 'nested-state-8', 'm6-native-boundary', PC.MODE}:
+    if experiment in {'precision-diagnostic', 'transfer-api42', 'state-roundtrip', 'nested-79', 'nested-state-8', 'm6-native-boundary', CC.MODE, PC.MODE}:
         require(manifest.get('route_probe_sha256') == PRECISION_ROUTE_PROBE_SHA, 'PRECISION_ROUTE_PROBE_BINDING')
         pin = manifest.get('precision_probe_sha256')
         require(isinstance(pin, str) and len(pin) == 64 and
@@ -88,7 +90,7 @@ def verify_experiment(manifest):
     else:
         require('precision_probe_sha256' not in manifest and 'probe_precision.py' not in manifest['files'],
                 'PRECISION_PROBE_NOT_REQUESTED')
-    if experiment in {'transfer-api42', 'state-roundtrip', 'nested-79', 'nested-state-8', 'm6-native-boundary', PC.MODE}:
+    if experiment in {'transfer-api42', 'state-roundtrip', 'nested-79', 'nested-state-8', 'm6-native-boundary', CC.MODE, PC.MODE}:
         for field, name in TRANSFER_BINDINGS.items():
             pin = manifest.get(field)
             require(isinstance(pin, str) and len(pin) == 64 and pin == manifest['files'].get(name, {}).get('sha256'),
@@ -119,7 +121,10 @@ def verify_experiment(manifest):
     else:
         require(not any(field in manifest or (name in manifest['files'] and not (experiment==PC.MODE and name=='probe_nested_state.py')) for field,name in NESTED_STATE_BINDINGS.items()) and
                 'nested_state_scope' not in manifest and 'nested_state_variant' not in manifest,'NESTED_STATE_SOURCE_NOT_REQUESTED')
-    NC.verify_manifest(manifest)
+    if experiment==CC.MODE: CC.verify_manifest(manifest)
+    else:
+        NC.verify_manifest(manifest)
+        CC.reject_unrequested(manifest)
     PC.verify_manifest(manifest)
     return experiment
 
@@ -329,9 +334,14 @@ def download_wheels(records, target):
 
 
 def package(out):
+    compiler=CC.read(out/'receipt.json').get('experiment')==CC.MODE
+    excluded={'compiler-evidence.zip','compiler-inventory.json'} if compiler else set()
     # Only test output enters the archive. Interpreters, source trees, wheels and scratch are outside out.
     members = {}
     for p in sorted(out.rglob('*')):
+        relative=p.relative_to(out).as_posix()
+        if compiler and (relative=='native.compiler-private' or relative.startswith('native.compiler-private/')):continue
+        if relative in excluded:continue
         require(not p.is_symlink(), 'RESULT_SYMLINK')
         require(stat.S_ISREG(p.lstat().st_mode) or stat.S_ISDIR(p.lstat().st_mode), 'RESULT_NONREGULAR')
         if p.is_file() and p.relative_to(out).as_posix() not in {'evidence.zip', 'archive-members.json', 'receipt.json'}:
@@ -366,8 +376,10 @@ def execute(base, packet_sha, allocation_epoch, phase):
     nested = experiment in {'nested-79','nested-state-8',PC.MODE}
     state = experiment == 'state-roundtrip'
     native = experiment == 'm6-native-boundary'
-    transfer = experiment in {'transfer-api42', 'state-roundtrip', 'nested-79', 'nested-state-8', 'm6-native-boundary', PC.MODE}
+    compiler=experiment==CC.MODE
+    transfer = experiment in {'transfer-api42', 'state-roundtrip', 'nested-79', 'nested-state-8', 'm6-native-boundary', CC.MODE, PC.MODE}
     if native: NC.payload(payload,manifest)
+    if compiler: CC.payload(payload,manifest)
     if transfer:
         verify_transfer_payload(payload, manifest)
     out.mkdir(exist_ok=True)
@@ -410,6 +422,9 @@ def execute(base, packet_sha, allocation_epoch, phase):
                 if nested:
                     receipt.update({field:manifest[field] for field in NESTED_BINDINGS})
                     receipt.update(nested_scope=NESTED_SCOPE,nested_source_variant='nested-v1')
+    if compiler:
+        if receipt_path.exists():CC.dependency_fields(receipt);require(receipt.get('compiler_manifest_sha256')==CC.MANIFEST_SHA and receipt.get('compiler_generation')==CC.GENERATION,'COMPILER_RECEIPT_GENERATION')
+        else:receipt.update(CC.dependency_fields(manifest));receipt.update(compiler_manifest_sha256=CC.MANIFEST_SHA,compiler_generation=CC.GENERATION)
     if primitive:
         PC.payload(payload,manifest)
         if receipt_path.exists():
@@ -534,7 +549,7 @@ def execute(base, packet_sha, allocation_epoch, phase):
             step('10-runtime-probe', [installed, '-B', payload / 'runtime/probe_runtime.py', '--out', out / 'runtime-probe.json'], deadline, 120, tpu=True)
             require(json.loads((out / 'runtime-probe.json').read_text())['status'] == 'PASS_TPU_RUNTIME_PROBE_ONLY', 'RUNTIME_PROBE_BLOCKED')
             receipt['runtime_status'] = 'PASS_TPU_RUNTIME_PROBE_ONLY'
-            if native:
+            if native or compiler:
                 argv=[installed,'-B',payload/'native/prepare_oracle.py','--upstream-source',base/'upstream/bitsandbytes','--patch-manifest',payload/'patches/params4bit-xla-v1.json','--output',out/'cpu-oracle','--process-token',secrets.token_hex(16)]
             else:
                 argv = [installed, '-B', payload / ('probe_primitives.py' if primitive else 'probe_nested.py' if nested else 'probe_transfer.py' if transfer else 'probe_backend.py'), 'prepare',
@@ -552,6 +567,9 @@ def execute(base, packet_sha, allocation_epoch, phase):
             if native:
                 receipt.update(NC.cpu_archive(out))
                 _transport.split(out/'native-cpu-evidence.zip',base/'native-cpu-parts',expected_sha256=receipt['native_cpu_evidence_sha256'],expected_bytes=receipt['native_cpu_evidence_bytes'])
+            if compiler:
+                receipt.update(CC.cpu_archive(out))
+                _transport.split(out/'compiler-cpu-evidence.zip',base/'compiler-cpu-parts',expected_sha256=receipt['compiler_cpu_evidence_sha256'],expected_bytes=receipt['compiler_cpu_evidence_bytes'])
             if primitive:
                 durable_json(receipt_path,receipt)
                 receipt.update(PC.cpu_archive(out))
@@ -560,13 +578,37 @@ def execute(base, packet_sha, allocation_epoch, phase):
                                 expected_bytes=receipt['primitive_cpu_evidence_bytes'])
         elif phase == 'native':
             require(native and receipt.get('cpu_status')=='PASS' and receipt['tpu_status']=='NOT_RUN','NATIVE_PHASE_ORDER')
-            gate=json.loads((base/'launch.json').read_text());require(gate.get('kind')=='ROOT_NATIVE_CPU_ORACLE_GATE' and gate.get('status')=='QUALIFIED_LINUX_CPU_ORACLE_VERIFIED' and gate.get('oracle_sha256')==receipt['oracle_sha256'] and gate.get('source_admission_sha256')==manifest['source_admission_sha256'] and gate.get('native_manifest_sha256')==NC.MANIFEST_SHA and gate.get('native_cpu_inventory_sha256')==receipt['native_cpu_inventory_sha256'] and gate.get('native_cpu_evidence_sha256')==receipt['native_cpu_evidence_sha256'] and gate.get('source_variant')==NC.VARIANT,'NATIVE_ROOT_ORACLE_GATE')
+            gate=json.loads((base/'launch.json').read_text());CC.reject_compiler_gate_fields(gate);require(gate.get('kind')=='ROOT_NATIVE_CPU_ORACLE_GATE' and gate.get('status')=='QUALIFIED_LINUX_CPU_ORACLE_VERIFIED' and gate.get('oracle_sha256')==receipt['oracle_sha256'] and gate.get('source_admission_sha256')==manifest['source_admission_sha256'] and gate.get('native_manifest_sha256')==NC.MANIFEST_SHA and gate.get('native_cpu_inventory_sha256')==receipt['native_cpu_inventory_sha256'] and gate.get('native_cpu_evidence_sha256')==receipt['native_cpu_evidence_sha256'] and gate.get('source_variant')==NC.VARIANT,'NATIVE_ROOT_ORACLE_GATE')
             deadline=min(work_deadline,receipt['science_deadline_epoch'],time.time()+1500);require(time.time()+30<deadline,'NATIVE_DEADLINE_RESERVE');token=secrets.token_hex(16)
             receipt.update(tpu_status='RUNNING',native_source_variant=NC.VARIANT,native_manifest_sha256=NC.MANIFEST_SHA,native_oracle_gate_sha256=sha(base/'launch.json'),m6_status='NOT_QUALIFIED');durable_json(receipt_path,receipt)
             argv=[installed,'-B',payload/'native/coordinator.py','--output',out/'native','--manifest',payload/'native/manifest.json','--manifest-sha256',NC.MANIFEST_SHA,'--admission',payload/'source-admission.json','--admission-sha256',manifest['source_admission_sha256'],'--patch-manifest',payload/'patches/params4bit-xla-v1.json','--oracle',out/'cpu-oracle','--oracle-sha256',receipt['oracle_sha256'],'--process-token',token,'--deadline-epoch',str(deadline-10),'--compiler-dumps','off']
             rec=run_step(out,'12-native-parent',[str(x) for x in argv],deadline,1500,cwd=payload,tpu=True);receipt['steps'].append({'label':'12-native-parent',**rec})
             require(not rec['cleanup']['errors'] and not rec.get('error') and (rec['status'],rec['exit_code'])in{('PASS',0),('CHILD_FAILED',2)},'NATIVE_PARENT_CLEANUP')
             parent=NC.read(out/'native/parent.json');receipt.update(native_expected_sha256=sha(out/'native/expected.json'),native_parent_sha256=sha(out/'native/parent.json'),native_outer_owner_sha256=sha(out/'steps/12-native-parent/ownership.json'),status='NATIVE_CHILD_TERMINAL_LOCAL_REVIEW_REQUIRED',tpu_status='NATIVE_RECORDS_TERMINAL')
+        elif phase == 'compiler-native':
+            require(compiler and receipt.get('cpu_status')=='PASS' and receipt['tpu_status']=='NOT_RUN','NATIVE_PHASE_ORDER')
+            gate=json.loads((base/'launch.json').read_text());CC.dependency_fields(gate);require(gate.get('compiler_generation')==CC.GENERATION,'COMPILER_CPU_GATE_GENERATION');require(gate.get('kind')=='ROOT_COMPILER_CPU_ORACLE_GATE' and gate.get('status')=='QUALIFIED_LINUX_CPU_ORACLE_VERIFIED' and gate.get('oracle_sha256')==receipt['oracle_sha256'] and gate.get('source_admission_sha256')==manifest['source_admission_sha256'] and gate.get('compiler_manifest_sha256')==CC.MANIFEST_SHA and gate.get('compiler_cpu_inventory_sha256')==receipt['compiler_cpu_inventory_sha256'] and gate.get('compiler_cpu_evidence_sha256')==receipt['compiler_cpu_evidence_sha256'] and gate.get('compiler_policy_sha256')==CC.POLICY_SHA and gate.get('source_variant')==CC.VARIANT,'NATIVE_ROOT_ORACLE_GATE')
+            deadline=min(work_deadline,receipt['science_deadline_epoch'],time.time()+1500);require(time.time()+30<deadline,'NATIVE_DEADLINE_RESERVE');token=secrets.token_hex(16)
+            receipt.update(compiler_manifest_sha256=CC.MANIFEST_SHA,compiler_policy_sha256=CC.POLICY_SHA,compiler_source_variant=CC.VARIANT,tpu_status='RUNNING',native_source_variant=CC.VARIANT,native_manifest_sha256=CC.MANIFEST_SHA,native_oracle_gate_sha256=sha(base/'launch.json'),m6_status='NOT_QUALIFIED');durable_json(receipt_path,receipt)
+            argv=[installed,'-B',payload/'native/coordinator.py','--output',out/'native','--manifest',payload/'native/manifest.json','--manifest-sha256',CC.MANIFEST_SHA,'--admission',payload/'source-admission.json','--admission-sha256',manifest['source_admission_sha256'],'--patch-manifest',payload/'patches/params4bit-xla-v1.json','--oracle',out/'cpu-oracle','--oracle-sha256',receipt['oracle_sha256'],'--process-token',token,'--deadline-epoch',str(deadline-10),'--compiler-dumps','request','--compiler-policy',payload/'native/compiler-policy.json','--compiler-policy-sha256',CC.POLICY_SHA]
+            rec=run_step(out,'12-native-parent',[str(x) for x in argv],deadline,1500,cwd=payload,tpu=True);receipt['steps'].append({'label':'12-native-parent',**rec})
+            primary=None
+            try:
+                require(not rec['cleanup']['errors'] and not rec.get('error') and (rec['status'],rec['exit_code'])in{('PASS',0),('CHILD_FAILED',2)},'NATIVE_PARENT_CLEANUP')
+                parent=CC.read(out/'native/parent.json');receipt.update(native_expected_sha256=sha(out/'native/expected.json'),native_parent_sha256=sha(out/'native/parent.json'),native_outer_owner_sha256=sha(out/'steps/12-native-parent/ownership.json'),status='NATIVE_CHILD_TERMINAL_LOCAL_REVIEW_REQUIRED',tpu_status='NATIVE_RECORDS_TERMINAL')
+            except Exception as error:primary=error
+            ownership=CC.read(out/'steps/12-native-parent/ownership.json')
+            _recovery_spec=importlib.util.spec_from_file_location('_compiler_remote_recovery',HERE/'compiler_recovery.py')
+            CR=importlib.util.module_from_spec(_recovery_spec);_recovery_spec.loader.exec_module(CR);CR.closed(ownership,live=True)
+            post=run_step(out,'12b-compiler-postclosure',[str(installed),'-B',str(HERE/'compiler_postclosure.py'),'--payload',str(payload),'--out',str(out),'--outer-sha256',sha(out/'steps/12-native-parent/ownership.json')],work_deadline,120,cwd=payload,tpu=False)
+            receipt['steps'].append({'label':'12b-compiler-postclosure',**post})
+            require(not post['cleanup']['errors'],'COMPILER_POSTCLOSURE_CLEANUP')
+            if (out/'compiler-capture.json').is_file():
+                hook=CC.read(out/'compiler-capture.json');receipt.update({k:v for k,v in hook.items() if k not in ('status','error')});receipt['compiler_postclosure_status']=hook['status']
+            else:receipt.update(compiler_capture_status='NOT_SEALED',compiler_capture_error='POSTCLOSURE_RECORD_UNAVAILABLE')
+            receipt.update(status='NATIVE_CHILD_TERMINAL_LOCAL_REVIEW_REQUIRED',tpu_status='NATIVE_RECORDS_TERMINAL')
+            if 'compiler_evidence_sha256' in receipt:_transport.split(out/'compiler-evidence.zip',base/'compiler-parts',expected_sha256=receipt['compiler_evidence_sha256'],expected_bytes=receipt['compiler_evidence_bytes'])
+            if primary is not None:raise primary
         elif phase == 'primitives':
             require(primitive,'WRONG_SCIENTIFIC_VARIANT')
             require(receipt.get('status')=='CPU_ORACLE_READY_TPU_NOT_RUN' and receipt.get('cpu_status')=='PASS' and
@@ -791,7 +833,7 @@ def execute(base, packet_sha, allocation_epoch, phase):
         else:
             raise ValueError('UNKNOWN_PHASE')
     except BaseException as error:
-        if phase in ('tpu', 'routes', 'precision', 'transfer', 'state', 'nested', 'nested-state', 'primitives', 'native') and receipt.get('tpu_status') == 'RUNNING':
+        if phase in ('tpu', 'routes', 'precision', 'transfer', 'state', 'nested', 'nested-state', 'primitives', 'native', 'compiler-native') and receipt.get('tpu_status') == 'RUNNING':
             receipt['tpu_status'] = 'ATTEMPTED_BLOCKED'
         receipt.update(status='BLOCKED', error={'type': type(error).__name__, 'message': str(error)})
     finally:
@@ -802,7 +844,7 @@ def execute(base, packet_sha, allocation_epoch, phase):
 
 def main():
     p = argparse.ArgumentParser(description=__doc__)
-    p.add_argument('operation', choices=['unpack', 'install', 'cpu', 'tpu', 'routes', 'precision', 'transfer', 'state', 'nested', 'nested-state-cpu', 'nested-state', 'primitives', 'transfer-source', 'export', 'download', 'metadata', 'native'])
+    p.add_argument('operation', choices=['unpack', 'install', 'cpu', 'tpu', 'routes', 'precision', 'transfer', 'state', 'nested', 'nested-state-cpu', 'nested-state', 'primitives', 'transfer-source', 'export', 'download', 'metadata', 'native', 'compiler-native'])
     p.add_argument('--base', type=Path, required=True)
     p.add_argument('--packet-sha256')
     p.add_argument('--allocation-epoch', type=float)
@@ -818,7 +860,7 @@ def main():
     if a.operation == 'transfer-source':
         payload = a.base / 'payload'
         manifest = json.loads((payload / 'manifest.json').read_text())
-        require(verify_experiment(manifest) in {'transfer-api42', 'state-roundtrip', 'nested-79', 'nested-state-8', 'm6-native-boundary', PC.MODE}, 'TRANSFER_SOURCE_VARIANT')
+        require(verify_experiment(manifest) in {'transfer-api42', 'state-roundtrip', 'nested-79', 'nested-state-8', 'm6-native-boundary', CC.MODE, PC.MODE}, 'TRANSFER_SOURCE_VARIANT')
         for name, rec in manifest['files'].items():
             require(not (payload / name).is_symlink() and sha(payload / name) == rec['sha256'], 'TRANSFER_SOURCE_FILES')
         verify_transfer_payload(payload, manifest)

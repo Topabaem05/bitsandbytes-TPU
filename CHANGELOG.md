@@ -1,5 +1,15 @@
 # Change log
 
+## 2026-10-09 — Compiler capture with accepted native records
+
+- Bind the actual accepted native result through the compiler packet and all phase gates.
+- Preserve the ordinary native phase and reject the first candidate with its regression.
+- Provide complete canonical test replay and separate compiler archive recovery.
+
+Validation: All 131 canonical controls passed; both canonical 86-member packets matched both private builds.
+Actual compiler records and memory inspection remain required for M6.
+Refer to [the preparation record](docs/changes/r6-compiler-accepted-preparation.md).
+
 ## 2026-10-09 — Kaggle queue cancellation
 
 - Retain the original deadline and the unexecuted scientific state.

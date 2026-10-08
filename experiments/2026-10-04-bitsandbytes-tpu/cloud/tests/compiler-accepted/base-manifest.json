@@ -1,0 +1,122 @@
+{
+  "compiler_executable_link": "UNKNOWN",
+  "decode_layout_scope": "RANK2_GATHER_HIGH_NIBBLE_FIRST_UNQUALIFIED",
+  "generation": "mosaic-serde7-gather-bf16-fp32-v1",
+  "kind": "R6_DEVICE_CANDIDATE",
+  "m6": "NOT_QUALIFIED",
+  "mosaic_frontend_scope": "SUPPORTED_SERDE_8_TO_7_EXACT_IR_ROUNDTRIP",
+  "mosaic_recovery": "INDEPENDENT_PINNED_JAX071_CPU_REPLAY_REQUIRED",
+  "runtime_lock_sha256": "323371ff61c5fbcc4f79fd6a358cf2ba17cb72b907382a5ceaac07f91dc66ed6",
+  "source_variant": "M2_CANONICAL_NON_NESTED_R2_PATCH",
+  "sources": {
+    "adapter.py": {
+      "bytes": 5992,
+      "sha256": "08869e04047837972e7bba9a35a0951206974f4b506debad2bba08af7f1001a4"
+    },
+    "audit_preflight.py": {
+      "bytes": 734,
+      "sha256": "4189666b35d5b638399eb3f40a9174554bca8cbd0cc564b46b3b534bba2bcc77"
+    },
+    "conversion_recovery.py": {
+      "bytes": 3698,
+      "sha256": "6a6ce33279a48ed22f525c04d1e995066e7b39e2516233288c673463b8ec63ff"
+    },
+    "coordinator.py": {
+      "bytes": 6686,
+      "sha256": "2c83baf3e4b8eaa91cbdc5602f633670614b5d70ef0a93abebbd9fc4ee51ae63"
+    },
+    "device_diagnostic.py": {
+      "bytes": 16142,
+      "sha256": "93f09e39e2db21ac4a3954a691bdf75caecd140484e12496fbf8f5eca5b62e20"
+    },
+    "graph_binding.py": {
+      "bytes": 3367,
+      "sha256": "79f446e39a8f04a89197df28897176b2b8f207b031e04da7dccad02c38a5d4e6"
+    },
+    "kernel.py": {
+      "bytes": 4871,
+      "sha256": "68b872c4695b630ed83f5e02614f53bb01508bd4e317dd0d09d62ab0b3034294"
+    },
+    "mosaic_audit.py": {
+      "bytes": 7067,
+      "sha256": "baf3afd93f5fd7d069cd863699ba2aeefb47de72b23c1659a3e50eb7e86357bc"
+    },
+    "mosaic_compatibility.py": {
+      "bytes": 4015,
+      "sha256": "cce7a54521b3ccb51a35b4e26332c52b6e0e2dfbcb44db5c2cd290d016120542"
+    },
+    "ownership/bootstrap.py": {
+      "bytes": 244,
+      "sha256": "7ed51ad613dbd6c0cbaa76575ae1da5d68b205e8b88c9e702cf206c09bb2150d"
+    },
+    "ownership/cleanup_lifecycle.py": {
+      "bytes": 9410,
+      "sha256": "6557b3522ec68ddcd9106027d08e89e872eb90587eae8cbff2859ac5668cbf76"
+    },
+    "ownership/lifecycle.py": {
+      "bytes": 4558,
+      "sha256": "4ef29a2c673ab7dadce5a965bff18e51f4850134af2dfb5f44b3d3153949f986"
+    },
+    "prepare_oracle.py": {
+      "bytes": 3669,
+      "sha256": "7b25b6d1f025d029a99d7e2502d64dc704fa9262f226f3ab83f3eb325d6d442d"
+    },
+    "probe-inputs.json": {
+      "bytes": 132064,
+      "sha256": "d0c9cdf6a82449a56923499698f19bfd3cc8d13c042f1f5ad2bdf587701f5e54"
+    },
+    "probe-profile.json": {
+      "bytes": 3695,
+      "sha256": "ad53f6416bdabf6440f08b313963c947a468cd39afd413bfe41bb381c4a7a166"
+    },
+    "probe_backend.py": {
+      "bytes": 24512,
+      "sha256": "e8743e33e6a0454d5d05b77075d47a5c9f983cf32f3956c38f2b544f86f5ef6d"
+    },
+    "probe_precision.py": {
+      "bytes": 35743,
+      "sha256": "e0534955507e5f91e67ecddfffc738a367ad752e69a4eea7ae8052c6d76a8852"
+    },
+    "proto_contract.py": {
+      "bytes": 11007,
+      "sha256": "4341ecdaa273f449f42e6ffadad345c4abe7259d6a666067918528a70fc6aa8a"
+    },
+    "protocol.json": {
+      "bytes": 2123,
+      "sha256": "048d4a4a745ba953cfc505df2ca41047e5e39cdbda492992e6e42b1423b6383c"
+    },
+    "protocol.py": {
+      "bytes": 7204,
+      "sha256": "e5a5d23e2e2d40295a3df00700273f1316e250ffb676418a2eb19b1f813e7fd7"
+    },
+    "recorder.py": {
+      "bytes": 5122,
+      "sha256": "f70c5fcb3f9cb325af03258e1b27d97d3a66934d4c34f1a4a6997af1f80fe79a"
+    },
+    "source-pins.json": {
+      "bytes": 1886,
+      "sha256": "56db733219c667bf77c54ee9e1c4baf2b5894bc7290fc30a3ac4c045d540f036"
+    },
+    "state_child_owner.py": {
+      "bytes": 3753,
+      "sha256": "36b10c2fc62e210fd5fb0d194213b660a44687137f8ab4c9d80dc0587f8f8ad5"
+    },
+    "transfer_admission.py": {
+      "bytes": 4358,
+      "sha256": "6a7c925211b14aba990318360c8f0ca2d4d803e4528c634135c8bde86326816b"
+    },
+    "verifier.py": {
+      "bytes": 15447,
+      "sha256": "4c0e60e602f84c6d54bec02d08f71f61c5171e68e485dde0d6ef2cb9673a8bb3"
+    },
+    "verify_record.py": {
+      "bytes": 1892,
+      "sha256": "212f25c69fcb4669e517175cdb847664d446e5f8825e849b587372c3633f26be"
+    },
+    "verify_run.py": {
+      "bytes": 11834,
+      "sha256": "e9a71bc60c0fa40aa4263bb5c024690f079f0d4bec6cbeb356746cd1765a9628"
+    }
+  },
+  "status": "PRIVATE_UNADOPTED"
+}

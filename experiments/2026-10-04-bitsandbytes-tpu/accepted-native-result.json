@@ -1,0 +1,263 @@
+{
+  "active_usage_zero": true,
+  "actual_device_attempted": true,
+  "archive_bytes": 1359337,
+  "archive_members": 148,
+  "archive_sha256": "b8b85ee77815a7d2b78103ff4d678fa9c2de5dd1127b967cfd625ed1be231467",
+  "browser_tab_closed": true,
+  "cases": [
+    {
+      "boundary_proof": {
+        "actual_hardware_runtime": "REQUIRES_PARENT_ADMISSION",
+        "allocator_peak": "NOT_QUALIFIED",
+        "body_bytes": 8426,
+        "body_sha256": "62a0622924b2be3e43f5f8b8b8a75639287c8fe99a427d3ce9cd963dce38214a",
+        "compiler_body": "NOT_QUALIFIED",
+        "compiler_memory": "NOT_QUALIFIED",
+        "m6": "NOT_QUALIFIED",
+        "native_boundary": "PASS",
+        "numerical_gate": {
+          "max_abs": 2.384185791015625e-06,
+          "nrmse": 3.852349241688872e-07,
+          "rmse": 5.43413236348456e-07,
+          "status": "PASS"
+        },
+        "operand_values_order_layout": "PASS",
+        "optimized_executable_link": "NOT_QUALIFIED",
+        "payload_bytes": 11322,
+        "payload_sha256": "caf273a6a163981d6d0dd40dabd38566ce3173bed9f4615c3ab8fbf11c8d33ef",
+        "public_api": "NOT_QUALIFIED",
+        "root_reachable_graph": "PASS",
+        "scope": "ACTUAL_NATIVE_BOUNDARY",
+        "status": "BINDING_PASS",
+        "synchronized_execution": "PASS"
+      },
+      "case": "direct-fp32",
+      "output_sha256": "ad6745448c5aa37ab93f2d788ff3314ee0cc5f822e48e6f71bb3014c9aaafae3",
+      "output_values": 32768,
+      "raw_sha256": "43b59ba8d164bf3ac8685dfb22671fdf36c02a2fb0daf0a32bd7793622da9f4d",
+      "same_device_reference_gate": {
+        "max_abs": 2.384185791015625e-06,
+        "nrmse": 3.809516768387768e-07,
+        "rmse": 5.373712781881004e-07,
+        "status": "PASS"
+      },
+      "status": "PASS"
+    },
+    {
+      "boundary_proof": {
+        "actual_hardware_runtime": "REQUIRES_PARENT_ADMISSION",
+        "allocator_peak": "NOT_QUALIFIED",
+        "body_bytes": 8426,
+        "body_sha256": "62a0622924b2be3e43f5f8b8b8a75639287c8fe99a427d3ce9cd963dce38214a",
+        "compiler_body": "NOT_QUALIFIED",
+        "compiler_memory": "NOT_QUALIFIED",
+        "m6": "NOT_QUALIFIED",
+        "native_boundary": "PASS",
+        "numerical_gate": {
+          "max_abs": 2.384185791015625e-06,
+          "nrmse": 3.852349241688872e-07,
+          "rmse": 5.43413236348456e-07,
+          "status": "PASS"
+        },
+        "operand_values_order_layout": "PASS",
+        "optimized_executable_link": "NOT_QUALIFIED",
+        "payload_bytes": 11322,
+        "payload_sha256": "caf273a6a163981d6d0dd40dabd38566ce3173bed9f4615c3ab8fbf11c8d33ef",
+        "public_api": "NOT_QUALIFIED",
+        "root_reachable_graph": "PASS",
+        "scope": "ACTUAL_NATIVE_BOUNDARY",
+        "status": "BINDING_PASS",
+        "synchronized_execution": "PASS"
+      },
+      "case": "functional-fp32",
+      "output_sha256": "ad6745448c5aa37ab93f2d788ff3314ee0cc5f822e48e6f71bb3014c9aaafae3",
+      "output_values": 32768,
+      "raw_sha256": "550a0138fe10d19ab58f72e10c17e3a579c6055df3347ad0e2dc895d8bde72ea",
+      "same_device_reference_gate": {
+        "max_abs": 2.384185791015625e-06,
+        "nrmse": 3.809516768387768e-07,
+        "rmse": 5.373712781881004e-07,
+        "status": "PASS"
+      },
+      "status": "PASS"
+    },
+    {
+      "boundary_proof": {
+        "actual_hardware_runtime": "REQUIRES_PARENT_ADMISSION",
+        "allocator_peak": "NOT_QUALIFIED",
+        "body_bytes": 8621,
+        "body_sha256": "4048573e131a571b16f4bd6d018f5c2652a546b2580f673bd8fbdb2cc83d34b4",
+        "compiler_body": "NOT_QUALIFIED",
+        "compiler_memory": "NOT_QUALIFIED",
+        "m6": "NOT_QUALIFIED",
+        "native_boundary": "PASS",
+        "numerical_gate": {
+          "max_abs": 0.0,
+          "nrmse": 0.0,
+          "rmse": 0.0,
+          "status": "PASS"
+        },
+        "operand_values_order_layout": "PASS",
+        "optimized_executable_link": "NOT_QUALIFIED",
+        "payload_bytes": 11582,
+        "payload_sha256": "d855b640035e2322d6083d9fd80983aee1ad19b5abb64098545d61584897eee4",
+        "public_api": "NOT_QUALIFIED",
+        "root_reachable_graph": "PASS",
+        "scope": "ACTUAL_NATIVE_BOUNDARY",
+        "status": "BINDING_PASS",
+        "synchronized_execution": "PASS"
+      },
+      "case": "direct-bf16",
+      "output_sha256": "2a94386dd24b1a9b6701e1172488ef46ed25248e57c1de74a9af15e595e812e2",
+      "output_values": 32768,
+      "raw_sha256": "dd8a27c712f53f3e8b216688a89296b0fa6dc10a21bb20e74a7f072887af33f8",
+      "same_device_reference_gate": {
+        "max_abs": 0.0,
+        "nrmse": 0.0,
+        "rmse": 0.0,
+        "status": "PASS"
+      },
+      "status": "PASS"
+    },
+    {
+      "boundary_proof": {
+        "actual_hardware_runtime": "REQUIRES_PARENT_ADMISSION",
+        "allocator_peak": "NOT_QUALIFIED",
+        "body_bytes": 8621,
+        "body_sha256": "4048573e131a571b16f4bd6d018f5c2652a546b2580f673bd8fbdb2cc83d34b4",
+        "compiler_body": "NOT_QUALIFIED",
+        "compiler_memory": "NOT_QUALIFIED",
+        "m6": "NOT_QUALIFIED",
+        "native_boundary": "PASS",
+        "numerical_gate": {
+          "max_abs": 0.0,
+          "nrmse": 0.0,
+          "rmse": 0.0,
+          "status": "PASS"
+        },
+        "operand_values_order_layout": "PASS",
+        "optimized_executable_link": "NOT_QUALIFIED",
+        "payload_bytes": 11582,
+        "payload_sha256": "d855b640035e2322d6083d9fd80983aee1ad19b5abb64098545d61584897eee4",
+        "public_api": "NOT_QUALIFIED",
+        "root_reachable_graph": "PASS",
+        "scope": "ACTUAL_NATIVE_BOUNDARY",
+        "status": "BINDING_PASS",
+        "synchronized_execution": "PASS"
+      },
+      "case": "functional-bf16",
+      "output_sha256": "2a94386dd24b1a9b6701e1172488ef46ed25248e57c1de74a9af15e595e812e2",
+      "output_values": 32768,
+      "raw_sha256": "00d747d1b239ff8724ba57f2311f7e6df65e9d5fd04217c0c6e3c82c0ce61c1b",
+      "same_device_reference_gate": {
+        "max_abs": 0.0,
+        "nrmse": 0.0,
+        "rmse": 0.0,
+        "status": "PASS"
+      },
+      "status": "PASS"
+    },
+    {
+      "case": "tail-reference-fp32",
+      "output_sha256": "e8d0c80e79badd449ec9321c18408890a28eebffd53b770047ed5cafdf9dbdfa",
+      "output_values": 33024,
+      "raw_sha256": "7f1f07e7fea86d930c8bfdbdb84ff5235ab70d9a22c7f58e842dd62e8a61d07e",
+      "status": "PASS",
+      "tail_gate": {
+        "max_abs": 2.384185791015625e-06,
+        "nrmse": 3.8041993418120866e-07,
+        "rmse": 5.359284111578595e-07,
+        "status": "PASS"
+      }
+    }
+  ],
+  "cli_groups_closed": 47,
+  "conversion_audit_sha256": "d1acc562f868f8c3ca2969ee1281fce9322a76977e11bce0deadc69592876612",
+  "cpu_archive_bytes": 168889,
+  "cpu_archive_members": 11,
+  "cpu_archive_sha256": "5980ef7b63fb6d0493a5dbafe4a1054d33c50c0b45579570d7574dda1cca51b7",
+  "cpu_gate_status": "QUALIFIED_LINUX_CPU_ORACLE_VERIFIED",
+  "cpu_output_values": 164096,
+  "cpu_outputs": [
+    {
+      "array_sha256": "1d6e99a8d6e00c37ef7db3fb565077f01bb86d744eef1c33201b5bcf904be9a2",
+      "case": "direct-fp32",
+      "values": 32768
+    },
+    {
+      "array_sha256": "1d6e99a8d6e00c37ef7db3fb565077f01bb86d744eef1c33201b5bcf904be9a2",
+      "case": "functional-fp32",
+      "values": 32768
+    },
+    {
+      "array_sha256": "2a94386dd24b1a9b6701e1172488ef46ed25248e57c1de74a9af15e595e812e2",
+      "case": "direct-bf16",
+      "values": 32768
+    },
+    {
+      "array_sha256": "2a94386dd24b1a9b6701e1172488ef46ed25248e57c1de74a9af15e595e812e2",
+      "case": "functional-bf16",
+      "values": 32768
+    },
+    {
+      "array_sha256": "34da6cd3792f4055741109182e47945870f683fe9683fd0a685955ece1b5053f",
+      "case": "tail-reference-fp32",
+      "values": 33024
+    }
+  ],
+  "device_case_count": 5,
+  "device_error_cases": 0,
+  "epoch": 1791494496.683472,
+  "format": "bnb-tpu.selected-native-bf16-colab-result.v1",
+  "host_execution_seconds": 341.40639612499945,
+  "host_finalization_sha256": "c4154d8d7cc5faf974f9a8b123cd2256ca2fc4bcd54a1fbd0a057084552d7255",
+  "independent_conversion_replay": "PASS",
+  "independent_isolated_controls": 6,
+  "independent_negative_controls": [
+    "direct-fp32:wrong_output",
+    "direct-fp32:wrong_operand",
+    "direct-fp32:false_execution_scope",
+    "functional-fp32:wrong_output",
+    "functional-fp32:wrong_operand",
+    "functional-fp32:false_execution_scope",
+    "direct-bf16:wrong_output",
+    "direct-bf16:wrong_operand",
+    "direct-bf16:false_execution_scope",
+    "functional-bf16:wrong_output",
+    "functional-bf16:wrong_operand",
+    "functional-bf16:false_execution_scope",
+    "tail-reference-fp32:wrong_output"
+  ],
+  "independent_reader_closed": true,
+  "lifecycle_seconds": 424.0858540534973,
+  "m6": "NOT_QUALIFIED",
+  "manifest_sha256": "580733e58d8fbc1688092cda652ba2da952658a3a9c9ee68aa51a980efc10296",
+  "native_adoption_revision": "a084a4d578362f9733453595ab208385cf70afba",
+  "native_dependency_acceptance": "ROOT_ACCEPTED_BOUNDED_NATIVE_DEVICE_RECORDS",
+  "native_generation": "mosaic-serde7-gather-bf16-fp32-v1",
+  "native_manifest_sha256": "30b820b90a4404a89da6e6c7b6fc91dbec47afbe06ae322eb5835b9eb0e70901",
+  "native_pass_cases": 4,
+  "not_run_cases": 0,
+  "numerical_status": "PASS",
+  "oracle_sha256": "fbf9fa2bdab95605d33b28258ed5b3de9e46eaf2c4f87889268afd0fe1a13399",
+  "original_deadline_unchanged": true,
+  "owner_sha256": "28415fa81b8d2a54d258f463ba339717b96b9cf9581fb405ed9fc31ccf1fd835",
+  "packet_sha256": "469f232f533807c772cd421a9d3a154cd0c43dbf715e12b8a62b7e2d471bd709",
+  "profile_sha256": "ad53f6416bdabf6440f08b313963c947a468cd39afd413bfe41bb381c4a7a166",
+  "qualified_native_numerical_comparisons": 4,
+  "receipt_sha256": "964c9d64df286ab83cae9426d9d7aa824674e9b279f98ba3c06d8e4883836685",
+  "record_validation": "PASS",
+  "reference_pass_cases": 1,
+  "remote_steps_closed": 14,
+  "resource_closure": "PASS",
+  "review_source_sha256": "28aeb49011c8f8524f8d9992ec9ccc01f85a5a813db6e5eaa7b8878ce9b229a9",
+  "reviewed_date": "2026-10-09",
+  "root_actual_review_sha256": "139fd4db7974f677b467a4024553375a3a9ea183dfdbffb79fc1b53cef582439",
+  "runtime_lock_sha256": "323371ff61c5fbcc4f79fd6a358cf2ba17cb72b907382a5ceaac07f91dc66ed6",
+  "same_allocation_connection_retry": 0,
+  "server_empty": true,
+  "status": "ACTUAL_BF16_OPERAND_FIVE_CASES_AND_CLOSURE_VERIFIED",
+  "total_output_values": 164096,
+  "verifier_result_sha256": "f74e568e53886921e35d93c6dbf915b9fcda7f51fe37ecd7a0e3a3c1ab05eacd"
+}

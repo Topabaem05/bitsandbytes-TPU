@@ -1,0 +1,19 @@
+{
+  "files": {
+    ".work/r6-pallas-preparation/kernel.py": "68b872c4695b630ed83f5e02614f53bb01508bd4e317dd0d09d62ab0b3034294",
+    ".work/research-20261008/pallas/xla-bindings.cpp": "85105171d16d84dd181f364128a8098d9a02d9934c6a9865f81b012a457fcf43",
+    ".work/research-20261008/pallas/xla-bridge.py": "c347f8fcb4844fa8849109680ad81b94e221a2c8b011462553b48ec9f67e6338",
+    ".work/research-20261008/pallas/xla-guard.py": "fd8c53eb24fb373fba35c938e00b1ef36caadf3eaf8a74d266528ec6602ad42f",
+    "experiments/2026-10-04-bitsandbytes-tpu/native/mosaic_compatibility.py": "cce7a54521b3ccb51a35b4e26332c52b6e0e2dfbcb44db5c2cd290d016120542",
+    "experiments/2026-10-04-bitsandbytes-tpu/probe_backend.py": "e8743e33e6a0454d5d05b77075d47a5c9f983cf32f3956c38f2b544f86f5ef6d",
+    "experiments/2026-10-04-bitsandbytes-tpu/probe_precision.py": "e0534955507e5f91e67ecddfffc738a367ad752e69a4eea7ae8052c6d76a8852",
+    "experiments/2026-10-04-bitsandbytes-tpu/runtime/requirements.lock.json": "323371ff61c5fbcc4f79fd6a358cf2ba17cb72b907382a5ceaac07f91dc66ed6",
+    "experiments/2026-10-04-bitsandbytes-tpu/transfer_admission.py": "6a7c925211b14aba990318360c8f0ca2d4d803e4528c634135c8bde86326816b",
+    "packages/bitsandbytes-tpu/src/bitsandbytes_tpu/compatibility.py": "13e0a6c941514c1fb709a289a51cbd22375159122ab2e2953f74c31b803e3f8c",
+    "packages/bitsandbytes-tpu/src/bitsandbytes_tpu/functionalization.py": "e04656503739b24b7251fa1a2cdc028bded34e77b0d8a1c0982fc07bbfbf626d",
+    "packages/bitsandbytes-tpu/src/bitsandbytes_tpu/reference.py": "0ad17773f18d8f69715af52644c0f94617d93228bc1927287058a6211ed6bb9e",
+    "packages/bitsandbytes-tpu/src/bitsandbytes_tpu/registration.py": "23dd0f2bd08634d87f579e2544f32ec298a19320bf5e69f61d3ca10b28de3662"
+  },
+  "torch_xla_wheel_sha256": "d6b4fbb2704bff08194c170b23dcf6dea562cf3cb53d9951b86667c327b6f5ed",
+  "wheel_members_match_cached_source": true
+}

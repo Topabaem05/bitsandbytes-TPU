@@ -1,0 +1,77 @@
+{
+  "CPU_oracle_qualification": "UNQUALIFIED_RETAINED_MAC_TORCH_2.14.1",
+  "actual_TPU": "NOT_RUN",
+  "archive_bytes": 172225,
+  "archive_sha256": "bf8276c847523cf7e018fce586a43ad7fbbce3246a2a68ac51818e56a4c1f518",
+  "kind": "PORTABLE_MOSAIC_CPU_ONLY_FIXTURES",
+  "members": {
+    "cpu-oracle/direct-bf16.json": {
+      "bytes": 2519932,
+      "sha256": "538e7c3269e10d2ae89b4f5a5e9be6509d0a55321ecb175d74cca98c88961e83"
+    },
+    "cpu-oracle/direct-fp32.json": {
+      "bytes": 2811571,
+      "sha256": "7c0729184461d4e1d828e26a8ceb80fe066269b8b66337beba7e8752191b6a60"
+    },
+    "cpu-oracle/functional-bf16.json": {
+      "bytes": 2519936,
+      "sha256": "e8b3f4662bc06b64d21e43b85e77994d564ecb7713be8cdd34f9457a352710f4"
+    },
+    "cpu-oracle/functional-fp32.json": {
+      "bytes": 2811575,
+      "sha256": "7573ca49470553d27cddf0744f9bb382d8342bfdc4cf6dc8318cf9adf6f62590"
+    },
+    "cpu-oracle/oracle-seal.json": {
+      "bytes": 4421,
+      "sha256": "780989c547f5d10c67c88646419a9f1669a510b50481bc3bfadb4b25813fc4fc"
+    },
+    "cpu-oracle/tail-reference-fp32.json": {
+      "bytes": 2827033,
+      "sha256": "41d6b29d906f5d660c56fa2011945e8629450e3ced3a1beed6ae26e824b4f912"
+    },
+    "original-printer/bf16.hlo.pb": {
+      "bytes": 9134,
+      "sha256": "dd7648aed3f7ce5cd55b7dff7892af81eb9feeefe972934663d49fc0ed1277d9"
+    },
+    "original-printer/bf16.hlo.txt": {
+      "bytes": 9053,
+      "sha256": "3f3a4f61557971c4ef5b8a501931e9bd23955f99dac8dc402ee86cb9ea8fc684"
+    },
+    "original-printer/f32.hlo.pb": {
+      "bytes": 9049,
+      "sha256": "728536f5b44a1bd61dbf682bbcf73f8dfcb49c5f2588f6bb729da6d470d6a040"
+    },
+    "original-printer/f32.hlo.txt": {
+      "bytes": 8961,
+      "sha256": "e034363087acd2c7ec912a201730538951d748f75cb035a32d75033258a38989"
+    },
+    "printer/bf16.hlo.pb": {
+      "bytes": 9132,
+      "sha256": "062494f7aa7133dd2e26508e5f861832592f3bd18c76b03324128d553e1c5732"
+    },
+    "printer/bf16.hlo.txt": {
+      "bytes": 9053,
+      "sha256": "bfe2acdbaf9864e3f17ca9e1d567ee95875a95ae395a5557cebc7f510fc1f2b1"
+    },
+    "printer/f32.hlo.pb": {
+      "bytes": 9049,
+      "sha256": "3a87df0e7701622607275659c2ac443eba45582bd9e2435eef4724ca40aeda7c"
+    },
+    "printer/f32.hlo.txt": {
+      "bytes": 8961,
+      "sha256": "ddbd5260dcffd8fe27c0dd658281b490185e2ef2186756d40e5ebc739b827952"
+    },
+    "printer/metadata.json": {
+      "bytes": 35814,
+      "sha256": "35c344200e463a297174dab4bc64ffb45deb1dfab0878006b965e41e8346a1bc"
+    },
+    "provenance.json": {
+      "bytes": 1627,
+      "sha256": "baa850f57b24195617f33394e634030d53247308e4944dd889ed0c072dbfca19"
+    },
+    "strict-ordering-native-config.json": {
+      "bytes": 920,
+      "sha256": "73147c660964676bc4a6ab75215e005d5d20755d2c9a5344543ed19eb21aa05a"
+    }
+  }
+}

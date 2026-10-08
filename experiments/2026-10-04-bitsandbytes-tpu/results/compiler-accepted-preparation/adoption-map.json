@@ -1,0 +1,1054 @@
+{
+  "accepted_cloud_revision": "2c64223350ced1512fb7f6e78e1dde8cb0fc0ee9",
+  "actual_native_acceptance": "c64fca47f57374fab691d9870005cf614fc6eebbc8a02706ed70781f9dd1042a",
+  "base_native_generation": "mosaic-serde7-gather-bf16-fp32-v1",
+  "base_native_manifest_sha256": "30b820b90a4404a89da6e6c7b6fc91dbec47afbe06ae322eb5835b9eb0e70901",
+  "compiler_manifest_sha256": "7275eee3f0d3f2e5161613f1b9b1b0c9a2acfed6c02e0f19b8386b29e8355a24",
+  "compiler_policy_sha256": "f07575c74e367c869f0fbcd5ef563de52f92614f7529122f9c01063ff4956c96",
+  "exact_prerequisites": [
+    {
+      "bytes": 6923,
+      "role": "EXACT_PREREQUISITE_NOT_IMPLICIT_ADOPTION",
+      "sha256": "f51014526d399c93c95c5c00c6855a949aaeda2af74fc24609da6bb9068d1696",
+      "source": "cloud/allocation_transport.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/allocation_transport.py"
+    },
+    {
+      "bytes": 4359,
+      "role": "EXACT_PREREQUISITE_NOT_IMPLICIT_ADOPTION",
+      "sha256": "13a75920d19a760796b4f610b8d497e1011d4690f890d015fba281bb40ebe93d",
+      "source": "cloud/browser_adoption.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/browser_adoption.py"
+    },
+    {
+      "bytes": 7898,
+      "role": "EXACT_PREREQUISITE_NOT_IMPLICIT_ADOPTION",
+      "sha256": "65f27f3a93b4aa533d040225609bfb819fcf5ddbbc6f17456d0fcfd28bd6b546",
+      "source": "cloud/build-requirements.lock.json",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/build-requirements.lock.json"
+    },
+    {
+      "bytes": 3603,
+      "role": "EXACT_PREREQUISITE_NOT_IMPLICIT_ADOPTION",
+      "sha256": "4c4a2fa9fa6a787bfea6cb105d043c22be456f95834aaa0c67eb4f50f9d3260d",
+      "source": "cloud/build_native_packet.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/build_native_packet.py"
+    },
+    {
+      "bytes": 25143,
+      "role": "EXACT_PREREQUISITE_NOT_IMPLICIT_ADOPTION",
+      "sha256": "402796b3953c84e9fa7767b17057643dca0ef2a765f47e0b301f8bd9b27d9e4d",
+      "source": "cloud/build_packet.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/build_packet.py"
+    },
+    {
+      "bytes": 11595,
+      "role": "EXACT_PREREQUISITE_NOT_IMPLICIT_ADOPTION",
+      "sha256": "f36bfa740775487eb94963297243628a9264c6ef892b453cfafe92d75428da9b",
+      "source": "cloud/native_contract.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/native_contract.py"
+    },
+    {
+      "bytes": 5548,
+      "role": "EXACT_PREREQUISITE_NOT_IMPLICIT_ADOPTION",
+      "sha256": "da7fe494218424654356e2b114647f92590a1ea44ad11bea88ae724ee3be01ce",
+      "source": "cloud/nested_contract.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/nested_contract.py"
+    },
+    {
+      "bytes": 3590,
+      "role": "EXACT_PREREQUISITE_NOT_IMPLICIT_ADOPTION",
+      "sha256": "47e148748454ce473449e56ac42b7b1b65050988fdd8286085730b246c9d8136",
+      "source": "cloud/nested_state_contract.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/nested_state_contract.py"
+    },
+    {
+      "bytes": 1501,
+      "role": "EXACT_PREREQUISITE_NOT_IMPLICIT_ADOPTION",
+      "sha256": "a6c8713d8be39e7185a3f759ee6bdbd64a0d6b8c47eca0ba08526f9bc1bc4d7e",
+      "source": "cloud/official_cli_no_oauth.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/official_cli_no_oauth.py"
+    },
+    {
+      "bytes": 244,
+      "role": "EXACT_PREREQUISITE_NOT_IMPLICIT_ADOPTION",
+      "sha256": "7ed51ad613dbd6c0cbaa76575ae1da5d68b205e8b88c9e702cf206c09bb2150d",
+      "source": "cloud/ownership/bootstrap.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/ownership/bootstrap.py"
+    },
+    {
+      "bytes": 9410,
+      "role": "EXACT_PREREQUISITE_NOT_IMPLICIT_ADOPTION",
+      "sha256": "6557b3522ec68ddcd9106027d08e89e872eb90587eae8cbff2859ac5668cbf76",
+      "source": "cloud/ownership/cleanup_lifecycle.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/ownership/cleanup_lifecycle.py"
+    },
+    {
+      "bytes": 4558,
+      "role": "EXACT_PREREQUISITE_NOT_IMPLICIT_ADOPTION",
+      "sha256": "4ef29a2c673ab7dadce5a965bff18e51f4850134af2dfb5f44b3d3153949f986",
+      "source": "cloud/ownership/lifecycle.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/ownership/lifecycle.py"
+    },
+    {
+      "bytes": 24605,
+      "role": "EXACT_PREREQUISITE_NOT_IMPLICIT_ADOPTION",
+      "sha256": "35888719248865816d4a76d175cc74d8b401f0a3c26b7f9af20149fc8a38a0a1",
+      "source": "cloud/primitive_contract.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/primitive_contract.py"
+    },
+    {
+      "bytes": 7601,
+      "role": "EXACT_PREREQUISITE_NOT_IMPLICIT_ADOPTION",
+      "sha256": "11f7b025a4e7dd28315eb862e2e0b1697cf8d3f7a7e3c6e7d5b07c0adc918603",
+      "source": "cloud/python_bootstrap.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/python_bootstrap.py"
+    },
+    {
+      "bytes": 9618,
+      "role": "EXACT_PREREQUISITE_NOT_IMPLICIT_ADOPTION",
+      "sha256": "5c9ac2adca82733f0c3e9b9a97d02788dd46ec5099b1e2beef87aaeb7e5900f3",
+      "source": "cloud/state_coordinator.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/state_coordinator.py"
+    },
+    {
+      "bytes": 6690,
+      "role": "EXACT_PREREQUISITE_NOT_IMPLICIT_ADOPTION",
+      "sha256": "09f9394f6285bb477b382e800fe3ea66378ce99f462531da48b66a61cbbfa202",
+      "source": "cloud/transport.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/transport.py"
+    },
+    {
+      "bytes": 5992,
+      "role": "EXACT_PREREQUISITE_NOT_IMPLICIT_ADOPTION",
+      "sha256": "08869e04047837972e7bba9a35a0951206974f4b506debad2bba08af7f1001a4",
+      "source": "native/adapter.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/native/adapter.py"
+    },
+    {
+      "bytes": 734,
+      "role": "EXACT_PREREQUISITE_NOT_IMPLICIT_ADOPTION",
+      "sha256": "4189666b35d5b638399eb3f40a9174554bca8cbd0cc564b46b3b534bba2bcc77",
+      "source": "native/audit_preflight.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/native/audit_preflight.py"
+    },
+    {
+      "bytes": 3698,
+      "role": "EXACT_PREREQUISITE_NOT_IMPLICIT_ADOPTION",
+      "sha256": "6a6ce33279a48ed22f525c04d1e995066e7b39e2516233288c673463b8ec63ff",
+      "source": "native/conversion_recovery.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/native/conversion_recovery.py"
+    },
+    {
+      "bytes": 6686,
+      "role": "EXACT_PREREQUISITE_NOT_IMPLICIT_ADOPTION",
+      "sha256": "2c83baf3e4b8eaa91cbdc5602f633670614b5d70ef0a93abebbd9fc4ee51ae63",
+      "source": "native/coordinator.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/native/coordinator.py"
+    },
+    {
+      "bytes": 16142,
+      "role": "EXACT_PREREQUISITE_NOT_IMPLICIT_ADOPTION",
+      "sha256": "93f09e39e2db21ac4a3954a691bdf75caecd140484e12496fbf8f5eca5b62e20",
+      "source": "native/device_diagnostic.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/native/device_diagnostic.py"
+    },
+    {
+      "bytes": 3367,
+      "role": "EXACT_PREREQUISITE_NOT_IMPLICIT_ADOPTION",
+      "sha256": "79f446e39a8f04a89197df28897176b2b8f207b031e04da7dccad02c38a5d4e6",
+      "source": "native/graph_binding.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/native/graph_binding.py"
+    },
+    {
+      "bytes": 4871,
+      "role": "EXACT_PREREQUISITE_NOT_IMPLICIT_ADOPTION",
+      "sha256": "68b872c4695b630ed83f5e02614f53bb01508bd4e317dd0d09d62ab0b3034294",
+      "source": "native/kernel.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/native/kernel.py"
+    },
+    {
+      "bytes": 4298,
+      "role": "EXACT_PREREQUISITE_NOT_IMPLICIT_ADOPTION",
+      "sha256": "30b820b90a4404a89da6e6c7b6fc91dbec47afbe06ae322eb5835b9eb0e70901",
+      "source": "native/manifest.json",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/native/manifest.json"
+    },
+    {
+      "bytes": 7067,
+      "role": "EXACT_PREREQUISITE_NOT_IMPLICIT_ADOPTION",
+      "sha256": "baf3afd93f5fd7d069cd863699ba2aeefb47de72b23c1659a3e50eb7e86357bc",
+      "source": "native/mosaic_audit.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/native/mosaic_audit.py"
+    },
+    {
+      "bytes": 4015,
+      "role": "EXACT_PREREQUISITE_NOT_IMPLICIT_ADOPTION",
+      "sha256": "cce7a54521b3ccb51a35b4e26332c52b6e0e2dfbcb44db5c2cd290d016120542",
+      "source": "native/mosaic_compatibility.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/native/mosaic_compatibility.py"
+    },
+    {
+      "bytes": 244,
+      "role": "EXACT_PREREQUISITE_NOT_IMPLICIT_ADOPTION",
+      "sha256": "7ed51ad613dbd6c0cbaa76575ae1da5d68b205e8b88c9e702cf206c09bb2150d",
+      "source": "native/ownership/bootstrap.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/native/ownership/bootstrap.py"
+    },
+    {
+      "bytes": 9410,
+      "role": "EXACT_PREREQUISITE_NOT_IMPLICIT_ADOPTION",
+      "sha256": "6557b3522ec68ddcd9106027d08e89e872eb90587eae8cbff2859ac5668cbf76",
+      "source": "native/ownership/cleanup_lifecycle.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/native/ownership/cleanup_lifecycle.py"
+    },
+    {
+      "bytes": 4558,
+      "role": "EXACT_PREREQUISITE_NOT_IMPLICIT_ADOPTION",
+      "sha256": "4ef29a2c673ab7dadce5a965bff18e51f4850134af2dfb5f44b3d3153949f986",
+      "source": "native/ownership/lifecycle.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/native/ownership/lifecycle.py"
+    },
+    {
+      "bytes": 3669,
+      "role": "EXACT_PREREQUISITE_NOT_IMPLICIT_ADOPTION",
+      "sha256": "7b25b6d1f025d029a99d7e2502d64dc704fa9262f226f3ab83f3eb325d6d442d",
+      "source": "native/prepare_oracle.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/native/prepare_oracle.py"
+    },
+    {
+      "bytes": 132064,
+      "role": "EXACT_PREREQUISITE_NOT_IMPLICIT_ADOPTION",
+      "sha256": "d0c9cdf6a82449a56923499698f19bfd3cc8d13c042f1f5ad2bdf587701f5e54",
+      "source": "native/probe-inputs.json",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/native/probe-inputs.json"
+    },
+    {
+      "bytes": 3695,
+      "role": "EXACT_PREREQUISITE_NOT_IMPLICIT_ADOPTION",
+      "sha256": "ad53f6416bdabf6440f08b313963c947a468cd39afd413bfe41bb381c4a7a166",
+      "source": "native/probe-profile.json",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/native/probe-profile.json"
+    },
+    {
+      "bytes": 24512,
+      "role": "EXACT_PREREQUISITE_NOT_IMPLICIT_ADOPTION",
+      "sha256": "e8743e33e6a0454d5d05b77075d47a5c9f983cf32f3956c38f2b544f86f5ef6d",
+      "source": "native/probe_backend.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/native/probe_backend.py"
+    },
+    {
+      "bytes": 35743,
+      "role": "EXACT_PREREQUISITE_NOT_IMPLICIT_ADOPTION",
+      "sha256": "e0534955507e5f91e67ecddfffc738a367ad752e69a4eea7ae8052c6d76a8852",
+      "source": "native/probe_precision.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/native/probe_precision.py"
+    },
+    {
+      "bytes": 11007,
+      "role": "EXACT_PREREQUISITE_NOT_IMPLICIT_ADOPTION",
+      "sha256": "4341ecdaa273f449f42e6ffadad345c4abe7259d6a666067918528a70fc6aa8a",
+      "source": "native/proto_contract.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/native/proto_contract.py"
+    },
+    {
+      "bytes": 2123,
+      "role": "EXACT_PREREQUISITE_NOT_IMPLICIT_ADOPTION",
+      "sha256": "048d4a4a745ba953cfc505df2ca41047e5e39cdbda492992e6e42b1423b6383c",
+      "source": "native/protocol.json",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/native/protocol.json"
+    },
+    {
+      "bytes": 7204,
+      "role": "EXACT_PREREQUISITE_NOT_IMPLICIT_ADOPTION",
+      "sha256": "e5a5d23e2e2d40295a3df00700273f1316e250ffb676418a2eb19b1f813e7fd7",
+      "source": "native/protocol.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/native/protocol.py"
+    },
+    {
+      "bytes": 5122,
+      "role": "EXACT_PREREQUISITE_NOT_IMPLICIT_ADOPTION",
+      "sha256": "f70c5fcb3f9cb325af03258e1b27d97d3a66934d4c34f1a4a6997af1f80fe79a",
+      "source": "native/recorder.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/native/recorder.py"
+    },
+    {
+      "bytes": 1886,
+      "role": "EXACT_PREREQUISITE_NOT_IMPLICIT_ADOPTION",
+      "sha256": "56db733219c667bf77c54ee9e1c4baf2b5894bc7290fc30a3ac4c045d540f036",
+      "source": "native/source-pins.json",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/native/source-pins.json"
+    },
+    {
+      "bytes": 3753,
+      "role": "EXACT_PREREQUISITE_NOT_IMPLICIT_ADOPTION",
+      "sha256": "36b10c2fc62e210fd5fb0d194213b660a44687137f8ab4c9d80dc0587f8f8ad5",
+      "source": "native/state_child_owner.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/native/state_child_owner.py"
+    },
+    {
+      "bytes": 4358,
+      "role": "EXACT_PREREQUISITE_NOT_IMPLICIT_ADOPTION",
+      "sha256": "6a7c925211b14aba990318360c8f0ca2d4d803e4528c634135c8bde86326816b",
+      "source": "native/transfer_admission.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/native/transfer_admission.py"
+    },
+    {
+      "bytes": 15447,
+      "role": "EXACT_PREREQUISITE_NOT_IMPLICIT_ADOPTION",
+      "sha256": "4c0e60e602f84c6d54bec02d08f71f61c5171e68e485dde0d6ef2cb9673a8bb3",
+      "source": "native/verifier.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/native/verifier.py"
+    },
+    {
+      "bytes": 1892,
+      "role": "EXACT_PREREQUISITE_NOT_IMPLICIT_ADOPTION",
+      "sha256": "212f25c69fcb4669e517175cdb847664d446e5f8825e849b587372c3633f26be",
+      "source": "native/verify_record.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/native/verify_record.py"
+    },
+    {
+      "bytes": 11834,
+      "role": "EXACT_PREREQUISITE_NOT_IMPLICIT_ADOPTION",
+      "sha256": "e9a71bc60c0fa40aa4263bb5c024690f079f0d4bec6cbeb356746cd1765a9628",
+      "source": "native/verify_run.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/native/verify_run.py"
+    }
+  ],
+  "files": [
+    {
+      "bytes": 567,
+      "role": "PORTABLE_CONTROL_FIXTURE_OR_REVIEW_DOC",
+      "sha256": "9b82b7498e6d744cf592cbe4be36f2d62161859f2785ce677b1c5d588b0e5771",
+      "source": "CHANGELOG.md",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/tests/compiler-accepted/CHANGELOG.md"
+    },
+    {
+      "bytes": 4311,
+      "role": "PORTABLE_CONTROL_FIXTURE_OR_REVIEW_DOC",
+      "sha256": "4e5a4627659ac2d477c05a9b7039cc8ab2f6b97bbb8f5a3f94ae6c792247d765",
+      "source": "README.md",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/tests/compiler-accepted/README.md"
+    },
+    {
+      "bytes": 3778,
+      "role": "PORTABLE_CONTROL_FIXTURE_OR_REVIEW_DOC",
+      "sha256": "ab54734240a32e7c3fbfd43836209e6d48622da1e128adf694148d34d298c738",
+      "source": "REPRODUCE.md",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/tests/compiler-accepted/REPRODUCE.md"
+    },
+    {
+      "bytes": 1342,
+      "role": "PORTABLE_CONTROL_FIXTURE_OR_REVIEW_DOC",
+      "sha256": "50eca445e78ee46bfaf8edc1279e77663c2650f024ca192c50e77dac19c69d3e",
+      "source": "accepted-basis.json",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/tests/compiler-accepted/accepted-basis.json"
+    },
+    {
+      "bytes": 12328,
+      "role": "PORTABLE_CONTROL_FIXTURE_OR_REVIEW_DOC",
+      "sha256": "71b3981ea415dad5f2951294d348fd390a0f678fd7640519eef6136be8b661b7",
+      "source": "accepted-composition.json",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/tests/compiler-accepted/accepted-composition.json"
+    },
+    {
+      "bytes": 10371,
+      "role": "COMPILER_MODE_PRODUCTION",
+      "sha256": "fd15cb724a398b9079b0b97c19f66bd858fe3f7027e9ae9e1a0ff8983eb1a291",
+      "source": "accepted-native-result.json",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/accepted-native-result.json"
+    },
+    {
+      "bytes": 7237,
+      "role": "PORTABLE_CONTROL_FIXTURE_OR_REVIEW_DOC",
+      "sha256": "26831a753229b931045394c8c382238a4e354a90df65b54b9b7427c26c93e057",
+      "source": "accepted_controls.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/tests/compiler-accepted/accepted_controls.py"
+    },
+    {
+      "bytes": 3380,
+      "role": "PORTABLE_CONTROL_FIXTURE_OR_REVIEW_DOC",
+      "sha256": "6a2dd5cbf48521b3cfa3dcedb0d94ddbb875f6bc6d172214bd0016e89c3c6ce7",
+      "source": "audit_interface_controls.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/tests/compiler-accepted/audit_interface_controls.py"
+    },
+    {
+      "bytes": 4298,
+      "role": "PORTABLE_CONTROL_FIXTURE_OR_REVIEW_DOC",
+      "sha256": "30b820b90a4404a89da6e6c7b6fc91dbec47afbe06ae322eb5835b9eb0e70901",
+      "source": "base-manifest.json",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/tests/compiler-accepted/base-manifest.json"
+    },
+    {
+      "bytes": 2209,
+      "role": "PORTABLE_CONTROL_FIXTURE_OR_REVIEW_DOC",
+      "sha256": "e3e14bae872c00faeaa8bcb19f930403278e55399f7dca81db748e22e60b0cf3",
+      "source": "build_and_preflight.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/tests/compiler-accepted/build_and_preflight.py"
+    },
+    {
+      "bytes": 1362,
+      "role": "PORTABLE_CONTROL_FIXTURE_OR_REVIEW_DOC",
+      "sha256": "c996a97bd1bed77969276b75a0c8f9d1822b74a091f687c104a3b561991ac141",
+      "source": "build_plain_native.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/tests/compiler-accepted/build_plain_native.py"
+    },
+    {
+      "bytes": 3846,
+      "role": "COMPILER_MODE_PRODUCTION",
+      "sha256": "d193abad8b0718628ab61130eba598ad274f0aec3ae96aaf39bd6e5b96c81747",
+      "source": "cloud/build_compiler_packet.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/build_compiler_packet.py"
+    },
+    {
+      "bytes": 17926,
+      "role": "COMPILER_MODE_PRODUCTION",
+      "sha256": "1c092bff6d2051ce237d65b01c0d991ac07e194bfb23ec93425d72d11bc1631f",
+      "source": "cloud/compiler_cloud_contract.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/compiler_cloud_contract.py"
+    },
+    {
+      "bytes": 1588,
+      "role": "COMPILER_MODE_PRODUCTION",
+      "sha256": "3e7dc991636fcefd7d92dc963c031fa648bad29823e2077a3aca07d5fe4ef226",
+      "source": "cloud/compiler_postclosure.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/compiler_postclosure.py"
+    },
+    {
+      "bytes": 7626,
+      "role": "COMPILER_MODE_PRODUCTION",
+      "sha256": "9926ac51faffc3ab2cae7c3c2239c1a8c35f13cf96903b55d9621f0920e41d13",
+      "source": "cloud/compiler_recovery.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/compiler_recovery.py"
+    },
+    {
+      "bytes": 61107,
+      "role": "COMPILER_MODE_PRODUCTION",
+      "sha256": "0c8c7c1c36b5dff6d524436ea2f4c1ec04c67b5a88b50d5e866a1afc54b9f64d",
+      "source": "cloud/owner.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/owner.py"
+    },
+    {
+      "bytes": 72722,
+      "role": "COMPILER_MODE_PRODUCTION",
+      "sha256": "7a1820a93830fb07e7f370029efc62df502ec55eb06f06e2b433963ca7250149",
+      "source": "cloud/remote.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/remote.py"
+    },
+    {
+      "bytes": 11375,
+      "role": "PORTABLE_CONTROL_FIXTURE_OR_REVIEW_DOC",
+      "sha256": "4b3a625ad6a39936f2579c0b280adf514321148346a30bd75fd9c2409a01cef8",
+      "source": "cloud/tests/compiler_cloud_controls.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/tests/compiler-accepted/cloud/tests/compiler_cloud_controls.py"
+    },
+    {
+      "bytes": 6687,
+      "role": "PORTABLE_CONTROL_FIXTURE_OR_REVIEW_DOC",
+      "sha256": "e4e1cd8501395c9e8f7fd159eaf918149dcbc5f8c3061fa4856d887a35302048",
+      "source": "cloud/tests/compiler_cpu_controls.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/tests/compiler-accepted/cloud/tests/compiler_cpu_controls.py"
+    },
+    {
+      "bytes": 7919,
+      "role": "PORTABLE_CONTROL_FIXTURE_OR_REVIEW_DOC",
+      "sha256": "77aec0c1fc9508ad33bc165aab0ed76a645b1ce69778a9954efc65805b6cd404",
+      "source": "cloud/tests/compiler_owner_controls.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/tests/compiler-accepted/cloud/tests/compiler_owner_controls.py"
+    },
+    {
+      "bytes": 6807,
+      "role": "PORTABLE_CONTROL_FIXTURE_OR_REVIEW_DOC",
+      "sha256": "4e504b7d9b425709de32690f3cb46db0b76f46f442242ba5f57b32827a39a972",
+      "source": "cloud/tests/compiler_phase_controls.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/tests/compiler-accepted/cloud/tests/compiler_phase_controls.py"
+    },
+    {
+      "bytes": 2276,
+      "role": "PORTABLE_CONTROL_FIXTURE_OR_REVIEW_DOC",
+      "sha256": "afa186d9c2bf0157eae31f349be2503d777a1d5e0c964053df59d0ec3d845c19",
+      "source": "cloud/tests/compiler_source_fixture.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/tests/compiler-accepted/cloud/tests/compiler_source_fixture.py"
+    },
+    {
+      "bytes": 990,
+      "role": "PORTABLE_CONTROL_FIXTURE_OR_REVIEW_DOC",
+      "sha256": "eb100e75c2264b1b2a5d3b117accb21c97acaecdc1f611fb7df4a294bf758870",
+      "source": "cloud/tests/fixtures/native/compiler-mosaic-cpu-inventory.json",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/tests/compiler-accepted/cloud/tests/fixtures/native/compiler-mosaic-cpu-inventory.json"
+    },
+    {
+      "bytes": 161195,
+      "role": "PORTABLE_CONTROL_FIXTURE_OR_REVIEW_DOC",
+      "sha256": "b3f18ab3edd4a9682f3e8d7f78b702d3d4bf40bedf2cb6f78dfe03851e02d91c",
+      "source": "cloud/tests/fixtures/native/compiler-mosaic-cpu-unqualified.tar.gz",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/tests/compiler-accepted/cloud/tests/fixtures/native/compiler-mosaic-cpu-unqualified.tar.gz"
+    },
+    {
+      "bytes": 990,
+      "role": "PORTABLE_CONTROL_FIXTURE_OR_REVIEW_DOC",
+      "sha256": "eb100e75c2264b1b2a5d3b117accb21c97acaecdc1f611fb7df4a294bf758870",
+      "source": "cloud/tests/fixtures/native/cpu-inventory.json",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/tests/compiler-accepted/cloud/tests/fixtures/native/cpu-inventory.json"
+    },
+    {
+      "bytes": 161195,
+      "role": "PORTABLE_CONTROL_FIXTURE_OR_REVIEW_DOC",
+      "sha256": "b3f18ab3edd4a9682f3e8d7f78b702d3d4bf40bedf2cb6f78dfe03851e02d91c",
+      "source": "cloud/tests/fixtures/native/cpu-unqualified.tar.gz",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/tests/compiler-accepted/cloud/tests/fixtures/native/cpu-unqualified.tar.gz"
+    },
+    {
+      "bytes": 2276,
+      "role": "PORTABLE_CONTROL_FIXTURE_OR_REVIEW_DOC",
+      "sha256": "afa186d9c2bf0157eae31f349be2503d777a1d5e0c964053df59d0ec3d845c19",
+      "source": "cloud/tests/source_fixture.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/tests/compiler-accepted/cloud/tests/source_fixture.py"
+    },
+    {
+      "bytes": 5992,
+      "role": "COMPILER_MODE_PRODUCTION",
+      "sha256": "08869e04047837972e7bba9a35a0951206974f4b506debad2bba08af7f1001a4",
+      "source": "compiler-native/adapter.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/compiler-native/adapter.py"
+    },
+    {
+      "bytes": 15044,
+      "role": "COMPILER_MODE_PRODUCTION",
+      "sha256": "c44ecb15696031f326a7abe64ea3d8407b9bc21f527cb94f8b5f149c456fcd8d",
+      "source": "compiler-native/analyzer.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/compiler-native/analyzer.py"
+    },
+    {
+      "bytes": 734,
+      "role": "COMPILER_MODE_PRODUCTION",
+      "sha256": "4189666b35d5b638399eb3f40a9174554bca8cbd0cc564b46b3b534bba2bcc77",
+      "source": "compiler-native/audit_preflight.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/compiler-native/audit_preflight.py"
+    },
+    {
+      "bytes": 1499,
+      "role": "COMPILER_MODE_PRODUCTION",
+      "sha256": "f07575c74e367c869f0fbcd5ef563de52f92614f7529122f9c01063ff4956c96",
+      "source": "compiler-native/compiler-policy.json",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/compiler-native/compiler-policy.json"
+    },
+    {
+      "bytes": 5987,
+      "role": "COMPILER_MODE_PRODUCTION",
+      "sha256": "d8d8d5e6584e87eed75636aca9426f7fc1a3df17e5b51d9aff6f69c2cd0d3311",
+      "source": "compiler-native/compiler_contract.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/compiler-native/compiler_contract.py"
+    },
+    {
+      "bytes": 2812,
+      "role": "COMPILER_MODE_PRODUCTION",
+      "sha256": "8a59f324954216f6156fcf09c97dcc16375dd99f30be042b67cdf0be7497e46d",
+      "source": "compiler-native/compiler_exec.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/compiler-native/compiler_exec.py"
+    },
+    {
+      "bytes": 17679,
+      "role": "COMPILER_MODE_PRODUCTION",
+      "sha256": "acb3a7af4955082d673313ddf12ad6d25b101f30f3df99046008bd4b435d902b",
+      "source": "compiler-native/compiler_verify.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/compiler-native/compiler_verify.py"
+    },
+    {
+      "bytes": 3698,
+      "role": "COMPILER_MODE_PRODUCTION",
+      "sha256": "6a6ce33279a48ed22f525c04d1e995066e7b39e2516233288c673463b8ec63ff",
+      "source": "compiler-native/conversion_recovery.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/compiler-native/conversion_recovery.py"
+    },
+    {
+      "bytes": 8162,
+      "role": "COMPILER_MODE_PRODUCTION",
+      "sha256": "45fa9ff97301efcee6252660f5b2436ac1de492229b22aa62bce6a7c475a1f91",
+      "source": "compiler-native/coordinator.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/compiler-native/coordinator.py"
+    },
+    {
+      "bytes": 16142,
+      "role": "COMPILER_MODE_PRODUCTION",
+      "sha256": "93f09e39e2db21ac4a3954a691bdf75caecd140484e12496fbf8f5eca5b62e20",
+      "source": "compiler-native/device_diagnostic.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/compiler-native/device_diagnostic.py"
+    },
+    {
+      "bytes": 4423,
+      "role": "COMPILER_MODE_PRODUCTION",
+      "sha256": "d9827e99467714099a921c9d06abc744355cea352d38c996a37288304f4bab7b",
+      "source": "compiler-native/dump_inventory.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/compiler-native/dump_inventory.py"
+    },
+    {
+      "bytes": 1990,
+      "role": "COMPILER_MODE_PRODUCTION",
+      "sha256": "f46af314ed5488560471ad04a4887d4939d92fb76cf2dfdd012ffbfd7224720e",
+      "source": "compiler-native/dump_observation.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/compiler-native/dump_observation.py"
+    },
+    {
+      "bytes": 3367,
+      "role": "COMPILER_MODE_PRODUCTION",
+      "sha256": "79f446e39a8f04a89197df28897176b2b8f207b031e04da7dccad02c38a5d4e6",
+      "source": "compiler-native/graph_binding.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/compiler-native/graph_binding.py"
+    },
+    {
+      "bytes": 4871,
+      "role": "COMPILER_MODE_PRODUCTION",
+      "sha256": "68b872c4695b630ed83f5e02614f53bb01508bd4e317dd0d09d62ab0b3034294",
+      "source": "compiler-native/kernel.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/compiler-native/kernel.py"
+    },
+    {
+      "bytes": 5926,
+      "role": "COMPILER_MODE_PRODUCTION",
+      "sha256": "7275eee3f0d3f2e5161613f1b9b1b0c9a2acfed6c02e0f19b8386b29e8355a24",
+      "source": "compiler-native/manifest.json",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/compiler-native/manifest.json"
+    },
+    {
+      "bytes": 7067,
+      "role": "COMPILER_MODE_PRODUCTION",
+      "sha256": "baf3afd93f5fd7d069cd863699ba2aeefb47de72b23c1659a3e50eb7e86357bc",
+      "source": "compiler-native/mosaic_audit.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/compiler-native/mosaic_audit.py"
+    },
+    {
+      "bytes": 4015,
+      "role": "COMPILER_MODE_PRODUCTION",
+      "sha256": "cce7a54521b3ccb51a35b4e26332c52b6e0e2dfbcb44db5c2cd290d016120542",
+      "source": "compiler-native/mosaic_compatibility.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/compiler-native/mosaic_compatibility.py"
+    },
+    {
+      "bytes": 244,
+      "role": "COMPILER_MODE_PRODUCTION",
+      "sha256": "7ed51ad613dbd6c0cbaa76575ae1da5d68b205e8b88c9e702cf206c09bb2150d",
+      "source": "compiler-native/ownership/bootstrap.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/compiler-native/ownership/bootstrap.py"
+    },
+    {
+      "bytes": 9410,
+      "role": "COMPILER_MODE_PRODUCTION",
+      "sha256": "6557b3522ec68ddcd9106027d08e89e872eb90587eae8cbff2859ac5668cbf76",
+      "source": "compiler-native/ownership/cleanup_lifecycle.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/compiler-native/ownership/cleanup_lifecycle.py"
+    },
+    {
+      "bytes": 4558,
+      "role": "COMPILER_MODE_PRODUCTION",
+      "sha256": "4ef29a2c673ab7dadce5a965bff18e51f4850134af2dfb5f44b3d3153949f986",
+      "source": "compiler-native/ownership/lifecycle.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/compiler-native/ownership/lifecycle.py"
+    },
+    {
+      "bytes": 3669,
+      "role": "COMPILER_MODE_PRODUCTION",
+      "sha256": "7b25b6d1f025d029a99d7e2502d64dc704fa9262f226f3ab83f3eb325d6d442d",
+      "source": "compiler-native/prepare_oracle.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/compiler-native/prepare_oracle.py"
+    },
+    {
+      "bytes": 132064,
+      "role": "COMPILER_MODE_PRODUCTION",
+      "sha256": "d0c9cdf6a82449a56923499698f19bfd3cc8d13c042f1f5ad2bdf587701f5e54",
+      "source": "compiler-native/probe-inputs.json",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/compiler-native/probe-inputs.json"
+    },
+    {
+      "bytes": 3695,
+      "role": "COMPILER_MODE_PRODUCTION",
+      "sha256": "ad53f6416bdabf6440f08b313963c947a468cd39afd413bfe41bb381c4a7a166",
+      "source": "compiler-native/probe-profile.json",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/compiler-native/probe-profile.json"
+    },
+    {
+      "bytes": 24512,
+      "role": "COMPILER_MODE_PRODUCTION",
+      "sha256": "e8743e33e6a0454d5d05b77075d47a5c9f983cf32f3956c38f2b544f86f5ef6d",
+      "source": "compiler-native/probe_backend.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/compiler-native/probe_backend.py"
+    },
+    {
+      "bytes": 35743,
+      "role": "COMPILER_MODE_PRODUCTION",
+      "sha256": "e0534955507e5f91e67ecddfffc738a367ad752e69a4eea7ae8052c6d76a8852",
+      "source": "compiler-native/probe_precision.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/compiler-native/probe_precision.py"
+    },
+    {
+      "bytes": 11007,
+      "role": "COMPILER_MODE_PRODUCTION",
+      "sha256": "4341ecdaa273f449f42e6ffadad345c4abe7259d6a666067918528a70fc6aa8a",
+      "source": "compiler-native/proto_contract.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/compiler-native/proto_contract.py"
+    },
+    {
+      "bytes": 2123,
+      "role": "COMPILER_MODE_PRODUCTION",
+      "sha256": "048d4a4a745ba953cfc505df2ca41047e5e39cdbda492992e6e42b1423b6383c",
+      "source": "compiler-native/protocol.json",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/compiler-native/protocol.json"
+    },
+    {
+      "bytes": 7204,
+      "role": "COMPILER_MODE_PRODUCTION",
+      "sha256": "e5a5d23e2e2d40295a3df00700273f1316e250ffb676418a2eb19b1f813e7fd7",
+      "source": "compiler-native/protocol.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/compiler-native/protocol.py"
+    },
+    {
+      "bytes": 5122,
+      "role": "COMPILER_MODE_PRODUCTION",
+      "sha256": "f70c5fcb3f9cb325af03258e1b27d97d3a66934d4c34f1a4a6997af1f80fe79a",
+      "source": "compiler-native/recorder.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/compiler-native/recorder.py"
+    },
+    {
+      "bytes": 1886,
+      "role": "COMPILER_MODE_PRODUCTION",
+      "sha256": "56db733219c667bf77c54ee9e1c4baf2b5894bc7290fc30a3ac4c045d540f036",
+      "source": "compiler-native/source-pins.json",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/compiler-native/source-pins.json"
+    },
+    {
+      "bytes": 7438,
+      "role": "COMPILER_MODE_PRODUCTION",
+      "sha256": "7d1edccb3494996a55e2023990b2faab069f1c09459172290227864aa9df2414",
+      "source": "compiler-native/state_child_owner.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/compiler-native/state_child_owner.py"
+    },
+    {
+      "bytes": 4358,
+      "role": "COMPILER_MODE_PRODUCTION",
+      "sha256": "6a7c925211b14aba990318360c8f0ca2d4d803e4528c634135c8bde86326816b",
+      "source": "compiler-native/transfer_admission.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/compiler-native/transfer_admission.py"
+    },
+    {
+      "bytes": 15447,
+      "role": "COMPILER_MODE_PRODUCTION",
+      "sha256": "4c0e60e602f84c6d54bec02d08f71f61c5171e68e485dde0d6ef2cb9673a8bb3",
+      "source": "compiler-native/verifier.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/compiler-native/verifier.py"
+    },
+    {
+      "bytes": 1892,
+      "role": "COMPILER_MODE_PRODUCTION",
+      "sha256": "212f25c69fcb4669e517175cdb847664d446e5f8825e849b587372c3633f26be",
+      "source": "compiler-native/verify_record.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/compiler-native/verify_record.py"
+    },
+    {
+      "bytes": 11834,
+      "role": "COMPILER_MODE_PRODUCTION",
+      "sha256": "e9a71bc60c0fa40aa4263bb5c024690f079f0d4bec6cbeb356746cd1765a9628",
+      "source": "compiler-native/verify_run.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/compiler-native/verify_run.py"
+    },
+    {
+      "bytes": 7142,
+      "role": "PORTABLE_CONTROL_FIXTURE_OR_REVIEW_DOC",
+      "sha256": "b3c737d2768555f1ddb0135fe431ad2087f2634cbc68abb6c24ab1d2ba9631a5",
+      "source": "controls.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/tests/compiler-accepted/controls.py"
+    },
+    {
+      "bytes": 2509,
+      "role": "PORTABLE_CONTROL_FIXTURE_OR_REVIEW_DOC",
+      "sha256": "cda16c914a39bae1939f8b74dc15afa43bcf232857750d8d0092d0c497048d51",
+      "source": "dump_inventory_controls.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/tests/compiler-accepted/dump_inventory_controls.py"
+    },
+    {
+      "bytes": 706,
+      "role": "PORTABLE_CONTROL_FIXTURE_OR_REVIEW_DOC",
+      "sha256": "419314fd05672c8034dc4bfdb14d8e6117f8a30d0dd0c7eea53657a4cf37abdf",
+      "source": "fix-basis.json",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/tests/compiler-accepted/fix-basis.json"
+    },
+    {
+      "bytes": 635,
+      "role": "PORTABLE_CONTROL_FIXTURE_OR_REVIEW_DOC",
+      "sha256": "05d87b93924055212fee9116a1be8550b541195277648415cde578f359cc0a27",
+      "source": "fixtures/compiler-inventory.json",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/tests/compiler-accepted/fixtures/compiler-inventory.json"
+    },
+    {
+      "bytes": 318,
+      "role": "PORTABLE_CONTROL_FIXTURE_OR_REVIEW_DOC",
+      "sha256": "7397338c01b8b77c9eafb254783c989a6a73d8d96fc4cb8d4e5b8f0197c45461",
+      "source": "fixtures/compiler/after.hlo.pb",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/tests/compiler-accepted/fixtures/compiler/after.hlo.pb"
+    },
+    {
+      "bytes": 267,
+      "role": "PORTABLE_CONTROL_FIXTURE_OR_REVIEW_DOC",
+      "sha256": "12820b35fae33decd822c2a34248216d657d7381bdfc7d6e349d5e501627f0e6",
+      "source": "fixtures/compiler/before.hlo.pb",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/tests/compiler-accepted/fixtures/compiler/before.hlo.pb"
+    },
+    {
+      "bytes": 246,
+      "role": "PORTABLE_CONTROL_FIXTURE_OR_REVIEW_DOC",
+      "sha256": "34bda4c5ee199774d16df88e50205b10680749a84bc53c8b325094214c926db8",
+      "source": "fixtures/compiler/boundary.hlo.pb",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/tests/compiler-accepted/fixtures/compiler/boundary.hlo.pb"
+    },
+    {
+      "bytes": 1589,
+      "role": "PORTABLE_CONTROL_FIXTURE_OR_REVIEW_DOC",
+      "sha256": "c1ef40f211ff12a80c36c7b4cab607ea73a4cbb6029cbe072dfa278e22b1d26f",
+      "source": "fixtures/compiler/expected.json",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/tests/compiler-accepted/fixtures/compiler/expected.json"
+    },
+    {
+      "bytes": 326,
+      "role": "PORTABLE_CONTROL_FIXTURE_OR_REVIEW_DOC",
+      "sha256": "ebca52ab2e295ca420f78219387b07fb41288da376f70f46e5c1172e06974783",
+      "source": "fixtures/compiler/metadata.textproto",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/tests/compiler-accepted/fixtures/compiler/metadata.textproto"
+    },
+    {
+      "bytes": 520,
+      "role": "PORTABLE_CONTROL_FIXTURE_OR_REVIEW_DOC",
+      "sha256": "f91235e034ae300cf8277e95ce60743bf1e405a55c8e08fa2f3694ea19cf3dbd",
+      "source": "fixtures/ordinary_native_parent.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/tests/compiler-accepted/fixtures/ordinary_native_parent.py"
+    },
+    {
+      "bytes": 2260,
+      "role": "PORTABLE_CONTROL_FIXTURE_OR_REVIEW_DOC",
+      "sha256": "b2ce0f142fc456eed6e85bbd12d56266cbb0bf4b904fdb2b69c75260de528d10",
+      "source": "fixtures/topology_child.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/tests/compiler-accepted/fixtures/topology_child.py"
+    },
+    {
+      "bytes": 4352,
+      "role": "PORTABLE_CONTROL_FIXTURE_OR_REVIEW_DOC",
+      "sha256": "0b7d5b2752ee57e3dbec3f724398b4bc80fcb05347bdc9738bef46c77fbf229b",
+      "source": "fixtures/topology_parent.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/tests/compiler-accepted/fixtures/topology_parent.py"
+    },
+    {
+      "bytes": 6608,
+      "role": "PORTABLE_CONTROL_FIXTURE_OR_REVIEW_DOC",
+      "sha256": "5d4e1689de118cd029ef89fc896f317bcc324eb6277a80b731a6840f170eaa35",
+      "source": "freeze_prepare.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/tests/compiler-accepted/freeze_prepare.py"
+    },
+    {
+      "bytes": 1517,
+      "role": "PORTABLE_CONTROL_FIXTURE_OR_REVIEW_DOC",
+      "sha256": "d3002a2ce4abc4dc4305cd89b9217e855ad8c13742eec35b7dbc58dea38b2a3f",
+      "source": "freeze_readback.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/tests/compiler-accepted/freeze_readback.py"
+    },
+    {
+      "bytes": 9314,
+      "role": "PORTABLE_CONTROL_FIXTURE_OR_REVIEW_DOC",
+      "sha256": "89e32d271a9df7cf95521297c93cc025224c809e63231ff2899977b40cb91d82",
+      "source": "independent_controls.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/tests/compiler-accepted/independent_controls.py"
+    },
+    {
+      "bytes": 517,
+      "role": "PORTABLE_CONTROL_FIXTURE_OR_REVIEW_DOC",
+      "sha256": "5daf942832153c6d6505f1ec4c941294cb8c376f28927b2f9cfc5b3d86a962fc",
+      "source": "m2-dependency.json",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/tests/compiler-accepted/m2-dependency.json"
+    },
+    {
+      "bytes": 2244,
+      "role": "PORTABLE_CONTROL_FIXTURE_OR_REVIEW_DOC",
+      "sha256": "9c178eecc4e24402b5fba5c0ed09d44cd337ecaf88f1c5db4d293615701abf8b",
+      "source": "materialize_controls.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/tests/compiler-accepted/materialize_controls.py"
+    },
+    {
+      "bytes": 5800,
+      "role": "PORTABLE_CONTROL_FIXTURE_OR_REVIEW_DOC",
+      "sha256": "ae85046d5f764df2b78633121308c24540a168017aa8ab0d83067e1c928c3cfa",
+      "source": "native-adoption-readback.json",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/tests/compiler-accepted/native-adoption-readback.json"
+    },
+    {
+      "bytes": 4298,
+      "role": "PORTABLE_CONTROL_FIXTURE_OR_REVIEW_DOC",
+      "sha256": "30b820b90a4404a89da6e6c7b6fc91dbec47afbe06ae322eb5835b9eb0e70901",
+      "source": "native-baseline-manifest.json",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/tests/compiler-accepted/native-baseline-manifest.json"
+    },
+    {
+      "bytes": 2790,
+      "role": "PORTABLE_CONTROL_FIXTURE_OR_REVIEW_DOC",
+      "sha256": "227b9c6566e1520e589bcfc71f65d6ce9c6297e62448ce85c20544c7e79dacc1",
+      "source": "native-controls/fixtures/native/mosaic-control-fixtures.inventory.json",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/tests/compiler-accepted/native-controls/fixtures/native/mosaic-control-fixtures.inventory.json"
+    },
+    {
+      "bytes": 927,
+      "role": "PORTABLE_CONTROL_FIXTURE_OR_REVIEW_DOC",
+      "sha256": "8c58ec8a07d019681f15ce065757c891ba42044b7d6fba2854e357460d4699d3",
+      "source": "native-controls/fixtures/native/mosaic-control-fixtures.md",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/tests/compiler-accepted/native-controls/fixtures/native/mosaic-control-fixtures.md"
+    },
+    {
+      "bytes": 172225,
+      "role": "PORTABLE_CONTROL_FIXTURE_OR_REVIEW_DOC",
+      "sha256": "bf8276c847523cf7e018fce586a43ad7fbbce3246a2a68ac51818e56a4c1f518",
+      "source": "native-controls/fixtures/native/mosaic-control-fixtures.tar.gz",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/tests/compiler-accepted/native-controls/fixtures/native/mosaic-control-fixtures.tar.gz"
+    },
+    {
+      "bytes": 3142,
+      "role": "PORTABLE_CONTROL_FIXTURE_OR_REVIEW_DOC",
+      "sha256": "e2c22fa03456b5cc8c89399ad97530fc4f066052919c84b2e9418b52dc7d87e4",
+      "source": "native-controls/mosaic_audit_controls.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/tests/compiler-accepted/native-controls/mosaic_audit_controls.py"
+    },
+    {
+      "bytes": 5285,
+      "role": "PORTABLE_CONTROL_FIXTURE_OR_REVIEW_DOC",
+      "sha256": "b4326299b021ea87508fc1e99231eeaa1f7ed21d5d270a2547005de45198f624",
+      "source": "native-controls/mosaic_controls.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/tests/compiler-accepted/native-controls/mosaic_controls.py"
+    },
+    {
+      "bytes": 2292,
+      "role": "PORTABLE_CONTROL_FIXTURE_OR_REVIEW_DOC",
+      "sha256": "345606e556ef0e655bec207ad7245dcde49671942fae0ad8e25dd226b8b8815f",
+      "source": "native-controls/mosaic_failure_controls.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/tests/compiler-accepted/native-controls/mosaic_failure_controls.py"
+    },
+    {
+      "bytes": 8673,
+      "role": "PORTABLE_CONTROL_FIXTURE_OR_REVIEW_DOC",
+      "sha256": "1009a6e6ab44172aea31da92bc8916464e42af2c83fa01070a8941096bc65383",
+      "source": "native-controls/mosaic_fixture.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/tests/compiler-accepted/native-controls/mosaic_fixture.py"
+    },
+    {
+      "bytes": 1279,
+      "role": "PORTABLE_CONTROL_FIXTURE_OR_REVIEW_DOC",
+      "sha256": "4778a9a89db792d28f901a00457743361727d69883c582b6cb4ee45b0158b736",
+      "source": "native-controls/mosaic_harness_controls.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/tests/compiler-accepted/native-controls/mosaic_harness_controls.py"
+    },
+    {
+      "bytes": 947,
+      "role": "PORTABLE_CONTROL_FIXTURE_OR_REVIEW_DOC",
+      "sha256": "bc6e3c6d0c696d2b2d3b3b440849feaabdccefe145a66fc9cbcb2d000c969f9c",
+      "source": "native-controls/mosaic_paths.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/tests/compiler-accepted/native-controls/mosaic_paths.py"
+    },
+    {
+      "bytes": 4999,
+      "role": "PORTABLE_CONTROL_FIXTURE_OR_REVIEW_DOC",
+      "sha256": "6287fc63963c5ae0ef66615f4dab35bbd6b79979fb5a6405ae31a009e8172c5b",
+      "source": "native-controls/mosaic_recovery_controls.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/tests/compiler-accepted/native-controls/mosaic_recovery_controls.py"
+    },
+    {
+      "bytes": 2166,
+      "role": "PORTABLE_CONTROL_FIXTURE_OR_REVIEW_DOC",
+      "sha256": "d505529297a071f92c93c97b86bac962c1ece80f654dfa4191a37fc9161638b1",
+      "source": "native-controls/mosaic_serializer_controls.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/tests/compiler-accepted/native-controls/mosaic_serializer_controls.py"
+    },
+    {
+      "bytes": 1854,
+      "role": "PORTABLE_CONTROL_FIXTURE_OR_REVIEW_DOC",
+      "sha256": "8b16e9a2ff057fbd96bd75c88c70ffd4a0c42524efed1fb928b988135e532941",
+      "source": "native-controls/mosaic_worker.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/tests/compiler-accepted/native-controls/mosaic_worker.py"
+    },
+    {
+      "bytes": 1088,
+      "role": "COMPILER_MODE_PRODUCTION",
+      "sha256": "c64fca47f57374fab691d9870005cf614fc6eebbc8a02706ed70781f9dd1042a",
+      "source": "native-dependency.json",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/native-dependency.json"
+    },
+    {
+      "bytes": 1401,
+      "role": "PORTABLE_CONTROL_FIXTURE_OR_REVIEW_DOC",
+      "sha256": "de352d4e5f1cad4bbc7a384c1a8409795140d2be64aa899c6508930b1dac30f3",
+      "source": "pin_readback.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/tests/compiler-accepted/pin_readback.py"
+    },
+    {
+      "bytes": 3768,
+      "role": "PORTABLE_CONTROL_FIXTURE_OR_REVIEW_DOC",
+      "sha256": "67a50406bfe6b4ccf6af8f14febe26cb2f78ec35f9164ebe1527f5565462f96d",
+      "source": "plain_native_controls.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/tests/compiler-accepted/plain_native_controls.py"
+    },
+    {
+      "bytes": 1665,
+      "role": "PORTABLE_CONTROL_FIXTURE_OR_REVIEW_DOC",
+      "sha256": "11179d41643ca993aa05415304c45336931f1801de4595d14b6e0b9d03324018",
+      "source": "portable_controls.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/tests/compiler-accepted/portable_controls.py"
+    },
+    {
+      "bytes": 1652,
+      "role": "PORTABLE_CONTROL_FIXTURE_OR_REVIEW_DOC",
+      "sha256": "ace571720cc6ec34a421aa66fb7e0d23bc29dc804e92c80a755d881f03f0d587",
+      "source": "portable_layout_controls.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/tests/compiler-accepted/portable_layout_controls.py"
+    },
+    {
+      "bytes": 5530,
+      "role": "PORTABLE_CONTROL_FIXTURE_OR_REVIEW_DOC",
+      "sha256": "0dd063c1bc81268bc5183d756a28909a9def0c192591bafab8d79c41aa63c658",
+      "source": "previous-compiler-manifest.json",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/tests/compiler-accepted/previous-compiler-manifest.json"
+    },
+    {
+      "bytes": 3239,
+      "role": "PORTABLE_CONTROL_FIXTURE_OR_REVIEW_DOC",
+      "sha256": "d216cdc7eb0eb411bc301b3713dc1aa0f5cd609da55d29f2414c9cbb1316b2e5",
+      "source": "run_affected.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/tests/compiler-accepted/run_affected.py"
+    },
+    {
+      "bytes": 803,
+      "role": "PORTABLE_CONTROL_FIXTURE_OR_REVIEW_DOC",
+      "sha256": "2b08a5ded9f47bbdbfd271e8a78ed61a328ffbc4567aa4a329870c7f0855cc03",
+      "source": "run_owned.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/tests/compiler-accepted/run_owned.py"
+    },
+    {
+      "bytes": 10159,
+      "role": "PORTABLE_CONTROL_FIXTURE_OR_REVIEW_DOC",
+      "sha256": "1449c3b9eb931e0f34eaad3b856d58e740886569fd451cf612f224765cb24bdf",
+      "source": "topology_controls.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/tests/compiler-accepted/topology_controls.py"
+    },
+    {
+      "bytes": 1655,
+      "role": "PORTABLE_CONTROL_FIXTURE_OR_REVIEW_DOC",
+      "sha256": "57e572d3b5d78d3f3504a3e4d0468f2d6b1cf706e16544f9ea9435a4418c798a",
+      "source": "wire_codec.py",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/tests/compiler-accepted/wire_codec.py"
+    }
+  ],
+  "generation": "compiler-mosaic-serde7-gather-bf16-fp32-accepted-native-fix-v1",
+  "map_metadata_targets": {
+    "adoption-map.json": "experiments/2026-10-04-bitsandbytes-tpu/results/compiler-accepted-preparation/adoption-map.json",
+    "source-map.json": "experiments/2026-10-04-bitsandbytes-tpu/results/compiler-accepted-preparation/source-map.json"
+  },
+  "native_accepted_result_sha256": "fd15cb724a398b9079b0b97c19f66bd858fe3f7027e9ae9e1a0ff8983eb1a291",
+  "native_adoption_revision": "a084a4d578362f9733453595ab208385cf70afba",
+  "native_dependency_acceptance": "c64fca47f57374fab691d9870005cf614fc6eebbc8a02706ed70781f9dd1042a",
+  "native_dependency_sha256": "c64fca47f57374fab691d9870005cf614fc6eebbc8a02706ed70781f9dd1042a",
+  "native_generation": "mosaic-serde7-gather-bf16-fp32-v1",
+  "native_manifest_sha256": "30b820b90a4404a89da6e6c7b6fc91dbec47afbe06ae322eb5835b9eb0e70901",
+  "portable_control_layout": "Run materialize_controls.py with root-adopted maps. Copy full relative source tree from exact canonical destinations into fresh generated test output; never use private prepared fixtures.",
+  "status": "PROPOSED_REPAIRED_ACCEPTED_NATIVE_COMPILER_MAP_REQUIRES_ROOT_REVIEW"
+}

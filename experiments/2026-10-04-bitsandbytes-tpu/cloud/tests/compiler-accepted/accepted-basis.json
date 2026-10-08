@@ -1,0 +1,26 @@
+{
+  "M6": "NOT_QUALIFIED",
+  "accepted_native_root_commit": "eea812bcfaf1c333ff422c2ae09850c5ca8769b0",
+  "actual_compiler": "NOT_RUN",
+  "dependency_bindings": {
+    "actual_native_acceptance": "c64fca47f57374fab691d9870005cf614fc6eebbc8a02706ed70781f9dd1042a",
+    "base_native_generation": "mosaic-serde7-gather-bf16-fp32-v1",
+    "base_native_manifest_sha256": "30b820b90a4404a89da6e6c7b6fc91dbec47afbe06ae322eb5835b9eb0e70901",
+    "native_accepted_result_sha256": "fd15cb724a398b9079b0b97c19f66bd858fe3f7027e9ae9e1a0ff8983eb1a291",
+    "native_adoption_revision": "a084a4d578362f9733453595ab208385cf70afba",
+    "native_dependency_sha256": "c64fca47f57374fab691d9870005cf614fc6eebbc8a02706ed70781f9dd1042a"
+  },
+  "excluded_inherited_inactive_source_files": [
+    "basis.json",
+    "composition.json",
+    "before-source-map.json",
+    "compose.py",
+    "rebase_controls.py",
+    "source_selection_controls.py",
+    "packet_readback_controls.py"
+  ],
+  "prior_pending_adoption_map_sha256": "8c3abe6b470da688ac05eee6737a66f1931dd0b7e1b946233710be4519f1abb4",
+  "prior_pending_review": ".work/r6-compiler-bf16-rebase/review.json",
+  "prior_pending_review_sha256": "4b7f1d29e7a8adba07215655f0968faf8c685288193745c46247ca7dd97afa12",
+  "prior_pending_source_map_sha256": "a5f220f792daaabe9c96f816a2a2e166bd27515e85d0f1d90633ce5a279b5469"
+}

@@ -1,0 +1,83 @@
+{
+  "boundary_proto_sha256": "34bda4c5ee199774d16df88e50205b10680749a84bc53c8b325094214c926db8",
+  "payload": "{\"body\":\"fixture-only\"}",
+  "parameters": {
+    "0": {
+      "dtype": "float32",
+      "shape": [
+        128,
+        512
+      ]
+    },
+    "1": {
+      "dtype": "uint8",
+      "shape": [
+        2,
+        256,
+        128
+      ]
+    },
+    "2": {
+      "dtype": "float32",
+      "shape": [
+        2,
+        256,
+        4
+      ]
+    }
+  },
+  "ordered_operand_shapes": [
+    {
+      "dtype": "float32",
+      "shape": [
+        128,
+        512
+      ]
+    },
+    {
+      "dtype": "uint8",
+      "shape": [
+        2,
+        256,
+        128
+      ]
+    },
+    {
+      "dtype": "float32",
+      "shape": [
+        2,
+        256,
+        4
+      ]
+    }
+  ],
+  "result": {
+    "dtype": "float32",
+    "shape": [
+      128,
+      256
+    ]
+  },
+  "stage_dump_basenames": {
+    "before": "module_0007.before_optimizations.hlo.pb",
+    "after": "module_0007.after_optimizations.hlo.pb"
+  },
+  "compiler_artifact_inventory": {
+    "boundary.hlo.pb": {
+      "sha256": "34bda4c5ee199774d16df88e50205b10680749a84bc53c8b325094214c926db8",
+      "bytes": 246
+    },
+    "before.hlo.pb": {
+      "sha256": "12820b35fae33decd822c2a34248216d657d7381bdfc7d6e349d5e501627f0e6",
+      "bytes": 267
+    },
+    "after.hlo.pb": {
+      "sha256": "7397338c01b8b77c9eafb254783c989a6a73d8d96fc4cb8d4e5b8f0197c45461",
+      "bytes": 318
+    },
+    "metadata.textproto": {
+      "sha256": "ebca52ab2e295ca420f78219387b07fb41288da376f70f46e5c1172e06974783",
+      "bytes": 326
+    }
+  }
+}

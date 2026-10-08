@@ -1,0 +1,30 @@
+{
+  "archive_bytes": 161195,
+  "archive_sha256": "b3f18ab3edd4a9682f3e8d7f78b702d3d4bf40bedf2cb6f78dfe03851e02d91c",
+  "members": {
+    "direct-bf16.json": {
+      "bytes": 2519932,
+      "sha256": "538e7c3269e10d2ae89b4f5a5e9be6509d0a55321ecb175d74cca98c88961e83"
+    },
+    "direct-fp32.json": {
+      "bytes": 2811571,
+      "sha256": "7c0729184461d4e1d828e26a8ceb80fe066269b8b66337beba7e8752191b6a60"
+    },
+    "functional-bf16.json": {
+      "bytes": 2519936,
+      "sha256": "e8b3f4662bc06b64d21e43b85e77994d564ecb7713be8cdd34f9457a352710f4"
+    },
+    "functional-fp32.json": {
+      "bytes": 2811575,
+      "sha256": "7573ca49470553d27cddf0744f9bb382d8342bfdc4cf6dc8318cf9adf6f62590"
+    },
+    "oracle-seal.json": {
+      "bytes": 4421,
+      "sha256": "780989c547f5d10c67c88646419a9f1669a510b50481bc3bfadb4b25813fc4fc"
+    },
+    "tail-reference-fp32.json": {
+      "bytes": 2827033,
+      "sha256": "41d6b29d906f5d660c56fa2011945e8629450e3ced3a1beed6ae26e824b4f912"
+    }
+  }
+}

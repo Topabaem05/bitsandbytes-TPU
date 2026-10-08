@@ -1,0 +1,3 @@
+canonical_module_id: 7
+pass_metadata { pass_id: 1 pass_name: "start" pipeline_name: "fixture-pipeline" module_id: 7 dump_filenames: "module_0007.before_optimizations.hlo.pb" }
+pass_metadata { pass_id: 2 pass_name: "end" pipeline_name: "fixture-pipeline" module_id: 7 dump_filenames: "module_0007.after_optimizations.hlo.pb" }

@@ -1,0 +1,48 @@
+{
+  "hard_aggregate_quota": "UNAVAILABLE",
+  "kind": "R6_EXPLICIT_COMPILER_POLICY_V1",
+  "limits": {
+    "entries": 1024,
+    "file_bytes": 16777216,
+    "total_bytes": 134217728
+  },
+  "minimum_free_bytes": 268435456,
+  "poll_seconds": 0.01,
+  "polling_overshoot": "POSSIBLE_UNBOUNDED_BY_WRITER_RATE",
+  "scientific_record_budget_bytes": 8388608,
+  "shutdown_grace": 0.15,
+  "sources": {
+    "analyzer.py": {
+      "bytes": 15044,
+      "sha256": "c44ecb15696031f326a7abe64ea3d8407b9bc21f527cb94f8b5f149c456fcd8d"
+    },
+    "compiler_contract.py": {
+      "bytes": 5987,
+      "sha256": "d8d8d5e6584e87eed75636aca9426f7fc1a3df17e5b51d9aff6f69c2cd0d3311"
+    },
+    "compiler_exec.py": {
+      "bytes": 2812,
+      "sha256": "8a59f324954216f6156fcf09c97dcc16375dd99f30be042b67cdf0be7497e46d"
+    },
+    "compiler_verify.py": {
+      "bytes": 17679,
+      "sha256": "acb3a7af4955082d673313ddf12ad6d25b101f30f3df99046008bd4b435d902b"
+    },
+    "coordinator.py": {
+      "bytes": 8162,
+      "sha256": "45fa9ff97301efcee6252660f5b2436ac1de492229b22aa62bce6a7c475a1f91"
+    },
+    "dump_inventory.py": {
+      "bytes": 4423,
+      "sha256": "d9827e99467714099a921c9d06abc744355cea352d38c996a37288304f4bab7b"
+    },
+    "dump_observation.py": {
+      "bytes": 1990,
+      "sha256": "f46af314ed5488560471ad04a4887d4939d92fb76cf2dfdd012ffbfd7224720e"
+    },
+    "state_child_owner.py": {
+      "bytes": 7438,
+      "sha256": "7d1edccb3494996a55e2023990b2faab069f1c09459172290227864aa9df2414"
+    }
+  }
+}

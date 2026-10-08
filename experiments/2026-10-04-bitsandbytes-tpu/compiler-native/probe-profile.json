@@ -1,0 +1,112 @@
+{
+  "format": "bnb-tpu.probe-profile.v1",
+  "phase": "first-non-nested-vertical-slice",
+  "actual_status": "NOT_RUN",
+  "cuda_golden": "NOT_RUN",
+  "required_backend": "TPU",
+  "source_commit": "833649043474794b8fe7a4136e0c40faf077b2e0",
+  "bnb_files": {
+    "__init__.py": "026aeaf979736dd15f80b145880dc4de03ebbe131b47b9f066645da1772255b8",
+    "_ops.py": "e6d9ed4c268e52044a8ff5f895f94ca88bf02d156b25c4616141cfa9daaf924c",
+    "functional.py": "520a9e9d3afba11124734df60e48a27e38b6389305df888834405b435e285817",
+    "nn/modules.py": "f7ab2160681e2f089caae80d6fd283ac6a9b9f1b82269e6f395c3b046faf606e",
+    "autograd/_functions.py": "77ca54c87b69ad470ac73e5d7dde94948f20de9de8b8764957728bc29831f37f",
+    "backends/default/ops.py": "e39afd16dca6e6f34a14305ade0ba4acbb49dc2c7a9baf937341d7e33b682819",
+    "backends/utils.py": "dc564f2fbf13dba81388a23d4c87167dd54da04af8f17b0db52685fe42b11c84"
+  },
+  "input_sha256": "d0c9cdf6a82449a56923499698f19bfd3cc8d13c042f1f5ad2bdf587701f5e54",
+  "case_ids": [
+    "quant-float32-1-codes",
+    "quant-float32-1-zero",
+    "quant-float32-2-codes",
+    "quant-float32-2-zero",
+    "quant-float32-63-codes",
+    "quant-float32-63-zero",
+    "quant-float32-64-codes",
+    "quant-float32-64-zero",
+    "quant-float32-65-codes",
+    "quant-float32-65-zero",
+    "quant-float32-127-codes",
+    "quant-float32-127-zero",
+    "quant-float32-128-codes",
+    "quant-float32-128-zero",
+    "quant-float32-129-codes",
+    "quant-float32-129-zero",
+    "decode-float32-16codes",
+    "linear-float32-rank2-bias0",
+    "linear-float32-rank2-bias1",
+    "linear-float32-rank3-bias0",
+    "linear-float32-rank3-bias1",
+    "quant-bfloat16-1-codes",
+    "quant-bfloat16-1-zero",
+    "quant-bfloat16-2-codes",
+    "quant-bfloat16-2-zero",
+    "quant-bfloat16-63-codes",
+    "quant-bfloat16-63-zero",
+    "quant-bfloat16-64-codes",
+    "quant-bfloat16-64-zero",
+    "quant-bfloat16-65-codes",
+    "quant-bfloat16-65-zero",
+    "quant-bfloat16-127-codes",
+    "quant-bfloat16-127-zero",
+    "quant-bfloat16-128-codes",
+    "quant-bfloat16-128-zero",
+    "quant-bfloat16-129-codes",
+    "quant-bfloat16-129-zero",
+    "decode-bfloat16-16codes",
+    "linear-bfloat16-rank2-bias0",
+    "linear-bfloat16-rank2-bias1",
+    "linear-bfloat16-rank3-bias0",
+    "linear-bfloat16-rank3-bias1"
+  ],
+  "blocksize": 64,
+  "storage": "uint8",
+  "quant_type": "nf4",
+  "nested": false,
+  "oracle": "prepare pinned default function bodies on qualified Linux torch2.9 CPU; seal before TPU execute",
+  "runtime": {
+    "python": "3.12",
+    "torch": "2.9.0+cpu",
+    "torch_xla": "2.9.0",
+    "libtpu": "0.0.21"
+  },
+  "original_profile_sha256": "8525364e50bd5d1fee2afe345dc63e807f2265291a676ce605d3c4695d3ac21d",
+  "tolerances": {
+    "unpack": {
+      "exact": true
+    },
+    "fp32_decode": {
+      "atol": 1e-06,
+      "rtol": 1e-06
+    },
+    "fp32_forward_gradient": {
+      "atol": 1e-05,
+      "rtol": 0.0001
+    },
+    "bf16_forward_unit_scale": {
+      "atol": 0.02,
+      "rtol": 0.02,
+      "nrmse_max": 0.02
+    },
+    "fp32_training": {
+      "atol": 1e-05,
+      "rtol": 0.0001,
+      "calibration_required": false
+    },
+    "bf16_training": null
+  },
+  "out_of_scope": [
+    "nested",
+    "Pallas",
+    "QLoRA",
+    "checkpoint resume",
+    "performance"
+  ],
+  "public_decode_shape": "Transpose restored shape when packed.shape[0] equals 1; preserve the original public API shim.",
+  "execution_metrics": [
+    "ExecuteTime",
+    "ExecuteReplicatedTime"
+  ],
+  "execution_required": "At least one positive execution sample after synchronized completion, before output serialization.",
+  "runtime_lock_sha256": "323371ff61c5fbcc4f79fd6a358cf2ba17cb72b907382a5ceaac07f91dc66ed6"
+}

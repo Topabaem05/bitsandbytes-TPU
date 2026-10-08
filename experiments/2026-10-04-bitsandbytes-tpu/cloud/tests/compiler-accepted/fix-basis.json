@@ -1,0 +1,11 @@
+{
+  "M6": "NOT_QUALIFIED",
+  "actual_compiler": "NOT_RUN",
+  "compiler_manifest_sha256": "7275eee3f0d3f2e5161613f1b9b1b0c9a2acfed6c02e0f19b8386b29e8355a24",
+  "finding": "COMPILER_GATE_GUARD_ERRONEOUSLY_ADDED_TO_ORDINARY_NATIVE_PHASE",
+  "generation": "compiler-mosaic-serde7-gather-bf16-fp32-accepted-native-fix-v1",
+  "native_body_policy_runtime": "UNCHANGED",
+  "rejected_candidate_review_sha256": "e0675a381251ac9933ed3c8f46215f6f9ffbe5c790e05550350f5df0b8911694",
+  "rejected_candidate_source_map_sha256": "2281bbc9d67239bed8c152923caac8dc6e8d533614feb3dc516387391e0f740d",
+  "repair": "RESTRICT_COMPILER_ACCEPTANCE_REQUIREMENTS_TO_COMPILER_PHASE_AND_REJECT_COMPILER_FIELDS_IN_ORDINARY_NATIVE_GATE"
+}

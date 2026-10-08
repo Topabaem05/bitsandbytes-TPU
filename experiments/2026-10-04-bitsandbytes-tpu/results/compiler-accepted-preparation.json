@@ -1,0 +1,89 @@
+{
+  "M6": "NOT_QUALIFIED",
+  "actual_compiler_TPU": "NOT_RUN",
+  "additional_actual_prior_native_gate_checks": {
+    "compiler_only_field_added_to_isolated_copy": "EXPECTED_REJECT",
+    "original_accepted_gate": "PASS"
+  },
+  "adopted_files": 103,
+  "adoption_map_sha256": "25859dddd234a104749e9614c8e7d4da4b7de6226acc06e71ed68763335a833d",
+  "allocator_peak": "UNKNOWN",
+  "base_native_manifest_sha256": "30b820b90a4404a89da6e6c7b6fc91dbec47afbe06ae322eb5835b9eb0e70901",
+  "canonical_staged_sources": 147,
+  "compiler_content_chain": "NOT_EVALUATED",
+  "compiler_manifest_sha256": "7275eee3f0d3f2e5161613f1b9b1b0c9a2acfed6c02e0f19b8386b29e8355a24",
+  "compiler_policy_sha256": "f07575c74e367c869f0fbcd5ef563de52f92614f7529122f9c01063ff4956c96",
+  "control_result_sha256": {
+    "accepted": "27dbecea20bf3b8d9ad89198fe9d9f4a7b358621615a024860a5f6e38d1cde1d",
+    "affected": "c716993915af37ac186b8f73763b4b43efcb123cabc396862ca731c28009154b",
+    "layout": "2efeafb7a7381695429b383699cec8944dd589bf6a8358bf657c0922a4b71d0b",
+    "plain": "e75c16a9d3666ecc18d179c580265e3b6f2b4ae9ed1d4dfcd19a89b6f263ec7e"
+  },
+  "format": "bnb-tpu.compiler-accepted-preparation-result.v1",
+  "fresh_qualified_linux_cpu_oracle": "REQUIRED",
+  "generation": "compiler-mosaic-serde7-gather-bf16-fp32-accepted-native-fix-v1",
+  "hard_aggregate_dump_quota": "UNAVAILABLE",
+  "monitor_overshoot": "POSSIBLE",
+  "native34_science_and_policy_bodies_unchanged": true,
+  "native_accepted_result_sha256": "fd15cb724a398b9079b0b97c19f66bd858fe3f7027e9ae9e1a0ff8983eb1a291",
+  "native_adoption_revision": "a084a4d578362f9733453595ab208385cf70afba",
+  "native_dependency_sha256": "c64fca47f57374fab691d9870005cf614fc6eebbc8a02706ed70781f9dd1042a",
+  "ordinary_native_packet": {
+    "actual_TPU": "NOT_RUN",
+    "generation": "mosaic-serde7-gather-bf16-fp32-v1",
+    "m6": "NOT_QUALIFIED",
+    "manifest_sha256": "f8dbeb2861be86c2d6db6ea0bb25082e3bbd29914a335262cd8988ffab3b2f13",
+    "members": 77,
+    "native_manifest_sha256": "30b820b90a4404a89da6e6c7b6fc91dbec47afbe06ae322eb5835b9eb0e70901",
+    "payload_bytes": 1071903,
+    "payload_sha256": "f9e1dd1747b5e15e5ad6e5ea62454a834d3dbaad7ca2d6f24bd0694ae181f478",
+    "provider_calls": 0,
+    "scope": "PRIVATE_NO_DISPATCH",
+    "status": "ORDINARY_NATIVE_GENUINE_PACKET_PREFLIGHT_PASS"
+  },
+  "outer_control_groups_reaped_absent": 11,
+  "packet": {
+    "M6": "NOT_QUALIFIED",
+    "actual_TPU": "NOT_RUN",
+    "compiler_manifest_sha256": "7275eee3f0d3f2e5161613f1b9b1b0c9a2acfed6c02e0f19b8386b29e8355a24",
+    "fresh_qualified_linux_cpu_oracle": "REQUIRED_NOT_RUN",
+    "generation": "compiler-mosaic-serde7-gather-bf16-fp32-accepted-native-fix-v1",
+    "m6": "NOT_QUALIFIED",
+    "manifest_sha256": "27f396d6a4df0277b29dc57d34857824d0f7523b6a5c906bb281c9a471e7b7e6",
+    "members": 86,
+    "payload_bytes": 1095762,
+    "payload_sha256": "bf60f061a41f93d3ce52fa3274681a6e9b47af782087d1426402b19cb9f2fa44",
+    "provider_calls": 0,
+    "scope": "PRIVATE_NO_DISPATCH",
+    "source_admission_sha256": "8b2b3e26e2e7c98c0fde52f51663bed84999ac733dcbc39573ef8b3aeca4f9a1",
+    "status": "GENUINE_PACKET_PREFLIGHT_READBACK_PASS",
+    "upstream_method": "ACTUAL_GIT_ARCHIVE_FIXED_833649043474794b8fe7a4136e0c40faf077b2e0"
+  },
+  "performance": "NOT_MEASURED",
+  "physical_memory": "UNKNOWN",
+  "previous_controls_repeated_in_this_result": false,
+  "previous_root_analyzer_source_topology_controls": 88,
+  "prior_rejected_generation": "compiler-mosaic-serde7-gather-bf16-fp32-accepted-native-v1",
+  "prior_rejection": "Compiler-only fields were incorrectly required for the ordinary native phase.",
+  "provider_calls": 0,
+  "rejected_sources_preserved": true,
+  "root_control_suites": {
+    "accepted": 41,
+    "affected": 65,
+    "layout": 2,
+    "plain": 23
+  },
+  "root_controls": 131,
+  "selected_executable_link": "UNKNOWN",
+  "source_map_sha256": "2765b6b1b38917bdbf0ff5f7323ec31f55a85a0e1aa676cef95ea3f126cf13ca",
+  "status": "ROOT_REVIEWED_CANONICAL_COMPILER_PREPARATION_PASS",
+  "unchanged_prerequisites": 44,
+  "whitespace_review": {
+    "other_whitespace_errors": "NONE",
+    "preserved_pinned_blank_eof": [
+      "compiler-native/dump_observation.py",
+      "cloud/tests/compiler-accepted/wire_codec.py"
+    ],
+    "reason": "Keep exact previously reviewed source bytes and transitive policy hashes."
+  }
+}
