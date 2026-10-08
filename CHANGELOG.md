@@ -1,5 +1,14 @@
 # Change log
 
+## 2026-10-08 — Design status reconciliation
+
+- Update the design and decision notes with accepted M2 and M3 records.
+- Keep the earlier failures linked as historical results.
+- State the source and runtime limits of the accepted transfer correction.
+
+Validation: The reviewer compared these statements with the accepted result records and verified all changed document links.
+The accepted milestone count remains three of eight.
+
 ## 2026-10-08 — Colab nested bootstrap correction
 
 - Load the admitted nested contract through its exact sibling file path.

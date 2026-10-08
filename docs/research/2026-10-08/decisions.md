@@ -47,11 +47,13 @@ Commit and push each accepted logical change with its change log entry.
 The subsequent [R1 Colab comparison](../../changes/r1-precision-colab.md) passed with `high` and `highest`.
 The `default` mode reproduced the earlier FP32 error with unchanged inputs and tolerances.
 Use `highest` for the next correctness experiments.
-R1 is accepted; the full API42 matrix still requires device records.
+R1 is accepted.
+The subsequent [M2 result](../../changes/r2-transfer-colab.md) passed the full API42 matrix and four public transfer cases.
+The [M3 result](../../changes/r3-state-colab.md) passed eight saved-state cases in new TPU processes.
 
-The tensor swap proposal uses behavior from a fixed PyTorch implementation.
-It still needs an inspection of failure recovery and actual TPU behavior.
-Do not present it as a portable public-API guarantee.
+The accepted tensor swap correction uses behavior from a fixed PyTorch implementation.
+Its failure controls and actual TPU transfer records apply to that fixed source and runtime.
+They do not establish a portable public-API guarantee.
 
 The grouped Pallas layout satisfies one examined shape rule.
 Gather lowering, narrow data types, scale access, and precision still require compilation.

@@ -14,7 +14,7 @@ Refer to [the accepted M2 result](docs/changes/r2-transfer-colab.md).
 The experiment used native precision `highest` before graph construction.
 The earlier `default` precision failures remain in [the precision result](docs/changes/r1-precision-colab.md).
 BF16 forward gates passed; BF16 gradients remain untested.
-The latest Colab run passed all eight saved-state cases after restoration in a new TPU process.
+The accepted M3 Colab run passed all eight saved-state cases after restoration in a new TPU process.
 The reviewer compared 136 numerical gates and all eight checkpoint pairs.
 Refer to [the accepted M3 result](docs/changes/r3-state-colab.md), including the separate CLI exit correction.
 The next milestone requires nested quantization with the upstream default statistics option.

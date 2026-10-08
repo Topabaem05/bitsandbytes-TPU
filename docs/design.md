@@ -95,17 +95,18 @@ The initial runtime does not require TorchTPU, Helion, or Qwix.
 | JAX | 0.7.1 |
 | jaxlib | 0.7.1 |
 
-The fixed runtime passed an actual TPU probe on Colab.
-The latest diagnostic passed all 34 nonlinear cases.
-Module transfer and FP32 matrix results still fail their requirements.
-Refer to [the latest Colab result](changes/task2-colab-routes.md).
+The fixed runtime passed the complete M2 and M3 experiments on Colab V6E1.
+M2 passed 42 API cases and four public CPU-to-XLA transfers with `highest` precision.
+M3 passed eight saved-state cases after restoration in a new TPU process.
+Refer to [the transfer result](changes/r2-transfer-colab.md) and [the state result](changes/r3-state-colab.md).
+The [earlier route failures](changes/task2-colab-routes.md) remain available.
 Use the base JAX packages.
 Do not install the JAX TPU extra for this configuration.
 Its libtpu requirement differs from the PyTorch/XLA requirement.
 
 Current package releases do not define a qualified replacement runtime.
 The source inspection keeps published releases, development revisions, and the fixed experiment configuration separate.
-Use native XLA precision controls for the proposed FP32 comparison.
+Set native XLA precision to `highest` before graph construction for dependent correctness experiments.
 The fixed numerical requirements remain unchanged.
 Refer to [the XLA source inspection](research/2026-10-08/xla.md).
 
