@@ -1,0 +1,30 @@
+{
+  "accepted_milestones": 3,
+  "active_assignments": 0,
+  "browser_allocations_requested": 1,
+  "browser_journal_sha256": "ba813ef633dbaf780c0cf3b7843b7e7fa34bc662d41d30c123e3eedac68c8df3",
+  "browser_marker": "NOT_RUN",
+  "checked_local_date": "2026-10-09",
+  "cli_groups_closed": 4,
+  "cli_ownership_sha256": {
+    "allocation-closure/01-sessions": "a6cd546b9df668b9d3aaea9f3fb885bc985d7275155b2120a3c9d10e214f89ea",
+    "allocation-closure/02-usage": "40553052bb0f87546d459c2817c430f7eeb466c35aa47c123f6f6b1740fd99a1",
+    "preconnect/01-sessions": "a58bc93cc68baebb3934603f197371b4d3227eadc46b237fa693f091a118cbf5",
+    "preconnect/02-usage": "0e7e67fa346fea2c26590e58b0ba08e290b940567e760d1e8b86bc6cf13fad93"
+  },
+  "closure_observed_after_seconds": 694.3490269184113,
+  "cpu_oracle": "NOT_RUN",
+  "installation": "NOT_RUN",
+  "m4": "NOT_QUALIFIED",
+  "original_allocation_epoch": 1791475857.131,
+  "original_deadline_epoch": 1791479457.131,
+  "packet_sha256": "7db3c83dac54616af517f08cee441eb09c84174f5c1bbe6c8ffe026adb6c65ac",
+  "packet_upload": "NOT_RUN",
+  "pending_observed_after_seconds": 606.2519998550415,
+  "planned_wait_seconds": 600,
+  "server_sessions": "NONE",
+  "status": "NOT_RUN_ALLOCATION_WAIT_EXPIRED_CLOSURE_VERIFIED",
+  "temporary_tab_closed_after_seconds": 692.9582600593567,
+  "tpu_science": "NOT_RUN",
+  "usage_rate_per_hour": 0
+}

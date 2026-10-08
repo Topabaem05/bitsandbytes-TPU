@@ -1,5 +1,15 @@
 # Change log
 
+## 2026-10-09 — Arithmetic allocation wait
+
+- Retain the browser allocation wait and the unexecuted arithmetic diagnostic.
+- Record the original request time, observed delay, and temporary tab closure.
+- Verify an empty server list, zero active usage, and closure of four CLI process groups.
+
+Validation: The browser marker, packet upload, CPU oracle, and TPU cases did not execute.
+M4 remains unqualified.
+Refer to [the allocation record](docs/changes/r4-primitive-allocation-wait.md).
+
 ## 2026-10-09 — Bounded arithmetic diagnostic
 
 - Add an explicit arithmetic mode with complete CPU oracle recovery before TPU execution.

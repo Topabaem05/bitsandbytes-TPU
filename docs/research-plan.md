@@ -71,6 +71,8 @@ The exact nested statistics and code failures require an arithmetic repair under
 The [arithmetic diagnostic](changes/r4-primitive-preparation.md) supplies an explicit mode to inspect reduction, division, and subnormal behavior.
 Its focused preparation controls passed, with the separate macOS process-group test failure retained.
 It requires a fresh qualified Linux CPU oracle before actual TPU execution.
+Its [first browser allocation](changes/r4-primitive-allocation-wait.md) exceeded the planned wait before the marker or scientific code executed.
+The reviewer closed the temporary tab and verified an empty server list and zero active usage.
 The failed result cannot authorize the saved-state supplement or an accepted M4 dependency.
 The private CPU preparations for M4, M5, and M6 do not qualify those device milestones.
 The [bounded native preparation](changes/r6-native-cloud-preparation.md) uses accepted M2 sources and can execute independently of the M4 repair.
