@@ -1,5 +1,15 @@
 # Change log
 
+## 2026-10-09 — Complete Colab arithmetic observations
+
+- Retain all 32 diagnostic rows and the previously missing clamp scalar values.
+- Independently verify 265 byte comparisons, including 36 numerical failures.
+- Verify all 406 archive members and complete resource closure.
+
+Validation: Record validation passed; 22 rows passed, nine failed, and the native view remained unsupported.
+The numerical failures remain, and M4 remains unqualified.
+Refer to [the actual observations](docs/changes/r4-arithmetic-colab.md).
+
 ## 2026-10-09 — Arithmetic parameter correction
 
 - Admit the two typed clamp parameters with exact source value gates.

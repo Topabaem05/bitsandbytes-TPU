@@ -86,6 +86,10 @@ Additional scalar parameters require source inspection and exact value observati
 The [parameter correction](changes/r4-primitive-parameter-repair.md) admits the two typed clamp parameters and retains failed observations.
 Its 67 independent controls and 44 focused controls after adoption passed.
 The new 56-member packet requires fresh qualified CPU and actual TPU observations.
+The [complete arithmetic experiment](changes/r4-arithmetic-colab.md) retained all 32 rows and passed record validation.
+Its 265 byte comparisons include 229 passes and 36 failures; both clamp scalar source gates passed.
+The reviewer verified all 406 archive members and complete resource closure.
+The observed output bits now supply the basis for the arithmetic correction.
 The failed result cannot authorize the saved-state supplement or an accepted M4 dependency.
 The private CPU preparations for M4, M5, and M6 do not qualify those device milestones.
 The [bounded native preparation](changes/r6-native-cloud-preparation.md) uses accepted M2 sources and can execute independently of the M4 repair.

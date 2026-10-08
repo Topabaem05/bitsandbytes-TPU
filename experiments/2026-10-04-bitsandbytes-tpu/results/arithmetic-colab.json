@@ -1,0 +1,180 @@
+{
+  "accepted_milestones": 3,
+  "active_usage_zero": true,
+  "actual_tpu": "V5E1",
+  "all_gate_arrays_independently_readback": 265,
+  "archive_bytes": 408135,
+  "archive_members": 406,
+  "archive_sha256": "79ef00c4e858608a8fec704c07d0c74abc753bc4c1f3b1b4bf4364ebacb5a9ab",
+  "auxiliary_scalars": {
+    "clamp_max": {
+      "bytes_sha256": "6048235e823ffe3c303299c2d9ad4cbd9e5ec680a5dc19c9c4eb97538ea6498f",
+      "dtype": "float32",
+      "shape": [],
+      "values": [
+        3.4028234663852886e+38
+      ]
+    },
+    "clamp_min": {
+      "bytes_sha256": "7336c69765abbe4991e0ce255e107976426c0e63201d235a02108e6f6e8786ed",
+      "dtype": "float32",
+      "shape": [],
+      "values": [
+        9.999999350456404e-39
+      ]
+    }
+  },
+  "browser_tab_closed": true,
+  "cli_groups_closed": 46,
+  "cpu_archive_bytes": 36340,
+  "cpu_archive_members": 18,
+  "cpu_archive_sha256": "569d597d3ac6b80136199e868b810588730c02fa6f1a671116901212f165acff",
+  "direct_children_reaped": 2,
+  "failed_rows": [
+    {
+      "case_id": "float-arithmetic",
+      "gates": [
+        "add_zero",
+        "clamp"
+      ]
+    },
+    {
+      "case_id": "mean-nested-00001-float32",
+      "gates": [
+        "sum_div",
+        "sum_reciprocal",
+        "ordered_div8"
+      ]
+    },
+    {
+      "case_id": "mean-nested-16320-float32",
+      "gates": [
+        "mean",
+        "sum_div",
+        "sum_reciprocal",
+        "ordered_div8"
+      ]
+    },
+    {
+      "case_id": "mean-nested-00001-bfloat16",
+      "gates": [
+        "sum_div",
+        "sum_reciprocal",
+        "ordered_div8"
+      ]
+    },
+    {
+      "case_id": "mean-nested-16320-bfloat16",
+      "gates": [
+        "mean",
+        "sum_div",
+        "sum_reciprocal",
+        "ordered_div8"
+      ]
+    },
+    {
+      "case_id": "mean-nested-zero-65-float32",
+      "gates": [
+        "mean",
+        "sum_div",
+        "sum_reciprocal",
+        "ordered_sum8",
+        "ordered_div8"
+      ]
+    },
+    {
+      "case_id": "mean-nested-zero-16385-float32",
+      "gates": [
+        "mean",
+        "sum_div",
+        "sum_reciprocal",
+        "ordered_sum8",
+        "ordered_div8"
+      ]
+    },
+    {
+      "case_id": "mean-nested-zero-65-bfloat16",
+      "gates": [
+        "mean",
+        "sum_div",
+        "sum_reciprocal",
+        "ordered_sum8",
+        "ordered_div8"
+      ]
+    },
+    {
+      "case_id": "mean-nested-zero-16385-bfloat16",
+      "gates": [
+        "mean",
+        "sum_div",
+        "sum_reciprocal",
+        "ordered_sum8",
+        "ordered_div8"
+      ]
+    }
+  ],
+  "format": "bnb-tpu.actual-arithmetic.v1",
+  "fresh_closure_groups_closed": 2,
+  "gate_count": 265,
+  "gate_status_counts": {
+    "FAIL": 36,
+    "PASS": 229
+  },
+  "host_closed": true,
+  "host_execution_seconds": 312.03879799999413,
+  "lifecycle_seconds": 359.08086705207825,
+  "local_verifier_closed": true,
+  "m4": "NOT_QUALIFIED",
+  "manifest_sha256": "ed61b2db7dd86d21f471a23c8510e4a37d31f12cd307fb894b35d32f08e8ef5b",
+  "negative_controls": [
+    {
+      "case": "wrong-gate-status",
+      "error": "PRIMITIVE_GATE_STATUS",
+      "status": "REJECTED"
+    },
+    {
+      "case": "missing-auxiliary-gate",
+      "error": "PRIMITIVE_GATE_MATRIX",
+      "status": "REJECTED"
+    },
+    {
+      "case": "wrong-auxiliary-source",
+      "error": "PRIMITIVE_AUXILIARY_SOURCE_GATE",
+      "status": "REJECTED"
+    },
+    {
+      "case": "false-m4-qualification",
+      "error": "PRIMITIVE_DIAGNOSTIC_REPORT",
+      "status": "REJECTED"
+    }
+  ],
+  "notebook": "https://colab.research.google.com/drive/1l-n8desDe9FwE6HzKhhX_QjjNhug6okm",
+  "numerical_status": "FAIL",
+  "original_deadline_unchanged": true,
+  "packet_sha256": "07a3a0650229ad32fcaa08e18233eebd4a7a6dc14791ae0e7f8859a845f30c2e",
+  "precision": "highest",
+  "qualified_cpu": {
+    "capability": "AVX2",
+    "mean_cases": 28,
+    "oracle_sha256": "92fdfb6da0463719476197a3640c1c08690f50e2e7d3f865fc97c198d9bb6b0a",
+    "outputs": 206,
+    "rows": 32
+  },
+  "readback_sha256": "9323f0363a83aaa2151c97a8cb5081d99192f4f4a078900bcfb95c2cf1e2690a",
+  "record_validation": "PASS",
+  "remote_steps_closed": 14,
+  "required_milestones": 8,
+  "review_date_kst": "2026-10-09",
+  "review_source_sha256": "b4d3e1282633fec814ad11e7057a59ab3118903664bb2dcf4a4a4dc7a0289bde",
+  "reviewed_commit": "2c64223350ced1512fb7f6e78e1dde8cb0fc0ee9",
+  "row_count": 32,
+  "row_status_counts": {
+    "FAIL": 9,
+    "PASS": 22,
+    "UNSUPPORTED": 1
+  },
+  "runtime_lock_sha256": "323371ff61c5fbcc4f79fd6a358cf2ba17cb72b907382a5ceaac07f91dc66ed6",
+  "server_empty": true,
+  "source_and_tolerances_changed": false,
+  "status": "ROOT_COMPLETE_ARITHMETIC_RECORDS_VERIFIED"
+}
