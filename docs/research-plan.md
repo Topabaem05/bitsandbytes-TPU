@@ -19,7 +19,7 @@ Port2TPU results do not count for these backend milestones.
 | M3 | Upstream module state | Bias, gradients, saved state, and restoration in a new process | Completed: eight fixed cases restored in a new TPU process |
 | M4 | Nested quantization | Upstream default statistics option and matching saved nested state | In progress: actual 79-case run failed 27 cases; arithmetic repair and saved-state results required |
 | M5 | QLoRA execution | Twenty steps, frozen base weights, and restoration after step ten | In progress: private CPU preparation; TPU test required |
-| M6 | Pallas NF4 kernel | Actual custom call, numerical tests, and compiler test records for memory use | In progress: actual V5E1 compiler rejected Mosaic version 8; compatibility correction and device records required |
+| M6 | Pallas NF4 kernel | Actual custom call, numerical tests, and compiler test records for memory use | In progress: version conversion passed; actual V5E1 compilation rejects the NF4 decode layout; kernel correction required |
 | M7 | Measured performance | Raw time samples and memory measurements on the same TPU | In progress: local collector controls passed; actual measurements require accepted M6 |
 | M8 | Repeated cloud results | Matching source and inputs on Colab and Kaggle, with resource closure | In progress: bounded M2 repetition preparation passed local controls; actual device repetition and closure required |
 
@@ -114,6 +114,10 @@ The [portable conversion controls](changes/r6-mosaic-portable-controls.md) passe
 The corrected rejection helper also rejects a fake successful verifier; production sources remain unchanged.
 Its [V5E1 allocation attempt](changes/r6-mosaic-allocation-wait.md) remained pending for 703.63 seconds without scientific execution.
 The reviewer closed the temporary tab and verified six closed CLI groups, no active session, and zero active usage.
+The [fresh V5E1 experiment](changes/r6-mosaic-layout-failure.md) passed its five-case CPU gate and reached TPU layout compilation.
+The first case failed an unsupported shape cast; the remaining four cases were not executed.
+Independent conversion replay, all 110 archive members, and complete resource closure passed inspection.
+A decode layout correction must preserve nibble order, scaling, and numerical criteria before another native attempt.
 The [measurement preparation](changes/r7-measurement-preparation.md) passed 64 local controls and nine independent retained-record checks.
 Actual M7 collection requires accepted M6 results.
 BF16 gradients remain outside the fixed diagnostic scope.

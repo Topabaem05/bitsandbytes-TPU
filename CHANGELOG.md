@@ -1,5 +1,15 @@
 # Change log
 
+## 2026-10-09 — Native decode layout failure
+
+- Retain the actual TPU shape-cast failure and four unexecuted cases.
+- Independently reproduce conversion of the retained failed payload.
+- Verify the qualified CPU oracle, complete archives, and resource closure.
+
+Validation: All 110 result members, 47 CLI groups, and 14 remote steps passed inspection.
+No native numerical case passed, and M6 remains unqualified.
+Refer to [the actual result](docs/changes/r6-mosaic-layout-failure.md).
+
 ## 2026-10-09 — Portable Mosaic controls
 
 - Add portable conversion, recovery, and first-error controls with a small sealed fixture archive.
