@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bitsandbytes-tpu-pallas-forward"
+version = "0.1.1"
+description = "A separate unqualified public Pallas-forward XLA backend candidate."
+requires-python = "==3.12.*"
+license = "Apache-2.0 AND MIT"
+license-files = ["LICENSE", "THIRD_PARTY_NOTICES.md"]
+readme = "README.md"
+dependencies = ["torch==2.9.0+cpu", "bitsandbytes @ git+https://github.com/bitsandbytes-foundation/bitsandbytes.git@833649043474794b8fe7a4136e0c40faf077b2e0"]
+
+[project.entry-points."bitsandbytes.backends"]
+tpu_pallas_forward = "bitsandbytes_tpu_pallas:register"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+bitsandbytes_tpu_pallas = ["source_manifest.json"]

@@ -22,6 +22,7 @@ import native_contract as NC
 import compiler_cloud_contract as CC
 import compiler_recovery as CR
 import primitive_contract as PC
+import public_contract as UC
 from remote import sha, verify_archive, verify_experiment, verify_transfer_payload, validate_source_controls, TRANSFER_BINDINGS, TRANSFER_PATCH_MANIFEST_SHA, STATE_BINDINGS
 from nested_contract import (NESTED_BINDINGS,NESTED_SCOPE,NESTED_SOURCE_SHA,NESTED_PLUGIN_MANIFEST_SHA,
     NESTED_FILES,verify_nested_payload,nested_cli)
@@ -47,13 +48,13 @@ def native_readback_missing(owner, receipt, output, native_gate):
     return missing
 
 
-def host_frontend_preflight(packet,python,output):
+def host_frontend_preflight(packet,python,output,*,native_source=None):
     """Close the externally owned CPU frontend group before any provider activity."""
     directory=output/'audit-preflight-ownership';directory.mkdir(exist_ok=False)
     frontend=Ownership(directory);deadline=time.time()+45
     with frontend.guard(45):
         with (output/'audit-preflight.stdout').open('wb')as log,(output/'audit-preflight.stderr').open('wb')as err:
-            child=frontend.launch([sys.executable,'-B',str(packet/'native/audit_preflight.py'),'--python',str(python),'--output',str(output/'audit-preflight.json'),'--deadline-epoch',str(deadline)],record=output/'audit-preflight-launch.json',env=dict(os.environ,PYTHONDONTWRITEBYTECODE='1'),stdout=log,stderr=err);child.wait()
+            child=frontend.launch([sys.executable,'-B',str((packet/'native' if native_source is None else native_source)/'audit_preflight.py'),'--python',str(python),'--output',str(output/'audit-preflight.json'),'--deadline-epoch',str(deadline)],record=output/'audit-preflight-launch.json',env=dict(os.environ,PYTHONDONTWRITEBYTECODE='1'),stdout=log,stderr=err);child.wait()
             if child.returncode!=0:raise ValueError('MOSAIC_FRONTEND_PREFLIGHT_REJECTED')
     closure=frontend.summary()
     if closure['errors']or any(g.get('status')!='CLEANUP_VERIFIED'for g in closure['groups']):raise ValueError('MOSAIC_FRONTEND_PREFLIGHT_CLEANUP')
@@ -86,7 +87,7 @@ def preflight(packet, expected):
         p = packet / name
         if p.is_symlink() or sha(p) != rec['sha256'] or p.stat().st_size != rec['bytes']:
             raise ValueError('PACKET_LOCAL_FILE')
-    if manifest.get('experiment') in {'transfer-api42', 'state-roundtrip', 'nested-79', 'nested-state-8', 'm6-native-boundary', CC.MODE, PC.MODE}:
+    if manifest.get('experiment') in {'transfer-api42', 'state-roundtrip', 'nested-79', 'nested-state-8', 'm6-native-boundary', CC.MODE, PC.MODE, UC.MODE}:
         verify_transfer_payload(packet, manifest)
     if manifest.get('experiment') in {'nested-79','nested-state-8',PC.MODE}:
         verify_nested_payload(packet,manifest)
@@ -95,6 +96,7 @@ def preflight(packet, expected):
     if manifest.get('experiment')==NC.MODE: NC.payload(packet,manifest)
     if manifest.get('experiment')==CC.MODE: CC.payload(packet,manifest)
     if manifest.get('experiment')==PC.MODE:PC.payload(packet,manifest)
+    if manifest.get('experiment')==UC.MODE:UC.payload(packet,manifest)
     for p in HERE.rglob('*.py'):
         if 'tests' in p.relative_to(HERE).parts or p.name == 'build_packet.py':
             continue
@@ -172,6 +174,7 @@ def verify_result(out, receipt):
     if sha(out / 'archive-members.json') != receipt['archive_members_sha256'] or sha(out / 'evidence.zip') != receipt['evidence_sha256'] or (out / 'evidence.zip').stat().st_size != receipt['evidence_bytes']:
         raise ValueError('RESULT_WHOLE_OR_INVENTORY')
     with zipfile.ZipFile(out / 'evidence.zip') as z:
+        if receipt.get('experiment')==UC.MODE:UC.result_limits(inventory,z.infolist())
         if set(z.namelist()) != set(inventory) or len(z.infolist()) != len(inventory):
             raise ValueError('RESULT_MEMBER_SET')
         for info in z.infolist():
@@ -196,7 +199,7 @@ def verify_result(out, receipt):
     return inventory
 
 
-def drive(packet, output, expected, acceptance, acceptance_sha, cli_python, cli_identity, *, api=None, simulated=False, browser_adoption=None, browser_adoption_sha256=None,mosaic_audit_python=None):
+def drive(packet, output, expected, acceptance, acceptance_sha, cli_python, cli_identity, *, api=None, simulated=False, browser_adoption=None, browser_adoption_sha256=None,mosaic_audit_python=None,public_runtime_wheels=None):
     manifest = preflight(packet, expected)
     if sha(acceptance) != acceptance_sha:
         raise PermissionError('ROOT_ACCEPTANCE_SHA')
@@ -208,6 +211,7 @@ def drive(packet, output, expected, acceptance, acceptance_sha, cli_python, cli_
               'budget': manifest['budget'], 'one_allocation_only': True, 'provider_or_solver': 'FORBIDDEN'}
     experiment = manifest.get('experiment', 'api42')
     primitive=experiment==PC.MODE
+    public=experiment==UC.MODE
     diagnostic = experiment in {'device-route-diagnostic', 'precision-diagnostic'}
     precision = experiment == 'precision-diagnostic'
     nested_state = experiment=='nested-state-8'
@@ -216,7 +220,7 @@ def drive(packet, output, expected, acceptance, acceptance_sha, cli_python, cli_
     compiler=experiment==CC.MODE
     NK=CC if compiler else NC
     native = experiment in {NC.MODE,CC.MODE}
-    transfer = experiment in {'transfer-api42', 'state-roundtrip', 'nested-79', 'nested-state-8', 'm6-native-boundary', CC.MODE, PC.MODE}
+    transfer = experiment in {'transfer-api42', 'state-roundtrip', 'nested-79', 'nested-state-8', 'm6-native-boundary', CC.MODE, PC.MODE, UC.MODE}
     if diagnostic:
         fields.update(experiment=experiment, diagnostic_only=True, route_probe_sha256=manifest['route_probe_sha256'])
     if precision:
@@ -233,6 +237,12 @@ def drive(packet, output, expected, acceptance, acceptance_sha, cli_python, cli_
         if state:
             fields.update({field: manifest[field] for field in STATE_BINDINGS})
             fields['state_scope'] = manifest['state_scope']
+    if public:
+        if mosaic_audit_python is None or not Path(mosaic_audit_python).is_absolute() or not Path(mosaic_audit_python).is_file():raise PermissionError('EXPLICIT_PUBLIC_MOSAIC_AUDIT_INTERPRETER_REQUIRED')
+        if public_runtime_wheels is None or not Path(public_runtime_wheels).is_absolute():raise PermissionError('EXPLICIT_PUBLIC_HOST_RUNTIME_WHEEL_CACHE_REQUIRED')
+        C,a=UC.payload(packet,manifest);C.runtime_wheels(a,packet/'public-baseline',public_runtime_wheels,qualified=True)
+        fields.update(**{k:manifest[k]for k in UC.FIELDS},mosaic_audit_python=str(mosaic_audit_python),mosaic_audit_python_sha256=sha(mosaic_audit_python),public_runtime_wheels=str(public_runtime_wheels))
+    elif public_runtime_wheels is not None:raise PermissionError('PUBLIC_RUNTIME_WHEELS_NOT_REQUESTED')
     if native:
         if mosaic_audit_python is None or not Path(mosaic_audit_python).is_absolute() or not Path(mosaic_audit_python).is_file():raise PermissionError('EXPLICIT_MOSAIC_AUDIT_INTERPRETER_REQUIRED')
         fields.update(mosaic_audit_python=str(mosaic_audit_python),mosaic_audit_python_sha256=sha(mosaic_audit_python))
@@ -267,6 +277,7 @@ def drive(packet, output, expected, acceptance, acceptance_sha, cli_python, cli_
     output.mkdir(parents=True)
     durable_json(output / 'root-acceptance.json', gate)
     if native:frontend=host_frontend_preflight(packet,mosaic_audit_python,output)
+    if public:frontend=host_frontend_preflight(packet,mosaic_audit_python,output,native_source=packet/'public-baseline/experiments/2026-10-04-bitsandbytes-tpu/native')
     api = api or OfficialCLI(cli_python, output)
     session = adoption['session'] if adopting else 'bnb-tpu-first-' + datetime.now(timezone.utc).strftime('%Y%m%d-%H%M%S')
     base = '/content/bnb-tpu-first'
@@ -283,6 +294,7 @@ def drive(packet, output, expected, acceptance, acceptance_sha, cli_python, cli_
         if state:
             owner['api42_status'] = 'NOT_REPEATED'
     if native: owner.update(mosaic_frontend_preflight=frontend,m6_status='NOT_QUALIFIED',m4_source_compatibility='NOT_QUALIFIED',native_source_variant=NK.VARIANT,optimized_executable_link='UNKNOWN',compiler_body_memory_allocator='NOT_QUALIFIED')
+    if public:owner.update(experiment=UC.MODE,public_generation=UC.GENERATION,public_scope=UC.SCOPE,mosaic_frontend_preflight=frontend,m6_status='NOT_QUALIFIED',m4_status='NOT_QUALIFIED',performance='NOT_MEASURED')
     adoption_verified=False
     started = None
     prior = {sig: signal.getsignal(sig) for sig in (signal.SIGTERM, signal.SIGINT)}
@@ -353,11 +365,13 @@ def drive(packet, output, expected, acceptance, acceptance_sha, cli_python, cli_
         if primitive and (any(r.get(field)!=manifest[field] for field in PC.BINDINGS) or
                 r.get('primitive_variant')!=PC.VARIANT or r.get('primitive_scope')!=PC.SCOPE or r.get('primitive_diagnostic_only') is not True):
             raise ValueError('PRIMITIVE_REMOTE_PHASE_BINDING:'+label)
+        if public and any(r.get(k)!=manifest[k]for k in UC.FIELDS):raise ValueError('PUBLIC_REMOTE_PHASE_BINDING:'+label)
         return r
 
     receipt = None
     native_gate = None
     primitive_gate = None
+    public_gate=None
     try:
         for sig in prior:
             signal.signal(sig, interrupted)
@@ -436,6 +450,23 @@ def drive(packet, output, expected, acceptance, acceptance_sha, cli_python, cli_
             transport.assemble(native_cpu/'parts-manifest.json',native_cpu/'parts',native_cpu/'evidence.zip',expected_manifest_sha256=sha(native_cpu/'parts-manifest.json'),expected_sha256=cpu_receipt[prefix+'_cpu_evidence_sha256'],expected_bytes=cpu_receipt[prefix+'_cpu_evidence_bytes'])
             recovered_cpu=NK.recover_cpu(native_cpu,cpu_receipt);native_gate=NK.cpu_gate(packet,recovered_cpu,cpu_receipt);owner['native_root_oracle_gate']=native_gate
             if sha(output/'cpu-oracle-seal.json')!=native_gate['oracle_sha256']:raise ValueError('NATIVE_STANDALONE_ARCHIVED_ORACLE_SEAL')
+        elif public:
+            public_cpu=output/'public-cpu';public_cpu.mkdir()
+            download('11a-public-inventory',base+'/records/public-cpu-inventory.json',public_cpu/'inventory.json',reserve=660)
+            download('11b-public-parts',base+'/public-cpu-parts/manifest.json',public_cpu/'parts-manifest.json',reserve=660)
+            import transport
+            parts=transport.validate_manifest(json.loads((public_cpu/'parts-manifest.json').read_text()),cpu_receipt['public_cpu_evidence_sha256'],cpu_receipt['public_cpu_evidence_bytes']);(public_cpu/'parts').mkdir()
+            for i,part in enumerate(parts['parts']):download('11c-public-part-'+str(i),base+'/public-cpu-parts/'+part['name'],public_cpu/'parts'/part['name'],reserve=660)
+            transport.assemble(public_cpu/'parts-manifest.json',public_cpu/'parts',public_cpu/'evidence.zip',expected_manifest_sha256=sha(public_cpu/'parts-manifest.json'),expected_sha256=cpu_receipt['public_cpu_evidence_sha256'],expected_bytes=cpu_receipt['public_cpu_evidence_bytes'])
+            recovered_public_cpu=UC.recover_cpu(public_cpu,cpu_receipt)
+            cpu_owner=Ownership(public_cpu)
+            with cpu_owner.guard(clamp(started,180,660)):
+                with(public_cpu/'gate.stdout').open('wb')as log,(public_cpu/'gate.stderr').open('wb')as err:
+                    child=cpu_owner.launch([sys.executable,'-B',str(packet/'cloud/public_gate.py'),'--packet',str(packet),'--recovered',str(recovered_public_cpu),'--receipt',str(output/'10-cpu-receipt.json'),'--runtime-wheels',str(public_runtime_wheels),'--output',str(public_cpu/'gate.json')],record=public_cpu/'gate-owned.json',stdout=log,stderr=err);child.wait()
+                if child.returncode!=0:raise ValueError('PUBLIC_ROOT_CPU_GATE_REJECTED')
+            if cpu_owner.summary()['errors']:raise ValueError('PUBLIC_ROOT_CPU_GATE_CLEANUP')
+            observations=UC.read(public_cpu/'gate.json');public_gate=observations['gate'];UC.verify_root_gate(public_gate,cpu_receipt,manifest);owner['public_root_cpu_gate']=public_gate
+            if sha(output/'cpu-oracle-seal.json')!=public_gate['oracle_sha256']:raise ValueError('PUBLIC_STANDALONE_ARCHIVED_ORACLE_SEAL')
         elif seal.get('runtime_lock_sha256') != manifest['runtime_lock_sha256'] or seal.get('source_admission_sha256') != manifest['source_admission_sha256']:
             raise ValueError('RECOVERED_ORACLE_BINDING')
         owner['recovered_oracle_sha256'] = sha(output / 'cpu-oracle-seal.json')
@@ -455,10 +486,10 @@ def drive(packet, output, expected, acceptance, acceptance_sha, cli_python, cli_
                 raise ValueError('RECOVERED_NESTED_STATE_ORACLE_BINDING')
             owner['recovered_oracle_sha256']=sha(output/'state-cpu-oracle-seal.json')
         launch = output / 'launch.json'
-        durable_json(launch,primitive_gate if primitive else native_gate if native else {'oracle_sha256': owner['recovered_oracle_sha256'],**({'nested_oracle_sha256':owner['recovered_nested_oracle_sha256']} if nested_state else {})})
+        durable_json(launch,public_gate if public else primitive_gate if primitive else native_gate if native else {'oracle_sha256': owner['recovered_oracle_sha256'],**({'nested_oracle_sha256':owner['recovered_nested_oracle_sha256']} if nested_state else {})})
         upload('12-oracle-admission', launch, base + '/launch.json')
-        operation('13-tpu', 'primitives' if primitive else 'compiler-native' if compiler else 'native' if native else 'nested-state' if nested_state else 'nested' if nested else 'state' if state else 'transfer' if transfer else 'precision' if precision else 'routes' if diagnostic else 'tpu', 1800)
-        phase_receipt('13-tpu', 'PRIMITIVE_CHILD_TERMINAL_LOCAL_REVIEW_REQUIRED' if primitive else 'NATIVE_CHILD_TERMINAL_LOCAL_REVIEW_REQUIRED' if native else 'NESTED_STATE_CHILD_TERMINAL_LOCAL_REVIEW_REQUIRED' if nested_state else 'NESTED_CHILD_TERMINAL_LOCAL_REVIEW_REQUIRED' if nested else 'STATE_CHILD_TERMINAL_LOCAL_REVIEW_REQUIRED' if state else 'TRANSFER_CHILD_TERMINAL_LOCAL_REVIEW_REQUIRED' if transfer else
+        operation('13-tpu', 'public' if public else 'primitives' if primitive else 'compiler-native' if compiler else 'native' if native else 'nested-state' if nested_state else 'nested' if nested else 'state' if state else 'transfer' if transfer else 'precision' if precision else 'routes' if diagnostic else 'tpu', 1800)
+        phase_receipt('13-tpu', 'PUBLIC_CHILD_TERMINAL_LOCAL_REVIEW_REQUIRED' if public else 'PRIMITIVE_CHILD_TERMINAL_LOCAL_REVIEW_REQUIRED' if primitive else 'NATIVE_CHILD_TERMINAL_LOCAL_REVIEW_REQUIRED' if native else 'NESTED_STATE_CHILD_TERMINAL_LOCAL_REVIEW_REQUIRED' if nested_state else 'NESTED_CHILD_TERMINAL_LOCAL_REVIEW_REQUIRED' if nested else 'STATE_CHILD_TERMINAL_LOCAL_REVIEW_REQUIRED' if state else 'TRANSFER_CHILD_TERMINAL_LOCAL_REVIEW_REQUIRED' if transfer else
                       'PRECISION_CHILD_TERMINAL_LOCAL_REVIEW_REQUIRED' if precision else
                       'DEVICE_ROUTE_CHILD_TERMINAL_LOCAL_REVIEW_REQUIRED' if diagnostic else 'TPU_CHILD_TERMINAL_LOCAL_REVIEW_REQUIRED')
         owner['status'] = 'CHILD_TERMINAL_RETRIEVAL_REQUIRED'
@@ -552,6 +583,9 @@ def drive(packet, output, expected, acceptance, acceptance_sha, cli_python, cli_
             if primitive:
                 missing=PC.readback_missing(owner,receipt,output,primitive_gate)
                 if missing:raise PC.ReadbackUnavailable(','.join(missing))
+            if public:
+                missing=UC.readback_missing(owner,receipt,output,public_gate)
+                if missing:raise UC.ReadbackUnavailable(','.join(missing))
             # The existing probe verifier uses retained arrays; no TPU or CPU science is repeated.
             verify = Ownership(output)
             log = (output / 'local-verifier.raw').open('wb', buffering=0)
@@ -583,6 +617,9 @@ def drive(packet, output, expected, acceptance, acceptance_sha, cli_python, cli_
                         if compiler:
                             argv[2]=str(packet/'native/compiler_verify.py')
                             argv+=['--evidence',str(output/'compiler-recovery/recovered'),'--compiler-expected-sha256',receipt['compiler_expected_sha256'],'--postclosure-sha256',receipt['compiler_postclosure_sha256']]
+                    if public:
+                        if receipt.get('public_receipt_sha256')!=sha(output/'recovered/public/device/receipt.json')or receipt.get('public_outer_owner_sha256')!=sha(output/'recovered/steps/12-public/ownership.json'):raise ValueError('PUBLIC_RECOVERED_BOUNDARY_SEALS')
+                        argv=UC.verifier_cli(packet,output/'public-cpu/recovered',output,receipt,public_runtime_wheels,mosaic_audit_python,time.time()+clamp(started,110,0))
                     proc = verify.launch(argv, record=output / 'local-verifier-ownership.json', env=dict(os.environ, PYTHONDONTWRITEBYTECODE='1'), stdout=log, stderr=error_log)
                     proc.wait()
                     owner['local_verifier_exit_code'] = proc.returncode
@@ -598,7 +635,12 @@ def drive(packet, output, expected, acceptance, acceptance_sha, cli_python, cli_
                         except Exception as error:
                             verify.note_error('close_local_verifier', error)
                 owner['local_verifier_cleanup'] = verify.summary()
-            if native:
+            if public:
+                report=json.loads((output/'local-verifier.raw').read_text());durable_json(output/'verify.json',report);numerical=UC.validate_report(report,packet)
+                UC.require(owner['local_verifier_exit_code']==(0 if numerical=='PASS'else 2),'PUBLIC_VERIFIER_EXIT_OUTCOME')
+                bound=(receipt.get('experiment')==UC.MODE and all(receipt.get(k)==manifest[k]for k in UC.FIELDS)and receipt.get('public_root_gate_sha256')==sha(output/'launch.json')and receipt.get('oracle_sha256')==public_gate['oracle_sha256']and receipt.get('allocation_epoch')==started and receipt.get('status')=='PUBLIC_CHILD_TERMINAL_LOCAL_REVIEW_REQUIRED'and receipt.get('tpu_status')=='PUBLIC_RECORDS_TERMINAL')
+                if owner['status']=='CHILD_TERMINAL_RETRIEVAL_REQUIRED'and owner.get('local_verifier_exit_code')in(0,2)and not owner['local_verifier_cleanup']['errors']and bound and all(not x['cleanup']['errors']for x in receipt['steps']):owner.update(status='PASS_PUBLIC15_RECORDS'if numerical=='PASS'and owner['local_verifier_exit_code']==0 else 'FAIL_PUBLIC15_RECORDS',record_validation='PASS',numerical_status=numerical,m6_status='NOT_QUALIFIED',m4_status='NOT_QUALIFIED',performance='NOT_MEASURED')
+            elif native:
                 report=json.loads((output/'verify.json').read_text())
                 compiler_report=report.get('compiler',{}) if compiler else None
                 if compiler:report=report.get('native',{})
@@ -700,6 +742,9 @@ def drive(packet, output, expected, acceptance, acceptance_sha, cli_python, cli_
                     owner.update(status='PASS_DEVICE_ROUTE_RECORDS', record_validation='PASS', api42_status='NOT_QUALIFIED')
             elif owner['status'] == 'CHILD_TERMINAL_RETRIEVAL_REQUIRED' and not owner['local_verifier_cleanup']['errors'] and owner.get('local_verifier_exit_code') in (0, 2) and receipt['runtime_status'] == 'PASS_TPU_RUNTIME_PROBE_ONLY' and receipt['cpu_status'] == 'PASS' and receipt['tpu_status'] in ('PASS', 'FAIL') and all(not step['cleanup']['errors'] for step in receipt['steps']):
                 owner['status'] = 'PASS_TPU_API_PROBE' if owner['local_verifier_exit_code'] == 0 else 'FAIL_TPU_API_PROBE'
+        except UC.ReadbackUnavailable as error:
+            owner.update(local_verifier_status='NOT_RUN_INCOMPLETE_PUBLIC_RECORDS',public_record_validation='NOT_RUN',local_verifier_unavailable_reason=str(error))
+            if owner['status']=='CHILD_TERMINAL_RETRIEVAL_REQUIRED':owner['status']='BLOCKED'
         except PC.ReadbackUnavailable as error:
             owner.update(local_verifier_status='NOT_RUN_INCOMPLETE_PRIMITIVE_RECORDS',primitive_record_validation='NOT_RUN',local_verifier_unavailable_reason=str(error))
             if owner['status']=='CHILD_TERMINAL_RETRIEVAL_REQUIRED':owner['status']='BLOCKED'
@@ -708,6 +753,9 @@ def drive(packet, output, expected, acceptance, acceptance_sha, cli_python, cli_
             if owner['status']=='CHILD_TERMINAL_RETRIEVAL_REQUIRED':owner['status']='BLOCKED'
         except BaseException as error:
             owner['local_readback_error'] = {'type': type(error).__name__, 'message': str(error)}
+            if public:
+                owner.update(public_record_validation='INVALID_RECORDS',local_verifier_status='INVALID_RECORDS')
+                if owner['status']=='CHILD_TERMINAL_RETRIEVAL_REQUIRED':owner['status']='BLOCKED_PUBLIC_RECORDS'
     owner['finished_utc'] = datetime.now(timezone.utc).isoformat()
     durable_json(output / 'owner.json', owner)
     return owner
@@ -725,6 +773,7 @@ if __name__ == '__main__':
     p.add_argument('--cli-python', type=Path, required=True)
     p.add_argument('--cli-identity', type=Path, required=True)
     p.add_argument('--mosaic-audit-python',type=Path)
+    p.add_argument('--public-runtime-wheels',type=Path)
     p.add_argument('--preflight-only', action='store_true')
     a = p.parse_args()
     if a.preflight_only:
@@ -732,6 +781,6 @@ if __name__ == '__main__':
         verify_cli_identity(a.cli_python, json.loads(a.cli_identity.read_text()))
         print(json.dumps({'status': 'LOCAL_PREFLIGHT_NO_CLI', 'files': len(m['files']), 'CLI_file_identity': 'PASS_NO_API'}))
     else:
-        r = drive(a.packet.resolve(), a.output.resolve(), a.packet_sha256, a.root_acceptance, a.root_acceptance_sha256, a.cli_python, a.cli_identity,mosaic_audit_python=a.mosaic_audit_python,**({'browser_adoption':a.browser_adoption,'browser_adoption_sha256':a.browser_adoption_sha256} if a.browser_adoption is not None or a.browser_adoption_sha256 is not None else {}))
+        r = drive(a.packet.resolve(), a.output.resolve(), a.packet_sha256, a.root_acceptance, a.root_acceptance_sha256, a.cli_python, a.cli_identity,mosaic_audit_python=a.mosaic_audit_python,public_runtime_wheels=a.public_runtime_wheels,**({'browser_adoption':a.browser_adoption,'browser_adoption_sha256':a.browser_adoption_sha256} if a.browser_adoption is not None or a.browser_adoption_sha256 is not None else {}))
         print(json.dumps(r))
-        raise SystemExit(0 if r['status'] in ('PASS_TPU_API_PROBE', 'PASS_DEVICE_ROUTE_RECORDS', 'PASS_PRECISION_RECORDS', 'PASS_TPU_TRANSFER_API42', 'PASS_TPU_STATE_RECORDS', 'PASS_TPU_NESTED_RECORDS', 'PASS_TPU_NESTED_STATE_RECORDS','PASS_BOUNDED_NATIVE_DIAGNOSTIC', 'PASS_BOUNDED_COMPILER_CAPTURE', 'PASS_PRIMITIVE_RECORDS') else 2)
+        raise SystemExit(0 if r['status'] in ('PASS_TPU_API_PROBE', 'PASS_DEVICE_ROUTE_RECORDS', 'PASS_PRECISION_RECORDS', 'PASS_TPU_TRANSFER_API42', 'PASS_TPU_STATE_RECORDS', 'PASS_TPU_NESTED_RECORDS', 'PASS_TPU_NESTED_STATE_RECORDS','PASS_BOUNDED_NATIVE_DIAGNOSTIC', 'PASS_BOUNDED_COMPILER_CAPTURE', 'PASS_PRIMITIVE_RECORDS','PASS_PUBLIC15_RECORDS') else 2)

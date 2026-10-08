@@ -22,6 +22,11 @@ The [first actual nested result](docs/changes/r4-nested-colab-failure.md) passed
 Arithmetic and state representation repairs remain necessary before saved-state execution.
 M4 and later milestones remain unqualified.
 
+The [bounded Pallas experiment](docs/changes/r6-bf16-colab.md) passed five native and reference diagnostic cases on Colab.
+The [public API preparation](docs/changes/r6-public-cloud-preparation.md) passed 118 canonical controls for its separate 15-case experiment.
+Actual public integration and compiler memory records remain required for M6.
+The [compiler flag failure](docs/changes/r6-compiler-flag-colab-failure.md) remains preserved with all five device cases unexecuted.
+
 The [October 8 source inspection](docs/research/2026-10-08/README.md) covers each design area before further implementation.
 It contains current documentation, original papers, fixed source revisions, and explicit version limits.
 The [decision table](docs/research/2026-10-08/decisions.md) defines the next work and its acceptance requirements.

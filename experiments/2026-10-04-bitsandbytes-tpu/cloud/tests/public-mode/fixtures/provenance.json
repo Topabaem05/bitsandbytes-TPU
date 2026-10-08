@@ -1,0 +1,192 @@
+{
+  "jax": "0.7.1",
+  "jaxlib": "0.7.1",
+  "records": {
+    "db-rank2": {
+      "argument_shapes": [
+        [
+          128,
+          256
+        ]
+      ],
+      "hlo_sha256": "03510279111bdfd60892b250d2455198da162fd7f50410816dc1490a1eaca3e8",
+      "proto_sha256": "dc8393018c204f520c95d8e6c1a564e47455b6aa28842192833e9c4193a1282e",
+      "scope": "ACTUAL_JAX071_CPU_FRONTEND_NO_COMPILE_NO_EXECUTE"
+    },
+    "db-rank3": {
+      "argument_shapes": [
+        [
+          2,
+          64,
+          256
+        ]
+      ],
+      "hlo_sha256": "fa1873078681b60343974098b08dc7ce1e2b05f5054f364b56e4942883519ac6",
+      "proto_sha256": "fee688002efd349fcd2cc1cef75f0645843f249ae25a4b77be678103b7d06eaa",
+      "scope": "ACTUAL_JAX071_CPU_FRONTEND_NO_COMPILE_NO_EXECUTE"
+    },
+    "db2-rank2": {
+      "argument_shapes": [
+        [
+          128,
+          256
+        ]
+      ],
+      "hlo_sha256": "70e399d02b0601b262db3fa20186cf4e59c417850475126d444baa666b362aa5",
+      "proto_sha256": "0e1a88c1f0cca1a22719395f7fac7acce82e283c49f733ae3043664e29d6a6b4",
+      "scope": "ACTUAL_JAX071_CPU_FRONTEND_NO_COMPILE_NO_EXECUTE"
+    },
+    "db2-rank3": {
+      "argument_shapes": [
+        [
+          2,
+          64,
+          256
+        ]
+      ],
+      "hlo_sha256": "f6883898228804f875093dec73ca1c477d8a0a1b7635ef7fc8d1f8c06929db0b",
+      "proto_sha256": "6c1c6cfefc2d841bae51e9191dd964b974286ed005d1360645e1ce258c96793b",
+      "scope": "ACTUAL_JAX071_CPU_FRONTEND_NO_COMPILE_NO_EXECUTE"
+    },
+    "dx-rank2": {
+      "argument_shapes": [
+        [
+          128,
+          256
+        ],
+        [
+          256,
+          512
+        ]
+      ],
+      "hlo_sha256": "5f4b29f88ad8135b7ef3c2101c8c2a4ffcd0692ee12398e2298cc29a989c1fc3",
+      "proto_sha256": "680115d792bd92e1fead430ede43e0c9387795b5bce3ef423d076928adabf3b2",
+      "scope": "ACTUAL_JAX071_CPU_FRONTEND_NO_COMPILE_NO_EXECUTE"
+    },
+    "dx-rank3": {
+      "argument_shapes": [
+        [
+          2,
+          64,
+          256
+        ],
+        [
+          256,
+          512
+        ]
+      ],
+      "hlo_sha256": "fdb46e802452d98613ec0758c7f86395db0d78bbf001c588f854146aa35c0736",
+      "proto_sha256": "fb38145af9f1f00c82f07d264ca05d812ec423107422de4ffcb9faf68f8cc6b0",
+      "scope": "ACTUAL_JAX071_CPU_FRONTEND_NO_COMPILE_NO_EXECUTE"
+    },
+    "dx2-rank2": {
+      "argument_shapes": [
+        [
+          128,
+          256
+        ],
+        [
+          256,
+          512
+        ]
+      ],
+      "hlo_sha256": "e0d3d1a9a43c072a8bd4d82b7884b0989672c4e11dc5023b4846936a21f03f9f",
+      "proto_sha256": "c848c8a8c9bc346420fd38a21765642f004be801f6f24040c8501e2e9f83f714",
+      "scope": "ACTUAL_JAX071_CPU_FRONTEND_NO_COMPILE_NO_EXECUTE"
+    },
+    "dx2-rank3": {
+      "argument_shapes": [
+        [
+          2,
+          64,
+          256
+        ],
+        [
+          256,
+          512
+        ]
+      ],
+      "hlo_sha256": "1459ada5de2b20e078b01a437df8ef99db54f7306164311ee0d94311428e1ed1",
+      "proto_sha256": "0cb385c8522db6bc6f493901d099a6db0d28dd947681f78304004389f6f2ffff",
+      "scope": "ACTUAL_JAX071_CPU_FRONTEND_NO_COMPILE_NO_EXECUTE"
+    },
+    "native-bf16-rank3": {
+      "hlo_sha256": "347f60bffc13075b9caa9dc35c1b64ddc3f2997a061446446d035f0b7579fcba",
+      "proto_sha256": "a3e0cc3827b4a045da250c01146b2cd9aa0ceb6ab8d80c59fb5a0db041619b18",
+      "scope": "ACTUAL_JAX071_HLO_PARSER_SYNTHETIC_PAYLOAD_NO_COMPILE_NO_EXECUTE"
+    },
+    "native-f32-rank3": {
+      "hlo_sha256": "ba6d0efeeaa82205f41c7b65e4074fee81be81744a8049a663c90b7386d44ac3",
+      "proto_sha256": "be653cd9d43fbcfc3b19154b24dd3ab027a3f3218eb3173925ba04afb5c95698",
+      "scope": "ACTUAL_JAX071_HLO_PARSER_SYNTHETIC_PAYLOAD_NO_COMPILE_NO_EXECUTE"
+    },
+    "reference-noncontiguous": {
+      "argument_shapes": [
+        [
+          128,
+          512
+        ],
+        [
+          256,
+          512
+        ]
+      ],
+      "hlo_sha256": "3fd238d7b5b0053fda23a9cdbbbcfd59590ca7940ae038319da21ea38e8bc52e",
+      "proto_sha256": "7c2c5319f3e8373a63a5316808d165923f7f762c9e870b7a6e2622492ec99209",
+      "scope": "ACTUAL_JAX071_CPU_FRONTEND_NO_COMPILE_NO_EXECUTE"
+    },
+    "reference-rank2": {
+      "argument_shapes": [
+        [
+          128,
+          512
+        ],
+        [
+          256,
+          512
+        ],
+        [
+          256
+        ]
+      ],
+      "hlo_sha256": "3f2408ff2528f5303434cd58ff50244969e83ef0faf54541ff21ccea1984723f",
+      "proto_sha256": "83341970431f3fc7710d9e2070c940d6affc86e6cebeaf007053f6c9ae04b12f",
+      "scope": "ACTUAL_JAX071_CPU_FRONTEND_NO_COMPILE_NO_EXECUTE"
+    },
+    "reference-rank3": {
+      "argument_shapes": [
+        [
+          2,
+          64,
+          512
+        ],
+        [
+          256,
+          512
+        ],
+        [
+          256
+        ]
+      ],
+      "hlo_sha256": "9081b756234ccd5b11ab69194aba6db62d20171dcf2a4e2457686de60c242e0b",
+      "proto_sha256": "d2f69d3c06a99d3b12d91b4dfb17929b7d476bf878a3716bc994970a6726e032",
+      "scope": "ACTUAL_JAX071_CPU_FRONTEND_NO_COMPILE_NO_EXECUTE"
+    },
+    "reference-tail": {
+      "argument_shapes": [
+        [
+          129,
+          512
+        ],
+        [
+          256,
+          512
+        ]
+      ],
+      "hlo_sha256": "248c50723150f3d0b751b863f9f229700973323e1fa7a2eb9460f6b6e86dff7d",
+      "proto_sha256": "cb8b22e72c2245e0480a50fe35e400e3955036fc2e30ab9b68ed7478a0db1644",
+      "scope": "ACTUAL_JAX071_CPU_FRONTEND_NO_COMPILE_NO_EXECUTE"
+    }
+  },
+  "scope": "LOCAL_CPU_FRONTEND_CONTRACT_ONLY_NOT_TORCH_XLA_NOT_TPU"
+}

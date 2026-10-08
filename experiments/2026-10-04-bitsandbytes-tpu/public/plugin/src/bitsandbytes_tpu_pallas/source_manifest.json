@@ -1,0 +1,18 @@
+{
+  "format": "bnb-tpu.pallas-forward-source.v1",
+  "python_files": {
+    "__init__.py": "c96b0f426edcb4f95cd05c63243fd89c52f016ce7eaf40fbca11cbd300d62309",
+    "adapter.py": "08869e04047837972e7bba9a35a0951206974f4b506debad2bba08af7f1001a4",
+    "compatibility.py": "13e0a6c941514c1fb709a289a51cbd22375159122ab2e2953f74c31b803e3f8c",
+    "frontend.py": "8368da51ce737eb0a0395cc2d6f1098eff0281d0f6082e702200bff7bbef7aad",
+    "functionalization.py": "e04656503739b24b7251fa1a2cdc028bded34e77b0d8a1c0982fc07bbfbf626d",
+    "mosaic_compatibility.py": "cce7a54521b3ccb51a35b4e26332c52b6e0e2dfbcb44db5c2cd290d016120542",
+    "native_factory.py": "4607fdba289a6d368d7dcaa4673d323c8b2c850841aefc2f969572af36314628",
+    "pallas_kernel.py": "68b872c4695b630ed83f5e02614f53bb01508bd4e317dd0d09d62ab0b3034294",
+    "reference.py": "0ad17773f18d8f69715af52644c0f94617d93228bc1927287058a6211ed6bb9e",
+    "registration.py": "afcade4cb093cb1cff31f3edfda625c251b2ff7bf31c20602659a1afb4a7f174",
+    "source_admission.py": "c9763d3dc351c1c6514ce2ffbae8f0f840a9579775da71dfa496f063a2b50d02"
+  },
+  "qualification": "NOT_QUALIFIED",
+  "source_variant": "pallas-forward-mosaic7-gather-bf16-fp32-v1"
+}

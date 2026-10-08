@@ -1,0 +1,353 @@
+{
+  "bf16_gradients": "NOT_RUN",
+  "case_count": 15,
+  "cases": [
+    {
+      "activation_shape": [
+        128,
+        512
+      ],
+      "api": "torch.ops.bitsandbytes.gemm_4bit.default",
+      "bias": false,
+      "dtype": "float32",
+      "expected_path": "PALLAS_CANDIDATE",
+      "expected_reason": "SUPPORTED",
+      "gradients": "NOT_RUN",
+      "id": "direct-float32",
+      "layout": "contiguous",
+      "rank": 2,
+      "weight_shape": [
+        256,
+        512
+      ]
+    },
+    {
+      "activation_shape": [
+        128,
+        512
+      ],
+      "api": "torch.ops.bitsandbytes.gemm_4bit.default",
+      "bias": false,
+      "dtype": "bfloat16",
+      "expected_path": "PALLAS_CANDIDATE",
+      "expected_reason": "SUPPORTED",
+      "gradients": "NOT_RUN",
+      "id": "direct-bfloat16",
+      "layout": "contiguous",
+      "rank": 2,
+      "weight_shape": [
+        256,
+        512
+      ]
+    },
+    {
+      "activation_shape": [
+        128,
+        512
+      ],
+      "api": "bnb.matmul_4bit",
+      "bias": false,
+      "dtype": "float32",
+      "expected_path": "PALLAS_CANDIDATE",
+      "expected_reason": "SUPPORTED",
+      "gradients": "NOT_RUN",
+      "id": "public-infer-float32",
+      "layout": "contiguous",
+      "rank": 2,
+      "weight_shape": [
+        256,
+        512
+      ]
+    },
+    {
+      "activation_shape": [
+        128,
+        512
+      ],
+      "api": "bnb.matmul_4bit",
+      "bias": false,
+      "dtype": "bfloat16",
+      "expected_path": "PALLAS_CANDIDATE",
+      "expected_reason": "SUPPORTED",
+      "gradients": "NOT_RUN",
+      "id": "public-infer-bfloat16",
+      "layout": "contiguous",
+      "rank": 2,
+      "weight_shape": [
+        256,
+        512
+      ]
+    },
+    {
+      "activation_shape": [
+        128,
+        512
+      ],
+      "api": "bnb.matmul_4bit",
+      "bias": false,
+      "dtype": "float32",
+      "expected_path": "PALLAS_CANDIDATE",
+      "expected_reason": "SUPPORTED",
+      "gradients": "dX",
+      "id": "public-train-rank2",
+      "layout": "contiguous",
+      "rank": 2,
+      "weight_shape": [
+        256,
+        512
+      ]
+    },
+    {
+      "activation_shape": [
+        2,
+        64,
+        512
+      ],
+      "api": "bnb.matmul_4bit",
+      "bias": false,
+      "dtype": "float32",
+      "expected_path": "PALLAS_CANDIDATE",
+      "expected_reason": "SUPPORTED",
+      "gradients": "dX",
+      "id": "public-train-rank3",
+      "layout": "contiguous",
+      "rank": 3,
+      "weight_shape": [
+        256,
+        512
+      ]
+    },
+    {
+      "activation_shape": [
+        128,
+        512
+      ],
+      "api": "Linear4bit.forward",
+      "bias": false,
+      "dtype": "float32",
+      "expected_path": "PALLAS_CANDIDATE",
+      "expected_reason": "SUPPORTED",
+      "gradients": "dX",
+      "id": "module-train-rank2",
+      "layout": "contiguous",
+      "rank": 2,
+      "weight_shape": [
+        256,
+        512
+      ]
+    },
+    {
+      "activation_shape": [
+        2,
+        64,
+        512
+      ],
+      "api": "Linear4bit.forward",
+      "bias": false,
+      "dtype": "float32",
+      "expected_path": "PALLAS_CANDIDATE",
+      "expected_reason": "SUPPORTED",
+      "gradients": "dX",
+      "id": "module-train-rank3",
+      "layout": "contiguous",
+      "rank": 3,
+      "weight_shape": [
+        256,
+        512
+      ]
+    },
+    {
+      "activation_shape": [
+        2,
+        64,
+        512
+      ],
+      "api": "Linear4bit.forward",
+      "bias": false,
+      "dtype": "bfloat16",
+      "expected_path": "PALLAS_CANDIDATE",
+      "expected_reason": "SUPPORTED",
+      "gradients": "NOT_RUN",
+      "id": "module-bf16-rank3",
+      "layout": "contiguous",
+      "rank": 3,
+      "weight_shape": [
+        256,
+        512
+      ]
+    },
+    {
+      "activation_shape": [
+        128,
+        512
+      ],
+      "api": "bnb.matmul_4bit(out=)",
+      "bias": false,
+      "dtype": "float32",
+      "expected_path": "PALLAS_CANDIDATE",
+      "expected_reason": "SUPPORTED",
+      "gradients": "NOT_RUN",
+      "id": "public-out-fp32",
+      "layout": "contiguous",
+      "rank": 2,
+      "weight_shape": [
+        256,
+        512
+      ]
+    },
+    {
+      "activation_shape": [
+        128,
+        512
+      ],
+      "api": "torch.func.functionalize(original bnb.matmul_4bit)",
+      "bias": false,
+      "dtype": "float32",
+      "expected_path": "PALLAS_CANDIDATE",
+      "expected_reason": "SUPPORTED",
+      "gradients": "NOT_RUN",
+      "id": "public-functionalized-fp32",
+      "layout": "contiguous",
+      "rank": 2,
+      "weight_shape": [
+        256,
+        512
+      ]
+    },
+    {
+      "activation_shape": [
+        128,
+        512
+      ],
+      "api": "Linear4bit.forward",
+      "bias": true,
+      "dtype": "float32",
+      "expected_path": "SAME_DEVICE_REFERENCE",
+      "expected_reason": "BIAS_REFERENCE",
+      "gradients": "dX+db",
+      "id": "module-bias-rank2",
+      "layout": "contiguous",
+      "rank": 2,
+      "weight_shape": [
+        256,
+        512
+      ]
+    },
+    {
+      "activation_shape": [
+        2,
+        64,
+        512
+      ],
+      "api": "Linear4bit.forward",
+      "bias": true,
+      "dtype": "float32",
+      "expected_path": "SAME_DEVICE_REFERENCE",
+      "expected_reason": "BIAS_REFERENCE",
+      "gradients": "dX+db",
+      "id": "module-bias-rank3",
+      "layout": "contiguous",
+      "rank": 3,
+      "weight_shape": [
+        256,
+        512
+      ]
+    },
+    {
+      "activation_shape": [
+        129,
+        512
+      ],
+      "api": "bnb.matmul_4bit",
+      "bias": false,
+      "dtype": "float32",
+      "expected_path": "SAME_DEVICE_REFERENCE",
+      "expected_reason": "UNSUPPORTED_TILE_REFERENCE",
+      "gradients": "NOT_RUN",
+      "id": "public-tail-fp32",
+      "layout": "contiguous",
+      "rank": 2,
+      "weight_shape": [
+        256,
+        512
+      ]
+    },
+    {
+      "activation_shape": [
+        128,
+        512
+      ],
+      "api": "bnb.matmul_4bit",
+      "bias": false,
+      "dtype": "float32",
+      "expected_path": "SAME_DEVICE_REFERENCE",
+      "expected_reason": "NONCONTIGUOUS_ACTIVATION_REFERENCE",
+      "gradients": "NOT_RUN",
+      "id": "public-noncontiguous-fp32",
+      "layout": "transpose-copy-transpose",
+      "rank": 2,
+      "weight_shape": [
+        256,
+        512
+      ]
+    }
+  ],
+  "first_error_policy": "RETAIN_ERROR_THEN_NOT_RUN_SHARED_XLA_STATE",
+  "format": "bnb-tpu.public-pallas-protocol.v1",
+  "milestone_status": {
+    "m4": "NOT_QUALIFIED",
+    "m6_memory": "NOT_QUALIFIED",
+    "m7": "NOT_QUALIFIED"
+  },
+  "native_acceptance_sha256": "c64fca47f57374fab691d9870005cf614fc6eebbc8a02706ed70781f9dd1042a",
+  "native_case_count": 11,
+  "native_generation": "mosaic-serde7-gather-bf16-fp32-v1",
+  "profile_sha256": "ad53f6416bdabf6440f08b313963c947a468cd39afd413bfe41bb381c4a7a166",
+  "recipes": {
+    "activation": "((arange(M*K)%31)-15)/32, cast to case dtype",
+    "bias": "((arange(N)%17)-8)/32 FP32",
+    "codes": "(arange(N*K)*7)%16; high nibble first",
+    "dy": "((arange(M*N)%23)-11)/32 FP32",
+    "scales": "(arange(N*K/64)%17)/8 FP32",
+    "tail_rows": 129
+  },
+  "reference_case_count": 4,
+  "runtime": {
+    "jax": "0.7.1",
+    "jaxlib": "0.7.1",
+    "libtpu": "0.0.21",
+    "machine": "x86_64",
+    "platform": "Linux",
+    "precision": "highest",
+    "python": "3.12.14",
+    "torch": "2.9.0+cpu",
+    "torch_xla": "2.9.0"
+  },
+  "scientific_variant": "public-pallas-device-mosaic7-gather-bf16-fp32-v1",
+  "source_variant": "pallas-forward-mosaic7-gather-bf16-fp32-v1",
+  "status": "NOT_RUN",
+  "tolerances": {
+    "bf16_forward_unit_scale": {
+      "atol": 0.02,
+      "nrmse_max": 0.02,
+      "rtol": 0.02
+    },
+    "bf16_training": null,
+    "fp32_decode": {
+      "atol": 1e-06,
+      "rtol": 1e-06
+    },
+    "fp32_forward_gradient": {
+      "atol": 1e-05,
+      "rtol": 0.0001
+    },
+    "fp32_training": {
+      "atol": 1e-05,
+      "calibration_required": false,
+      "rtol": 0.0001
+    },
+    "unpack": {
+      "exact": true
+    }
+  }
+}

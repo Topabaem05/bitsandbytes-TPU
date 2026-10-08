@@ -1,0 +1,11 @@
+HloModule jit__lambda, entry_computation_layout={(f32[128,256]{1,0}, f32[256,512]{1,0})->f32[128,512]{1,0}}
+
+ENTRY main.7 {
+  dy.1 = f32[128,256]{1,0} parameter(0)
+  w.2 = f32[256,512]{1,0} parameter(1)
+  dot_general.5 = f32[128,512]{1,0} dot(dy.1, w.2), lhs_contracting_dims={1}, rhs_contracting_dims={0}
+  constant.3 = f32[] constant(2)
+  mul.4 = f32[128,512]{1,0} broadcast(constant.3), dimensions={}
+  ROOT mul.6 = f32[128,512]{1,0} multiply(dot_general.5, mul.4)
+}
+

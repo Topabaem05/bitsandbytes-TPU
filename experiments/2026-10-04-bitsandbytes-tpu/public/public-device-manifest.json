@@ -1,0 +1,97 @@
+{
+  "format": "bnb-tpu.public-device-source-manifest.v1",
+  "native_acceptance": {
+    "acceptance_revision": "eea812bcfaf1c333ff422c2ae09850c5ca8769b0",
+    "accepted_result_sha256": "c64fca47f57374fab691d9870005cf614fc6eebbc8a02706ed70781f9dd1042a",
+    "accepted_science_result_sha256": "fd15cb724a398b9079b0b97c19f66bd858fe3f7027e9ae9e1a0ff8983eb1a291",
+    "native_adoption_revision": "a084a4d578362f9733453595ab208385cf70afba",
+    "status": "REQUIRED_ROOT_ACCEPTED_BOUNDED_NATIVE_RECORDS"
+  },
+  "package_admission_sha256": "e467e9d711b61140bf5be91f7ecf1da518986683a2bb530b3341194dd28fa518",
+  "protocol_sha256": "dc22c7a3891786947d1127dc45e6d82fcd993f6b6a8d64ba804ee5d835a915c6",
+  "scientific_variant": "public-pallas-device-mosaic7-gather-bf16-fp32-v1",
+  "source_files": {
+    "contract.py": {
+      "bytes": 11692,
+      "sha256": "d8bfbbab507a2e867ac32c134b5f9752a4e017373e81967b93677de6883ecac7"
+    },
+    "helpers/conversion_recovery.py": {
+      "bytes": 3698,
+      "sha256": "6a6ce33279a48ed22f525c04d1e995066e7b39e2516233288c673463b8ec63ff"
+    },
+    "helpers/graph_binding.py": {
+      "bytes": 4207,
+      "sha256": "e269e00acc77060db8325c8e1a3ee134d1996a8ef3b8c7bb64e783279a37ab26"
+    },
+    "helpers/mosaic_audit.py": {
+      "bytes": 7067,
+      "sha256": "baf3afd93f5fd7d069cd863699ba2aeefb47de72b23c1659a3e50eb7e86357bc"
+    },
+    "helpers/mosaic_compatibility.py": {
+      "bytes": 4015,
+      "sha256": "cce7a54521b3ccb51a35b4e26332c52b6e0e2dfbcb44db5c2cd290d016120542"
+    },
+    "helpers/probe-inputs.json": {
+      "bytes": 132064,
+      "sha256": "d0c9cdf6a82449a56923499698f19bfd3cc8d13c042f1f5ad2bdf587701f5e54"
+    },
+    "helpers/probe-profile.json": {
+      "bytes": 3695,
+      "sha256": "ad53f6416bdabf6440f08b313963c947a468cd39afd413bfe41bb381c4a7a166"
+    },
+    "helpers/probe_backend.py": {
+      "bytes": 24512,
+      "sha256": "e8743e33e6a0454d5d05b77075d47a5c9f983cf32f3956c38f2b544f86f5ef6d"
+    },
+    "helpers/probe_precision.py": {
+      "bytes": 35743,
+      "sha256": "e0534955507e5f91e67ecddfffc738a367ad752e69a4eea7ae8052c6d76a8852"
+    },
+    "helpers/proto_contract.py": {
+      "bytes": 11007,
+      "sha256": "4341ecdaa273f449f42e6ffadad345c4abe7259d6a666067918528a70fc6aa8a"
+    },
+    "helpers/recorder.py": {
+      "bytes": 5122,
+      "sha256": "f70c5fcb3f9cb325af03258e1b27d97d3a66934d4c34f1a4a6997af1f80fe79a"
+    },
+    "helpers/verifier.py": {
+      "bytes": 15447,
+      "sha256": "4c0e60e602f84c6d54bec02d08f71f61c5171e68e485dde0d6ef2cb9673a8bb3"
+    },
+    "oracle_math.py": {
+      "bytes": 3696,
+      "sha256": "ddc0959a6963ede7dfa30a324fc7eba449cb6c287be6a4cd6e59dcb40fa8c217"
+    },
+    "package-admission.json": {
+      "bytes": 16205,
+      "sha256": "e467e9d711b61140bf5be91f7ecf1da518986683a2bb530b3341194dd28fa518"
+    },
+    "prepare_public_oracle.py": {
+      "bytes": 3680,
+      "sha256": "e831b77dd15b63c14d29cb3108b839138a18d645b8d73055e02449dff31a9261"
+    },
+    "probe_public.py": {
+      "bytes": 16402,
+      "sha256": "70dd9623942ba51f37321324a3c8fad83b79997c230805bef98b7db50fc205e0"
+    },
+    "public-protocol.json": {
+      "bytes": 8017,
+      "sha256": "dc22c7a3891786947d1127dc45e6d82fcd993f6b6a8d64ba804ee5d835a915c6"
+    },
+    "public_graph.py": {
+      "bytes": 11651,
+      "sha256": "c9b43070fbcbb8ea078c4cb5239caa89002a3e9c6b24121af1bc35a55b2d8d0d"
+    },
+    "verify_public.py": {
+      "bytes": 13286,
+      "sha256": "9cd70c6b4d439f85515d16bf5bdaaa483c04e2ec22634192964b04c884d28e5e"
+    },
+    "verify_public_oracle.py": {
+      "bytes": 4152,
+      "sha256": "01a033e0a2ce2dafb712f5d8531ff0188f9d98d3e05b38736fa6f12e8d12a5f8"
+    }
+  },
+  "source_variant": "pallas-forward-mosaic7-gather-bf16-fp32-v1",
+  "status": "UNADOPTED"
+}

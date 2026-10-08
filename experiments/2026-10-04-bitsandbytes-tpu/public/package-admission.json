@@ -1,0 +1,262 @@
+{
+  "entry_point": {
+    "group": "bitsandbytes.backends",
+    "name": "tpu_pallas_forward",
+    "value": "bitsandbytes_tpu_pallas:register"
+  },
+  "fixed_files": {
+    "experiments/2026-10-04-bitsandbytes-tpu/native/adapter.py": {
+      "bytes": 5992,
+      "sha256": "08869e04047837972e7bba9a35a0951206974f4b506debad2bba08af7f1001a4"
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/native/device_diagnostic.py": {
+      "bytes": 16142,
+      "sha256": "93f09e39e2db21ac4a3954a691bdf75caecd140484e12496fbf8f5eca5b62e20"
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/native/kernel.py": {
+      "bytes": 4871,
+      "sha256": "68b872c4695b630ed83f5e02614f53bb01508bd4e317dd0d09d62ab0b3034294"
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/native/manifest.json": {
+      "bytes": 4298,
+      "sha256": "30b820b90a4404a89da6e6c7b6fc91dbec47afbe06ae322eb5835b9eb0e70901"
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/native/protocol.json": {
+      "bytes": 2123,
+      "sha256": "048d4a4a745ba953cfc505df2ca41047e5e39cdbda492992e6e42b1423b6383c"
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/probe-profile.json": {
+      "bytes": 3695,
+      "sha256": "ad53f6416bdabf6440f08b313963c947a468cd39afd413bfe41bb381c4a7a166"
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/results/native-bf16-acceptance.json": {
+      "bytes": 1088,
+      "sha256": "c64fca47f57374fab691d9870005cf614fc6eebbc8a02706ed70781f9dd1042a"
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/results/native-bf16-colab.json": {
+      "bytes": 10371,
+      "sha256": "fd15cb724a398b9079b0b97c19f66bd858fe3f7027e9ae9e1a0ff8983eb1a291"
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/runtime/requirements.lock.json": {
+      "bytes": 39667,
+      "sha256": "323371ff61c5fbcc4f79fd6a358cf2ba17cb72b907382a5ceaac07f91dc66ed6"
+    }
+  },
+  "format": "bnb-tpu.public-pallas-admission.v1",
+  "import_name": "bitsandbytes_tpu_pallas",
+  "limitations": [
+    "No device execution in this preparation.",
+    "M4 nested is not admitted.",
+    "No source admission from prior variant is reusable."
+  ],
+  "m2_dependency": {
+    "accepted_result_sha256": "83119421cb7b7b08653079b55c57f4762b1fedb6c6d46df67279322391cdc540",
+    "status": "REQUIRED_REVIEWED_M2_NON_NESTED_RECORDS"
+  },
+  "native_device_dependency": {
+    "acceptance_revision": "eea812bcfaf1c333ff422c2ae09850c5ca8769b0",
+    "accepted_result_sha256": "c64fca47f57374fab691d9870005cf614fc6eebbc8a02706ed70781f9dd1042a",
+    "accepted_science_result_sha256": "fd15cb724a398b9079b0b97c19f66bd858fe3f7027e9ae9e1a0ff8983eb1a291",
+    "native_adoption_revision": "a084a4d578362f9733453595ab208385cf70afba",
+    "status": "REQUIRED_ROOT_ACCEPTED_BOUNDED_NATIVE_RECORDS"
+  },
+  "native_generation": "mosaic-serde7-gather-bf16-fp32-v1",
+  "nested_compatibility": "NOT_QUALIFIED",
+  "package_name": "bitsandbytes-tpu-pallas-forward",
+  "patch_manifest_sha256": "e745fbf21aac10ed9118167a131d6505bf6dbe03e1fab0a669c663b26c5a5732",
+  "plugin_files": {
+    "LICENSE": {
+      "bytes": 11357,
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "README.md": {
+      "bytes": 989,
+      "sha256": "72be4b7822cb03e3bc61e2005299a01956d940b5bf00eeb1b8de54e59c3f410a"
+    },
+    "THIRD_PARTY_NOTICES.md": {
+      "bytes": 2319,
+      "sha256": "f2095a16719cdb849a624357e17d877f4b650e75a93b845b5a227ee0d9d35bc6"
+    },
+    "pyproject.toml": {
+      "bytes": 769,
+      "sha256": "7b2a5948816bce21879a96c38449562ae0b3880b60b9328e36aff58a58fc42b3"
+    },
+    "src/bitsandbytes_tpu_pallas/__init__.py": {
+      "bytes": 277,
+      "sha256": "c96b0f426edcb4f95cd05c63243fd89c52f016ce7eaf40fbca11cbd300d62309"
+    },
+    "src/bitsandbytes_tpu_pallas/adapter.py": {
+      "bytes": 5992,
+      "sha256": "08869e04047837972e7bba9a35a0951206974f4b506debad2bba08af7f1001a4"
+    },
+    "src/bitsandbytes_tpu_pallas/compatibility.py": {
+      "bytes": 9125,
+      "sha256": "13e0a6c941514c1fb709a289a51cbd22375159122ab2e2953f74c31b803e3f8c"
+    },
+    "src/bitsandbytes_tpu_pallas/frontend.py": {
+      "bytes": 3383,
+      "sha256": "8368da51ce737eb0a0395cc2d6f1098eff0281d0f6082e702200bff7bbef7aad"
+    },
+    "src/bitsandbytes_tpu_pallas/functionalization.py": {
+      "bytes": 2822,
+      "sha256": "e04656503739b24b7251fa1a2cdc028bded34e77b0d8a1c0982fc07bbfbf626d"
+    },
+    "src/bitsandbytes_tpu_pallas/mosaic_compatibility.py": {
+      "bytes": 4015,
+      "sha256": "cce7a54521b3ccb51a35b4e26332c52b6e0e2dfbcb44db5c2cd290d016120542"
+    },
+    "src/bitsandbytes_tpu_pallas/native_factory.py": {
+      "bytes": 2071,
+      "sha256": "4607fdba289a6d368d7dcaa4673d323c8b2c850841aefc2f969572af36314628"
+    },
+    "src/bitsandbytes_tpu_pallas/pallas_kernel.py": {
+      "bytes": 4871,
+      "sha256": "68b872c4695b630ed83f5e02614f53bb01508bd4e317dd0d09d62ab0b3034294"
+    },
+    "src/bitsandbytes_tpu_pallas/reference.py": {
+      "bytes": 4625,
+      "sha256": "0ad17773f18d8f69715af52644c0f94617d93228bc1927287058a6211ed6bb9e"
+    },
+    "src/bitsandbytes_tpu_pallas/registration.py": {
+      "bytes": 2538,
+      "sha256": "afcade4cb093cb1cff31f3edfda625c251b2ff7bf31c20602659a1afb4a7f174"
+    },
+    "src/bitsandbytes_tpu_pallas/source_admission.py": {
+      "bytes": 3876,
+      "sha256": "c9763d3dc351c1c6514ce2ffbae8f0f840a9579775da71dfa496f063a2b50d02"
+    },
+    "src/bitsandbytes_tpu_pallas/source_manifest.json": {
+      "bytes": 1183,
+      "sha256": "aae8f0d858a6f9a8848f0b6eb9591b3b0ce794c4d42688568f42f21ca75c40be"
+    }
+  },
+  "plugin_manifest_sha256": "aae8f0d858a6f9a8848f0b6eb9591b3b0ce794c4d42688568f42f21ca75c40be",
+  "plugin_python_files": {
+    "__init__.py": "c96b0f426edcb4f95cd05c63243fd89c52f016ce7eaf40fbca11cbd300d62309",
+    "adapter.py": "08869e04047837972e7bba9a35a0951206974f4b506debad2bba08af7f1001a4",
+    "compatibility.py": "13e0a6c941514c1fb709a289a51cbd22375159122ab2e2953f74c31b803e3f8c",
+    "frontend.py": "8368da51ce737eb0a0395cc2d6f1098eff0281d0f6082e702200bff7bbef7aad",
+    "functionalization.py": "e04656503739b24b7251fa1a2cdc028bded34e77b0d8a1c0982fc07bbfbf626d",
+    "mosaic_compatibility.py": "cce7a54521b3ccb51a35b4e26332c52b6e0e2dfbcb44db5c2cd290d016120542",
+    "native_factory.py": "4607fdba289a6d368d7dcaa4673d323c8b2c850841aefc2f969572af36314628",
+    "pallas_kernel.py": "68b872c4695b630ed83f5e02614f53bb01508bd4e317dd0d09d62ab0b3034294",
+    "reference.py": "0ad17773f18d8f69715af52644c0f94617d93228bc1927287058a6211ed6bb9e",
+    "registration.py": "afcade4cb093cb1cff31f3edfda625c251b2ff7bf31c20602659a1afb4a7f174",
+    "source_admission.py": "c9763d3dc351c1c6514ce2ffbae8f0f840a9579775da71dfa496f063a2b50d02"
+  },
+  "public_protocol_sha256": "dc22c7a3891786947d1127dc45e6d82fcd993f6b6a8d64ba804ee5d835a915c6",
+  "qualification": "NOT_QUALIFIED",
+  "runtime": {
+    "jax": "0.7.1",
+    "jaxlib": "0.7.1",
+    "libtpu": "0.0.21",
+    "machine": "x86_64",
+    "platform": "Linux",
+    "precision": "highest",
+    "python": "3.12.14",
+    "torch": "2.9.0+cpu",
+    "torch_xla": "2.9.0"
+  },
+  "source_variant": "pallas-forward-mosaic7-gather-bf16-fp32-v1",
+  "status": "UNADOPTED",
+  "upstream_package_files": {
+    "__init__.py": "026aeaf979736dd15f80b145880dc4de03ebbe131b47b9f066645da1772255b8",
+    "__main__.py": "037880f501fcc9f9feeb4b8deb0ffb5948ae44833befbad9fe97ff1ec66db1ee",
+    "_ops.py": "e6d9ed4c268e52044a8ff5f895f94ca88bf02d156b25c4616141cfa9daaf924c",
+    "autograd/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "autograd/_functions.py": "77ca54c87b69ad470ac73e5d7dde94948f20de9de8b8764957728bc29831f37f",
+    "backends/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "backends/cpu/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "backends/cpu/ops.py": "d4bfca8b4ce6a6a368aeccdd1516f98f505bf374f6e66d64fb22e6229eb1ff67",
+    "backends/cuda/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "backends/cuda/ops.py": "d58fa0a0c053d5a0ecd1e93d847531d5e0226a0bd8048472ee0ca632464cc20f",
+    "backends/default/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "backends/default/ops.py": "e39afd16dca6e6f34a14305ade0ba4acbb49dc2c7a9baf937341d7e33b682819",
+    "backends/hpu/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "backends/hpu/ops.py": "1a017363ed6b3a0aa61fb71c5e22bf69ea3dc8a4e2b6f8fbf966cea86806f6e3",
+    "backends/mps/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "backends/mps/ops.py": "d93a6ceb2d03359d061f61abd70d152ffed4af26bf2693d7c6d47f8470bd0770",
+    "backends/triton/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "backends/triton/kernels_4bit.py": "6e380698b4b40056fa19e457d71fea113c32a9f3ce4a83a6d93ea33cea18ef84",
+    "backends/triton/kernels_8bit_quant.py": "92774d59c8f4ffe143b52997529c9ac5fc4f7c73831aafd6cf9d425de9a3adfc",
+    "backends/triton/kernels_optim.py": "4e0458ad0c4c1bd931dccb772d92c1dd53dbff9a2da5ed9991550197f20771b1",
+    "backends/triton/ops.py": "723cfe3134cc8d598477e238a84bb697de43e3956f648e1faa8e91a1a99e2ab8",
+    "backends/utils.py": "dc564f2fbf13dba81388a23d4c87167dd54da04af8f17b0db52685fe42b11c84",
+    "backends/xpu/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "backends/xpu/ops.py": "0ffcde964e1bf23c4b4ae9f39b73ba8a50b90a2d9a02909446f1467074432596",
+    "cextension.py": "a7ce4d7bcb504bf7d268ce96658dbe832804b6f6ed999f61eaf2beeb9385c9bd",
+    "consts.py": "c5f0da75001ac7e99ac6a907ad535b67a5084c9a12d1781c51fa299a32e08a53",
+    "cuda_specs.py": "6a4153476671439085a452de83940a15b54e678c73dd449ac78dd1c5accfdb69",
+    "diagnostics/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "diagnostics/cuda.py": "3b7f74ecfc45ad6af980ddf89c31e063b75609a61c3f63f90f7e4360895aa463",
+    "diagnostics/main.py": "d3ca45b8a8d0ae5b735728fb177721df548f25c23a3c6892c9542db341ad4c9a",
+    "diagnostics/utils.py": "102888dbbf6387bf3defb45664520e9264c91b88353bf62240bc0fe2249aed3c",
+    "functional.py": "520a9e9d3afba11124734df60e48a27e38b6389305df888834405b435e285817",
+    "nn/__init__.py": "69338d130d2b0abe714edf71c365feb1ba5727170583e317364b05c57b602ffe",
+    "nn/modules.py": "690987fda1219e91b8b72930402c424ea1875b66b853a9b5472e00de18314e4a",
+    "nn/parametrize.py": "b527362228f8ab52767af19d0fb9d517c358f5d55d691ebbf24296d557bb6c03",
+    "optim/__init__.py": "d11a8cd54ea3c14f0509e78f0dc878404bb601911856bb4323cf651767752140",
+    "optim/adagrad.py": "bcfb69d0cf68a6fd88e3645d4b079042225af6abb875d6206f329a806225f96e",
+    "optim/adam.py": "5086e35454e6419539133a55e3ed23cc09f86e56ce627450af768f4a19517557",
+    "optim/adamw.py": "da6b56da8475cf2eb5591e68114501d159b4e40f9367c463a3324dc202aa263b",
+    "optim/ademamix.py": "05201c910272c146b75035a2ced263a8de63a062f3534eabf24012acd4f63cca",
+    "optim/lamb.py": "6a639a61e348c14ed1e817a79e3f8e4bb40d09a9071c4adef155cce49be730b3",
+    "optim/lars.py": "a37dacd45522138f4646973e59d4e646efc5781efddb6641321dd4341c5c6968",
+    "optim/lion.py": "394bb56b2b0833ce4d347345bbe2c34c22c8e87a2a3cd329f9b2d5819006b479",
+    "optim/optimizer.py": "2e07a06ea0736e4e6ce7bb821207264aa5c2e7044718c88021b7bae3a15ddf2e",
+    "optim/rmsprop.py": "dac1d263585f4ebf37699bc198811fce84e228447c2d973f043926c891b794fb",
+    "optim/sgd.py": "8158db8e362b9b5f7b4623adeaf2e85da33169654ae837bdd40a7f28be9616d8",
+    "py.typed": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "utils.py": "1b5a196e0200b74ee6f7eed2a4b051b488ec8a923c902a6d75f4d62b3f7a83d2"
+  },
+  "upstream_python_files": {
+    "__init__.py": "026aeaf979736dd15f80b145880dc4de03ebbe131b47b9f066645da1772255b8",
+    "__main__.py": "037880f501fcc9f9feeb4b8deb0ffb5948ae44833befbad9fe97ff1ec66db1ee",
+    "_ops.py": "e6d9ed4c268e52044a8ff5f895f94ca88bf02d156b25c4616141cfa9daaf924c",
+    "autograd/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "autograd/_functions.py": "77ca54c87b69ad470ac73e5d7dde94948f20de9de8b8764957728bc29831f37f",
+    "backends/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "backends/cpu/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "backends/cpu/ops.py": "d4bfca8b4ce6a6a368aeccdd1516f98f505bf374f6e66d64fb22e6229eb1ff67",
+    "backends/cuda/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "backends/cuda/ops.py": "d58fa0a0c053d5a0ecd1e93d847531d5e0226a0bd8048472ee0ca632464cc20f",
+    "backends/default/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "backends/default/ops.py": "e39afd16dca6e6f34a14305ade0ba4acbb49dc2c7a9baf937341d7e33b682819",
+    "backends/hpu/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "backends/hpu/ops.py": "1a017363ed6b3a0aa61fb71c5e22bf69ea3dc8a4e2b6f8fbf966cea86806f6e3",
+    "backends/mps/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "backends/mps/ops.py": "d93a6ceb2d03359d061f61abd70d152ffed4af26bf2693d7c6d47f8470bd0770",
+    "backends/triton/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "backends/triton/kernels_4bit.py": "6e380698b4b40056fa19e457d71fea113c32a9f3ce4a83a6d93ea33cea18ef84",
+    "backends/triton/kernels_8bit_quant.py": "92774d59c8f4ffe143b52997529c9ac5fc4f7c73831aafd6cf9d425de9a3adfc",
+    "backends/triton/kernels_optim.py": "4e0458ad0c4c1bd931dccb772d92c1dd53dbff9a2da5ed9991550197f20771b1",
+    "backends/triton/ops.py": "723cfe3134cc8d598477e238a84bb697de43e3956f648e1faa8e91a1a99e2ab8",
+    "backends/utils.py": "dc564f2fbf13dba81388a23d4c87167dd54da04af8f17b0db52685fe42b11c84",
+    "backends/xpu/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "backends/xpu/ops.py": "0ffcde964e1bf23c4b4ae9f39b73ba8a50b90a2d9a02909446f1467074432596",
+    "cextension.py": "a7ce4d7bcb504bf7d268ce96658dbe832804b6f6ed999f61eaf2beeb9385c9bd",
+    "consts.py": "c5f0da75001ac7e99ac6a907ad535b67a5084c9a12d1781c51fa299a32e08a53",
+    "cuda_specs.py": "6a4153476671439085a452de83940a15b54e678c73dd449ac78dd1c5accfdb69",
+    "diagnostics/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "diagnostics/cuda.py": "3b7f74ecfc45ad6af980ddf89c31e063b75609a61c3f63f90f7e4360895aa463",
+    "diagnostics/main.py": "d3ca45b8a8d0ae5b735728fb177721df548f25c23a3c6892c9542db341ad4c9a",
+    "diagnostics/utils.py": "102888dbbf6387bf3defb45664520e9264c91b88353bf62240bc0fe2249aed3c",
+    "functional.py": "520a9e9d3afba11124734df60e48a27e38b6389305df888834405b435e285817",
+    "nn/__init__.py": "69338d130d2b0abe714edf71c365feb1ba5727170583e317364b05c57b602ffe",
+    "nn/modules.py": "690987fda1219e91b8b72930402c424ea1875b66b853a9b5472e00de18314e4a",
+    "nn/parametrize.py": "b527362228f8ab52767af19d0fb9d517c358f5d55d691ebbf24296d557bb6c03",
+    "optim/__init__.py": "d11a8cd54ea3c14f0509e78f0dc878404bb601911856bb4323cf651767752140",
+    "optim/adagrad.py": "bcfb69d0cf68a6fd88e3645d4b079042225af6abb875d6206f329a806225f96e",
+    "optim/adam.py": "5086e35454e6419539133a55e3ed23cc09f86e56ce627450af768f4a19517557",
+    "optim/adamw.py": "da6b56da8475cf2eb5591e68114501d159b4e40f9367c463a3324dc202aa263b",
+    "optim/ademamix.py": "05201c910272c146b75035a2ced263a8de63a062f3534eabf24012acd4f63cca",
+    "optim/lamb.py": "6a639a61e348c14ed1e817a79e3f8e4bb40d09a9071c4adef155cce49be730b3",
+    "optim/lars.py": "a37dacd45522138f4646973e59d4e646efc5781efddb6641321dd4341c5c6968",
+    "optim/lion.py": "394bb56b2b0833ce4d347345bbe2c34c22c8e87a2a3cd329f9b2d5819006b479",
+    "optim/optimizer.py": "2e07a06ea0736e4e6ce7bb821207264aa5c2e7044718c88021b7bae3a15ddf2e",
+    "optim/rmsprop.py": "dac1d263585f4ebf37699bc198811fce84e228447c2d973f043926c891b794fb",
+    "optim/sgd.py": "8158db8e362b9b5f7b4623adeaf2e85da33169654ae837bdd40a7f28be9616d8",
+    "utils.py": "1b5a196e0200b74ee6f7eed2a4b051b488ec8a923c902a6d75f4d62b3f7a83d2"
+  },
+  "upstream_revision": "833649043474794b8fe7a4136e0c40faf077b2e0"
+}

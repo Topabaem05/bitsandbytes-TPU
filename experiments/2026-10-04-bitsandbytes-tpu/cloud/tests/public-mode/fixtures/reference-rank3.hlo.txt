@@ -1,0 +1,15 @@
+HloModule jit__lambda, entry_computation_layout={(f32[2,64,512]{2,1,0}, f32[256,512]{1,0}, f32[256]{0})->f32[2,64,256]{2,1,0}}
+
+ENTRY main.11 {
+  a.1 = f32[2,64,512]{2,1,0} parameter(0)
+  w.2 = f32[256,512]{1,0} parameter(1)
+  transpose.4 = f32[512,256]{0,1} transpose(w.2), dimensions={1,0}
+  dot_general.5 = f32[2,64,256]{2,1,0} dot(a.1, transpose.4), lhs_contracting_dims={2}, rhs_contracting_dims={0}
+  b.3 = f32[256]{0} parameter(2)
+  broadcast_in_dim.6 = f32[1,1,256]{2,1,0} reshape(b.3)
+  add.7 = f32[1,1,256]{2,1,0} broadcast(broadcast_in_dim.6), dimensions={0,1,2}
+  add.8 = f32[256]{0} reshape(add.7)
+  add.9 = f32[2,64,256]{2,1,0} broadcast(add.8), dimensions={2}
+  ROOT add.10 = f32[2,64,256]{2,1,0} add(dot_general.5, add.9)
+}
+

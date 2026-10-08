@@ -1,0 +1,122 @@
+{
+  "base_revision": "ec082eafc18951c5b2d043c1b7009efb4b7dc6ad",
+  "claims": {
+    "M6": "NOT_QUALIFIED",
+    "accepted_milestones": 3,
+    "actual_public_device": "NOT_RUN",
+    "allocator_peak": "UNKNOWN",
+    "bf16_gradients": "OUTSIDE_SCOPE",
+    "fresh_qualified_linux_cpu_oracle": "NOT_RUN",
+    "nested_quantization": "OUTSIDE_SCOPE",
+    "performance": "NOT_MEASURED",
+    "required_milestones": 8,
+    "selected_executable_memory": "UNKNOWN"
+  },
+  "documentation_inspection": {
+    "full_standard_dictionary": "UNAVAILABLE",
+    "independent_ASD_STE100_certification": false,
+    "links": "CHECKED",
+    "sentence_length": "CHECKED",
+    "technical_terms": "REVIEWED"
+  },
+  "experiment": "m6-public-pallas-15",
+  "format": "R6_PUBLIC_CLOUD_PREPARATION_RESULT_V1",
+  "generation": "public-pallas-device-mosaic7-gather-bf16-fp32-v1",
+  "independent_root_validation": {
+    "after_adoption": {
+      "compiler": 16,
+      "native": 23,
+      "public": 79,
+      "total": 118
+    },
+    "before_adoption": {
+      "compiler": 16,
+      "native": 23,
+      "public": 79,
+      "total": 118
+    },
+    "canonical_process_groups": {
+      "all_closed": true,
+      "count": 29,
+      "independently_absent": true
+    },
+    "historical_fixture_reconstruction": {
+      "files": 147,
+      "revision": "0b9f79a5a94e9342817582b4fb786ec0c73fc104",
+      "status": "EXACT"
+    },
+    "private_review": {
+      "bytes": 8494,
+      "path": ".work/root-public-cloud-final-review/review.json",
+      "sha256": "a3da780f42c37d9288c8a70033d0069c152c51b1b20217f72327c6144fee267d"
+    },
+    "three_canonical_packets_match_isolated_builds": true
+  },
+  "packets": {
+    "compiler": {
+      "m6": "NOT_QUALIFIED",
+      "manifest_sha256": "7f9c5a1a715990d0a255e925bdae8fc1ef80abf9609440a3e8f583c64677b193",
+      "members": 90,
+      "payload_bytes": 1107869,
+      "payload_sha256": "496cb2d034f87e88a15e7ea69d8b6bc9f3fe24a8bcd3e66ed070babe1daf9dfd",
+      "scope": "PRIVATE_NO_DISPATCH"
+    },
+    "native": {
+      "m6": "NOT_QUALIFIED",
+      "manifest_sha256": "caf1891034dd28c8b2e2cb2eea7b881e454490ac861bf8901057a1c94d2b8eb6",
+      "members": 81,
+      "payload_bytes": 1084006,
+      "payload_sha256": "699f2753844238e3c1c5a927503f5a7012e4bbc124a2db7356067234da68603e",
+      "scope": "PRIVATE_NO_DISPATCH"
+    },
+    "public": {
+      "manifest_sha256": "58ac0f17266484e420320e4c6bc76fc27d13c73d1b0fad90758d486f0c9c327b",
+      "members": 122,
+      "payload_bytes": 1207176,
+      "payload_sha256": "4220f8b34d2775c1b81369c9e0302ae5cd999af0cf171166f80ac03d4b9b45dd",
+      "scope": "PRIVATE_NO_DISPATCH_BEFORE_ROOT_ADOPTION"
+    }
+  },
+  "result_archive_limits": {
+    "cpu_archive_bytes": 67108864,
+    "live_disk_quota": false,
+    "other_modes_uncompressed_bytes": 104857600,
+    "public_members_including_receipt": 2000,
+    "public_uncompressed_bytes": 268435456
+  },
+  "retained_failures": [
+    "The original adoption map included four generated pytest cache entries. The corrected metadata excludes them without source changes.",
+    "The first integrated boundary assertion expected an unused status field. The public path records INVALID_RECORDS explicitly.",
+    "The first compiler regression wrapper omitted historical fixture materialization and could not import compiler_contract.",
+    "The root isolated mode-builder stage initially omitted build-requirements.lock.json. Exact canonical dependency staging corrected that root error.",
+    "The preserved compiler generation failed actual libtpu flag parsing before any device case. This public mode does not request compiler flags."
+  ],
+  "reviewed_on": "2026-10-09",
+  "runtime_policy": {
+    "compiler_dump_flags": false,
+    "host_mosaic_audit": "EXPLICIT_JAX_0_7_1_CPU_REQUIRED",
+    "qualified_cpu": "FRESH_LINUX_X86_64_PYTHON_3_12_14_TORCH_2_9_0_REQUIRED",
+    "runtime_wheels": "EXACT_UNCHANGED_LOCK_AND_LOCAL_CACHE",
+    "unrelated_host_jax": "REJECTED"
+  },
+  "scope": "PUBLIC15_NON_NESTED_FP32_GRAD_BF16_FORWARD",
+  "source": {
+    "adopted_files": 90,
+    "adoption_map": {
+      "bytes": 36343,
+      "path": "experiments/2026-10-04-bitsandbytes-tpu/results/public-cloud-preparation/adoption-map.json",
+      "sha256": "ce7e7006e41fb47e51ef43f86c50e5c8471100fc5929e4f40a736ed1caf68915"
+    },
+    "canonical_source_bytes": "EXACT",
+    "cloud_changes": 6,
+    "portable_controls_and_documents": 47,
+    "scientific_dispatch_files": 37,
+    "source_map": {
+      "bytes": 17356,
+      "path": "experiments/2026-10-04-bitsandbytes-tpu/results/public-cloud-preparation/source-map.json",
+      "sha256": "18da82fded90a7c0d380f4ecf7c4b8f5bf64f80c2988c712bfcc520be0929a92"
+    },
+    "unchanged_prerequisites": 19
+  },
+  "status": "ACCEPTED_PREPARATION_ONLY"
+}

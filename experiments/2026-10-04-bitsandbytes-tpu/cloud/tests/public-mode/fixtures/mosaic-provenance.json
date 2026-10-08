@@ -1,0 +1,28 @@
+{
+  "actual_TPU": "NOT_RUN",
+  "kernel_sha256": "68b872c4695b630ed83f5e02614f53bb01508bd4e317dd0d09d62ab0b3034294",
+  "metadata_sha256": "3975c8ef83daafcf63cbe39f845328ddc24690fb59839ed2837c7685096169eb",
+  "original_fixture_records_preserved_in": ".work/r6-public-gather-device-preparation",
+  "previous_fixture_metadata_sha256": "7b440d4e3eb0b6a1a72ac29dff6792c82a96fd82a4e3f7a52e4eee78f0f19a25",
+  "rows": [
+    {
+      "backend": "NOT_RUN",
+      "dtype": "float32",
+      "enclosing_public_graphs": "SYNTHETIC_PROTOCOL_FIXTURES",
+      "genuine_TPU_target_frontend": "CPU_CLIENT_ONLY",
+      "kernel_sha256": "68b872c4695b630ed83f5e02614f53bb01508bd4e317dd0d09d62ab0b3034294",
+      "payload_sha256": "c997d9c7defd15b8cc182cb82cecbcfca5b0b06775f2cbf05bcc5a71bea82b95",
+      "status": "PASS"
+    },
+    {
+      "backend": "NOT_RUN",
+      "dtype": "bfloat16",
+      "enclosing_public_graphs": "SYNTHETIC_PROTOCOL_FIXTURES",
+      "genuine_TPU_target_frontend": "CPU_CLIENT_ONLY",
+      "kernel_sha256": "68b872c4695b630ed83f5e02614f53bb01508bd4e317dd0d09d62ab0b3034294",
+      "payload_sha256": "0b8f5de6c157e95bdbb7c61b4b5484766b2a0d464f1f2c6ae3786e7d23bba697",
+      "status": "PASS"
+    }
+  ],
+  "scope": "GENUINE_JAX071_GATHER_BF16_FP32_CPU_FRONTEND_WITH_SYNTHETIC_PUBLIC_RECORDS"
+}

@@ -1,0 +1,17 @@
+HloModule jit__lambda, entry_computation_layout={(f32[128,256]{1,0})->f32[256]{0}}
+
+region_0.8 {
+  reduce_sum.5 = f32[] parameter(0)
+  reduce_sum.6 = f32[] parameter(1)
+  ROOT reduce_sum.7 = f32[] add(reduce_sum.5, reduce_sum.6)
+}
+
+ENTRY main.11 {
+  dy.1 = f32[128,256]{1,0} parameter(0)
+  constant.4 = f32[] constant(0)
+  reduce_sum.9 = f32[256]{0} reduce(dy.1, constant.4), dimensions={0}, to_apply=region_0.8
+  constant.2 = f32[] constant(2)
+  mul.3 = f32[256]{0} broadcast(constant.2), dimensions={}
+  ROOT mul.10 = f32[256]{0} multiply(reduce_sum.9, mul.3)
+}
+

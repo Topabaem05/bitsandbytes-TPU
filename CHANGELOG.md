@@ -1,5 +1,15 @@
 # Change log
 
+## 2026-10-09 — Public API cloud preparation
+
+- Add the 15-case public mode with a fresh qualified CPU gate.
+- Bind public archive limits and retain the existing native and compiler modes.
+- Exclude generated cache files from the corrected adoption maps.
+
+Validation: All 118 controls passed before and after adoption; all three canonical packets matched the isolated builds.
+Actual public TPU records remain required, and M6 remains unqualified.
+Refer to [the preparation record](docs/changes/r6-public-cloud-preparation.md).
+
 ## 2026-10-09 — Actual compiler flag rejection
 
 - Retain the unsupported flag error before native numerical execution.
