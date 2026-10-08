@@ -1,5 +1,18 @@
 # Change log
 
+## 2026-10-08 — Colab M2 acceptance
+
+- Accept all 42 fixed API cases and four public CPU-to-XLA transfer cases on Colab V6E1.
+- Record 196 independent numerical comparisons with no failed gate.
+- Record 18 passing source controls in the fixed Linux runtime.
+- Verify all 273 archive members and complete resource closure.
+- Set accepted milestones to two of eight and retain M3 as the next device requirement.
+- Remove trailing whitespace from one transport test line.
+
+Validation: The reviewer independently examined source, runtime, numerical arrays, archive bytes, and process closure records.
+The existing tolerances remain unchanged; Pallas and performance measurements have not executed.
+Refer to [the accepted Colab result](docs/changes/r2-transfer-colab.md).
+
 ## 2026-10-08 — Bounded allocation transport
 
 - Add an explicit transport for one V6E1 assignment POST with a 300-second read limit.

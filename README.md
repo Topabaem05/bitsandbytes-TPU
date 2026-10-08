@@ -4,23 +4,18 @@ A TPU backend for the upstream bitsandbytes API.
 
 ## Project status
 
-The initial package milestone is completed.
-The reviewer repeated 71 CPU and package tests.
-Accepted milestones: **1 of 8**.
+The initial package and actual TPU execution milestones are completed.
+Accepted milestones: **2 of 8**.
 The first target is NF4 quantization and `bitsandbytes.nn.Linear4bit` on a TPU.
-The latest Colab comparison passed its fixed FP32 gates with native precision `high` and `highest`.
-The `default` mode reproduced the earlier forward and input-gradient failures.
-The next correctness experiments will use `highest` before graph construction.
-The reviewed CPU-to-XLA transfer correction passed local controls and still requires device tests.
-Two Colab allocation requests ended with response timeouts before the transfer experiment could execute.
-BF16 forward controls passed; BF16 gradients remain untested.
-Four executed module routes passed reconstruction within the same process.
-This does not establish restoration in a new process.
-The full 42-case API test and milestones M2 and M3 remain unqualified.
-Refer to [the precision result](docs/changes/r1-precision-colab.md).
-Refer to [the allocation repeat](docs/changes/r2-colab-allocation-repeat.md) for the current execution blocker.
-The [web diagnostic](docs/changes/r2-web-allocation-diagnostic.md) then obtained and closed a TPU runtime.
-The [bounded allocation transport](docs/changes/r2-allocation-transport.md) passed local review for the next Colab experiment.
+The latest Colab V6E1 run passed all 42 API cases and four public CPU-to-XLA transfer cases.
+The reviewer independently compared 196 numerical gates and verified all 273 archive members.
+The runtime stopped with an empty server list and zero active usage.
+Refer to [the accepted M2 result](docs/changes/r2-transfer-colab.md).
+The experiment used native precision `highest` before graph construction.
+The earlier `default` precision failures remain in [the precision result](docs/changes/r1-precision-colab.md).
+BF16 forward gates passed; BF16 gradients remain untested.
+The next milestone requires saved state restoration in a new TPU process.
+M3 and later milestones remain unqualified.
 
 The [October 8 source inspection](docs/research/2026-10-08/README.md) covers each design area before further implementation.
 It contains current documentation, original papers, fixed source revisions, and explicit version limits.
@@ -29,6 +24,7 @@ The inspection did not change the runtime, code, or numerical tolerances.
 
 Earlier failure records remain available:
 
+- [Allocation timeouts](docs/changes/r2-colab-allocation-repeat.md), [web diagnostic](docs/changes/r2-web-allocation-diagnostic.md), and [transport correction](docs/changes/r2-allocation-transport.md).
 - [Device route comparison](docs/changes/task2-colab-routes.md).
 - [First Colab run](docs/changes/task2-colab-first.md).
 - [Functionalization repeat](docs/changes/task2-colab-functionalized.md).

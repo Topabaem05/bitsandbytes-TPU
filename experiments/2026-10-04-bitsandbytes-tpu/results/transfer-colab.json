@@ -1,0 +1,144 @@
+{
+  "accepted_milestones": 2,
+  "api42": {
+    "cases": 42,
+    "passed": 42
+  },
+  "artifact_bindings": {
+    ".work/cloud-20261008-transfer-bounded/archive-members.json": {
+      "bytes": 43501,
+      "sha256": "21152c3369784290c0ca47227fff58d4c9863e298bf0a87819666e8836f9621c"
+    },
+    ".work/cloud-20261008-transfer-bounded/owner.json": {
+      "bytes": 65846,
+      "sha256": "4b22896bb457344a5056918d1c5702e9d457ae1d4b9b60a76a6615b44f4ca590"
+    },
+    ".work/cloud-20261008-transfer-bounded/receipt.json": {
+      "bytes": 33272,
+      "sha256": "05d91e26de72c5df0d4d2889f7a7278f7041e42099c51aab11aac83e7453ccf8"
+    },
+    ".work/cloud-20261008-transfer-bounded/recovered/built-source.json": {
+      "bytes": 4772,
+      "sha256": "6ed3c10422299dbd3b702ed8c57337639da513632e7af05fc0e99c681db3395d"
+    },
+    ".work/cloud-20261008-transfer-bounded/recovered/installed-source.json": {
+      "bytes": 5332,
+      "sha256": "8c5bfa07f56a87332e0e258cb8b4c93c7dad1973ce4814b7f516095d2a755552"
+    },
+    ".work/cloud-20261008-transfer-bounded/recovered/runtime-probe.json": {
+      "bytes": 5847,
+      "sha256": "155913635f56bc4a4903c26824cf3912704a857f859cee3a03d0b6b9c6b83895"
+    },
+    ".work/cloud-20261008-transfer-bounded/recovered/source-controls.json": {
+      "bytes": 5342,
+      "sha256": "7ac893eca2a22f8b3e88f4c0646d2317e91e589ced6f873c216ee1b3f7a6e20b"
+    },
+    ".work/cloud-20261008-transfer-bounded/verify.json": {
+      "bytes": 32968,
+      "sha256": "0db1eb0cca4c6bef8fd914253c875d5bf97fae9cd56c6d7197c0ac77429ec08e"
+    },
+    ".work/root-r2-transport-review/actual-readback.json": {
+      "bytes": 24365,
+      "sha256": "83119421cb7b7b08653079b55c57f4762b1fedb6c6d46df67279322391cdc540"
+    },
+    ".work/root-r2-transport-review/host-owner/host-finalization.json": {
+      "bytes": 2327,
+      "sha256": "2447060c092682b5f223b49735f8c768aacccf78d324d2f055b0ea02e0cec81b"
+    }
+  },
+  "closure": {
+    "active_usage_zero": true,
+    "allocation_attempts": 1,
+    "lifecycle_seconds": 310.4313609600067,
+    "local_and_remote_processes": "CLEANUP_VERIFIED",
+    "server_empty": true
+  },
+  "date": "2026-10-08",
+  "experiment": "transfer-api42",
+  "hardware": "Colab V6E1",
+  "independent_review": {
+    "archive_bytes": 369010,
+    "archive_members": 273,
+    "archive_sha256": "7baeb70b357bb2cf8b37862e54bb79e06db72ab7032f6a76168ede95b5880a27",
+    "independently_compared_gates": 196,
+    "independently_compared_rows": 46,
+    "numerical_failure_gates": 0
+  },
+  "limits": {
+    "allocation_failure_cause": "NOT_ESTABLISHED",
+    "bf16_gradients": "NOT_RUN",
+    "cuda": "NOT_RUN",
+    "fresh_process_tpu_restore": "NOT_RUN",
+    "hlo_scope": "PRE_OPTIMIZATION_OUTPUT_GRAPH; rank2 FP32 precision observed; rank3 HLO retained without dot observer",
+    "m3": "NOT_QUALIFIED",
+    "nested_quantization": "NOT_RUN",
+    "pallas": "NOT_RUN",
+    "performance": "NOT_MEASURED"
+  },
+  "manifest_sha256": "8ea3d0a8648f4c6c097e35c0f809f8b2a622ec03b586ad851439389aafcc3eb8",
+  "maximum_absolute_errors": {
+    "bfloat16": {
+      "absmax": 9.999999350456404e-39,
+      "code": 0.0,
+      "db": null,
+      "decoded": 0.0,
+      "dx": null,
+      "packed": 0,
+      "y": 0.00390625
+    },
+    "float32": {
+      "absmax": 9.999999350456404e-39,
+      "code": 0.0,
+      "db": 0.0,
+      "decoded": 0.0,
+      "dx": 5.960464477539063e-08,
+      "packed": 0,
+      "y": 1.1920928955078125e-07
+    }
+  },
+  "packet_sha256": "6ec9b2e8d1df9981f8040b3d74e22d6b73de1fdbe52c67dafdc1911f1ccfa3eb",
+  "patch_manifest_sha256": "e745fbf21aac10ed9118167a131d6505bf6dbe03e1fab0a669c663b26c5a5732",
+  "precision": {
+    "before_graph": true,
+    "readback": "highest",
+    "requested": "highest",
+    "set_calls": 1
+  },
+  "public_transfers": {
+    "cases": 4,
+    "dtypes": [
+      "float32",
+      "bfloat16"
+    ],
+    "passed": 4,
+    "routes": [
+      "Params4bit.to(xla)",
+      "Linear4bit.to(xla)"
+    ]
+  },
+  "qualified_linux_source_controls": {
+    "count": 18,
+    "failures": 0,
+    "status": "PASS"
+  },
+  "required_milestones": 8,
+  "reviewed_commit": "7c6b8e307adf4273d14b405f3a9b4ef929fb4657",
+  "runtime": {
+    "devices": [
+      "TPU:0"
+    ],
+    "observed_backend": "TPU",
+    "python": "3.12.14",
+    "system": "Linux",
+    "versions": {
+      "jax": "0.7.1",
+      "jaxlib": "0.7.1",
+      "libtpu": "0.0.21",
+      "torch": "2.9.0+cpu",
+      "torch-xla": "2.9.0"
+    }
+  },
+  "runtime_lock_sha256": "323371ff61c5fbcc4f79fd6a358cf2ba17cb72b907382a5ceaac07f91dc66ed6",
+  "source_admission_sha256": "8b2b3e26e2e7c98c0fde52f51663bed84999ac733dcbc39573ef8b3aeca4f9a1",
+  "status": "ACCEPTED_R2_M2_COLAB"
+}

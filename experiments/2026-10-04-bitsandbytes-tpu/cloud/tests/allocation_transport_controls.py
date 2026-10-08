@@ -259,7 +259,7 @@ class Controls(unittest.TestCase):
     def test_factory_rejects_used_client(self):
         with factory_fixture() as (state,transports,getter,calls):
             state._client = object()
-            with self.assertRaisesRegex(RuntimeError,'FRESH_OFFICIAL_CLIENT'): 
+            with self.assertRaisesRegex(RuntimeError,'FRESH_OFFICIAL_CLIENT'):
                 with A.adapted_client_factory(common): pass
             self.assertEqual(transports,[])
 

@@ -15,7 +15,7 @@ Port2TPU results do not count for these backend milestones.
 | ID | Required result | Required test records | Status |
 | --- | --- | --- | --- |
 | M1 | Installable backend | Wheel installation, automatic registration, schema tests, and CPU differential tests | Completed: local CPU and package tests |
-| M2 | Actual TPU execution | Fixed runtime, TPU device test records, and upstream API output on Colab | In progress: parameter transfer and full API42; precision comparison accepted |
+| M2 | Actual TPU execution | Fixed runtime, TPU device test records, and upstream API output on Colab | Completed: 42 API cases and four public transfers on Colab V6E1 |
 | M3 | Upstream module state | Bias, gradients, saved state, and restoration in a new process | In progress: local preparation and reconstruction within one process |
 | M4 | Nested quantization | Upstream default statistics option and matching nested state | In progress: source inspection and local reference data |
 | M5 | QLoRA execution | Twenty steps, frozen base weights, and restoration after step ten | Not started |
@@ -23,10 +23,12 @@ Port2TPU results do not count for these backend milestones.
 | M7 | Measured performance | Raw time samples and memory measurements on the same TPU | Not started |
 | M8 | Repeated cloud results | Matching source and inputs on Colab and Kaggle, with resource closure | Not started |
 
-Accepted milestones: **1 of 8**.
+Accepted milestones: **2 of 8**.
 The reviewer accepted M1 on 2026-10-04.
 The reviewer repeated 71 package tests on macOS with Python 3.12.14 and PyTorch 2.14.1.
 This result does not show Linux PyTorch/XLA 2.9.0 or TPU execution.
+The reviewer accepted M2 on 2026-10-08 after 46 Colab cases and 196 independent numerical comparisons passed.
+The [M2 result](changes/r2-transfer-colab.md) includes the fixed Linux runtime, source inspection, complete archive, and resource closure.
 Update this count only after inspection of the test records.
 
 ## Source inspection before implementation
@@ -48,21 +50,11 @@ The `default` mode reproduced the earlier FP32 forward and input-gradient failur
 Use `highest` before graph construction for the next correctness experiments.
 Refer to [the precision result](changes/r1-precision-colab.md).
 
-The original CPU-to-XLA transfers failed during parameter data assignment in the earlier run.
-The reviewer accepted the explicit source correction and its local controls for a separate device experiment.
-Two Colab requests ended during allocation before this experiment could execute.
-The same payload failed with `requests.ReadTimeout` during each assignment POST.
-Both owners confirmed empty server lists, zero active usage, and closed local processes.
-Examine the allocation request path before another attempt.
-Refer to [the allocation repeat](changes/r2-colab-allocation-repeat.md).
-The subsequent [web diagnostic](changes/r2-web-allocation-diagnostic.md) obtained a V6E1 runtime after more than 175 seconds.
-The reviewer closed that runtime and confirmed empty session lists and zero CLI usage.
-The [bounded transport](changes/r2-allocation-transport.md) passed local review with one assignment POST and a 360-second command limit.
-Use this transport for the next Colab experiment with the same scientific payload.
-Keep that transfer requirement open until its own test passes.
+The corrected CPU-to-XLA transfers and complete API42 matrix passed on Colab V6E1.
+The experiment used the [bounded transport](changes/r2-allocation-transport.md) after the retained allocation failures and web diagnostic.
+Refer to [the accepted transfer result](changes/r2-transfer-colab.md).
 Do not replace the upstream classes or methods dynamically during execution.
-The next transfer experiment must also execute the complete fixed API42 matrix.
-The full API42 matrix and M3 remain unqualified.
+M3 remains unqualified.
 Restoration in a new process requires separate device records.
 BF16 gradients remain outside the fixed diagnostic scope.
 
@@ -75,8 +67,8 @@ Refer to [the cloud inspection](research/2026-10-08/cloud.md).
 ## Work order
 
 1. Keep the accepted source inspection and R1 precision records as the basis for the next changes.
-2. Examine the public CPU-to-XLA transfer correction with compatible and rejected-conversion controls.
-3. Execute the transfer controls and complete M2 API matrix with `highest` on Colab.
+2. Keep the accepted public transfer correction and its qualified Linux source controls.
+3. Use the accepted M2 source, runtime, inputs, and `highest` precision for dependent experiments.
 4. Complete M3 restoration in a new process with the accepted source and runtime.
 5. Complete M4 nested quantization with the identified reference implementation.
 6. Complete M5 QLoRA execution and checkpoint restoration.
