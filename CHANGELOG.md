@@ -1,5 +1,15 @@
 # Change log
 
+## 2026-10-08 — Repeated nested allocation server failure
+
+- Retain a second `Bad Gateway` response from the unchanged corrected packet.
+- Verify complete closure and zero active usage after the bounded retry.
+- Require a connection diagnosis before another CLI allocation request.
+
+Validation: The reviewer inspected the original response and all eight CLI process groups.
+No payload or numerical case executed.
+Refer to [the retry record](docs/changes/r4-allocation-failure.md#bounded-retry).
+
 ## 2026-10-08 — Nested Colab allocation server failure
 
 - Retain the allocation server response before any payload execution.

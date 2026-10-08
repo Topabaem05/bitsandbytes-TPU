@@ -1,0 +1,53 @@
+{
+  "accepted_milestones": 3,
+  "artifact_bindings": {
+    ".work/cloud-20261008-nested-allocation-retry/cli/03-one-allocation/stdout-stderr.raw": {
+      "bytes": 5843,
+      "sha256": "cb01ae02494b2c2e9f808946f7be38834674a7ff863da1fa301ac76cb37b147f"
+    },
+    ".work/cloud-20261008-nested-allocation-retry/owner.json": {
+      "bytes": 14897,
+      "sha256": "8a37c3709e58dc8afc8080f777c88a52e6b9ca1cd38d17e2bda39fa266eb94ee"
+    },
+    ".work/root-r4-allocation-retry/host-owner/host-finalization.json": {
+      "bytes": 2333,
+      "sha256": "260fb35d8a66e6b635151caf6170d0b20ff16e239633814c0d239a529af084fb"
+    },
+    ".work/root-r4-allocation-retry/nested-acceptance.json": {
+      "bytes": 3275,
+      "sha256": "f5ef11d797a75a565248f06e6dfb48678c2b4b195012a0ac816281bab3192fce"
+    },
+    ".work/root-r4-allocation-retry/preflight.json": {
+      "bytes": 396,
+      "sha256": "21b93b0edb5cc2fc21be04aa13db67a09f9ced9122beff9890e855d83e8025a8"
+    }
+  },
+  "closure": {
+    "active_usage_zero": true,
+    "allocation_attempts": 1,
+    "cli_process_groups": 8,
+    "driver_exit_code": 2,
+    "host_and_cli_processes": "CLEANUP_VERIFIED",
+    "lifecycle_seconds": 244.0187509059906,
+    "server_empty": true
+  },
+  "date": "2026-10-08",
+  "executed_commit": "c6761bb5ba692fbec6c4b749c8ee79a08275f7dc",
+  "experiment": "nested-79",
+  "m4_status": "NOT_QUALIFIED",
+  "original_error": {
+    "message": "CLI_STEP_BLOCKED:03-one-allocation",
+    "type": "RuntimeError"
+  },
+  "packet_sha256": "226e2cc7a682a8e9c7d9ec5111feabcd8ca939220aee4900807646bd170c986e",
+  "provider_error": "ColabRequestError: POST allocation returned Bad Gateway",
+  "qualified_cpu_oracle": "NOT_RUN",
+  "remote_bootstrap": "NOT_RUN",
+  "retrieval_error": {
+    "message": "CLI_STEP_BLOCKED:20-critical-receipt",
+    "type": "RuntimeError"
+  },
+  "science_cases": 0,
+  "status": "BLOCKED_REPEATED_COLAB_ALLOCATION_BAD_GATEWAY",
+  "tpu_science": "NOT_RUN"
+}
