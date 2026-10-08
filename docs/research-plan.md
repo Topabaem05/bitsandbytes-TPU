@@ -130,6 +130,9 @@ The [actual gather experiment](changes/r6-gather-colab.md) passed both FP32 nati
 The BF16 matrix operation failed operand type validation; two later cases remained unexecuted.
 Independent FP32 output and graph inspection, conversion replay, all 130 archive members, and complete resource closure passed.
 Correct the BF16 operand types under the unchanged precision and numerical requirements.
+The [BF16 operand correction](changes/r6-bf16-operands.md) passed 56 independent controls and the canonical packet preflight.
+It retains decoded BF16 rounding before conversion to FP32 matrix operands.
+A fresh qualified CPU oracle and actual TPU results remain required.
 The complete native dependency remains unaccepted.
 The [measurement preparation](changes/r7-measurement-preparation.md) passed 64 local controls and nine independent retained-record checks.
 Actual M7 collection requires accepted M6 results.

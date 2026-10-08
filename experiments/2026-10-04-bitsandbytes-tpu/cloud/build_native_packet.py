@@ -19,7 +19,7 @@ def build(upstream,out,*,candidate,candidate_sha,m2_dependency,m2_dependency_sha
     m['files']={p.relative_to(out).as_posix():{'sha256':NC.sha(p),'bytes':p.stat().st_size}for p in sorted(out.rglob('*'))if p.is_file() and p.name not in {'manifest.json','payload.zip'}}
     # The nested native manifest is a payload file.
     m['files']['native/manifest.json']={'sha256':NC.MANIFEST_SHA,'bytes':(out/'native/manifest.json').stat().st_size}
-    m.update(experiment=NC.MODE,native_manifest_sha256=NC.MANIFEST_SHA,m2_dependency_sha256=m2_dependency_sha,native_source_variant=NC.VARIANT,native_scope='BOUNDED_NATIVE_BOUNDARY_ONLY',native_generation='mosaic-serde7-gather-v1',base_cloud_revision=APPROVED_COMMIT,m6_status='NOT_QUALIFIED',optimized_executable_link='UNKNOWN')
+    m.update(experiment=NC.MODE,native_manifest_sha256=NC.MANIFEST_SHA,m2_dependency_sha256=m2_dependency_sha,native_source_variant=NC.VARIANT,native_scope='BOUNDED_NATIVE_BOUNDARY_ONLY',native_generation='mosaic-serde7-gather-bf16-fp32-v1',base_cloud_revision=APPROVED_COMMIT,m6_status='NOT_QUALIFIED',optimized_executable_link='UNKNOWN')
     B.write(out/'manifest.json',m);NC.payload(out,m)
     with zipfile.ZipFile(out/'payload.zip','w',zipfile.ZIP_DEFLATED)as z:
         for n in sorted([*m['files'],'manifest.json']):

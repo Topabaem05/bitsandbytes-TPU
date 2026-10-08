@@ -55,7 +55,9 @@ def nf4_kernel(activation_ref,packed_ref,scales_ref,out_ref,acc_ref):
     @pl.when(rk==0)
     def initialize():acc_ref[...]=jnp.zeros((BM,BN),jnp.float32)
     weight=decode_tile(packed_ref[...],scales_ref[...],rk%2).astype(activation_ref.dtype)
-    product=lax.dot_general(activation_ref[...],weight,dimension_numbers=(((1,),(1,)),((),())),precision=lax.Precision.HIGHEST,preferred_element_type=jnp.float32)
+    activation=activation_ref[...].astype(jnp.float32)
+    weight=weight.astype(jnp.float32)
+    product=lax.dot_general(activation,weight,dimension_numbers=(((1,),(1,)),((),())),precision=lax.Precision.HIGHEST,preferred_element_type=jnp.float32)
     acc_ref[...]=acc_ref[...]+product
     @pl.when(rk==pl.num_programs(2)-1)
     def store():out_ref[...]=acc_ref[...].astype(out_ref.dtype)

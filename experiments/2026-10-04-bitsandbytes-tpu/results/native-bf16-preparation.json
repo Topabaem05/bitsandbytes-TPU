@@ -1,0 +1,86 @@
+{
+  "actual_tpu": "NOT_RUN",
+  "builder_closed": true,
+  "control_groups_closed": 6,
+  "controls_sha256": "bf5c0792efdf457972c3272cb1369c9b0f72c5aee7546e0d6ac5bc92b9818906",
+  "independent_controls": 56,
+  "m6": "NOT_QUALIFIED",
+  "manifest_sha256": "580733e58d8fbc1688092cda652ba2da952658a3a9c9ee68aa51a980efc10296",
+  "members": 73,
+  "native_dependency_acceptance": null,
+  "native_generation": "mosaic-serde7-gather-bf16-fp32-v1",
+  "native_manifest_sha256": "30b820b90a4404a89da6e6c7b6fc91dbec47afbe06ae322eb5835b9eb0e70901",
+  "payload_bytes": 1057813,
+  "payload_sha256": "469f232f533807c772cd421a9d3a154cd0c43dbf715e12b8a62b7e2d471bd709",
+  "preallocation_frontend": {
+    "audit_sha256": "1a67640d93c653f2f48f325b9bc3efa700fe403eb23b5c72d3486bd31acfe64e",
+    "cleanup": {
+      "errors": [],
+      "groups": [
+        {
+          "ended_at": "2026-10-08T21:08:47.655983+00:00",
+          "errors": [],
+          "exit_status": 0,
+          "group_absence": "OBSERVED_NO_SUCH_GROUP",
+          "leader_reaped": true,
+          "pgid": 96097,
+          "pid": 96097,
+          "signals": [
+            {
+              "result": "NO_SUCH_GROUP",
+              "signal": 15
+            },
+            {
+              "result": "NO_SUCH_GROUP",
+              "signal": 9
+            }
+          ],
+          "started_at": "2026-10-08T21:08:47.655945+00:00",
+          "status": "CLEANUP_VERIFIED"
+        }
+      ],
+      "guard_original_outcome": {
+        "error": null,
+        "status": "COMPLETED"
+      },
+      "restoration": {
+        "handlers_restored": true,
+        "previous_timer": [
+          0.0,
+          0.0
+        ],
+        "state": "RESTORATION_ATTEMPTED",
+        "timer_policy": "PAUSE_AND_RESTORE_CAPTURED_TIMER",
+        "timer_restored": true
+      },
+      "status": "NO_CLEANUP_ERRORS"
+    },
+    "provider_calls": 0,
+    "python": "/Users/topamini/code/bitsandbytes-TPU/.work/r6-pallas-preparation/venv-jax071/bin/python",
+    "python_sha256": "042454a41d6c32f2be126c4bbae2a4b8a54488c66f4b07379cd24dee75f93abb",
+    "runtime": {
+      "JAX_PLATFORMS": "cpu",
+      "TPU_backend": "NOT_RUN",
+      "jax": "0.7.1",
+      "jax_record_sha256": "326bfcfd91915c0ceb7e5afb04bd54b4d72a14d0f164bd0d154c007e023e535f",
+      "jaxlib": "0.7.1",
+      "jaxlib_record_sha256": "9f0d75a7fa6b70f6139089480a283cfa199dd396d2b5f3188e179ad9b06b0e34",
+      "machine": "arm64",
+      "mosaic_extension_sha256": "1af5d97f50deef11cebe6f892781f6f8cd6a6c1cd88be6b8465955136336da29",
+      "mosaic_python_sha256": "dab3921ef15402d4801734cae1c8d3177b8e98aa8ab010bd24c990e067112134",
+      "platform": "darwin",
+      "python": "3.12.14",
+      "python_executable": "/Users/topamini/code/bitsandbytes-TPU/.work/r6-pallas-preparation/venv-jax071/bin/python",
+      "qualification": "EXACT_PINNED_CPU_FRONTEND_ONLY",
+      "serializer_python_sha256": "ae78bf3e65571d8c15004e76863747e2b414e7f17073cee151c643f8c7932d37"
+    }
+  },
+  "primitive_contract_sha256": "35888719248865816d4a76d175cc74d8b401f0a3c26b7f9af20149fc8a38a0a1",
+  "private_packet_byte_exact": true,
+  "qualified_linux_cpu": "REQUIRED_NOT_RUN",
+  "reviewed_date": "2026-10-09",
+  "runtime_lock_sha256": "323371ff61c5fbcc4f79fd6a358cf2ba17cb72b907382a5ceaac07f91dc66ed6",
+  "source_admission_sha256": "8b2b3e26e2e7c98c0fde52f51663bed84999ac733dcbc39573ef8b3aeca4f9a1",
+  "source_review_sha256": "bf5c0792efdf457972c3272cb1369c9b0f72c5aee7546e0d6ac5bc92b9818906",
+  "status": "ROOT_CANONICAL_BF16_PACKET_AND_FRONTEND_REVIEW_PASS"
+}

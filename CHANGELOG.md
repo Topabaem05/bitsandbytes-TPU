@@ -1,5 +1,15 @@
 # Change log
 
+## 2026-10-09 — BF16 matrix operand correction
+
+- Preserve decoded BF16 rounding before FP32 matrix operand conversion.
+- Bind the corrected kernel, internal pins, and cloud generation.
+- Retain the rejected initial packet and unchanged numerical criteria.
+
+Validation: All 56 independent controls passed; the canonical 73-member packet matched both genuine private builds.
+Actual TPU compilation and numerical qualification remain required.
+Refer to [the correction record](docs/changes/r6-bf16-operands.md).
+
 ## 2026-10-09 — Exact saved Kaggle version retrieval
 
 - Admit the two exact save reference forms for one known version.
