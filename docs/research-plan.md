@@ -17,7 +17,7 @@ Port2TPU results do not count for these backend milestones.
 | M1 | Installable backend | Wheel installation, automatic registration, schema tests, and CPU differential tests | Completed: local CPU and package tests |
 | M2 | Actual TPU execution | Fixed runtime, TPU device test records, and upstream API output on Colab | Completed: 42 API cases and four public transfers on Colab V6E1 |
 | M3 | Upstream module state | Bias, gradients, saved state, and restoration in a new process | Completed: eight fixed cases restored in a new TPU process |
-| M4 | Nested quantization | Upstream default statistics option and matching saved nested state | In progress: 79-case and eight-case state experiments prepared; actual results required |
+| M4 | Nested quantization | Upstream default statistics option and matching saved nested state | In progress: actual 79-case run failed 27 cases; arithmetic repair and saved-state results required |
 | M5 | QLoRA execution | Twenty steps, frozen base weights, and restoration after step ten | In progress: private CPU preparation; TPU test required |
 | M6 | Pallas NF4 kernel | Actual custom call, numerical tests, and compiler test records for memory use | In progress: CPU interpretation passed; native TPU integration required |
 | M7 | Measured performance | Raw time samples and memory measurements on the same TPU | Not started |
@@ -66,7 +66,9 @@ The [first nested Colab attempt](changes/r4-bootstrap-failure.md) stopped at a b
 The [entry correction](changes/r4-bootstrap-repair.md) passed 15 local controls and is ready for a fresh Colab attempt.
 Its [first retry](changes/r4-allocation-failure.md) received an allocation server error before payload execution.
 The [browser reuse mode](changes/r4-browser-adoption.md) passed 44 local controls after the repeated CLI allocation failure.
-Actual marker identification and numerical records remain required.
+Actual marker identification passed, and the [79-case run](changes/r4-nested-colab-failure.md) completed with 52 passes and 27 failures.
+The exact nested statistics and code failures require an arithmetic repair under unchanged criteria.
+The failed result cannot authorize the saved-state supplement or an accepted M4 dependency.
 The private CPU preparations for M4, M5, and M6 do not qualify those device milestones.
 BF16 gradients remain outside the fixed diagnostic scope.
 

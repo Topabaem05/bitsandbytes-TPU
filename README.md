@@ -18,6 +18,8 @@ The accepted M3 Colab run passed all eight saved-state cases after restoration i
 The reviewer compared 136 numerical gates and all eight checkpoint pairs.
 Refer to [the accepted M3 result](docs/changes/r3-state-colab.md), including the separate CLI exit correction.
 The next milestone requires nested quantization with the upstream default statistics option.
+The [first actual nested result](docs/changes/r4-nested-colab-failure.md) passed 52 cases and failed 27 cases under unchanged criteria.
+Arithmetic and state representation repairs remain necessary before saved-state execution.
 M4 and later milestones remain unqualified.
 
 The [October 8 source inspection](docs/research/2026-10-08/README.md) covers each design area before further implementation.

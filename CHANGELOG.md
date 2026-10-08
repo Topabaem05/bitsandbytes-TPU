@@ -1,5 +1,16 @@
 # Change log
 
+## 2026-10-08 — Actual nested quantization failure
+
+- Retain all 79 Colab cases: 52 passed and 27 failed.
+- Independently repeat all 540 comparisons and retain 43 failed exact comparisons.
+- Identify subnormal scale values and normal FP32 offset differences for repair.
+- Verify all 409 archive members and complete resource closure.
+
+Validation: Numerical result `FAIL`; record integrity and resource closure `PASS`.
+M4 remains unqualified, and the saved-state supplement did not execute.
+Refer to [the actual nested result](docs/changes/r4-nested-colab-failure.md).
+
 ## 2026-10-08 — Reuse of an identified browser runtime
 
 - Add explicit reuse of one root-created Colab runtime through official CLI session APIs.

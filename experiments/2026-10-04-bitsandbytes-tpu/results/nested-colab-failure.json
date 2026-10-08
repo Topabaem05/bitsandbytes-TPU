@@ -1,0 +1,2715 @@
+{
+  "accepted_milestones": 3,
+  "active_usage_zero": true,
+  "actual_receipt_sha256": "a9a88c8a8bd545c6434e881891b0bfe3e6e1018d16d3cfa9bacf35d0482ef34b",
+  "allocation_attempts_by_driver": 0,
+  "api_output_gates": "PASS_WITHIN_FIXED_TOLERANCES",
+  "archive_bytes": 1186835,
+  "archive_members": 409,
+  "archive_sha256": "a0a0d811ff4061b5b9f3b4b94188869da78a26676843fa0b43e4f2bc091d2f11",
+  "browser_identity_verified": true,
+  "case_counts": {
+    "ERROR": 0,
+    "FAIL": 27,
+    "PASS": 52
+  },
+  "checked_date": "2026-10-08",
+  "cli_process_groups_closed": 40,
+  "cpu_runtime": {
+    "machine": "x86_64",
+    "platform": "linux",
+    "python": "3.12",
+    "torch": "2.9.0+cpu"
+  },
+  "device": {
+    "hardware": "TPU",
+    "pjrt": "TPU",
+    "type": "xla"
+  },
+  "driver_exit_code": 2,
+  "exact_metadata_and_codes": "FAIL",
+  "experiment": "nested-79",
+  "failed_gates": 43,
+  "failed_gates_by_output": {
+    "codes": 3,
+    "offset": 9,
+    "scale_codes": 4,
+    "second_scales": 27
+  },
+  "failure_patterns": {
+    "api_boundary": "The admitted public functional path computes offset and subtraction outside the plugin operators.",
+    "normal_offset_values": "Three cases differ by one FP32 ULP; centered scales also differ.",
+    "subnormal_scale_values": "Actual zero differs from CPU subnormal clamps and tail values."
+  },
+  "host_execution_seconds": 325.94954845900065,
+  "independent_cases": 79,
+  "independent_gates": 540,
+  "inputs_sha256": "b7490f4c622aef793d14bd9a7a38727754cb1fb8e6e1dec7ff91ef8c45fbafbc",
+  "m4": "NOT_QUALIFIED",
+  "m5": "NOT_QUALIFIED",
+  "nested_saved_state": "NOT_RUN",
+  "nested_source_sha256": "c8d7519c92202e0238fbee55a63ffff32860f821b8957c8a135046a4294f13d2",
+  "next_step": "Inspect a source-bound arithmetic repair under the unchanged inputs and gates.",
+  "numerical_status": "FAIL",
+  "original_lifecycle_seconds": 2468.066876888275,
+  "packet_sha256": "08189b55e8aef5507fab27017dcf824e21078cae9e068d3b4516108e231f1fbb",
+  "patch_manifest_sha256": "e745fbf21aac10ed9118167a131d6505bf6dbe03e1fab0a669c663b26c5a5732",
+  "precision": {
+    "before_graph": true,
+    "readback": "highest",
+    "requested": "highest",
+    "set_calls": 1
+  },
+  "qualified_cpu_oracle_sha256": "0cd17e8b3b2046a4d9a7fc3d87aee3bb923cb38276f71714377fd9f69b8e5874",
+  "resource_closure": "PASS",
+  "root_review_sha256": "b5890b652741ea3a3a4acc42ea315d2b7eff6689539ef611f452391f68823708",
+  "rows": [
+    {
+      "case_id": "block-0001-zero",
+      "gates": {
+        "codes": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "decoded": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "decoded_out": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "dynamic_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "second_scales": {
+          "max_abs": 9.999999350456404e-39,
+          "status": "FAIL"
+        }
+      },
+      "status": "FAIL"
+    },
+    {
+      "case_id": "block-0001-constant",
+      "gates": {
+        "codes": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "decoded": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "decoded_out": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "dynamic_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "second_scales": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "case_id": "block-0001-signed_ramp",
+      "gates": {
+        "codes": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "decoded": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "decoded_out": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "dynamic_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "second_scales": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "case_id": "block-0001-ties",
+      "gates": {
+        "codes": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "decoded": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "decoded_out": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "dynamic_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "second_scales": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "case_id": "block-0001-neighbors_lo",
+      "gates": {
+        "codes": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "decoded": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "decoded_out": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "dynamic_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "second_scales": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "case_id": "block-0001-neighbors_hi",
+      "gates": {
+        "codes": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "decoded": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "decoded_out": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "dynamic_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "second_scales": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "case_id": "block-0255-zero",
+      "gates": {
+        "codes": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "decoded": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "decoded_out": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "dynamic_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "second_scales": {
+          "max_abs": 9.999999350456404e-39,
+          "status": "FAIL"
+        }
+      },
+      "status": "FAIL"
+    },
+    {
+      "case_id": "block-0255-constant",
+      "gates": {
+        "codes": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "decoded": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "decoded_out": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "dynamic_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "second_scales": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "case_id": "block-0255-signed_ramp",
+      "gates": {
+        "codes": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "decoded": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "decoded_out": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "dynamic_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "second_scales": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "case_id": "block-0255-ties",
+      "gates": {
+        "codes": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "decoded": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "decoded_out": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "dynamic_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "second_scales": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "case_id": "block-0255-neighbors_lo",
+      "gates": {
+        "codes": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "decoded": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "decoded_out": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "dynamic_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "second_scales": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "case_id": "block-0255-neighbors_hi",
+      "gates": {
+        "codes": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "decoded": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "decoded_out": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "dynamic_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "second_scales": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "case_id": "block-0256-zero",
+      "gates": {
+        "codes": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "decoded": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "decoded_out": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "dynamic_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "second_scales": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "case_id": "block-0256-constant",
+      "gates": {
+        "codes": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "decoded": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "decoded_out": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "dynamic_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "second_scales": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "case_id": "block-0256-signed_ramp",
+      "gates": {
+        "codes": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "decoded": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "decoded_out": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "dynamic_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "second_scales": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "case_id": "block-0256-ties",
+      "gates": {
+        "codes": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "decoded": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "decoded_out": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "dynamic_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "second_scales": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "case_id": "block-0256-neighbors_lo",
+      "gates": {
+        "codes": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "decoded": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "decoded_out": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "dynamic_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "second_scales": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "case_id": "block-0256-neighbors_hi",
+      "gates": {
+        "codes": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "decoded": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "decoded_out": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "dynamic_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "second_scales": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "case_id": "block-0257-zero",
+      "gates": {
+        "codes": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "decoded": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "decoded_out": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "dynamic_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "second_scales": {
+          "max_abs": 9.999999350456404e-39,
+          "status": "FAIL"
+        }
+      },
+      "status": "FAIL"
+    },
+    {
+      "case_id": "block-0257-constant",
+      "gates": {
+        "codes": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "decoded": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "decoded_out": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "dynamic_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "second_scales": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "case_id": "block-0257-signed_ramp",
+      "gates": {
+        "codes": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "decoded": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "decoded_out": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "dynamic_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "second_scales": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "case_id": "block-0257-ties",
+      "gates": {
+        "codes": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "decoded": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "decoded_out": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "dynamic_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "second_scales": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "case_id": "block-0257-neighbors_lo",
+      "gates": {
+        "codes": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "decoded": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "decoded_out": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "dynamic_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "second_scales": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "case_id": "block-0257-neighbors_hi",
+      "gates": {
+        "codes": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "decoded": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "decoded_out": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "dynamic_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "second_scales": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "case_id": "block-0511-zero",
+      "gates": {
+        "codes": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "decoded": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "decoded_out": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "dynamic_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "second_scales": {
+          "max_abs": 9.999999350456404e-39,
+          "status": "FAIL"
+        }
+      },
+      "status": "FAIL"
+    },
+    {
+      "case_id": "block-0511-constant",
+      "gates": {
+        "codes": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "decoded": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "decoded_out": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "dynamic_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "second_scales": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "case_id": "block-0511-signed_ramp",
+      "gates": {
+        "codes": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "decoded": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "decoded_out": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "dynamic_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "second_scales": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "case_id": "block-0511-ties",
+      "gates": {
+        "codes": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "decoded": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "decoded_out": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "dynamic_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "second_scales": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "case_id": "block-0511-neighbors_lo",
+      "gates": {
+        "codes": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "decoded": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "decoded_out": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "dynamic_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "second_scales": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "case_id": "block-0511-neighbors_hi",
+      "gates": {
+        "codes": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "decoded": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "decoded_out": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "dynamic_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "second_scales": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "case_id": "block-0512-zero",
+      "gates": {
+        "codes": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "decoded": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "decoded_out": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "dynamic_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "second_scales": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "case_id": "block-0512-constant",
+      "gates": {
+        "codes": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "decoded": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "decoded_out": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "dynamic_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "second_scales": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "case_id": "block-0512-signed_ramp",
+      "gates": {
+        "codes": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "decoded": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "decoded_out": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "dynamic_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "second_scales": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "case_id": "block-0512-ties",
+      "gates": {
+        "codes": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "decoded": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "decoded_out": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "dynamic_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "second_scales": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "case_id": "block-0512-neighbors_lo",
+      "gates": {
+        "codes": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "decoded": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "decoded_out": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "dynamic_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "second_scales": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "case_id": "block-0512-neighbors_hi",
+      "gates": {
+        "codes": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "decoded": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "decoded_out": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "dynamic_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "second_scales": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "case_id": "block-0513-zero",
+      "gates": {
+        "codes": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "decoded": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "decoded_out": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "dynamic_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "second_scales": {
+          "max_abs": 9.999999350456404e-39,
+          "status": "FAIL"
+        }
+      },
+      "status": "FAIL"
+    },
+    {
+      "case_id": "block-0513-constant",
+      "gates": {
+        "codes": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "decoded": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "decoded_out": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "dynamic_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "second_scales": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "case_id": "block-0513-signed_ramp",
+      "gates": {
+        "codes": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "decoded": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "decoded_out": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "dynamic_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "second_scales": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "case_id": "block-0513-ties",
+      "gates": {
+        "codes": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "decoded": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "decoded_out": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "dynamic_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "second_scales": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "case_id": "block-0513-neighbors_lo",
+      "gates": {
+        "codes": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "decoded": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "decoded_out": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "dynamic_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "second_scales": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "case_id": "block-0513-neighbors_hi",
+      "gates": {
+        "codes": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "decoded": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "decoded_out": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "dynamic_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "second_scales": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "case_id": "nested-00001-float32",
+      "gates": {
+        "decoded": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "decoded_out": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "dynamic_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "nf4_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "offset": {
+          "max_abs": 9.999999350456404e-39,
+          "status": "FAIL"
+        },
+        "packed": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "restored_scales": {
+          "max_abs": 9.999999350456404e-39,
+          "status": "PASS"
+        },
+        "scale_codes": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "second_scales": {
+          "max_abs": 9.999999350456404e-39,
+          "status": "FAIL"
+        }
+      },
+      "status": "FAIL"
+    },
+    {
+      "case_id": "nested-00064-float32",
+      "gates": {
+        "decoded": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "decoded_out": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "dynamic_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "nf4_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "offset": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "packed": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "restored_scales": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "scale_codes": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "second_scales": {
+          "max_abs": 9.999999350456404e-39,
+          "status": "FAIL"
+        }
+      },
+      "status": "FAIL"
+    },
+    {
+      "case_id": "nested-00065-float32",
+      "gates": {
+        "decoded": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "decoded_out": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "dynamic_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "nf4_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "offset": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "packed": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "restored_scales": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "scale_codes": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "second_scales": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "case_id": "nested-16320-float32",
+      "gates": {
+        "decoded": {
+          "max_abs": 1.7881393432617188e-07,
+          "status": "PASS"
+        },
+        "decoded_out": {
+          "max_abs": 1.7881393432617188e-07,
+          "status": "PASS"
+        },
+        "dynamic_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "nf4_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "offset": {
+          "max_abs": 5.960464477539063e-08,
+          "status": "FAIL"
+        },
+        "packed": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "restored_scales": {
+          "max_abs": 1.7881393432617188e-07,
+          "status": "PASS"
+        },
+        "scale_codes": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "second_scales": {
+          "max_abs": 1.1920928955078125e-07,
+          "status": "FAIL"
+        }
+      },
+      "status": "FAIL"
+    },
+    {
+      "case_id": "nested-16384-float32",
+      "gates": {
+        "decoded": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "decoded_out": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "dynamic_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "nf4_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "offset": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "packed": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "restored_scales": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "scale_codes": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "second_scales": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "case_id": "nested-16385-float32",
+      "gates": {
+        "decoded": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "decoded_out": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "dynamic_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "nf4_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "offset": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "packed": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "restored_scales": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "scale_codes": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "second_scales": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "case_id": "nested-32768-float32",
+      "gates": {
+        "decoded": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "decoded_out": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "dynamic_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "nf4_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "offset": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "packed": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "restored_scales": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "scale_codes": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "second_scales": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "case_id": "nested-32769-float32",
+      "gates": {
+        "decoded": {
+          "max_abs": 1.1920928955078125e-07,
+          "status": "PASS"
+        },
+        "decoded_out": {
+          "max_abs": 1.1920928955078125e-07,
+          "status": "PASS"
+        },
+        "dynamic_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "nf4_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "offset": {
+          "max_abs": 5.960464477539063e-08,
+          "status": "FAIL"
+        },
+        "packed": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "restored_scales": {
+          "max_abs": 1.7881393432617188e-07,
+          "status": "PASS"
+        },
+        "scale_codes": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "second_scales": {
+          "max_abs": 1.1920928955078125e-07,
+          "status": "FAIL"
+        }
+      },
+      "status": "FAIL"
+    },
+    {
+      "case_id": "nested-00001-bfloat16",
+      "gates": {
+        "decoded": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "decoded_out": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "dynamic_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "nf4_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "offset": {
+          "max_abs": 9.999999350456404e-39,
+          "status": "FAIL"
+        },
+        "packed": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "restored_scales": {
+          "max_abs": 9.999999350456404e-39,
+          "status": "PASS"
+        },
+        "scale_codes": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "second_scales": {
+          "max_abs": 9.999999350456404e-39,
+          "status": "FAIL"
+        }
+      },
+      "status": "FAIL"
+    },
+    {
+      "case_id": "nested-00064-bfloat16",
+      "gates": {
+        "decoded": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "decoded_out": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "dynamic_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "nf4_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "offset": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "packed": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "restored_scales": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "scale_codes": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "second_scales": {
+          "max_abs": 9.999999350456404e-39,
+          "status": "FAIL"
+        }
+      },
+      "status": "FAIL"
+    },
+    {
+      "case_id": "nested-00065-bfloat16",
+      "gates": {
+        "decoded": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "decoded_out": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "dynamic_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "nf4_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "offset": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "packed": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "restored_scales": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "scale_codes": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "second_scales": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "case_id": "nested-16320-bfloat16",
+      "gates": {
+        "decoded": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "decoded_out": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "dynamic_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "nf4_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "offset": {
+          "max_abs": 5.960464477539063e-08,
+          "status": "FAIL"
+        },
+        "packed": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "restored_scales": {
+          "max_abs": 1.7881393432617188e-07,
+          "status": "PASS"
+        },
+        "scale_codes": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "second_scales": {
+          "max_abs": 1.1920928955078125e-07,
+          "status": "FAIL"
+        }
+      },
+      "status": "FAIL"
+    },
+    {
+      "case_id": "nested-16384-bfloat16",
+      "gates": {
+        "decoded": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "decoded_out": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "dynamic_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "nf4_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "offset": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "packed": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "restored_scales": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "scale_codes": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "second_scales": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "case_id": "nested-16385-bfloat16",
+      "gates": {
+        "decoded": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "decoded_out": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "dynamic_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "nf4_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "offset": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "packed": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "restored_scales": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "scale_codes": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "second_scales": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "case_id": "nested-32768-bfloat16",
+      "gates": {
+        "decoded": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "decoded_out": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "dynamic_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "nf4_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "offset": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "packed": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "restored_scales": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "scale_codes": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "second_scales": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "case_id": "nested-32769-bfloat16",
+      "gates": {
+        "decoded": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "decoded_out": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "dynamic_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "nf4_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "offset": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "packed": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "restored_scales": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "scale_codes": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "second_scales": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "case_id": "known-code-0003",
+      "gates": {
+        "codes": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "dynamic_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "offset": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "restored_scales": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "second_scales": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "case_id": "known-code-0257",
+      "gates": {
+        "codes": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "dynamic_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "offset": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "restored_scales": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "second_scales": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "case_id": "known-code-0513",
+      "gates": {
+        "codes": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "dynamic_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "offset": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "restored_scales": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "second_scales": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "case_id": "positive-known-3",
+      "gates": {
+        "decoded": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "decoded_out": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "dynamic_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "nf4_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "offset": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "packed": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "restored_scales": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "scale_codes": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "second_scales": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "y": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "case_id": "positive-known-257",
+      "gates": {
+        "decoded": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "decoded_out": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "dynamic_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "nf4_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "offset": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "packed": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "restored_scales": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "scale_codes": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "second_scales": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "y": {
+          "max_abs": 0.0050048828125,
+          "status": "PASS"
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "case_id": "positive-known-513",
+      "gates": {
+        "decoded": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "decoded_out": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "dynamic_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "nf4_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "offset": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "packed": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "restored_scales": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "scale_codes": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "second_scales": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "y": {
+          "max_abs": 0.0401611328125,
+          "status": "PASS"
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "case_id": "module-float32-rank2-bias0",
+      "gates": {
+        "decoded": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "decoded_out": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "dx": {
+          "max_abs": 1.4901161193847656e-08,
+          "status": "PASS"
+        },
+        "dynamic_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "nf4_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "offset": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "packed": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "restored_scales": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "scale_codes": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "second_scales": {
+          "max_abs": 9.999999350456404e-39,
+          "status": "FAIL"
+        },
+        "y": {
+          "max_abs": 4.76837158203125e-07,
+          "status": "PASS"
+        }
+      },
+      "status": "FAIL"
+    },
+    {
+      "case_id": "module-float32-rank2-bias1",
+      "gates": {
+        "bias": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "db": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "decoded": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "decoded_out": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "dx": {
+          "max_abs": 1.4901161193847656e-08,
+          "status": "PASS"
+        },
+        "dynamic_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "nf4_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "offset": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "packed": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "restored_scales": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "scale_codes": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "second_scales": {
+          "max_abs": 9.999999350456404e-39,
+          "status": "FAIL"
+        },
+        "y": {
+          "max_abs": 4.76837158203125e-07,
+          "status": "PASS"
+        }
+      },
+      "status": "FAIL"
+    },
+    {
+      "case_id": "module-float32-rank3-bias0",
+      "gates": {
+        "decoded": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "decoded_out": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "dx": {
+          "max_abs": 1.4901161193847656e-08,
+          "status": "PASS"
+        },
+        "dynamic_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "nf4_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "offset": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "packed": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "restored_scales": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "scale_codes": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "second_scales": {
+          "max_abs": 9.999999350456404e-39,
+          "status": "FAIL"
+        },
+        "y": {
+          "max_abs": 4.76837158203125e-07,
+          "status": "PASS"
+        }
+      },
+      "status": "FAIL"
+    },
+    {
+      "case_id": "module-float32-rank3-bias1",
+      "gates": {
+        "bias": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "db": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "decoded": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "decoded_out": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "dx": {
+          "max_abs": 1.4901161193847656e-08,
+          "status": "PASS"
+        },
+        "dynamic_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "nf4_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "offset": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "packed": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "restored_scales": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "scale_codes": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "second_scales": {
+          "max_abs": 9.999999350456404e-39,
+          "status": "FAIL"
+        },
+        "y": {
+          "max_abs": 4.76837158203125e-07,
+          "status": "PASS"
+        }
+      },
+      "status": "FAIL"
+    },
+    {
+      "case_id": "nested-zero-65-float32",
+      "gates": {
+        "decoded": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "decoded_out": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "dynamic_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "nf4_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "offset": {
+          "max_abs": 4.999999675228202e-39,
+          "status": "FAIL"
+        },
+        "packed": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "restored_scales": {
+          "max_abs": 1.0007811589395015e-38,
+          "status": "PASS"
+        },
+        "scale_codes": {
+          "max_abs": 92,
+          "status": "FAIL"
+        },
+        "second_scales": {
+          "max_abs": 9.999999350456404e-39,
+          "status": "FAIL"
+        }
+      },
+      "status": "FAIL"
+    },
+    {
+      "case_id": "nested-zero-16385-float32",
+      "gates": {
+        "decoded": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "decoded_out": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "dynamic_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "nf4_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "offset": {
+          "max_abs": 3.8909854458907196e-41,
+          "status": "FAIL"
+        },
+        "packed": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "restored_scales": {
+          "max_abs": 9.968596251870885e-39,
+          "status": "PASS"
+        },
+        "scale_codes": {
+          "max_abs": 127,
+          "status": "FAIL"
+        },
+        "second_scales": {
+          "max_abs": 9.999999350456404e-39,
+          "status": "FAIL"
+        }
+      },
+      "status": "FAIL"
+    },
+    {
+      "case_id": "module-bfloat16-rank2-bias0",
+      "gates": {
+        "decoded": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "decoded_out": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "dynamic_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "nf4_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "offset": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "packed": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "restored_scales": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "scale_codes": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "second_scales": {
+          "max_abs": 9.999999350456404e-39,
+          "status": "FAIL"
+        },
+        "y": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        }
+      },
+      "status": "FAIL"
+    },
+    {
+      "case_id": "module-bfloat16-rank2-bias1",
+      "gates": {
+        "bias": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "decoded": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "decoded_out": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "dynamic_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "nf4_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "offset": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "packed": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "restored_scales": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "scale_codes": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "second_scales": {
+          "max_abs": 9.999999350456404e-39,
+          "status": "FAIL"
+        },
+        "y": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        }
+      },
+      "status": "FAIL"
+    },
+    {
+      "case_id": "module-bfloat16-rank3-bias0",
+      "gates": {
+        "decoded": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "decoded_out": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "dynamic_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "nf4_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "offset": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "packed": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "restored_scales": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "scale_codes": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "second_scales": {
+          "max_abs": 9.999999350456404e-39,
+          "status": "FAIL"
+        },
+        "y": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        }
+      },
+      "status": "FAIL"
+    },
+    {
+      "case_id": "module-bfloat16-rank3-bias1",
+      "gates": {
+        "bias": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "decoded": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "decoded_out": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "dynamic_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "nf4_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "offset": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "packed": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "restored_scales": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "scale_codes": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "second_scales": {
+          "max_abs": 9.999999350456404e-39,
+          "status": "FAIL"
+        },
+        "y": {
+          "max_abs": 0.015625,
+          "status": "PASS"
+        }
+      },
+      "status": "FAIL"
+    },
+    {
+      "case_id": "nested-zero-65-bfloat16",
+      "gates": {
+        "decoded": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "decoded_out": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "dynamic_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "nf4_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "offset": {
+          "max_abs": 4.999999675228202e-39,
+          "status": "FAIL"
+        },
+        "packed": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "restored_scales": {
+          "max_abs": 1.0007811589395015e-38,
+          "status": "PASS"
+        },
+        "scale_codes": {
+          "max_abs": 92,
+          "status": "FAIL"
+        },
+        "second_scales": {
+          "max_abs": 9.999999350456404e-39,
+          "status": "FAIL"
+        }
+      },
+      "status": "FAIL"
+    },
+    {
+      "case_id": "nested-zero-16385-bfloat16",
+      "gates": {
+        "decoded": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "decoded_out": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "dynamic_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "nf4_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "offset": {
+          "max_abs": 3.8909854458907196e-41,
+          "status": "FAIL"
+        },
+        "packed": {
+          "max_abs": 0,
+          "status": "PASS"
+        },
+        "restored_scales": {
+          "max_abs": 9.968596251870885e-39,
+          "status": "PASS"
+        },
+        "scale_codes": {
+          "max_abs": 127,
+          "status": "FAIL"
+        },
+        "second_scales": {
+          "max_abs": 9.999999350456404e-39,
+          "status": "FAIL"
+        }
+      },
+      "status": "FAIL"
+    },
+    {
+      "case_id": "block-subnormal-255",
+      "gates": {
+        "codes": {
+          "max_abs": 6,
+          "status": "FAIL"
+        },
+        "decoded": {
+          "max_abs": 6.628141736256385e-43,
+          "status": "PASS"
+        },
+        "decoded_out": {
+          "max_abs": 6.628141736256385e-43,
+          "status": "PASS"
+        },
+        "dynamic_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "second_scales": {
+          "max_abs": 9.999999350456404e-39,
+          "status": "FAIL"
+        }
+      },
+      "status": "FAIL"
+    },
+    {
+      "case_id": "block-subnormal-256",
+      "gates": {
+        "codes": {
+          "max_abs": 6,
+          "status": "FAIL"
+        },
+        "decoded": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "decoded_out": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "dynamic_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "second_scales": {
+          "max_abs": 7.174648137343064e-43,
+          "status": "FAIL"
+        }
+      },
+      "status": "FAIL"
+    },
+    {
+      "case_id": "block-subnormal-257",
+      "gates": {
+        "codes": {
+          "max_abs": 6,
+          "status": "FAIL"
+        },
+        "decoded": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "decoded_out": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "dynamic_map": {
+          "max_abs": 0.0,
+          "status": "PASS"
+        },
+        "second_scales": {
+          "max_abs": 9.999999350456404e-39,
+          "status": "FAIL"
+        }
+      },
+      "status": "FAIL"
+    }
+  ],
+  "runtime": {
+    "libtpu": "0.0.21",
+    "python": "3.12",
+    "torch": "2.9.0+cpu",
+    "torch_xla": "2.9.0"
+  },
+  "runtime_lock_sha256": "323371ff61c5fbcc4f79fd6a358cf2ba17cb72b907382a5ceaac07f91dc66ed6",
+  "runtime_mode": "ADOPT_ROOT_CREATED_BROWSER_RUNTIME",
+  "schema_sha256": "bd7dd210b2451749556f053b4472d4cbb820320d6608d246153888d0dcda0b71",
+  "server_empty": true,
+  "source_admission_sha256": "6647dbe8d4928a201020e7116105e836585bc1d4ad1adf3cc730976d9885b139",
+  "source_variant": "nested-v1",
+  "status": "REVIEWED_TPU_NESTED_FAILURE"
+}

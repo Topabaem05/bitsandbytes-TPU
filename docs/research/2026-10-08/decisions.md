@@ -50,6 +50,9 @@ Use `highest` for the next correctness experiments.
 R1 is accepted.
 The subsequent [M2 result](../../changes/r2-transfer-colab.md) passed the full API42 matrix and four public transfer cases.
 The [M3 result](../../changes/r3-state-colab.md) passed eight saved-state cases in new TPU processes.
+The subsequent [M4 nested run](../../changes/r4-nested-colab-failure.md) failed 27 of 79 cases under unchanged criteria.
+Mean and centered-scale operations outside the plugin require inspection with the blockwise arithmetic.
+The current M4 result does not authorize dependent state or QLoRA device acceptance.
 
 The accepted tensor swap correction uses behavior from a fixed PyTorch implementation.
 Its failure controls and actual TPU transfer records apply to that fixed source and runtime.
