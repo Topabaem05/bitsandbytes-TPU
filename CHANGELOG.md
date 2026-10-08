@@ -1,5 +1,15 @@
 # Change log
 
+## 2026-10-09 — Kaggle V5E8 request admission
+
+- Require the explicit V5E8 request and matching exact-version machine shape.
+- Preserve the scientific ZIP, wrapper, runtime, and numerical criteria.
+- Add portable request tests with pinned CLI and SDK source checks.
+
+Validation: All 62 independent controls passed; nine portable controls passed before and after adoption.
+The previous HTTP 400 cause remains unknown, and M8 remains unqualified.
+Refer to [the request record](docs/changes/r8-v5-request.md).
+
 ## 2026-10-09 — Mosaic version conversion preparation
 
 - Convert the retained Mosaic module from version 8 to version 7 with the pinned official passes.

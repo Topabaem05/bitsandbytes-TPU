@@ -63,7 +63,7 @@ Each phase also uses the remaining original deadline. Insufficient time blocks e
 
 ## Provider identity
 
-The original one-shot CLI push requests a new private Python script. Its exact `machine_shape` is `TpuV6E8`. Its requested session limit is 3600 seconds. The program requires the expected ref, positive kernel ID and version 1.
+The original one-shot CLI push requests a new private Python script. Its exact `machine_shape` is `TpuV5E8`. Its requested session limit is 3600 seconds. The exact-version source readback must return the planned machine shape. The program requires the expected ref, positive kernel ID and version 1.
 
 The typed SDK requests `v1` for source, status and output records. Output download requests integer `versionNumber=1`. The source readback must match the exact submitted script hash and identity. The program rejects a different ref or version.
 

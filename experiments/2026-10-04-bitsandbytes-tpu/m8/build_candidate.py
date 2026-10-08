@@ -99,7 +99,7 @@ def build(out,owner,slug,title,nonce,deadline,*,project_source,base_archive):
     folder=out/'submission';folder.mkdir();(folder/'wrapper.py').write_text(script)
     write(folder/'kernel-metadata.json',{'id':f'{owner}/{slug}','title':title,'code_file':'wrapper.py','language':'python','kernel_type':'script','is_private':True,'enable_gpu':False,'enable_tpu':True,'enable_internet':True,'dataset_sources':[],'kernel_sources':[],'competition_sources':[],'model_sources':[]})
     plan={'owner':owner,'slug':slug,'title':title,'folder':str(folder.resolve()),'wrapper_sha256':sha(folder/'wrapper.py'),
-        'binding':binding,'machine_shape':'TpuV6E8','session_timeout_seconds':3600,'deadline_epoch':deadline,
+        'binding':binding,'machine_shape':'TpuV5E8','session_timeout_seconds':3600,'deadline_epoch':deadline,
         'max_archive_bytes':100*1024*1024,'max_members':2000,'expected_member_paths':output_paths(packet)}
     runner.validate_plan(plan);write(out/'plan.json',plan)
     write(out/'derived-maps.json',{'accepted_admission_sha256':manifest['source_admission_sha256'],'source_admission':admission,'packet_files':manifest['files'],

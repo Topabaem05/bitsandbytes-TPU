@@ -73,7 +73,7 @@ def run(packet,output):
     assert_sources()
     op,r=packet['operation'],packet['request']
     if op=='submit':
-        if set(r)!={'folder','timeout','acc','wrapper_sha256','metadata_sha256'} or r['timeout']!='3600' or r['acc']!='TpuV6E8':raise ValueError('SAVE_REQUEST')
+        if set(r)!={'folder','timeout','acc','wrapper_sha256','metadata_sha256'} or r['timeout']!='3600' or r['acc']!='TpuV5E8':raise ValueError('SAVE_REQUEST')
         folder=Path(r['folder']);wrapper=(folder/'wrapper.py').read_bytes();metadata=(folder/'kernel-metadata.json').read_bytes()
         if sha(wrapper)!=r['wrapper_sha256'] or sha(metadata)!=r['metadata_sha256']:raise ValueError('SUBMIT_SOURCE_CHANGED')
         stage=output/'sealed-submit';stage.mkdir(mode=0o700)
@@ -89,7 +89,7 @@ def run(packet,output):
         if any(x in api.args for x in ('--staging','--admin','--local','--verbose','-v')):raise ValueError('CLI_ARGUMENT_DRIFT')
         op,r=packet['operation'],packet['request']
         if op=='submit':
-            if set(r)!={'folder','timeout','acc','wrapper_sha256','metadata_sha256'} or r['timeout']!='3600' or r['acc']!='TpuV6E8':raise ValueError('SAVE_REQUEST')
+            if set(r)!={'folder','timeout','acc','wrapper_sha256','metadata_sha256'} or r['timeout']!='3600' or r['acc']!='TpuV5E8':raise ValueError('SAVE_REQUEST')
             response=api.kernels_push(str(stage),timeout=r['timeout'],acc=r['acc'])
             result={n:getattr(response,n) for n in ('ref','url','version_number','kernel_id','error','invalid_tags','invalid_dataset_sources','invalid_kernel_sources','invalid_competition_sources','invalid_model_sources')}
         else:

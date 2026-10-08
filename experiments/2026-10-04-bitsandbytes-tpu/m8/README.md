@@ -65,3 +65,7 @@ The `owner_cli.py close` entry uses the same candidate and output directory. It 
 A terminal API status does not prove resource closure. An ambiguous submission without an exact identity remains unconfirmed. This entry has no established API session mapping or cancellation operation. Root must observe actual hardware and resource closure independently.
 
 The supervisor cannot guarantee cleanup after its own SIGKILL or host failure. Local process closure cannot prove Kaggle resource closure. See [DESIGN.md](DESIGN.md) for the fixed order, limits and result rules.
+
+This generation requests only `TpuV5E8`. The exact-version source readback must match this request.
+
+The request identity does not prove the physical TPU generation. The fixed runtime probe must still report TPU execution.

@@ -129,6 +129,9 @@ The [error record correction](changes/r8-error-retention.md) passed 80 independe
 All 14 portable controls also passed after adoption.
 Future submissions can retain bounded response classifications without changing the original SDK error.
 The previous HTTP 400 body remains unavailable, and its cause remains unknown.
+The [V5E8 request generation](changes/r8-v5-request.md) passed 62 independent controls.
+Nine portable request controls passed before and after adoption.
+It requires exact saved-version hardware readback and a new experiment identity.
 M8 requires an identified version, the accepted runtime and scientific results, and independent resource closure.
 The earlier [cloud inspection](research/2026-10-08/cloud.md) remains a dated source record.
 

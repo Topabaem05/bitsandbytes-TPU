@@ -108,7 +108,7 @@ class ProviderFixture:
             if self.fault=='ambiguous':return Outcome('TIMEOUT',None,launch,d)
             result={'ref':identity,'kernel_id':101,'version_number':1,'error':''}
             if self.fault=='wrong-version':result['version_number']=2
-        elif op=='source':result={'ref':identity,'kernel_id':101,'current_version_number':1,'is_private':True,'language':'python','kernel_type':'script','source_sha256':self.plan['wrapper_sha256']}
+        elif op=='source':result={'ref':identity,'kernel_id':101,'current_version_number':1,'is_private':True,'language':'python','kernel_type':'script','source_sha256':self.plan['wrapper_sha256'],'machine_shape':self.plan['machine_shape']}
         elif op=='status':
             result={'status':'COMPLETE'}
             if self.fault=='latest':response['request'].pop('versionLabel')

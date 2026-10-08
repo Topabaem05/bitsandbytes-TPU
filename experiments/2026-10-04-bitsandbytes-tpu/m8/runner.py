@@ -26,7 +26,7 @@ def validate_plan(plan):
     binding=plan['binding']
     if set(binding)!=BINDING_KEYS or not re.fullmatch(r'[0-9a-f]{32}',binding['nonce']):raise ValueError('BINDING_SCHEMA')
     if not all(SHA.fullmatch(binding[k]) for k in BINDING_KEYS-{'nonce'}):raise ValueError('BINDING_SHA')
-    if plan['session_timeout_seconds']!=3600 or plan['machine_shape']!='TpuV6E8':raise ValueError('UNREVIEWED_RUNTIME_REQUEST')
+    if plan['session_timeout_seconds']!=3600 or plan['machine_shape']!='TpuV5E8':raise ValueError('UNREVIEWED_RUNTIME_REQUEST')
     if type(plan['deadline_epoch']) not in (float,int) or not math.isfinite(plan['deadline_epoch']):raise ValueError('DEADLINE')
     if type(plan['max_archive_bytes']) is not int or not 1<=plan['max_archive_bytes']<=512*1024*1024:raise ValueError('ARCHIVE_BOUND')
     if type(plan['max_members']) is not int or not 1<=plan['max_members']<=10000:raise ValueError('MEMBER_BOUND')
@@ -130,7 +130,7 @@ class Runner:
             identity={'owner':self.plan['owner'],'slug':self.plan['slug'],'kernel_id':result['kernel_id'],'version':1}
             self.report['identity']=identity;self.report['state']='SUBMITTED';self.save()
             request=wire(identity,'source');outcome=self.call('source',request);source=check_response(outcome,'source',request)
-            if source.get('ref')!=expected_ref or source.get('kernel_id')!=identity['kernel_id'] or source.get('current_version_number')!=1 or source.get('is_private') is not True or source.get('language')!='python' or source.get('kernel_type')!='script' or source.get('source_sha256')!=self.plan['wrapper_sha256']:raise ValueError('VERSION_SOURCE_READBACK')
+            if source.get('ref')!=expected_ref or source.get('kernel_id')!=identity['kernel_id'] or source.get('current_version_number')!=1 or source.get('is_private') is not True or source.get('language')!='python' or source.get('kernel_type')!='script' or source.get('source_sha256')!=self.plan['wrapper_sha256'] or source.get('machine_shape')!=self.plan['machine_shape']:raise ValueError('VERSION_SOURCE_READBACK')
             self.report['source_readback']=source
             for index in range(120):
                 request=wire(identity,'status');outcome=self.call('status',request);status=check_response(outcome,'status',request)

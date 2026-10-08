@@ -1,0 +1,195 @@
+{
+  "accepted_milestones": 3,
+  "actual_provider": "NOT_RUN",
+  "adoption": {
+    "actual_provider": "NOT_RUN",
+    "baseline_commit": "e4c13a35e1db60e2a48e14d8b6eb2ef0bbe45a22",
+    "files": [
+      {
+        "new": {
+          "bytes": 8704,
+          "sha256": "18d755c2ac7d550aa34ea71d0069dd127aab8da618ac173985f94b0043da1c05"
+        },
+        "old": {
+          "bytes": 8631,
+          "sha256": "7a09e8b67266c7f0b58b7c2cffedbecb78175456618c6c8cb2a7c560ebc31b8b"
+        },
+        "target": "experiments/2026-10-04-bitsandbytes-tpu/m8/DESIGN.md"
+      },
+      {
+        "new": {
+          "bytes": 5182,
+          "sha256": "fa5a08e582a6edf6571d5e73b56a8e2104c4b53d71c65b8d7f745615bb22cade"
+        },
+        "old": {
+          "bytes": 4958,
+          "sha256": "f3a6d591541a9429f8fcfa6fd9beef2b500af014723fa152202d43fece9c1965"
+        },
+        "target": "experiments/2026-10-04-bitsandbytes-tpu/m8/README.md"
+      },
+      {
+        "new": {
+          "bytes": 10253,
+          "sha256": "7fc7fc5aa5ff0fb5893d5a9f59c1bbc8b58b774e15d0a3e33db5147e039fa1d3"
+        },
+        "old": {
+          "bytes": 10253,
+          "sha256": "14130e56ddd7f4874ef54a1918f2f0ca3ec01e66a7755b12cd87b27afe3c844d"
+        },
+        "target": "experiments/2026-10-04-bitsandbytes-tpu/m8/build_candidate.py"
+      },
+      {
+        "new": {
+          "bytes": 15008,
+          "sha256": "b77029fa8b6cf191e3e0cecf70a30d431abce93d05e28bd7cddb3570953e6e45"
+        },
+        "old": {
+          "bytes": 14949,
+          "sha256": "503c3ebc3691c14d34fb151b0944617122fc658997d5ed317ae932312ab075ad"
+        },
+        "target": "experiments/2026-10-04-bitsandbytes-tpu/m8/runner.py"
+      },
+      {
+        "new": {
+          "bytes": 9254,
+          "sha256": "c33fc21a6b2405edb56486cfcc8881e683432bb0b2bd686ed66ab2c4eb49541b"
+        },
+        "old": {
+          "bytes": 9254,
+          "sha256": "8eb4a5507106f626dd7774d3fea89f0a44457c248f0a6cd53706dd4e80e5597d"
+        },
+        "target": "experiments/2026-10-04-bitsandbytes-tpu/m8/sdk_worker.py"
+      },
+      {
+        "new": {
+          "bytes": 34120,
+          "sha256": "44a280fb82ae5bddc6052cced5a0d18eefeb0af67e409ad31aa04b8ddf3d9e82"
+        },
+        "old": {
+          "bytes": 34077,
+          "sha256": "740030bfcfea76f7469bc807baaf1a6e0325a18d7cd08768f71f66040d90e111"
+        },
+        "target": "experiments/2026-10-04-bitsandbytes-tpu/m8/tests.py"
+      },
+      {
+        "new": {
+          "bytes": 6009,
+          "sha256": "24f8d8500941c5b8d7cb49591bc1c93103a1e2ab93d9bfb2e7ba5f256330f235"
+        },
+        "old": null,
+        "operation": "ADD",
+        "target": "experiments/2026-10-04-bitsandbytes-tpu/m8/hardware_fixture_worker.py"
+      },
+      {
+        "new": {
+          "bytes": 9650,
+          "sha256": "b3b0e3d8a5aa401295ee5fe47ecc4abf382ec279683cb9ebf41d057dac19178a"
+        },
+        "old": null,
+        "operation": "ADD",
+        "target": "experiments/2026-10-04-bitsandbytes-tpu/m8/tests_hardware.py"
+      }
+    ],
+    "status": "ROOT_ADOPTED_EXACT_BYTES"
+  },
+  "baseline_host_commit": "e4c13a35e1db60e2a48e14d8b6eb2ef0bbe45a22",
+  "date": "2026-10-09",
+  "independent_controls": 62,
+  "kind": "ROOT_REVIEWED_KAGGLE_V5_REQUEST",
+  "m8": "NOT_QUALIFIED",
+  "original_http400_cause": "UNKNOWN",
+  "original_submission": "PRESERVED_NO_RETRY",
+  "payload_source_commit": "155289f7c2ca9f3afea895fbfb458710001cb78f",
+  "physical_generation": "NOT_VERIFIED",
+  "portable_hardware_controls_before_and_after_adoption": 9,
+  "reports": [
+    {
+      "path": ".work/root-m8-v5-hardware-controls-001/controls.json",
+      "result": {
+        "credential_read_attempts": 0,
+        "errors": 0,
+        "failures": 0,
+        "m8_status": "NOT_QUALIFIED",
+        "machine_shape": "TpuV5E8_ONLY",
+        "network_attempts": 0,
+        "packet_sha256": "654641d70a43bb1154097301b8ba41dfe5d2f95d16a2dd0e01c181e69eead80a",
+        "provider_calls": "FAKE_ONLY",
+        "status": "PASS",
+        "tests": 9,
+        "wrapper_sha256": "a089f6534b13cbbb30689910795da6422ca88a9028748ed358999fb3bf43ad46"
+      },
+      "sha256": "cba37b745a0bf316e711c763acca17c7bef0f5d300b1e09ec76123672b67bf7b"
+    },
+    {
+      "path": ".work/root-m8-v5-regression-001/controls.json",
+      "result": {
+        "actual_cpu": "NOT_RUN",
+        "actual_tpu": "NOT_RUN",
+        "credential_read_attempts": 0,
+        "errors": 0,
+        "failures": 0,
+        "kind": "M8_M2_OFFLINE_INTEGRATION_CONTROLS",
+        "m8_status": "NOT_QUALIFIED",
+        "network_attempts": 0,
+        "provider_calls": "SYNTHETIC_ONLY",
+        "seconds": 9.725796699523926,
+        "status": "PASS",
+        "tests": 39
+      },
+      "sha256": "32fe8f356a400f925ac50c4f45d70450540fe20967575ab7fd28af95c60d1f2b"
+    },
+    {
+      "path": ".work/root-m8-v5-retention-controls-001/controls.json",
+      "result": {
+        "credential_read_attempts": 0,
+        "errors": 0,
+        "failures": 0,
+        "m8_status": "NOT_QUALIFIED",
+        "network_attempts": 0,
+        "provider_calls": 0,
+        "status": "PASS",
+        "tests": 14
+      },
+      "sha256": "1ae7dad5d7ab81348ed57d1ec1486d6f0f152445d26a28a8f567bad9f5568bc3"
+    },
+    {
+      "path": ".work/root-m8-v5-portable-controls-001/controls.json",
+      "result": {
+        "credential_read_attempts": 0,
+        "errors": 0,
+        "failures": 0,
+        "m8_status": "NOT_QUALIFIED",
+        "machine_shape": "TpuV5E8_ONLY",
+        "network_attempts": 0,
+        "packet_sha256": "654641d70a43bb1154097301b8ba41dfe5d2f95d16a2dd0e01c181e69eead80a",
+        "provider_calls": "FAKE_ONLY",
+        "status": "PASS",
+        "tests": 9,
+        "wrapper_sha256": "689838bf4ae74df1efe59b1a7c1c971fe956d240a4060cb3bedba6db858fb95e"
+      },
+      "sha256": "b7d7455031909a37c1f9cfb571022d3b9b1fe6b107d07bd8945dd1c3cc5870e2"
+    },
+    {
+      "path": ".work/root-m8-v5-canonical-hardware-controls/controls.json",
+      "result": {
+        "credential_read_attempts": 0,
+        "errors": 0,
+        "failures": 0,
+        "m8_status": "NOT_QUALIFIED",
+        "machine_shape": "TpuV5E8_ONLY",
+        "network_attempts": 0,
+        "packet_sha256": "654641d70a43bb1154097301b8ba41dfe5d2f95d16a2dd0e01c181e69eead80a",
+        "provider_calls": "FAKE_ONLY",
+        "status": "PASS",
+        "tests": 9,
+        "wrapper_sha256": "f596f59fe262d25c50a34d62ba614a3e491752ceeb2244470034b4e7ee359833"
+      },
+      "sha256": "617f96aa6bfa1c32fa74fe959474eda6f8cc2afea0161ee611c64f8995405362"
+    }
+  ],
+  "requested_api_identifier": "TpuV5E8",
+  "required_milestones": 8,
+  "status": "LOCAL_CONTROLS_PASS",
+  "ui_choice": "TPU v5e-8",
+  "ui_observation_sha256": "4eececc87a625409275268e70beaf25a511eed6aa6ce5a987d3d3385b2a525b0"
+}
