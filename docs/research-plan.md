@@ -21,7 +21,7 @@ Port2TPU results do not count for these backend milestones.
 | M5 | QLoRA execution | Twenty steps, frozen base weights, and restoration after step ten | In progress: private CPU preparation; TPU test required |
 | M6 | Pallas NF4 kernel | Actual custom call, numerical tests, and compiler test records for memory use | In progress: actual diagnostic returned five errors; kernel and diagnostic corrections required |
 | M7 | Measured performance | Raw time samples and memory measurements on the same TPU | In progress: local collector controls passed; actual measurements require accepted M6 |
-| M8 | Repeated cloud results | Matching source and inputs on Colab and Kaggle, with resource closure | Not started |
+| M8 | Repeated cloud results | Matching source and inputs on Colab and Kaggle, with resource closure | In progress: CLI access and offline version controls passed; device repetition and closure required |
 
 Accepted milestones: **3 of 8**.
 The reviewer accepted M1 on 2026-10-04.
@@ -83,11 +83,11 @@ The [measurement preparation](changes/r7-measurement-preparation.md) passed 64 l
 Actual M7 collection requires accepted M6 results.
 BF16 gradients remain outside the fixed diagnostic scope.
 
-The previous Kaggle inspection found no usable CLI credentials.
-This source inspection did not repeat account authentication.
-M8 needs CLI access and independently identified run records before acceptance.
-The current CLI development source reports version-selection corrections that are absent from release 2.2.4.
-Refer to [the cloud inspection](research/2026-10-08/cloud.md).
+The [Kaggle readiness inspection](changes/r8-kaggle-readiness.md) verified CLI 2.2.4 access on 2026-10-09.
+The reviewer repeated 16 offline SDK version controls; all passed.
+No job was submitted, and actual device capacity remains unobserved.
+M8 requires an identified version, the accepted runtime and scientific results, and independent resource closure.
+The earlier [cloud inspection](research/2026-10-08/cloud.md) remains a dated source record.
 
 ## Work order
 

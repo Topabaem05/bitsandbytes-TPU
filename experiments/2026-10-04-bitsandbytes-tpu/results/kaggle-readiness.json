@@ -1,0 +1,74 @@
+{
+  "actual_tpu_capacity": "NOT_OBSERVED",
+  "authenticated_read_endpoints": [
+    "owned kernel first page",
+    "quota"
+  ],
+  "checked_local_date": "2026-10-09",
+  "cli_version": "2.2.4",
+  "credentials_changed": false,
+  "handoff_manifest_sha256": "591512f3a89a74002add6f8ed5a4cedc3e6912c71bbc14ad31f32e108d30f384",
+  "live_exact_version_selection": "NOT_VERIFIED",
+  "m8": "NOT_QUALIFIED",
+  "provider_closure_mapping": "NOT_ESTABLISHED",
+  "provider_job_submit": false,
+  "quota_refresh_literal": "2026-10-10T00:00:00",
+  "quota_timezone": "UNSPECIFIED",
+  "readiness_root_review_sha256": "de28308f1b035915e74545d345ff4450e4e05e720e00388ad7eda482161fb77d",
+  "root_offline_controls": {
+    "credential_read_attempts": 0,
+    "errors": 0,
+    "failures": 0,
+    "fixture_identity_only": true,
+    "network_attempts": 0,
+    "observed_save_request": {
+      "enableGpu": false,
+      "enableInternet": true,
+      "enableTpu": true,
+      "isPrivate": true,
+      "kernelType": "script",
+      "language": "python",
+      "machineShape": "TpuV6E8",
+      "newTitle": "M8 Fixture",
+      "sessionTimeoutSeconds": 3600,
+      "slug": "fixture-owner/m8-fixture",
+      "text": "print(\"synthetic fixture\")\n"
+    },
+    "pass": true,
+    "scope": "OFFLINE_PUBLIC_SDK_REQUEST_CONTROLS",
+    "serialized_exact_requests": {
+      "download": {
+        "kernelSlug": "m8-fixture",
+        "ownerSlug": "fixture-owner",
+        "versionNumber": 1
+      },
+      "outputs": {
+        "kernelSlug": "m8-fixture",
+        "pageSize": 20,
+        "userName": "fixture-owner",
+        "versionLabel": "v1"
+      },
+      "source": {
+        "kernelSlug": "m8-fixture",
+        "userName": "fixture-owner",
+        "versionLabel": "v1"
+      },
+      "status": {
+        "kernelSlug": "m8-fixture",
+        "userName": "fixture-owner",
+        "versionLabel": "v1"
+      }
+    },
+    "server_behavior_verified": false,
+    "source_pins_match": true,
+    "stdout": "SANITIZED",
+    "stop_or_resource_absence_verified": false,
+    "tests": 16
+  },
+  "sdk_published_wheel_sha256": "766e7d1e59379941b373957e7d80f612942e63ab4a638d99ae4ee3e9e92f050e",
+  "sdk_version": "0.1.37",
+  "source_bytes_verified": 844063,
+  "source_files_verified": 23,
+  "status": "AUTHENTICATED_READINESS_AND_OFFLINE_CONTRACT_ONLY",
+  "tpu_quota_remaining_hours": 17.93
+}

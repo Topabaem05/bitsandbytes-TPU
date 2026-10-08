@@ -1,5 +1,15 @@
 # Change log
 
+## 2026-10-09 — Kaggle access and version preparation
+
+- Verify authenticated notebook and quota requests through installed CLI 2.2.4.
+- Inspect SDK version fields and preserve the installed CLI version limitation.
+- Record the remaining device, execution, and resource closure requirements.
+
+Validation: The reviewer repeated 16 offline request controls; all passed.
+No Kaggle job was submitted, and M8 remains unqualified.
+Refer to [the readiness record](docs/changes/r8-kaggle-readiness.md).
+
 ## 2026-10-09 — Actual native diagnostic errors
 
 - Retain two Pallas lowering errors, two tensor wrapping errors, and one metric validation error.
