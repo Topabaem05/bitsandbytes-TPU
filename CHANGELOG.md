@@ -1,5 +1,14 @@
 # Change log
 
+## 2026-10-09 — Corrected native allocation wait
+
+- Retain the V6E1 allocation wait after the native correction.
+- Verify an empty server list, zero active usage, and closure of four CLI process groups.
+- Keep the marker, installation, CPU oracle, and TPU result as unexecuted.
+
+Validation: Resource closure passed inspection; the cause of the wait remains unknown.
+Refer to [the allocation record](docs/changes/r6-native-repair.md#colab-allocation-attempt).
+
 ## 2026-10-09 — Native kernel and diagnostic correction
 
 - Replace unsupported dynamic slices with fixed slices and conditional selection.

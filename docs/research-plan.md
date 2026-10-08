@@ -86,6 +86,7 @@ The source, archive, and resource closure records passed inspection.
 Pallas lowering, tensor wrapping, and metric serialization require separate corrections before another native qualification attempt.
 The [combined correction](changes/r6-native-repair.md) passed local source, diagnostic, and Pallas conversion controls.
 It requires a fresh qualified CPU oracle and actual TPU execution under the new source manifest.
+Its fresh V6E1 allocation exceeded the planned wait before any code executed; resource closure passed inspection.
 The [measurement preparation](changes/r7-measurement-preparation.md) passed 64 local controls and nine independent retained-record checks.
 Actual M7 collection requires accepted M6 results.
 BF16 gradients remain outside the fixed diagnostic scope.

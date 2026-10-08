@@ -44,3 +44,13 @@ The full file manifest and reviewed commit identify the actual candidate.
 The [inspection record](../../experiments/2026-10-04-bitsandbytes-tpu/results/native-repair-preparation.json) gives the source identities and test hashes.
 Actual TPU execution, compiler memory records, and public API integration remain required.
 M6 remains unqualified.
+
+## Colab allocation attempt
+
+The reviewer requested one V6E1 runtime after this correction was committed and pushed.
+The browser still showed an allocation wait after 642.58 seconds; the planned wait was 600 seconds.
+The reviewer closed the temporary tab and verified an empty server list and zero active usage.
+All four CLI process groups closed.
+The marker, installation, CPU oracle, and TPU cases did not execute.
+The browser showed 3.18 available compute units; the cause of the allocation wait remains unknown.
+The [allocation record](../../experiments/2026-10-04-bitsandbytes-tpu/results/native-repair-allocation-wait.json) retains the original times and source identity.
