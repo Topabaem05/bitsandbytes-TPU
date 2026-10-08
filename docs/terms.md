@@ -28,6 +28,7 @@ They are not additions to the official ASD-STE100 dictionary.
 | CUDA | The NVIDIA interface for GPU computation. |
 | dispatch key | The PyTorch identifier that selects an operator implementation. |
 | entry point | Package metadata that identifies a function for automatic discovery. |
+| endpoint | The service identifier for one remote runtime. |
 | fallback | An alternative implementation selected when the requested implementation cannot execute. |
 | FP16 | The IEEE binary16 numerical data type. |
 | FP32 | The IEEE binary32 numerical data type. |
@@ -44,6 +45,7 @@ They are not additions to the official ASD-STE100 dictionary.
 | libtpu | The TPU runtime library. |
 | manifest | A file that records file names, byte counts, and hashes. |
 | matrix multiplication | The mathematical operation that multiplies two matrices. |
+| marker | A temporary file whose exact bytes identify a previously observed runtime. |
 | metadata | Structured information about data, source, or execution. |
 | Meta | The PyTorch device type that represents tensor structure without numerical data. |
 | Mosaic | The compiler infrastructure used for the Pallas TPU kernel body. |

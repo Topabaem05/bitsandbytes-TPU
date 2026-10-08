@@ -1,5 +1,16 @@
 # Change log
 
+## 2026-10-08 — Reuse of an identified browser runtime
+
+- Add explicit reuse of one root-created Colab runtime through official CLI session APIs.
+- Require a matching browser marker before upload or package installation.
+- Keep the original allocation deadline and exact resource closure requirements.
+- Reject incorrect, additional, stale, or unidentified runtimes.
+
+Validation: The reviewer repeated 44 controls and inspected all 46 packet members; all passed.
+Actual nested numerical results remain required.
+Refer to [the browser reuse record](docs/changes/r4-browser-adoption.md).
+
 ## 2026-10-08 — Nested saved-state experiment preparation
 
 - Add eight saved-state cases with original public serialization and restoration.

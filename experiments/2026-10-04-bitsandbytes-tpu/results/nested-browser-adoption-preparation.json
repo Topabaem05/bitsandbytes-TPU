@@ -1,0 +1,106 @@
+{
+  "absolute_deadline_utc": "2026-10-08T13:58:19.612Z",
+  "adopted_files": {
+    "cloud/browser_adoption.py": {
+      "bytes": 4348,
+      "sha256": "5ead44e54ed1cd1f006e94d43f8390d7d5b8020c16c1836a6b33ba298da9395d"
+    },
+    "cloud/official_cli_no_oauth.py": {
+      "bytes": 1501,
+      "sha256": "a6c8713d8be39e7185a3f759ee6bdbd64a0d6b8c47eca0ba08526f9bc1bc4d7e"
+    },
+    "cloud/owner.py": {
+      "bytes": 44537,
+      "sha256": "e7a08f8c940a4958f894766114bb34ea4f151d1a667c07d485aa6a83895fe6c0"
+    },
+    "cloud/tests/browser_adoption_controls.py": {
+      "bytes": 4576,
+      "sha256": "a848c4aa4098dc1cc756a40d93eabd18718c6ff4f1894b18044a817449d3a867"
+    },
+    "cloud/tests/test_browser_adoption_owner.py": {
+      "bytes": 11934,
+      "sha256": "f0eea42c32c4b551af19802743a0f1db8e0301c43f9357c5bafbb9fba9d75664"
+    },
+    "cloud/tests/test_browser_host_deadline.py": {
+      "bytes": 1454,
+      "sha256": "98e9a4dc66ff2f986e538ec7929355d1ac8e0ade1fe6514708d3cf16d4985031"
+    },
+    "host_run.py": {
+      "bytes": 2934,
+      "sha256": "ee1aef56feafe7177ac52f030579fabe4bb39331f95735790b9aef88575bacf3"
+    }
+  },
+  "artifact_bindings": {
+    ".work/r4-browser-adoption-preparation/final-frozen-file-map.json": {
+      "bytes": 1268,
+      "sha256": "e28f46b65168fd1f082175ed378b4a74b7d9f4591daa041e29b89483a5873b7c"
+    },
+    ".work/r4-browser-adoption-preparation/packet-v2-result.json": {
+      "bytes": 1132,
+      "sha256": "2bcdcf0dda5e03a2795c0a7a49d479b69d5deb432a8968afe7846e9aef389c2e"
+    },
+    ".work/root-r4-browser-adoption-review/cli.stderr": {
+      "bytes": 98,
+      "sha256": "0f375ff0ccc11849be04984dad7bac82c49b6a84d4234bcfcb294eae944605c9"
+    },
+    ".work/root-r4-browser-adoption-review/final-v3.stdout": {
+      "bytes": 100,
+      "sha256": "d3ca7c2b0c4127fa6f25b025d529b1f877c5dd75762aba08d67d9ad05df97a5c"
+    }
+  },
+  "browser_diagnostic": {
+    "connected": true,
+    "exact_allocation_latency_seconds": null,
+    "marker_cell_executed": true,
+    "science_executed": false,
+    "wait_target_exceeded": true,
+    "wait_target_seconds": 360
+  },
+  "checked_date": "2026-10-08",
+  "credentials_or_runtime_identifiers": "EXCLUDED",
+  "m4": "NOT_QUALIFIED",
+  "official_cli_controls": 12,
+  "original_browser_allocation_utc": "2026-10-08T12:58:19.612Z",
+  "owner_bootstrap_host_controls": 32,
+  "ownership": "BROWSER_MARKER_REQUIRES_ACTUAL_CLI_READBACK",
+  "root_control_seconds": {
+    "official_cli": 0.023,
+    "owner_bootstrap_host": 15.21
+  },
+  "runtime_allocation": "NOT_REQUESTED_BY_REUSE_MODE",
+  "source_packet": {
+    "added_files": [
+      "cloud/browser_adoption.py",
+      "cloud/nested_state_contract.py"
+    ],
+    "changed_files": [
+      "cloud/official_cli_no_oauth.py",
+      "cloud/owner.py",
+      "cloud/remote.py"
+    ],
+    "cli_identity": "PASS",
+    "manifest_sha256": "b8702b4c02d289f84d0a787453c91b1460cc32141cfd0088afe73894cf5ebb60",
+    "members": 46,
+    "payload_bytes": 1031986,
+    "payload_sha256": "08189b55e8aef5507fab27017dcf824e21078cae9e068d3b4516108e231f1fbb",
+    "preflight": "PASS",
+    "preserved_scientific_and_runtime_files": [
+      "upstream.tar",
+      "patched-upstream.tar",
+      "probe-profile.json",
+      "probe-inputs.json",
+      "runtime/requirements.lock.json",
+      "source-admission.json",
+      "probe_nested.py",
+      "nested-inputs.json",
+      "nested-source.json",
+      "nested-schemas.json"
+    ],
+    "prior_archive_sha256": "41e1fc76ddd4a25915f8f4f804d881be9fc1a89ab88834db4284f9971ae7769e",
+    "prior_packet_sha256": "226e2cc7a682a8e9c7d9ec5111feabcd8ca939220aee4900807646bd170c986e",
+    "scope": "DISPATCHABLE_SOURCE_PACKET_ONLY_NO_ACCEPTANCE_GATE_NO_PROVIDER",
+    "source_archive_provenance": "REUSED_EXACT_PRIOR_ADMITTED_GIT_ARCHIVE"
+  },
+  "status": "ACCEPTED_BROWSER_REUSE_PREPARATION",
+  "tpu_numerical": "NOT_RUN"
+}

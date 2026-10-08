@@ -22,6 +22,8 @@ from remote import sha, verify_archive, verify_experiment, verify_transfer_paylo
 from nested_contract import (NESTED_BINDINGS,NESTED_SCOPE,NESTED_SOURCE_SHA,NESTED_PLUGIN_MANIFEST_SHA,
     NESTED_FILES,verify_nested_payload,nested_cli)
 
+from browser_adoption import MODE as BROWSER_MODE, record as browser_record
+
 from nested_state_contract import (NESTED_STATE_BINDINGS,NESTED_STATE_SCOPE,verify_state_payload,state_cli)
 
 
@@ -156,7 +158,7 @@ def verify_result(out, receipt):
     return inventory
 
 
-def drive(packet, output, expected, acceptance, acceptance_sha, cli_python, cli_identity, *, api=None, simulated=False):
+def drive(packet, output, expected, acceptance, acceptance_sha, cli_python, cli_identity, *, api=None, simulated=False, browser_adoption=None, browser_adoption_sha256=None):
     manifest = preflight(packet, expected)
     if sha(acceptance) != acceptance_sha:
         raise PermissionError('ROOT_ACCEPTANCE_SHA')
@@ -189,6 +191,17 @@ def drive(packet, output, expected, acceptance, acceptance_sha, cli_python, cli_
         if state:
             fields.update({field: manifest[field] for field in STATE_BINDINGS})
             fields['state_scope'] = manifest['state_scope']
+    adopting=browser_adoption is not None or browser_adoption_sha256 is not None
+    adoption=None
+    if adopting:
+        if browser_adoption is None or browser_adoption_sha256 is None:raise PermissionError('BROWSER_ADOPTION_ARGUMENTS')
+        adoption=browser_record(browser_adoption,browser_adoption_sha256)
+        if adoption['packet_sha256']!=expected or adoption['driver_sha256']!=sha(HERE/'owner.py') or adoption['cli_identity_sha256']!=sha(cli_identity):raise PermissionError('BROWSER_ADOPTION_SOURCE_BINDING')
+        fields.update(runtime_mode=BROWSER_MODE,browser_adoption_sha256=browser_adoption_sha256,
+            adopted_endpoint=adoption['endpoint'],adopted_session=adoption['session'],adopted_hardware=adoption['hardware'],
+            original_allocation_epoch=adoption['allocation_epoch'],marker_path=adoption['marker_path'],marker_sha256=adoption['marker_sha256'])
+    elif any(k in gate for k in ('runtime_mode','browser_adoption_sha256','adopted_endpoint','adopted_session','adopted_hardware','original_allocation_epoch','marker_path','marker_sha256')):
+        raise PermissionError('BROWSER_ADOPTION_NOT_REQUESTED')
     if any(gate.get(k) != v for k, v in fields.items()):
         raise PermissionError('EXACT_ROOT_ACCEPTANCE_REQUIRED')
     if gate.get('cli_identity_sha256') != sha(cli_identity):
@@ -201,7 +214,7 @@ def drive(packet, output, expected, acceptance, acceptance_sha, cli_python, cli_
     output.mkdir(parents=True)
     durable_json(output / 'root-acceptance.json', gate)
     api = api or OfficialCLI(cli_python, output)
-    session = 'bnb-tpu-first-' + datetime.now(timezone.utc).strftime('%Y%m%d-%H%M%S')
+    session = adoption['session'] if adopting else 'bnb-tpu-first-' + datetime.now(timezone.utc).strftime('%Y%m%d-%H%M%S')
     base = '/content/bnb-tpu-first'
     owner = {'status': 'RUNNING', 'mode': 'SIMULATED_NO_CLOUD' if simulated else 'ACTUAL_COLAB',
              'session': session, 'allocation_attempts': 0, 'commands': [], 'cleanup_errors': [],
@@ -215,6 +228,7 @@ def drive(packet, output, expected, acceptance, acceptance_sha, cli_python, cli_
         owner.update(experiment=experiment, precision='highest', api42_status='NOT_QUALIFIED', m3_status='NOT_QUALIFIED')
         if state:
             owner['api42_status'] = 'NOT_REPEATED'
+    adoption_verified=False
     started = None
     prior = {sig: signal.getsignal(sig) for sig in (signal.SIGTERM, signal.SIGINT)}
 
@@ -286,15 +300,33 @@ def drive(packet, output, expected, acceptance, acceptance_sha, cli_python, cli_
     try:
         for sig in prior:
             signal.signal(sig, interrupted)
-        if 'No active sessions found on server.' not in call('01-sessions-before', ['sessions'], 60):
+        before=call('01-sessions-before', ['sessions'], 60)
+        if not adopting and 'No active sessions found on server.' not in before:
             raise RuntimeError('ACTIVE_SESSION_NO_ALLOCATION')
         call('02-usage-before', ['usage'], 60)
-        started = time.time()
-        owner.update(allocation_attempts=1, allocation_epoch=started, deadline_utc=datetime.fromtimestamp(started + 3600, timezone.utc).isoformat())
+        started=adoption['allocation_epoch'] if adopting else time.time()
+        owner.update(allocation_attempts=0 if adopting else 1,allocation_epoch=started,deadline_utc=datetime.fromtimestamp(started+3600,timezone.utc).isoformat())
+        if adopting:
+            owner.update(runtime_mode=BROWSER_MODE,browser_adoption_sha256=browser_adoption_sha256,adoption_verified=False,allocation='NOT_ATTEMPTED_BROWSER_RUNTIME')
         durable_json(output / 'owner.json', owner)
-        call('03-one-allocation', ['--allocation-transport-v1', 'new', '-s', session, '--tpu', 'v6e1'], 360)
-        text = call('04-sessions-after', ['sessions'], 60)
-        if '[' + session + ']' not in text or 'Hardware: V6E1' not in text:
+        if adopting:
+            call('03-browser-registration',['--adopt-root-browser-v1',str(browser_adoption),browser_adoption_sha256],60)
+        else:
+            call('03-one-allocation', ['--allocation-transport-v1', 'new', '-s', session, '--tpu', 'v6e1'], 360)
+        text=call('04-sessions-after',['sessions'],60)
+        if adopting:
+            assignment_lines=[line for line in text.splitlines() if 'Hardware:' in line]
+            segments=assignment_lines[0].split(' | ') if len(assignment_lines)==1 else []
+            if not segments or segments[0]!='['+session+'] '+adoption['endpoint'] or segments.count('Hardware: V6E1')!=1 or segments.count('Variant: TPU')!=1:raise RuntimeError('ADOPTED_SESSION_NOT_OBSERVED')
+            marker_code=('import hashlib,json\nfrom pathlib import Path\n'+f'p=Path({adoption["marker_path"]!r})\n'+
+                f'assert p.is_file() and not p.is_symlink() and hashlib.sha256(p.read_bytes()).hexdigest()=={adoption["marker_sha256"]!r}, "ROOT_BROWSER_MARKER_MISMATCH"\n'+
+                f'print(json.dumps({{"status":"ROOT_BROWSER_MARKER_MATCH","marker_sha256":{adoption["marker_sha256"]!r}}},sort_keys=True))\n')
+            proof=kernel('04b-browser-marker',marker_code,30)
+            expected_proof={'status':'ROOT_BROWSER_MARKER_MATCH','marker_sha256':adoption['marker_sha256']}
+            if not any(line.strip().startswith('{') and json.loads(line)==expected_proof for line in proof.splitlines() if line.strip().startswith('{')):raise RuntimeError('ROOT_BROWSER_MARKER_NOT_PROVED')
+            adoption_verified=True;owner.update(adoption_verified=True,marker_readback=expected_proof,adopted_endpoint_sha256=__import__('hashlib').sha256(adoption['endpoint'].encode()).hexdigest())
+            durable_json(output/'owner.json',owner)
+        elif '['+session+']' not in text or 'Hardware: V6E1' not in text:
             raise RuntimeError('OWNED_V6E1_NOT_OBSERVED')
         readiness = ('from pathlib import Path\nimport json,platform,sys,os\n'
                      f'b=Path({base!r})\n'
@@ -345,7 +377,7 @@ def drive(packet, output, expected, acceptance, acceptance_sha, cli_python, cli_
         for sig in prior:
             signal.signal(sig, signal.SIG_IGN)
         try:
-            if started is not None:
+            if started is not None and (not adopting or adoption_verified):
                 # Retrieval is independent of the child result. Never repeat a science phase.
                 try:
                     download('20-critical-receipt', base + '/records/receipt.json', output / 'receipt-before-export.json')
@@ -386,7 +418,13 @@ def drive(packet, output, expected, acceptance, acceptance_sha, cli_python, cli_
                 if not owner['server_empty_observed'] or not owner['usage_zero_observed'] or owner['cleanup_errors'] or owner['elapsed_lifecycle_seconds'] > 3600:
                     owner['status'] = 'BLOCKED_CLEANUP'
             else:
-                owner['allocation'] = 'NOT_ATTEMPTED'
+                owner['allocation']='NOT_ATTEMPTED'
+                if adopting:
+                    owner['remote_termination']='NOT_RUN_UNPROVEN_BROWSER_IDENTITY'
+                    try:call('89-remove-provisional',['--remove-browser-provisional-v1',str(browser_adoption),browser_adoption_sha256],15,0,cleanup=True)
+                    except BaseException as error:
+                        owner['cleanup_errors'].append({'operation':'89-remove-provisional','type':type(error).__name__,'message':str(error)})
+                        owner['status']='BLOCKED_CLEANUP'
         finally:
             owner['handler_restoration_errors'] = []
             for sig, handler in prior.items():
@@ -531,6 +569,8 @@ if __name__ == '__main__':
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument('--packet', type=Path, required=True)
     p.add_argument('--packet-sha256', required=True)
+    p.add_argument('--browser-adoption',type=Path)
+    p.add_argument('--browser-adoption-sha256')
     p.add_argument('--output', type=Path, required=True)
     p.add_argument('--root-acceptance', type=Path, required=True)
     p.add_argument('--root-acceptance-sha256', required=True)
@@ -543,6 +583,6 @@ if __name__ == '__main__':
         verify_cli_identity(a.cli_python, json.loads(a.cli_identity.read_text()))
         print(json.dumps({'status': 'LOCAL_PREFLIGHT_NO_CLI', 'files': len(m['files']), 'CLI_file_identity': 'PASS_NO_API'}))
     else:
-        r = drive(a.packet.resolve(), a.output.resolve(), a.packet_sha256, a.root_acceptance, a.root_acceptance_sha256, a.cli_python, a.cli_identity)
+        r = drive(a.packet.resolve(), a.output.resolve(), a.packet_sha256, a.root_acceptance, a.root_acceptance_sha256, a.cli_python, a.cli_identity,**({'browser_adoption':a.browser_adoption,'browser_adoption_sha256':a.browser_adoption_sha256} if a.browser_adoption is not None or a.browser_adoption_sha256 is not None else {}))
         print(json.dumps(r))
         raise SystemExit(0 if r['status'] in ('PASS_TPU_API_PROBE', 'PASS_DEVICE_ROUTE_RECORDS', 'PASS_PRECISION_RECORDS', 'PASS_TPU_TRANSFER_API42', 'PASS_TPU_STATE_RECORDS', 'PASS_TPU_NESTED_RECORDS', 'PASS_TPU_NESTED_STATE_RECORDS') else 2)

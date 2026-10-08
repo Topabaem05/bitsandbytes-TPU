@@ -20,6 +20,12 @@ def main(argv=None):
     argv = list(sys.argv[1:] if argv is None else argv)
     auth._run_remote_flow = deny_new_oauth  # Same restriction as the original wrapper.
     sys.stdout = RedactedStream(sys.stdout); sys.stderr = RedactedStream(sys.stderr)
+    if argv and argv[0] in ('--adopt-root-browser-v1','--remove-browser-provisional-v1'):
+        import json
+        import colab_cli.common as common
+        from browser_adoption import command
+        print(json.dumps(command(argv,common),sort_keys=True))
+        return
     if '--allocation-transport-v1' not in argv:
         sys.argv = ['colab',*argv]
         return official_main()
