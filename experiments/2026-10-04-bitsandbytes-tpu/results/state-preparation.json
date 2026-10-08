@@ -1,0 +1,107 @@
+{
+  "accepted_milestones": 2,
+  "actual_tpu": "NOT_RUN",
+  "artifact_bindings": {
+    ".work/r3-promotion/review.json": {
+      "bytes": 2822,
+      "sha256": "c7021604159fb2726751d6470aff4c6a254131e74884561bee322910fe40cc8b"
+    },
+    ".work/r3-transport-integration/review.json": {
+      "bytes": 1351,
+      "sha256": "4d0288b0ecc8c9a11d4df2797a8213fedd7d8ff8b5803a8300d2fb2bd3e9073c"
+    },
+    ".work/root-r3-adoption/packet-report-error.json": {
+      "bytes": 275,
+      "sha256": "4772d9a4bb1ca9b94efba76f3978538614eba454b863bff69610c53adc193900"
+    },
+    ".work/root-r3-adoption/packet-result.json": {
+      "bytes": 1621,
+      "sha256": "d1c97386a61aeee24b50ccd2295adccedf95c5d481b45817df497b7c9ee22e4c"
+    },
+    ".work/root-r3-adoption/tests.xml": {
+      "bytes": 40512,
+      "sha256": "a682e4b68f4fc4d217c74b7635b42686485c5afa35c0691cd12e79d4403ccd45"
+    }
+  },
+  "checks": {
+    "cli_identity": "PASS",
+    "cpu_fixture_bytes": 200143,
+    "failures": 0,
+    "packet_preflight": "PASS",
+    "portable_controls": 239,
+    "seconds": 26.08,
+    "skips": 0,
+    "synthetic_device_records": true
+  },
+  "date": "2026-10-08",
+  "limits": {
+    "bf16_gradients": "NOT_RUN",
+    "cuda": "NOT_RUN",
+    "darwin_immediate_launch_cleanup": "UNRESOLVED; original permission-error observations retain CLEANUP_UNVERIFIED",
+    "performance": "NOT_MEASURED",
+    "production_ownership_changed": false
+  },
+  "m2_dependency_result_sha256": "2ead4d22e248b9c0f7a9fb355a9daf779ad63d4276ddde8b92706e84bb2daa57",
+  "m3": "NOT_QUALIFIED",
+  "packet": {
+    "changed_or_added_files": {
+      "cloud/owner.py": {
+        "bytes": 33301,
+        "sha256": "5f2c4203103a362d40c6728dcaf9bb7d5a34431f6edeb06bf61a4ca33e41ead6"
+      },
+      "cloud/remote.py": {
+        "bytes": 44451,
+        "sha256": "662542cc63746513331edd72a3fbacb0aea9937e14367a8c9e96e64764613251"
+      },
+      "cloud/state_coordinator.py": {
+        "bytes": 9618,
+        "sha256": "5c9ac2adca82733f0c3e9b9a97d02788dd46ec5099b1e2beef87aaeb7e5900f3"
+      },
+      "probe_state.py": {
+        "bytes": 23983,
+        "sha256": "006604d18d10c202583c5d42dfa361a83da441ea99d625241101b58d5948da45"
+      },
+      "probe_state_roundtrip.py": {
+        "bytes": 32903,
+        "sha256": "06a6d702bd74cc4602955249d31f1199b5aeaaf7bbecc5043a5ac25c349a9f67"
+      }
+    },
+    "cli_identity": "PASS",
+    "m2_bindings_unchanged": [
+      "runtime_lock_sha256",
+      "source_admission_sha256",
+      "plugin_source_manifest_sha256",
+      "route_probe_sha256",
+      "precision_probe_sha256",
+      "transfer_probe_sha256",
+      "transfer_admission_sha256",
+      "source_controls_sha256",
+      "patch_manifest_sha256",
+      "patch_sha256",
+      "base_archive_sha256",
+      "patched_archive_sha256"
+    ],
+    "manifest_sha256": "c6c75bbe8d9a87388377bee5ee2d59ed8947ce137d0e5ec05bf53c76f95908f3",
+    "members": 40,
+    "original_m2_packet_sha256": "6ec9b2e8d1df9981f8040b3d74e22d6b73de1fdbe52c67dafdc1911f1ccfa3eb",
+    "payload_bytes": 969649,
+    "payload_sha256": "5634b0512f6f3ef3aa1d96b951d87a34f0aa15d0f5165cafe67c52f74d5e3f5f",
+    "reseal_script_sha256": "e324898159974eeb2777ffc07901f7123e26be707ef970158be54efafd7fbeb6",
+    "status": "PREFLIGHT_PASS",
+    "unchanged_file_count": 34
+  },
+  "required_milestones": 8,
+  "source": {
+    "experiments/2026-10-04-bitsandbytes-tpu/cloud/build_packet.py": "3c090833d274586eea36fd2741e39dd9156a122ba442aad2fdeaa2329f5f67ca",
+    "experiments/2026-10-04-bitsandbytes-tpu/cloud/owner.py": "5f2c4203103a362d40c6728dcaf9bb7d5a34431f6edeb06bf61a4ca33e41ead6",
+    "experiments/2026-10-04-bitsandbytes-tpu/cloud/remote.py": "662542cc63746513331edd72a3fbacb0aea9937e14367a8c9e96e64764613251",
+    "experiments/2026-10-04-bitsandbytes-tpu/cloud/state_coordinator.py": "5c9ac2adca82733f0c3e9b9a97d02788dd46ec5099b1e2beef87aaeb7e5900f3",
+    "experiments/2026-10-04-bitsandbytes-tpu/cloud/tests/test_state_cloud.py": "e5acb58e22553478c489c325c140bb4d9b4e7fb0b9b5cd5041760b5f452ae2c4",
+    "experiments/2026-10-04-bitsandbytes-tpu/probe_state_roundtrip.py": "06a6d702bd74cc4602955249d31f1199b5aeaaf7bbecc5043a5ac25c349a9f67",
+    "tests/fixtures/state_roundtrip_cpu.json": "655077e7a78008ab55fb5421b9ff636f865f3d31a6c87ee020a7c838288cdf42",
+    "tests/fixtures/state_roundtrip_cpu.md": "ca4f8186be7185dae4e56e8a431e1723c60c0c884d7271d89ec25dbd3a837b1d",
+    "tests/state_device_fixture.py": "f8202e4f8c79cf7ae818e8a2d57a1d0bc88c035bdfa1f6daac3e51110026a677",
+    "tests/test_state_post_validation.py": "01db730aa35b64d18f125669be5e2c812f5ebb4a117fb07d2ff928d3c88e9b20"
+  },
+  "status": "LOCAL_PREPARATION_ACCEPTED"
+}

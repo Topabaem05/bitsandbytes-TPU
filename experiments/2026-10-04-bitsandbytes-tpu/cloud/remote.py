@@ -8,6 +8,7 @@ import os
 from pathlib import Path, PurePosixPath
 import platform
 import shutil
+import secrets
 import stat
 import sys
 import tarfile
@@ -32,6 +33,10 @@ TRANSFER_BINDINGS = {'route_probe_sha256': 'probe_routes.py', 'precision_probe_s
                      'base_archive_sha256': 'upstream.tar', 'patched_archive_sha256': 'patched-upstream.tar'}
 
 
+STATE_HELPER_SHA = '006604d18d10c202583c5d42dfa361a83da441ea99d625241101b58d5948da45'
+STATE_BINDINGS = {'state_probe_sha256': 'probe_state_roundtrip.py', 'state_helper_sha256': 'probe_state.py'}
+
+
 def sha(p):
     h = hashlib.sha256()
     with Path(p).open('rb') as f:
@@ -47,12 +52,12 @@ def require(value, message):
 
 def verify_experiment(manifest):
     experiment = manifest.get('experiment', 'api42')
-    require(experiment in {'api42', 'device-route-diagnostic', 'precision-diagnostic', 'transfer-api42'}, 'EXPERIMENT_VARIANT')
+    require(experiment in {'api42', 'device-route-diagnostic', 'precision-diagnostic', 'transfer-api42', 'state-roundtrip'}, 'EXPERIMENT_VARIANT')
     if experiment in {'device-route-diagnostic', 'precision-diagnostic'}:
         pin = manifest.get('route_probe_sha256')
         require(manifest.get('diagnostic_only') is True and isinstance(pin, str) and len(pin) == 64 and
                 pin == manifest['files'].get('probe_routes.py', {}).get('sha256'), 'ROUTE_PROBE_BINDING')
-    if experiment in {'precision-diagnostic', 'transfer-api42'}:
+    if experiment in {'precision-diagnostic', 'transfer-api42', 'state-roundtrip'}:
         require(manifest.get('route_probe_sha256') == PRECISION_ROUTE_PROBE_SHA, 'PRECISION_ROUTE_PROBE_BINDING')
         pin = manifest.get('precision_probe_sha256')
         require(isinstance(pin, str) and len(pin) == 64 and
@@ -60,7 +65,7 @@ def verify_experiment(manifest):
     else:
         require('precision_probe_sha256' not in manifest and 'probe_precision.py' not in manifest['files'],
                 'PRECISION_PROBE_NOT_REQUESTED')
-    if experiment == 'transfer-api42':
+    if experiment in {'transfer-api42', 'state-roundtrip'}:
         for field, name in TRANSFER_BINDINGS.items():
             pin = manifest.get(field)
             require(isinstance(pin, str) and len(pin) == 64 and pin == manifest['files'].get(name, {}).get('sha256'),
@@ -73,6 +78,13 @@ def verify_experiment(manifest):
         transfer_only = set(TRANSFER_BINDINGS) - {'route_probe_sha256', 'precision_probe_sha256'}
         require(not any(field in manifest or (field != 'base_archive_sha256' and TRANSFER_BINDINGS[field] in manifest['files']) for field in transfer_only),
                 'TRANSFER_SOURCE_NOT_REQUESTED')
+    if experiment == 'state-roundtrip':
+        for field, name in STATE_BINDINGS.items():
+            pin = manifest.get(field)
+            require(isinstance(pin, str) and len(pin) == 64 and pin == manifest['files'].get(name, {}).get('sha256'), 'STATE_SOURCE_BINDING:' + field)
+        require(manifest['state_helper_sha256'] == STATE_HELPER_SHA and manifest.get('state_scope') == 'FRESH_SAVE_AND_RESTORE_PROCESSES_ALL8_LINEAR', 'STATE_REVIEWED_SCOPE')
+    else:
+        require(not any(field in manifest or name in manifest['files'] for field, name in STATE_BINDINGS.items()) and 'state_scope' not in manifest, 'STATE_SOURCE_NOT_REQUESTED')
     return experiment
 
 
@@ -313,7 +325,8 @@ def execute(base, packet_sha, allocation_epoch, phase):
     experiment = verify_experiment(manifest)
     diagnostic = experiment == 'device-route-diagnostic'
     precision = experiment == 'precision-diagnostic'
-    transfer = experiment == 'transfer-api42'
+    state = experiment == 'state-roundtrip'
+    transfer = experiment in {'transfer-api42', 'state-roundtrip'}
     if transfer:
         verify_transfer_payload(payload, manifest)
     out.mkdir(exist_ok=True)
@@ -337,6 +350,8 @@ def execute(base, packet_sha, allocation_epoch, phase):
                     'TRANSFER_PHASE_RECEIPT_BINDING' if transfer else 'PRECISION_PHASE_RECEIPT_BINDING')
             if transfer:
                 require(all(receipt.get(field) == manifest[field] for field in TRANSFER_BINDINGS), 'TRANSFER_PHASE_SOURCE_BINDING')
+                if state:
+                    require(all(receipt.get(field) == manifest[field] for field in STATE_BINDINGS), 'STATE_PHASE_SOURCE_BINDING')
         else:
             receipt.update(experiment=experiment,
                            route_probe_sha256=manifest['route_probe_sha256'],
@@ -346,6 +361,9 @@ def execute(base, packet_sha, allocation_epoch, phase):
             else:
                 receipt.update({field: manifest[field] for field in TRANSFER_BINDINGS})
                 receipt.update(precision='highest', m3_status='NOT_QUALIFIED')
+                if state:
+                    receipt.update({field: manifest[field] for field in STATE_BINDINGS})
+                    receipt['state_scope'] = manifest['state_scope']
     work_deadline = allocation_epoch + 3600 - 600 - 60
     installed = base / 'venv/bin/python'
 
@@ -444,8 +462,39 @@ def execute(base, packet_sha, allocation_epoch, phase):
                          '--precision-probe', payload / 'probe_precision.py', '--patch-manifest', payload / 'patches/params4bit-xla-v1.json']
             step('11-cpu-oracle', argv, deadline, 300)
             receipt.update(status='CPU_ORACLE_READY_TPU_NOT_RUN', cpu_status='PASS', oracle_sha256=sha(out / 'cpu-oracle/oracle-seal.json'))
+        elif phase == 'state':
+            require(state, 'WRONG_SCIENTIFIC_VARIANT')
+            require(receipt.get('installed_source_status') == 'POST_PATCH_PYTHON_SOURCE_PASS' and
+                    receipt.get('built_source_status') == 'POST_PATCH_WHEEL_PYTHON_SOURCE_PASS' and
+                    receipt.get('source_controls_status') == 'PASS_QUALIFIED_LINUX_SOURCE_CONTROLS', 'STATE_CPU_CONTROLS_REQUIRED')
+            launch = json.loads((base / 'launch.json').read_text())
+            require(receipt['cpu_status'] == 'PASS' and receipt['tpu_status'] == 'NOT_RUN' and
+                    launch['oracle_sha256'] == receipt['oracle_sha256'], 'EXPLICIT_RECOVERED_ORACLE_HASH_REQUIRED')
+            receipt.update(status='STATE_CHILD_RUNNING', tpu_status='RUNNING', tpu_attempted=True)
+            durable_json(receipt_path, receipt)
+            deadline = min(work_deadline, receipt['science_deadline_epoch'], time.time() + 1500)
+            parent_token = secrets.token_hex(16)
+            argv = [installed, '-B', payload / 'cloud/state_coordinator.py', 'execute',
+                    '--state-probe', payload / 'probe_state_roundtrip.py', '--manifest', payload / 'manifest.json',
+                    '--manifest-sha256', sha(payload / 'manifest.json'), '--admission', payload / 'source-admission.json',
+                    '--admission-sha256', manifest['source_admission_sha256'], '--patch-manifest', payload / 'patches/params4bit-xla-v1.json',
+                    '--oracle', out / 'cpu-oracle', '--oracle-sha256', launch['oracle_sha256'],
+                    '--deadline-epoch', deadline, '--output', out / 'state', '--process-token', parent_token]
+            rec = run_step(out, '12-state', [str(value) for value in argv], deadline, 1500, cwd=payload, tpu=True)
+            receipt['steps'].append({'label': '12-state', **rec})
+            require(not rec['cleanup']['errors'] and not rec.get('error') and (rec['status'], rec['exit_code']) == ('PASS', 0), 'STATE_CHILD_UNQUALIFIED_OR_CLEANUP')
+            result = json.loads((out / 'state/parent.json').read_text())
+            require(result.get('kind') == 'STATE_ROUNDTRIP_PARENT' and result.get('status') == 'COMPLETE', 'STATE_RECEIPT_INCOMPLETE')
+            require(result.get('source_pre') == result.get('source_post') == result.get('source_admission_sha256') == manifest['source_admission_sha256'] and
+                    result.get('oracle_sha256') == launch['oracle_sha256'] and result.get('runtime_lock_sha256') == manifest['runtime_lock_sha256'] and
+                    all(result.get(field) == manifest[field] for field in (*STATE_BINDINGS, 'patch_manifest_sha256')), 'STATE_RECEIPT_BINDING')
+            require(result.get('process_token') == parent_token and result.get('deadline_epoch') == deadline, 'STATE_PARENT_LAUNCH_BINDING')
+            require(type(result.get('pid')) is int and result.get('pid') == result.get('pgid') and
+                    any(group.get('pid') == group.get('pgid') == result['pid'] for group in rec['cleanup']['groups']), 'STATE_PROCESS_GROUP_IDENTITY')
+            receipt.update(status='STATE_CHILD_TERMINAL_LOCAL_REVIEW_REQUIRED', tpu_status='STATE_RECORDS_COMPLETE',
+                           state_parent_sha256=sha(out / 'state/parent.json'), m3_status='NOT_QUALIFIED')
         elif phase in ('routes', 'precision', 'transfer'):
-            require({'routes': diagnostic, 'precision': precision, 'transfer': transfer}[phase], 'WRONG_SCIENTIFIC_VARIANT')
+            require({'routes': diagnostic, 'precision': precision, 'transfer': transfer and not state}[phase], 'WRONG_SCIENTIFIC_VARIANT')
             label = '12-transfer' if transfer else '12-precision' if precision else '12-device-routes'
             directory = 'transfer' if transfer else 'precision' if precision else 'device-routes'
             status_prefix = 'TRANSFER' if transfer else 'PRECISION' if precision else 'DEVICE_ROUTE'
@@ -517,7 +566,7 @@ def execute(base, packet_sha, allocation_epoch, phase):
         else:
             raise ValueError('UNKNOWN_PHASE')
     except BaseException as error:
-        if phase in ('tpu', 'routes', 'precision', 'transfer') and receipt.get('tpu_status') == 'RUNNING':
+        if phase in ('tpu', 'routes', 'precision', 'transfer', 'state') and receipt.get('tpu_status') == 'RUNNING':
             receipt['tpu_status'] = 'ATTEMPTED_BLOCKED'
         receipt.update(status='BLOCKED', error={'type': type(error).__name__, 'message': str(error)})
     finally:
@@ -528,7 +577,7 @@ def execute(base, packet_sha, allocation_epoch, phase):
 
 def main():
     p = argparse.ArgumentParser(description=__doc__)
-    p.add_argument('operation', choices=['unpack', 'install', 'cpu', 'tpu', 'routes', 'precision', 'transfer', 'transfer-source', 'export', 'download', 'metadata'])
+    p.add_argument('operation', choices=['unpack', 'install', 'cpu', 'tpu', 'routes', 'precision', 'transfer', 'state', 'transfer-source', 'export', 'download', 'metadata'])
     p.add_argument('--base', type=Path, required=True)
     p.add_argument('--packet-sha256')
     p.add_argument('--allocation-epoch', type=float)
@@ -544,7 +593,7 @@ def main():
     if a.operation == 'transfer-source':
         payload = a.base / 'payload'
         manifest = json.loads((payload / 'manifest.json').read_text())
-        require(verify_experiment(manifest) == 'transfer-api42', 'TRANSFER_SOURCE_VARIANT')
+        require(verify_experiment(manifest) in {'transfer-api42', 'state-roundtrip'}, 'TRANSFER_SOURCE_VARIANT')
         for name, rec in manifest['files'].items():
             require(not (payload / name).is_symlink() and sha(payload / name) == rec['sha256'], 'TRANSFER_SOURCE_FILES')
         verify_transfer_payload(payload, manifest)

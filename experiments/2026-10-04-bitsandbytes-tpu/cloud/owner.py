@@ -18,7 +18,7 @@ HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE / 'ownership'))
 from cleanup_lifecycle import Ownership
 from lifecycle import durable_json
-from remote import sha, verify_archive, verify_experiment, verify_transfer_payload, validate_source_controls, TRANSFER_BINDINGS, TRANSFER_PATCH_MANIFEST_SHA
+from remote import sha, verify_archive, verify_experiment, verify_transfer_payload, validate_source_controls, TRANSFER_BINDINGS, TRANSFER_PATCH_MANIFEST_SHA, STATE_BINDINGS
 
 
 def clamp(started, limit, reserve, clock=None):
@@ -45,7 +45,7 @@ def preflight(packet, expected):
         p = packet / name
         if p.is_symlink() or sha(p) != rec['sha256'] or p.stat().st_size != rec['bytes']:
             raise ValueError('PACKET_LOCAL_FILE')
-    if manifest.get('experiment') == 'transfer-api42':
+    if manifest.get('experiment') in {'transfer-api42', 'state-roundtrip'}:
         verify_transfer_payload(packet, manifest)
     for p in HERE.rglob('*.py'):
         if 'tests' in p.relative_to(HERE).parts or p.name == 'build_packet.py':
@@ -161,7 +161,8 @@ def drive(packet, output, expected, acceptance, acceptance_sha, cli_python, cli_
     experiment = manifest.get('experiment', 'api42')
     diagnostic = experiment in {'device-route-diagnostic', 'precision-diagnostic'}
     precision = experiment == 'precision-diagnostic'
-    transfer = experiment == 'transfer-api42'
+    state = experiment == 'state-roundtrip'
+    transfer = experiment in {'transfer-api42', 'state-roundtrip'}
     if diagnostic:
         fields.update(experiment=experiment, diagnostic_only=True, route_probe_sha256=manifest['route_probe_sha256'])
     if precision:
@@ -169,6 +170,9 @@ def drive(packet, output, expected, acceptance, acceptance_sha, cli_python, cli_
     if transfer:
         fields.update({field: manifest[field] for field in TRANSFER_BINDINGS})
         fields.update(experiment=experiment, precision='highest')
+        if state:
+            fields.update({field: manifest[field] for field in STATE_BINDINGS})
+            fields['state_scope'] = manifest['state_scope']
     if any(gate.get(k) != v for k, v in fields.items()):
         raise PermissionError('EXACT_ROOT_ACCEPTANCE_REQUIRED')
     if gate.get('cli_identity_sha256') != sha(cli_identity):
@@ -193,6 +197,8 @@ def drive(packet, output, expected, acceptance, acceptance_sha, cli_python, cli_
         owner['m3_status'] = 'NOT_QUALIFIED'
     if transfer:
         owner.update(experiment=experiment, precision='highest', api42_status='NOT_QUALIFIED', m3_status='NOT_QUALIFIED')
+        if state:
+            owner['api42_status'] = 'NOT_REPEATED'
     started = None
     prior = {sig: signal.getsignal(sig) for sig in (signal.SIGTERM, signal.SIGINT)}
 
@@ -252,6 +258,8 @@ def drive(packet, output, expected, acceptance, acceptance_sha, cli_python, cli_
             raise ValueError(('TRANSFER' if transfer else 'PRECISION') + '_PHASE_RECEIPT_BINDING:' + label)
         if transfer and any(r.get(field) != manifest[field] for field in TRANSFER_BINDINGS):
             raise ValueError('TRANSFER_PHASE_SOURCE_BINDING:' + label)
+        if state and any(r.get(field) != manifest[field] for field in STATE_BINDINGS):
+            raise ValueError('STATE_PHASE_SOURCE_BINDING:' + label)
         return r
 
     receipt = None
@@ -291,8 +299,8 @@ def drive(packet, output, expected, acceptance, acceptance_sha, cli_python, cli_
         launch = output / 'launch.json'
         durable_json(launch, {'oracle_sha256': owner['recovered_oracle_sha256']})
         upload('12-oracle-admission', launch, base + '/launch.json')
-        operation('13-tpu', 'transfer' if transfer else 'precision' if precision else 'routes' if diagnostic else 'tpu', 1800)
-        phase_receipt('13-tpu', 'TRANSFER_CHILD_TERMINAL_LOCAL_REVIEW_REQUIRED' if transfer else
+        operation('13-tpu', 'state' if state else 'transfer' if transfer else 'precision' if precision else 'routes' if diagnostic else 'tpu', 1800)
+        phase_receipt('13-tpu', 'STATE_CHILD_TERMINAL_LOCAL_REVIEW_REQUIRED' if state else 'TRANSFER_CHILD_TERMINAL_LOCAL_REVIEW_REQUIRED' if transfer else
                       'PRECISION_CHILD_TERMINAL_LOCAL_REVIEW_REQUIRED' if precision else
                       'DEVICE_ROUTE_CHILD_TERMINAL_LOCAL_REVIEW_REQUIRED' if diagnostic else 'TPU_CHILD_TERMINAL_LOCAL_REVIEW_REQUIRED')
         owner['status'] = 'CHILD_TERMINAL_RETRIEVAL_REQUIRED'
@@ -366,15 +374,17 @@ def drive(packet, output, expected, acceptance, acceptance_sha, cli_python, cli_
                 if precision or transfer:
                     error_log = (output / 'local-verifier.stderr.raw').open('wb', buffering=0)
                 with verify.guard(clamp(started, 120, 0)):
-                    probe = 'probe_transfer.py' if transfer else 'probe_precision.py' if precision else 'probe_routes.py' if diagnostic else 'probe_backend.py'
-                    actual = 'recovered/transfer' if transfer else 'recovered/precision' if precision else 'recovered/device-routes' if diagnostic else 'recovered/tpu-actual'
+                    probe = 'probe_state_roundtrip.py' if state else 'probe_transfer.py' if transfer else 'probe_precision.py' if precision else 'probe_routes.py' if diagnostic else 'probe_backend.py'
+                    actual = 'recovered/state' if state else 'recovered/transfer' if transfer else 'recovered/precision' if precision else 'recovered/device-routes' if diagnostic else 'recovered/tpu-actual'
                     argv = [sys.executable, '-B', str(packet / probe), 'verify', '--admission-sha256', manifest['source_admission_sha256'], '--oracle', str(output / 'recovered/cpu-oracle'), '--oracle-sha256', owner['recovered_oracle_sha256'], '--actual', str(output / actual)]
-                    if diagnostic or transfer:
+                    if (diagnostic or transfer) and not state:
                         argv += ['--backend-probe', str(packet / 'probe_backend.py')]
-                    if precision or transfer:
+                    if (precision or transfer) and not state:
                         argv += ['--route-probe', str(packet / 'probe_routes.py')]
-                    if transfer:
+                    if transfer and not state:
                         argv += ['--precision-probe', str(packet / 'probe_precision.py'), '--patch-manifest', str(packet / 'patches/params4bit-xla-v1.json')]
+                    if state:
+                        argv += ['--patch-manifest', str(packet / 'patches/params4bit-xla-v1.json'), '--parent-receipt-sha256', receipt['state_parent_sha256']]
                     proc = verify.launch(argv, record=output / 'local-verifier-ownership.json', env=dict(os.environ, PYTHONDONTWRITEBYTECODE='1'), stdout=log, stderr=error_log)
                     proc.wait()
                     owner['local_verifier_exit_code'] = proc.returncode
@@ -395,9 +405,10 @@ def drive(packet, output, expected, acceptance, acceptance_sha, cli_python, cli_
                 durable_json(output / 'verify.json', report)
                 valid = (report.get('record_validation') == 'PASS' and report.get('m3_status') == 'NOT_QUALIFIED' and
                          report.get('numerical_status') in {'PASS', 'FAIL'} and
-                         report.get('api42_status') == report['numerical_status'])
+                         (state or report.get('api42_status') == report['numerical_status']))
                 bound = (receipt.get('experiment') == experiment and receipt.get('precision') == 'highest' and
                          all(receipt.get(field) == manifest[field] for field in TRANSFER_BINDINGS) and
+                         (not state or all(receipt.get(field) == manifest[field] for field in STATE_BINDINGS)) and
                          receipt.get('packet_sha256') == expected and receipt.get('manifest_sha256') == sha(packet / 'manifest.json') and
                          receipt.get('source_admission_sha256') == manifest['source_admission_sha256'] and
                          receipt.get('runtime_lock_sha256') == manifest['runtime_lock_sha256'] and receipt.get('allocation_epoch') == started)
@@ -414,9 +425,9 @@ def drive(packet, output, expected, acceptance, acceptance_sha, cli_python, cli_
                                   built.get('patch_manifest_sha256') == TRANSFER_PATCH_MANIFEST_SHA and
                                   built.get('python_files') == admission_record['bitsandbytes']['files'] and
                                   any(row.get('name') == built.get('wheel_name') and row.get('sha256') == built.get('wheel_sha256') for row in receipt.get('built_wheels', [])))
-                if owner['status'] == 'CHILD_TERMINAL_RETRIEVAL_REQUIRED' and not owner['local_verifier_cleanup']['errors'] and owner.get('local_verifier_exit_code') == (0 if report.get('numerical_status') == 'PASS' else 2) and valid and bound and controls_valid and receipt.get('built_source_status') == 'POST_PATCH_WHEEL_PYTHON_SOURCE_PASS' and receipt.get('installed_source_status') == 'POST_PATCH_PYTHON_SOURCE_PASS' and receipt.get('source_controls_status') == 'PASS_QUALIFIED_LINUX_SOURCE_CONTROLS' and receipt.get('runtime_status') == 'PASS_TPU_RUNTIME_PROBE_ONLY' and receipt.get('cpu_status') == 'PASS' and receipt.get('tpu_status') == 'TRANSFER_RECORDS_COMPLETE' and receipt.get('status') == 'TRANSFER_CHILD_TERMINAL_LOCAL_REVIEW_REQUIRED' and all(not step['cleanup']['errors'] for step in receipt['steps']):
-                    owner.update(status=('PASS' if report['numerical_status'] == 'PASS' else 'FAIL') + '_TPU_TRANSFER_API42',
-                                 record_validation='PASS', api42_status=report['api42_status'], numerical_status=report['numerical_status'], m3_status='NOT_QUALIFIED')
+                if owner['status'] == 'CHILD_TERMINAL_RETRIEVAL_REQUIRED' and not owner['local_verifier_cleanup']['errors'] and owner.get('local_verifier_exit_code') == (0 if report.get('numerical_status') == 'PASS' else 2) and valid and bound and controls_valid and receipt.get('built_source_status') == 'POST_PATCH_WHEEL_PYTHON_SOURCE_PASS' and receipt.get('installed_source_status') == 'POST_PATCH_PYTHON_SOURCE_PASS' and receipt.get('source_controls_status') == 'PASS_QUALIFIED_LINUX_SOURCE_CONTROLS' and receipt.get('runtime_status') == 'PASS_TPU_RUNTIME_PROBE_ONLY' and receipt.get('cpu_status') == 'PASS' and receipt.get('tpu_status') == ('STATE_RECORDS_COMPLETE' if state else 'TRANSFER_RECORDS_COMPLETE') and receipt.get('status') == ('STATE_CHILD_TERMINAL_LOCAL_REVIEW_REQUIRED' if state else 'TRANSFER_CHILD_TERMINAL_LOCAL_REVIEW_REQUIRED') and all(not step['cleanup']['errors'] for step in receipt['steps']):
+                    owner.update(status=('PASS' if report['numerical_status'] == 'PASS' else 'FAIL') + ('_TPU_STATE_RECORDS' if state else '_TPU_TRANSFER_API42'),
+                                 record_validation='PASS', api42_status='NOT_REPEATED' if state else report['api42_status'], numerical_status=report['numerical_status'], m3_status='NOT_QUALIFIED')
             elif precision:
                 report = json.loads((output / 'local-verifier.raw').read_text())
                 durable_json(output / 'verify.json', report)

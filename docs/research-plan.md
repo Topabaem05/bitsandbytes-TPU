@@ -16,7 +16,7 @@ Port2TPU results do not count for these backend milestones.
 | --- | --- | --- | --- |
 | M1 | Installable backend | Wheel installation, automatic registration, schema tests, and CPU differential tests | Completed: local CPU and package tests |
 | M2 | Actual TPU execution | Fixed runtime, TPU device test records, and upstream API output on Colab | Completed: 42 API cases and four public transfers on Colab V6E1 |
-| M3 | Upstream module state | Bias, gradients, saved state, and restoration in a new process | In progress: local preparation and reconstruction within one process |
+| M3 | Upstream module state | Bias, gradients, saved state, and restoration in a new process | In progress: reviewed process and state tests; actual TPU restoration required |
 | M4 | Nested quantization | Upstream default statistics option and matching nested state | In progress: source inspection and local reference data |
 | M5 | QLoRA execution | Twenty steps, frozen base weights, and restoration after step ten | Not started |
 | M6 | Pallas NF4 kernel | Actual custom call, numerical tests, and compiler test records for memory use | In progress: source inspection; layout candidate has not compiled |
@@ -56,6 +56,7 @@ Refer to [the accepted transfer result](changes/r2-transfer-colab.md).
 Do not replace the upstream classes or methods dynamically during execution.
 M3 remains unqualified.
 Restoration in a new process requires separate device records.
+The [M3 preparation](changes/r3-state-preparation.md) supplies the reviewed eight-case experiment and portable controls.
 BF16 gradients remain outside the fixed diagnostic scope.
 
 The previous Kaggle inspection found no usable CLI credentials.

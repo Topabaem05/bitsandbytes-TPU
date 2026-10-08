@@ -18,6 +18,7 @@ PRECISION_ROUTE_PROBE_SHA = 'feae751734e57c741b1bdade004ff7ca3c041ee7eb3b7086b53
 TRANSFER_PATCH_MANIFEST_SHA = 'e745fbf21aac10ed9118167a131d6505bf6dbe03e1fab0a669c663b26c5a5732'
 TRANSFER_PRECISION_PROBE_SHA = 'e0534955507e5f91e67ecddfffc738a367ad752e69a4eea7ae8052c6d76a8852'
 TRANSFER_SOURCE_CONTROLS_SHA = '5f5c8b6c3d04a0d8658dae1f4d70d7a909dfe63977b953936aecfb69bf9a16fe'
+STATE_HELPER_SHA = '006604d18d10c202583c5d42dfa361a83da441ea99d625241101b58d5948da45'
 
 
 def package_tree(root):
@@ -90,16 +91,18 @@ def python_tree(root):
 def build(upstream, out, plugin_manifest_sha256, *, experiment='api42', route_probe=None, route_probe_sha256=None,
           precision_probe=None, precision_probe_sha256=None, patch_manifest=None, patch_manifest_sha256=None,
           transfer_probe=None, transfer_probe_sha256=None, transfer_admission=None, transfer_admission_sha256=None,
-          source_controls=None, source_controls_sha256=None):
-    transfer = experiment == 'transfer-api42'
-    if experiment not in {'api42', 'device-route-diagnostic', 'precision-diagnostic', 'transfer-api42'}:
+          source_controls=None, source_controls_sha256=None, state_probe=None, state_probe_sha256=None,
+          state_helper=None, state_helper_sha256=None):
+    state = experiment == 'state-roundtrip'
+    transfer = experiment in {'transfer-api42', 'state-roundtrip'}
+    if experiment not in {'api42', 'device-route-diagnostic', 'precision-diagnostic', 'transfer-api42', 'state-roundtrip'}:
         raise ValueError('EXPERIMENT_VARIANT')
-    if experiment in {'device-route-diagnostic', 'precision-diagnostic', 'transfer-api42'}:
+    if experiment in {'device-route-diagnostic', 'precision-diagnostic', 'transfer-api42', 'state-roundtrip'}:
         if route_probe is None or route_probe.is_symlink() or not route_probe.is_file() or sha(route_probe) != route_probe_sha256:
             raise ValueError('ROUTE_PROBE_SOURCE')
     elif route_probe is not None or route_probe_sha256 is not None:
         raise ValueError('DIAGNOSTIC_PROBE_NOT_REQUESTED')
-    if experiment in {'precision-diagnostic', 'transfer-api42'}:
+    if experiment in {'precision-diagnostic', 'transfer-api42', 'state-roundtrip'}:
         if route_probe_sha256 != PRECISION_ROUTE_PROBE_SHA:
             raise ValueError('PRECISION_ROUTE_PROBE_SOURCE')
         if precision_probe is None or precision_probe.is_symlink() or not precision_probe.is_file() or sha(precision_probe) != precision_probe_sha256:
@@ -131,6 +134,15 @@ def build(upstream, out, plugin_manifest_sha256, *, experiment='api42', route_pr
     elif (patch_manifest is not None or patch_manifest_sha256 is not None or
           any(path is not None or pin is not None for path, pin, _ in transfer_fields)):
         raise ValueError('TRANSFER_SOURCE_NOT_REQUESTED')
+    if state:
+        if state_helper_sha256 != STATE_HELPER_SHA:
+            raise ValueError('STATE_HELPER_IDENTITY')
+        for path, pin, error in ((state_probe, state_probe_sha256, 'STATE_PROBE_SOURCE'),
+                                 (state_helper, state_helper_sha256, 'STATE_HELPER_SOURCE')):
+            if path is None or path.is_symlink() or not path.is_file() or sha(path) != pin:
+                raise ValueError(error)
+    elif any(value is not None for value in (state_probe, state_probe_sha256, state_helper, state_helper_sha256)):
+        raise ValueError('STATE_SOURCE_NOT_REQUESTED')
     if out.exists() or out.is_symlink():
         raise FileExistsError('FRESH_PACKET_REQUIRED')
     if subprocess.check_output(['git', '-C', str(upstream), 'rev-parse', 'HEAD'], text=True).strip() != COMMIT:
@@ -179,9 +191,9 @@ def build(upstream, out, plugin_manifest_sha256, *, experiment='api42', route_pr
         raise ValueError('PLUGIN_COPIED_BYTES')
     for name in ('probe_backend.py', 'probe-profile.json', 'probe-inputs.json'):
         shutil.copyfile(scientific / name, out / name)
-    if experiment in {'device-route-diagnostic', 'precision-diagnostic', 'transfer-api42'}:
+    if experiment in {'device-route-diagnostic', 'precision-diagnostic', 'transfer-api42', 'state-roundtrip'}:
         shutil.copyfile(route_probe, out / 'probe_routes.py')
-    if experiment in {'precision-diagnostic', 'transfer-api42'}:
+    if experiment in {'precision-diagnostic', 'transfer-api42', 'state-roundtrip'}:
         shutil.copyfile(precision_probe, out / 'probe_precision.py')
         if sha(out / 'probe_routes.py') != PRECISION_ROUTE_PROBE_SHA or sha(out / 'probe_precision.py') != precision_probe_sha256:
             raise ValueError('PRECISION_PROBE_COPIED_BYTES')
@@ -195,6 +207,12 @@ def build(upstream, out, plugin_manifest_sha256, *, experiment='api42', route_pr
             shutil.copyfile(source, target)
             if sha(target) != sha(source):
                 raise ValueError('TRANSFER_COPIED_BYTES')
+    if state:
+        for source, name, expected in ((state_probe, 'probe_state_roundtrip.py', state_probe_sha256),
+                                       (state_helper, 'probe_state.py', STATE_HELPER_SHA)):
+            shutil.copyfile(source, out / name)
+            if sha(out / name) != expected:
+                raise ValueError('STATE_COPIED_BYTES')
     for name in ('resolve.py', 'probe_runtime.py', 'requirements.lock.json'):
         dest = out / 'runtime' / name
         dest.parent.mkdir(exist_ok=True)
@@ -224,6 +242,9 @@ def build(upstream, out, plugin_manifest_sha256, *, experiment='api42', route_pr
                         source_controls_sha256=source_controls_sha256, patch_manifest_sha256=TRANSFER_PATCH_MANIFEST_SHA,
                         patch_sha256=patch_record['patch_sha256'], base_archive_sha256=patch_record['base_archive_sha256'],
                         patched_archive_sha256=sha(out / 'patched-upstream.tar'), precision='highest')
+    if state:
+        manifest.update(state_probe_sha256=state_probe_sha256, state_helper_sha256=STATE_HELPER_SHA,
+                        state_scope='FRESH_SAVE_AND_RESTORE_PROCESSES_ALL8_LINEAR')
     write(out / 'manifest.json', manifest)
     with zipfile.ZipFile(out / 'payload.zip', 'w', zipfile.ZIP_DEFLATED) as z:
         for name in sorted([*members, 'manifest.json']):
@@ -241,12 +262,12 @@ if __name__ == '__main__':
     p.add_argument('--upstream', type=Path, required=True)
     p.add_argument('--out', type=Path, required=True)
     p.add_argument('--plugin-manifest-sha256', required=True)
-    p.add_argument('--experiment', choices=['api42', 'device-route-diagnostic', 'precision-diagnostic', 'transfer-api42'], default='api42')
+    p.add_argument('--experiment', choices=['api42', 'device-route-diagnostic', 'precision-diagnostic', 'transfer-api42', 'state-roundtrip'], default='api42')
     p.add_argument('--route-probe', type=Path)
     p.add_argument('--route-probe-sha256')
     p.add_argument('--precision-probe', type=Path)
     p.add_argument('--precision-probe-sha256')
-    for name in ('patch-manifest', 'transfer-probe', 'transfer-admission', 'source-controls'):
+    for name in ('patch-manifest', 'transfer-probe', 'transfer-admission', 'source-controls', 'state-probe', 'state-helper'):
         p.add_argument('--' + name, type=Path)
         p.add_argument('--' + name + '-sha256')
     a = p.parse_args()
@@ -256,4 +277,6 @@ if __name__ == '__main__':
                           patch_manifest=a.patch_manifest, patch_manifest_sha256=a.patch_manifest_sha256,
                           transfer_probe=a.transfer_probe, transfer_probe_sha256=a.transfer_probe_sha256,
                           transfer_admission=a.transfer_admission, transfer_admission_sha256=a.transfer_admission_sha256,
-                          source_controls=a.source_controls, source_controls_sha256=a.source_controls_sha256), sort_keys=True))
+                          source_controls=a.source_controls, source_controls_sha256=a.source_controls_sha256,
+                          state_probe=a.state_probe, state_probe_sha256=a.state_probe_sha256,
+                          state_helper=a.state_helper, state_helper_sha256=a.state_helper_sha256), sort_keys=True))

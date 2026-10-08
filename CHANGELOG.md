@@ -1,5 +1,18 @@
 # Change log
 
+## 2026-10-08 — M3 state restoration preparation
+
+- Add separate save and restore processes for all eight fixed linear cases.
+- Keep the accepted M2 source, runtime, inputs, precision, and numerical gates.
+- Bind exact checkpoint bytes, tensor state, public method identity, and actual process launches.
+- Reject incomplete gates and successful rows with error metadata.
+- Add portable fixtures and retain the earlier unverified cleanup records.
+
+Validation: The reviewer repeated 239 controls; all passed in 26.08 seconds.
+The complete packet and installed CLI identity passed inspection.
+M3 still requires actual TPU execution; accepted milestones remain two of eight.
+Refer to [the state preparation](docs/changes/r3-state-preparation.md).
+
 ## 2026-10-08 — Colab M2 acceptance
 
 - Accept all 42 fixed API cases and four public CPU-to-XLA transfer cases on Colab V6E1.
