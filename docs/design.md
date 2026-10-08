@@ -72,6 +72,13 @@ This candidate has no measured performance claim.
 Partial tiles and other layouts need explicit tests or an explicit reference path.
 Each result must identify the selected path.
 
+The source inspection proposes packed layout `[Q,N,128]`, where Q=K/256.
+This layout moves the squeezed group axis outside the final two block dimensions.
+It satisfies one examined compiler rule but has not compiled.
+The packed transpose can require additional storage and execution time.
+Include those costs in the complete public call.
+Refer to [the Pallas source inspection](research/2026-10-08/pallas.md).
+
 PyTorch/XLA owns the TPU client.
 The bridge must apply the XLA JAX import guard before JAX import.
 The bridge uses `torch_xla.experimental.custom_kernel.make_kernel_from_pallas`.
@@ -88,14 +95,19 @@ The initial runtime does not require TorchTPU, Helion, or Qwix.
 | JAX | 0.7.1 |
 | jaxlib | 0.7.1 |
 
-The fixed runtime passed its first actual TPU probe on Colab.
-NF4 execution stopped before its first case completed.
-Refer to [the first Colab result](changes/task2-colab-first.md).
-The third run produced partial NF4 results with zero-input code failures and a parameter transfer error.
-Refer to [the third Colab result](changes/task2-colab-native.md).
+The fixed runtime passed an actual TPU probe on Colab.
+The latest diagnostic passed all 34 nonlinear cases.
+Module transfer and FP32 matrix results still fail their requirements.
+Refer to [the latest Colab result](changes/task2-colab-routes.md).
 Use the base JAX packages.
 Do not install the JAX TPU extra for this configuration.
 Its libtpu requirement differs from the PyTorch/XLA requirement.
+
+Current package releases do not define a qualified replacement runtime.
+The source inspection keeps published releases, development revisions, and the fixed experiment configuration separate.
+Use native XLA precision controls for the proposed FP32 comparison.
+The fixed numerical requirements remain unchanged.
+Refer to [the XLA source inspection](research/2026-10-08/xla.md).
 
 ## Sources
 
@@ -104,4 +116,5 @@ Its libtpu requirement differs from the PyTorch/XLA requirement.
 - [PyTorch/XLA Pallas bridge](https://github.com/pytorch/xla/blob/v2.9.0/torch_xla/experimental/custom_kernel.py)
 - [PyTorch/XLA JAX import guard](https://github.com/pytorch/xla/blob/v2.9.0/torch_xla/_internal/jax_workarounds.py)
 
-Source inspection date: 2026-10-04.
+The [2026-10-08 source collection](research/2026-10-08/README.md) expands these references for all design areas.
+It records source dates, exact revisions, limits, and required follow-up tests.

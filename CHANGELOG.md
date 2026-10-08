@@ -1,5 +1,19 @@
 # Change log
 
+## 2026-10-08 — Design source inspection
+
+- Add 48 primary source groups for the eight project milestones.
+- Separate current releases, development revisions, and the fixed runtime.
+- Record API, precision, transfer, nested state, Pallas, memory, and cloud design decisions.
+- Record limits for Qwix, Tokamax, Helion, MaxKernel, JAXBench, and TorchTPU.
+- Bind each design to sources and required follow-up results.
+- Update the research plan and README with the latest retained Colab result.
+- Keep the existing runtime, numerical requirements, and accepted milestone count.
+
+Validation: The reviewer inspected source claims, version records, document links, selected hashes, and existing experiment records.
+The source collection contains no new package installation, backend change, or cloud experiment.
+Refer to [the collection](docs/research/2026-10-08/README.md) and [the inspection record](docs/research/2026-10-08/review.json).
+
 ## 2026-10-04 — Device route Colab result
 
 - Record 34 nonlinear TPU cases that passed the fixed numerical gates.

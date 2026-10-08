@@ -8,19 +8,26 @@ The initial package milestone is completed.
 The reviewer repeated 71 CPU and package tests.
 Accepted milestones: **1 of 8**.
 The first target is NF4 quantization and `bitsandbytes.nn.Linear4bit` on a TPU.
-The project does not yet have an accepted TPU result for this backend.
-The first Colab run passed the TPU runtime probe and calculated all 42 CPU reference cases.
-NF4 execution stopped at a PyTorch functionalization assertion before the first case completed.
-Refer to [the first Colab result](docs/changes/task2-colab-first.md).
-The repeat with the first functionalization patch stopped at tensor creation.
-It also completed zero NF4 cases.
-Refer to [the repeat result](docs/changes/task2-colab-functionalized.md).
-The third run produced 17 TPU case records before a CPU-to-TPU parameter transfer failed.
-Partial comparison found nine passing cases and eight failures in packed codes for zero inputs.
-The full 42-case test is not complete.
-Refer to [the third result](docs/changes/task2-colab-native.md).
-A [zero-block correction](docs/changes/task1-zero-normalization.md) passed 81 local package tests.
-Its actual TPU repeat is still required.
+The latest Colab diagnostic passed 34 nonlinear numerical cases and two BF16 module routes.
+Two FP32 module routes failed their forward and input-gradient gates.
+The original CPU-to-XLA module transfer failed for both data types.
+The BF16 routes did not test gradients.
+Four executed module routes passed reconstruction within the same process.
+This does not establish restoration in a new process.
+The full 42-case API test and milestones M2 and M3 remain unqualified.
+Refer to [the latest diagnostic](docs/changes/task2-colab-routes.md).
+
+The [October 8 source inspection](docs/research/2026-10-08/README.md) covers each design area before further implementation.
+It contains current documentation, original papers, fixed source revisions, and explicit version limits.
+The [decision table](docs/research/2026-10-08/decisions.md) defines the next work and its acceptance requirements.
+The inspection did not change the runtime, code, or numerical tolerances.
+
+Earlier failure records remain available:
+
+- [First Colab run](docs/changes/task2-colab-first.md).
+- [Functionalization repeat](docs/changes/task2-colab-functionalized.md).
+- [Third Colab run](docs/changes/task2-colab-native.md).
+- [Zero-block correction and 81 local tests](docs/changes/task1-zero-normalization.md).
 
 The project name is **bitsandbytes-TPU**.
 The Python package name is `bitsandbytes-tpu`.
@@ -68,6 +75,7 @@ The backend must give an explicit error for an option that it cannot execute.
 
 - [Design](docs/design.md)
 - [Research plan](docs/research-plan.md)
+- [Current design sources and decisions](docs/research/2026-10-08/README.md)
 - [Test requirements](docs/validation.md)
 - [Writing guide](docs/writing-guide.md)
 - [Technical terms](docs/terms.md)

@@ -1,0 +1,711 @@
+{
+  "checked_date": "2026-10-08",
+  "topic": "xla",
+  "sources": [
+    {
+      "id": "XLA-01",
+      "title": "PyTorch/XLA release and dependency records",
+      "url": "https://github.com/pytorch/xla/releases/tag/v2.9.0",
+      "publisher": "PyTorch/XLA maintainers",
+      "kind": "release and package metadata",
+      "version_or_revision": "v2.9.0; 5fab7053df86c8d503b98d9e7202ca8b8d4978c7",
+      "source_date": "2025-11-17",
+      "date_basis": "GitHub release published_at; PyPI wheel upload date",
+      "accessed_date": "2026-10-08",
+      "milestones": [
+        "M2",
+        "M3",
+        "M6"
+      ],
+      "supports": [
+        "GitHub latest release and PyPI latest version both identify 2.9.0.",
+        "The published tpu extra requires libtpu 0.0.21.",
+        "The published pallas extra requires JAX and jaxlib 0.7.1.",
+        "The published requirements contain no torch dependency.",
+        "The cp312 Linux x86-64 wheel uses manylinux_2_28.",
+        "Observed master uses libtpu 0.0.24.dev20250929+nightly and JAX/jaxlib 0.8.0.dev20251001."
+      ],
+      "limitations": [
+        "Metadata does not establish ABI compatibility with a different PyTorch release.",
+        "Master dependency declarations do not establish available wheels or a qualified runtime."
+      ],
+      "related_sources": [
+        {
+          "title": "PyPI torch-xla metadata",
+          "url": "https://pypi.org/pypi/torch-xla/2.9.0/json",
+          "version_or_revision": "2.9.0",
+          "source_date": "2025-11-17",
+          "date_basis": "cp312 wheel upload_time_iso_8601",
+          "accessed_date": "2026-10-08"
+        },
+        {
+          "title": "Pinned setup.py",
+          "url": "https://github.com/pytorch/xla/blob/5fab7053df86c8d503b98d9e7202ca8b8d4978c7/setup.py#L113",
+          "version_or_revision": "5fab7053df86c8d503b98d9e7202ca8b8d4978c7",
+          "source_date": "2025-11-17",
+          "date_basis": "Repository snapshot commit date; not file update date",
+          "accessed_date": "2026-10-08"
+        },
+        {
+          "title": "Observed master setup.py",
+          "url": "https://github.com/pytorch/xla/blob/41398bfff334fc8d3b1c00be6ea8cc5411f6d6bf/setup.py#L117",
+          "version_or_revision": "41398bfff334fc8d3b1c00be6ea8cc5411f6d6bf",
+          "source_date": "2026-04-23",
+          "date_basis": "Repository snapshot commit date; not file update date",
+          "accessed_date": "2026-10-08"
+        },
+        {
+          "title": "Observed master commit",
+          "url": "https://api.github.com/repos/pytorch/xla/commits/41398bfff334fc8d3b1c00be6ea8cc5411f6d6bf",
+          "version_or_revision": "41398bfff334fc8d3b1c00be6ea8cc5411f6d6bf",
+          "source_date": "2026-04-23",
+          "date_basis": "GitHub commit committer timestamp",
+          "accessed_date": "2026-10-08"
+        }
+      ]
+    },
+    {
+      "id": "XLA-02",
+      "title": "PyTorch latest stable and main records",
+      "url": "https://github.com/pytorch/pytorch/releases/tag/v2.14.1",
+      "publisher": "PyTorch maintainers",
+      "kind": "release and package metadata",
+      "version_or_revision": "v2.14.1; 5c4886908584029761b579af026dcfb627c84070",
+      "source_date": "2026-09-30",
+      "date_basis": "GitHub release published_at; PyPI upload dates",
+      "accessed_date": "2026-10-08",
+      "milestones": [
+        "M2",
+        "M3"
+      ],
+      "supports": [
+        "GitHub latest release and PyPI latest version both identify 2.14.1.",
+        "Observed main is b15cc7a846a1385805d4499a53eecc5fe30ba2f5.",
+        "The newest PyTorch release differs from the fixed 2.9.0+cpu runtime."
+      ],
+      "limitations": [
+        "These records do not establish compatibility with PyTorch/XLA 2.9.0.",
+        "A release or main source comparison is not a TPU execution test."
+      ],
+      "related_sources": [
+        {
+          "title": "PyPI torch metadata",
+          "url": "https://pypi.org/pypi/torch/2.14.1/json",
+          "version_or_revision": "2.14.1",
+          "source_date": "2026-09-30",
+          "date_basis": "Wheel upload date",
+          "accessed_date": "2026-10-08"
+        },
+        {
+          "title": "Observed main commit",
+          "url": "https://api.github.com/repos/pytorch/pytorch/commits/b15cc7a846a1385805d4499a53eecc5fe30ba2f5",
+          "version_or_revision": "b15cc7a846a1385805d4499a53eecc5fe30ba2f5",
+          "source_date": "2026-10-08",
+          "date_basis": "GitHub commit committer timestamp",
+          "accessed_date": "2026-10-08"
+        },
+        {
+          "title": "Stable tag identity",
+          "url": "https://api.github.com/repos/pytorch/pytorch/git/ref/tags/v2.14.1",
+          "version_or_revision": "5c4886908584029761b579af026dcfb627c84070",
+          "source_date": null,
+          "date_basis": "No update date stated in the source",
+          "accessed_date": "2026-10-08"
+        }
+      ]
+    },
+    {
+      "id": "XLA-03",
+      "title": "torch.func.functionalize",
+      "url": "https://docs.pytorch.org/docs/2.14/generated/torch.func.functionalize.html",
+      "publisher": "PyTorch maintainers",
+      "kind": "API documentation",
+      "version_or_revision": "2.14 documentation",
+      "source_date": null,
+      "date_basis": "No publication or update date stated",
+      "accessed_date": "2026-10-08",
+      "milestones": [
+        "M2",
+        "M3"
+      ],
+      "supports": [
+        "Functionalization removes intermediate mutations and can remove views.",
+        "Input mutation can require a final copy_ operation.",
+        "The documented transform has limits for direct backward calls and non-local state."
+      ],
+      "limitations": [
+        "General transform semantics do not establish support for a custom mutable operator.",
+        "The page does not establish behavior of the pinned native XLA factory path."
+      ],
+      "related_sources": []
+    },
+    {
+      "id": "XLA-04",
+      "title": "Native functionalization fallback and XLA wrappers",
+      "url": "https://github.com/pytorch/pytorch/blob/0fabc3ba44823f257e70ce397d989c8de5e362c1/aten/src/ATen/FunctionalizeFallbackKernel.cpp#L58",
+      "publisher": "PyTorch and PyTorch/XLA maintainers",
+      "kind": "source code",
+      "version_or_revision": "0fabc3ba44823f257e70ce397d989c8de5e362c1",
+      "source_date": "2025-10-09",
+      "date_basis": "Repository snapshot commit date; not file update date",
+      "accessed_date": "2026-10-08",
+      "milestones": [
+        "M2",
+        "M3"
+      ],
+      "supports": [
+        "The native custom operator fallback rejects schemas with any alias information.",
+        "The fallback synchronizes functional inputs before unwrapping them.",
+        "The fallback wraps tensor results when an input is functional or the operator is a factory.",
+        "Pinned and current XLA lift/lift_fresh can call MaybeWrapTensorToFunctional.",
+        "XLA code generation identifies operations that must re-enable functionalization."
+      ],
+      "limitations": [
+        "The project must keep the upstream out operator schemas.",
+        "Generic fallback cannot establish mutable out operator support.",
+        "Internal wrapper helpers do not supply a public stability guarantee."
+      ],
+      "related_sources": [
+        {
+          "title": "Current fallback",
+          "url": "https://github.com/pytorch/pytorch/blob/b15cc7a846a1385805d4499a53eecc5fe30ba2f5/aten/src/ATen/FunctionalizeFallbackKernel.cpp#L56",
+          "version_or_revision": "b15cc7a846a1385805d4499a53eecc5fe30ba2f5",
+          "source_date": "2026-10-08",
+          "date_basis": "Repository snapshot commit date",
+          "accessed_date": "2026-10-08"
+        },
+        {
+          "title": "Pinned native composite helper",
+          "url": "https://github.com/pytorch/pytorch/blob/0fabc3ba44823f257e70ce397d989c8de5e362c1/aten/src/ATen/FunctionalTensorWrapper.cpp#L837",
+          "version_or_revision": "0fabc3ba44823f257e70ce397d989c8de5e362c1",
+          "source_date": "2025-10-09",
+          "date_basis": "Repository snapshot commit date",
+          "accessed_date": "2026-10-08"
+        },
+        {
+          "title": "Pinned XLA lift/lift_fresh",
+          "url": "https://github.com/pytorch/xla/blob/5fab7053df86c8d503b98d9e7202ca8b8d4978c7/torch_xla/csrc/aten_xla_type.cpp#L2153",
+          "version_or_revision": "5fab7053df86c8d503b98d9e7202ca8b8d4978c7",
+          "source_date": "2025-11-17",
+          "date_basis": "Repository snapshot commit date",
+          "accessed_date": "2026-10-08"
+        },
+        {
+          "title": "Current XLA lift/lift_fresh",
+          "url": "https://github.com/pytorch/xla/blob/41398bfff334fc8d3b1c00be6ea8cc5411f6d6bf/torch_xla/csrc/aten_xla_type.cpp#L2180",
+          "version_or_revision": "41398bfff334fc8d3b1c00be6ea8cc5411f6d6bf",
+          "source_date": "2026-04-23",
+          "date_basis": "Repository snapshot commit date",
+          "accessed_date": "2026-10-08"
+        },
+        {
+          "title": "Current XLA code generation",
+          "url": "https://github.com/pytorch/xla/blob/41398bfff334fc8d3b1c00be6ea8cc5411f6d6bf/codegen/xla_native_functions.yaml#L392",
+          "version_or_revision": "41398bfff334fc8d3b1c00be6ea8cc5411f6d6bf",
+          "source_date": "2026-04-23",
+          "date_basis": "Repository snapshot commit date",
+          "accessed_date": "2026-10-08"
+        }
+      ]
+    },
+    {
+      "id": "XLA-05",
+      "title": "Params4bit quantization and set_data type guard",
+      "url": "https://github.com/bitsandbytes-foundation/bitsandbytes/blob/833649043474794b8fe7a4136e0c40faf077b2e0/bitsandbytes/nn/modules.py#L381",
+      "publisher": "bitsandbytes and PyTorch maintainers",
+      "kind": "source code",
+      "version_or_revision": "833649043474794b8fe7a4136e0c40faf077b2e0",
+      "source_date": "2026-09-03",
+      "date_basis": "Repository snapshot commit date; not file update date",
+      "accessed_date": "2026-10-08",
+      "milestones": [
+        "M2",
+        "M3"
+      ],
+      "supports": [
+        "Params4bit._quantize assigns its packed result to self.data.",
+        "The unquantized Params4bit.to route calls _quantize before returning.",
+        "Pinned PyTorch set_data requires compatible TensorImpl types.",
+        "Pinned TensorImpl dense compatibility includes CPU and CUDA but excludes XLA."
+      ],
+      "limitations": [
+        "The source explains the recorded assignment failure; it does not prove a correction.",
+        "A target-device constructor or from_prequantized result cannot qualify CPU-to-XLA .to."
+      ],
+      "related_sources": [
+        {
+          "title": "Pinned set_data guard",
+          "url": "https://github.com/pytorch/pytorch/blob/0fabc3ba44823f257e70ce397d989c8de5e362c1/torch/csrc/autograd/variable.cpp#L473",
+          "version_or_revision": "0fabc3ba44823f257e70ce397d989c8de5e362c1",
+          "source_date": "2025-10-09",
+          "date_basis": "Repository snapshot commit date",
+          "accessed_date": "2026-10-08"
+        },
+        {
+          "title": "Pinned TensorImpl compatibility",
+          "url": "https://github.com/pytorch/pytorch/blob/0fabc3ba44823f257e70ce397d989c8de5e362c1/c10/core/TensorImpl.h#L2072",
+          "version_or_revision": "0fabc3ba44823f257e70ce397d989c8de5e362c1",
+          "source_date": "2025-10-09",
+          "date_basis": "Repository snapshot commit date",
+          "accessed_date": "2026-10-08"
+        }
+      ]
+    },
+    {
+      "id": "XLA-06",
+      "title": "Module._apply and custom Parameter detach semantics",
+      "url": "https://github.com/pytorch/pytorch/blob/5c4886908584029761b579af026dcfb627c84070/torch/nn/modules/module.py#L930",
+      "publisher": "PyTorch maintainers",
+      "kind": "source code",
+      "version_or_revision": "5c4886908584029761b579af026dcfb627c84070",
+      "source_date": "2026-09-30",
+      "date_basis": "Release publication date; not file update date",
+      "accessed_date": "2026-10-08",
+      "milestones": [
+        "M2",
+        "M3"
+      ],
+      "supports": [
+        "Module._apply calls its conversion function before choosing swap, set_data, or replacement.",
+        "The swap branch constructs Parameter(param_applied).",
+        "Custom Parameter construction requires detach() to return the same Python type.",
+        "Pinned, latest stable, and observed main retain these conversion requirements.",
+        "Latest stable _apply adds a FakeTensor exclusion to the set_data decision."
+      ],
+      "limitations": [
+        "A module swap flag alone cannot bypass an earlier Params4bit._quantize assignment failure.",
+        "Source comparison does not establish subclass state retention on a real XLA device."
+      ],
+      "related_sources": [
+        {
+          "title": "Pinned Module._apply",
+          "url": "https://github.com/pytorch/pytorch/blob/0fabc3ba44823f257e70ce397d989c8de5e362c1/torch/nn/modules/module.py#L927",
+          "version_or_revision": "0fabc3ba44823f257e70ce397d989c8de5e362c1",
+          "source_date": "2025-10-09",
+          "date_basis": "Repository snapshot commit date",
+          "accessed_date": "2026-10-08"
+        },
+        {
+          "title": "Stable Parameter constructor",
+          "url": "https://github.com/pytorch/pytorch/blob/5c4886908584029761b579af026dcfb627c84070/torch/nn/parameter.py#L51",
+          "version_or_revision": "5c4886908584029761b579af026dcfb627c84070",
+          "source_date": "2026-09-30",
+          "date_basis": "Release publication date",
+          "accessed_date": "2026-10-08"
+        },
+        {
+          "title": "Current Module._apply",
+          "url": "https://github.com/pytorch/pytorch/blob/b15cc7a846a1385805d4499a53eecc5fe30ba2f5/torch/nn/modules/module.py#L930",
+          "version_or_revision": "b15cc7a846a1385805d4499a53eecc5fe30ba2f5",
+          "source_date": "2026-10-08",
+          "date_basis": "Repository snapshot commit date",
+          "accessed_date": "2026-10-08"
+        },
+        {
+          "title": "Current Parameter constructor",
+          "url": "https://github.com/pytorch/pytorch/blob/b15cc7a846a1385805d4499a53eecc5fe30ba2f5/torch/nn/parameter.py#L51",
+          "version_or_revision": "b15cc7a846a1385805d4499a53eecc5fe30ba2f5",
+          "source_date": "2026-10-08",
+          "date_basis": "Repository snapshot commit date",
+          "accessed_date": "2026-10-08"
+        },
+        {
+          "title": "Pinned Parameter constructor",
+          "url": "https://github.com/pytorch/pytorch/blob/0fabc3ba44823f257e70ce397d989c8de5e362c1/torch/nn/parameter.py#L51",
+          "version_or_revision": "0fabc3ba44823f257e70ce397d989c8de5e362c1",
+          "source_date": "2025-10-09",
+          "date_basis": "Repository snapshot commit date",
+          "accessed_date": "2026-10-08"
+        }
+      ]
+    },
+    {
+      "id": "XLA-07",
+      "title": "swap_tensors public recipe and validation order",
+      "url": "https://docs.pytorch.org/tutorials/recipes/recipes/swap_tensors.html",
+      "publisher": "PyTorch maintainers",
+      "kind": "official recipe and source code",
+      "version_or_revision": "Recipe requires PyTorch >=2.3; source 5c4886908584029761b579af026dcfb627c84070",
+      "source_date": "2024-04-19",
+      "date_basis": "Recipe Created On and Last Updated fields; Last Verified is Not Verified",
+      "accessed_date": "2026-10-08",
+      "milestones": [
+        "M2",
+        "M3"
+      ],
+      "supports": [
+        "swap_tensors preserves the identity of each Python tensor object.",
+        "It swaps Python classes, dictionaries, slots, and tensor content.",
+        "The Python helper rejects weak references, different slots, and unsupported use counts.",
+        "Python attribute exchange precedes the C++ weak-reference guards.",
+        "The recipe provides module conversion and state loading extension points."
+      ],
+      "limitations": [
+        "The public recipe gives no exception-atomicity guarantee.",
+        "Pinned, stable, and main Python helper equality does not qualify the private proposal on TPU.",
+        "C++ post-swap pointer storage changed between pinned and current source."
+      ],
+      "related_sources": [
+        {
+          "title": "Pinned Python swap helper",
+          "url": "https://github.com/pytorch/pytorch/blob/0fabc3ba44823f257e70ce397d989c8de5e362c1/torch/utils/__init__.py#L35",
+          "version_or_revision": "0fabc3ba44823f257e70ce397d989c8de5e362c1",
+          "source_date": "2025-10-09",
+          "date_basis": "Repository snapshot commit date",
+          "accessed_date": "2026-10-08"
+        },
+        {
+          "title": "Stable Python swap helper",
+          "url": "https://github.com/pytorch/pytorch/blob/5c4886908584029761b579af026dcfb627c84070/torch/utils/__init__.py#L35",
+          "version_or_revision": "5c4886908584029761b579af026dcfb627c84070",
+          "source_date": "2026-09-30",
+          "date_basis": "Release publication date",
+          "accessed_date": "2026-10-08"
+        },
+        {
+          "title": "Current Python swap helper",
+          "url": "https://github.com/pytorch/pytorch/blob/b15cc7a846a1385805d4499a53eecc5fe30ba2f5/torch/utils/__init__.py#L35",
+          "version_or_revision": "b15cc7a846a1385805d4499a53eecc5fe30ba2f5",
+          "source_date": "2026-10-08",
+          "date_basis": "Repository snapshot commit date",
+          "accessed_date": "2026-10-08"
+        },
+        {
+          "title": "Pinned C++ swap guards",
+          "url": "https://github.com/pytorch/pytorch/blob/0fabc3ba44823f257e70ce397d989c8de5e362c1/torch/csrc/Module.cpp#L380",
+          "version_or_revision": "0fabc3ba44823f257e70ce397d989c8de5e362c1",
+          "source_date": "2025-10-09",
+          "date_basis": "Repository snapshot commit date",
+          "accessed_date": "2026-10-08"
+        },
+        {
+          "title": "Stable C++ swap guards",
+          "url": "https://github.com/pytorch/pytorch/blob/5c4886908584029761b579af026dcfb627c84070/torch/csrc/Module.cpp#L390",
+          "version_or_revision": "5c4886908584029761b579af026dcfb627c84070",
+          "source_date": "2026-09-30",
+          "date_basis": "Release publication date",
+          "accessed_date": "2026-10-08"
+        },
+        {
+          "title": "Current C++ swap guards",
+          "url": "https://github.com/pytorch/pytorch/blob/b15cc7a846a1385805d4499a53eecc5fe30ba2f5/torch/csrc/Module.cpp#L390",
+          "version_or_revision": "b15cc7a846a1385805d4499a53eecc5fe30ba2f5",
+          "source_date": "2026-10-08",
+          "date_basis": "Repository snapshot commit date",
+          "accessed_date": "2026-10-08"
+        }
+      ]
+    },
+    {
+      "id": "XLA-08",
+      "title": "PyTorch/XLA matrix multiplication precision control",
+      "url": "https://docs.pytorch.org/xla/master/tutorials/precision_tutorial.html",
+      "publisher": "PyTorch/XLA maintainers",
+      "kind": "official tutorial and API source",
+      "version_or_revision": "master documentation; source 41398bfff334fc8d3b1c00be6ea8cc5411f6d6bf",
+      "source_date": "2025-05-15",
+      "date_basis": "Tutorial Date created and Last modified fields",
+      "accessed_date": "2026-10-08",
+      "milestones": [
+        "M2",
+        "M3",
+        "M6",
+        "M7"
+      ],
+      "supports": [
+        "The public XLA control accepts default, high, and highest.",
+        "The API describes default TPU operand precision as FP32 downcasting to BF16.",
+        "The API describes high as three passes with approximately 14 bits of precision.",
+        "The API describes highest as six passes with approximately 22 bits of precision.",
+        "The tutorial recommends one precision setting at the start of a script.",
+        "The tutorial shows a final-bit difference between highest and full FP32."
+      ],
+      "limitations": [
+        "The tutorial wording about BF16 results must not be read as a guaranteed output dtype.",
+        "The precision setting does not prove the cause of the project FP32 failure.",
+        "The documentation does not promise bitwise CPU equality for highest."
+      ],
+      "related_sources": [
+        {
+          "title": "Current API source",
+          "url": "https://github.com/pytorch/xla/blob/41398bfff334fc8d3b1c00be6ea8cc5411f6d6bf/torch_xla/backends/__init__.py#L41",
+          "version_or_revision": "41398bfff334fc8d3b1c00be6ea8cc5411f6d6bf",
+          "source_date": "2026-04-23",
+          "date_basis": "Repository snapshot commit date",
+          "accessed_date": "2026-10-08"
+        },
+        {
+          "title": "Pinned API source",
+          "url": "https://github.com/pytorch/xla/blob/5fab7053df86c8d503b98d9e7202ca8b8d4978c7/torch_xla/backends/__init__.py#L41",
+          "version_or_revision": "5fab7053df86c8d503b98d9e7202ca8b8d4978c7",
+          "source_date": "2025-11-17",
+          "date_basis": "Repository snapshot commit date",
+          "accessed_date": "2026-10-08"
+        }
+      ]
+    },
+    {
+      "id": "XLA-09",
+      "title": "XLA precision source default and native dot lowering",
+      "url": "https://github.com/pytorch/xla/blob/5fab7053df86c8d503b98d9e7202ca8b8d4978c7/torch_xla/csrc/helpers.cpp#L76",
+      "publisher": "PyTorch/XLA maintainers",
+      "kind": "source code",
+      "version_or_revision": "5fab7053df86c8d503b98d9e7202ca8b8d4978c7",
+      "source_date": "2025-11-17",
+      "date_basis": "Repository snapshot commit date; not file update date",
+      "accessed_date": "2026-10-08",
+      "milestones": [
+        "M2",
+        "M3",
+        "M6"
+      ],
+      "supports": [
+        "Pinned and current source initialize the shared setting to PrecisionConfig::DEFAULT.",
+        "Pinned and current native Dot/DotGeneral lowering build operand precision from the shared setting.",
+        "The Python binding reads and writes that shared precision setting."
+      ],
+      "limitations": [
+        "A source default does not prove the effective setting in a recorded process.",
+        "Graph compilation, cache reuse, and compiler lowering require device evidence.",
+        "No supported precision environment variable is established by these sources."
+      ],
+      "related_sources": [
+        {
+          "title": "Current precision default",
+          "url": "https://github.com/pytorch/xla/blob/41398bfff334fc8d3b1c00be6ea8cc5411f6d6bf/torch_xla/csrc/helpers.cpp#L277",
+          "version_or_revision": "41398bfff334fc8d3b1c00be6ea8cc5411f6d6bf",
+          "source_date": "2026-04-23",
+          "date_basis": "Repository snapshot commit date",
+          "accessed_date": "2026-10-08"
+        },
+        {
+          "title": "Pinned native dot lowering",
+          "url": "https://github.com/pytorch/xla/blob/5fab7053df86c8d503b98d9e7202ca8b8d4978c7/torch_xla/csrc/xla_lower_util.cpp#L476",
+          "version_or_revision": "5fab7053df86c8d503b98d9e7202ca8b8d4978c7",
+          "source_date": "2025-11-17",
+          "date_basis": "Repository snapshot commit date",
+          "accessed_date": "2026-10-08"
+        },
+        {
+          "title": "Current native dot lowering",
+          "url": "https://github.com/pytorch/xla/blob/41398bfff334fc8d3b1c00be6ea8cc5411f6d6bf/torch_xla/csrc/xla_lower_util.cpp#L477",
+          "version_or_revision": "41398bfff334fc8d3b1c00be6ea8cc5411f6d6bf",
+          "source_date": "2026-04-23",
+          "date_basis": "Repository snapshot commit date",
+          "accessed_date": "2026-10-08"
+        },
+        {
+          "title": "Current precision bindings",
+          "url": "https://github.com/pytorch/xla/blob/41398bfff334fc8d3b1c00be6ea8cc5411f6d6bf/torch_xla/csrc/init_python_bindings.cpp#L2516",
+          "version_or_revision": "41398bfff334fc8d3b1c00be6ea8cc5411f6d6bf",
+          "source_date": "2026-04-23",
+          "date_basis": "Repository snapshot commit date",
+          "accessed_date": "2026-10-08"
+        },
+        {
+          "title": "Historical BF16 environment deprecation",
+          "url": "https://github.com/pytorch/xla/releases/tag/v2.6.0",
+          "version_or_revision": "v2.6.0",
+          "source_date": "2025-01-30",
+          "date_basis": "Release publication date",
+          "accessed_date": "2026-10-08"
+        }
+      ]
+    },
+    {
+      "id": "XLA-10",
+      "title": "PyTorch FP32 matrix multiplication precision scope",
+      "url": "https://docs.pytorch.org/docs/2.14/generated/torch.set_float32_matmul_precision.html",
+      "publisher": "PyTorch maintainers",
+      "kind": "API documentation",
+      "version_or_revision": "2.14 documentation",
+      "source_date": null,
+      "date_basis": "No publication or update date stated",
+      "accessed_date": "2026-10-08",
+      "milestones": [
+        "M2",
+        "M3"
+      ],
+      "supports": [
+        "torch.set_float32_matmul_precision documents a CUDA-only native device effect.",
+        "Its CUDA high/medium settings permit TF32 computation.",
+        "Its settings control internal computation and preserve output dtype."
+      ],
+      "limitations": [
+        "PyTorch CUDA controls do not establish native PyTorch/XLA TPU precision.",
+        "NVIDIA TF32 is not the TPU BF16 operand format."
+      ],
+      "related_sources": []
+    },
+    {
+      "id": "XLA-11",
+      "title": "Cloud TPU BF16 format conversion",
+      "url": "https://docs.cloud.google.com/tpu/docs/bfloat16",
+      "publisher": "Google Cloud",
+      "kind": "hardware documentation",
+      "version_or_revision": "Current documentation",
+      "source_date": "2026-10-07",
+      "date_basis": "Page Last updated UTC field; not retrieval date",
+      "accessed_date": "2026-10-08",
+      "milestones": [
+        "M2",
+        "M3",
+        "M6"
+      ],
+      "supports": [
+        "The page states BF16 matrix multiplication with FP32 accumulation as the TPU default.",
+        "FP32-to-BF16 conversion uses round to nearest even.",
+        "Cloud TPU BF16 conversion flushes subnormal values to zero.",
+        "Conversion preserves NaN and infinity values."
+      ],
+      "limitations": [
+        "The subnormal claim concerns BF16 format conversion, not every FP32 operation.",
+        "The page does not identify the exact compiler path used by this project.",
+        "The page gives no project-specific numerical or performance qualification."
+      ],
+      "related_sources": []
+    },
+    {
+      "id": "XLA-12",
+      "title": "TorchTPU public availability evidence",
+      "url": "https://developers.googleblog.com/torchtpu-running-pytorch-natively-on-tpus-at-google-scale/",
+      "publisher": "Google and PyTorch maintainers; PyPI",
+      "kind": "announcement and current availability records",
+      "version_or_revision": "Announcement plus source snapshots",
+      "source_date": "2026-04-07",
+      "date_basis": "Official blog publication date",
+      "accessed_date": "2026-10-08",
+      "milestones": [
+        "M2",
+        "M3",
+        "M6"
+      ],
+      "supports": [
+        "Google describes a PrivateUse1 native TPU backend with eager modes and XLA compilation.",
+        "The April announcement lists public GitHub launch as future work.",
+        "Observed XLA README says TorchTPU will replace XLA once public.",
+        "An October 7 PyTorch discussion category addresses the native torch_tpu backend.",
+        "Current Google tpu-sync source says its torch_tpu dependency is not on a public index.",
+        "Observed PyPI torch-tpu is version 0.0.0 with summary Placeholder."
+      ],
+      "limitations": [
+        "Public installability and public Google TorchTPU source are NOT VERIFIED.",
+        "The observed google-pytorch/torch_tpu GitHub API returned HTTP 404.",
+        "HTTP 404 does not establish that no private repository exists.",
+        "The public PyTorch CI pin does not supply an accessible backend or compatible stack.",
+        "Announcement performance claims are not project measurements."
+      ],
+      "related_sources": [
+        {
+          "title": "XLA README availability wording",
+          "url": "https://github.com/pytorch/xla/blob/41398bfff334fc8d3b1c00be6ea8cc5411f6d6bf/README.md#L4",
+          "version_or_revision": "41398bfff334fc8d3b1c00be6ea8cc5411f6d6bf",
+          "source_date": "2026-04-23",
+          "date_basis": "Repository snapshot commit date; embedded note dated April 22",
+          "accessed_date": "2026-10-08"
+        },
+        {
+          "title": "Current Google tpu-sync dependency note",
+          "url": "https://github.com/google/tpu-sync/blob/0d6efd49c7c62c24c74b79dc9cf5d78278492ec8/README.md#L158",
+          "version_or_revision": "0d6efd49c7c62c24c74b79dc9cf5d78278492ec8",
+          "source_date": "2026-10-08",
+          "date_basis": "Repository snapshot commit date",
+          "accessed_date": "2026-10-08"
+        },
+        {
+          "title": "PyTorch TPU category",
+          "url": "https://dev-discuss.pytorch.org/t/about-the-tpu-category/3463",
+          "version_or_revision": null,
+          "source_date": "2026-10-07",
+          "date_basis": "Displayed post publication date",
+          "accessed_date": "2026-10-08"
+        },
+        {
+          "title": "PyPI placeholder metadata",
+          "url": "https://pypi.org/pypi/torch-tpu/json",
+          "version_or_revision": "0.0.0",
+          "source_date": "2025-09-05",
+          "date_basis": "Wheel upload date",
+          "accessed_date": "2026-10-08"
+        },
+        {
+          "title": "Observed backend repository API",
+          "url": "https://api.github.com/repos/google-pytorch/torch_tpu",
+          "version_or_revision": null,
+          "source_date": null,
+          "date_basis": "No update date stated in the source",
+          "accessed_date": "2026-10-08"
+        },
+        {
+          "title": "Current PyTorch CI pin",
+          "url": "https://github.com/pytorch/pytorch/blob/b15cc7a846a1385805d4499a53eecc5fe30ba2f5/.github/ci_commit_pins/torch_tpu.txt",
+          "version_or_revision": "b15cc7a846a1385805d4499a53eecc5fe30ba2f5",
+          "source_date": "2026-10-08",
+          "date_basis": "Repository snapshot commit date",
+          "accessed_date": "2026-10-08"
+        }
+      ]
+    }
+  ],
+  "versions": [
+    {
+      "component": "Fixed Linux runtime",
+      "observed": "Python 3.12; torch 2.9.0+cpu; torch_xla 2.9.0; libtpu 0.0.21; JAX/jaxlib 0.7.1",
+      "status": "Existing project runtime; unchanged; incomplete M2/M3 qualification",
+      "evidence": "docs/design.md; docs/changes/task2-colab-routes.md"
+    },
+    {
+      "component": "PyTorch/XLA latest stable",
+      "observed": "2.9.0",
+      "revision": "5fab7053df86c8d503b98d9e7202ca8b8d4978c7",
+      "source_ids": [
+        "XLA-01"
+      ],
+      "comparison": "Matches fixed XLA version"
+    },
+    {
+      "component": "PyTorch/XLA master",
+      "observed": "41398bfff334fc8d3b1c00be6ea8cc5411f6d6bf",
+      "commit_date": "2026-04-23",
+      "source_ids": [
+        "XLA-01"
+      ],
+      "comparison": "Nightly dependency declarations differ from stable; not executed"
+    },
+    {
+      "component": "PyTorch latest stable",
+      "observed": "2.14.1",
+      "revision": "5c4886908584029761b579af026dcfb627c84070",
+      "source_ids": [
+        "XLA-02"
+      ],
+      "comparison": "Newer than fixed 2.9.0; XLA compatibility not established"
+    },
+    {
+      "component": "PyTorch main",
+      "observed": "b15cc7a846a1385805d4499a53eecc5fe30ba2f5",
+      "commit_date": "2026-10-08",
+      "source_ids": [
+        "XLA-02"
+      ],
+      "comparison": "Source inspection only"
+    },
+    {
+      "component": "Google TorchTPU",
+      "observed": "Public installability and public backend source NOT VERIFIED",
+      "source_ids": [
+        "XLA-12"
+      ],
+      "comparison": "No design substitution or installation"
+    }
+  ],
+  "open_questions": [
+    "Does setting XLA highest once in a fresh fixed-runtime process satisfy unchanged FP32 forward and input-gradient gates?",
+    "Does device HLO show the requested operand precision and exclude unintended CPU fallback?",
+    "Can direct Params4bit.to and CPU-created Linear4bit.to preserve class identity, state aliases, bias, and gradients after a reviewed correction?",
+    "What supported Functionalize implementation preserves each existing mutable out schema and its input/output alias contract?",
+    "Does save/restore in a new fixed-runtime process preserve quantization state and forward/gradient results?",
+    "Which subnormal boundary failures remain after precision control, and at which conversion or arithmetic operation do they occur?",
+    "When will official Google TorchTPU source, installation instructions, wheel identities, and compatible PyTorch pins become publicly verifiable?"
+  ]
+}

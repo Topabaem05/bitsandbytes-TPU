@@ -1,0 +1,491 @@
+{
+  "checked_date": "2026-10-08",
+  "topic": "pallas",
+  "sources": [
+    {
+      "id": "PAL-01",
+      "title": "PyTorch/XLA pinned Pallas bridge and JAX import guard",
+      "url": "https://github.com/pytorch/xla/blob/5fab7053df86c8d503b98d9e7202ca8b8d4978c7/torch_xla/experimental/custom_kernel.py",
+      "publisher": "PyTorch/XLA",
+      "kind": "source code",
+      "version_or_revision": "5fab7053df86c8d503b98d9e7202ca8b8d4978c7",
+      "source_date": "2025-11-17",
+      "date_basis": "GitHub commit committer date for the pinned snapshot; not a file modification date",
+      "accessed_date": "2026-10-08",
+      "milestones": [
+        "M6",
+        "M7"
+      ],
+      "supports": [
+        "The bridge traces positional Torch tensors as storage-free shape and dtype objects.",
+        "The bridge sends the Torch tensors and extracted custom-call configuration to the XLA call.",
+        "The output callback returns a list of shape and dtype pairs.",
+        "The guard initializes the PyTorch/XLA client before JAX import.",
+        "The bridge rejects enabled XLA_USE_BF16."
+      ],
+      "limitations": [
+        "Tensor containers and tensor keyword arguments lack positional operand handling.",
+        "The extractor does not preserve arbitrary surrounding JAX operations.",
+        "This source does not qualify the backend functionalization wrapper."
+      ],
+      "related_urls": [
+        "https://github.com/pytorch/xla/blob/5fab7053df86c8d503b98d9e7202ca8b8d4978c7/torch_xla/_internal/jax_workarounds.py",
+        "https://docs.pytorch.org/xla/release/r2.9/features/pallas.html"
+      ]
+    },
+    {
+      "id": "PAL-02",
+      "title": "JAX 0.7.1 BlockSpec squeezed axes",
+      "url": "https://github.com/jax-ml/jax/blob/5712de44e97c455faed1fd45532e821ca66d025a/jax/_src/pallas/core.py",
+      "publisher": "JAX",
+      "kind": "source code",
+      "version_or_revision": "5712de44e97c455faed1fd45532e821ca66d025a",
+      "source_date": "2025-08-19",
+      "date_basis": "GitHub tag commit committer date for jax-v0.7.1; not a file modification date",
+      "accessed_date": "2026-10-08",
+      "milestones": [
+        "M6"
+      ],
+      "supports": [
+        "None maps to a squeezed axis.",
+        "The Ref shape omits squeezed axes.",
+        "The complete block shape gives a squeezed axis size one."
+      ],
+      "limitations": [
+        "A squeezed Ref axis does not remove that axis from Mosaic block validation.",
+        "This inspection does not compile the grouped layout."
+      ]
+    },
+    {
+      "id": "PAL-03",
+      "title": "JAX 0.7.1 Mosaic block, gather, and dot lowering",
+      "url": "https://github.com/jax-ml/jax/blob/5712de44e97c455faed1fd45532e821ca66d025a/jax/_src/pallas/mosaic/lowering.py",
+      "publisher": "JAX",
+      "kind": "source code",
+      "version_or_revision": "5712de44e97c455faed1fd45532e821ca66d025a",
+      "source_date": "2025-08-19",
+      "date_basis": "GitHub tag commit committer date for jax-v0.7.1; main comparison has its own snapshot date",
+      "accessed_date": "2026-10-08",
+      "milestones": [
+        "M6"
+      ],
+      "supports": [
+        "The final two block dimensions must meet 8/128 divisibility or cover their complete array dimensions.",
+        "HIGHEST dot precision lowers to the FP32 contraction attribute.",
+        "The pinned source rejects HIGH dot precision.",
+        "The pinned source supports limited gather patterns.",
+        "Observed main supports an additional HIGH lowering and still contains the divisibility rule."
+      ],
+      "limitations": [
+        "The leading group layout passes one source rule, not all compiler constraints.",
+        "Current main behavior does not establish compatibility with JAX 0.7.1.",
+        "Narrow-type slices and decode vector layouts require actual compilation."
+      ],
+      "related_urls": [
+        "https://github.com/jax-ml/jax/blob/0f1b83b4dd27cc259caa54d6df3ee9dfb81404e8/jax/_src/pallas/mosaic/lowering.py"
+      ]
+    },
+    {
+      "id": "PAL-04",
+      "title": "JAX 0.7.1 TPU matmul example",
+      "url": "https://github.com/jax-ml/jax/blob/5712de44e97c455faed1fd45532e821ca66d025a/jax/experimental/pallas/ops/tpu/matmul.py",
+      "publisher": "JAX",
+      "kind": "source code",
+      "version_or_revision": "5712de44e97c455faed1fd45532e821ca66d025a",
+      "source_date": "2025-08-19",
+      "date_basis": "GitHub tag commit committer date for jax-v0.7.1",
+      "accessed_date": "2026-10-08",
+      "milestones": [
+        "M6",
+        "M7"
+      ],
+      "supports": [
+        "The example uses tile operands, accumulator scratch storage, and sequential K traversal.",
+        "Floating-point inputs use an FP32 accumulator.",
+        "The source contains integer accumulator branches."
+      ],
+      "limitations": [
+        "The example does not decode NF4 or implement bitsandbytes storage.",
+        "The example does not validate the proposed tile sizes for this workload."
+      ]
+    },
+    {
+      "id": "PAL-05",
+      "title": "Current JAX TPU kernel restrictions",
+      "url": "https://docs.jax.dev/en/latest/pallas/tpu/details.html",
+      "publisher": "JAX",
+      "kind": "official documentation",
+      "version_or_revision": "rolling latest documentation observed 2026-10-08",
+      "source_date": null,
+      "date_basis": "The page supplies no publication date; accessed date is separate",
+      "accessed_date": "2026-10-08",
+      "milestones": [
+        "M6"
+      ],
+      "supports": [
+        "The guide describes HBM input storage and VMEM or SMEM kernel references.",
+        "The guide states the final-dimension block restriction.",
+        "The guide warns that FP32 dot inputs need explicit FP32 precision.",
+        "The guide describes narrower-type slicing restrictions."
+      ],
+      "limitations": [
+        "Rolling documentation is not version-specific evidence for JAX 0.7.1.",
+        "The inspected main source snapshot is a separate record."
+      ]
+    },
+    {
+      "id": "PAL-06",
+      "title": "Current JAX TPU matmul and fused transpose guide",
+      "url": "https://docs.jax.dev/en/latest/pallas/tpu/matmul.html",
+      "publisher": "JAX",
+      "kind": "official documentation",
+      "version_or_revision": "rolling latest documentation observed 2026-10-08",
+      "source_date": null,
+      "date_basis": "No page publication date is displayed; source notebook last commit is recorded separately",
+      "accessed_date": "2026-10-08",
+      "milestones": [
+        "M6",
+        "M7"
+      ],
+      "supports": [
+        "The guide uses dot_general for a fused right operand transpose.",
+        "The guide explains tile size, repeated input reads, pipeline overhead, and VMEM limits.",
+        "Some guide timings exclude operand relayout costs."
+      ],
+      "limitations": [
+        "Dense matmul examples do not prove NF4 performance.",
+        "Kernel-only timings do not measure canonical packed preparation.",
+        "Current notebook syntax cannot be assumed valid in JAX 0.7.1."
+      ]
+    },
+    {
+      "id": "PAL-07",
+      "title": "PyTorch/XLA pinned quantized TPU matmul kernel",
+      "url": "https://github.com/pytorch/xla/blob/5fab7053df86c8d503b98d9e7202ca8b8d4978c7/torch_xla/experimental/pallas_kernels/quantized_matmul_kernel.py",
+      "publisher": "PyTorch/XLA",
+      "kind": "source code",
+      "version_or_revision": "5fab7053df86c8d503b98d9e7202ca8b8d4978c7",
+      "source_date": "2025-11-17",
+      "date_basis": "GitHub commit committer date for the pinned snapshot",
+      "accessed_date": "2026-10-08",
+      "milestones": [
+        "M6",
+        "M7"
+      ],
+      "supports": [
+        "The kernel provides tiled integer matmul, scales, scratch storage, and selected block size examples.",
+        "The inspected entry rejects quant_block_size.",
+        "The wrapper can select an XLA quantized path when tuned sizes are unavailable."
+      ],
+      "limitations": [
+        "The inspected kernel does not implement the NF4 codebook or high-nibble-first bitsandbytes format.",
+        "Its path selection cannot prove that the proposed NF4 call executed Pallas."
+      ],
+      "related_urls": [
+        "https://github.com/pytorch/xla/blob/5fab7053df86c8d503b98d9e7202ca8b8d4978c7/torch_xla/experimental/custom_kernel.py"
+      ]
+    },
+    {
+      "id": "PAL-08",
+      "title": "PyTorch/XLA pinned memory information and synchronization",
+      "url": "https://github.com/pytorch/xla/blob/5fab7053df86c8d503b98d9e7202ca8b8d4978c7/torch_xla/core/xla_model.py",
+      "publisher": "PyTorch/XLA",
+      "kind": "source code",
+      "version_or_revision": "5fab7053df86c8d503b98d9e7202ca8b8d4978c7",
+      "source_date": "2025-11-17",
+      "date_basis": "GitHub commit committer date for the pinned snapshot",
+      "accessed_date": "2026-10-08",
+      "milestones": [
+        "M6",
+        "M7"
+      ],
+      "supports": [
+        "The native binding returns bytes_used, bytes_limit, and peak_bytes_used.",
+        "The wrapper has no interval peak reset argument.",
+        "wait_device_ops waits for asynchronous operations.",
+        "mark_step calls torch_xla.sync."
+      ],
+      "limitations": [
+        "The source does not define these values as kernel VMEM measurements.",
+        "A synchronization wait does not itself submit a pending lazy graph.",
+        "The target interval and process-scope peak need separate qualification.",
+        "The device client peak scope requires runtime verification."
+      ],
+      "related_urls": [
+        "https://github.com/pytorch/xla/blob/5fab7053df86c8d503b98d9e7202ca8b8d4978c7/torch_xla/csrc/init_python_bindings.cpp"
+      ]
+    },
+    {
+      "id": "PAL-09",
+      "title": "OpenXLA HLO and Mosaic dump documentation",
+      "url": "https://openxla.org/xla/hlo_dumps",
+      "publisher": "OpenXLA",
+      "kind": "official documentation",
+      "version_or_revision": "page last updated 2026-05-16",
+      "source_date": "2026-05-16",
+      "date_basis": "Displayed Last updated date, not initial publication date",
+      "accessed_date": "2026-10-08",
+      "milestones": [
+        "M6",
+        "M7"
+      ],
+      "supports": [
+        "The guide describes HLO dumps and identifies before/after optimization and buffer assignment records.",
+        "The guide gives the xla_mosaic_dump_to flag for Mosaic computations."
+      ],
+      "limitations": [
+        "Flag support remains unverified for libtpu 0.0.21.",
+        "An outer custom call can conceal internal storage.",
+        "Compiler records are not allocator peak measurements."
+      ]
+    },
+    {
+      "id": "PAL-10",
+      "title": "Pinned bitsandbytes MatMul4Bit backward",
+      "url": "https://github.com/bitsandbytes-foundation/bitsandbytes/blob/833649043474794b8fe7a4136e0c40faf077b2e0/bitsandbytes/autograd/_functions.py",
+      "publisher": "bitsandbytes",
+      "kind": "source code",
+      "version_or_revision": "833649043474794b8fe7a4136e0c40faf077b2e0",
+      "source_date": "2026-09-03",
+      "date_basis": "GitHub commit committer date for the pinned snapshot",
+      "accessed_date": "2026-10-08",
+      "milestones": [
+        "M5",
+        "M6",
+        "M7"
+      ],
+      "supports": [
+        "Forward invokes the bitsandbytes gemm_4bit operator.",
+        "Activation backward calls dequantize_4bit before torch.matmul.",
+        "Bias backward uses an upstream reduction."
+      ],
+      "limitations": [
+        "A Pallas forward memory result does not prove training memory reduction.",
+        "Public backward still requires direct tests."
+      ]
+    },
+    {
+      "id": "PAL-11",
+      "title": "Qwix NF4 numerics, QLoRA example, and contributed TPU matmul",
+      "url": "https://github.com/google/qwix/blob/457417660d01099aeef35a2053d9c44ee88c87ef/qwix/_src/core/numerics.py",
+      "publisher": "Google Qwix",
+      "kind": "source code and first-party example",
+      "version_or_revision": "457417660d01099aeef35a2053d9c44ee88c87ef",
+      "source_date": "2026-10-07",
+      "date_basis": "GitHub main commit committer date for the observed snapshot",
+      "accessed_date": "2026-10-08",
+      "milestones": [
+        "M5",
+        "M6",
+        "M7"
+      ],
+      "supports": [
+        "Qwix includes NF4 conversion and a JAX/Flax QLoRA example.",
+        "The numerics source excludes NF4 from decoding after the dot operation.",
+        "The contributed TPU matmul applies scales after a low-precision dot.",
+        "The inspected contributed kernel has no NF4 codebook decode."
+      ],
+      "limitations": [
+        "QArray values do not establish bitsandbytes packed bytes or QuantState compatibility.",
+        "This related implementation does not qualify this backend M5.",
+        "No Qwix runtime or kernel test occurred."
+      ],
+      "related_urls": [
+        "https://github.com/google/qwix/blob/457417660d01099aeef35a2053d9c44ee88c87ef/docs/source/lora.md",
+        "https://github.com/google/qwix/blob/457417660d01099aeef35a2053d9c44ee88c87ef/qwix/contrib/kernels/quantized_matmul.py",
+        "https://github.com/google/qwix/blob/457417660d01099aeef35a2053d9c44ee88c87ef/pyproject.toml"
+      ]
+    },
+    {
+      "id": "PAL-12",
+      "title": "Tokamax kernel selection, tuning architecture, and runtime requirements",
+      "url": "https://github.com/openxla/tokamax/blob/d4fe571944a30734fc267f4c02c382f803a5b518/README.md",
+      "publisher": "OpenXLA Tokamax",
+      "kind": "source code and first-party documentation",
+      "version_or_revision": "d4fe571944a30734fc267f4c02c382f803a5b518",
+      "source_date": "2026-10-08",
+      "date_basis": "GitHub main commit committer date for the observed snapshot",
+      "accessed_date": "2026-10-08",
+      "milestones": [
+        "M6",
+        "M7"
+      ],
+      "supports": [
+        "Tokamax supports explicit implementation selection and serialized tuning results.",
+        "The operation classes separate the reference implementation from accelerator implementations.",
+        "The observed main package requires JAX and jaxlib 0.11.0 or later."
+      ],
+      "limitations": [
+        "Current requirements conflict with qualified JAX/jaxlib 0.7.1.",
+        "Inspected sources do not establish a drop-in bitsandbytes NF4 operator.",
+        "No dependency installation or autotuning occurred."
+      ],
+      "related_urls": [
+        "https://github.com/openxla/tokamax/blob/d4fe571944a30734fc267f4c02c382f803a5b518/pyproject.toml",
+        "https://github.com/openxla/tokamax/blob/d4fe571944a30734fc267f4c02c382f803a5b518/tokamax/_src/ops/ragged_dot/api.py",
+        "https://github.com/openxla/tokamax/blob/d4fe571944a30734fc267f4c02c382f803a5b518/tokamax/_src/ops/ragged_dot/base.py"
+      ]
+    }
+  ],
+  "versions": [
+    {
+      "component": "PyTorch/XLA",
+      "role": "qualified source pin",
+      "version": "2.9.0",
+      "revision": "5fab7053df86c8d503b98d9e7202ca8b8d4978c7",
+      "source_date": "2025-11-17",
+      "date_basis": "GitHub commit committer date",
+      "metadata_url": "https://api.github.com/repos/pytorch/xla/commits/5fab7053df86c8d503b98d9e7202ca8b8d4978c7"
+    },
+    {
+      "component": "libtpu",
+      "role": "qualified runtime candidate",
+      "version": "0.0.21",
+      "source_date": null,
+      "date_basis": "Project design and runtime lock; no package release date assigned"
+    },
+    {
+      "component": "JAX",
+      "role": "qualified source pin",
+      "version": "0.7.1",
+      "revision": "5712de44e97c455faed1fd45532e821ca66d025a",
+      "source_date": "2025-08-19",
+      "date_basis": "GitHub tag commit committer date",
+      "metadata_url": "https://api.github.com/repos/jax-ml/jax/commits/jax-v0.7.1"
+    },
+    {
+      "component": "PyTorch/XLA",
+      "role": "latest GitHub release endpoint result",
+      "version": "2.9.0",
+      "source_date": "2025-11-17",
+      "date_basis": "GitHub release published_at",
+      "metadata_url": "https://api.github.com/repos/pytorch/xla/releases/latest"
+    },
+    {
+      "component": "JAX",
+      "role": "observed main snapshot",
+      "revision": "0f1b83b4dd27cc259caa54d6df3ee9dfb81404e8",
+      "source_date": "2026-10-08",
+      "source_datetime_utc": "2026-10-08T04:37:38Z",
+      "date_basis": "GitHub commit committer timestamp",
+      "metadata_url": "https://api.github.com/repos/jax-ml/jax/commits/0f1b83b4dd27cc259caa54d6df3ee9dfb81404e8"
+    },
+    {
+      "component": "jax",
+      "role": "latest stable PyPI metadata result",
+      "version": "0.11.2",
+      "source_date": "2026-09-17",
+      "date_basis": "First current-release file upload_time_iso_8601",
+      "metadata_url": "https://pypi.org/pypi/jax/json",
+      "accessed_date": "2026-10-08",
+      "tpu_extra_requirement": "libtpu==0.0.48.*"
+    },
+    {
+      "component": "jaxlib",
+      "role": "latest stable PyPI metadata result",
+      "version": "0.11.2",
+      "source_date": "2026-09-17",
+      "date_basis": "First current-release file upload_time_iso_8601",
+      "metadata_url": "https://pypi.org/pypi/jaxlib/json",
+      "accessed_date": "2026-10-08"
+    },
+    {
+      "component": "qwix",
+      "role": "latest stable PyPI metadata result",
+      "version": "0.1.8",
+      "source_date": "2026-06-22",
+      "date_basis": "First current-release file upload_time_iso_8601",
+      "metadata_url": "https://pypi.org/pypi/qwix/json",
+      "accessed_date": "2026-10-08"
+    },
+    {
+      "component": "tokamax",
+      "role": "latest stable PyPI metadata result",
+      "version": "0.0.15",
+      "source_date": "2026-10-03",
+      "date_basis": "First current-release file upload_time_iso_8601",
+      "metadata_url": "https://pypi.org/pypi/tokamax/json",
+      "accessed_date": "2026-10-08"
+    },
+    {
+      "component": "jax",
+      "role": "qualified package upload date",
+      "version": "0.7.1",
+      "source_date": "2025-08-20",
+      "date_basis": "First release file upload_time_iso_8601",
+      "metadata_url": "https://pypi.org/pypi/jax/0.7.1/json"
+    },
+    {
+      "component": "jaxlib",
+      "role": "qualified package upload date",
+      "version": "0.7.1",
+      "source_date": "2025-08-20",
+      "date_basis": "First release file upload_time_iso_8601",
+      "metadata_url": "https://pypi.org/pypi/jaxlib/0.7.1/json"
+    },
+    {
+      "component": "Qwix",
+      "role": "observed main snapshot",
+      "revision": "457417660d01099aeef35a2053d9c44ee88c87ef",
+      "source_date": "2026-10-07",
+      "source_datetime_utc": "2026-10-07T21:55:30Z",
+      "date_basis": "GitHub commit committer timestamp",
+      "metadata_url": "https://api.github.com/repos/google/qwix/commits/457417660d01099aeef35a2053d9c44ee88c87ef"
+    },
+    {
+      "component": "Tokamax",
+      "role": "observed main snapshot",
+      "revision": "d4fe571944a30734fc267f4c02c382f803a5b518",
+      "source_date": "2026-10-08",
+      "source_datetime_utc": "2026-10-08T05:24:59Z",
+      "date_basis": "GitHub commit committer timestamp",
+      "metadata_url": "https://api.github.com/repos/openxla/tokamax/commits/d4fe571944a30734fc267f4c02c382f803a5b518"
+    },
+    {
+      "component": "JAX matmul guide source",
+      "role": "last notebook path commit at retrieval",
+      "revision": "1584d6dd8b37b52f9b408fe27f2ce5c1fe46203b",
+      "source_date": "2026-10-06",
+      "date_basis": "GitHub path-filtered commit committer date; does not prove documentation build revision",
+      "metadata_url": "https://api.github.com/repos/jax-ml/jax/commits?path=docs/pallas/tpu/matmul.ipynb&per_page=1"
+    }
+  ],
+  "open_questions": [
+    "Does the fixed runtime compile the leading-group packed layout, narrow slices, codebook selection, scales, and FP32 precision?",
+    "Does the backend functionalization wrapper preserve the bridge configuration and tensor operand order?",
+    "Do Pallas FP32 and BF16 results meet the unchanged sealed reference tolerances?",
+    "Do complete kernel and compiler records exclude a full floating-point forward weight buffer across N/K sizes?",
+    "What are the memory and time costs of packed preparation within the complete public call?",
+    "Does public backward preserve activation, bias, and adapter gradients with Pallas forward selected?",
+    "Which profiler can qualify a target-interval peak with PyTorch/XLA 2.9.0 and libtpu 0.0.21?",
+    "Does libtpu 0.0.21 accept the documented Mosaic dump flag and expose complete records?"
+  ],
+  "source_hash_checks": [
+    {
+      "source_file": "xla-bridge.py",
+      "sha256": "c347f8fcb4844fa8849109680ad81b94e221a2c8b011462553b48ec9f67e6338",
+      "prior_record_match": true
+    },
+    {
+      "source_file": "xla-guard.py",
+      "sha256": "fd8c53eb24fb373fba35c938e00b1ef36caadf3eaf8a74d266528ec6602ad42f",
+      "prior_record_match": true
+    },
+    {
+      "source_file": "jax-lowering.py",
+      "sha256": "6e5d7b20367972ff2fc62604ee62c32dd33b2113f163bd6afde057086bed6ebb",
+      "prior_record_match": true
+    },
+    {
+      "source_file": "jax-matmul.py",
+      "sha256": "c7ed8c0930a186be81c103105f329c453f0f0d543466f3e31b160e09a0206fb8",
+      "prior_record_match": true
+    }
+  ],
+  "execution_status": {
+    "source_review": "COMPLETE",
+    "kernel_compilation": "NOT_RUN",
+    "tpu_execution": "NOT_RUN",
+    "performance_measurement": "NOT_RUN"
+  }
+}

@@ -70,4 +70,7 @@ Limit installation to 1200 seconds and scientific execution to 1800 seconds with
 
 For Colab, stop the runtime and get an empty server list.
 For Kaggle, record the fixed terminal version and make sure that Draft is off.
+Bind retrieved records to the expected version, experiment identifier, source, and inputs.
+Do not infer version identity only from a CLI command argument.
+The [source inspection](research/2026-10-08/cloud.md) records the released CLI limitation.
 Do not accept an experiment until its test records include resource closure.

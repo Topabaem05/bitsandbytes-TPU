@@ -1,0 +1,376 @@
+{
+  "checked_date": "2026-10-08",
+  "topic": "bitsandbytes",
+  "sources": [
+    {
+      "id": "BNB-01",
+      "title": "Release 0.50.2",
+      "url": "https://github.com/bitsandbytes-foundation/bitsandbytes/releases/tag/0.50.2",
+      "publisher": "bitsandbytes Foundation",
+      "kind": "release",
+      "version_or_revision": "0.50.2",
+      "source_date": "2026-08-27",
+      "date_basis": "GitHub release published_at: 2026-08-27T00:13:56Z.",
+      "accessed_date": "2026-10-08",
+      "milestones": [
+        "M1",
+        "M3",
+        "M4",
+        "M5"
+      ],
+      "supports": [
+        "GitHub latest stable release is 0.50.2."
+      ],
+      "limitations": [
+        "The continuous main wheel has a placeholder filename version. It is not a stable release."
+      ],
+      "additional_evidence": [
+        {
+          "url": "https://api.github.com/repos/bitsandbytes-foundation/bitsandbytes/releases/latest",
+          "cache_path": ".work/research-20261008/bitsandbytes/github-latest-release.json",
+          "sha256": "de64bccf8eafd5c47ea090b8b2e87cc57d8a9a77da4924b672bf136285574be1"
+        }
+      ]
+    },
+    {
+      "id": "BNB-02",
+      "title": "bitsandbytes 0.50.2 on PyPI",
+      "url": "https://pypi.org/project/bitsandbytes/0.50.2/",
+      "publisher": "bitsandbytes Foundation",
+      "kind": "package metadata",
+      "version_or_revision": "0.50.2",
+      "source_date": "2026-08-27",
+      "date_basis": "PyPI wheel upload_time_iso_8601; first upload: 2026-08-27T00:10:48.726601Z.",
+      "accessed_date": "2026-10-08",
+      "milestones": [
+        "M1"
+      ],
+      "supports": [
+        "PyPI current version is 0.50.2. Five current wheels were uploaded on August 27."
+      ],
+      "limitations": [
+        "Upload time is not the GitHub release publication time. No wheel was installed for this research."
+      ],
+      "additional_evidence": [
+        {
+          "url": "https://pypi.org/pypi/bitsandbytes/json",
+          "cache_path": ".work/research-20261008/bitsandbytes/pypi.json",
+          "sha256": "529600d1d8785e233ac23cae90d1cb902f3ac7675b781c03b93535f11c30c150"
+        }
+      ]
+    },
+    {
+      "id": "BNB-03",
+      "title": "4-bit quantization API documentation",
+      "url": "https://huggingface.co/docs/bitsandbytes/main/en/reference/nn/linear4bit",
+      "publisher": "bitsandbytes Foundation",
+      "kind": "official documentation",
+      "version_or_revision": "main",
+      "source_date": null,
+      "date_basis": "The page gives no publication date.",
+      "accessed_date": "2026-10-08",
+      "milestones": [
+        "M1",
+        "M3",
+        "M4"
+      ],
+      "supports": [
+        "Linear4bit defaults to compressed statistics, FP4, and uint8 storage.",
+        "The documented loading example quantizes through a device transfer."
+      ],
+      "limitations": [
+        "The main documentation changes over time. Its CUDA example does not certify TPU transfer."
+      ]
+    },
+    {
+      "id": "BNB-04",
+      "title": "Package import and backend discovery",
+      "url": "https://github.com/bitsandbytes-foundation/bitsandbytes/blob/833649043474794b8fe7a4136e0c40faf077b2e0/bitsandbytes/__init__.py",
+      "publisher": "bitsandbytes Foundation",
+      "kind": "source code",
+      "version_or_revision": "833649043474794b8fe7a4136e0c40faf077b2e0",
+      "source_date": "2026-09-03",
+      "date_basis": "Repository snapshot commit date; not the last modification date of each file.",
+      "accessed_date": "2026-10-08",
+      "milestones": [
+        "M1"
+      ],
+      "supports": [
+        "Package import loads and calls bitsandbytes.backends entry points.",
+        "The declared device set does not include xla.",
+        "The source package version is 0.50.3.dev0."
+      ],
+      "limitations": [
+        "Plugin discovery does not prove TPU execution or supported device transfer."
+      ],
+      "sha256": "026aeaf979736dd15f80b145880dc4de03ebbe131b47b9f066645da1772255b8",
+      "cache_path": ".work/research-20261008/bitsandbytes/833649043474794b8fe7a4136e0c40faf077b2e0/bitsandbytes/__init__.py"
+    },
+    {
+      "id": "BNB-05",
+      "title": "Operator schemas and fake implementations",
+      "url": "https://github.com/bitsandbytes-foundation/bitsandbytes/blob/833649043474794b8fe7a4136e0c40faf077b2e0/bitsandbytes/_ops.py",
+      "publisher": "bitsandbytes Foundation",
+      "kind": "source code",
+      "version_or_revision": "833649043474794b8fe7a4136e0c40faf077b2e0",
+      "source_date": "2026-09-03",
+      "date_basis": "Repository snapshot commit date; not the last modification date of each file.",
+      "accessed_date": "2026-10-08",
+      "milestones": [
+        "M1",
+        "M3",
+        "M4"
+      ],
+      "supports": [
+        "NF4 and blockwise operations have existing schemas.",
+        "The dequantize_blockwise.out schema returns no tensor.",
+        "GEMM accepts optional nested scale codes, map, and offset."
+      ],
+      "limitations": [
+        "Fake implementations supply structural behavior. They do not execute device kernels."
+      ],
+      "sha256": "e6d9ed4c268e52044a8ff5f895f94ca88bf02d156b25c4616141cfa9daaf924c",
+      "cache_path": ".work/research-20261008/bitsandbytes/833649043474794b8fe7a4136e0c40faf077b2e0/bitsandbytes/_ops.py"
+    },
+    {
+      "id": "BNB-06",
+      "title": "Params4bit and Linear4bit module source",
+      "url": "https://github.com/bitsandbytes-foundation/bitsandbytes/blob/833649043474794b8fe7a4136e0c40faf077b2e0/bitsandbytes/nn/modules.py",
+      "publisher": "bitsandbytes Foundation",
+      "kind": "source code",
+      "version_or_revision": "833649043474794b8fe7a4136e0c40faf077b2e0",
+      "source_date": "2026-09-03",
+      "date_basis": "Repository snapshot commit date; not the last modification date of each file.",
+      "accessed_date": "2026-10-08",
+      "milestones": [
+        "M3",
+        "M4",
+        "M5"
+      ],
+      "supports": [
+        "Unquantized device transfer calls _quantize and assigns packed output to self.data.",
+        "Linear4bit creates frozen base weights and saves QuantState components.",
+        "from_prequantized creates a parameter subclass on the selected device."
+      ],
+      "limitations": [
+        "Source construction does not prove XLA compatibility.",
+        "The module defines saving but no matching _load_from_state_dict override for quantized state."
+      ],
+      "sha256": "f7ab2160681e2f089caae80d6fd283ac6a9b9f1b82269e6f395c3b046faf606e",
+      "cache_path": ".work/research-20261008/bitsandbytes/833649043474794b8fe7a4136e0c40faf077b2e0/bitsandbytes/nn/modules.py",
+      "additional_evidence": [
+        {
+          "url": "https://github.com/bitsandbytes-foundation/bitsandbytes/blob/08a9956b939857ae2c4fbd56753960cc370fa7cf/bitsandbytes/nn/modules.py",
+          "cache_path": ".work/research-20261008/bitsandbytes/08a9956b939857ae2c4fbd56753960cc370fa7cf/bitsandbytes/nn/modules.py",
+          "sha256": "f7ab2160681e2f089caae80d6fd283ac6a9b9f1b82269e6f395c3b046faf606e"
+        }
+      ]
+    },
+    {
+      "id": "BNB-07",
+      "title": "Functional quantization and QuantState",
+      "url": "https://github.com/bitsandbytes-foundation/bitsandbytes/blob/833649043474794b8fe7a4136e0c40faf077b2e0/bitsandbytes/functional.py",
+      "publisher": "bitsandbytes Foundation",
+      "kind": "source code",
+      "version_or_revision": "833649043474794b8fe7a4136e0c40faf077b2e0",
+      "source_date": "2026-09-03",
+      "date_basis": "Repository snapshot commit date; not the last modification date of each file.",
+      "accessed_date": "2026-10-08",
+      "milestones": [
+        "M3",
+        "M4"
+      ],
+      "supports": [
+        "Compressed NF4 subtracts mean scale and quantizes centered scales in blocks of 256.",
+        "The second quantizer uses a signed dynamic map.",
+        "QuantState supports packed and unpacked dictionaries, with nested fields."
+      ],
+      "limitations": [
+        "Serialization extracts the offset scalar. Metadata conversion includes host operations."
+      ],
+      "sha256": "520a9e9d3afba11124734df60e48a27e38b6389305df888834405b435e285817",
+      "cache_path": ".work/research-20261008/bitsandbytes/833649043474794b8fe7a4136e0c40faf077b2e0/bitsandbytes/functional.py",
+      "additional_evidence": [
+        {
+          "url": "https://raw.githubusercontent.com/bitsandbytes-foundation/bitsandbytes/833649043474794b8fe7a4136e0c40faf077b2e0/bitsandbytes/utils.py",
+          "cache_path": ".work/research-20261008/bitsandbytes/833649043474794b8fe7a4136e0c40faf077b2e0/bitsandbytes/utils.py",
+          "sha256": "1b5a196e0200b74ee6f7eed2a4b051b488ec8a923c902a6d75f4d62b3f7a83d2"
+        }
+      ]
+    },
+    {
+      "id": "BNB-08",
+      "title": "Default Python operations and CUDA NF4 boundaries",
+      "url": "https://github.com/bitsandbytes-foundation/bitsandbytes/blob/833649043474794b8fe7a4136e0c40faf077b2e0/bitsandbytes/backends/default/ops.py",
+      "publisher": "bitsandbytes Foundation",
+      "kind": "source code",
+      "version_or_revision": "833649043474794b8fe7a4136e0c40faf077b2e0",
+      "source_date": "2026-09-03",
+      "date_basis": "Repository snapshot commit date; not the last modification date of each file.",
+      "accessed_date": "2026-10-08",
+      "milestones": [
+        "M1",
+        "M4"
+      ],
+      "supports": [
+        "Default Python quantization uses FP32 midpoint selection and high-nibble-first packing.",
+        "Full zero blocks and partial zero blocks return different scales.",
+        "Default GEMM restores weights before the linear operation."
+      ],
+      "limitations": [
+        "The Python default path is distinct from native CPU and CUDA execution.",
+        "CUDA NF4 thresholds do not prove eight-bit blockwise byte parity."
+      ],
+      "sha256": "e39afd16dca6e6f34a14305ade0ba4acbb49dc2c7a9baf937341d7e33b682819",
+      "cache_path": ".work/research-20261008/bitsandbytes/833649043474794b8fe7a4136e0c40faf077b2e0/bitsandbytes/backends/default/ops.py",
+      "additional_evidence": [
+        {
+          "url": "https://raw.githubusercontent.com/bitsandbytes-foundation/bitsandbytes/833649043474794b8fe7a4136e0c40faf077b2e0/csrc/kernels.cu",
+          "cache_path": ".work/research-20261008/bitsandbytes/833649043474794b8fe7a4136e0c40faf077b2e0/csrc/kernels.cu",
+          "sha256": "a88d7a522b21b3d6e50cacad890c0c3ac44ad17b5f205c4b34ae91995ba1e5d6"
+        },
+        {
+          "url": "https://raw.githubusercontent.com/bitsandbytes-foundation/bitsandbytes/833649043474794b8fe7a4136e0c40faf077b2e0/bitsandbytes/backends/utils.py",
+          "cache_path": ".work/research-20261008/bitsandbytes/833649043474794b8fe7a4136e0c40faf077b2e0/bitsandbytes/backends/utils.py",
+          "sha256": "dc564f2fbf13dba81388a23d4c87167dd54da04af8f17b0db52685fe42b11c84"
+        }
+      ]
+    },
+    {
+      "id": "BNB-09",
+      "title": "Native CPU blockwise quantization",
+      "url": "https://github.com/bitsandbytes-foundation/bitsandbytes/blob/833649043474794b8fe7a4136e0c40faf077b2e0/csrc/cpu_ops.cpp",
+      "publisher": "bitsandbytes Foundation",
+      "kind": "source code",
+      "version_or_revision": "833649043474794b8fe7a4136e0c40faf077b2e0",
+      "source_date": "2026-09-03",
+      "date_basis": "Repository snapshot commit date; not the last modification date of each file.",
+      "accessed_date": "2026-10-08",
+      "milestones": [
+        "M4"
+      ],
+      "supports": [
+        "Native CPU blockwise quantization rounds normalized values to a 65,536-entry lookup table.",
+        "Its zero blocks return code zero and scale zero."
+      ],
+      "limitations": [
+        "Native CPU is not the default Python byte oracle. Neither native CPU nor CUDA executed in this research."
+      ],
+      "sha256": "55635eb61013a7e1545da195f9c9c113f2646a325883cc5b847740d8c53c43bf",
+      "cache_path": ".work/research-20261008/bitsandbytes/833649043474794b8fe7a4136e0c40faf077b2e0/csrc/cpu_ops.cpp"
+    },
+    {
+      "id": "BNB-10",
+      "title": "Four-bit matrix multiplication and gradients",
+      "url": "https://github.com/bitsandbytes-foundation/bitsandbytes/blob/833649043474794b8fe7a4136e0c40faf077b2e0/bitsandbytes/autograd/_functions.py",
+      "publisher": "bitsandbytes Foundation",
+      "kind": "source code",
+      "version_or_revision": "833649043474794b8fe7a4136e0c40faf077b2e0",
+      "source_date": "2026-09-03",
+      "date_basis": "Repository snapshot commit date; not the last modification date of each file.",
+      "accessed_date": "2026-10-08",
+      "milestones": [
+        "M3",
+        "M4",
+        "M5"
+      ],
+      "supports": [
+        "MatMul4Bit restores weights for the input gradient and leaves the packed-weight gradient unset.",
+        "Nested GEMM supports second-level block size 256.",
+        "Gradient requirements select the autograd path."
+      ],
+      "limitations": [
+        "Source inspection does not establish rank-three bias-gradient correctness or resumed training behavior."
+      ],
+      "sha256": "77ca54c87b69ad470ac73e5d7dde94948f20de9de8b8764957728bc29831f37f",
+      "cache_path": ".work/research-20261008/bitsandbytes/833649043474794b8fe7a4136e0c40faf077b2e0/bitsandbytes/autograd/_functions.py"
+    },
+    {
+      "id": "BNB-11",
+      "title": "QLoRA: Efficient Finetuning of Quantized LLMs",
+      "url": "https://arxiv.org/abs/2305.14314v1",
+      "publisher": "Authors; arXiv",
+      "kind": "paper",
+      "version_or_revision": "arXiv:2305.14314v1",
+      "source_date": "2023-05-23",
+      "date_basis": "arXiv v1 submission: 2023-05-23T17:50:33Z.",
+      "accessed_date": "2026-10-08",
+      "milestones": [
+        "M4",
+        "M5"
+      ],
+      "supports": [
+        "NF4 uses normal-distribution quantiles with an exact zero.",
+        "Double quantization compresses centered first-level scales.",
+        "QLoRA passes gradients through a frozen quantized base into trainable adapters."
+      ],
+      "limitations": [
+        "The paper reports GPU experiments. It does not establish TPU results or current package byte behavior."
+      ],
+      "additional_evidence": [
+        {
+          "url": "https://arxiv.org/html/2305.14314v1",
+          "section": "Sections 2 and 3"
+        }
+      ]
+    },
+    {
+      "id": "BNB-12",
+      "title": "8-bit Optimizers via Block-wise Quantization",
+      "url": "https://arxiv.org/abs/2110.02861v2",
+      "publisher": "Authors; arXiv",
+      "kind": "paper",
+      "version_or_revision": "arXiv:2110.02861v2",
+      "source_date": "2022-06-20",
+      "date_basis": "arXiv v2 submission: 2022-06-20T16:05:15Z; v1: 2021-10-06.",
+      "accessed_date": "2026-10-08",
+      "milestones": [
+        "M4"
+      ],
+      "supports": [
+        "Blockwise dynamic quantization uses independent scales and a nonlinear numerical map."
+      ],
+      "limitations": [
+        "Optimizer experiments do not certify nested NF4 state, TensorImpl transfer, or TPU behavior."
+      ]
+    }
+  ],
+  "versions": [
+    {
+      "role": "latest stable GitHub release",
+      "version": "0.50.2",
+      "revision": "08a9956b939857ae2c4fbd56753960cc370fa7cf",
+      "commit_date": "2026-08-27",
+      "publication_date": "2026-08-27",
+      "source_url": "https://github.com/bitsandbytes-foundation/bitsandbytes/releases/tag/0.50.2",
+      "evidence_url": "https://api.github.com/repos/bitsandbytes-foundation/bitsandbytes/releases/latest"
+    },
+    {
+      "role": "latest current PyPI package",
+      "version": "0.50.2",
+      "publication_date": "2026-08-27",
+      "source_url": "https://pypi.org/project/bitsandbytes/0.50.2/",
+      "evidence_url": "https://pypi.org/pypi/bitsandbytes/json"
+    },
+    {
+      "role": "current main and project pin",
+      "version": "0.50.3.dev0",
+      "revision": "833649043474794b8fe7a4136e0c40faf077b2e0",
+      "commit_date": "2026-09-03",
+      "publication_date": null,
+      "date_basis": "Author and committer timestamps: 2026-09-03T18:12:53Z. This is a source commit date, not a stable publication date.",
+      "source_url": "https://github.com/bitsandbytes-foundation/bitsandbytes/commit/833649043474794b8fe7a4136e0c40faf077b2e0",
+      "evidence_url": "https://api.github.com/repos/bitsandbytes-foundation/bitsandbytes/commits/main",
+      "cache_path": ".work/research-20261008/bitsandbytes/github-main.json",
+      "sha256": "d67ef24a530c2e23d8f56f8b89a6df13dd77dc7d2bc290e59535086f05f554c7"
+    }
+  ],
+  "open_questions": [
+    "Does unchanged Params4bit device transfer work in the fixed XLA runtime?",
+    "Does construction on XLA followed by quantization work without class or method replacement?",
+    "Can from_prequantized restore module state and outputs in a new XLA process?",
+    "Do default Python, native CPU, and CUDA nested boundary cases produce the same codes?",
+    "Do input and bias gradients remain correct for rank-two and rank-three inputs?",
+    "Does the step-ten checkpoint restore the base state, adapters, and SGD state for twenty-step equivalence?"
+  ]
+}

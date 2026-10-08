@@ -1,0 +1,169 @@
+{
+  "checked_date": "2026-10-08",
+  "topic": "related kernel tools",
+  "sources": [
+    {
+      "id": "TOOL-01",
+      "title": "Helion on TPU and current source metadata",
+      "url": "https://pytorch.org/blog/helion-on-tpu-towards-hardware-heterogeneous-kernel-authoring/",
+      "publisher": "PyTorch",
+      "kind": "technical article and release metadata",
+      "version_or_revision": "article; release v1.4.0; main fc0df0fca6a1f684feddf0de197b38807fc06433",
+      "source_date": "2026-07-23",
+      "date_basis": "Article publication date. Release published 2026-07-29; main committer date 2026-10-08.",
+      "accessed_date": "2026-10-08",
+      "milestones": [
+        "M6",
+        "M7"
+      ],
+      "supports": [
+        "The article describes Pallas code generation and a TorchTPU dependency.",
+        "Reported attention measurements use TPU v7."
+      ],
+      "limitations": [
+        "These results do not measure NF4 or qualify the project runtime.",
+        "Public TorchTPU installability requires separate evidence."
+      ],
+      "evidence": [
+        {
+          "url": "https://api.github.com/repos/pytorch/helion/releases/latest",
+          "retrieved_at": "2026-10-08T07:55:26.154179+00:00",
+          "sha256": "8f8d1dd5684ec2489803ec4aeca04023a5f8dd1992a617775f77f4a10596fabe",
+          "bytes": 21916
+        },
+        {
+          "url": "https://api.github.com/repos/pytorch/helion/commits/main",
+          "retrieved_at": "2026-10-08T07:55:26.167042+00:00",
+          "sha256": "badab2db54fdc39b14796631814d1157d2f657c345b47702834fd74c1966b454",
+          "bytes": 9956
+        },
+        {
+          "url": "https://raw.githubusercontent.com/pytorch/helion/fc0df0fca6a1f684feddf0de197b38807fc06433/pyproject.toml",
+          "retrieved_at": "2026-10-08T07:56:33.859527+00:00",
+          "sha256": "3544a4210f2e8c6e3d73596bbf1dc0c9e0dd2a8881a67e79c5dfeb706c42d85c",
+          "bytes": 6794
+        }
+      ],
+      "related_urls": [
+        "https://github.com/pytorch/helion/releases/tag/v1.4.0",
+        "https://github.com/pytorch/helion/tree/fc0df0fca6a1f684feddf0de197b38807fc06433"
+      ]
+    },
+    {
+      "id": "TOOL-02",
+      "title": "Accelerator Agents and MaxKernel",
+      "url": "https://github.com/AI-Hypercomputer/accelerator-agents/tree/44ac97defdfe66a22231e4bbf4c83d216a68a5f4",
+      "publisher": "AI Hypercomputer; MaxKernel paper authors",
+      "kind": "source and paper",
+      "version_or_revision": "44ac97defdfe66a22231e4bbf4c83d216a68a5f4",
+      "source_date": "2026-10-07",
+      "date_basis": "Repository snapshot commit date. MaxKernel paper v1 submitted 2026-09-03.",
+      "accessed_date": "2026-10-08",
+      "milestones": [
+        "M6",
+        "M7"
+      ],
+      "supports": [
+        "Current paths include maxkernel/adk and maxkernel/claude-code.",
+        "MaxCode describes model conversion from PyTorch to JAX.",
+        "MaxKernel describes kernel generation, compilation, comparison, tuning, and profiling."
+      ],
+      "limitations": [
+        "The paper abstract and repository documents were inspected; paper experiments were not independently reproduced.",
+        "The repository states that it is not an officially supported Google product.",
+        "Agent tools are references, not this backend implementation or automatic authorization to run external services."
+      ],
+      "evidence": [
+        {
+          "url": "https://api.github.com/repos/AI-Hypercomputer/accelerator-agents/commits/main",
+          "retrieved_at": "2026-10-08T07:53:30.367166+00:00",
+          "sha256": "34795864042718ec26a026ba48e8a05e25fd5ee295259764a7298b61464aeb27",
+          "bytes": 686173
+        },
+        {
+          "url": "https://raw.githubusercontent.com/AI-Hypercomputer/accelerator-agents/44ac97defdfe66a22231e4bbf4c83d216a68a5f4/README.md",
+          "retrieved_at": "2026-10-08T07:55:26.144289+00:00",
+          "sha256": "ae5ca5dbfd6ec1634fc8e2a254cdc1d4c61cfd7a685d6f9cc1e3606cb48e0d03",
+          "bytes": 3240
+        },
+        {
+          "url": "https://api.github.com/repos/AI-Hypercomputer/accelerator-agents/git/trees/44ac97defdfe66a22231e4bbf4c83d216a68a5f4?recursive=1",
+          "retrieved_at": "2026-10-08T07:55:26.554790+00:00",
+          "sha256": "20950f4add672eea19a24e8e6b24cdb163037e17928f0593716ab60a314e03c3",
+          "bytes": 2053762
+        },
+        {
+          "url": "https://raw.githubusercontent.com/AI-Hypercomputer/accelerator-agents/44ac97defdfe66a22231e4bbf4c83d216a68a5f4/maxkernel/adk/README.md",
+          "retrieved_at": "2026-10-08T07:56:33.837164+00:00",
+          "sha256": "fe1aadc37edd86299cbc7cc6621a2bd6490147533a2afa9ba65d2c8f245925ca",
+          "bytes": 9779
+        },
+        {
+          "url": "https://raw.githubusercontent.com/AI-Hypercomputer/accelerator-agents/44ac97defdfe66a22231e4bbf4c83d216a68a5f4/maxkernel/claude-code/README.md",
+          "retrieved_at": "2026-10-08T07:56:33.833071+00:00",
+          "sha256": "ecb82cd9246aa06dc4e04e095c1f4aa1fabe370b5e165c0d6f40003f0e2d9c30",
+          "bytes": 22253
+        },
+        {
+          "url": "https://arxiv.org/abs/2609.04523",
+          "retrieved_at": "2026-10-08T07:56:33.914524+00:00",
+          "sha256": "bd4031d2e818fce984e1c2ec313f14c5de8cb6cf60f3d86dd4988fd96fd0f763",
+          "bytes": 42854
+        }
+      ],
+      "related_urls": [
+        "https://arxiv.org/abs/2609.04523",
+        "https://github.com/AI-Hypercomputer/accelerator-agents/tree/44ac97defdfe66a22231e4bbf4c83d216a68a5f4/maxkernel/adk",
+        "https://github.com/AI-Hypercomputer/accelerator-agents/tree/44ac97defdfe66a22231e4bbf4c83d216a68a5f4/maxkernel/claude-code"
+      ]
+    },
+    {
+      "id": "TOOL-03",
+      "title": "JAXBench workload and evaluation interface",
+      "url": "https://github.com/AI-Hypercomputer/accelerator-agents/blob/44ac97defdfe66a22231e4bbf4c83d216a68a5f4/JAXBench/README.md",
+      "publisher": "AI Hypercomputer",
+      "kind": "documentation",
+      "version_or_revision": "44ac97defdfe66a22231e4bbf4c83d216a68a5f4",
+      "source_date": "2026-10-07",
+      "date_basis": "Repository snapshot commit date; not the last modification date of the file.",
+      "accessed_date": "2026-10-08",
+      "milestones": [
+        "M6",
+        "M7"
+      ],
+      "supports": [
+        "The documented evaluation uses atol=1e-2 and rtol=1e-2.",
+        "The interface separates compilation, numerical comparison, and measurement."
+      ],
+      "limitations": [
+        "General kernel workloads do not replace bitsandbytes API, state, or training tests.",
+        "The project retains its own stricter FP32 gates."
+      ],
+      "evidence": [
+        {
+          "url": "https://raw.githubusercontent.com/AI-Hypercomputer/accelerator-agents/44ac97defdfe66a22231e4bbf4c83d216a68a5f4/JAXBench/README.md",
+          "retrieved_at": "2026-10-08T07:56:33.846190+00:00",
+          "sha256": "831777ce7e66d827282d1213025a5660ebb60da823c044944b23d9e04d4ee849",
+          "bytes": 5753
+        }
+      ],
+      "related_urls": []
+    }
+  ],
+  "versions": [
+    {
+      "package": "Helion",
+      "latest_github_release": "v1.4.0",
+      "publication_date": "2026-07-29",
+      "main_revision": "fc0df0fca6a1f684feddf0de197b38807fc06433",
+      "main_commit_date": "2026-10-08",
+      "source_ids": [
+        "TOOL-01"
+      ]
+    }
+  ],
+  "open_questions": [
+    "Helion compatibility and native TorchTPU availability.",
+    "Any future reused code requires its own license and numerical review."
+  ]
+}

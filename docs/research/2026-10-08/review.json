@@ -1,0 +1,126 @@
+{
+  "format": "bnb-tpu.design-source-review.v1",
+  "checked_date": "2026-10-08",
+  "status": "ACCEPTED_FOR_DESIGN_PLANNING",
+  "scope": "Primary source collection and design inspection. This does not accept implementation or device behavior.",
+  "worker_model": "gpt-6.1-sol",
+  "worker_reasoning_effort": "high",
+  "reviewer": "root",
+  "source_groups": 48,
+  "design_areas": 10,
+  "milestones_covered": [
+    "M1",
+    "M2",
+    "M3",
+    "M4",
+    "M5",
+    "M6",
+    "M7",
+    "M8"
+  ],
+  "source_manifests": [
+    {
+      "path": "docs/research/2026-10-08/bitsandbytes-sources.json",
+      "sha256": "2d421b5c25da1ecb491343ae82b61fd1cb9e7e335749987bda65fba6cc85bcb7",
+      "groups": 12
+    },
+    {
+      "path": "docs/research/2026-10-08/cloud-sources.json",
+      "sha256": "96381c25b7026e3b978f2a9e51aa07d81796e691181fdb947459ac6d24b3fe97",
+      "groups": 9
+    },
+    {
+      "path": "docs/research/2026-10-08/pallas-sources.json",
+      "sha256": "baaf8cad23fb6fc4617462a9440bf57ee6c40305e7a11d54a624d9e5af2786ad",
+      "groups": 12
+    },
+    {
+      "path": "docs/research/2026-10-08/tooling-sources.json",
+      "sha256": "81335c600906f816b16472f685a33aa1e1afb60f0b262fe0080125d6df2d1732",
+      "groups": 3
+    },
+    {
+      "path": "docs/research/2026-10-08/xla-sources.json",
+      "sha256": "9394b867c72552da1471914a38dfb51ce5381a11d3257c748eda7ae1f05afa06",
+      "groups": 12
+    }
+  ],
+  "checks": {
+    "source_schema_and_identifiers": "PASS",
+    "source_date_policy": "PASS",
+    "primary_url_availability": {
+      "status": "PASS",
+      "unique_urls": 46,
+      "http_200": 46,
+      "limit": "HTTP status establishes availability only; it does not validate the claims.",
+      "record_sha256": "e3973b9eda96eae481592576206da93e13c33ba1ad2ac0b9623af6cb439cb06a"
+    },
+    "local_markdown_links": {
+      "status": "PASS",
+      "links": 56,
+      "broken": 0
+    },
+    "downloaded_hashes": {
+      "status": "PASS",
+      "explicit_manifest_cache_files": 14,
+      "cloud_tooling_cache_files": 35
+    },
+    "prose_sentence_lengths": {
+      "status": "PASS",
+      "descriptive_limit": 25,
+      "instruction_limit": 20,
+      "exceptions": 0,
+      "limit": "Headings, tables, source titles, code identifiers, and citation lines are not prose sentence measurements."
+    },
+    "selected_ste_dictionary_entries": [
+      "inspect -> examine",
+      "verify -> make sure",
+      "review -> inspection or examine",
+      "collect"
+    ],
+    "standard_pdf_sha256": "d1f4ea9e7cd6e46b47aa9057209f99e78c0e9cfc4e27a5b07895b05c1a166431",
+    "ste_full_conformity": "NOT_CERTIFIED"
+  },
+  "primary_claims_examined": [
+    "BNB-06: parameter assignment and latest unchanged module source",
+    "XLA-04: native alias guard",
+    "XLA-08/09: native precision settings and DEFAULT source value",
+    "XLA-07: swap validation order",
+    "PAL-02/03: squeezed-axis block dimensions",
+    "PAL-08: memory sample fields and measurement scope",
+    "PAL-10: backward restores full weight",
+    "PAL-11/12: Qwix NF4 limits and Tokamax runtime requirements",
+    "CLOUD-02: execution errors and receipt boundary",
+    "CLOUD-07: released Kaggle version field omission",
+    "CLOUD-09: current STE issue matches project standard"
+  ],
+  "existing_experiment_readback": {
+    "date": "2026-10-04",
+    "archive_members_matched": 238,
+    "report_bindings_matched": 31,
+    "numerical_status": "FAIL",
+    "record_sha256": "e680832d745e6c3a0984dbf450adb8a1b835db08a98aa6dbefb18af1e06f4bc8",
+    "new_experiment": "NOT_RUN"
+  },
+  "original_design_input": {
+    "name": "Port2TPU_Design_Pack_v0.1.zip",
+    "sha256": "14bf7d03c1cffa724ae5ceddcaffbbeac10b0a8b4a0559506fc50018fc83e219",
+    "authority": "Research source material. The user request defines the active scope."
+  },
+  "implementation_status": {
+    "accepted_milestones": 1,
+    "required_milestones": 8,
+    "new_backend_change": "NONE",
+    "new_dependency_installation": "NONE",
+    "new_cloud_experiment": "NOT_RUN",
+    "fixed_tolerances": "UNCHANGED"
+  },
+  "open_limits": [
+    "Actual precision setting in the earlier device process remains unresolved.",
+    "CPU-to-XLA correction and new-process restoration remain unqualified.",
+    "Nested state, QLoRA, Pallas compilation, and memory/performance require their stated tests.",
+    "Current Kaggle CLI credentials were not inspected.",
+    "Kaggle TPU page retrieval returned an application shell only.",
+    "TorchTPU public installability remains unverified."
+  ]
+}

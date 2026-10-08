@@ -1,0 +1,417 @@
+{
+  "checked_date": "2026-10-08",
+  "topic": "cloud and documentation",
+  "sources": [
+    {
+      "id": "CLOUD-01",
+      "title": "Colab CLI release metadata and interface",
+      "url": "https://pypi.org/project/google-colab-cli/0.7.4/",
+      "publisher": "Google Colab / PyPI",
+      "kind": "release and source",
+      "version_or_revision": "0.7.4; 66d7963611bcce2d272488e982ad38e519c062f0",
+      "source_date": "2026-09-26",
+      "date_basis": "PyPI first current upload at 2026-09-26T00:20:39.051100Z. Not an original document date.",
+      "accessed_date": "2026-10-08",
+      "milestones": [
+        "M2",
+        "M8"
+      ],
+      "supports": [
+        "The observed published version is 0.7.4.",
+        "The interface supports runtime allocation, execution, retrieval, termination, session listing, and usage."
+      ],
+      "limitations": [
+        "Requested hardware is not proof of the allocated hardware.",
+        "Development main is a separate source state."
+      ],
+      "evidence": [
+        {
+          "url": "https://pypi.org/pypi/google-colab-cli/json",
+          "retrieved_at": "2026-10-08T07:53:29.238977+00:00",
+          "sha256": "42659efac28c4a59cccd245fb278c20e219f91a86ebd76ea0d87072a6498cecc",
+          "bytes": 29970
+        },
+        {
+          "url": "https://api.github.com/repos/googlecolab/google-colab-cli/tags?per_page=10",
+          "retrieved_at": "2026-10-08T07:53:29.499695+00:00",
+          "sha256": "1f382cffd9d8457978ff8e6ed66a0b9cac848e7c8b51302095affca50d97ea35",
+          "bytes": 4406
+        },
+        {
+          "url": "https://api.github.com/repos/googlecolab/google-colab-cli/commits/main",
+          "retrieved_at": "2026-10-08T07:53:29.490739+00:00",
+          "sha256": "92b8a0036822bd8dfa33286bc08e973f66108f0023402156634d6585ea6bb737",
+          "bytes": 13136
+        },
+        {
+          "url": "https://raw.githubusercontent.com/googlecolab/google-colab-cli/66d7963611bcce2d272488e982ad38e519c062f0/README.md",
+          "retrieved_at": "2026-10-08T07:55:25.850714+00:00",
+          "sha256": "2f6020e03dbb42b2be06b3d2e81d9c53bf96d2ccc3a4d9ffca61852ad3f508a1",
+          "bytes": 9013
+        }
+      ],
+      "related_urls": [
+        "https://github.com/googlecolab/google-colab-cli/blob/66d7963611bcce2d272488e982ad38e519c062f0/README.md",
+        "https://github.com/googlecolab/google-colab-cli/commit/930275e62970df10055f411c8e28ca61755dcfc7"
+      ]
+    },
+    {
+      "id": "CLOUD-02",
+      "title": "Colab execution and session handlers",
+      "url": "https://github.com/googlecolab/google-colab-cli/blob/66d7963611bcce2d272488e982ad38e519c062f0/src/colab_cli/commands/execution.py",
+      "publisher": "Google Colab",
+      "kind": "source",
+      "version_or_revision": "66d7963611bcce2d272488e982ad38e519c062f0",
+      "source_date": "2026-09-26",
+      "date_basis": "Published package date from PyPI, not the last modification date of each source file.",
+      "accessed_date": "2026-10-08",
+      "milestones": [
+        "M2",
+        "M8"
+      ],
+      "supports": [
+        "The execution handler prints Jupyter errors.",
+        "Experiment receipts and returned records are needed to establish scientific success."
+      ],
+      "limitations": [
+        "Source inspection is not a new command-behavior test.",
+        "Termination needs a provider state observation after the action."
+      ],
+      "evidence": [
+        {
+          "url": "https://raw.githubusercontent.com/googlecolab/google-colab-cli/66d7963611bcce2d272488e982ad38e519c062f0/src/colab_cli/commands/execution.py",
+          "retrieved_at": "2026-10-08T07:55:25.854093+00:00",
+          "sha256": "ad82ab0798ca28b598c807d0490043d80751a25a61f0260ee5291575f2fee759",
+          "bytes": 12710
+        },
+        {
+          "url": "https://raw.githubusercontent.com/googlecolab/google-colab-cli/66d7963611bcce2d272488e982ad38e519c062f0/src/colab_cli/commands/session.py",
+          "retrieved_at": "2026-10-08T07:55:25.861378+00:00",
+          "sha256": "91aeef7b4936c8462a969347096611301ef3c11737f220a9cbb774771c3cbb43",
+          "bytes": 11374
+        }
+      ],
+      "related_urls": [
+        "https://github.com/googlecolab/google-colab-cli/blob/66d7963611bcce2d272488e982ad38e519c062f0/src/colab_cli/commands/session.py"
+      ]
+    },
+    {
+      "id": "CLOUD-03",
+      "title": "Colab frequently asked questions",
+      "url": "https://research.google.com/colaboratory/faq.html",
+      "publisher": "Google Colab",
+      "kind": "documentation",
+      "version_or_revision": "Live page",
+      "source_date": null,
+      "date_basis": "The inspected page gives no publication date.",
+      "accessed_date": "2026-10-08",
+      "milestones": [
+        "M2",
+        "M7",
+        "M8"
+      ],
+      "supports": [
+        "Available accelerator types and runtime limits can change."
+      ],
+      "limitations": [
+        "The page does not establish this account allocation or quota."
+      ],
+      "evidence": [
+        {
+          "url": "https://research.google.com/colaboratory/faq.html",
+          "retrieved_at": "2026-10-08T07:55:26.064822+00:00",
+          "sha256": "a9e713929d0c61c3033bfed08b0b8af5eb1286252a9e1b75af243fd79f576c47",
+          "bytes": 47420
+        }
+      ],
+      "related_urls": []
+    },
+    {
+      "id": "CLOUD-04",
+      "title": "Kaggle CLI release metadata",
+      "url": "https://github.com/Kaggle/kaggle-cli/releases/tag/v2.2.4",
+      "publisher": "Kaggle / PyPI",
+      "kind": "release",
+      "version_or_revision": "2.2.4; f0afa32699d28c97f82691728ada3ed8c16c5abf",
+      "source_date": "2026-07-23",
+      "date_basis": "GitHub published_at 2026-07-23T21:23:16Z; PyPI first upload 21:20:56.631698Z.",
+      "accessed_date": "2026-10-08",
+      "milestones": [
+        "M8"
+      ],
+      "supports": [
+        "The latest observed published version is 2.2.4."
+      ],
+      "limitations": [
+        "The inspected main revision is newer than the release."
+      ],
+      "evidence": [
+        {
+          "url": "https://api.github.com/repos/Kaggle/kaggle-cli/releases/latest",
+          "retrieved_at": "2026-10-08T07:53:29.497275+00:00",
+          "sha256": "4e5f93b29a5d593ecafeccb22975f530fac711ca9fd3dba3910bfb6f23aba036",
+          "bytes": 1951
+        },
+        {
+          "url": "https://pypi.org/pypi/kaggle/json",
+          "retrieved_at": "2026-10-08T07:53:29.422218+00:00",
+          "sha256": "5def7b4c9a2ae46367fc945bb6999adabc8025194a5721fdbb58e406485c5fdb",
+          "bytes": 100039
+        },
+        {
+          "url": "https://api.github.com/repos/Kaggle/kaggle-cli/commits/v2.2.4",
+          "retrieved_at": "2026-10-08T07:55:25.949376+00:00",
+          "sha256": "96fc8f539ab5887fdc3dcc490e7d1cfa56e7bd196d12b89c66d4e7154fba8eea",
+          "bytes": 8320
+        },
+        {
+          "url": "https://api.github.com/repos/Kaggle/kaggle-cli/commits/main",
+          "retrieved_at": "2026-10-08T07:53:29.503490+00:00",
+          "sha256": "2b317246505a3c476389a8447338f85cac9374d250b11041d41cc11f30d1fe5a",
+          "bytes": 36318
+        }
+      ],
+      "related_urls": [
+        "https://pypi.org/project/kaggle/2.2.4/"
+      ]
+    },
+    {
+      "id": "CLOUD-05",
+      "title": "Kaggle CLI authentication",
+      "url": "https://github.com/Kaggle/kaggle-cli/blob/f0afa32699d28c97f82691728ada3ed8c16c5abf/docs/README.md#authentication",
+      "publisher": "Kaggle",
+      "kind": "documentation",
+      "version_or_revision": "f0afa32699d28c97f82691728ada3ed8c16c5abf",
+      "source_date": "2026-07-23",
+      "date_basis": "Repository snapshot commit date; not the original document date.",
+      "accessed_date": "2026-10-08",
+      "milestones": [
+        "M8"
+      ],
+      "supports": [
+        "The CLI documents OAuth, API token, and legacy credential mechanisms.",
+        "A browser session alone is not one of these CLI credential mechanisms."
+      ],
+      "limitations": [
+        "Current account authentication was not tested during this research."
+      ],
+      "evidence": [
+        {
+          "url": "https://raw.githubusercontent.com/Kaggle/kaggle-cli/f0afa32699d28c97f82691728ada3ed8c16c5abf/docs/README.md",
+          "retrieved_at": "2026-10-08T07:56:33.882264+00:00",
+          "sha256": "f99df1855fadf309ded7bc95a0488a6e74614bc028336f166ba9c2832ecf0ccd",
+          "bytes": 3539
+        }
+      ],
+      "related_urls": []
+    },
+    {
+      "id": "CLOUD-06",
+      "title": "Kaggle kernel commands and metadata",
+      "url": "https://github.com/Kaggle/kaggle-cli/blob/f0afa32699d28c97f82691728ada3ed8c16c5abf/docs/kernels.md",
+      "publisher": "Kaggle",
+      "kind": "documentation",
+      "version_or_revision": "f0afa32699d28c97f82691728ada3ed8c16c5abf",
+      "source_date": "2026-07-23",
+      "date_basis": "Repository snapshot commit date; accelerator list has its own February 2026 qualification.",
+      "accessed_date": "2026-10-08",
+      "milestones": [
+        "M8"
+      ],
+      "supports": [
+        "Push requests execution after upload.",
+        "Output and status describe the latest run.",
+        "Some listed accelerators have account restrictions."
+      ],
+      "limitations": [
+        "A listed accelerator is not a current allocation guarantee.",
+        "The documentation alone does not establish terminal version or Draft closure."
+      ],
+      "evidence": [
+        {
+          "url": "https://raw.githubusercontent.com/Kaggle/kaggle-cli/f0afa32699d28c97f82691728ada3ed8c16c5abf/docs/kernels.md",
+          "retrieved_at": "2026-10-08T07:56:33.864444+00:00",
+          "sha256": "a91a1e2282e43abbba0045a55b10bf193b92aae69a0dde0f777080f76a8ddfc9",
+          "bytes": 12372
+        },
+        {
+          "url": "https://raw.githubusercontent.com/Kaggle/kaggle-cli/f0afa32699d28c97f82691728ada3ed8c16c5abf/docs/kernels_metadata.md",
+          "retrieved_at": "2026-10-08T07:56:33.859605+00:00",
+          "sha256": "02893c010efddcf11efe274e4a0c7fec57247921d7b09deb9cf70133a9971bc3",
+          "bytes": 2888
+        }
+      ],
+      "related_urls": [
+        "https://github.com/Kaggle/kaggle-cli/blob/f0afa32699d28c97f82691728ada3ed8c16c5abf/docs/kernels_metadata.md"
+      ]
+    },
+    {
+      "id": "CLOUD-07",
+      "title": "Kaggle version selection: released source and development changes",
+      "url": "https://github.com/Kaggle/kaggle-cli/blob/9c57dd74c29904c40ff7879eed33644be89d2e2f/CHANGELOG.md",
+      "publisher": "Kaggle",
+      "kind": "source and development change log",
+      "version_or_revision": "main 9c57dd74c29904c40ff7879eed33644be89d2e2f; released 2.2.4",
+      "source_date": "2026-10-07",
+      "date_basis": "Current main snapshot committer date; changes under Next are not a released version.",
+      "accessed_date": "2026-10-08",
+      "milestones": [
+        "M8"
+      ],
+      "supports": [
+        "Development changes report corrections for explicit kernel versions.",
+        "Released kernels_status parses a version without putting it in the request."
+      ],
+      "limitations": [
+        "No corrected client was installed or tested.",
+        "Result identity needs independent receipt checks."
+      ],
+      "evidence": [
+        {
+          "url": "https://raw.githubusercontent.com/Kaggle/kaggle-cli/9c57dd74c29904c40ff7879eed33644be89d2e2f/CHANGELOG.md",
+          "retrieved_at": "2026-10-08T07:55:25.861505+00:00",
+          "sha256": "2e39a3b6215cb6a148e4ea4ae72e70da7a749fd42c9b8c7e8c8014945ccf4bfe",
+          "bytes": 23732
+        },
+        {
+          "url": "https://raw.githubusercontent.com/Kaggle/kaggle-cli/f0afa32699d28c97f82691728ada3ed8c16c5abf/src/kaggle/api/kaggle_api_extended.py",
+          "retrieved_at": "2026-10-08T07:56:34.404193+00:00",
+          "sha256": "210e589ab1f7359ffb560aacfe1c003ac1bc844c366f4ff709bf3d13de4d5458",
+          "bytes": 443895
+        }
+      ],
+      "related_urls": [
+        "https://github.com/Kaggle/kaggle-cli/blob/f0afa32699d28c97f82691728ada3ed8c16c5abf/src/kaggle/api/kaggle_api_extended.py"
+      ]
+    },
+    {
+      "id": "CLOUD-08",
+      "title": "TPU v5e and v6e hardware specifications",
+      "url": "https://docs.cloud.google.com/tpu/docs/v5e",
+      "publisher": "Google Cloud",
+      "kind": "documentation",
+      "version_or_revision": "v5e and v6e",
+      "source_date": "2026-10-07",
+      "date_basis": "Last-updated dates displayed by both pages; not original publication dates.",
+      "accessed_date": "2026-10-08",
+      "milestones": [
+        "M7",
+        "M8"
+      ],
+      "supports": [
+        "HBM capacity per chip is listed as 16 GB for v5e and 32 GB for v6e.",
+        "The hardware types have different specifications."
+      ],
+      "limitations": [
+        "Specifications do not measure available memory or project performance.",
+        "Notebook topology and access need actual runtime observations."
+      ],
+      "evidence": [
+        {
+          "url": "https://docs.cloud.google.com/tpu/docs/v5e",
+          "retrieved_at": "2026-10-08T07:55:26.732386+00:00",
+          "sha256": "19bd240a8492c275b6ffa207454a97af658dd1a5646303edf076294c9de21f46",
+          "bytes": 166804
+        },
+        {
+          "url": "https://docs.cloud.google.com/tpu/docs/v6e",
+          "retrieved_at": "2026-10-08T07:55:27.210060+00:00",
+          "sha256": "cb6c615a08e4ad10991cadf57948bf7033e051b5180879a5cc0935d727e65c01",
+          "bytes": 165573
+        }
+      ],
+      "related_urls": [
+        "https://docs.cloud.google.com/tpu/docs/v6e"
+      ]
+    },
+    {
+      "id": "CLOUD-09",
+      "title": "ASD-STE100 current issue and standard",
+      "url": "https://www.asd-ste100.org/",
+      "publisher": "ASD Simplified Technical English Maintenance Group",
+      "kind": "standard",
+      "version_or_revision": "Issue 9",
+      "source_date": "2025-01-15",
+      "date_basis": "Issue date shown by the official website and PDF.",
+      "accessed_date": "2026-10-08",
+      "milestones": [
+        "M1",
+        "M2",
+        "M3",
+        "M4",
+        "M5",
+        "M6",
+        "M7",
+        "M8"
+      ],
+      "supports": [
+        "The official website identifies Issue 9 as the current issue.",
+        "Project documents retain the existing Issue 9 writing standard."
+      ],
+      "limitations": [
+        "Automated sentence length checks do not establish full conformity.",
+        "The standard and dictionary are not redistributed in this repository."
+      ],
+      "evidence": [
+        {
+          "url": "https://www.asd-ste100.org/",
+          "retrieved_at": "2026-10-08T07:55:27.250970+00:00",
+          "sha256": "0e997146306e32212f7b055615e1e9ed0a1e5c13f3274304aedff1bfb806dd63",
+          "bytes": 15994
+        },
+        {
+          "url": "https://www.asd-ste100.org/assets/files/ASD-STE100_ISSUE9.pdf",
+          "retrieved_at": "2026-10-08T07:56:37.730574+00:00",
+          "sha256": "d1f4ea9e7cd6e46b47aa9057209f99e78c0e9cfc4e27a5b07895b05c1a166431",
+          "bytes": 3316157
+        }
+      ],
+      "related_urls": [
+        "https://www.asd-ste100.org/assets/files/ASD-STE100_ISSUE9.pdf"
+      ]
+    }
+  ],
+  "versions": [
+    {
+      "package": "google-colab-cli",
+      "published_version": "0.7.4",
+      "publication_date": "2026-09-26",
+      "main_revision": "930275e62970df10055f411c8e28ca61755dcfc7",
+      "main_commit_date": "2026-10-06",
+      "source_ids": [
+        "CLOUD-01"
+      ]
+    },
+    {
+      "package": "kaggle",
+      "published_version": "2.2.4",
+      "publication_date": "2026-07-23",
+      "main_revision": "9c57dd74c29904c40ff7879eed33644be89d2e2f",
+      "main_commit_date": "2026-10-07",
+      "source_ids": [
+        "CLOUD-04",
+        "CLOUD-07"
+      ]
+    }
+  ],
+  "open_questions": [
+    "Current Kaggle CLI authentication and provider access.",
+    "Independent kernel version and result identity.",
+    "Observed TPU topology and resource closure for each future run."
+  ],
+  "retrieval_limits": [
+    {
+      "url": "https://www.kaggle.com/docs/tpu",
+      "status": "APPLICATION_SHELL_ONLY",
+      "evidence": [
+        {
+          "url": "https://www.kaggle.com/docs/tpu",
+          "retrieved_at": "2026-10-08T07:56:34.115700+00:00",
+          "sha256": "86c528b391bdcb1c0c5339d22ebdcb82a417a48bceec6a282ddd0465bd252fde",
+          "bytes": 5708
+        }
+      ],
+      "consequence": "No substantive claims were taken from the missing page body."
+    }
+  ]
+}
