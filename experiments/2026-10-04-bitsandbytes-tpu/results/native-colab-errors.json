@@ -1,0 +1,112 @@
+{
+  "accepted_milestones": 3,
+  "active_usage_zero": true,
+  "actual_device_attempted": true,
+  "archive_bytes": 383583,
+  "archive_members": 118,
+  "archive_sha256": "ae0b8772fe1baee31a151c8122c5860229feb7d017c9321a30bc1869f8df5fe5",
+  "browser_tab_closed": true,
+  "cases": [
+    {
+      "case": "direct-fp32",
+      "error_message": "Unimplemented primitive in Pallas TPU lowering for KernelType.TC: dynamic_slice. Please file an issue on https://github.com/jax-ml/jax/issues.",
+      "error_type": "NotImplementedError",
+      "status": "ERROR"
+    },
+    {
+      "case": "functional-fp32",
+      "error_message": "Backend kernel inputs must be unwrapped tensors",
+      "error_type": "RuntimeError",
+      "status": "ERROR"
+    },
+    {
+      "case": "direct-bf16",
+      "error_message": "Unimplemented primitive in Pallas TPU lowering for KernelType.TC: dynamic_slice. Please file an issue on https://github.com/jax-ml/jax/issues.",
+      "error_type": "NotImplementedError",
+      "status": "ERROR"
+    },
+    {
+      "case": "functional-bf16",
+      "error_message": "Backend kernel inputs must be unwrapped tensors",
+      "error_type": "RuntimeError",
+      "status": "ERROR"
+    },
+    {
+      "case": "tail-reference-fp32",
+      "error_message": "EXECUTION_METRIC_SAMPLES",
+      "error_type": "ValueError",
+      "status": "ERROR"
+    }
+  ],
+  "checked_local_date": "2026-10-09",
+  "checked_utc_date": "2026-10-08",
+  "cli_groups_closed": 46,
+  "cpu_archive_bytes": 168690,
+  "cpu_archive_members": 11,
+  "cpu_archive_sha256": "f0087665619e9a6a5ff7313ff209f25db394037ed154276dee66ae533ed09b10",
+  "cpu_gate_status": "QUALIFIED_LINUX_CPU_ORACLE_VERIFIED",
+  "cpu_output_values": 164096,
+  "cpu_outputs": [
+    {
+      "array_sha256": "1d6e99a8d6e00c37ef7db3fb565077f01bb86d744eef1c33201b5bcf904be9a2",
+      "case": "direct-fp32",
+      "values": 32768
+    },
+    {
+      "array_sha256": "1d6e99a8d6e00c37ef7db3fb565077f01bb86d744eef1c33201b5bcf904be9a2",
+      "case": "functional-fp32",
+      "values": 32768
+    },
+    {
+      "array_sha256": "2a94386dd24b1a9b6701e1172488ef46ed25248e57c1de74a9af15e595e812e2",
+      "case": "direct-bf16",
+      "values": 32768
+    },
+    {
+      "array_sha256": "2a94386dd24b1a9b6701e1172488ef46ed25248e57c1de74a9af15e595e812e2",
+      "case": "functional-bf16",
+      "values": 32768
+    },
+    {
+      "array_sha256": "34da6cd3792f4055741109182e47945870f683fe9683fd0a685955ece1b5053f",
+      "case": "tail-reference-fp32",
+      "values": 33024
+    }
+  ],
+  "cpu_value_check_scope": "SOURCE_RUNTIME_ORACLE_CONTRACT_TYPED_FINITE_VALUES_NOT_NUMERICAL_RECOMPUTATION",
+  "device_error_cases": 5,
+  "host_execution_seconds": 342.24997941600304,
+  "host_finalization_sha256": "5a9a12adcd16f72240b62ddb50ed04bc66ebad27272ce224a2002138ac139d5b",
+  "independent_isolated_controls": 6,
+  "lifecycle_seconds": 1062.6020119190216,
+  "m6": "NOT_QUALIFIED",
+  "manifest_sha256": "8a5fd991797a9708c038a31c1526fbe28be2904bf181193eaf97b9a5d1d678a7",
+  "native_error_cases": 4,
+  "native_manifest_sha256": "b25c5d2bf128b5164538c06267ec3a2f55a001a1a7f86eb63142153842eb3909",
+  "native_pass_cases": 0,
+  "original_deadline_unchanged": true,
+  "owner_sha256": "27eee2c5bf6ebf3ea38d46b913a72b1e3f6464bf5239b0122f707c38131f4c8c",
+  "packet_sha256": "138e9ac03520f6e2e643a62bc6dac77788bf4e0a19f34dc3aa570192fbfc7d10",
+  "prior_connection_groups_closed": 6,
+  "qualified_native_numerical_comparisons": 0,
+  "receipt_sha256": "e542ca7e0ac54e3f40496ad807a4b67eaed35c6407199f8d36255fea87f5f2bc",
+  "remote_steps_closed": 14,
+  "resource_closure": "PASS",
+  "review_source_sha256": "85a3a2a581030a0b1e189a5a89969dbb13ba40bf8734e8e1b822a1c7bf708911",
+  "root_review_sha256": "954edc0fb6c2245188937b94b5baec8519ae0a094ba11a98f110b92e876a108d",
+  "runtime_hardware": "Colab V6E1",
+  "runtime_versions": {
+    "jax": "0.7.1",
+    "jaxlib": "0.7.1",
+    "libtpu": "0.0.21",
+    "python": "3.12.14",
+    "torch": "2.9.0+cpu",
+    "torch-xla": "2.9.0"
+  },
+  "same_allocation_connection_retry": 1,
+  "server_empty": true,
+  "source_variant": "M2_CANONICAL_NON_NESTED_R2_PATCH",
+  "status": "ACTUAL_NATIVE_ERRORS_AND_CLOSURE_VERIFIED",
+  "tail_reference_error_cases": 1,
+  "verifier_result_sha256": "cd3225da566865c789e0d92d7d35ce9bd8ce2da7f86ca0fe83e893d994bd694d"
+}

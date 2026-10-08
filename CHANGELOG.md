@@ -1,5 +1,16 @@
 # Change log
 
+## 2026-10-09 — Actual native diagnostic errors
+
+- Retain two Pallas lowering errors, two tensor wrapping errors, and one metric validation error.
+- Verify all 118 archive members and the complete qualified CPU oracle.
+- Retain the earlier connection failure and its bounded retry on the same runtime.
+- Verify resource closure and keep M6 unqualified.
+
+Validation: Six isolated audit controls passed; actual device records remained rejected.
+All 46 CLI process groups and 14 remote steps closed.
+Refer to [the actual error record](docs/changes/r6-native-colab-errors.md).
+
 ## 2026-10-09 — Native archive entry correction
 
 - Load the admitted transport file through its exact sibling path.
