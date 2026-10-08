@@ -1,0 +1,311 @@
+{
+  "allocation_attempts": 1,
+  "api42_status": "NOT_QUALIFIED",
+  "bindings": {
+    "actual_admission": {
+      "bytes": 1672,
+      "sha256": "208bcbbb4d9e95ffc484df0924ffad33335ad851aaee0818158f85eb8e20266b"
+    },
+    "api42_probe": {
+      "bytes": 24512,
+      "sha256": "e8743e33e6a0454d5d05b77075d47a5c9f983cf32f3956c38f2b544f86f5ef6d"
+    },
+    "archive_member_inventory": {
+      "bytes": 38630,
+      "sha256": "b12ea5a3d4c4ba5dc11bd102d2450ffba1d9f2fc111084f1213de90a6bac680a"
+    },
+    "archive_parts_manifest": {
+      "bytes": 385,
+      "sha256": "de1c0d27577151feabda407f39f6877499c8675ce04b19f390c5723acb59805a"
+    },
+    "archived_remote_receipt": {
+      "bytes": 27117,
+      "sha256": "9a47495c7f30b399c9f6c174637285ab591b3d3a178869fb99391eae13e2d07b"
+    },
+    "build_lock": {
+      "bytes": 7898,
+      "sha256": "65f27f3a93b4aa533d040225609bfb819fcf5ddbbc6f17456d0fcfd28bd6b546"
+    },
+    "cli_identity": {
+      "bytes": 2713,
+      "sha256": "d4134c308a86024c78262a402aea4fb0fb2ebf8ecbf99dd16d45305f170aaaf9"
+    },
+    "cpu_seal_before_tpu": {
+      "bytes": 8556,
+      "sha256": "e1965888a138bb2f372772039e3556013fdcc729d09a9ce24da6b51eeae6730b"
+    },
+    "cpu_seal_recovered": {
+      "bytes": 8556,
+      "sha256": "e1965888a138bb2f372772039e3556013fdcc729d09a9ce24da6b51eeae6730b"
+    },
+    "diagnostic_receipt": {
+      "bytes": 22843,
+      "sha256": "a86c70dcbf017f8bdf1e208e2d96ff07f86bdd9b733e8e0195d43887ad08a59e"
+    },
+    "host_driver_cleanup": {
+      "bytes": 887,
+      "sha256": "c0558de494cdf9930999943ef85e32aaed1c1106b026b176c57e5eb858aa283e"
+    },
+    "host_driver_finalization": {
+      "bytes": 2296,
+      "sha256": "861115246f79e99cc8d92bcf3a2dfe90237e960d10304d8db37bbb36c0b8d3e8"
+    },
+    "host_driver_ownership": {
+      "bytes": 1590,
+      "sha256": "95adf9973c22f9dbc5a83021ca6bb946034753a952efa6e6f0295454a149423d"
+    },
+    "independent_readback": {
+      "bytes": 13123,
+      "sha256": "ea13560be58088e6e58f362bc475b2df1e4164737c8a8123bb43eabbfe253da8"
+    },
+    "inputs": {
+      "bytes": 132064,
+      "sha256": "d0c9cdf6a82449a56923499698f19bfd3cc8d13c042f1f5ad2bdf587701f5e54"
+    },
+    "installed_metadata": {
+      "bytes": 9237,
+      "sha256": "bc0e78b718d912c592f1130eecc332ba18c9179c91f502268bc31e0d99e3f522"
+    },
+    "local_verifier_output": {
+      "bytes": 23575,
+      "sha256": "87c8f35986c1841f113189cbf584d35676973579a3dfe68371cdd5ace120de70"
+    },
+    "local_verifier_ownership": {
+      "bytes": 1451,
+      "sha256": "13431526b3aa505d96bfc7cec915005cb30f64c042001316ac4b481f8efffb4a"
+    },
+    "owner_record": {
+      "bytes": 63665,
+      "sha256": "ad8920f4cdc2877decc664aa5d0e49a001dd71b53585c0925ffb43a5ea4d4080"
+    },
+    "owner_source": {
+      "bytes": 24325,
+      "sha256": "4eaae0cbf01fc3e1fb6bafd453b27bbb98739f1b9c523268703e979f5b12cee3"
+    },
+    "packet": {
+      "bytes": 491724,
+      "sha256": "1ef17539f6796c04f0b779e9233ff1f2dfae4b02e5f207f1ad4cd4650cc2388e"
+    },
+    "packet_manifest": {
+      "bytes": 4939,
+      "sha256": "edc1ff31bc32e5f4bc3dec1990007723f4d701bf27ebd45081025d23cbec5f44"
+    },
+    "plugin_source_manifest": {
+      "bytes": 2803,
+      "sha256": "be2ba05deb82b4bd59635dfe4c4b1518cd60b00ec92459b1a69d66f584250cd0"
+    },
+    "profile": {
+      "bytes": 3695,
+      "sha256": "ad53f6416bdabf6440f08b313963c947a468cd39afd413bfe41bb381c4a7a166"
+    },
+    "remote_receipt": {
+      "bytes": 27330,
+      "sha256": "7897151010ceec2ad6518b3b3b3b412ce3006a13880a32c14db9d4d63fcfc6b0"
+    },
+    "remote_source": {
+      "bytes": 21649,
+      "sha256": "26eb7e46cbb5785e4e796030684b71d56f4ac18c9b0487f0a75bcbe6df2a41ec"
+    },
+    "route_probe": {
+      "bytes": 26296,
+      "sha256": "feae751734e57c741b1bdade004ff7ca3c041ee7eb3b7086b531bc6be433038e"
+    },
+    "runtime_lock": {
+      "bytes": 39667,
+      "sha256": "323371ff61c5fbcc4f79fd6a358cf2ba17cb72b907382a5ceaac07f91dc66ed6"
+    },
+    "runtime_receipt": {
+      "bytes": 5797,
+      "sha256": "9525060271012d6ece73476cbaefdceda0019609b3fed45052c04919d253b896"
+    },
+    "source_admission": {
+      "bytes": 5295,
+      "sha256": "4734554539d7bf6aafc81ca5a0584af858a9eb10ba0881c4ed3511afeddba1bd"
+    },
+    "whole_archive": {
+      "bytes": 303829,
+      "sha256": "fd31e2c138cf2caab021107e5f5a440a99b18849b09e5dc158b8101d0a0ca684"
+    }
+  },
+  "budget": {
+    "cleanup": 60,
+    "install": 1200,
+    "retrieval": 600,
+    "science": 1800,
+    "total": 3600
+  },
+  "closure": {
+    "archive_bytes": 303829,
+    "archive_members": 238,
+    "cleanup_errors": [],
+    "driver_exit_code": 0,
+    "driver_seconds": 143.7104071659851,
+    "local_verifier_exit_code": 0,
+    "owned_host_groups_absent": 36,
+    "owner_lifecycle_seconds": 141.3353180885315,
+    "remote_cleanup_records": 12,
+    "retrieval": "COMPLETE_WHOLE_ARCHIVE",
+    "server_empty_observed": true,
+    "session_stop_observed": true,
+    "signal_handlers_restored": true,
+    "timers_restored": true,
+    "usage_zero_observed": true,
+    "whole_archive_verified": true
+  },
+  "cpu_reference": {
+    "cases": 42,
+    "cuda_golden": "NOT_RUN",
+    "oracle_sha256": "e1965888a138bb2f372772039e3556013fdcc729d09a9ce24da6b51eeae6730b",
+    "source_admission_sha256": "4734554539d7bf6aafc81ca5a0584af858a9eb10ba0881c4ed3511afeddba1bd",
+    "status": "PASS"
+  },
+  "date_utc": "2026-10-04",
+  "diagnostic": {
+    "execution_error_records": 2,
+    "execution_pass_records": 38,
+    "failure_cause": "UNRESOLVED",
+    "interpretation": "Record validation passed. The required CPU-to-XLA transfer still failed. Two FP32 route records failed fixed forward and input-gradient gates. This diagnostic does not qualify the full API42 matrix or M3.",
+    "module_routes": [
+      {
+        "case_id": "linear-float32-rank2-bias1",
+        "execution_status": "ERROR",
+        "expected_error_observed": true,
+        "failed_gates": {},
+        "numerical_status": "NOT_COMPLETE_ERROR",
+        "quantization_source": null,
+        "route": "cpu_to_xla",
+        "same_process_roundtrip": "NOT_RUN"
+      },
+      {
+        "case_id": "linear-float32-rank2-bias1",
+        "execution_status": "PASS",
+        "expected_error_observed": false,
+        "failed_gates": {
+          "dx": {
+            "max_abs": 0.0010573863983154297,
+            "nrmse": 0.001615917804018226,
+            "rmse": 0.0005742485894783997,
+            "status": "FAIL"
+          },
+          "y": {
+            "max_abs": 0.0012758970260620117,
+            "nrmse": 0.0010547382809221095,
+            "rmse": 0.0006453081522930011,
+            "status": "FAIL"
+          }
+        },
+        "numerical_status": "FAIL",
+        "quantization_source": "TPU_PUBLIC_MODULE_QUANTIZE",
+        "route": "target_constructor",
+        "same_process_roundtrip": "PASS"
+      },
+      {
+        "case_id": "linear-float32-rank2-bias1",
+        "execution_status": "PASS",
+        "expected_error_observed": false,
+        "failed_gates": {
+          "dx": {
+            "max_abs": 0.0010573863983154297,
+            "nrmse": 0.001615917804018226,
+            "rmse": 0.0005742485894783997,
+            "status": "FAIL"
+          },
+          "y": {
+            "max_abs": 0.0012758970260620117,
+            "nrmse": 0.0010547382809221095,
+            "rmse": 0.0006453081522930011,
+            "status": "FAIL"
+          }
+        },
+        "numerical_status": "FAIL",
+        "quantization_source": "CPU_ORACLE_CHECKPOINT",
+        "route": "from_prequantized",
+        "same_process_roundtrip": "PASS"
+      },
+      {
+        "case_id": "linear-bfloat16-rank2-bias1",
+        "execution_status": "ERROR",
+        "expected_error_observed": true,
+        "failed_gates": {},
+        "numerical_status": "NOT_COMPLETE_ERROR",
+        "quantization_source": null,
+        "route": "cpu_to_xla",
+        "same_process_roundtrip": "NOT_RUN"
+      },
+      {
+        "case_id": "linear-bfloat16-rank2-bias1",
+        "execution_status": "PASS",
+        "expected_error_observed": false,
+        "failed_gates": {},
+        "numerical_status": "PASS",
+        "quantization_source": "TPU_PUBLIC_MODULE_QUANTIZE",
+        "route": "target_constructor",
+        "same_process_roundtrip": "PASS"
+      },
+      {
+        "case_id": "linear-bfloat16-rank2-bias1",
+        "execution_status": "PASS",
+        "expected_error_observed": false,
+        "failed_gates": {},
+        "numerical_status": "PASS",
+        "quantization_source": "CPU_ORACLE_CHECKPOINT",
+        "route": "from_prequantized",
+        "same_process_roundtrip": "PASS"
+      }
+    ],
+    "nonlinear": {
+      "cases": 34,
+      "fixed_profile_sha256": "ad53f6416bdabf6440f08b313963c947a468cd39afd413bfe41bb381c4a7a166",
+      "numerical_status": "PASS"
+    },
+    "records": 40,
+    "same_process_roundtrip": {
+      "fresh_process_resume": "NOT_RUN",
+      "status": "PASS",
+      "successful_routes": 4
+    }
+  },
+  "format": "bnb-tpu.device-route-colab-result.v1",
+  "hardware": "V6E1",
+  "m2_status": "NOT_QUALIFIED",
+  "m3_status": "NOT_QUALIFIED",
+  "numerical_status": "FAIL",
+  "owner_status": "PASS_DEVICE_ROUTE_RECORDS",
+  "parts": [
+    {
+      "bytes": 303829,
+      "name": "part-000001.bin",
+      "sha256": "fd31e2c138cf2caab021107e5f5a440a99b18849b09e5dc158b8101d0a0ca684"
+    }
+  ],
+  "reallocation": "NOT_RUN",
+  "record_location": "Local cache outside public Git. Raw records and the earlier failed runs stay unchanged.",
+  "record_validation": "PASS",
+  "runtime": {
+    "gradient": [
+      2.0,
+      4.0
+    ],
+    "loss": 5.0,
+    "observed_backend": "TPU",
+    "python": "3.12.14",
+    "status": "PASS_TPU_RUNTIME_PROBE_ONLY",
+    "versions": {
+      "jax": "0.7.1",
+      "jaxlib": "0.7.1",
+      "libtpu": "0.0.21",
+      "torch": "2.9.0+cpu",
+      "torch-xla": "2.9.0"
+    }
+  },
+  "scope": "DEVICE_ROUTE_DIAGNOSTIC_ONLY",
+  "source_checks": {
+    "plugin_source_manifest_sha256": "be2ba05deb82b4bd59635dfe4c4b1518cd60b00ec92459b1a69d66f584250cd0",
+    "runtime_lock_sha256": "323371ff61c5fbcc4f79fd6a358cf2ba17cb72b907382a5ceaac07f91dc66ed6",
+    "source_post_sha256": "4734554539d7bf6aafc81ca5a0584af858a9eb10ba0881c4ed3511afeddba1bd",
+    "source_pre_sha256": "4734554539d7bf6aafc81ca5a0584af858a9eb10ba0881c4ed3511afeddba1bd",
+    "upstream_commit": "833649043474794b8fe7a4136e0c40faf077b2e0",
+    "upstream_patch": "NONE"
+  },
+  "source_commit": "56e87b45d2cf9aca797c57a151da715b026b888c"
+}

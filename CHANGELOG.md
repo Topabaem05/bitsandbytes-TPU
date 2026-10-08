@@ -1,5 +1,19 @@
 # Change log
 
+## 2026-10-04 — Device route Colab result
+
+- Record 34 nonlinear TPU cases that passed the fixed numerical gates.
+- Keep two CPU-to-XLA transfer errors.
+- Record FP32 forward and input-gradient failures on two alternative paths.
+- Record two BF16 path passes and four reconstruction passes within the same process.
+- Keep full API42, M2, and M3 unqualified.
+
+Validation: All 40 diagnostic records passed record validation; the numerical result was `FAIL`.
+The 238-member archive passed hash and byte checks.
+The session stopped, the server was empty, and active usage was zero.
+The reviewer repeated archive and report readback on 2026-10-08.
+Refer to [the device route result](docs/changes/task2-colab-routes.md).
+
 ## 2026-10-04 — Device route diagnostic preparation
 
 - Add 34 fixed nonlinear cases and six module path cases.
