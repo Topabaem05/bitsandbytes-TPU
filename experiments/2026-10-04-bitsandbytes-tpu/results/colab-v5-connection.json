@@ -1,0 +1,59 @@
+{
+  "accepted_milestones": 3,
+  "active_assignments_after": 0,
+  "allocation_epoch": 1791479887.039,
+  "browser_ready_observed_elapsed_seconds": 150.21099996566772,
+  "closure_verified_elapsed_seconds": 244.6578278541565,
+  "connection_wait_limit_seconds": 240,
+  "date": "2026-10-09",
+  "installation": "NOT_RUN",
+  "marker_execution": "NOT_RUN",
+  "next": "EXPLICIT_V5E1_BROWSER_ADOPTION_REVIEW_THEN_FRESH_CORRECTED_NATIVE_RUN",
+  "official_connected_elapsed_seconds": 172.28394603729248,
+  "official_hardware": "V5E1",
+  "official_shape": "Standard",
+  "official_variant": "TPU",
+  "owned_cli_groups": [
+    {
+      "group_absence": "OBSERVED_NO_SUCH_GROUP",
+      "leader_reaped": true,
+      "record": "closure/cli/01-sessions/result.json",
+      "sha256": "b1b2ac58e3b29a73f334da0a6d834d99d250091e102fb3d5e4e0156b2c6dfa58"
+    },
+    {
+      "group_absence": "OBSERVED_NO_SUCH_GROUP",
+      "leader_reaped": true,
+      "record": "closure/cli/02-usage/result.json",
+      "sha256": "1a1c41b06bb2e8d3bf63419af58d40171c6a5116374ed4540c874a838505a1cb"
+    },
+    {
+      "group_absence": "OBSERVED_NO_SUCH_GROUP",
+      "leader_reaped": true,
+      "record": "connected-read/cli/01-sessions/result.json",
+      "sha256": "5982f8a6e901f216ba546463799de4d42f88fc6f38b9cf8e41f3aef153d7e590"
+    },
+    {
+      "group_absence": "OBSERVED_NO_SUCH_GROUP",
+      "leader_reaped": true,
+      "record": "preconnect/cli/01-sessions/result.json",
+      "sha256": "5cc05c7a2a5c07de05aa0d406ce932bafccdbff1331d9ca66ca59d3e13db332b"
+    },
+    {
+      "group_absence": "OBSERVED_NO_SUCH_GROUP",
+      "leader_reaped": true,
+      "record": "preconnect/cli/02-usage/result.json",
+      "sha256": "5dab4a351eb89d1e0db3e8a67600a5bc03a5f4f6aedb786d875929ab0b7a5c5f"
+    }
+  ],
+  "prior_v6e1_waits": 2,
+  "private_journal_sha256": "d055df934112714f532fc25aaccfdce355c5ed329dc928839a7b7bd6446ec4f9",
+  "requested_hardware": "V5E1",
+  "schema": "bnb-tpu.colab-v5-connection.v1",
+  "scientific_execution": "NOT_RUN",
+  "scope": "CONNECTION_ONLY",
+  "status": "CONNECTION_PASS_RESOURCE_CLOSURE_VERIFIED",
+  "total_lifecycle_limit_seconds": 600,
+  "total_milestones": 8,
+  "usage_rate_per_hour_after": 0,
+  "v6e1_wait_cause": "UNKNOWN"
+}

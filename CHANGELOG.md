@@ -1,5 +1,14 @@
 # Change log
 
+## 2026-10-09 — Colab V5E1 connection
+
+- Retain the successful V5E1 connection after two pending V6E1 requests.
+- Verify the observed hardware through the browser and official CLI.
+- Terminate the empty runtime and verify zero active usage and five closed CLI groups.
+
+Validation: Connection and resource closure passed; no scientific code executed.
+Refer to [the connection record](docs/changes/colab-v5-connection.md).
+
 ## 2026-10-09 — Corrected native allocation wait
 
 - Retain the V6E1 allocation wait after the native correction.
