@@ -2,7 +2,7 @@
   "format": "bitsandbytes-tpu.source.v1",
   "version": "0.1.0",
   "upstream_revision": "833649043474794b8fe7a4136e0c40faf077b2e0",
-  "scope": "INITIAL_NON_NESTED_CPU_REFERENCE_AND_XLA_REGISTRATION_ONLY",
+  "scope": "NON_NESTED_REFERENCE_AND_EXPLICIT_SOURCE_VARIANTS",
   "files": [
     {
       "path": "src/bitsandbytes_tpu/__init__.py",
@@ -13,8 +13,8 @@
     {
       "path": "src/bitsandbytes_tpu/compatibility.py",
       "installed_path": "bitsandbytes_tpu/compatibility.py",
-      "bytes": 3823,
-      "sha256": "3e4d5ca40269f963722934a20bbed2c3787ea875e1e8e1b21160891e0113a2cf"
+      "bytes": 9125,
+      "sha256": "13e0a6c941514c1fb709a289a51cbd22375159122ab2e2953f74c31b803e3f8c"
     },
     {
       "path": "src/bitsandbytes_tpu/reference.py",
@@ -37,13 +37,13 @@
   ],
   "installed_python_files": {
     "__init__.py": "c7ecdd758ed0d50f10e0b8fa3a17900143368ca6799bfa09e11bfe8118ab59db",
-    "compatibility.py": "3e4d5ca40269f963722934a20bbed2c3787ea875e1e8e1b21160891e0113a2cf",
+    "compatibility.py": "13e0a6c941514c1fb709a289a51cbd22375159122ab2e2953f74c31b803e3f8c",
     "reference.py": "0ad17773f18d8f69715af52644c0f94617d93228bc1927287058a6211ed6bb9e",
     "registration.py": "23dd0f2bd08634d87f579e2544f32ec298a19320bf5e69f61d3ca10b28de3662",
     "functionalization.py": "e04656503739b24b7251fa1a2cdc028bded34e77b0d8a1c0982fc07bbfbf626d"
   },
   "limits": [
-    "Actual XLA2.9 and TPU execution are not established.",
+    "The params4bit-xla-v1 source variant still requires Linux and TPU qualification.",
     "Nested quantization and the default NF4 module are not complete.",
     "No fused-kernel, memory, performance, or training result is claimed."
   ],
@@ -55,12 +55,25 @@
   "functionalization": {
     "xla_kernel_context": "LOCAL_NATIVE_INPUT_WRAP_EXCLUSION_REMOVAL_SYNC_UNWRAP_FIXED_SIZE_COPYBACK",
     "mutable_out_dispatch": "Functionalize_KEY_DEFAULT_DEVICE_DEQUANT_THEN_COPY",
-    "actual_xla_repeat": "NOT_RUN_AFTER_ZERO_NORMALIZATION_CHANGE"
+    "actual_xla_repeat": "PRISTINE_SOURCE_DEVICE_RECORDS_IN_RESULTS_DIRECTORY"
   },
   "zero_normalization": {
-    "status": "ISOLATED_CPU_PROTOTYPE_NOT_TPU_QUALIFIED",
+    "status": "PRISTINE_FIXED_NONLINEAR_CASES_PASSED_ON_COLAB",
     "zero_block_denominator": 1,
     "metadata_scale_rule": "UNCHANGED_DEFAULT_PYTHON",
     "subnormal_nonzero_device_parity": "UNQUALIFIED"
-  }
+  },
+  "source_variants": {
+    "pristine": "Fixed upstream package inventory",
+    "params4bit-xla-v1": {
+      "manifest_path": "patches/params4bit-xla-v1.json",
+      "manifest_sha256": "e745fbf21aac10ed9118167a131d6505bf6dbe03e1fab0a669c663b26c5a5732",
+      "torch_requirement": "2.9.0+cpu",
+      "device_qualification": "NOT_RUN"
+    }
+  },
+  "prior_device_records": [
+    "experiments/2026-10-04-bitsandbytes-tpu/results/routes-colab.json",
+    "experiments/2026-10-04-bitsandbytes-tpu/results/precision-colab.json"
+  ]
 }

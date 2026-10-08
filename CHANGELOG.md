@@ -1,5 +1,22 @@
 # Change log
 
+## 2026-10-08 — Public transfer experiment preparation
+
+- Add the exact reviewed `Params4bit._quantize` patch and its complete source inventory.
+- Retain the original parameter, attributes, and state aliases during compatible and supported incompatible conversions.
+- Reject unsupported conversion conditions before the parameter swap.
+- Restrict the patched source variant to PyTorch `2.9.0+cpu`.
+- Add four public transfer records and the full fixed API42 matrix under native precision `highest`.
+- Require the fixed Linux source controls, built wheel source, installed source, and complete experiment records.
+- Keep numerical failures, archive recovery, and resource closure in the acceptance path.
+
+Validation: The reviewer repeated 90 package tests, 18 portable source controls, and 100 scientific verifier controls.
+All passed locally; these results do not establish TPU operation of the patch.
+The reviewer also repeated 191 cloud controls; all passed in 14.30 seconds.
+The final packet passed independent source, archive, and CLI identity checks before allocation.
+Actual Colab execution remains required for R2 and M2 acceptance.
+Refer to [the transfer preparation](docs/changes/r2-transfer-preparation.md).
+
 ## 2026-10-08 — Colab precision comparison
 
 - Record the controlled comparison of `default`, `high`, and `highest` on Colab V6E1.

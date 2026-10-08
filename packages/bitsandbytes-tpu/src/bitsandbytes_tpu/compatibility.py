@@ -7,13 +7,58 @@ import torch
 UPSTREAM_REVISION = "833649043474794b8fe7a4136e0c40faf077b2e0"
 SOURCE_SHA256 = {
     "__init__.py": "026aeaf979736dd15f80b145880dc4de03ebbe131b47b9f066645da1772255b8",
+    "__main__.py": "037880f501fcc9f9feeb4b8deb0ffb5948ae44833befbad9fe97ff1ec66db1ee",
     "_ops.py": "e6d9ed4c268e52044a8ff5f895f94ca88bf02d156b25c4616141cfa9daaf924c",
-    "functional.py": "520a9e9d3afba11124734df60e48a27e38b6389305df888834405b435e285817",
-    "nn/modules.py": "f7ab2160681e2f089caae80d6fd283ac6a9b9f1b82269e6f395c3b046faf606e",
+    "autograd/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "autograd/_functions.py": "77ca54c87b69ad470ac73e5d7dde94948f20de9de8b8764957728bc29831f37f",
+    "backends/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "backends/cpu/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "backends/cpu/ops.py": "d4bfca8b4ce6a6a368aeccdd1516f98f505bf374f6e66d64fb22e6229eb1ff67",
+    "backends/cuda/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "backends/cuda/ops.py": "d58fa0a0c053d5a0ecd1e93d847531d5e0226a0bd8048472ee0ca632464cc20f",
+    "backends/default/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "backends/default/ops.py": "e39afd16dca6e6f34a14305ade0ba4acbb49dc2c7a9baf937341d7e33b682819",
+    "backends/hpu/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "backends/hpu/ops.py": "1a017363ed6b3a0aa61fb71c5e22bf69ea3dc8a4e2b6f8fbf966cea86806f6e3",
+    "backends/mps/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "backends/mps/ops.py": "d93a6ceb2d03359d061f61abd70d152ffed4af26bf2693d7c6d47f8470bd0770",
+    "backends/triton/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "backends/triton/kernels_4bit.py": "6e380698b4b40056fa19e457d71fea113c32a9f3ce4a83a6d93ea33cea18ef84",
+    "backends/triton/kernels_8bit_quant.py": "92774d59c8f4ffe143b52997529c9ac5fc4f7c73831aafd6cf9d425de9a3adfc",
+    "backends/triton/kernels_optim.py": "4e0458ad0c4c1bd931dccb772d92c1dd53dbff9a2da5ed9991550197f20771b1",
+    "backends/triton/ops.py": "723cfe3134cc8d598477e238a84bb697de43e3956f648e1faa8e91a1a99e2ab8",
     "backends/utils.py": "dc564f2fbf13dba81388a23d4c87167dd54da04af8f17b0db52685fe42b11c84",
+    "backends/xpu/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "backends/xpu/ops.py": "0ffcde964e1bf23c4b4ae9f39b73ba8a50b90a2d9a02909446f1467074432596",
+    "cextension.py": "a7ce4d7bcb504bf7d268ce96658dbe832804b6f6ed999f61eaf2beeb9385c9bd",
+    "consts.py": "c5f0da75001ac7e99ac6a907ad535b67a5084c9a12d1781c51fa299a32e08a53",
+    "cuda_specs.py": "6a4153476671439085a452de83940a15b54e678c73dd449ac78dd1c5accfdb69",
+    "diagnostics/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "diagnostics/cuda.py": "3b7f74ecfc45ad6af980ddf89c31e063b75609a61c3f63f90f7e4360895aa463",
+    "diagnostics/main.py": "d3ca45b8a8d0ae5b735728fb177721df548f25c23a3c6892c9542db341ad4c9a",
+    "diagnostics/utils.py": "102888dbbf6387bf3defb45664520e9264c91b88353bf62240bc0fe2249aed3c",
+    "functional.py": "520a9e9d3afba11124734df60e48a27e38b6389305df888834405b435e285817",
+    "nn/__init__.py": "69338d130d2b0abe714edf71c365feb1ba5727170583e317364b05c57b602ffe",
+    "nn/modules.py": "f7ab2160681e2f089caae80d6fd283ac6a9b9f1b82269e6f395c3b046faf606e",
+    "nn/parametrize.py": "b527362228f8ab52767af19d0fb9d517c358f5d55d691ebbf24296d557bb6c03",
+    "optim/__init__.py": "d11a8cd54ea3c14f0509e78f0dc878404bb601911856bb4323cf651767752140",
+    "optim/adagrad.py": "bcfb69d0cf68a6fd88e3645d4b079042225af6abb875d6206f329a806225f96e",
+    "optim/adam.py": "5086e35454e6419539133a55e3ed23cc09f86e56ce627450af768f4a19517557",
+    "optim/adamw.py": "da6b56da8475cf2eb5591e68114501d159b4e40f9367c463a3324dc202aa263b",
+    "optim/ademamix.py": "05201c910272c146b75035a2ced263a8de63a062f3534eabf24012acd4f63cca",
+    "optim/lamb.py": "6a639a61e348c14ed1e817a79e3f8e4bb40d09a9071c4adef155cce49be730b3",
+    "optim/lars.py": "a37dacd45522138f4646973e59d4e646efc5781efddb6641321dd4341c5c6968",
+    "optim/lion.py": "394bb56b2b0833ce4d347345bbe2c34c22c8e87a2a3cd329f9b2d5819006b479",
+    "optim/optimizer.py": "2e07a06ea0736e4e6ce7bb821207264aa5c2e7044718c88021b7bae3a15ddf2e",
+    "optim/rmsprop.py": "dac1d263585f4ebf37699bc198811fce84e228447c2d973f043926c891b794fb",
+    "optim/sgd.py": "8158db8e362b9b5f7b4623adeaf2e85da33169654ae837bdd40a7f28be9616d8",
+    "py.typed": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "utils.py": "1b5a196e0200b74ee6f7eed2a4b051b488ec8a923c902a6d75f4d62b3f7a83d2"
 }
+PATCHED_MODULE_SHA256 = "690987fda1219e91b8b72930402c424ea1875b66b853a9b5472e00de18314e4a"
+PATCH_MANIFEST_SHA256 = "e745fbf21aac10ed9118167a131d6505bf6dbe03e1fab0a669c663b26c5a5732"
+PATCH_TORCH_VERSION = "2.9.0+cpu"
+
 SCHEMAS = {
     "quantize_4bit": "(Tensor A, int blocksize, str quant_type, ScalarType quant_storage) -> (Tensor, Tensor)",
     "dequantize_4bit": "(Tensor A, Tensor absmax, int blocksize, str quant_type, int[] shape, ScalarType dtype) -> Tensor",
@@ -23,6 +68,35 @@ SCHEMAS = {
 DTYPES = (torch.float32, torch.bfloat16)
 
 
+def validate_source_tree(root, torch_version=None):
+    """Admit pristine source or the exact reviewed patch before registration.
+
+    The patch is applied during the build. This gate never changes source or methods.
+    Native wheel files and bytecode are outside the Python source inventory.
+    """
+    root = Path(root)
+    observed = {p.relative_to(root).as_posix() for p in root.rglob("*.py")}
+    expected_python = {p for p in SOURCE_SHA256 if p.endswith(".py")}
+    if observed != expected_python:
+        raise RuntimeError("bitsandbytes source pin inventory mismatch")
+    patched = False
+    for relative, expected in SOURCE_SHA256.items():
+        path = root / relative
+        try:
+            if path.is_symlink() or any(parent.is_symlink() for parent in path.parents if parent != root.parent):
+                raise RuntimeError(f"bitsandbytes source pin symlink: {relative}")
+            actual = hashlib.sha256(path.read_bytes()).hexdigest()
+        except OSError as exc:
+            raise RuntimeError(f"bitsandbytes source pin is unavailable: {relative}") from exc
+        if relative == "nn/modules.py" and actual == PATCHED_MODULE_SHA256:
+            patched = True
+        elif actual != expected:
+            raise RuntimeError(f"bitsandbytes source pin mismatch: {relative}")
+    if patched and (torch.__version__ if torch_version is None else torch_version) != PATCH_TORCH_VERSION:
+        raise RuntimeError("bitsandbytes patched source requires torch 2.9.0+cpu")
+    return "params4bit-xla-v1" if patched else "pristine"
+
+
 def validate_upstream(bnb):
     """Fail before registration if the installed source or operator ABI differs.
 
@@ -30,13 +104,7 @@ def validate_upstream(bnb):
     Source hashes work during that import and do not import another runtime.
     """
     root = Path(bnb.__file__).resolve().parent
-    for relative, expected in SOURCE_SHA256.items():
-        try:
-            actual = hashlib.sha256((root / relative).read_bytes()).hexdigest()
-        except OSError as exc:
-            raise RuntimeError(f"bitsandbytes source pin is unavailable: {relative}") from exc
-        if actual != expected:
-            raise RuntimeError(f"bitsandbytes source pin mismatch: {relative}")
+    validate_source_tree(root)
     for name, schema in SCHEMAS.items():
         base, _, overload = name.partition(".")
         actual = torch._C._dispatch_find_schema_or_throw("bitsandbytes::" + base, overload).schema()

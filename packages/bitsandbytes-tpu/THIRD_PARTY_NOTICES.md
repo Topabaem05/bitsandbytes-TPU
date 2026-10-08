@@ -8,11 +8,14 @@ Source files:
 - [Default operators](https://github.com/bitsandbytes-foundation/bitsandbytes/blob/833649043474794b8fe7a4136e0c40faf077b2e0/bitsandbytes/backends/default/ops.py)
 - [NF4 code table](https://github.com/bitsandbytes-foundation/bitsandbytes/blob/833649043474794b8fe7a4136e0c40faf077b2e0/bitsandbytes/backends/utils.py)
 - [Operator schemas](https://github.com/bitsandbytes-foundation/bitsandbytes/blob/833649043474794b8fe7a4136e0c40faf077b2e0/bitsandbytes/_ops.py)
+- [Upstream parameter implementation](https://github.com/bitsandbytes-foundation/bitsandbytes/blob/833649043474794b8fe7a4136e0c40faf077b2e0/bitsandbytes/nn/modules.py)
 
 The reference code preserves the scale rules, code table, midpoint selection, and packing order.
 It adds structural input tests and explicit value preconditions.
 The source-derived parts retain the following upstream MIT notice.
 New package code uses the Apache License 2.0.
+The separate `params4bit-xla-v1` patch changes the upstream parameter conversion method.
+The experiment archive and wheel retain the upstream license.
 
 The legal text below is unchanged.
 

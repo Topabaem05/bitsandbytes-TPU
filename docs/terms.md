@@ -44,6 +44,7 @@ They are not additions to the official ASD-STE100 dictionary.
 | manifest | A file that records file names, byte counts, and hashes. |
 | matrix multiplication | The mathematical operation that multiplies two matrices. |
 | metadata | Structured information about data, source, or execution. |
+| Meta | The PyTorch device type that represents tensor structure without numerical data. |
 | Mosaic | The compiler infrastructure used for the Pallas TPU kernel body. |
 | NaN | A floating-point value that represents an undefined numerical result. |
 | nested quantization | Quantization of the scales from a first quantization operation. |
@@ -58,6 +59,7 @@ They are not additions to the official ASD-STE100 dictionary.
 | precondition | A required input condition before an operation starts. |
 | partial block | A quantization block with fewer values than the specified block size. |
 | partial tile | A matrix tile with fewer values than the specified tile dimensions. |
+| patch | A recorded source change that applies to an identified original file. |
 | Pallas | The JAX interface for device kernel code. |
 | QLoRA | Adapter training with a quantized, frozen base model. |
 | quantization | Conversion from numerical values to codes and scales. |

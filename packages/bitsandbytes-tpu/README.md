@@ -57,13 +57,32 @@ It calls the existing default dequantization operator, then copies the result in
 This keeps device dispatch and the overload's None result.
 An existing `Functionalize` implementation causes an error before registration starts.
 
-The source test compares seven critical files with bitsandbytes revision
+The source test compares all 47 Python files and `py.typed` with bitsandbytes revision
 `833649043474794b8fe7a4136e0c40faf077b2e0`.
+It also permits the exact `params4bit-xla-v1` source patch under PyTorch `2.9.0+cpu`.
+The patch changes only `Params4bit._quantize` during the upstream wheel build.
+The source test rejects other changes and additional Python files.
 It also compares the four operator schemas.
 It does not examine the entire installed distribution or native libraries.
 The source test uses hashes because bitsandbytes sets its version after backend loading.
 Package import does not import Torch, JAX, or PyTorch/XLA.
 Backend registration uses Torch but does not initialize a device client or allocate a tensor.
+
+## Parameter transfer patch
+
+The original CPU-to-XLA transfer failed during parameter data assignment.
+The [examined patch](../../patches/README.md) permits a transfer between incompatible tensor types through `torch.utils.swap_tensors`.
+It keeps the original `Params4bit` object, custom attributes, and module state alias.
+Compatible conversions keep the original assignment path.
+
+The incompatible path rejects existing gradients, nondefault module conversion flags, and unsupported parameter subclasses.
+The error recovery depends on the examined PyTorch 2.9.0 implementation.
+It does not promise a transaction for the complete module.
+A later bias conversion error can occur after weight conversion.
+
+The backend never applies the patch during import or replaces class methods during execution.
+The experiment builder applies the exact patch before it builds the upstream wheel.
+Actual Linux and TPU qualification of this patch remains required.
 
 ## Tests and limits
 
@@ -79,18 +98,17 @@ The quantizer counts boundaries strictly less than each normalized input value.
 Values equal to a midpoint enter the lower bucket, as in the pinned `right=False` operation.
 The kernels do not use `torch.bucketize` or tensor-value assertions.
 These changes avoid operators with no identified native XLA implementation in the pinned source.
-Actual device execution must still show zero CPU fallback.
+Each device test must show zero CPU fallback.
 
 The tests compare CPU results with the pinned bitsandbytes operators.
 They include invalid input, source changes, registration conflicts, and a real wheel installation into a temporary directory.
 The temporary installation does not change the test environment.
 
 CPU tests and XLA registry entries do not show TPU execution.
-The first two TPU probes failed before their first NF4 result because of functionalization errors.
-The second probe found a factory tensor with two functionalization layers.
-The native wrapper change passed CPU controls; a repeat TPU probe is required.
-This source still needs actual PyTorch/XLA 2.9.0 validation.
-Actual TPU tests for nested state, module state, and training have not started.
+The retained Colab records include 34 passing nonlinear cases and alternative module construction paths.
+The precision comparison passed its fixed FP32 gates with native precision `high` and `highest`.
+The `default` mode retained the earlier FP32 failures.
+These records used pristine upstream source.
+Refer to [the project status](../../README.md) for scope and result links.
+Full API42, public parameter transfer, new-process restoration, nested state, and training still require accepted device records.
 The `xla` device declaration is an integration signal, not a device qualification result.
-The finite-input comparisons and integer reductions are untested on XLA.
-A later device run must show the actual execution path and fallback counters.

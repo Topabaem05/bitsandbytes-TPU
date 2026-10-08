@@ -1,0 +1,46 @@
+--- a/bitsandbytes/nn/modules.py
++++ b/bitsandbytes/nn/modules.py
+@@ -387,7 +387,42 @@
+             quant_type=self.quant_type,
+             quant_storage=self.quant_storage,
+         )
+-        self.data = w_4bit
++        if torch._has_compatible_shallow_copy_type(self, w_4bit):
++            self.data = w_4bit
++        else:
++            if self.grad is not None:
++                raise RuntimeError("Incompatible backend conversion requires a parameter without an existing gradient")
++            if (
++                torch.__future__.get_overwrite_module_params_on_conversion()
++                or torch.__future__.get_swap_module_params_on_conversion()
++            ):
++                raise RuntimeError("Incompatible backend conversion requires default module conversion flags")
++            if type(self) is not Params4bit:
++                raise NotImplementedError("Incompatible backend conversion requires the original Params4bit class")
++            replacement = Params4bit(
++                w_4bit,
++                requires_grad=self.requires_grad,
++                quant_state=quant_state,
++                blocksize=self.blocksize,
++                compress_statistics=self.compress_statistics,
++                quant_type=self.quant_type,
++                quant_storage=self.quant_storage,
++                module=self.module,
++                bnb_quantized=True,
++            )
++            replacement.__dict__.update(self.__dict__)
++            replacement.quant_state = quant_state
++            replacement.bnb_quantized = True
++            old_self_dict = self.__dict__
++            old_replacement_dict = replacement.__dict__
++            try:
++                torch.utils.swap_tensors(self, replacement)
++            except RuntimeError:
++                # Pinned public swap changes Python dictionaries before C++ weakref checks.
++                # Its C++ validation errors occur before the TensorImpl exchange.
++                self.__dict__ = old_self_dict
++                replacement.__dict__ = old_replacement_dict
++                raise
+         self.quant_state = quant_state
+         if self.module is not None:
+             self.module.quant_state = quant_state

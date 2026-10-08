@@ -1,6 +1,7 @@
 """Create a small, source-bound packet. Do not install or allocate resources."""
 import argparse
 import hashlib
+import copy
 import json
 from pathlib import Path
 import shutil
@@ -14,6 +15,57 @@ PROJECT = HERE.parents[2]
 COMMIT = '833649043474794b8fe7a4136e0c40faf077b2e0'
 RUNTIME_SHA = '323371ff61c5fbcc4f79fd6a358cf2ba17cb72b907382a5ceaac07f91dc66ed6'
 PRECISION_ROUTE_PROBE_SHA = 'feae751734e57c741b1bdade004ff7ca3c041ee7eb3b7086b531bc6be433038e'
+TRANSFER_PATCH_MANIFEST_SHA = 'e745fbf21aac10ed9118167a131d6505bf6dbe03e1fab0a669c663b26c5a5732'
+TRANSFER_PRECISION_PROBE_SHA = 'e0534955507e5f91e67ecddfffc738a367ad752e69a4eea7ae8052c6d76a8852'
+TRANSFER_SOURCE_CONTROLS_SHA = '5f5c8b6c3d04a0d8658dae1f4d70d7a909dfe63977b953936aecfb69bf9a16fe'
+
+
+def package_tree(root):
+    files = {}
+    for p in sorted(root.rglob('*')):
+        if p.is_symlink() or (not p.is_file() and not p.is_dir()):
+            raise ValueError('PATCH_SOURCE_NONREGULAR')
+        if p.is_file():
+            files[p.relative_to(root).as_posix()] = sha(p)
+    return files
+
+
+def patched_archive(archive, output, manifest, patch):
+    """Apply the one inspected patch to exact archived bytes in a fresh tree."""
+    from remote import unpack_source
+    if sha(archive) != manifest['base_archive_sha256']:
+        raise ValueError('PATCH_BASE_ARCHIVE')
+    if patch.is_symlink() or sha(patch) != manifest['patch_sha256']:
+        raise ValueError('PATCH_BODY_IDENTITY')
+    with tempfile.TemporaryDirectory(prefix='bnb-patched-source-') as temporary:
+        tree = Path(temporary) / 'source'
+        unpack_source(archive, tree)
+        if package_tree(tree / 'bitsandbytes') != manifest['base_package_files']:
+            raise ValueError('PATCH_BASE_PACKAGE_INVENTORY')
+        for prefix in ('base', 'post_patch'):
+            files = {p: h for p, h in manifest[prefix + '_package_files'].items() if p.endswith('.py')}
+            if hashlib.sha256(json.dumps(files, sort_keys=True, separators=(',', ':')).encode()).hexdigest() != manifest[prefix + '_python_inventory_sha256']:
+                raise ValueError('PATCH_PYTHON_INVENTORY_HASH')
+        base = package_tree(tree)
+        subprocess.run(['git', 'apply', '--check', str(patch.resolve())], cwd=tree, check=True, capture_output=True)
+        subprocess.run(['git', 'apply', str(patch.resolve())], cwd=tree, check=True, capture_output=True)
+        if package_tree(tree / 'bitsandbytes') != manifest['post_patch_package_files']:
+            raise ValueError('PATCH_POST_PACKAGE_INVENTORY')
+        post = package_tree(tree)
+        changed = {name for name in base if base[name] != post.get(name)}
+        if set(base) != set(post) or changed != {'bitsandbytes/nn/modules.py'}:
+            raise ValueError('PATCH_CHANGED_FILE_SCOPE')
+        with tarfile.open(archive) as original, tarfile.open(output, 'w') as target:
+            for member in original.getmembers():
+                current = copy.copy(member)
+                if member.isfile():
+                    path = tree / member.name
+                    current.size = path.stat().st_size
+                    with path.open('rb') as stream:
+                        target.addfile(current, stream)
+                else:
+                    target.addfile(current)
+    return {name: digest for name, digest in manifest['post_patch_package_files'].items() if name.endswith('.py')}
 
 
 def sha(p):
@@ -36,21 +88,49 @@ def python_tree(root):
 
 
 def build(upstream, out, plugin_manifest_sha256, *, experiment='api42', route_probe=None, route_probe_sha256=None,
-          precision_probe=None, precision_probe_sha256=None):
-    if experiment not in {'api42', 'device-route-diagnostic', 'precision-diagnostic'}:
+          precision_probe=None, precision_probe_sha256=None, patch_manifest=None, patch_manifest_sha256=None,
+          transfer_probe=None, transfer_probe_sha256=None, transfer_admission=None, transfer_admission_sha256=None,
+          source_controls=None, source_controls_sha256=None):
+    transfer = experiment == 'transfer-api42'
+    if experiment not in {'api42', 'device-route-diagnostic', 'precision-diagnostic', 'transfer-api42'}:
         raise ValueError('EXPERIMENT_VARIANT')
-    if experiment in {'device-route-diagnostic', 'precision-diagnostic'}:
+    if experiment in {'device-route-diagnostic', 'precision-diagnostic', 'transfer-api42'}:
         if route_probe is None or route_probe.is_symlink() or not route_probe.is_file() or sha(route_probe) != route_probe_sha256:
             raise ValueError('ROUTE_PROBE_SOURCE')
     elif route_probe is not None or route_probe_sha256 is not None:
         raise ValueError('DIAGNOSTIC_PROBE_NOT_REQUESTED')
-    if experiment == 'precision-diagnostic':
+    if experiment in {'precision-diagnostic', 'transfer-api42'}:
         if route_probe_sha256 != PRECISION_ROUTE_PROBE_SHA:
             raise ValueError('PRECISION_ROUTE_PROBE_SOURCE')
         if precision_probe is None or precision_probe.is_symlink() or not precision_probe.is_file() or sha(precision_probe) != precision_probe_sha256:
             raise ValueError('PRECISION_PROBE_SOURCE')
     elif precision_probe is not None or precision_probe_sha256 is not None:
         raise ValueError('PRECISION_PROBE_NOT_REQUESTED')
+    patch_record = None
+    transfer_fields = ((transfer_probe, transfer_probe_sha256, 'TRANSFER_PROBE_SOURCE'),
+                       (transfer_admission, transfer_admission_sha256, 'TRANSFER_ADMISSION_SOURCE'),
+                       (source_controls, source_controls_sha256, 'TRANSFER_SOURCE_CONTROLS_SOURCE'))
+    if transfer:
+        if (patch_manifest is None or patch_manifest.is_symlink() or not patch_manifest.is_file() or
+                patch_manifest_sha256 != TRANSFER_PATCH_MANIFEST_SHA or sha(patch_manifest) != TRANSFER_PATCH_MANIFEST_SHA):
+            raise ValueError('TRANSFER_PATCH_MANIFEST_SOURCE')
+        patch_record = json.loads(patch_manifest.read_text())
+        patch_path = PROJECT / 'patches/params4bit-xla-v1.patch'
+        if (patch_record['format'] != 'bnb-tpu.upstream-patch.v1' or patch_record['id'] != 'params4bit-xla-v1' or
+                patch_record['base_revision'] != COMMIT or patch_record['runtime_lock_sha256'] != RUNTIME_SHA or
+                patch_record['patch_path'] != 'patches/params4bit-xla-v1.patch' or patch_path.is_symlink() or
+                sha(patch_path) != patch_record['patch_sha256']):
+            raise ValueError('TRANSFER_PATCH_SOURCE')
+        if precision_probe_sha256 != TRANSFER_PRECISION_PROBE_SHA:
+            raise ValueError('TRANSFER_PRECISION_SOURCE')
+        if source_controls_sha256 != TRANSFER_SOURCE_CONTROLS_SHA:
+            raise ValueError('TRANSFER_SOURCE_CONTROLS_SOURCE')
+        for path, pin, error in transfer_fields:
+            if path is None or path.is_symlink() or not path.is_file() or sha(path) != pin:
+                raise ValueError(error)
+    elif (patch_manifest is not None or patch_manifest_sha256 is not None or
+          any(path is not None or pin is not None for path, pin, _ in transfer_fields)):
+        raise ValueError('TRANSFER_SOURCE_NOT_REQUESTED')
     if out.exists() or out.is_symlink():
         raise FileExistsError('FRESH_PACKET_REQUIRED')
     if subprocess.check_output(['git', '-C', str(upstream), 'rev-parse', 'HEAD'], text=True).strip() != COMMIT:
@@ -80,9 +160,13 @@ def build(upstream, out, plugin_manifest_sha256, *, experiment='api42', route_pr
             bnb = {m.name.removeprefix('bitsandbytes/'): hashlib.sha256(tar.extractfile(m).read()).hexdigest()
                    for m in tar.getmembers() if m.isfile() and m.name.startswith('bitsandbytes/') and m.name.endswith('.py')}
         shutil.copyfile(archive, out / 'upstream.tar')
+        if transfer:
+            bnb = patched_archive(archive, out / 'patched-upstream.tar', patch_record, patch_path)
     admission = {'format': 'bnb-tpu.probe-source-admission.v1', 'runtime_lock_sha256': RUNTIME_SHA,
                  'bitsandbytes': {'commit': COMMIT, 'files': bnb},
                  'bitsandbytes_tpu': {'files': plugin_manifest['installed_python_files']}}
+    if transfer:
+        admission['bitsandbytes']['patch_manifest_sha256'] = TRANSFER_PATCH_MANIFEST_SHA
     write(out / 'source-admission.json', admission)
     for p in sorted((plugin / 'src').rglob('*.py')):
         relative = p.relative_to(plugin)
@@ -95,12 +179,22 @@ def build(upstream, out, plugin_manifest_sha256, *, experiment='api42', route_pr
         raise ValueError('PLUGIN_COPIED_BYTES')
     for name in ('probe_backend.py', 'probe-profile.json', 'probe-inputs.json'):
         shutil.copyfile(scientific / name, out / name)
-    if experiment in {'device-route-diagnostic', 'precision-diagnostic'}:
+    if experiment in {'device-route-diagnostic', 'precision-diagnostic', 'transfer-api42'}:
         shutil.copyfile(route_probe, out / 'probe_routes.py')
-    if experiment == 'precision-diagnostic':
+    if experiment in {'precision-diagnostic', 'transfer-api42'}:
         shutil.copyfile(precision_probe, out / 'probe_precision.py')
         if sha(out / 'probe_routes.py') != PRECISION_ROUTE_PROBE_SHA or sha(out / 'probe_precision.py') != precision_probe_sha256:
             raise ValueError('PRECISION_PROBE_COPIED_BYTES')
+    if transfer:
+        for source, relative in ((patch_manifest, 'patches/params4bit-xla-v1.json'),
+                                 (patch_path, 'patches/params4bit-xla-v1.patch'),
+                                 (transfer_probe, 'probe_transfer.py'), (transfer_admission, 'transfer_admission.py'),
+                                 (source_controls, 'tests/test_transfer_source.py')):
+            target = out / relative
+            target.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copyfile(source, target)
+            if sha(target) != sha(source):
+                raise ValueError('TRANSFER_COPIED_BYTES')
     for name in ('resolve.py', 'probe_runtime.py', 'requirements.lock.json'):
         dest = out / 'runtime' / name
         dest.parent.mkdir(exist_ok=True)
@@ -123,6 +217,13 @@ def build(upstream, out, plugin_manifest_sha256, *, experiment='api42', route_pr
         manifest.update(experiment=experiment, diagnostic_only=True, route_probe_sha256=sha(out / 'probe_routes.py'))
     if experiment == 'precision-diagnostic':
         manifest['precision_probe_sha256'] = sha(out / 'probe_precision.py')
+    if transfer:
+        manifest.update(experiment=experiment, route_probe_sha256=PRECISION_ROUTE_PROBE_SHA,
+                        precision_probe_sha256=TRANSFER_PRECISION_PROBE_SHA,
+                        transfer_probe_sha256=transfer_probe_sha256, transfer_admission_sha256=transfer_admission_sha256,
+                        source_controls_sha256=source_controls_sha256, patch_manifest_sha256=TRANSFER_PATCH_MANIFEST_SHA,
+                        patch_sha256=patch_record['patch_sha256'], base_archive_sha256=patch_record['base_archive_sha256'],
+                        patched_archive_sha256=sha(out / 'patched-upstream.tar'), precision='highest')
     write(out / 'manifest.json', manifest)
     with zipfile.ZipFile(out / 'payload.zip', 'w', zipfile.ZIP_DEFLATED) as z:
         for name in sorted([*members, 'manifest.json']):
@@ -140,12 +241,19 @@ if __name__ == '__main__':
     p.add_argument('--upstream', type=Path, required=True)
     p.add_argument('--out', type=Path, required=True)
     p.add_argument('--plugin-manifest-sha256', required=True)
-    p.add_argument('--experiment', choices=['api42', 'device-route-diagnostic', 'precision-diagnostic'], default='api42')
+    p.add_argument('--experiment', choices=['api42', 'device-route-diagnostic', 'precision-diagnostic', 'transfer-api42'], default='api42')
     p.add_argument('--route-probe', type=Path)
     p.add_argument('--route-probe-sha256')
     p.add_argument('--precision-probe', type=Path)
     p.add_argument('--precision-probe-sha256')
+    for name in ('patch-manifest', 'transfer-probe', 'transfer-admission', 'source-controls'):
+        p.add_argument('--' + name, type=Path)
+        p.add_argument('--' + name + '-sha256')
     a = p.parse_args()
     print(json.dumps(build(a.upstream, a.out, a.plugin_manifest_sha256, experiment=a.experiment,
                           route_probe=a.route_probe, route_probe_sha256=a.route_probe_sha256,
-                          precision_probe=a.precision_probe, precision_probe_sha256=a.precision_probe_sha256), sort_keys=True))
+                          precision_probe=a.precision_probe, precision_probe_sha256=a.precision_probe_sha256,
+                          patch_manifest=a.patch_manifest, patch_manifest_sha256=a.patch_manifest_sha256,
+                          transfer_probe=a.transfer_probe, transfer_probe_sha256=a.transfer_probe_sha256,
+                          transfer_admission=a.transfer_admission, transfer_admission_sha256=a.transfer_admission_sha256,
+                          source_controls=a.source_controls, source_controls_sha256=a.source_controls_sha256), sort_keys=True))

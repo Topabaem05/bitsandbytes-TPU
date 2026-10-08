@@ -21,6 +21,15 @@ from cleanup_lifecycle import Ownership
 from lifecycle import durable_json
 
 PRECISION_ROUTE_PROBE_SHA = 'feae751734e57c741b1bdade004ff7ca3c041ee7eb3b7086b531bc6be433038e'
+TRANSFER_PATCH_MANIFEST_SHA = 'e745fbf21aac10ed9118167a131d6505bf6dbe03e1fab0a669c663b26c5a5732'
+TRANSFER_PRECISION_PROBE_SHA = 'e0534955507e5f91e67ecddfffc738a367ad752e69a4eea7ae8052c6d76a8852'
+TRANSFER_SOURCE_CONTROLS_SHA = '5f5c8b6c3d04a0d8658dae1f4d70d7a909dfe63977b953936aecfb69bf9a16fe'
+TRANSFER_BINDINGS = {'route_probe_sha256': 'probe_routes.py', 'precision_probe_sha256': 'probe_precision.py',
+                     'transfer_probe_sha256': 'probe_transfer.py', 'transfer_admission_sha256': 'transfer_admission.py',
+                     'source_controls_sha256': 'tests/test_transfer_source.py',
+                     'patch_manifest_sha256': 'patches/params4bit-xla-v1.json',
+                     'patch_sha256': 'patches/params4bit-xla-v1.patch',
+                     'base_archive_sha256': 'upstream.tar', 'patched_archive_sha256': 'patched-upstream.tar'}
 
 
 def sha(p):
@@ -38,20 +47,115 @@ def require(value, message):
 
 def verify_experiment(manifest):
     experiment = manifest.get('experiment', 'api42')
-    require(experiment in {'api42', 'device-route-diagnostic', 'precision-diagnostic'}, 'EXPERIMENT_VARIANT')
+    require(experiment in {'api42', 'device-route-diagnostic', 'precision-diagnostic', 'transfer-api42'}, 'EXPERIMENT_VARIANT')
     if experiment in {'device-route-diagnostic', 'precision-diagnostic'}:
         pin = manifest.get('route_probe_sha256')
         require(manifest.get('diagnostic_only') is True and isinstance(pin, str) and len(pin) == 64 and
                 pin == manifest['files'].get('probe_routes.py', {}).get('sha256'), 'ROUTE_PROBE_BINDING')
-    if experiment == 'precision-diagnostic':
-        require(manifest['route_probe_sha256'] == PRECISION_ROUTE_PROBE_SHA, 'PRECISION_ROUTE_PROBE_BINDING')
+    if experiment in {'precision-diagnostic', 'transfer-api42'}:
+        require(manifest.get('route_probe_sha256') == PRECISION_ROUTE_PROBE_SHA, 'PRECISION_ROUTE_PROBE_BINDING')
         pin = manifest.get('precision_probe_sha256')
         require(isinstance(pin, str) and len(pin) == 64 and
                 pin == manifest['files'].get('probe_precision.py', {}).get('sha256'), 'PRECISION_PROBE_BINDING')
     else:
         require('precision_probe_sha256' not in manifest and 'probe_precision.py' not in manifest['files'],
                 'PRECISION_PROBE_NOT_REQUESTED')
+    if experiment == 'transfer-api42':
+        for field, name in TRANSFER_BINDINGS.items():
+            pin = manifest.get(field)
+            require(isinstance(pin, str) and len(pin) == 64 and pin == manifest['files'].get(name, {}).get('sha256'),
+                    'TRANSFER_SOURCE_BINDING:' + field)
+        require(manifest['patch_manifest_sha256'] == TRANSFER_PATCH_MANIFEST_SHA and
+                manifest['precision_probe_sha256'] == TRANSFER_PRECISION_PROBE_SHA and
+                manifest['source_controls_sha256'] == TRANSFER_SOURCE_CONTROLS_SHA and
+                manifest.get('precision') == 'highest' and not manifest.get('diagnostic_only'), 'TRANSFER_REVIEWED_SCOPE')
+    else:
+        transfer_only = set(TRANSFER_BINDINGS) - {'route_probe_sha256', 'precision_probe_sha256'}
+        require(not any(field in manifest or (field != 'base_archive_sha256' and TRANSFER_BINDINGS[field] in manifest['files']) for field in transfer_only),
+                'TRANSFER_SOURCE_NOT_REQUESTED')
     return experiment
+
+
+def verify_transfer_payload(payload, manifest):
+    patch_path = payload / 'patches/params4bit-xla-v1.json'
+    require(sha(patch_path) == TRANSFER_PATCH_MANIFEST_SHA, 'TRANSFER_PATCH_MANIFEST_SOURCE')
+    patch = json.loads(patch_path.read_text())
+    require(patch['base_archive_sha256'] == manifest['base_archive_sha256'] and
+            patch['patch_sha256'] == manifest['patch_sha256'] and
+            patch['runtime_lock_sha256'] == manifest['runtime_lock_sha256'], 'TRANSFER_PATCH_PROVENANCE')
+    admission = json.loads((payload / 'source-admission.json').read_text())
+    post = {p: h for p, h in patch['post_patch_package_files'].items() if p.endswith('.py')}
+    require(sha(payload / 'source-admission.json') == manifest['source_admission_sha256'] and
+            admission.get('format') == 'bnb-tpu.probe-source-admission.v1' and
+            admission.get('runtime_lock_sha256') == manifest['runtime_lock_sha256'] and
+            admission['bitsandbytes'].get('commit') == patch['base_revision'] and
+            admission['bitsandbytes'].get('patch_manifest_sha256') == TRANSFER_PATCH_MANIFEST_SHA and
+            admission['bitsandbytes'].get('files') == post, 'TRANSFER_ADMISSION_OVERLAY')
+
+
+def validate_source_controls(report):
+    """Require the complete reviewed Linux source-control record."""
+    require(report.get('record_validation') == 'PASS' and report.get('qualified_source_controls') is True and
+            report.get('runtime') == {'torch': '2.9.0+cpu', 'python': '3.12.14', 'platform': 'Linux'} and
+            report.get('patch_manifest_sha256') == TRANSFER_PATCH_MANIFEST_SHA and
+            report.get('tpu') == report.get('xla') == 'NOT_RUN' and report.get('failures') == [] and
+            report.get('whole_module_transactionality') == 'NOT_PROMISED', 'TRANSFER_SOURCE_CONTROLS_RUNTIME')
+    rows = report.get('controls')
+    require(isinstance(rows, list) and len(rows) == 18 and all(isinstance(row, dict) for row in rows), 'TRANSFER_SOURCE_CONTROLS_MATRIX')
+    methods, negatives, cases, originals, compatible = [], [], [], [], []
+    for row in rows:
+        if 'method' in row:
+            methods.append(row['method'])
+            flags = ('identity', 'class', 'attrs', 'module_alias')
+            keys = set(flags) | {'method', 'scope', 'bias_device'}
+            require(row.get('scope') == 'CPU_META_TYPE_MECHANICS_ONLY' and
+                    row.get('bias_device') == ('meta' if row['method'] == 'module_apply_meta' else 'cpu'), 'TRANSFER_SOURCE_CONTROLS_ROW')
+        elif 'negative' in row:
+            negatives.append(row['negative'])
+            flags = ('rejected', 'tensorimpl_unchanged', 'dict_identity_unchanged', 'data_unchanged', 'module_unchanged')
+            keys = set(flags) | {'negative', 'error'}
+            require(isinstance(row.get('error'), str) and bool(row['error']), 'TRANSFER_SOURCE_CONTROLS_ROW')
+        elif 'failure' in row:
+            originals.append(row['failure']); flags = ('original_unchanged',); keys = set(flags) | {'failure'}
+        elif 'compatible_cpu' in row:
+            compatible.append(row); flags = ('compatible_cpu', 'weight_identity', 'custom_attrs', 'state_format', 'weights_only_load')
+            keys = set(flags) | {'keys'}
+            require(isinstance(row.get('keys'), list) and len(set(row['keys'])) == len(row['keys']) and
+                    {'weight', 'bias'}.issubset(row['keys']), 'TRANSFER_SOURCE_CONTROLS_ROW')
+        elif row.get('case') in {'existing_gradient', 'overwrite_flag', 'swap_flag'}:
+            cases.append(row['case'])
+            flags = ('rejected_before_swap', 'parameter_identity', 'tensorimpl_identity', 'dict_identity', 'class_identity',
+                     'values_unchanged', 'quant_state_identity', 'module_alias_unchanged', 'gradient_identity', 'bias_identity')
+            keys = set(flags) | {'case', 'scope'}
+            require(row.get('scope') == 'CPU_META_TYPE_MECHANICS_ONLY', 'TRANSFER_SOURCE_CONTROLS_ROW')
+        elif row.get('case') == 'genuine_cpu_forward_backward':
+            cases.append(row['case']); flags = ('forward_exact', 'dx_exact', 'db_exact', 'frozen_base', 'state_plain_tensors')
+            keys = set(flags) | {'case', 'forward_values'}
+            values = row.get('forward_values')
+            require(isinstance(values, list) and len(values) == 3 and all(isinstance(r, list) and len(r) == 2 and
+                    all(type(v) in (int, float) and math.isfinite(v) for v in r) for r in values), 'TRANSFER_SOURCE_CONTROLS_ROW')
+        elif row.get('case') == 'fresh_process_cpu_public_restore':
+            cases.append(row['case']); flags = ('forward_exact', 'weights_only', 'original_classes', 'module_state_alias', 'frozen_base')
+            keys = set(flags) | {'case'}
+        else:
+            raise ValueError('TRANSFER_SOURCE_CONTROLS_ROW')
+        require(set(row) == keys and all(row.get(flag) is True for flag in flags), 'TRANSFER_SOURCE_CONTROLS_ROW')
+    require(sorted(methods) == sorted(('direct_to_fixture', 'module_to_fixture', 'direct_quantize_meta', 'module_apply_meta')) and
+            sorted(negatives) == sorted(('python_weakref', 'cpp_weakref', 'held_impl', 'requires_grad', 'subclass')) and
+            sorted(cases) == sorted(('existing_gradient', 'overwrite_flag', 'swap_flag', 'genuine_cpu_forward_backward', 'fresh_process_cpu_public_restore')) and
+            originals == ['ORIGINAL_INCOMPATIBLE_TYPE'] * 3 and len(compatible) == 1, 'TRANSFER_SOURCE_CONTROLS_IDENTITIES')
+    return True
+
+
+def verify_transfer_wheel(wheel, expected):
+    with zipfile.ZipFile(wheel) as archive:
+        names = archive.namelist()
+        require(len(names) == len(set(names)), 'TRANSFER_WHEEL_DUPLICATE')
+        observed = {name.removeprefix('bitsandbytes/'): hashlib.sha256(archive.read(name)).hexdigest()
+                    for name in names if name.startswith('bitsandbytes/') and name.endswith('.py')}
+        require(not any(name.startswith('bitsandbytes/') and name.endswith('.pyc') for name in names) and
+                observed == expected, 'TRANSFER_WHEEL_PYTHON_SOURCE')
+    return observed
 
 
 def verify_archive(archive, expected_sha, target):
@@ -209,6 +313,9 @@ def execute(base, packet_sha, allocation_epoch, phase):
     experiment = verify_experiment(manifest)
     diagnostic = experiment == 'device-route-diagnostic'
     precision = experiment == 'precision-diagnostic'
+    transfer = experiment == 'transfer-api42'
+    if transfer:
+        verify_transfer_payload(payload, manifest)
     out.mkdir(exist_ok=True)
     receipt_path = out / 'receipt.json'
     receipt = json.loads(receipt_path.read_text()) if receipt_path.exists() else {
@@ -216,9 +323,10 @@ def execute(base, packet_sha, allocation_epoch, phase):
         'packet_sha256': packet_sha, 'manifest_sha256': sha(payload / 'manifest.json'),
         'runtime_lock_sha256': manifest['runtime_lock_sha256'], 'source_admission_sha256': manifest['source_admission_sha256'],
         'allocation_epoch': allocation_epoch, 'steps': [], 'error': None}
-    if precision:
+    if precision or transfer:
         if receipt_path.exists():
-            require(receipt.get('experiment') == experiment and receipt.get('diagnostic_only') is True and
+            require(receipt.get('experiment') == experiment and
+                    (receipt.get('diagnostic_only') is True if precision else receipt.get('precision') == 'highest') and
                     receipt.get('route_probe_sha256') == manifest['route_probe_sha256'] and
                     receipt.get('precision_probe_sha256') == manifest['precision_probe_sha256'] and
                     receipt.get('packet_sha256') == packet_sha and
@@ -226,11 +334,18 @@ def execute(base, packet_sha, allocation_epoch, phase):
                     receipt.get('source_admission_sha256') == manifest['source_admission_sha256'] and
                     receipt.get('runtime_lock_sha256') == manifest['runtime_lock_sha256'] and
                     receipt.get('allocation_epoch') == allocation_epoch,
-                    'PRECISION_PHASE_RECEIPT_BINDING')
+                    'TRANSFER_PHASE_RECEIPT_BINDING' if transfer else 'PRECISION_PHASE_RECEIPT_BINDING')
+            if transfer:
+                require(all(receipt.get(field) == manifest[field] for field in TRANSFER_BINDINGS), 'TRANSFER_PHASE_SOURCE_BINDING')
         else:
-            receipt.update(experiment=experiment, diagnostic_only=True,
+            receipt.update(experiment=experiment,
                            route_probe_sha256=manifest['route_probe_sha256'],
                            precision_probe_sha256=manifest['precision_probe_sha256'])
+            if precision:
+                receipt['diagnostic_only'] = True
+            else:
+                receipt.update({field: manifest[field] for field in TRANSFER_BINDINGS})
+                receipt.update(precision='highest', m3_status='NOT_QUALIFIED')
     work_deadline = allocation_epoch + 3600 - 600 - 60
     installed = base / 'venv/bin/python'
 
@@ -270,55 +385,98 @@ def execute(base, packet_sha, allocation_epoch, phase):
             requirements.write_text(''.join(f"{r['name']} @ {(base / 'wheels' / r['filename']).as_uri()} --hash=sha256:{r['sha256']}\n" for r in all_records.values()))
             step('04-install-wheels', [installed, '-B', '-m', 'pip', 'install', '--no-index', '--no-deps', '--no-compile', '--require-hashes', '-r', requirements], deadline, 240)
             step('05-verify-runtime-wheels', [installed, '-B', payload / 'runtime/resolve.py', '--verify-only', '--cache', base / 'wheels', '--lock', payload / 'runtime/requirements.lock.json'], deadline, 90)
-            unpack_source(payload / 'upstream.tar', base / 'upstream')
+            if transfer:
+                unpack_source(payload / 'upstream.tar', base / 'upstream-base')
+                unpack_source(payload / 'patched-upstream.tar', base / 'upstream-patched-controls')
+                unpack_source(payload / 'patched-upstream.tar', base / 'upstream')
+            else:
+                unpack_source(payload / 'upstream.tar', base / 'upstream')
             step('06-build-upstream', [installed, '-B', '-m', 'pip', 'wheel', '--no-deps', '--no-build-isolation', '--no-cache-dir', '--wheel-dir', base / 'built-upstream', base / 'upstream'], deadline, 180, extra_env={'BNB_SKIP_CMAKE': '1'})
             step('07-build-plugin', [installed, '-B', '-m', 'pip', 'wheel', '--no-deps', '--no-build-isolation', '--no-cache-dir', '--wheel-dir', base / 'built-plugin', payload / 'plugin'], deadline, 120)
             wheels = [*sorted((base / 'built-upstream').glob('*.whl')), *sorted((base / 'built-plugin').glob('*.whl'))]
             require(len(wheels) == 2, 'BUILT_WHEEL_COUNT')
             receipt['built_wheels'] = [{'name': p.name, 'sha256': sha(p), 'bytes': p.stat().st_size} for p in wheels]
+            if transfer:
+                upstream_wheels = sorted((base / 'built-upstream').glob('*.whl'))
+                require(len(upstream_wheels) == 1, 'TRANSFER_UPSTREAM_WHEEL_COUNT')
+                admission = json.loads((payload / 'source-admission.json').read_text())
+                observed = verify_transfer_wheel(upstream_wheels[0], admission['bitsandbytes']['files'])
+                durable_json(out / 'built-source.json', {'status': 'POST_PATCH_WHEEL_PYTHON_SOURCE_PASS',
+                             'wheel_name': upstream_wheels[0].name, 'wheel_sha256': sha(upstream_wheels[0]),
+                             'patch_manifest_sha256': TRANSFER_PATCH_MANIFEST_SHA, 'python_files': observed})
+                receipt['built_source_status'] = 'POST_PATCH_WHEEL_PYTHON_SOURCE_PASS'
             step('08-install-source-wheels', [installed, '-B', '-m', 'pip', 'install', '--no-index', '--no-deps', '--no-compile', *wheels], deadline, 120)
             # Query installed distribution records without native imports.
             config = payload / 'installed-proof-config.json'
             durable_json(config, {'wheels': list(all_records.values())})
             step('09-installed-metadata', [installed, '-B', payload / 'cloud/remote.py', 'metadata', '--config', config, '--base', base], deadline, 30)
+            if transfer:
+                step('09-transfer-installed-source', [installed, '-B', payload / 'cloud/remote.py', 'transfer-source', '--base', base], deadline, 30)
+                proof = json.loads((out / 'installed-source.json').read_text())
+                require(proof.get('status') == 'POST_PATCH_PYTHON_SOURCE_PASS' and
+                        proof.get('source_admission_sha256') == manifest['source_admission_sha256'] and
+                        proof.get('patch_manifest_sha256') == TRANSFER_PATCH_MANIFEST_SHA and
+                        proof.get('installed_python_files') == {name: admission[name]['files'] for name in ('bitsandbytes', 'bitsandbytes_tpu')}, 'TRANSFER_INSTALLED_SOURCE')
+                receipt['installed_source_status'] = 'POST_PATCH_PYTHON_SOURCE_PASS'
             receipt.update(status='INSTALLED_NOT_QUALIFIED', installation_status='PASS')
         elif phase == 'cpu':
             require(receipt.get('installation_status') == 'PASS' and receipt['cpu_status'] == 'NOT_RUN', 'CPU_PHASE_ORDER')
             receipt['science_start_epoch'] = time.time()
             receipt['science_deadline_epoch'] = min(work_deadline, time.time() + 1800)
             deadline = receipt['science_deadline_epoch']
+            if transfer:
+                require(receipt.get('built_source_status') == 'POST_PATCH_WHEEL_PYTHON_SOURCE_PASS' and
+                        receipt.get('installed_source_status') == 'POST_PATCH_PYTHON_SOURCE_PASS', 'TRANSFER_INSTALLED_SOURCE_REQUIRED')
+                step('10-transfer-source-controls', [installed, '-B', payload / 'tests/test_transfer_source.py',
+                     '--base-source', base / 'upstream-base', '--patched-source', base / 'upstream-patched-controls',
+                     '--output', out / 'source-controls.json'], deadline, 300)
+                controls = json.loads((out / 'source-controls.json').read_text())
+                validate_source_controls(controls)
+                receipt['source_controls_status'] = 'PASS_QUALIFIED_LINUX_SOURCE_CONTROLS'
             step('10-runtime-probe', [installed, '-B', payload / 'runtime/probe_runtime.py', '--out', out / 'runtime-probe.json'], deadline, 120, tpu=True)
             require(json.loads((out / 'runtime-probe.json').read_text())['status'] == 'PASS_TPU_RUNTIME_PROBE_ONLY', 'RUNTIME_PROBE_BLOCKED')
             receipt['runtime_status'] = 'PASS_TPU_RUNTIME_PROBE_ONLY'
-            step('11-cpu-oracle', [installed, '-B', payload / 'probe_backend.py', 'prepare', '--admission', payload / 'source-admission.json', '--admission-sha256', manifest['source_admission_sha256'], '--output', out / 'cpu-oracle'], deadline, 300)
+            argv = [installed, '-B', payload / ('probe_transfer.py' if transfer else 'probe_backend.py'), 'prepare',
+                    '--admission', payload / 'source-admission.json', '--admission-sha256', manifest['source_admission_sha256'],
+                    '--output', out / 'cpu-oracle']
+            if transfer:
+                argv += ['--backend-probe', payload / 'probe_backend.py', '--route-probe', payload / 'probe_routes.py',
+                         '--precision-probe', payload / 'probe_precision.py', '--patch-manifest', payload / 'patches/params4bit-xla-v1.json']
+            step('11-cpu-oracle', argv, deadline, 300)
             receipt.update(status='CPU_ORACLE_READY_TPU_NOT_RUN', cpu_status='PASS', oracle_sha256=sha(out / 'cpu-oracle/oracle-seal.json'))
-        elif phase in ('routes', 'precision'):
-            require(diagnostic if phase == 'routes' else precision, 'WRONG_SCIENTIFIC_VARIANT')
-            label = '12-precision' if precision else '12-device-routes'
-            directory = 'precision' if precision else 'device-routes'
-            status_prefix = 'PRECISION' if precision else 'DEVICE_ROUTE'
+        elif phase in ('routes', 'precision', 'transfer'):
+            require({'routes': diagnostic, 'precision': precision, 'transfer': transfer}[phase], 'WRONG_SCIENTIFIC_VARIANT')
+            label = '12-transfer' if transfer else '12-precision' if precision else '12-device-routes'
+            directory = 'transfer' if transfer else 'precision' if precision else 'device-routes'
+            status_prefix = 'TRANSFER' if transfer else 'PRECISION' if precision else 'DEVICE_ROUTE'
+            if transfer:
+                require(receipt.get('installed_source_status') == 'POST_PATCH_PYTHON_SOURCE_PASS' and
+                        receipt.get('built_source_status') == 'POST_PATCH_WHEEL_PYTHON_SOURCE_PASS' and
+                        receipt.get('source_controls_status') == 'PASS_QUALIFIED_LINUX_SOURCE_CONTROLS', 'TRANSFER_CPU_CONTROLS_REQUIRED')
             launch = json.loads((base / 'launch.json').read_text())
             require(receipt['cpu_status'] == 'PASS' and receipt['tpu_status'] == 'NOT_RUN' and launch['oracle_sha256'] == receipt['oracle_sha256'], 'EXPLICIT_RECOVERED_ORACLE_HASH_REQUIRED')
             receipt.update(status=status_prefix + '_CHILD_RUNNING', tpu_status='RUNNING', tpu_attempted=True)
             durable_json(receipt_path, receipt)
             deadline = min(work_deadline, receipt['science_deadline_epoch'])
-            if precision:
+            if precision or transfer:
                 deadline = min(deadline, time.time() + 1500)
-            argv = [installed, '-B', payload / ('probe_precision.py' if precision else 'probe_routes.py'), 'execute',
+            argv = [installed, '-B', payload / ('probe_transfer.py' if transfer else 'probe_precision.py' if precision else 'probe_routes.py'), 'execute',
                            '--backend-probe', payload / 'probe_backend.py', '--admission', payload / 'source-admission.json',
                            '--admission-sha256', manifest['source_admission_sha256'], '--oracle', out / 'cpu-oracle',
                            '--oracle-sha256', launch['oracle_sha256'], '--deadline-epoch', deadline,
                            '--output', out / directory]
-            if precision:
+            if precision or transfer:
                 argv += ['--route-probe', payload / 'probe_routes.py']
+            if transfer:
+                argv += ['--precision-probe', payload / 'probe_precision.py', '--patch-manifest', payload / 'patches/params4bit-xla-v1.json']
             rec = run_step(out, label, [str(x) for x in argv], deadline, 1500, cwd=payload, tpu=True)
             receipt['steps'].append({'label': label, **rec})
             require(not rec['cleanup']['errors'] and not rec.get('error') and
-                    (rec['status'], rec['exit_code']) == ('PASS', 0),
-                    ('PRECISION' if precision else 'ROUTE') + '_CHILD_UNQUALIFIED_OR_CLEANUP')
+                    (rec['status'], rec['exit_code']) in ({('PASS', 0), ('CHILD_FAILED', 2)} if transfer else {('PASS', 0)}),
+                    ('TRANSFER' if transfer else 'PRECISION' if precision else 'ROUTE') + '_CHILD_UNQUALIFIED_OR_CLEANUP')
             result = json.loads((out / directory / 'receipt.json').read_text())
-            error_prefix = 'PRECISION' if precision else 'ROUTE'
-            require(result.get('kind') == ('PRECISION_DIAGNOSTIC_ONLY' if precision else 'DEVICE_ROUTE_DIAGNOSTIC_ONLY') and
+            error_prefix = 'TRANSFER' if transfer else 'PRECISION' if precision else 'ROUTE'
+            require(result.get('kind') == ('TRANSFER_API42_PROBE' if transfer else 'PRECISION_DIAGNOSTIC_ONLY' if precision else 'DEVICE_ROUTE_DIAGNOSTIC_ONLY') and
                     result.get('status') == 'COMPLETE', error_prefix + '_RECEIPT_INCOMPLETE')
             require(result.get('source_pre') == manifest['source_admission_sha256'] and
                     result.get('source_post') == manifest['source_admission_sha256'] and
@@ -327,13 +485,24 @@ def execute(base, packet_sha, allocation_epoch, phase):
                     result.get('runtime_lock_sha256') == manifest['runtime_lock_sha256'], error_prefix + '_RECEIPT_BINDING')
             require(type(result.get('pid')) is int and any(g.get('pid') == result['pid'] for g in rec['cleanup']['groups']) and
                     isinstance(result.get('process_token'), str) and bool(result['process_token']), error_prefix + '_PROCESS_IDENTITY')
-            if precision:
+            if precision or transfer:
                 require(result.get('route_probe_sha256') == manifest['route_probe_sha256'] and
-                        result.get('precision_probe_sha256') == manifest['precision_probe_sha256'], 'PRECISION_RECEIPT_PROBE_BINDING')
+                        result.get('precision_probe_sha256') == manifest['precision_probe_sha256'], error_prefix + '_RECEIPT_PROBE_BINDING')
+            if transfer:
+                require(type(result.get('pgid')) is int and result['pgid'] == result['pid'] and
+                        any(group.get('pid') == group.get('pgid') == result['pid'] for group in rec['cleanup']['groups']),
+                        'TRANSFER_PROCESS_GROUP_IDENTITY')
+                require(all(result.get(field) == manifest[field] for field in
+                            ('transfer_probe_sha256', 'transfer_admission_sha256', 'patch_manifest_sha256')) and
+                        result.get('backend_probe_sha256') == manifest['files']['probe_backend.py']['sha256'] and
+                        result.get('precision') == {'requested': 'highest', 'readback': 'highest', 'set_calls': 1, 'before_graph': True},
+                        'TRANSFER_RECEIPT_SOURCE_PRECISION_BINDING')
             receipt.update(status=status_prefix + '_CHILD_TERMINAL_LOCAL_REVIEW_REQUIRED',
-                           tpu_status='DIAGNOSTIC_RECORDS_COMPLETE', diagnostic_only=True)
+                           tpu_status='TRANSFER_RECORDS_COMPLETE' if transfer else 'DIAGNOSTIC_RECORDS_COMPLETE')
+            if not transfer:
+                receipt['diagnostic_only'] = True
         elif phase == 'tpu':
-            require(not diagnostic and not precision, 'WRONG_SCIENTIFIC_VARIANT')
+            require(not diagnostic and not precision and not transfer, 'WRONG_SCIENTIFIC_VARIANT')
             launch = json.loads((base / 'launch.json').read_text())
             require(receipt['cpu_status'] == 'PASS' and receipt['tpu_status'] == 'NOT_RUN' and launch['oracle_sha256'] == receipt['oracle_sha256'], 'EXPLICIT_RECOVERED_ORACLE_HASH_REQUIRED')
             deadline = receipt['science_deadline_epoch']
@@ -348,7 +517,7 @@ def execute(base, packet_sha, allocation_epoch, phase):
         else:
             raise ValueError('UNKNOWN_PHASE')
     except BaseException as error:
-        if phase in ('tpu', 'routes', 'precision') and receipt.get('tpu_status') == 'RUNNING':
+        if phase in ('tpu', 'routes', 'precision', 'transfer') and receipt.get('tpu_status') == 'RUNNING':
             receipt['tpu_status'] = 'ATTEMPTED_BLOCKED'
         receipt.update(status='BLOCKED', error={'type': type(error).__name__, 'message': str(error)})
     finally:
@@ -359,7 +528,7 @@ def execute(base, packet_sha, allocation_epoch, phase):
 
 def main():
     p = argparse.ArgumentParser(description=__doc__)
-    p.add_argument('operation', choices=['unpack', 'install', 'cpu', 'tpu', 'routes', 'precision', 'export', 'download', 'metadata'])
+    p.add_argument('operation', choices=['unpack', 'install', 'cpu', 'tpu', 'routes', 'precision', 'transfer', 'transfer-source', 'export', 'download', 'metadata'])
     p.add_argument('--base', type=Path, required=True)
     p.add_argument('--packet-sha256')
     p.add_argument('--allocation-epoch', type=float)
@@ -371,6 +540,22 @@ def main():
         return 0
     if a.operation == 'download':
         download_wheels(json.loads(a.config.read_text())['wheels'], a.base / 'wheels')
+        return 0
+    if a.operation == 'transfer-source':
+        payload = a.base / 'payload'
+        manifest = json.loads((payload / 'manifest.json').read_text())
+        require(verify_experiment(manifest) == 'transfer-api42', 'TRANSFER_SOURCE_VARIANT')
+        for name, rec in manifest['files'].items():
+            require(not (payload / name).is_symlink() and sha(payload / name) == rec['sha256'], 'TRANSFER_SOURCE_FILES')
+        verify_transfer_payload(payload, manifest)
+        spec = importlib.util.spec_from_file_location('transfer_backend_admission', payload / 'probe_backend.py')
+        B = importlib.util.module_from_spec(spec); spec.loader.exec_module(B)
+        spec = importlib.util.spec_from_file_location('transfer_source_admission', payload / 'transfer_admission.py')
+        A = importlib.util.module_from_spec(spec); spec.loader.exec_module(A)
+        admission, roots = A.admit(B, payload / 'source-admission.json', manifest['source_admission_sha256'], payload / 'patches/params4bit-xla-v1.json')
+        durable_json(a.base / 'records/installed-source.json', {'status': 'POST_PATCH_PYTHON_SOURCE_PASS',
+                     'source_admission_sha256': manifest['source_admission_sha256'], 'patch_manifest_sha256': TRANSFER_PATCH_MANIFEST_SHA,
+                     'installed_python_files': {name: admission[name]['files'] for name in roots}})
         return 0
     if a.operation == 'metadata':
         import importlib.metadata as md
