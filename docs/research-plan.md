@@ -19,7 +19,7 @@ Port2TPU results do not count for these backend milestones.
 | M3 | Upstream module state | Bias, gradients, saved state, and restoration in a new process | Completed: eight fixed cases restored in a new TPU process |
 | M4 | Nested quantization | Upstream default statistics option and matching saved nested state | In progress: actual 79-case run failed 27 cases; arithmetic repair and saved-state results required |
 | M5 | QLoRA execution | Twenty steps, frozen base weights, and restoration after step ten | In progress: private CPU preparation; TPU test required |
-| M6 | Pallas NF4 kernel | Actual custom call, numerical tests, and compiler test records for memory use | In progress: gather decode correction passed local controls; fresh actual native results and compiler memory records required |
+| M6 | Pallas NF4 kernel | Actual custom call, numerical tests, and compiler test records for memory use | In progress: two actual FP32 native cases passed; BF16 operand correction and compiler memory records required |
 | M7 | Measured performance | Raw time samples and memory measurements on the same TPU | In progress: local collector controls passed; actual measurements require accepted M6 |
 | M8 | Repeated cloud results | Matching source and inputs on Colab and Kaggle, with resource closure | In progress: bounded M2 repetition preparation passed local controls; actual device repetition and closure required |
 
@@ -126,6 +126,11 @@ The first case failed an unsupported shape cast; the remaining four cases were n
 Independent conversion replay, all 110 archive members, and complete resource closure passed inspection.
 The [gather decode correction](changes/r6-gather-decode.md) passed 52 independent controls and the canonical packet preflight.
 Its source map preserves the original numerical criteria and requires a fresh qualified CPU oracle.
+The [actual gather experiment](changes/r6-gather-colab.md) passed both FP32 native cases after its five-case CPU gate.
+The BF16 matrix operation failed operand type validation; two later cases remained unexecuted.
+Independent FP32 output and graph inspection, conversion replay, all 130 archive members, and complete resource closure passed.
+Correct the BF16 operand types under the unchanged precision and numerical requirements.
+The complete native dependency remains unaccepted.
 The [measurement preparation](changes/r7-measurement-preparation.md) passed 64 local controls and nine independent retained-record checks.
 Actual M7 collection requires accepted M6 results.
 BF16 gradients remain outside the fixed diagnostic scope.

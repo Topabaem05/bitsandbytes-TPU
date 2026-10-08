@@ -1,5 +1,15 @@
 # Change log
 
+## 2026-10-09 — Actual gather results on Colab
+
+- Retain two successful FP32 native cases and the BF16 compiler type error.
+- Independently verify FP32 outputs, graph bindings, and both Mosaic conversions.
+- Verify the complete result archives and resource closure.
+
+Validation: Both FP32 cases passed; BF16 failed compilation, and two later cases remained unexecuted.
+All 130 result members passed inspection; M6 remains unqualified.
+Refer to [the actual result](docs/changes/r6-gather-colab.md).
+
 ## 2026-10-09 — Kaggle public payload transport
 
 - Retain the exact scientific ZIP at a fixed repository path for commit-bound download.
