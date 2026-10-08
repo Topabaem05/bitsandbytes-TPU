@@ -11,6 +11,7 @@ They are not additions to the official ASD-STE100 dictionary.
 | ABI | The argument and result contract of a binary or operator interface. |
 | accumulator | Storage for intermediate sums in matrix multiplication. |
 | alias | A tensor reference that shares storage or mutation behavior with another reference. |
+| allocator | Runtime software that assigns memory to computation data. |
 | application | A computer program that uses the backend. |
 | API | The public interface that application code uses. |
 | API42 | The fixed project matrix of 42 public API test cases. |
@@ -22,6 +23,7 @@ They are not additions to the official ASD-STE100 dictionary.
 | centered scale | An NF4 scale after subtraction of the scalar offset, before nested quantization. |
 | CLI | A command-line interface. |
 | codebook | The numerical values that quantized codes identify. |
+| collector | Software that records raw measurements and their execution context. |
 | compiler | Software that converts source operations into executable operations. |
 | contiguous layout | A tensor layout without gaps between consecutive stored elements. |
 | CPU | A central processing unit. |
@@ -38,6 +40,7 @@ They are not additions to the official ASD-STE100 dictionary.
 | hash | A digest that identifies file content. |
 | HBM | High-bandwidth memory attached to an accelerator. |
 | HLO | The high-level operation representation used by XLA. |
+| high-water value | The largest memory usage reported by an allocator within its own measurement scope. |
 | JAX | The JAX numerical software package. |
 | implementation | The code that performs a specified software operation. |
 | fixture | Fixed data that a software test uses. |
@@ -47,6 +50,7 @@ They are not additions to the official ASD-STE100 dictionary.
 | matrix multiplication | The mathematical operation that multiplies two matrices. |
 | marker | A temporary file whose exact bytes identify a previously observed runtime. |
 | metadata | Structured information about data, source, or execution. |
+| metric | A named runtime measurement with a count, accumulated value, and samples. |
 | Meta | The PyTorch device type that represents tensor structure without numerical data. |
 | Mosaic | The compiler infrastructure used for the Pallas TPU kernel body. |
 | NaN | A floating-point value that represents an undefined numerical result. |
@@ -81,10 +85,12 @@ They are not additions to the official ASD-STE100 dictionary.
 | state_dict | The upstream PyTorch mapping of model state. |
 | subnormal number | A floating-point value with a magnitude below the smallest normal value for its data type. |
 | subnormal flushing | Replacement of subnormal floating-point values with zero during computation. |
+| synchronization | Submission and completion of specified device operations before further host activity. |
 | functionalization | The PyTorch transformation that replaces tensor mutations and views with functional operations. |
 | tensor | A numerical array with a shape and data type. |
 | TensorImpl | The PyTorch C++ object that holds tensor implementation state. |
 | tile | A limited part of a matrix that a kernel processes. |
+| timestamp | A recorded clock value for an event or interval boundary. |
 | TPU | A Google Tensor Processing Unit. |
 | transpose | A change in the order of array axes. |
 | transport | The software component that sends network requests and returns their responses. |

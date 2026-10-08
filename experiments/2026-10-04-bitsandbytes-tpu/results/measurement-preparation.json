@@ -1,0 +1,89 @@
+{
+  "status": "PASS_LOCAL_PREPARATION_REVIEW",
+  "manifest_sha256": "0e88e52795ed1927b570a40691dacfba105472f0b8b812f7430653a08f3a2b47",
+  "root_repeated_controls": 64,
+  "independent_records": [
+    {
+      "case": "independent-correct",
+      "status": "COMPARABLE_RAW_RECORDS"
+    },
+    {
+      "case": "measured-phase-with-compile",
+      "status": "REJECTED",
+      "reason": "RAW_ROW_PHASE_INDEX_GROUP"
+    },
+    {
+      "case": "negative-derived-peak",
+      "status": "REJECTED",
+      "reason": "RAW_MEMORY_RECOMPUTATION"
+    },
+    {
+      "case": "negative-cold-seconds",
+      "status": "REJECTED",
+      "reason": "RAW_COLD_COMPILE_RECOMPUTATION"
+    },
+    {
+      "case": "setup-no-wait",
+      "status": "REJECTED",
+      "reason": "RAW_SETUP_CONTRACT"
+    },
+    {
+      "case": "setup-after-cold",
+      "status": "REJECTED",
+      "reason": "RAW_CHRONOLOGICAL_SEQUENCE"
+    },
+    {
+      "case": "forge-peak-scope",
+      "status": "REJECTED",
+      "reason": "RAW_MEMORY_RECOMPUTATION"
+    },
+    {
+      "case": "valid-peak-absent",
+      "status": "COMPARABLE_RAW_RECORDS"
+    },
+    {
+      "case": "valid-memory-api-absent",
+      "status": "COMPARABLE_RAW_RECORDS"
+    }
+  ],
+  "provider_calls": 0,
+  "actual_tpu": "NOT_RUN",
+  "M7": "NOT_QUALIFIED",
+  "claim": "source-backed timing/allocator collector and retained-record validation only",
+  "checked_date": "2026-10-08",
+  "source_revision": "5fab7053df86c8d503b98d9e7202ca8b8d4978c7",
+  "sources": {
+    "collector.py": {
+      "sha256": "7199401864ec6c9fe49dbaaa14686d920419d912f4b4896f3d32ca53421e02a0",
+      "bytes": 16576
+    },
+    "protocol.json": {
+      "sha256": "079c47c6bd2dbe1fc215465fe41e12080fdc479a78c99077482020923cb1ecea",
+      "bytes": 1066
+    },
+    "xla_runner.py": {
+      "sha256": "2b525473026e5b5d37be9f935e4f1e54a8d64fe7b275c7a28f0f69da1fcb1c16",
+      "bytes": 2026
+    },
+    "controls.py": {
+      "sha256": "bab58f4bb4bd012035f2dd57dd866c305a1325cf31d8b2c90afdba466aabe4cf",
+      "bytes": 8620
+    },
+    "repair_controls.py": {
+      "sha256": "34130457957745c63709ee4b0f68bcfd7c5f330d6c64414d84038b30eb5ac46f",
+      "bytes": 6760
+    },
+    "sources.json": {
+      "sha256": "9d49cd8017e00be6fdee73c149838bd0769158bc16707fb05d3288c20f1cc5a4",
+      "bytes": 2753
+    },
+    "run_controls.py": {
+      "sha256": "eb48085b27de4675f1eb6bc6eb9f5e5e1626d7f5c51efa54230a9e16c30ef274",
+      "bytes": 1044
+    }
+  },
+  "raw_performance_samples": "NOT_COLLECTED",
+  "target_interval_peak": "UNKNOWN",
+  "isolated_entry_controls": 4,
+  "promoted_controls": 64
+}

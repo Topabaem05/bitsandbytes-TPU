@@ -20,7 +20,7 @@ Port2TPU results do not count for these backend milestones.
 | M4 | Nested quantization | Upstream default statistics option and matching saved nested state | In progress: actual 79-case run failed 27 cases; arithmetic repair and saved-state results required |
 | M5 | QLoRA execution | Twenty steps, frozen base weights, and restoration after step ten | In progress: private CPU preparation; TPU test required |
 | M6 | Pallas NF4 kernel | Actual custom call, numerical tests, and compiler test records for memory use | In progress: CPU interpretation passed; native TPU integration required |
-| M7 | Measured performance | Raw time samples and memory measurements on the same TPU | Not started |
+| M7 | Measured performance | Raw time samples and memory measurements on the same TPU | In progress: local collector controls passed; actual measurements require accepted M6 |
 | M8 | Repeated cloud results | Matching source and inputs on Colab and Kaggle, with resource closure | Not started |
 
 Accepted milestones: **3 of 8**.
@@ -70,6 +70,8 @@ Actual marker identification passed, and the [79-case run](changes/r4-nested-col
 The exact nested statistics and code failures require an arithmetic repair under unchanged criteria.
 The failed result cannot authorize the saved-state supplement or an accepted M4 dependency.
 The private CPU preparations for M4, M5, and M6 do not qualify those device milestones.
+The [measurement preparation](changes/r7-measurement-preparation.md) passed 64 local controls and nine independent retained-record checks.
+Actual M7 collection requires accepted M6 results.
 BF16 gradients remain outside the fixed diagnostic scope.
 
 The previous Kaggle inspection found no usable CLI credentials.

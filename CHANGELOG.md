@@ -1,5 +1,16 @@
 # Change log
 
+## 2026-10-08 — Measurement collector preparation
+
+- Add fixed time sampling and separate setup, compilation, and allocator records.
+- Retain unknown memory scope and unavailable measurements explicitly.
+- Reject incorrect phase, time, synchronization, and derived memory records.
+- Execute local controls in an isolated output directory.
+
+Validation: The reviewer repeated 64 controls and examined nine independent records; all gave the expected results.
+No actual performance samples were collected, and M7 remains unqualified.
+Refer to [the measurement preparation](docs/changes/r7-measurement-preparation.md).
+
 ## 2026-10-08 — Actual nested quantization failure
 
 - Retain all 79 Colab cases: 52 passed and 27 failed.

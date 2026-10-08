@@ -1,0 +1,58 @@
+[
+  {
+    "url": "https://raw.githubusercontent.com/pytorch/xla/5fab7053df86c8d503b98d9e7202ca8b8d4978c7/torch_xla/core/xla_model.py",
+    "bytes": 58064,
+    "sha256": "edc60e1146457d6cd4d1c4b9442805a6940e75a5fbcd1469f3b8694b70aeabaa",
+    "revision": "5fab7053df86c8d503b98d9e7202ca8b8d4978c7",
+    "accessed_date": "2026-10-08"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/pytorch/xla/5fab7053df86c8d503b98d9e7202ca8b8d4978c7/torch_xla/csrc/init_python_bindings.cpp",
+    "bytes": 155693,
+    "sha256": "85105171d16d84dd181f364128a8098d9a02d9934c6a9865f81b012a457fcf43",
+    "revision": "5fab7053df86c8d503b98d9e7202ca8b8d4978c7",
+    "accessed_date": "2026-10-08"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/pytorch/xla/5fab7053df86c8d503b98d9e7202ca8b8d4978c7/torch_xla/csrc/runtime/pjrt_computation_client.cpp",
+    "bytes": 44118,
+    "sha256": "d5073536b68e7750bb9170cdc3708d9757383c2ac88f18c8f891bba995fe2449",
+    "revision": "5fab7053df86c8d503b98d9e7202ca8b8d4978c7",
+    "accessed_date": "2026-10-08"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/pytorch/xla/5fab7053df86c8d503b98d9e7202ca8b8d4978c7/torch_xla/csrc/runtime/computation_client.h",
+    "bytes": 19068,
+    "sha256": "6f5b78101634218595f48bbcbaa8446addf5ec47fd80819299e1bd55131cfa90",
+    "revision": "5fab7053df86c8d503b98d9e7202ca8b8d4978c7",
+    "accessed_date": "2026-10-08"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/pytorch/xla/5fab7053df86c8d503b98d9e7202ca8b8d4978c7/torch_xla/csrc/runtime/metrics.cpp",
+    "bytes": 12825,
+    "sha256": "f81729dc86bb7c2821d17a3620bfe2b2e02a3de6972622614db73fa7eb18dfd2",
+    "revision": "5fab7053df86c8d503b98d9e7202ca8b8d4978c7",
+    "accessed_date": "2026-10-08"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/pytorch/xla/5fab7053df86c8d503b98d9e7202ca8b8d4978c7/torch_xla/debug/metrics.py",
+    "bytes": 2461,
+    "sha256": "5b516613ec8781c44c0f22178048ac39ad8ea25bf248e94a6651e8ca1fe01475",
+    "revision": "5fab7053df86c8d503b98d9e7202ca8b8d4978c7",
+    "accessed_date": "2026-10-08"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/pytorch/xla/5fab7053df86c8d503b98d9e7202ca8b8d4978c7/torch_xla/csrc/runtime/metrics.h",
+    "sha256": "84a753d9495b05d3e9e0863c0abdef97e6158863a8bd6ec79d61b7be584c7b4f",
+    "bytes": 8228,
+    "revision": "5fab7053df86c8d503b98d9e7202ca8b8d4978c7",
+    "accessed_date": "2026-10-08"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/pytorch/xla/5fab7053df86c8d503b98d9e7202ca8b8d4978c7/torch_xla/csrc/runtime/computation_client.cpp",
+    "sha256": "3d9e103c17c267e0797732d11d3123ed231b2d20ec5092035af0d57d6fdc71da",
+    "bytes": 7280,
+    "revision": "5fab7053df86c8d503b98d9e7202ca8b8d4978c7",
+    "accessed_date": "2026-10-08"
+  }
+]
