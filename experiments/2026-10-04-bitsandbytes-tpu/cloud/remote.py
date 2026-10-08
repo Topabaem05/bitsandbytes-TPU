@@ -20,6 +20,8 @@ sys.path.insert(0, str(HERE / 'ownership'))
 from cleanup_lifecycle import Ownership
 from lifecycle import durable_json
 
+PRECISION_ROUTE_PROBE_SHA = 'feae751734e57c741b1bdade004ff7ca3c041ee7eb3b7086b531bc6be433038e'
+
 
 def sha(p):
     h = hashlib.sha256()
@@ -32,6 +34,24 @@ def sha(p):
 def require(value, message):
     if not value:
         raise ValueError(message)
+
+
+def verify_experiment(manifest):
+    experiment = manifest.get('experiment', 'api42')
+    require(experiment in {'api42', 'device-route-diagnostic', 'precision-diagnostic'}, 'EXPERIMENT_VARIANT')
+    if experiment in {'device-route-diagnostic', 'precision-diagnostic'}:
+        pin = manifest.get('route_probe_sha256')
+        require(manifest.get('diagnostic_only') is True and isinstance(pin, str) and len(pin) == 64 and
+                pin == manifest['files'].get('probe_routes.py', {}).get('sha256'), 'ROUTE_PROBE_BINDING')
+    if experiment == 'precision-diagnostic':
+        require(manifest['route_probe_sha256'] == PRECISION_ROUTE_PROBE_SHA, 'PRECISION_ROUTE_PROBE_BINDING')
+        pin = manifest.get('precision_probe_sha256')
+        require(isinstance(pin, str) and len(pin) == 64 and
+                pin == manifest['files'].get('probe_precision.py', {}).get('sha256'), 'PRECISION_PROBE_BINDING')
+    else:
+        require('precision_probe_sha256' not in manifest and 'probe_precision.py' not in manifest['files'],
+                'PRECISION_PROBE_NOT_REQUESTED')
+    return experiment
 
 
 def verify_archive(archive, expected_sha, target):
@@ -186,10 +206,9 @@ def execute(base, packet_sha, allocation_epoch, phase):
     require(sha(base / 'payload.zip') == packet_sha, 'PACKET_SHA')
     for name, rec in manifest['files'].items():
         require(sha(payload / name) == rec['sha256'], 'POST_UPLOAD_SOURCE_SHA')
-    diagnostic = manifest.get('experiment') == 'device-route-diagnostic'
-    if diagnostic:
-        require(manifest.get('diagnostic_only') is True and manifest.get('route_probe_sha256') ==
-                manifest['files'].get('probe_routes.py', {}).get('sha256'), 'ROUTE_PROBE_BINDING')
+    experiment = verify_experiment(manifest)
+    diagnostic = experiment == 'device-route-diagnostic'
+    precision = experiment == 'precision-diagnostic'
     out.mkdir(exist_ok=True)
     receipt_path = out / 'receipt.json'
     receipt = json.loads(receipt_path.read_text()) if receipt_path.exists() else {
@@ -197,6 +216,21 @@ def execute(base, packet_sha, allocation_epoch, phase):
         'packet_sha256': packet_sha, 'manifest_sha256': sha(payload / 'manifest.json'),
         'runtime_lock_sha256': manifest['runtime_lock_sha256'], 'source_admission_sha256': manifest['source_admission_sha256'],
         'allocation_epoch': allocation_epoch, 'steps': [], 'error': None}
+    if precision:
+        if receipt_path.exists():
+            require(receipt.get('experiment') == experiment and receipt.get('diagnostic_only') is True and
+                    receipt.get('route_probe_sha256') == manifest['route_probe_sha256'] and
+                    receipt.get('precision_probe_sha256') == manifest['precision_probe_sha256'] and
+                    receipt.get('packet_sha256') == packet_sha and
+                    receipt.get('manifest_sha256') == sha(payload / 'manifest.json') and
+                    receipt.get('source_admission_sha256') == manifest['source_admission_sha256'] and
+                    receipt.get('runtime_lock_sha256') == manifest['runtime_lock_sha256'] and
+                    receipt.get('allocation_epoch') == allocation_epoch,
+                    'PRECISION_PHASE_RECEIPT_BINDING')
+        else:
+            receipt.update(experiment=experiment, diagnostic_only=True,
+                           route_probe_sha256=manifest['route_probe_sha256'],
+                           precision_probe_sha256=manifest['precision_probe_sha256'])
     work_deadline = allocation_epoch + 3600 - 600 - 60
     installed = base / 'venv/bin/python'
 
@@ -258,34 +292,48 @@ def execute(base, packet_sha, allocation_epoch, phase):
             receipt['runtime_status'] = 'PASS_TPU_RUNTIME_PROBE_ONLY'
             step('11-cpu-oracle', [installed, '-B', payload / 'probe_backend.py', 'prepare', '--admission', payload / 'source-admission.json', '--admission-sha256', manifest['source_admission_sha256'], '--output', out / 'cpu-oracle'], deadline, 300)
             receipt.update(status='CPU_ORACLE_READY_TPU_NOT_RUN', cpu_status='PASS', oracle_sha256=sha(out / 'cpu-oracle/oracle-seal.json'))
-        elif phase == 'routes':
-            require(diagnostic, 'WRONG_SCIENTIFIC_VARIANT')
+        elif phase in ('routes', 'precision'):
+            require(diagnostic if phase == 'routes' else precision, 'WRONG_SCIENTIFIC_VARIANT')
+            label = '12-precision' if precision else '12-device-routes'
+            directory = 'precision' if precision else 'device-routes'
+            status_prefix = 'PRECISION' if precision else 'DEVICE_ROUTE'
             launch = json.loads((base / 'launch.json').read_text())
             require(receipt['cpu_status'] == 'PASS' and receipt['tpu_status'] == 'NOT_RUN' and launch['oracle_sha256'] == receipt['oracle_sha256'], 'EXPLICIT_RECOVERED_ORACLE_HASH_REQUIRED')
-            receipt.update(status='DEVICE_ROUTE_CHILD_RUNNING', tpu_status='RUNNING', tpu_attempted=True)
+            receipt.update(status=status_prefix + '_CHILD_RUNNING', tpu_status='RUNNING', tpu_attempted=True)
             durable_json(receipt_path, receipt)
             deadline = min(work_deadline, receipt['science_deadline_epoch'])
-            rec = run_step(out, '12-device-routes', [str(x) for x in [installed, '-B', payload / 'probe_routes.py', 'execute',
+            if precision:
+                deadline = min(deadline, time.time() + 1500)
+            argv = [installed, '-B', payload / ('probe_precision.py' if precision else 'probe_routes.py'), 'execute',
                            '--backend-probe', payload / 'probe_backend.py', '--admission', payload / 'source-admission.json',
                            '--admission-sha256', manifest['source_admission_sha256'], '--oracle', out / 'cpu-oracle',
                            '--oracle-sha256', launch['oracle_sha256'], '--deadline-epoch', deadline,
-                           '--output', out / 'device-routes']], deadline, 1500, cwd=payload, tpu=True)
-            receipt['steps'].append({'label': '12-device-routes', **rec})
+                           '--output', out / directory]
+            if precision:
+                argv += ['--route-probe', payload / 'probe_routes.py']
+            rec = run_step(out, label, [str(x) for x in argv], deadline, 1500, cwd=payload, tpu=True)
+            receipt['steps'].append({'label': label, **rec})
             require(not rec['cleanup']['errors'] and not rec.get('error') and
-                    (rec['status'], rec['exit_code']) == ('PASS', 0), 'ROUTE_CHILD_UNQUALIFIED_OR_CLEANUP')
-            result = json.loads((out / 'device-routes/receipt.json').read_text())
-            require(result.get('kind') == 'DEVICE_ROUTE_DIAGNOSTIC_ONLY' and result.get('status') == 'COMPLETE', 'ROUTE_RECEIPT_INCOMPLETE')
+                    (rec['status'], rec['exit_code']) == ('PASS', 0),
+                    ('PRECISION' if precision else 'ROUTE') + '_CHILD_UNQUALIFIED_OR_CLEANUP')
+            result = json.loads((out / directory / 'receipt.json').read_text())
+            error_prefix = 'PRECISION' if precision else 'ROUTE'
+            require(result.get('kind') == ('PRECISION_DIAGNOSTIC_ONLY' if precision else 'DEVICE_ROUTE_DIAGNOSTIC_ONLY') and
+                    result.get('status') == 'COMPLETE', error_prefix + '_RECEIPT_INCOMPLETE')
             require(result.get('source_pre') == manifest['source_admission_sha256'] and
                     result.get('source_post') == manifest['source_admission_sha256'] and
                     result.get('source_admission_sha256') == manifest['source_admission_sha256'] and
                     result.get('oracle_sha256') == launch['oracle_sha256'] and
-                    result.get('runtime_lock_sha256') == manifest['runtime_lock_sha256'], 'ROUTE_RECEIPT_BINDING')
+                    result.get('runtime_lock_sha256') == manifest['runtime_lock_sha256'], error_prefix + '_RECEIPT_BINDING')
             require(type(result.get('pid')) is int and any(g.get('pid') == result['pid'] for g in rec['cleanup']['groups']) and
-                    isinstance(result.get('process_token'), str) and bool(result['process_token']), 'ROUTE_PROCESS_IDENTITY')
-            receipt.update(status='DEVICE_ROUTE_CHILD_TERMINAL_LOCAL_REVIEW_REQUIRED',
+                    isinstance(result.get('process_token'), str) and bool(result['process_token']), error_prefix + '_PROCESS_IDENTITY')
+            if precision:
+                require(result.get('route_probe_sha256') == manifest['route_probe_sha256'] and
+                        result.get('precision_probe_sha256') == manifest['precision_probe_sha256'], 'PRECISION_RECEIPT_PROBE_BINDING')
+            receipt.update(status=status_prefix + '_CHILD_TERMINAL_LOCAL_REVIEW_REQUIRED',
                            tpu_status='DIAGNOSTIC_RECORDS_COMPLETE', diagnostic_only=True)
         elif phase == 'tpu':
-            require(not diagnostic, 'WRONG_SCIENTIFIC_VARIANT')
+            require(not diagnostic and not precision, 'WRONG_SCIENTIFIC_VARIANT')
             launch = json.loads((base / 'launch.json').read_text())
             require(receipt['cpu_status'] == 'PASS' and receipt['tpu_status'] == 'NOT_RUN' and launch['oracle_sha256'] == receipt['oracle_sha256'], 'EXPLICIT_RECOVERED_ORACLE_HASH_REQUIRED')
             deadline = receipt['science_deadline_epoch']
@@ -300,7 +348,7 @@ def execute(base, packet_sha, allocation_epoch, phase):
         else:
             raise ValueError('UNKNOWN_PHASE')
     except BaseException as error:
-        if phase in ('tpu', 'routes') and receipt.get('tpu_status') == 'RUNNING':
+        if phase in ('tpu', 'routes', 'precision') and receipt.get('tpu_status') == 'RUNNING':
             receipt['tpu_status'] = 'ATTEMPTED_BLOCKED'
         receipt.update(status='BLOCKED', error={'type': type(error).__name__, 'message': str(error)})
     finally:
@@ -311,7 +359,7 @@ def execute(base, packet_sha, allocation_epoch, phase):
 
 def main():
     p = argparse.ArgumentParser(description=__doc__)
-    p.add_argument('operation', choices=['unpack', 'install', 'cpu', 'tpu', 'routes', 'export', 'download', 'metadata'])
+    p.add_argument('operation', choices=['unpack', 'install', 'cpu', 'tpu', 'routes', 'precision', 'export', 'download', 'metadata'])
     p.add_argument('--base', type=Path, required=True)
     p.add_argument('--packet-sha256')
     p.add_argument('--allocation-epoch', type=float)

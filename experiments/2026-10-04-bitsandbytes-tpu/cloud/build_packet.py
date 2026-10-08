@@ -13,6 +13,7 @@ HERE = Path(__file__).resolve().parent
 PROJECT = HERE.parents[2]
 COMMIT = '833649043474794b8fe7a4136e0c40faf077b2e0'
 RUNTIME_SHA = '323371ff61c5fbcc4f79fd6a358cf2ba17cb72b907382a5ceaac07f91dc66ed6'
+PRECISION_ROUTE_PROBE_SHA = 'feae751734e57c741b1bdade004ff7ca3c041ee7eb3b7086b531bc6be433038e'
 
 
 def sha(p):
@@ -34,14 +35,22 @@ def python_tree(root):
     return files
 
 
-def build(upstream, out, plugin_manifest_sha256, *, experiment='api42', route_probe=None, route_probe_sha256=None):
-    if experiment not in {'api42', 'device-route-diagnostic'}:
+def build(upstream, out, plugin_manifest_sha256, *, experiment='api42', route_probe=None, route_probe_sha256=None,
+          precision_probe=None, precision_probe_sha256=None):
+    if experiment not in {'api42', 'device-route-diagnostic', 'precision-diagnostic'}:
         raise ValueError('EXPERIMENT_VARIANT')
-    if experiment == 'device-route-diagnostic':
+    if experiment in {'device-route-diagnostic', 'precision-diagnostic'}:
         if route_probe is None or route_probe.is_symlink() or not route_probe.is_file() or sha(route_probe) != route_probe_sha256:
             raise ValueError('ROUTE_PROBE_SOURCE')
     elif route_probe is not None or route_probe_sha256 is not None:
         raise ValueError('DIAGNOSTIC_PROBE_NOT_REQUESTED')
+    if experiment == 'precision-diagnostic':
+        if route_probe_sha256 != PRECISION_ROUTE_PROBE_SHA:
+            raise ValueError('PRECISION_ROUTE_PROBE_SOURCE')
+        if precision_probe is None or precision_probe.is_symlink() or not precision_probe.is_file() or sha(precision_probe) != precision_probe_sha256:
+            raise ValueError('PRECISION_PROBE_SOURCE')
+    elif precision_probe is not None or precision_probe_sha256 is not None:
+        raise ValueError('PRECISION_PROBE_NOT_REQUESTED')
     if out.exists() or out.is_symlink():
         raise FileExistsError('FRESH_PACKET_REQUIRED')
     if subprocess.check_output(['git', '-C', str(upstream), 'rev-parse', 'HEAD'], text=True).strip() != COMMIT:
@@ -86,8 +95,12 @@ def build(upstream, out, plugin_manifest_sha256, *, experiment='api42', route_pr
         raise ValueError('PLUGIN_COPIED_BYTES')
     for name in ('probe_backend.py', 'probe-profile.json', 'probe-inputs.json'):
         shutil.copyfile(scientific / name, out / name)
-    if experiment == 'device-route-diagnostic':
+    if experiment in {'device-route-diagnostic', 'precision-diagnostic'}:
         shutil.copyfile(route_probe, out / 'probe_routes.py')
+    if experiment == 'precision-diagnostic':
+        shutil.copyfile(precision_probe, out / 'probe_precision.py')
+        if sha(out / 'probe_routes.py') != PRECISION_ROUTE_PROBE_SHA or sha(out / 'probe_precision.py') != precision_probe_sha256:
+            raise ValueError('PRECISION_PROBE_COPIED_BYTES')
     for name in ('resolve.py', 'probe_runtime.py', 'requirements.lock.json'):
         dest = out / 'runtime' / name
         dest.parent.mkdir(exist_ok=True)
@@ -106,8 +119,10 @@ def build(upstream, out, plugin_manifest_sha256, *, experiment='api42', route_pr
                 'plugin_source_manifest_sha256': plugin_manifest_sha256,
                 'upstream_commit': COMMIT, 'upstream_source_url': f'https://github.com/bitsandbytes-foundation/bitsandbytes/tree/{COMMIT}',
                 'budget': {'total': 3600, 'install': 1200, 'science': 1800, 'retrieval': 600, 'cleanup': 60}}
-    if experiment == 'device-route-diagnostic':
+    if experiment in {'device-route-diagnostic', 'precision-diagnostic'}:
         manifest.update(experiment=experiment, diagnostic_only=True, route_probe_sha256=sha(out / 'probe_routes.py'))
+    if experiment == 'precision-diagnostic':
+        manifest['precision_probe_sha256'] = sha(out / 'probe_precision.py')
     write(out / 'manifest.json', manifest)
     with zipfile.ZipFile(out / 'payload.zip', 'w', zipfile.ZIP_DEFLATED) as z:
         for name in sorted([*members, 'manifest.json']):
@@ -125,9 +140,12 @@ if __name__ == '__main__':
     p.add_argument('--upstream', type=Path, required=True)
     p.add_argument('--out', type=Path, required=True)
     p.add_argument('--plugin-manifest-sha256', required=True)
-    p.add_argument('--experiment', choices=['api42', 'device-route-diagnostic'], default='api42')
+    p.add_argument('--experiment', choices=['api42', 'device-route-diagnostic', 'precision-diagnostic'], default='api42')
     p.add_argument('--route-probe', type=Path)
     p.add_argument('--route-probe-sha256')
+    p.add_argument('--precision-probe', type=Path)
+    p.add_argument('--precision-probe-sha256')
     a = p.parse_args()
     print(json.dumps(build(a.upstream, a.out, a.plugin_manifest_sha256, experiment=a.experiment,
-                          route_probe=a.route_probe, route_probe_sha256=a.route_probe_sha256), sort_keys=True))
+                          route_probe=a.route_probe, route_probe_sha256=a.route_probe_sha256,
+                          precision_probe=a.precision_probe, precision_probe_sha256=a.precision_probe_sha256), sort_keys=True))

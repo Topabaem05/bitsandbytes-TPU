@@ -1,5 +1,19 @@
 # Change log
 
+## 2026-10-08 — Precision diagnostic preparation
+
+- Compare native XLA precision in three separate processes.
+- Keep the existing inputs, numerical gates, runtime, and package source.
+- Add plain FP32 matrix multiplication and two public module paths.
+- Record forward outputs, FP32 gradients, precision readback, HLO, and fallback counters.
+- Keep numerical failures separate from record acceptance.
+- Bind the diagnostic to the existing Colab owner and resource closure checks.
+
+Validation: The reviewer repeated 164 local tests; all passed in 6.83 seconds.
+The tests include synthetic records, incorrect-reference controls, child cleanup, archive recovery, and simulated cloud operations.
+Actual TPU execution remains required.
+Refer to [the diagnostic change record](docs/changes/r1-precision-preparation.md).
+
 ## 2026-10-08 — Design source inspection
 
 - Add 48 primary source groups for the eight project milestones.
