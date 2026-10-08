@@ -1,5 +1,21 @@
 # Change log
 
+## 2026-10-08 — Nested quantization experiment preparation
+
+- Add an explicit six-file plugin variant with seven operator schemas.
+- Add 79 fixed nested cases and qualified Linux CPU reference generation.
+- Retain exact packed state gates and the existing numerical tolerances.
+- Require complete built and installed source inventories before device work.
+- Add portable controls for actual verifier results, archive recovery, and resource closure.
+- Record the separate saved-state requirement before M4 acceptance.
+- Add the necessary nested quantization terms to the glossary.
+
+Validation: The reviewer repeated 19 scientific controls and 79 local CPU cases with 540 passing numerical gates.
+The reviewer also repeated 310 cloud and state controls; all passed in 67.71 seconds.
+An independently constructed 44-member packet matched the worker packet exactly.
+Actual TPU results remain pending, and accepted milestones remain three of eight.
+Refer to [the preparation record](docs/changes/r4-nested-preparation.md).
+
 ## 2026-10-08 — Colab M3 acceptance and CLI exit correction
 
 - Accept all eight fixed state cases after restoration in a new TPU process.

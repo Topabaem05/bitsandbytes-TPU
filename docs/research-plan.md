@@ -17,7 +17,7 @@ Port2TPU results do not count for these backend milestones.
 | M1 | Installable backend | Wheel installation, automatic registration, schema tests, and CPU differential tests | Completed: local CPU and package tests |
 | M2 | Actual TPU execution | Fixed runtime, TPU device test records, and upstream API output on Colab | Completed: 42 API cases and four public transfers on Colab V6E1 |
 | M3 | Upstream module state | Bias, gradients, saved state, and restoration in a new process | Completed: eight fixed cases restored in a new TPU process |
-| M4 | Nested quantization | Upstream default statistics option and matching nested state | In progress: local reference data and device experiment preparation |
+| M4 | Nested quantization | Upstream default statistics option and matching saved nested state | In progress: reviewed 79-case device experiment; separate saved-state supplement required |
 | M5 | QLoRA execution | Twenty steps, frozen base weights, and restoration after step ten | In progress: private CPU preparation; TPU test required |
 | M6 | Pallas NF4 kernel | Actual custom call, numerical tests, and compiler test records for memory use | In progress: CPU interpretation passed; native TPU integration required |
 | M7 | Measured performance | Raw time samples and memory measurements on the same TPU | Not started |
@@ -58,6 +58,8 @@ Refer to [the accepted transfer result](changes/r2-transfer-colab.md).
 Do not replace the upstream classes or methods dynamically during execution.
 M3 restoration in a new process passed its separate device experiment.
 The next device requirement is M4 nested quantization with the default upstream statistics option.
+The [nested preparation](changes/r4-nested-preparation.md) provides 79 fixed cases and an explicit plugin variant.
+Those cases do not test saved nested state; M4 also requires that separate result.
 The private CPU preparations for M4, M5, and M6 do not qualify those device milestones.
 BF16 gradients remain outside the fixed diagnostic scope.
 

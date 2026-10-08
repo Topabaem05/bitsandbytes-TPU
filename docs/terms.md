@@ -19,6 +19,7 @@ They are not additions to the official ASD-STE100 dictionary.
 | BF16 | The bfloat16 numerical data type. |
 | bias | The additive parameter of a linear layer. |
 | checkpoint | Saved model and optimizer state used to restore execution. |
+| centered scale | An NF4 scale after subtraction of the scalar offset, before nested quantization. |
 | CLI | A command-line interface. |
 | codebook | The numerical values that quantized codes identify. |
 | compiler | Software that converts source operations into executable operations. |
@@ -51,6 +52,7 @@ They are not additions to the official ASD-STE100 dictionary.
 | NF4 | The bitsandbytes four-bit NormalFloat codebook and its format. |
 | nibble | Four bits within one byte. |
 | overload | A named form of an operator with a specific schema. |
+| offset | The scalar value subtracted before nested quantization and added after nested dequantization. |
 | operator schema | The declared arguments and results of a PyTorch operator. |
 | oracle | The identified reference calculation that supplies expected test values. |
 | profile | The fixed configuration and criteria for an experiment. |
@@ -61,6 +63,7 @@ They are not additions to the official ASD-STE100 dictionary.
 | partial tile | A matrix tile with fewer values than the specified tile dimensions. |
 | patch | A recorded source change that applies to an identified original file. |
 | Pallas | The JAX interface for device kernel code. |
+| plugin | A separately installed package that registers backend implementations through an entry point. |
 | QLoRA | Adapter training with a quantized, frozen base model. |
 | quantization | Conversion from numerical values to codes and scales. |
 | receipt | A structured record that identifies an execution and its returned artifacts. |
@@ -68,6 +71,7 @@ They are not additions to the official ASD-STE100 dictionary.
 | revision | A specific state of a source repository, identified by its commit. |
 | reviewer | The person or agent that examines code and test records before acceptance. |
 | rounding | Selection of a representable numerical value from a more precise value. |
+| scale | A multiplier used to reconstruct numerical values from quantized codes. |
 | runtime | The installed software and execution environment for a program. |
 | SGD | Stochastic gradient descent. |
 | SHA-256 | The hash algorithm that produces a 256-bit digest. |

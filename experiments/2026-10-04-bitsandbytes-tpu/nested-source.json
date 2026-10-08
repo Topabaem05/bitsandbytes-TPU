@@ -1,0 +1,13 @@
+{
+  "format": "private.nested-source.v1",
+  "status": "UNADOPTED_PENDING_M3",
+  "upstream_revision": "833649043474794b8fe7a4136e0c40faf077b2e0",
+  "files": {
+    "__init__.py": "c7ecdd758ed0d50f10e0b8fa3a17900143368ca6799bfa09e11bfe8118ab59db",
+    "blockwise.py": "ad8ff158ef4977b47fd07ee0071be347c446abf2fd0c3a16c1852d1a9cde38be",
+    "compatibility.py": "a1e3f67950734d3f3a7db6f81f96c7a25617b7bf03d6d48e49c63baf96ff28ed",
+    "functionalization.py": "0b31b2d86e7dd4aa10629e236fa1c0c18518eb5a3fb565714a9e40f432c2c93e",
+    "reference.py": "80d8329579c265e0375067285b62c9c2a505c57e2a0ebcfaf56a9d9b8e7f4bcc",
+    "registration.py": "fe5b323506cd1bb9b598599ba59f3e948dbad9429fd937d1edea9c193f0617c0"
+  }
+}

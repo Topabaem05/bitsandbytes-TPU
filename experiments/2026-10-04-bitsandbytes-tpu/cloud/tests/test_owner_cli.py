@@ -43,7 +43,7 @@ def run_cli(path, status, tmp_path, monkeypatch, capsys):
 
 @pytest.mark.parametrize('status,expected',[
     ('PASS_TPU_API_PROBE',0),('PASS_DEVICE_ROUTE_RECORDS',0),('PASS_PRECISION_RECORDS',0),
-    ('PASS_TPU_TRANSFER_API42',0),('PASS_TPU_STATE_RECORDS',0),
+    ('PASS_TPU_TRANSFER_API42',0),('PASS_TPU_STATE_RECORDS',0),('PASS_TPU_NESTED_RECORDS',0),('FAIL_TPU_NESTED_RECORDS',2),
     ('FAIL_TPU_STATE_RECORDS',2),('BLOCKED_CLEANUP',2),('PASS_UNKNOWN_STATUS',2),('UNKNOWN',2),
 ])
 def test_actual_cli_exact_exit_mapping(tmp_path,monkeypatch,capsys,status,expected):

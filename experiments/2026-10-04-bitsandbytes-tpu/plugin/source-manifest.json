@@ -1,0 +1,89 @@
+{
+  "files": [
+    {
+      "bytes": 291,
+      "path": "src/bitsandbytes_tpu/__init__.py",
+      "sha256": "c7ecdd758ed0d50f10e0b8fa3a17900143368ca6799bfa09e11bfe8118ab59db"
+    },
+    {
+      "bytes": 3868,
+      "path": "src/bitsandbytes_tpu/blockwise.py",
+      "sha256": "ad8ff158ef4977b47fd07ee0071be347c446abf2fd0c3a16c1852d1a9cde38be"
+    },
+    {
+      "bytes": 9452,
+      "path": "src/bitsandbytes_tpu/compatibility.py",
+      "sha256": "a1e3f67950734d3f3a7db6f81f96c7a25617b7bf03d6d48e49c63baf96ff28ed"
+    },
+    {
+      "bytes": 3292,
+      "path": "src/bitsandbytes_tpu/functionalization.py",
+      "sha256": "0b31b2d86e7dd4aa10629e236fa1c0c18518eb5a3fb565714a9e40f432c2c93e"
+    },
+    {
+      "bytes": 4670,
+      "path": "src/bitsandbytes_tpu/reference.py",
+      "sha256": "80d8329579c265e0375067285b62c9c2a505c57e2a0ebcfaf56a9d9b8e7f4bcc"
+    },
+    {
+      "bytes": 3016,
+      "path": "src/bitsandbytes_tpu/registration.py",
+      "sha256": "fe5b323506cd1bb9b598599ba59f3e948dbad9429fd937d1edea9c193f0617c0"
+    },
+    {
+      "bytes": 727,
+      "path": "pyproject.toml",
+      "sha256": "3845599f919272735a5f6d1171482c4f919dba9b5cfe22175bc12fabed2986d0"
+    },
+    {
+      "bytes": 3156,
+      "path": "README.md",
+      "sha256": "ed14f593315a0b02069f751aae71f13616fb9fb588f7fe4a8644d8179c40999e"
+    },
+    {
+      "bytes": 11357,
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "bytes": 2319,
+      "path": "THIRD_PARTY_NOTICES.md",
+      "sha256": "f2095a16719cdb849a624357e17d877f4b650e75a93b845b5a227ee0d9d35bc6"
+    }
+  ],
+  "format": "bitsandbytes-tpu.source.v1",
+  "installed_python_files": {
+    "__init__.py": "c7ecdd758ed0d50f10e0b8fa3a17900143368ca6799bfa09e11bfe8118ab59db",
+    "blockwise.py": "ad8ff158ef4977b47fd07ee0071be347c446abf2fd0c3a16c1852d1a9cde38be",
+    "compatibility.py": "a1e3f67950734d3f3a7db6f81f96c7a25617b7bf03d6d48e49c63baf96ff28ed",
+    "functionalization.py": "0b31b2d86e7dd4aa10629e236fa1c0c18518eb5a3fb565714a9e40f432c2c93e",
+    "reference.py": "80d8329579c265e0375067285b62c9c2a505c57e2a0ebcfaf56a9d9b8e7f4bcc",
+    "registration.py": "fe5b323506cd1bb9b598599ba59f3e948dbad9429fd937d1edea9c193f0617c0"
+  },
+  "limits": [
+    "Private source preparation only. Actual TPU execution and milestone acceptance are pending.",
+    "The native CPU and CUDA golden paths did not execute.",
+    "No fused-kernel, memory, performance, or training result is claimed."
+  ],
+  "nested_schema_sha256": "bd7dd210b2451749556f053b4472d4cbb820320d6608d246153888d0dcda0b71",
+  "nested_source_sha256": "c8d7519c92202e0238fbee55a63ffff32860f821b8957c8a135046a4294f13d2",
+  "operator_schemas": {
+    "dequantize_4bit": "bitsandbytes::dequantize_4bit(Tensor A, Tensor absmax, int blocksize, str quant_type, int[] shape, ScalarType dtype) -> Tensor",
+    "dequantize_4bit.out": "bitsandbytes::dequantize_4bit.out(Tensor A, Tensor absmax, int blocksize, str quant_type, int[] shape, ScalarType dtype, Tensor($0! -> ) out) -> ()",
+    "dequantize_blockwise": "bitsandbytes::dequantize_blockwise(Tensor A, Tensor absmax, Tensor code, int blocksize, ScalarType dtype) -> Tensor",
+    "dequantize_blockwise.out": "bitsandbytes::dequantize_blockwise.out(Tensor A, Tensor absmax, Tensor code, int blocksize, ScalarType dtype, Tensor($0! -> ) out) -> ()",
+    "gemm_4bit": "bitsandbytes::gemm_4bit(Tensor A, Tensor B, int[] shapeB, Tensor absmax, int blocksize, str quant_type, Tensor? bias=None, Tensor? absmax_8bit=None, Tensor? absmax_code=None, Tensor? absmax_offset=None) -> Tensor",
+    "quantize_4bit": "bitsandbytes::quantize_4bit(Tensor A, int blocksize, str quant_type, ScalarType quant_storage) -> (Tensor, Tensor)",
+    "quantize_blockwise": "bitsandbytes::quantize_blockwise(Tensor A, Tensor code, int blocksize) -> (Tensor, Tensor)"
+  },
+  "scope": "PRIVATE_SEVEN_OPERATOR_NESTED_REFERENCE_PREPARATION",
+  "source_variant": "nested-v1",
+  "source_variants": {
+    "params4bit-xla-v1": {
+      "manifest_sha256": "e745fbf21aac10ed9118167a131d6505bf6dbe03e1fab0a669c663b26c5a5732",
+      "torch_requirement": "2.9.0+cpu"
+    }
+  },
+  "upstream_revision": "833649043474794b8fe7a4136e0c40faf077b2e0",
+  "version": "0.1.0"
+}

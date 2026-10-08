@@ -1,0 +1,218 @@
+{
+  "accepted_milestones": 3,
+  "adopted_files": {
+    "cloud/build_packet.py": {
+      "bytes": 20675,
+      "sha256": "6943e3eb2bdd181fbb5fb5dde6a1755a23265ce7d65ffbae66f746dd478d25db"
+    },
+    "cloud/nested_contract.py": {
+      "bytes": 5548,
+      "sha256": "da7fe494218424654356e2b114647f92590a1ea44ad11bea88ae724ee3be01ce"
+    },
+    "cloud/owner.py": {
+      "bytes": 36430,
+      "sha256": "5681499ea913bbdd600e9f122825faef7ad1a298b09da2452869d3112314379f"
+    },
+    "cloud/remote.py": {
+      "bytes": 50757,
+      "sha256": "5b9b54f4e2121ad845a158f54ee170e3cd2f7aa0a415e47c810fffa94d1e25dd"
+    },
+    "cloud/tests/fixtures/nested_cpu_seed.json.gz": {
+      "bytes": 227689,
+      "sha256": "9b7096cbab45da88e046fddd43bb070bf0e42bbbb35120c0c84fd6aa82bcce6b"
+    },
+    "cloud/tests/fixtures/nested_cpu_seed.md": {
+      "bytes": 1000,
+      "sha256": "85836263394ed64241685bd4ac20094d735159ce9a889fcd5c58058207f54d3f"
+    },
+    "cloud/tests/nested_saved_fixture.py": {
+      "bytes": 4868,
+      "sha256": "c3f36f5637a2c9005aa990e5e8c2fd6a528b0fd44361eb72c45248e02dc58a9e"
+    },
+    "cloud/tests/test_nested_cloud.py": {
+      "bytes": 24238,
+      "sha256": "b3df7be30c335d327515863978bc58595bd70a950117718e1e4564f7217db742"
+    },
+    "cloud/tests/test_owner_cli.py": {
+      "bytes": 2473,
+      "sha256": "579dc3c690cd15e6bf1e6676b3dee17903c0b42f9c5c53d29024390173ee170c"
+    },
+    "nested-inputs.json": {
+      "bytes": 3643113,
+      "sha256": "b7490f4c622aef793d14bd9a7a38727754cb1fb8e6e1dec7ff91ef8c45fbafbc"
+    },
+    "nested-schemas.json": {
+      "bytes": 1131,
+      "sha256": "bd7dd210b2451749556f053b4472d4cbb820320d6608d246153888d0dcda0b71"
+    },
+    "nested-source.json": {
+      "bytes": 705,
+      "sha256": "c8d7519c92202e0238fbee55a63ffff32860f821b8957c8a135046a4294f13d2"
+    },
+    "plugin/LICENSE": {
+      "bytes": 11357,
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "plugin/README.md": {
+      "bytes": 3156,
+      "sha256": "ed14f593315a0b02069f751aae71f13616fb9fb588f7fe4a8644d8179c40999e"
+    },
+    "plugin/THIRD_PARTY_NOTICES.md": {
+      "bytes": 2319,
+      "sha256": "f2095a16719cdb849a624357e17d877f4b650e75a93b845b5a227ee0d9d35bc6"
+    },
+    "plugin/pyproject.toml": {
+      "bytes": 727,
+      "sha256": "3845599f919272735a5f6d1171482c4f919dba9b5cfe22175bc12fabed2986d0"
+    },
+    "plugin/source-manifest.json": {
+      "bytes": 4244,
+      "sha256": "da06577095abc2afe907f64104fe49fe604b1e27f6b777c96714686fbe8689d4"
+    },
+    "plugin/src/bitsandbytes_tpu/__init__.py": {
+      "bytes": 291,
+      "sha256": "c7ecdd758ed0d50f10e0b8fa3a17900143368ca6799bfa09e11bfe8118ab59db"
+    },
+    "plugin/src/bitsandbytes_tpu/blockwise.py": {
+      "bytes": 3868,
+      "sha256": "ad8ff158ef4977b47fd07ee0071be347c446abf2fd0c3a16c1852d1a9cde38be"
+    },
+    "plugin/src/bitsandbytes_tpu/compatibility.py": {
+      "bytes": 9452,
+      "sha256": "a1e3f67950734d3f3a7db6f81f96c7a25617b7bf03d6d48e49c63baf96ff28ed"
+    },
+    "plugin/src/bitsandbytes_tpu/functionalization.py": {
+      "bytes": 3292,
+      "sha256": "0b31b2d86e7dd4aa10629e236fa1c0c18518eb5a3fb565714a9e40f432c2c93e"
+    },
+    "plugin/src/bitsandbytes_tpu/reference.py": {
+      "bytes": 4670,
+      "sha256": "80d8329579c265e0375067285b62c9c2a505c57e2a0ebcfaf56a9d9b8e7f4bcc"
+    },
+    "plugin/src/bitsandbytes_tpu/registration.py": {
+      "bytes": 3016,
+      "sha256": "fe5b323506cd1bb9b598599ba59f3e948dbad9429fd937d1edea9c193f0617c0"
+    },
+    "probe_nested.py": {
+      "bytes": 32915,
+      "sha256": "9cfbc7c6b9841b365b47ecfd0bf1b184fda754208aec5f214fe3d0cd9198348d"
+    }
+  },
+  "artifact_bindings": {
+    ".work/r4-cloud-preparation/review.json": {
+      "bytes": 2591,
+      "sha256": "a8612c1df50428f002334b9bb394af25bc9fc1a20bf438b52d244e6929f08398"
+    },
+    ".work/root-r4-adoption/packet-result.json": {
+      "bytes": 2001,
+      "sha256": "fce7a120b96a36b02606b49647c5a1243f172ef187ec6ab67e5511f452170672"
+    },
+    ".work/root-r4-adoption/root-comparison-controls.json": {
+      "bytes": 522,
+      "sha256": "fe96454b659342161b944b1871f2cf998047967be82c81996238b5d1a939321d"
+    },
+    ".work/root-r4-adoption/tests.xml": {
+      "bytes": 52082,
+      "sha256": "b03daa00a370410200ed2d1aad82421607a8fcf498b27556c27347fe135ef870"
+    },
+    ".work/root-r4-science-review/review.json": {
+      "bytes": 1014,
+      "sha256": "1cd7480494e8288efcfadd8cdf21b62d16b3cc60e92bd278f65104a233c0708b"
+    },
+    ".work/root-r4-science-review/tests.stderr": {
+      "bytes": 2237,
+      "sha256": "b03b426a87447c65fd2568e30e38988ad7cb2239aa585b3fdebfbfcb5d036d59"
+    }
+  },
+  "date": "2026-10-08",
+  "limits": {
+    "actual_tpu": "NOT_RUN",
+    "bf16_gradients": "NOT_RUN",
+    "cuda_golden": "NOT_RUN",
+    "native_cpu_golden": "NOT_RUN",
+    "nested_saved_state": "SEPARATE_REQUIRED_EXPERIMENT",
+    "pallas": "NOT_RUN",
+    "performance": "NOT_MEASURED",
+    "qlora": "NOT_RUN",
+    "qualified_linux_cpu": "NOT_RUN"
+  },
+  "local_cpu_cases": 79,
+  "local_cpu_gates": 540,
+  "local_torch": "2.14.1 macOS unqualified",
+  "m3_result_sha256": "ef16552ed436f9492090dd882977f462a70b28f325bee0be562fe66cade65658",
+  "m4_status": "NOT_QUALIFIED",
+  "packet": {
+    "added_files": [
+      "cloud/nested_contract.py",
+      "cloud/state_coordinator.py",
+      "nested-inputs.json",
+      "nested-schemas.json",
+      "nested-source.json",
+      "plugin/src/bitsandbytes_tpu/blockwise.py",
+      "probe_nested.py"
+    ],
+    "base_m2_packet_sha256": "6ec9b2e8d1df9981f8040b3d74e22d6b73de1fdbe52c67dafdc1911f1ccfa3eb",
+    "changed_files": [
+      "cloud/owner.py",
+      "cloud/remote.py",
+      "plugin/README.md",
+      "plugin/source-manifest.json",
+      "plugin/src/bitsandbytes_tpu/compatibility.py",
+      "plugin/src/bitsandbytes_tpu/functionalization.py",
+      "plugin/src/bitsandbytes_tpu/reference.py",
+      "plugin/src/bitsandbytes_tpu/registration.py",
+      "source-admission.json"
+    ],
+    "cli_identity": "PASS",
+    "independent_builder_exact_match": true,
+    "manifest_sha256": "703cc62faf1e6f64a72bb62c9d9dd96982d8db61f82723a8aeeda5b187b7fb65",
+    "members": 44,
+    "payload_bytes": 1025947,
+    "payload_sha256": "7f70d80421a3dcac6a08a0c5a7d04a43ae3d60d85dadb7b85504e7201a133eb6",
+    "reseal_script_sha256": "57e8414d2844edc858527bb73deac46711a93ed28538ebee5bb1a8ba5bf11f54",
+    "status": "PREFLIGHT_PASS",
+    "unchanged_files": [
+      "build-requirements.lock.json",
+      "cloud/allocation_transport.py",
+      "cloud/official_cli_no_oauth.py",
+      "cloud/ownership/bootstrap.py",
+      "cloud/ownership/cleanup_lifecycle.py",
+      "cloud/ownership/lifecycle.py",
+      "cloud/python_bootstrap.py",
+      "cloud/transport.py",
+      "patched-upstream.tar",
+      "patches/params4bit-xla-v1.json",
+      "patches/params4bit-xla-v1.patch",
+      "plugin/LICENSE",
+      "plugin/THIRD_PARTY_NOTICES.md",
+      "plugin/pyproject.toml",
+      "plugin/src/bitsandbytes_tpu/__init__.py",
+      "probe-inputs.json",
+      "probe-profile.json",
+      "probe_backend.py",
+      "probe_precision.py",
+      "probe_routes.py",
+      "probe_transfer.py",
+      "runtime/probe_runtime.py",
+      "runtime/requirements.lock.json",
+      "runtime/resolve.py",
+      "tests/test_transfer_source.py",
+      "transfer_admission.py",
+      "upstream.tar"
+    ]
+  },
+  "plugin_manifest_sha256": "da06577095abc2afe907f64104fe49fe604b1e27f6b777c96714686fbe8689d4",
+  "plugin_path": "experiments/2026-10-04-bitsandbytes-tpu/plugin",
+  "reference": "PINNED_DEFAULT_PYTHON_BODIES",
+  "required_milestones": 8,
+  "retained_failures": "Worker302PASS/2FAIL synthetic CPU fixture lacked installation_status=PASS. Correction changed only the fixture.",
+  "review_document_delta": "Fixture description uses verifies and TPU execution; no implementation changed after worker freeze.",
+  "root_cloud_and_state_controls": 310,
+  "root_cloud_seconds": 67.71,
+  "root_comparison_controls": 5,
+  "root_scientific_controls": 19,
+  "root_scientific_seconds": 23.37,
+  "source_admission_sha256": "6647dbe8d4928a201020e7116105e836585bc1d4ad1adf3cc730976d9885b139",
+  "source_variant": "nested-v1",
+  "status": "ACCEPTED_NESTED79_PREPARATION"
+}

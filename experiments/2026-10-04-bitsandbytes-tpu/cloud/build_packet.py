@@ -9,6 +9,8 @@ import subprocess
 import tarfile
 import tempfile
 import zipfile
+from nested_contract import (NESTED_BINDINGS, NESTED_PROBE_SHA, NESTED_INPUT_SHA, NESTED_SOURCE_SHA,
+    NESTED_SCHEMA_SHA, NESTED_PLUGIN_MANIFEST_SHA, NESTED_SCOPE, NESTED_FILES, NESTED_SCHEMAS)
 
 HERE = Path(__file__).resolve().parent
 PROJECT = HERE.parents[2]
@@ -92,17 +94,20 @@ def build(upstream, out, plugin_manifest_sha256, *, experiment='api42', route_pr
           precision_probe=None, precision_probe_sha256=None, patch_manifest=None, patch_manifest_sha256=None,
           transfer_probe=None, transfer_probe_sha256=None, transfer_admission=None, transfer_admission_sha256=None,
           source_controls=None, source_controls_sha256=None, state_probe=None, state_probe_sha256=None,
-          state_helper=None, state_helper_sha256=None):
+          state_helper=None, state_helper_sha256=None, nested_probe=None, nested_probe_sha256=None,
+          nested_inputs=None, nested_inputs_sha256=None, nested_source=None, nested_source_sha256=None,
+          nested_schemas=None, nested_schemas_sha256=None, nested_plugin=None):
+    nested = experiment == 'nested-79'
     state = experiment == 'state-roundtrip'
-    transfer = experiment in {'transfer-api42', 'state-roundtrip'}
-    if experiment not in {'api42', 'device-route-diagnostic', 'precision-diagnostic', 'transfer-api42', 'state-roundtrip'}:
+    transfer = experiment in {'transfer-api42', 'state-roundtrip', 'nested-79'}
+    if experiment not in {'api42', 'device-route-diagnostic', 'precision-diagnostic', 'transfer-api42', 'state-roundtrip', 'nested-79'}:
         raise ValueError('EXPERIMENT_VARIANT')
-    if experiment in {'device-route-diagnostic', 'precision-diagnostic', 'transfer-api42', 'state-roundtrip'}:
+    if experiment in {'device-route-diagnostic', 'precision-diagnostic', 'transfer-api42', 'state-roundtrip', 'nested-79'}:
         if route_probe is None or route_probe.is_symlink() or not route_probe.is_file() or sha(route_probe) != route_probe_sha256:
             raise ValueError('ROUTE_PROBE_SOURCE')
     elif route_probe is not None or route_probe_sha256 is not None:
         raise ValueError('DIAGNOSTIC_PROBE_NOT_REQUESTED')
-    if experiment in {'precision-diagnostic', 'transfer-api42', 'state-roundtrip'}:
+    if experiment in {'precision-diagnostic', 'transfer-api42', 'state-roundtrip', 'nested-79'}:
         if route_probe_sha256 != PRECISION_ROUTE_PROBE_SHA:
             raise ValueError('PRECISION_ROUTE_PROBE_SOURCE')
         if precision_probe is None or precision_probe.is_symlink() or not precision_probe.is_file() or sha(precision_probe) != precision_probe_sha256:
@@ -143,6 +148,18 @@ def build(upstream, out, plugin_manifest_sha256, *, experiment='api42', route_pr
                 raise ValueError(error)
     elif any(value is not None for value in (state_probe, state_probe_sha256, state_helper, state_helper_sha256)):
         raise ValueError('STATE_SOURCE_NOT_REQUESTED')
+    nested_fields=((nested_probe,nested_probe_sha256,NESTED_PROBE_SHA,'probe_nested.py'),
+                   (nested_inputs,nested_inputs_sha256,NESTED_INPUT_SHA,'nested-inputs.json'),
+                   (nested_source,nested_source_sha256,NESTED_SOURCE_SHA,'nested-source.json'),
+                   (nested_schemas,nested_schemas_sha256,NESTED_SCHEMA_SHA,'nested-schemas.json'))
+    if nested:
+        for path,pin,expected,name in nested_fields:
+            if path is None or path.is_symlink() or not path.is_file() or pin!=expected or sha(path)!=expected:
+                raise ValueError('NESTED_REVIEWED_SOURCE:'+name)
+        if nested_plugin is None or nested_plugin.is_symlink() or not nested_plugin.is_dir() or plugin_manifest_sha256!=NESTED_PLUGIN_MANIFEST_SHA:
+            raise ValueError('NESTED_PLUGIN_VARIANT')
+    elif nested_plugin is not None or any(path is not None or pin is not None for path,pin,_,_ in nested_fields):
+        raise ValueError('NESTED_SOURCE_NOT_REQUESTED')
     if out.exists() or out.is_symlink():
         raise FileExistsError('FRESH_PACKET_REQUIRED')
     if subprocess.check_output(['git', '-C', str(upstream), 'rev-parse', 'HEAD'], text=True).strip() != COMMIT:
@@ -151,10 +168,14 @@ def build(upstream, out, plugin_manifest_sha256, *, experiment='api42', route_pr
     runtime = scientific / 'runtime'
     if sha(runtime / 'requirements.lock.json') != RUNTIME_SHA:
         raise ValueError('RUNTIME_LOCK')
-    plugin = PROJECT / 'packages/bitsandbytes-tpu'
+    plugin = nested_plugin if nested else PROJECT / 'packages/bitsandbytes-tpu'
     if sha(plugin / 'source-manifest.json') != plugin_manifest_sha256:
         raise ValueError('PLUGIN_MANIFEST')
     plugin_manifest = json.loads((plugin / 'source-manifest.json').read_text())
+    if not nested and (plugin_manifest.get('source_variant')=='nested-v1' or plugin_manifest.get('installed_python_files')==NESTED_FILES):
+        raise ValueError('NESTED_PLUGIN_NOT_REQUESTED')
+    if nested and (plugin_manifest.get('source_variant')!='nested-v1' or plugin_manifest.get('installed_python_files')!=NESTED_FILES or plugin_manifest.get('operator_schemas')!=NESTED_SCHEMAS):
+        raise ValueError('NESTED_PLUGIN_EXACT_MAP')
     if python_tree(plugin / 'src/bitsandbytes_tpu') != plugin_manifest['installed_python_files']:
         raise ValueError('PLUGIN_SOURCE_BYTES')
     for rec in plugin_manifest['files']:
@@ -179,6 +200,8 @@ def build(upstream, out, plugin_manifest_sha256, *, experiment='api42', route_pr
                  'bitsandbytes_tpu': {'files': plugin_manifest['installed_python_files']}}
     if transfer:
         admission['bitsandbytes']['patch_manifest_sha256'] = TRANSFER_PATCH_MANIFEST_SHA
+    if nested:
+        admission['bitsandbytes_tpu'].update(source_variant='nested-v1',nested_source_sha256=NESTED_SOURCE_SHA)
     write(out / 'source-admission.json', admission)
     for p in sorted((plugin / 'src').rglob('*.py')):
         relative = p.relative_to(plugin)
@@ -189,11 +212,15 @@ def build(upstream, out, plugin_manifest_sha256, *, experiment='api42', route_pr
         shutil.copyfile(plugin / name, out / 'plugin' / name)
     if python_tree(out / 'plugin/src/bitsandbytes_tpu') != plugin_manifest['installed_python_files']:
         raise ValueError('PLUGIN_COPIED_BYTES')
+    if nested:
+        for path,pin,_,name in nested_fields:
+            shutil.copyfile(path,out/name)
+            if sha(out/name)!=pin: raise ValueError('NESTED_COPIED_SOURCE')
     for name in ('probe_backend.py', 'probe-profile.json', 'probe-inputs.json'):
         shutil.copyfile(scientific / name, out / name)
-    if experiment in {'device-route-diagnostic', 'precision-diagnostic', 'transfer-api42', 'state-roundtrip'}:
+    if experiment in {'device-route-diagnostic', 'precision-diagnostic', 'transfer-api42', 'state-roundtrip', 'nested-79'}:
         shutil.copyfile(route_probe, out / 'probe_routes.py')
-    if experiment in {'precision-diagnostic', 'transfer-api42', 'state-roundtrip'}:
+    if experiment in {'precision-diagnostic', 'transfer-api42', 'state-roundtrip', 'nested-79'}:
         shutil.copyfile(precision_probe, out / 'probe_precision.py')
         if sha(out / 'probe_routes.py') != PRECISION_ROUTE_PROBE_SHA or sha(out / 'probe_precision.py') != precision_probe_sha256:
             raise ValueError('PRECISION_PROBE_COPIED_BYTES')
@@ -245,6 +272,8 @@ def build(upstream, out, plugin_manifest_sha256, *, experiment='api42', route_pr
     if state:
         manifest.update(state_probe_sha256=state_probe_sha256, state_helper_sha256=STATE_HELPER_SHA,
                         state_scope='FRESH_SAVE_AND_RESTORE_PROCESSES_ALL8_LINEAR')
+    if nested:
+        manifest.update(**{field:sha(out/name) for field,name in NESTED_BINDINGS.items()}, nested_scope=NESTED_SCOPE, nested_source_variant='nested-v1')
     write(out / 'manifest.json', manifest)
     with zipfile.ZipFile(out / 'payload.zip', 'w', zipfile.ZIP_DEFLATED) as z:
         for name in sorted([*members, 'manifest.json']):
@@ -262,14 +291,15 @@ if __name__ == '__main__':
     p.add_argument('--upstream', type=Path, required=True)
     p.add_argument('--out', type=Path, required=True)
     p.add_argument('--plugin-manifest-sha256', required=True)
-    p.add_argument('--experiment', choices=['api42', 'device-route-diagnostic', 'precision-diagnostic', 'transfer-api42', 'state-roundtrip'], default='api42')
+    p.add_argument('--experiment', choices=['api42', 'device-route-diagnostic', 'precision-diagnostic', 'transfer-api42', 'state-roundtrip', 'nested-79'], default='api42')
     p.add_argument('--route-probe', type=Path)
     p.add_argument('--route-probe-sha256')
     p.add_argument('--precision-probe', type=Path)
     p.add_argument('--precision-probe-sha256')
-    for name in ('patch-manifest', 'transfer-probe', 'transfer-admission', 'source-controls', 'state-probe', 'state-helper'):
+    for name in ('patch-manifest', 'transfer-probe', 'transfer-admission', 'source-controls', 'state-probe', 'state-helper', 'nested-probe', 'nested-inputs', 'nested-source', 'nested-schemas'):
         p.add_argument('--' + name, type=Path)
         p.add_argument('--' + name + '-sha256')
+    p.add_argument('--nested-plugin',type=Path)
     a = p.parse_args()
     print(json.dumps(build(a.upstream, a.out, a.plugin_manifest_sha256, experiment=a.experiment,
                           route_probe=a.route_probe, route_probe_sha256=a.route_probe_sha256,
@@ -279,4 +309,8 @@ if __name__ == '__main__':
                           transfer_admission=a.transfer_admission, transfer_admission_sha256=a.transfer_admission_sha256,
                           source_controls=a.source_controls, source_controls_sha256=a.source_controls_sha256,
                           state_probe=a.state_probe, state_probe_sha256=a.state_probe_sha256,
-                          state_helper=a.state_helper, state_helper_sha256=a.state_helper_sha256), sort_keys=True))
+                          state_helper=a.state_helper, state_helper_sha256=a.state_helper_sha256,
+                          nested_probe=a.nested_probe,nested_probe_sha256=a.nested_probe_sha256,
+                          nested_inputs=a.nested_inputs,nested_inputs_sha256=a.nested_inputs_sha256,
+                          nested_source=a.nested_source,nested_source_sha256=a.nested_source_sha256,
+                          nested_schemas=a.nested_schemas,nested_schemas_sha256=a.nested_schemas_sha256,nested_plugin=a.nested_plugin), sort_keys=True))
