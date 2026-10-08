@@ -1,5 +1,18 @@
 # Change log
 
+## 2026-10-08 — Colab allocation repeat
+
+- Retain the second assignment timeout with the same reviewed transfer payload.
+- Record zero executed scientific cases and complete local process closure.
+- Record the signed-in browser state, empty session dialog, and hardware selection limits.
+- Require new diagnostic information before another allocation request.
+- Keep API42 and M3 unqualified, with one accepted milestone out of eight.
+
+Validation: The reviewer examined the second allocation error and all owner closure records.
+Seven artifact bindings passed independent hash and size comparisons.
+The reviewer also examined the browser interface without requesting a runtime.
+Refer to [the repeat record](docs/changes/r2-colab-allocation-repeat.md).
+
 ## 2026-10-08 — Colab transfer allocation timeout
 
 - Retain the provider timeout during the first R2 TPU allocation request.

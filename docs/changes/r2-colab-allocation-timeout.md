@@ -15,6 +15,6 @@ This is an allocation failure, not a numerical test result.
 R2, API42, and M3 remain unqualified.
 Accepted milestones remain **1 of 8**.
 
-The next attempt will use the same reviewed payload and one bounded allocation.
-No runtime version, source byte, input, numerical gate, or hardware request will change for that attempt.
+The reviewer then permitted one bounded repeat with the same reviewed payload.
+That repeat also ended during allocation; refer to [the repeat record](r2-colab-allocation-repeat.md).
 Refer to [the machine-readable record](../../experiments/2026-10-04-bitsandbytes-tpu/results/transfer-allocation-timeout.json).

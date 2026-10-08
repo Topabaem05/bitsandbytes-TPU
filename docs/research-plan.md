@@ -49,7 +49,12 @@ Use `highest` before graph construction for the next correctness experiments.
 Refer to [the precision result](changes/r1-precision-colab.md).
 
 The original CPU-to-XLA transfers failed during parameter data assignment in the earlier run.
-An explicit source correction now requires local controls and actual device tests.
+The reviewer accepted the explicit source correction and its local controls for a separate device experiment.
+Two Colab requests ended during allocation before this experiment could execute.
+The same payload failed with `requests.ReadTimeout` during each assignment POST.
+Both owners confirmed empty server lists, zero active usage, and closed local processes.
+Examine the allocation request path before another attempt.
+Refer to [the allocation repeat](changes/r2-colab-allocation-repeat.md).
 Keep that transfer requirement open until its own test passes.
 Do not replace the upstream classes or methods dynamically during execution.
 The next transfer experiment must also execute the complete fixed API42 matrix.

@@ -11,12 +11,14 @@ The first target is NF4 quantization and `bitsandbytes.nn.Linear4bit` on a TPU.
 The latest Colab comparison passed its fixed FP32 gates with native precision `high` and `highest`.
 The `default` mode reproduced the earlier forward and input-gradient failures.
 The next correctness experiments will use `highest` before graph construction.
-The original CPU-to-XLA module transfer still requires a source correction and device tests.
+The reviewed CPU-to-XLA transfer correction passed local controls and still requires device tests.
+Two Colab allocation requests ended with response timeouts before the transfer experiment could execute.
 BF16 forward controls passed; BF16 gradients remain untested.
 Four executed module routes passed reconstruction within the same process.
 This does not establish restoration in a new process.
 The full 42-case API test and milestones M2 and M3 remain unqualified.
 Refer to [the precision result](docs/changes/r1-precision-colab.md).
+Refer to [the allocation repeat](docs/changes/r2-colab-allocation-repeat.md) for the current execution blocker.
 
 The [October 8 source inspection](docs/research/2026-10-08/README.md) covers each design area before further implementation.
 It contains current documentation, original papers, fixed source revisions, and explicit version limits.

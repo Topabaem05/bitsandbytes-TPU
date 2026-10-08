@@ -1,0 +1,82 @@
+{
+  "accepted_milestones": {
+    "completed": 1,
+    "required": 8
+  },
+  "allocation_attempts_this_run": 1,
+  "allocation_attempts_total": 2,
+  "api42_status": "NOT_QUALIFIED",
+  "bindings": {
+    "allocation_log": {
+      "bytes": 25280,
+      "sha256": "d6903bdaa8b8febd2a3c148a27ff6fa5ce56dd177ccc4d085ab7fc2cc4fe02e7"
+    },
+    "browser_observation": {
+      "bytes": 452,
+      "sha256": "ca1e88219f27a8b8776cd42c350d1fa9a511216fc2e6c969e882f49c68136dd8"
+    },
+    "host_finalization": {
+      "bytes": 2313,
+      "sha256": "d615825927c639f5d448142d489f01411952b43ab32b3a882c7f65e21f04a034"
+    },
+    "manifest": {
+      "bytes": 6705,
+      "sha256": "0b536478286cd92614c8ce700a59d72d47feee61800856eef3bd530c642d4e95"
+    },
+    "owner": {
+      "bytes": 14858,
+      "sha256": "bc377ebaec94a50f26c10a3857055279793fdea922d1cc512ad9947eb9ee7afb"
+    },
+    "packet": {
+      "bytes": 946038,
+      "sha256": "e6157b159396ee0a7ce07814f650edf5dfd31e6be900592f58f1130b7a3eee82"
+    },
+    "root_acceptance": {
+      "bytes": 2327,
+      "sha256": "0cf81438ec8219f5878166a41911f182269b04c7a552a8b9452af07acb7c4380"
+    }
+  },
+  "browser_diagnosis": {
+    "active_session_dialog_has_no_session_rows": true,
+    "allocation_requested": false,
+    "capacity_conclusion": "NOT_ESTABLISHED",
+    "hardware_settings_saved": false,
+    "identity_details_omitted": true,
+    "method": "Read-only Colab browser UI through cua_repl",
+    "observed_date": "2026-10-08",
+    "runtime_disconnected": true,
+    "signed_in_account_control_present": true,
+    "v5e_1_tpu_selection_enabled": true,
+    "v6e_1_tpu_selection_enabled": true
+  },
+  "closure": {
+    "cleanup_errors": [],
+    "handler_restoration_errors": [],
+    "host_cleanup_errors": [],
+    "host_seconds": 124.6068662079997,
+    "owner_seconds": 123.52661204338074,
+    "server_empty_observed": true,
+    "usage_zero_observed": true
+  },
+  "cpu_oracle": "NOT_RUN",
+  "experiment": "transfer-api42",
+  "failure": {
+    "cause": "UNDETERMINED",
+    "phase": "assignment POST",
+    "read_timeout_seconds": 120,
+    "type": "requests.ReadTimeout"
+  },
+  "first_attempt_record": "transfer-allocation-timeout.json",
+  "format": "bnb-tpu.transfer-allocation-repeat.v1",
+  "installation": "NOT_RUN",
+  "m3_status": "NOT_QUALIFIED",
+  "next_action": "Inspect the allocation request path before any further allocation attempt. Continue independent local preparation.",
+  "packet_unchanged": true,
+  "requested_hardware": "V6E1",
+  "reviewed_date": "2026-10-08",
+  "runtime_probe": "NOT_RUN",
+  "source_commit": "db4528109af9b639cae36b3fef156fee356c5b46",
+  "source_controls": "NOT_RUN",
+  "status": "BLOCKED_DURING_ALLOCATION",
+  "tpu_cases_executed": 0
+}
