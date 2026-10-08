@@ -13,6 +13,7 @@ from nested_contract import (NESTED_BINDINGS, NESTED_PROBE_SHA, NESTED_INPUT_SHA
     NESTED_SCHEMA_SHA, NESTED_PLUGIN_MANIFEST_SHA, NESTED_SCOPE, NESTED_FILES, NESTED_SCHEMAS)
 
 from nested_state_contract import (NESTED_STATE_BINDINGS,NESTED_STATE_PROBE_SHA,NESTED_STATE_SCOPE,verify_dependency)
+import primitive_contract as PC
 
 HERE = Path(__file__).resolve().parent
 PROJECT = HERE.parents[2]
@@ -99,19 +100,21 @@ def build(upstream, out, plugin_manifest_sha256, *, experiment='api42', route_pr
           state_helper=None, state_helper_sha256=None, nested_probe=None, nested_probe_sha256=None,
           nested_inputs=None, nested_inputs_sha256=None, nested_source=None, nested_source_sha256=None,
           nested_schemas=None, nested_schemas_sha256=None, nested_plugin=None, nested_state_probe=None, nested_state_probe_sha256=None,
-          nested79_dependency=None, nested79_dependency_sha256=None):
+          nested79_dependency=None, nested79_dependency_sha256=None, primitive_source=None,
+          primitive_manifest=None, primitive_manifest_sha256=None, primitive_state_probe=None, primitive_state_probe_sha256=None):
+    primitive=experiment==PC.MODE
     nested_state = experiment == 'nested-state-8'
-    nested = experiment in {'nested-79','nested-state-8'}
+    nested = experiment in {'nested-79','nested-state-8',PC.MODE}
     state = experiment == 'state-roundtrip'
-    transfer = experiment in {'transfer-api42', 'state-roundtrip', 'nested-79', 'nested-state-8'}
-    if experiment not in {'api42', 'device-route-diagnostic', 'precision-diagnostic', 'transfer-api42', 'state-roundtrip', 'nested-79', 'nested-state-8'}:
+    transfer = experiment in {'transfer-api42', 'state-roundtrip', 'nested-79', 'nested-state-8', PC.MODE}
+    if experiment not in {'api42', 'device-route-diagnostic', 'precision-diagnostic', 'transfer-api42', 'state-roundtrip', 'nested-79', 'nested-state-8', PC.MODE}:
         raise ValueError('EXPERIMENT_VARIANT')
-    if experiment in {'device-route-diagnostic', 'precision-diagnostic', 'transfer-api42', 'state-roundtrip', 'nested-79', 'nested-state-8'}:
+    if experiment in {'device-route-diagnostic', 'precision-diagnostic', 'transfer-api42', 'state-roundtrip', 'nested-79', 'nested-state-8', PC.MODE}:
         if route_probe is None or route_probe.is_symlink() or not route_probe.is_file() or sha(route_probe) != route_probe_sha256:
             raise ValueError('ROUTE_PROBE_SOURCE')
     elif route_probe is not None or route_probe_sha256 is not None:
         raise ValueError('DIAGNOSTIC_PROBE_NOT_REQUESTED')
-    if experiment in {'precision-diagnostic', 'transfer-api42', 'state-roundtrip', 'nested-79', 'nested-state-8'}:
+    if experiment in {'precision-diagnostic', 'transfer-api42', 'state-roundtrip', 'nested-79', 'nested-state-8', PC.MODE}:
         if route_probe_sha256 != PRECISION_ROUTE_PROBE_SHA:
             raise ValueError('PRECISION_ROUTE_PROBE_SOURCE')
         if precision_probe is None or precision_probe.is_symlink() or not precision_probe.is_file() or sha(precision_probe) != precision_probe_sha256:
@@ -174,6 +177,23 @@ def build(upstream, out, plugin_manifest_sha256, *, experiment='api42', route_pr
         verify_dependency(json.loads(nested79_dependency.read_text()))
     elif any(v is not None for v in (nested_state_probe,nested_state_probe_sha256,nested79_dependency,nested79_dependency_sha256)):
         raise ValueError('NESTED_STATE_SOURCE_NOT_REQUESTED')
+    if primitive:
+        if (primitive_source is None or primitive_source.is_symlink() or not primitive_source.is_dir() or
+                primitive_manifest is None or primitive_manifest.is_symlink() or not primitive_manifest.is_file() or
+                primitive_manifest_sha256!=PC.MANIFEST_SHA or sha(primitive_manifest)!=PC.MANIFEST_SHA):
+            raise ValueError('PRIMITIVE_SOURCE_MANIFEST')
+        record=json.loads(primitive_manifest.read_text())
+        if record.get('sources')!=PC.SOURCES:
+            raise ValueError('PRIMITIVE_REVIEWED_SOURCE_MAP')
+        for name,row in PC.SOURCES.items():
+            path=primitive_source/name
+            if path.is_symlink() or not path.is_file() or sha(path)!=row['sha256'] or path.stat().st_size!=row['bytes']:
+                raise ValueError('PRIMITIVE_SOURCE_BYTES:'+name)
+        if (primitive_state_probe is None or primitive_state_probe.is_symlink() or not primitive_state_probe.is_file() or
+                primitive_state_probe_sha256!=PC.STATE_SHA or sha(primitive_state_probe)!=PC.STATE_SHA):
+            raise ValueError('PRIMITIVE_STATE_HELPER')
+    elif any(v is not None for v in (primitive_source,primitive_manifest,primitive_manifest_sha256,primitive_state_probe,primitive_state_probe_sha256)):
+        raise ValueError('PRIMITIVE_SOURCE_NOT_REQUESTED')
     if out.exists() or out.is_symlink():
         raise FileExistsError('FRESH_PACKET_REQUIRED')
     if subprocess.check_output(['git', '-C', str(upstream), 'rev-parse', 'HEAD'], text=True).strip() != COMMIT:
@@ -232,9 +252,9 @@ def build(upstream, out, plugin_manifest_sha256, *, experiment='api42', route_pr
             if sha(out/name)!=pin: raise ValueError('NESTED_COPIED_SOURCE')
     for name in ('probe_backend.py', 'probe-profile.json', 'probe-inputs.json'):
         shutil.copyfile(scientific / name, out / name)
-    if experiment in {'device-route-diagnostic', 'precision-diagnostic', 'transfer-api42', 'state-roundtrip', 'nested-79', 'nested-state-8'}:
+    if experiment in {'device-route-diagnostic', 'precision-diagnostic', 'transfer-api42', 'state-roundtrip', 'nested-79', 'nested-state-8', PC.MODE}:
         shutil.copyfile(route_probe, out / 'probe_routes.py')
-    if experiment in {'precision-diagnostic', 'transfer-api42', 'state-roundtrip', 'nested-79', 'nested-state-8'}:
+    if experiment in {'precision-diagnostic', 'transfer-api42', 'state-roundtrip', 'nested-79', 'nested-state-8', PC.MODE}:
         shutil.copyfile(precision_probe, out / 'probe_precision.py')
         if sha(out / 'probe_routes.py') != PRECISION_ROUTE_PROBE_SHA or sha(out / 'probe_precision.py') != precision_probe_sha256:
             raise ValueError('PRECISION_PROBE_COPIED_BYTES')
@@ -257,6 +277,10 @@ def build(upstream, out, plugin_manifest_sha256, *, experiment='api42', route_pr
     if nested_state:
         shutil.copyfile(nested_state_probe,out/'probe_nested_state.py')
         shutil.copyfile(nested79_dependency,out/'nested79-dependency.json')
+    if primitive:
+        for name,row in PC.SOURCES.items():shutil.copyfile(primitive_source/name,out/name)
+        shutil.copyfile(primitive_manifest,out/'primitive-manifest.json')
+        shutil.copyfile(primitive_state_probe,out/'probe_nested_state.py')
     for name in ('resolve.py', 'probe_runtime.py', 'requirements.lock.json'):
         dest = out / 'runtime' / name
         dest.parent.mkdir(exist_ok=True)
@@ -293,6 +317,10 @@ def build(upstream, out, plugin_manifest_sha256, *, experiment='api42', route_pr
         manifest.update(**{field:sha(out/name) for field,name in NESTED_BINDINGS.items()}, nested_scope=NESTED_SCOPE, nested_source_variant='nested-v1')
     if nested_state:
         manifest.update(nested_state_probe_sha256=nested_state_probe_sha256,nested79_dependency_sha256=nested79_dependency_sha256,nested_state_scope=NESTED_STATE_SCOPE,nested_state_variant='nested-state-v1')
+    if primitive:
+        manifest.update(**{field:sha(out/name) for field,name in PC.BINDINGS.items()},
+                        primitive_scope=PC.SCOPE,primitive_variant=PC.VARIANT,primitive_diagnostic_only=True)
+        PC.payload(out,manifest)
     write(out / 'manifest.json', manifest)
     with zipfile.ZipFile(out / 'payload.zip', 'w', zipfile.ZIP_DEFLATED) as z:
         for name in sorted([*members, 'manifest.json']):
@@ -310,15 +338,16 @@ if __name__ == '__main__':
     p.add_argument('--upstream', type=Path, required=True)
     p.add_argument('--out', type=Path, required=True)
     p.add_argument('--plugin-manifest-sha256', required=True)
-    p.add_argument('--experiment', choices=['api42', 'device-route-diagnostic', 'precision-diagnostic', 'transfer-api42', 'state-roundtrip', 'nested-79', 'nested-state-8'], default='api42')
+    p.add_argument('--experiment', choices=['api42', 'device-route-diagnostic', 'precision-diagnostic', 'transfer-api42', 'state-roundtrip', 'nested-79', 'nested-state-8', PC.MODE], default='api42')
     p.add_argument('--route-probe', type=Path)
     p.add_argument('--route-probe-sha256')
     p.add_argument('--precision-probe', type=Path)
     p.add_argument('--precision-probe-sha256')
-    for name in ('patch-manifest', 'transfer-probe', 'transfer-admission', 'source-controls', 'state-probe', 'state-helper', 'nested-probe', 'nested-inputs', 'nested-source', 'nested-schemas', 'nested-state-probe', 'nested79-dependency'):
+    for name in ('patch-manifest', 'transfer-probe', 'transfer-admission', 'source-controls', 'state-probe', 'state-helper', 'nested-probe', 'nested-inputs', 'nested-source', 'nested-schemas', 'nested-state-probe', 'nested79-dependency', 'primitive-manifest', 'primitive-state-probe'):
         p.add_argument('--' + name, type=Path)
         p.add_argument('--' + name + '-sha256')
     p.add_argument('--nested-plugin',type=Path)
+    p.add_argument('--primitive-source',type=Path)
     a = p.parse_args()
     print(json.dumps(build(a.upstream, a.out, a.plugin_manifest_sha256, experiment=a.experiment,
                           route_probe=a.route_probe, route_probe_sha256=a.route_probe_sha256,
@@ -334,4 +363,6 @@ if __name__ == '__main__':
                           nested_source=a.nested_source,nested_source_sha256=a.nested_source_sha256,
                           nested_schemas=a.nested_schemas,nested_schemas_sha256=a.nested_schemas_sha256,nested_plugin=a.nested_plugin,
                           nested_state_probe=a.nested_state_probe,nested_state_probe_sha256=a.nested_state_probe_sha256,
-                          nested79_dependency=a.nested79_dependency,nested79_dependency_sha256=a.nested79_dependency_sha256), sort_keys=True))
+                          nested79_dependency=a.nested79_dependency,nested79_dependency_sha256=a.nested79_dependency_sha256,
+                          primitive_source=a.primitive_source,primitive_manifest=a.primitive_manifest,primitive_manifest_sha256=a.primitive_manifest_sha256,
+                          primitive_state_probe=a.primitive_state_probe,primitive_state_probe_sha256=a.primitive_state_probe_sha256), sort_keys=True))

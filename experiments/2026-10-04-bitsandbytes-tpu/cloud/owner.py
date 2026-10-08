@@ -19,6 +19,7 @@ sys.path.insert(0, str(HERE / 'ownership'))
 from cleanup_lifecycle import Ownership
 from lifecycle import durable_json
 import native_contract as NC
+import primitive_contract as PC
 from remote import sha, verify_archive, verify_experiment, verify_transfer_payload, validate_source_controls, TRANSFER_BINDINGS, TRANSFER_PATCH_MANIFEST_SHA, STATE_BINDINGS
 from nested_contract import (NESTED_BINDINGS,NESTED_SCOPE,NESTED_SOURCE_SHA,NESTED_PLUGIN_MANIFEST_SHA,
     NESTED_FILES,verify_nested_payload,nested_cli)
@@ -68,13 +69,14 @@ def preflight(packet, expected):
         p = packet / name
         if p.is_symlink() or sha(p) != rec['sha256'] or p.stat().st_size != rec['bytes']:
             raise ValueError('PACKET_LOCAL_FILE')
-    if manifest.get('experiment') in {'transfer-api42', 'state-roundtrip', 'nested-79', 'nested-state-8', 'm6-native-boundary'}:
+    if manifest.get('experiment') in {'transfer-api42', 'state-roundtrip', 'nested-79', 'nested-state-8', 'm6-native-boundary', PC.MODE}:
         verify_transfer_payload(packet, manifest)
-    if manifest.get('experiment') in {'nested-79','nested-state-8'}:
+    if manifest.get('experiment') in {'nested-79','nested-state-8',PC.MODE}:
         verify_nested_payload(packet,manifest)
     if manifest.get('experiment')=='nested-state-8':
         verify_state_payload(packet,manifest)
     if manifest.get('experiment')==NC.MODE: NC.payload(packet,manifest)
+    if manifest.get('experiment')==PC.MODE:PC.payload(packet,manifest)
     for p in HERE.rglob('*.py'):
         if 'tests' in p.relative_to(HERE).parts or p.name == 'build_packet.py':
             continue
@@ -187,13 +189,14 @@ def drive(packet, output, expected, acceptance, acceptance_sha, cli_python, cli_
               'runtime_lock_sha256': manifest['runtime_lock_sha256'],
               'budget': manifest['budget'], 'one_allocation_only': True, 'provider_or_solver': 'FORBIDDEN'}
     experiment = manifest.get('experiment', 'api42')
+    primitive=experiment==PC.MODE
     diagnostic = experiment in {'device-route-diagnostic', 'precision-diagnostic'}
     precision = experiment == 'precision-diagnostic'
     nested_state = experiment=='nested-state-8'
-    nested = experiment in {'nested-79','nested-state-8'}
+    nested = experiment in {'nested-79','nested-state-8',PC.MODE}
     state = experiment == 'state-roundtrip'
     native = experiment == 'm6-native-boundary'
-    transfer = experiment in {'transfer-api42', 'state-roundtrip', 'nested-79', 'nested-state-8', 'm6-native-boundary'}
+    transfer = experiment in {'transfer-api42', 'state-roundtrip', 'nested-79', 'nested-state-8', 'm6-native-boundary', PC.MODE}
     if diagnostic:
         fields.update(experiment=experiment, diagnostic_only=True, route_probe_sha256=manifest['route_probe_sha256'])
     if precision:
@@ -212,6 +215,9 @@ def drive(packet, output, expected, acceptance, acceptance_sha, cli_python, cli_
             fields['state_scope'] = manifest['state_scope']
     if native:
         fields.update(native_manifest_sha256=NC.MANIFEST_SHA,m2_dependency_sha256=manifest['m2_dependency_sha256'],native_source_variant=NC.VARIANT,native_scope=manifest['native_scope'])
+    if primitive:
+        fields.update(**{field:manifest[field] for field in PC.BINDINGS},primitive_variant=PC.VARIANT,
+                      primitive_scope=PC.SCOPE,primitive_diagnostic_only=True)
     adopting=browser_adoption is not None or browser_adoption_sha256 is not None
     adoption=None
     if adopting:
@@ -316,10 +322,14 @@ def drive(packet, output, expected, acceptance, acceptance_sha, cli_python, cli_
             raise ValueError('NESTED_STATE_REMOTE_PHASE_BINDING:'+label)
         if state and any(r.get(field) != manifest[field] for field in STATE_BINDINGS):
             raise ValueError('STATE_PHASE_SOURCE_BINDING:' + label)
+        if primitive and (any(r.get(field)!=manifest[field] for field in PC.BINDINGS) or
+                r.get('primitive_variant')!=PC.VARIANT or r.get('primitive_scope')!=PC.SCOPE or r.get('primitive_diagnostic_only') is not True):
+            raise ValueError('PRIMITIVE_REMOTE_PHASE_BINDING:'+label)
         return r
 
     receipt = None
     native_gate = None
+    primitive_gate = None
     try:
         for sig in prior:
             signal.signal(sig, interrupted)
@@ -365,10 +375,28 @@ def drive(packet, output, expected, acceptance, acceptance_sha, cli_python, cli_
         operation('09-install', 'install', 1200)
         phase_receipt('09-install', 'INSTALLED_NOT_QUALIFIED')
         operation('10-cpu', 'cpu', 1800)
-        phase_receipt('10-cpu', 'CPU_ORACLE_READY_TPU_NOT_RUN')
+        cpu_receipt=phase_receipt('10-cpu', 'CPU_ORACLE_READY_TPU_NOT_RUN')
         download('11-cpu-seal', base + '/records/cpu-oracle/oracle-seal.json', output / 'cpu-oracle-seal.json', reserve=660)
         seal = json.loads((output / 'cpu-oracle-seal.json').read_text())
-        if native:
+        if primitive:
+            primitive_cpu=output/'primitive-cpu';primitive_cpu.mkdir()
+            download('11a-primitive-inventory',base+'/records/primitive-cpu-inventory.json',primitive_cpu/'inventory.json',reserve=660)
+            download('11b-primitive-parts',base+'/primitive-cpu-parts/manifest.json',primitive_cpu/'parts-manifest.json',reserve=660)
+            import transport
+            parts=transport.validate_manifest(json.loads((primitive_cpu/'parts-manifest.json').read_text()),cpu_receipt['primitive_cpu_evidence_sha256'],cpu_receipt['primitive_cpu_evidence_bytes'])
+            (primitive_cpu/'parts').mkdir()
+            for i,part in enumerate(parts['parts']):
+                download('11c-primitive-part-'+str(i),base+'/primitive-cpu-parts/'+part['name'],primitive_cpu/'parts'/part['name'],reserve=660)
+            transport.assemble(primitive_cpu/'parts-manifest.json',primitive_cpu/'parts',primitive_cpu/'evidence.zip',
+                               expected_manifest_sha256=sha(primitive_cpu/'parts-manifest.json'),
+                               expected_sha256=cpu_receipt['primitive_cpu_evidence_sha256'],expected_bytes=cpu_receipt['primitive_cpu_evidence_bytes'])
+            recovered_cpu=PC.recover_cpu(primitive_cpu,cpu_receipt)
+            primitive_gate,cpu_observations=PC.cpu_gate(packet,recovered_cpu,cpu_receipt)
+            PC.verify_root_gate(primitive_gate,cpu_receipt,manifest)
+            durable_json(output/'primitive-cpu-validation.json',cpu_observations)
+            owner['primitive_root_cpu_gate']=primitive_gate
+            if sha(output/'cpu-oracle-seal.json')!=primitive_gate['oracle_sha256']:raise ValueError('PRIMITIVE_STANDALONE_ARCHIVED_ORACLE_SEAL')
+        elif native:
             cpu_receipt=phase_receipt('11-native-cpu','CPU_ORACLE_READY_TPU_NOT_RUN')
             native_cpu=output/'native-cpu';native_cpu.mkdir()
             download('11a-native-inventory',base+'/records/native-cpu-inventory.json',native_cpu/'inventory.json',reserve=660)
@@ -398,10 +426,10 @@ def drive(packet, output, expected, acceptance, acceptance_sha, cli_python, cli_
                 raise ValueError('RECOVERED_NESTED_STATE_ORACLE_BINDING')
             owner['recovered_oracle_sha256']=sha(output/'state-cpu-oracle-seal.json')
         launch = output / 'launch.json'
-        durable_json(launch,native_gate if native else {'oracle_sha256': owner['recovered_oracle_sha256'],**({'nested_oracle_sha256':owner['recovered_nested_oracle_sha256']} if nested_state else {})})
+        durable_json(launch,primitive_gate if primitive else native_gate if native else {'oracle_sha256': owner['recovered_oracle_sha256'],**({'nested_oracle_sha256':owner['recovered_nested_oracle_sha256']} if nested_state else {})})
         upload('12-oracle-admission', launch, base + '/launch.json')
-        operation('13-tpu', 'native' if native else 'nested-state' if nested_state else 'nested' if nested else 'state' if state else 'transfer' if transfer else 'precision' if precision else 'routes' if diagnostic else 'tpu', 1800)
-        phase_receipt('13-tpu', 'NATIVE_CHILD_TERMINAL_LOCAL_REVIEW_REQUIRED' if native else 'NESTED_STATE_CHILD_TERMINAL_LOCAL_REVIEW_REQUIRED' if nested_state else 'NESTED_CHILD_TERMINAL_LOCAL_REVIEW_REQUIRED' if nested else 'STATE_CHILD_TERMINAL_LOCAL_REVIEW_REQUIRED' if state else 'TRANSFER_CHILD_TERMINAL_LOCAL_REVIEW_REQUIRED' if transfer else
+        operation('13-tpu', 'primitives' if primitive else 'native' if native else 'nested-state' if nested_state else 'nested' if nested else 'state' if state else 'transfer' if transfer else 'precision' if precision else 'routes' if diagnostic else 'tpu', 1800)
+        phase_receipt('13-tpu', 'PRIMITIVE_CHILD_TERMINAL_LOCAL_REVIEW_REQUIRED' if primitive else 'NATIVE_CHILD_TERMINAL_LOCAL_REVIEW_REQUIRED' if native else 'NESTED_STATE_CHILD_TERMINAL_LOCAL_REVIEW_REQUIRED' if nested_state else 'NESTED_CHILD_TERMINAL_LOCAL_REVIEW_REQUIRED' if nested else 'STATE_CHILD_TERMINAL_LOCAL_REVIEW_REQUIRED' if state else 'TRANSFER_CHILD_TERMINAL_LOCAL_REVIEW_REQUIRED' if transfer else
                       'PRECISION_CHILD_TERMINAL_LOCAL_REVIEW_REQUIRED' if precision else
                       'DEVICE_ROUTE_CHILD_TERMINAL_LOCAL_REVIEW_REQUIRED' if diagnostic else 'TPU_CHILD_TERMINAL_LOCAL_REVIEW_REQUIRED')
         owner['status'] = 'CHILD_TERMINAL_RETRIEVAL_REQUIRED'
@@ -476,6 +504,9 @@ def drive(packet, output, expected, acceptance, acceptance_sha, cli_python, cli_
             if native:
                 missing=native_readback_missing(owner,receipt,output,native_gate)
                 if missing:raise _NativeReadbackUnavailable(','.join(missing))
+            if primitive:
+                missing=PC.readback_missing(owner,receipt,output,primitive_gate)
+                if missing:raise PC.ReadbackUnavailable(','.join(missing))
             # The existing probe verifier uses retained arrays; no TPU or CPU science is repeated.
             verify = Ownership(output)
             log = (output / 'local-verifier.raw').open('wb', buffering=0)
@@ -484,8 +515,8 @@ def drive(packet, output, expected, acceptance, acceptance_sha, cli_python, cli_
                 if precision or transfer:
                     error_log = (output / 'local-verifier.stderr.raw').open('wb', buffering=0)
                 with verify.guard(clamp(started, 120, 0)):
-                    probe = 'probe_nested_state.py' if nested_state else 'probe_nested.py' if nested else 'probe_state_roundtrip.py' if state else 'probe_transfer.py' if transfer else 'probe_precision.py' if precision else 'probe_routes.py' if diagnostic else 'probe_backend.py'
-                    actual = 'recovered/nested-state' if nested_state else 'recovered/nested' if nested else 'recovered/state' if state else 'recovered/transfer' if transfer else 'recovered/precision' if precision else 'recovered/device-routes' if diagnostic else 'recovered/tpu-actual'
+                    probe = 'probe_primitives.py' if primitive else 'probe_nested_state.py' if nested_state else 'probe_nested.py' if nested else 'probe_state_roundtrip.py' if state else 'probe_transfer.py' if transfer else 'probe_precision.py' if precision else 'probe_routes.py' if diagnostic else 'probe_backend.py'
+                    actual = 'recovered/primitives' if primitive else 'recovered/nested-state' if nested_state else 'recovered/nested' if nested else 'recovered/state' if state else 'recovered/transfer' if transfer else 'recovered/precision' if precision else 'recovered/device-routes' if diagnostic else 'recovered/tpu-actual'
                     argv = [sys.executable, '-B', str(packet / probe), 'verify', '--admission-sha256', manifest['source_admission_sha256'], '--oracle', str(output / ('recovered/state-cpu-oracle' if nested_state else 'recovered/cpu-oracle')), '--oracle-sha256', owner['recovered_oracle_sha256'], '--actual', str(output / actual)]
                     if (diagnostic or transfer) and not state and not nested:
                         argv += ['--backend-probe', str(packet / 'probe_backend.py')]
@@ -493,7 +524,9 @@ def drive(packet, output, expected, acceptance, acceptance_sha, cli_python, cli_
                         argv += ['--route-probe', str(packet / 'probe_routes.py')]
                     if transfer and not state and not nested:
                         argv += ['--precision-probe', str(packet / 'probe_precision.py'), '--patch-manifest', str(packet / 'patches/params4bit-xla-v1.json')]
-                    if nested_state:
+                    if primitive:
+                        argv += [str(x) for x in PC.cli(packet)]
+                    elif nested_state:
                         argv += [str(x) for x in state_cli(packet,output/'recovered/cpu-oracle',owner['recovered_nested_oracle_sha256'])]
                     elif nested:
                         argv += [str(x) for x in nested_cli(packet)]
@@ -527,7 +560,7 @@ def drive(packet, output, expected, acceptance, acceptance_sha, cli_python, cli_
                 valid = (report.get('record_validation') == 'PASS' and report.get('m3_status') == 'NOT_QUALIFIED' and
                          report.get('numerical_status') in {'PASS', 'FAIL'} and
                          (state or report.get('api42_status') == report['numerical_status']))
-                if nested and not nested_state:
+                if nested and not nested_state and not primitive:
                     expected_ids=[case['id'] for case in json.loads((packet/'nested-inputs.json').read_text())['cases']]
                     valid=(report.get('record_validation')=='PASS' and report.get('m4_status')=='NOT_QUALIFIED' and
                            report.get('m3_status')=='DEPENDENCY_NOT_ACCEPTED_BY_THIS_PROBE' and
@@ -539,6 +572,8 @@ def drive(packet, output, expected, acceptance, acceptance_sha, cli_python, cli_
                            report.get('numerical_status') in {'PASS','FAIL','ERROR'} and
                            [row.get('case_id') for row in report.get('rows',[])]==expected_ids and
                            report.get('native_cpu_golden')==report.get('cuda_golden')=='NOT_RUN')
+                if primitive:
+                    valid=PC.validate_report(report, packet)
                 bound = (receipt.get('experiment') == experiment and receipt.get('precision') == 'highest' and
                          all(receipt.get(field) == manifest[field] for field in TRANSFER_BINDINGS) and
                          (not state or all(receipt.get(field) == manifest[field] for field in STATE_BINDINGS)) and
@@ -547,7 +582,12 @@ def drive(packet, output, expected, acceptance, acceptance_sha, cli_python, cli_
                          receipt.get('runtime_lock_sha256') == manifest['runtime_lock_sha256'] and receipt.get('allocation_epoch') == started)
                 if nested:
                     bound=(bound and all(receipt.get(field)==manifest[field] for field in NESTED_BINDINGS))
-                    if nested_state:
+                    if primitive:
+                        bound=(bound and all(receipt.get(field)==manifest[field] for field in PC.BINDINGS) and
+                            receipt.get('primitive_root_gate_sha256')==sha(output/'launch.json') and
+                            receipt.get('primitive_receipt_sha256')==sha(output/'recovered/primitives/receipt.json') and
+                            receipt.get('oracle_sha256')==primitive_gate['oracle_sha256']==owner['recovered_oracle_sha256'])
+                    elif nested_state:
                         bound=(bound and all(receipt.get(field)==manifest[field] for field in NESTED_STATE_BINDINGS) and
                             receipt.get('nested_state_receipt_sha256')==sha(output/'recovered/nested-state/receipt.json') and
                             receipt.get('nested_oracle_sha256')==owner['recovered_nested_oracle_sha256']==sha(output/'recovered/cpu-oracle/oracle-seal.json') and
@@ -578,10 +618,15 @@ def drive(packet, output, expected, acceptance, acceptance_sha, cli_python, cli_
                         plugin_built.get('nested_source_sha256')==NESTED_SOURCE_SHA and
                         receipt.get('built_plugin_source_status')=='NESTED_PLUGIN_WHEEL_PYTHON_SOURCE_PASS' and
                         any(row.get('name')==plugin_built.get('wheel_name') and row.get('sha256')==plugin_built.get('wheel_sha256') for row in receipt.get('built_wheels',[])))
-                if owner['status'] == 'CHILD_TERMINAL_RETRIEVAL_REQUIRED' and not owner['local_verifier_cleanup']['errors'] and owner.get('local_verifier_exit_code') == (0 if report.get('numerical_status') == 'PASS' else 2) and valid and bound and controls_valid and receipt.get('built_source_status') == 'POST_PATCH_WHEEL_PYTHON_SOURCE_PASS' and receipt.get('installed_source_status') == 'POST_PATCH_PYTHON_SOURCE_PASS' and receipt.get('source_controls_status') == 'PASS_QUALIFIED_LINUX_SOURCE_CONTROLS' and receipt.get('runtime_status') == 'PASS_TPU_RUNTIME_PROBE_ONLY' and receipt.get('cpu_status') == 'PASS' and receipt.get('tpu_status') == ('NESTED_STATE_RECORDS_COMPLETE' if nested_state else 'NESTED_RECORDS_COMPLETE' if nested else 'STATE_RECORDS_COMPLETE' if state else 'TRANSFER_RECORDS_COMPLETE') and receipt.get('status') == ('NESTED_STATE_CHILD_TERMINAL_LOCAL_REVIEW_REQUIRED' if nested_state else 'NESTED_CHILD_TERMINAL_LOCAL_REVIEW_REQUIRED' if nested else 'STATE_CHILD_TERMINAL_LOCAL_REVIEW_REQUIRED' if state else 'TRANSFER_CHILD_TERMINAL_LOCAL_REVIEW_REQUIRED') and all(not step['cleanup']['errors'] for step in receipt['steps']):
+                if owner['status'] == 'CHILD_TERMINAL_RETRIEVAL_REQUIRED' and not owner['local_verifier_cleanup']['errors'] and owner.get('local_verifier_exit_code') == (0 if primitive or report.get('numerical_status') == 'PASS' else 2) and valid and bound and controls_valid and receipt.get('built_source_status') == 'POST_PATCH_WHEEL_PYTHON_SOURCE_PASS' and receipt.get('installed_source_status') == 'POST_PATCH_PYTHON_SOURCE_PASS' and receipt.get('source_controls_status') == 'PASS_QUALIFIED_LINUX_SOURCE_CONTROLS' and receipt.get('runtime_status') == 'PASS_TPU_RUNTIME_PROBE_ONLY' and receipt.get('cpu_status') == 'PASS' and receipt.get('tpu_status') == ('PRIMITIVE_RECORDS_COMPLETE' if primitive else 'NESTED_STATE_RECORDS_COMPLETE' if nested_state else 'NESTED_RECORDS_COMPLETE' if nested else 'STATE_RECORDS_COMPLETE' if state else 'TRANSFER_RECORDS_COMPLETE') and receipt.get('status') == ('PRIMITIVE_CHILD_TERMINAL_LOCAL_REVIEW_REQUIRED' if primitive else 'NESTED_STATE_CHILD_TERMINAL_LOCAL_REVIEW_REQUIRED' if nested_state else 'NESTED_CHILD_TERMINAL_LOCAL_REVIEW_REQUIRED' if nested else 'STATE_CHILD_TERMINAL_LOCAL_REVIEW_REQUIRED' if state else 'TRANSFER_CHILD_TERMINAL_LOCAL_REVIEW_REQUIRED') and all(not step['cleanup']['errors'] for step in receipt['steps']):
                     owner.update(status=('PASS' if report['numerical_status'] == 'PASS' else 'FAIL') + ('_TPU_NESTED_STATE_RECORDS' if nested_state else '_TPU_NESTED_RECORDS' if nested else '_TPU_STATE_RECORDS' if state else '_TPU_TRANSFER_API42'),
                                  record_validation='PASS', api42_status='NOT_REPEATED' if state or nested else report['api42_status'], numerical_status=report['numerical_status'], m3_status='NOT_QUALIFIED')
-                    if nested: owner.update(m3_status='DEPENDENCY_NOT_ACCEPTED_BY_THIS_PROBE',m4_status='NOT_QUALIFIED')
+                    if primitive:
+                        owner.update(status='PASS_PRIMITIVE_RECORDS',primitive_diagnostic_only=True,
+                                     numerical_status=report['numerical_status'],builder_bit_status=report['builder_bit_status'],
+                                     native_view_status=report['native_view_status'],
+                                     **{key:'NOT_QUALIFIED' for key in ('api42_status','m3_status','m4_status','m5_status')})
+                    elif nested:owner.update(m3_status='DEPENDENCY_NOT_ACCEPTED_BY_THIS_PROBE',m4_status='NOT_QUALIFIED')
             elif precision:
                 report = json.loads((output / 'local-verifier.raw').read_text())
                 durable_json(output / 'verify.json', report)
@@ -602,6 +647,9 @@ def drive(packet, output, expected, acceptance, acceptance_sha, cli_python, cli_
                     owner.update(status='PASS_DEVICE_ROUTE_RECORDS', record_validation='PASS', api42_status='NOT_QUALIFIED')
             elif owner['status'] == 'CHILD_TERMINAL_RETRIEVAL_REQUIRED' and not owner['local_verifier_cleanup']['errors'] and owner.get('local_verifier_exit_code') in (0, 2) and receipt['runtime_status'] == 'PASS_TPU_RUNTIME_PROBE_ONLY' and receipt['cpu_status'] == 'PASS' and receipt['tpu_status'] in ('PASS', 'FAIL') and all(not step['cleanup']['errors'] for step in receipt['steps']):
                 owner['status'] = 'PASS_TPU_API_PROBE' if owner['local_verifier_exit_code'] == 0 else 'FAIL_TPU_API_PROBE'
+        except PC.ReadbackUnavailable as error:
+            owner.update(local_verifier_status='NOT_RUN_INCOMPLETE_PRIMITIVE_RECORDS',primitive_record_validation='NOT_RUN',local_verifier_unavailable_reason=str(error))
+            if owner['status']=='CHILD_TERMINAL_RETRIEVAL_REQUIRED':owner['status']='BLOCKED'
         except _NativeReadbackUnavailable as error:
             owner.update(local_verifier_status='NOT_RUN_INCOMPLETE_NATIVE_RECORDS',native_record_validation='NOT_RUN',local_verifier_unavailable_reason=str(error))
             if owner['status']=='CHILD_TERMINAL_RETRIEVAL_REQUIRED':owner['status']='BLOCKED'
@@ -632,4 +680,4 @@ if __name__ == '__main__':
     else:
         r = drive(a.packet.resolve(), a.output.resolve(), a.packet_sha256, a.root_acceptance, a.root_acceptance_sha256, a.cli_python, a.cli_identity,**({'browser_adoption':a.browser_adoption,'browser_adoption_sha256':a.browser_adoption_sha256} if a.browser_adoption is not None or a.browser_adoption_sha256 is not None else {}))
         print(json.dumps(r))
-        raise SystemExit(0 if r['status'] in ('PASS_TPU_API_PROBE', 'PASS_DEVICE_ROUTE_RECORDS', 'PASS_PRECISION_RECORDS', 'PASS_TPU_TRANSFER_API42', 'PASS_TPU_STATE_RECORDS', 'PASS_TPU_NESTED_RECORDS', 'PASS_TPU_NESTED_STATE_RECORDS','PASS_BOUNDED_NATIVE_DIAGNOSTIC') else 2)
+        raise SystemExit(0 if r['status'] in ('PASS_TPU_API_PROBE', 'PASS_DEVICE_ROUTE_RECORDS', 'PASS_PRECISION_RECORDS', 'PASS_TPU_TRANSFER_API42', 'PASS_TPU_STATE_RECORDS', 'PASS_TPU_NESTED_RECORDS', 'PASS_TPU_NESTED_STATE_RECORDS','PASS_BOUNDED_NATIVE_DIAGNOSTIC', 'PASS_PRIMITIVE_RECORDS') else 2)

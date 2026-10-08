@@ -1,0 +1,40 @@
+{
+  "api42_status": "NOT_QUALIFIED",
+  "child_limits_seconds": {
+    "builder": 900,
+    "native-view": 180
+  },
+  "cleanup_reserve_seconds": 10,
+  "format": "bnb-tpu.arithmetic-diagnostic.v1",
+  "m3_status": "NOT_QUALIFIED",
+  "m4_status": "NOT_QUALIFIED",
+  "m5_status": "NOT_QUALIFIED",
+  "phase_ceiling_seconds": 1500,
+  "primitive_variant": "arithmetic-v1",
+  "profile_sha256": "ad53f6416bdabf6440f08b313963c947a468cd39afd413bfe41bb381c4a7a166",
+  "runtime_lock_sha256": "323371ff61c5fbcc4f79fd6a358cf2ba17cb72b907382a5ceaac07f91dc66ed6",
+  "scope": "BOUNDED_FP32_BITS_MEAN_FTZ_DIAGNOSTIC",
+  "source_variant": "nested-v1",
+  "sources": {
+    "hlo_bitcast.py": {
+      "bytes": 9783,
+      "sha256": "60f8ac1ea1b0a7ebfce27036da02470dae6ad1bb824dc894d462d6e54ce1a39b"
+    },
+    "primitive-inputs.json": {
+      "bytes": 87001,
+      "sha256": "7cb1be0bf806f3da98f9617f90ba99e042331ecbc07bf79799d779088919e5b5"
+    },
+    "primitive_kernels.py": {
+      "bytes": 3343,
+      "sha256": "a532a70b86001f8d3cd755ddd95ed03ba78b2c5570e2e6b278e92577ec52f81a"
+    },
+    "primitive_reference.py": {
+      "bytes": 3922,
+      "sha256": "7e0bc0f7e6cfbf049609001613157ba7fd3ec123b5e29b8ed104087d642b5ee8"
+    },
+    "probe_primitives.py": {
+      "bytes": 41974,
+      "sha256": "b53799083e9ea0b79388c5a0406daf0b2dc507eac82ebbba58e9efd2b5fdfd68"
+    }
+  }
+}

@@ -19,6 +19,7 @@ They are not additions to the official ASD-STE100 dictionary.
 | backend | The software that executes operations for a selected device. |
 | BF16 | The bfloat16 numerical data type. |
 | bias | The additive parameter of a linear layer. |
+| bitcast | Reinterpretation of the same bits as another numerical data type. |
 | checkpoint | Saved model and optimizer state used to restore execution. |
 | centered scale | An NF4 scale after subtraction of the scalar offset, before nested quantization. |
 | CLI | A command-line interface. |

@@ -1,5 +1,17 @@
 # Change log
 
+## 2026-10-09 — Bounded arithmetic diagnostic
+
+- Add an explicit arithmetic mode with complete CPU oracle recovery before TPU execution.
+- Bind exact input bits, graph parameters, source files, and process ownership.
+- Preserve numerical differences and incomplete records without milestone qualification.
+- Retain the two local process-group inspection failures from the worker's broader tests.
+
+Validation: The reviewer repeated 72 cloud controls and 18 tests after file adoption; all passed.
+The latter include 25 scientific controls in one test container.
+All 56 packet members passed inspection; actual TPU arithmetic remains required.
+Refer to [the preparation record](docs/changes/r4-primitive-preparation.md).
+
 ## 2026-10-09 — Kaggle access and version preparation
 
 - Verify authenticated notebook and quota requests through installed CLI 2.2.4.

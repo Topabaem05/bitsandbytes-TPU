@@ -1,0 +1,137 @@
+{
+  "accepted_milestones": 3,
+  "actual_Linux_or_TPU": "NOT_RUN",
+  "candidate_diff_sha256": "aad758c8b69a4b8f77653ce04f3ef93f466b1ea2c7591dddbb7361c3769245fa",
+  "checked_local_date": "2026-10-09",
+  "later_observation": "Original process and group returned ESRCH; original failure unchanged",
+  "m4": "NOT_QUALIFIED",
+  "ownership_implementation": "UNCHANGED",
+  "packet": {
+    "m4": "NOT_QUALIFIED",
+    "manifest_sha256": "251f68ff986d22c520a7082dad2afdb00c187a9be308e82e4947339dd36fa2f9",
+    "members": 56,
+    "packet_bytes": 1082391,
+    "packet_sha256": "7db3c83dac54616af517f08cee441eb09c84174f5c1bbe6c8ffe026adb6c65ac",
+    "primitive_protocol_sha256": "223ad0ade0121cb5b43abe31d0a1b571b1f6f2395f6ed4c94e4a2ad70dc20db4",
+    "source_admission_sha256": "6647dbe8d4928a201020e7116105e836585bc1d4ad1adf3cc730976d9885b139",
+    "status": "GENUINE_PINNED_GIT_PACKET_AND_ALL_MEMBERS_VERIFIED"
+  },
+  "promoted_container_scope": "one container with25 scientific controls and17 CLI status tests",
+  "retained_failure": "Darwin parent-SIGKILL group absence returned EPERM twice; CLEANUP_UNVERIFIED preserved",
+  "review_scope": "new arithmetic diagnostic only; required actual group closure remains fail closed",
+  "root_independent_hlo_records": 6,
+  "root_prior_scientific_controls": 25,
+  "root_promoted_test_containers": 18,
+  "root_review_sha256": "2cecbe597bb433c9b9d4de06c6f019e2c67ce40f575d01580ab5bad8ad056011",
+  "root_targeted_cloud_controls": 72,
+  "source_files": {
+    "cloud/build_packet.py": {
+      "bytes": 25143,
+      "change": "MODIFY",
+      "sha256": "402796b3953c84e9fa7767b17057643dca0ef2a765f47e0b301f8bd9b27d9e4d",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/build_packet.py"
+    },
+    "cloud/owner.py": {
+      "bytes": 54847,
+      "change": "MODIFY",
+      "sha256": "c924a544ecec9c94c2d6f3d203fdf353bebbc00f69aba0d264bda56efb5d5848",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/owner.py"
+    },
+    "cloud/primitive_contract.py": {
+      "bytes": 24310,
+      "change": "ADD",
+      "sha256": "c70b2b37b4c4d876151d5f2817509db835fdee379b2a5ecb2e62dd70a0c7fa55",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/primitive_contract.py"
+    },
+    "cloud/remote.py": {
+      "bytes": 66802,
+      "change": "MODIFY",
+      "sha256": "b983bf6db97c1363bbcd964cdba00f2fab54880b65f15d541a066bb655db79be",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/remote.py"
+    },
+    "cloud/tests/primitive_cpu_runpy_child.py": {
+      "bytes": 2894,
+      "change": "ADD",
+      "sha256": "ccde1b2c1163abf0197b7c1ea22ee56d9c8ad021ff4914db3d50601c9de55390",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/tests/primitive_cpu_runpy_child.py"
+    },
+    "cloud/tests/primitive_saved_fixture.py": {
+      "bytes": 23447,
+      "change": "ADD",
+      "sha256": "4a8d81aa439812983ad5467f075cf5f47f23230280fb5d13347fb66bfecdf7b6",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/tests/primitive_saved_fixture.py"
+    },
+    "cloud/tests/test_owner_cli.py": {
+      "bytes": 2672,
+      "change": "MODIFY",
+      "sha256": "967aff32f0708fa955f529e6f121422f6d5e730cf819f7cdde1f92384783934b",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/tests/test_owner_cli.py"
+    },
+    "cloud/tests/test_primitives_cloud.py": {
+      "bytes": 10873,
+      "change": "ADD",
+      "sha256": "cca9fe10ceeb618af036d4cde1504c253385e4eb3c1e0178807170a749c9d287",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/tests/test_primitives_cloud.py"
+    },
+    "cloud/tests/test_primitives_owner.py": {
+      "bytes": 23564,
+      "change": "ADD",
+      "sha256": "5e9913f50e7ee8d0dd57d9860c5b79752092bc3826b9e857d00f01aa02f7a196",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/tests/test_primitives_owner.py"
+    },
+    "cloud/tests/test_primitives_science.py": {
+      "bytes": 1035,
+      "change": "ADD",
+      "sha256": "0ecd4c3c690c0df999c2c27524698ab02264b7d74fbc26f48887eca0fe564540",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/tests/test_primitives_science.py"
+    },
+    "hlo_bitcast.py": {
+      "bytes": 9783,
+      "change": "ADD",
+      "sha256": "60f8ac1ea1b0a7ebfce27036da02470dae6ad1bb824dc894d462d6e54ce1a39b",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/hlo_bitcast.py"
+    },
+    "primitive-inputs.json": {
+      "bytes": 87001,
+      "change": "ADD",
+      "sha256": "7cb1be0bf806f3da98f9617f90ba99e042331ecbc07bf79799d779088919e5b5",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/primitive-inputs.json"
+    },
+    "primitive-manifest.json": {
+      "bytes": 1352,
+      "change": "ADD",
+      "sha256": "223ad0ade0121cb5b43abe31d0a1b571b1f6f2395f6ed4c94e4a2ad70dc20db4",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/primitive-manifest.json"
+    },
+    "primitive_kernels.py": {
+      "bytes": 3343,
+      "change": "ADD",
+      "sha256": "a532a70b86001f8d3cd755ddd95ed03ba78b2c5570e2e6b278e92577ec52f81a",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/primitive_kernels.py"
+    },
+    "primitive_reference.py": {
+      "bytes": 3922,
+      "change": "ADD",
+      "sha256": "7e0bc0f7e6cfbf049609001613157ba7fd3ec123b5e29b8ed104087d642b5ee8",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/primitive_reference.py"
+    },
+    "probe_primitives.py": {
+      "bytes": 41974,
+      "change": "ADD",
+      "sha256": "b53799083e9ea0b79388c5a0406daf0b2dc507eac82ebbba58e9efd2b5fdfd68",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/probe_primitives.py"
+    }
+  },
+  "source_map_sha256": "9f8473682132e303e7e861843d7d7c6980568b29071e69e2439c5a4a1c678eb2",
+  "status": "BOUNDED_PRIMITIVE_PREPARATION_REVIEWED",
+  "worker_consolidated": {
+    "failed": 1,
+    "passed": 477,
+    "total": 478
+  },
+  "worker_focused_closure": {
+    "failed": 1,
+    "passed": 3,
+    "total": 4
+  }
+}

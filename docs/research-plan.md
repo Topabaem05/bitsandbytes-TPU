@@ -68,6 +68,9 @@ Its [first retry](changes/r4-allocation-failure.md) received an allocation serve
 The [browser reuse mode](changes/r4-browser-adoption.md) passed 44 local controls after the repeated CLI allocation failure.
 Actual marker identification passed, and the [79-case run](changes/r4-nested-colab-failure.md) completed with 52 passes and 27 failures.
 The exact nested statistics and code failures require an arithmetic repair under unchanged criteria.
+The [arithmetic diagnostic](changes/r4-primitive-preparation.md) supplies an explicit mode to inspect reduction, division, and subnormal behavior.
+Its focused preparation controls passed, with the separate macOS process-group test failure retained.
+It requires a fresh qualified Linux CPU oracle before actual TPU execution.
 The failed result cannot authorize the saved-state supplement or an accepted M4 dependency.
 The private CPU preparations for M4, M5, and M6 do not qualify those device milestones.
 The [bounded native preparation](changes/r6-native-cloud-preparation.md) uses accepted M2 sources and can execute independently of the M4 repair.
