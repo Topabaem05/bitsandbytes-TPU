@@ -134,6 +134,9 @@ The previous HTTP 400 body remains unavailable, and its cause remains unknown.
 The [V5E8 request generation](changes/r8-v5-request.md) passed 62 independent controls.
 Nine portable request controls passed before and after adoption.
 It requires exact saved-version hardware readback and a new experiment identity.
+The [V5E8 submission](changes/r8-v5-source-size-failure.md) returned HTTP 400 with a retained `SOURCE_SIZE` classification.
+The exact draft remained inactive, both `v1` requests returned HTTP 404, and all five local groups closed.
+A smaller transport script must preserve the identical scientific ZIP before another reviewed submission.
 M8 requires an identified version, the accepted runtime and scientific results, and independent resource closure.
 The earlier [cloud inspection](research/2026-10-08/cloud.md) remains a dated source record.
 

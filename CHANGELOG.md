@@ -1,5 +1,15 @@
 # Change log
 
+## 2026-10-09 — Kaggle source size failure
+
+- Retain the new HTTP 400 source size classification and inactive draft observation.
+- Verify two exact-version HTTP 404 results and all five closed local process groups.
+- Preserve the identical scientific ZIP and the original unconfirmed owner state.
+
+Validation: The submission did not produce an accepted execution identity or scientific result.
+The exact source size limit remains unknown, and M8 remains unqualified.
+Refer to [the failure record](docs/changes/r8-v5-source-size-failure.md).
+
 ## 2026-10-09 — Mosaic experiment allocation wait
 
 - Retain the V5E1 allocation wait and unexecuted marker and scientific stages.
