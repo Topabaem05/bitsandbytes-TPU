@@ -1,5 +1,17 @@
 # Change log
 
+## 2026-10-09 — Kaggle M2 repetition preparation
+
+- Add explicit source admission, a private submission script, and exact-version recovery.
+- Preserve the accepted 46-case protocol and all 196 numerical comparisons.
+- Own local processes through an external supervisor and record remote closure separately.
+- Add concise execution documents and specific technical terms.
+
+Validation: All 39 canonical controls passed after adoption, with zero network attempts and credential reads.
+Eight earlier controls verified the exact hardware source refresh.
+Actual Kaggle execution remains required; M8 is unqualified.
+Refer to [the preparation record](docs/changes/r8-kaggle-m2-preparation.md).
+
 ## 2026-10-09 — Native Mosaic version failure
 
 - Retain the actual V5E1 compiler rejection of Mosaic version 8.

@@ -15,6 +15,7 @@ They are not additions to the official ASD-STE100 dictionary.
 | application | A computer program that uses the backend. |
 | API | The public interface that application code uses. |
 | API42 | The fixed project matrix of 42 public API test cases. |
+| archive | A file that stores a collection of named member files. |
 | autograd | The PyTorch system that calculates gradients. |
 | backend | The software that executes operations for a selected device. |
 | BF16 | The bfloat16 numerical data type. |
@@ -29,6 +30,7 @@ They are not additions to the official ASD-STE100 dictionary.
 | contiguous layout | A tensor layout without gaps between consecutive stored elements. |
 | CPU | A central processing unit. |
 | CUDA | The NVIDIA interface for GPU computation. |
+| deadline | The fixed last permitted time for specified program actions. |
 | dispatch key | The PyTorch identifier that selects an operator implementation. |
 | entry point | Package metadata that identifies a function for automatic discovery. |
 | endpoint | The service identifier for one remote runtime. |
@@ -59,12 +61,14 @@ They are not additions to the official ASD-STE100 dictionary.
 | nested quantization | Quantization of the scales from a first quantization operation. |
 | NF4 | The bitsandbytes four-bit NormalFloat codebook and its format. |
 | nibble | Four bits within one byte. |
+| nonce | A submission identifier that connects its plan and output records. |
 | overload | A named form of an operator with a specific schema. |
 | offset | The scalar value subtracted before nested quantization and added after nested dequantization. |
 | operator schema | The declared arguments and results of a PyTorch operator. |
 | oracle | The identified reference calculation that supplies expected test values. |
 | profile | The fixed configuration and criteria for an experiment. |
 | profiler | A tool that records execution time, activity, or memory use. |
+| process group | An operating system group of processes with one group identifier. |
 | probe | A small program that measures a specified software behavior. |
 | precondition | A required input condition before an operation starts. |
 | partial block | A quantization block with fewer values than the specified block size. |
@@ -76,20 +80,26 @@ They are not additions to the official ASD-STE100 dictionary.
 | quantization | Conversion from numerical values to codes and scales. |
 | receipt | A structured record that identifies an execution and its returned artifacts. |
 | reference implementation | The implementation that defines the expected result for a comparison. |
+| registry | A structured record of registered software components or owned processes. |
 | revision | A specific state of a source repository, identified by its commit. |
 | reviewer | The person or agent that examines code and test records before acceptance. |
 | rounding | Selection of a representable numerical value from a more precise value. |
 | scale | A multiplier used to reconstruct numerical values from quantized codes. |
 | runtime | The installed software and execution environment for a program. |
+| SDK | The software development kit that supplies typed service request interfaces. |
 | SGD | Stochastic gradient descent. |
 | SHA-256 | The hash algorithm that produces a 256-bit digest. |
 | snapshot | A recorded source or metadata state at a specific time. |
+| slug | The kernel name component of its owner and kernel reference. |
+| socket | A local communication endpoint between the owner and supervisor. |
 | state_dict | The upstream PyTorch mapping of model state. |
 | subnormal number | A floating-point value with a magnitude below the smallest normal value for its data type. |
 | subnormal flushing | Replacement of subnormal floating-point values with zero during computation. |
 | synchronization | Submission and completion of specified device operations before further host activity. |
+| supervisor | The program that starts, records, and closes its owned local child processes. |
 | functionalization | The PyTorch transformation that replaces tensor mutations and views with functional operations. |
 | tensor | A numerical array with a shape and data type. |
+| TAR | The archive format used for the retained evidence file. |
 | TensorImpl | The PyTorch C++ object that holds tensor implementation state. |
 | tile | A limited part of a matrix that a kernel processes. |
 | timestamp | A recorded clock value for an event or interval boundary. |
@@ -102,6 +112,7 @@ They are not additions to the official ASD-STE100 dictionary.
 | wheel | A Python package distribution in wheel format. |
 | wrapper | An object or function that adds behavior around an existing tensor or function. |
 | XLA | The compiler system that PyTorch/XLA uses. |
+| ZIP | The archive format used for the embedded source package. |
 
 ## Technical verbs
 

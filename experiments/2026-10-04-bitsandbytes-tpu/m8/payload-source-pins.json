@@ -1,0 +1,212 @@
+{
+  "base_archive_sha256": "41e1fc76ddd4a25915f8f4f804d881be9fc1a89ab88834db4284f9971ae7769e",
+  "files": {
+    "build-requirements.lock.json": {
+      "bytes": 7898,
+      "project_path": "experiments/2026-10-04-bitsandbytes-tpu/cloud/build-requirements.lock.json",
+      "sha256": "65f27f3a93b4aa533d040225609bfb819fcf5ddbbc6f17456d0fcfd28bd6b546"
+    },
+    "cloud/allocation_transport.py": {
+      "bytes": 6923,
+      "project_path": "experiments/2026-10-04-bitsandbytes-tpu/cloud/allocation_transport.py",
+      "sha256": "f51014526d399c93c95c5c00c6855a949aaeda2af74fc24609da6bb9068d1696"
+    },
+    "cloud/browser_adoption.py": {
+      "bytes": 4359,
+      "project_path": "experiments/2026-10-04-bitsandbytes-tpu/cloud/browser_adoption.py",
+      "sha256": "13a75920d19a760796b4f610b8d497e1011d4690f890d015fba281bb40ebe93d"
+    },
+    "cloud/build_native_packet.py": {
+      "bytes": 3553,
+      "project_path": "experiments/2026-10-04-bitsandbytes-tpu/cloud/build_native_packet.py",
+      "sha256": "9b8023023230241d92f28e5f6945d36c73a9ac4acbb7f59c51391c33be293754"
+    },
+    "cloud/native_contract.py": {
+      "bytes": 10978,
+      "project_path": "experiments/2026-10-04-bitsandbytes-tpu/cloud/native_contract.py",
+      "sha256": "33d0b7d5898f4b130a041089680fb9d9efa4bd84ed0356a574565af74c702855"
+    },
+    "cloud/nested_contract.py": {
+      "bytes": 5548,
+      "project_path": "experiments/2026-10-04-bitsandbytes-tpu/cloud/nested_contract.py",
+      "sha256": "da7fe494218424654356e2b114647f92590a1ea44ad11bea88ae724ee3be01ce"
+    },
+    "cloud/nested_state_contract.py": {
+      "bytes": 3590,
+      "project_path": "experiments/2026-10-04-bitsandbytes-tpu/cloud/nested_state_contract.py",
+      "sha256": "47e148748454ce473449e56ac42b7b1b65050988fdd8286085730b246c9d8136"
+    },
+    "cloud/official_cli_no_oauth.py": {
+      "bytes": 1501,
+      "project_path": "experiments/2026-10-04-bitsandbytes-tpu/cloud/official_cli_no_oauth.py",
+      "sha256": "a6c8713d8be39e7185a3f759ee6bdbd64a0d6b8c47eca0ba08526f9bc1bc4d7e"
+    },
+    "cloud/owner.py": {
+      "bytes": 54864,
+      "project_path": "experiments/2026-10-04-bitsandbytes-tpu/cloud/owner.py",
+      "sha256": "9ec16750acaafa2750ebe60ee8ae9cb84599700723d23c0f4fedd0769691e3c3"
+    },
+    "cloud/ownership/bootstrap.py": {
+      "bytes": 244,
+      "project_path": "experiments/2026-10-04-bitsandbytes-tpu/cloud/ownership/bootstrap.py",
+      "sha256": "7ed51ad613dbd6c0cbaa76575ae1da5d68b205e8b88c9e702cf206c09bb2150d"
+    },
+    "cloud/ownership/cleanup_lifecycle.py": {
+      "bytes": 9410,
+      "project_path": "experiments/2026-10-04-bitsandbytes-tpu/cloud/ownership/cleanup_lifecycle.py",
+      "sha256": "6557b3522ec68ddcd9106027d08e89e872eb90587eae8cbff2859ac5668cbf76"
+    },
+    "cloud/ownership/lifecycle.py": {
+      "bytes": 4558,
+      "project_path": "experiments/2026-10-04-bitsandbytes-tpu/cloud/ownership/lifecycle.py",
+      "sha256": "4ef29a2c673ab7dadce5a965bff18e51f4850134af2dfb5f44b3d3153949f986"
+    },
+    "cloud/primitive_contract.py": {
+      "bytes": 24310,
+      "project_path": "experiments/2026-10-04-bitsandbytes-tpu/cloud/primitive_contract.py",
+      "sha256": "c70b2b37b4c4d876151d5f2817509db835fdee379b2a5ecb2e62dd70a0c7fa55"
+    },
+    "cloud/python_bootstrap.py": {
+      "bytes": 7601,
+      "project_path": "experiments/2026-10-04-bitsandbytes-tpu/cloud/python_bootstrap.py",
+      "sha256": "11f7b025a4e7dd28315eb862e2e0b1697cf8d3f7a7e3c6e7d5b07c0adc918603"
+    },
+    "cloud/remote.py": {
+      "bytes": 66802,
+      "project_path": "experiments/2026-10-04-bitsandbytes-tpu/cloud/remote.py",
+      "sha256": "b983bf6db97c1363bbcd964cdba00f2fab54880b65f15d541a066bb655db79be"
+    },
+    "cloud/state_coordinator.py": {
+      "bytes": 9618,
+      "project_path": "experiments/2026-10-04-bitsandbytes-tpu/cloud/state_coordinator.py",
+      "sha256": "5c9ac2adca82733f0c3e9b9a97d02788dd46ec5099b1e2beef87aaeb7e5900f3"
+    },
+    "cloud/transport.py": {
+      "bytes": 6690,
+      "project_path": "experiments/2026-10-04-bitsandbytes-tpu/cloud/transport.py",
+      "sha256": "09f9394f6285bb477b382e800fe3ea66378ce99f462531da48b66a61cbbfa202"
+    },
+    "patches/params4bit-xla-v1.json": {
+      "bytes": 11411,
+      "project_path": "patches/params4bit-xla-v1.json",
+      "sha256": "e745fbf21aac10ed9118167a131d6505bf6dbe03e1fab0a669c663b26c5a5732"
+    },
+    "patches/params4bit-xla-v1.patch": {
+      "bytes": 2200,
+      "project_path": "patches/params4bit-xla-v1.patch",
+      "sha256": "4554fa99293441c1916dca93d47c36c54ccf25cd8728314311aecb734185f240"
+    },
+    "plugin/LICENSE": {
+      "bytes": 11357,
+      "project_path": "packages/bitsandbytes-tpu/LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "plugin/README.md": {
+      "bytes": 6215,
+      "project_path": "packages/bitsandbytes-tpu/README.md",
+      "sha256": "89942246ad01ee6cc503844035ec7dcbc52251cf1262ebe51f849f0e2dec16c5"
+    },
+    "plugin/THIRD_PARTY_NOTICES.md": {
+      "bytes": 2319,
+      "project_path": "packages/bitsandbytes-tpu/THIRD_PARTY_NOTICES.md",
+      "sha256": "f2095a16719cdb849a624357e17d877f4b650e75a93b845b5a227ee0d9d35bc6"
+    },
+    "plugin/pyproject.toml": {
+      "bytes": 727,
+      "project_path": "packages/bitsandbytes-tpu/pyproject.toml",
+      "sha256": "3845599f919272735a5f6d1171482c4f919dba9b5cfe22175bc12fabed2986d0"
+    },
+    "plugin/source-manifest.json": {
+      "bytes": 3364,
+      "project_path": "packages/bitsandbytes-tpu/source-manifest.json",
+      "sha256": "18af6ca3152b9b9012dda369daf7a50ecc16023f6161ac70421ebf8f81b6f5e6"
+    },
+    "plugin/src/bitsandbytes_tpu/__init__.py": {
+      "bytes": 291,
+      "project_path": "packages/bitsandbytes-tpu/src/bitsandbytes_tpu/__init__.py",
+      "sha256": "c7ecdd758ed0d50f10e0b8fa3a17900143368ca6799bfa09e11bfe8118ab59db"
+    },
+    "plugin/src/bitsandbytes_tpu/compatibility.py": {
+      "bytes": 9125,
+      "project_path": "packages/bitsandbytes-tpu/src/bitsandbytes_tpu/compatibility.py",
+      "sha256": "13e0a6c941514c1fb709a289a51cbd22375159122ab2e2953f74c31b803e3f8c"
+    },
+    "plugin/src/bitsandbytes_tpu/functionalization.py": {
+      "bytes": 2822,
+      "project_path": "packages/bitsandbytes-tpu/src/bitsandbytes_tpu/functionalization.py",
+      "sha256": "e04656503739b24b7251fa1a2cdc028bded34e77b0d8a1c0982fc07bbfbf626d"
+    },
+    "plugin/src/bitsandbytes_tpu/reference.py": {
+      "bytes": 4625,
+      "project_path": "packages/bitsandbytes-tpu/src/bitsandbytes_tpu/reference.py",
+      "sha256": "0ad17773f18d8f69715af52644c0f94617d93228bc1927287058a6211ed6bb9e"
+    },
+    "plugin/src/bitsandbytes_tpu/registration.py": {
+      "bytes": 2479,
+      "project_path": "packages/bitsandbytes-tpu/src/bitsandbytes_tpu/registration.py",
+      "sha256": "23dd0f2bd08634d87f579e2544f32ec298a19320bf5e69f61d3ca10b28de3662"
+    },
+    "probe-inputs.json": {
+      "bytes": 132064,
+      "project_path": "experiments/2026-10-04-bitsandbytes-tpu/probe-inputs.json",
+      "sha256": "d0c9cdf6a82449a56923499698f19bfd3cc8d13c042f1f5ad2bdf587701f5e54"
+    },
+    "probe-profile.json": {
+      "bytes": 3695,
+      "project_path": "experiments/2026-10-04-bitsandbytes-tpu/probe-profile.json",
+      "sha256": "ad53f6416bdabf6440f08b313963c947a468cd39afd413bfe41bb381c4a7a166"
+    },
+    "probe_backend.py": {
+      "bytes": 24512,
+      "project_path": "experiments/2026-10-04-bitsandbytes-tpu/probe_backend.py",
+      "sha256": "e8743e33e6a0454d5d05b77075d47a5c9f983cf32f3956c38f2b544f86f5ef6d"
+    },
+    "probe_precision.py": {
+      "bytes": 35743,
+      "project_path": "experiments/2026-10-04-bitsandbytes-tpu/probe_precision.py",
+      "sha256": "e0534955507e5f91e67ecddfffc738a367ad752e69a4eea7ae8052c6d76a8852"
+    },
+    "probe_routes.py": {
+      "bytes": 26296,
+      "project_path": "experiments/2026-10-04-bitsandbytes-tpu/probe_routes.py",
+      "sha256": "feae751734e57c741b1bdade004ff7ca3c041ee7eb3b7086b531bc6be433038e"
+    },
+    "probe_transfer.py": {
+      "bytes": 23587,
+      "project_path": "experiments/2026-10-04-bitsandbytes-tpu/probe_transfer.py",
+      "sha256": "0179eb9cf2781c9c44ef98a472d5da937c8ca74670229dabf7f83ebbf782a5f8"
+    },
+    "runtime/probe_runtime.py": {
+      "bytes": 4536,
+      "project_path": "experiments/2026-10-04-bitsandbytes-tpu/runtime/probe_runtime.py",
+      "sha256": "c0f27f05af742ccdee46df98f8ec2454a3ec5ee288880950cf057ef0961e7816"
+    },
+    "runtime/requirements.lock.json": {
+      "bytes": 39667,
+      "project_path": "experiments/2026-10-04-bitsandbytes-tpu/runtime/requirements.lock.json",
+      "sha256": "323371ff61c5fbcc4f79fd6a358cf2ba17cb72b907382a5ceaac07f91dc66ed6"
+    },
+    "runtime/resolve.py": {
+      "bytes": 14974,
+      "project_path": "experiments/2026-10-04-bitsandbytes-tpu/runtime/resolve.py",
+      "sha256": "21cc9342ae664f881bb07f900e47236bc6917b3b461df656b758507584471bf9"
+    },
+    "tests/test_transfer_source.py": {
+      "bytes": 19535,
+      "project_path": "tests/test_transfer_source.py",
+      "sha256": "5f5c8b6c3d04a0d8658dae1f4d70d7a909dfe63977b953936aecfb69bf9a16fe"
+    },
+    "transfer_admission.py": {
+      "bytes": 4358,
+      "project_path": "experiments/2026-10-04-bitsandbytes-tpu/transfer_admission.py",
+      "sha256": "6a7c925211b14aba990318360c8f0ca2d4d803e4528c634135c8bde86326816b"
+    }
+  },
+  "format": "m8-m2.payload-source-pins.v1",
+  "patch_manifest_sha256": "e745fbf21aac10ed9118167a131d6505bf6dbe03e1fab0a669c663b26c5a5732",
+  "patched_archive_sha256": "d85d66e58e892ed53b3f12c3d421ca108b49207f79b30f6ef0e60eae40dccb43",
+  "plugin_source_manifest_sha256": "18af6ca3152b9b9012dda369daf7a50ecc16023f6161ac70421ebf8f81b6f5e6",
+  "runtime_lock_sha256": "323371ff61c5fbcc4f79fd6a358cf2ba17cb72b907382a5ceaac07f91dc66ed6",
+  "source_admission_sha256": "8b2b3e26e2e7c98c0fde52f51663bed84999ac733dcbc39573ef8b3aeca4f9a1",
+  "upstream_commit": "833649043474794b8fe7a4136e0c40faf077b2e0"
+}

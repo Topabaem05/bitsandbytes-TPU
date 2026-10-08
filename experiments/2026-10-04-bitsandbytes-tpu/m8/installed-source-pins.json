@@ -1,0 +1,13 @@
+{
+  "kagglesdk/kernels/types/kernels_api_service.py": "a7dd65206e7fc27950385e7b163cda48a40766eb8ff7f89d7a334b9bfb151b5c",
+  "kagglesdk/kernels/services/kernels_api_service.py": "3c4fa4f570648333d71d170c6b357d6a7baae3df86d38583d86fa6fa20c79b02",
+  "kagglesdk/kernels/types/kernels_enums.py": "a150ce25b55fbcceb3beaf585cca3373bbfb305a5589395f54d9e5606ee51ce1",
+  "kagglesdk/kaggle_http_client.py": "80e93a26faa3e861bf5a3f41177d730ef3d0795769f152bce62f3d8098c7347a",
+  "kagglesdk/kaggle_object.py": "17e37bfc533a0083fb91dd994d4ed35bc729e74c5a5e4a442f46eb45126032e5",
+  "kagglesdk/common/types/http_redirect.py": "4750fa0402ac57ff0d1c3336006827cb3194225bdd381ab9dcf457f229e57aef",
+  "kagglesdk/common/types/file_download.py": "bd332dd4eea0d361d661d1881c753b2d511ade9e196ffd275bb2a41d0b249e3c",
+  "kagglesdk/kaggle_client.py": "4c831465e19649912d329a0aafe05d73cb429757399c8e714a1e06cfe819bfa7",
+  "kaggle/api/kaggle_api_extended.py": "210e589ab1f7359ffb560aacfe1c003ac1bc844c366f4ff709bf3d13de4d5458",
+  "kaggle/cli.py": "8ed42fe894ba75631cec80b99bf736e1c69c48799df54ce89457f8d0ae9a7edd",
+  "kaggle/__init__.py": "507e1c6fd1a67a60ca52e4bacbab5132201c94a3f1bd2e394b20e8e1147d78f5"
+}

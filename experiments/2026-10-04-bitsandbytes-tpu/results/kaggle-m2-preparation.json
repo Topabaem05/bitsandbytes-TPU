@@ -1,0 +1,100 @@
+{
+  "accepted_milestones": 3,
+  "actual_kaggle": "NOT_RUN",
+  "actual_science": "NOT_RUN",
+  "adopted_files": {
+    "experiments/2026-10-04-bitsandbytes-tpu/m8/DESIGN.md": {
+      "bytes": 8631,
+      "sha256": "7a09e8b67266c7f0b58b7c2cffedbecb78175456618c6c8cb2a7c560ebc31b8b"
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/m8/README.md": {
+      "bytes": 4958,
+      "sha256": "f3a6d591541a9429f8fcfa6fd9beef2b500af014723fa152202d43fece9c1965"
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/m8/batch.py": {
+      "bytes": 12855,
+      "sha256": "30af975218b7283d76a9129d76336671c7100f3bf12a78fd7a2256501db28305"
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/m8/build_candidate.py": {
+      "bytes": 10253,
+      "sha256": "14130e56ddd7f4874ef54a1918f2f0ca3ec01e66a7755b12cd87b27afe3c844d"
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/m8/installed-source-pins.json": {
+      "bytes": 1177,
+      "sha256": "2a4b414f644bd8920deb6ab89f03b86aa9bb81e381d258b1de7cb5b4a92304b2"
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/m8/owner_cli.py": {
+      "bytes": 3035,
+      "sha256": "73ef863a8876ceb11d4cd16e7910864c84f2c98493fb4f76704dfc63ce792e22"
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/m8/payload-source-pins.json": {
+      "bytes": 9954,
+      "sha256": "f7b39c3b1647d05a7d48f10c166c723a021fd7780c0fcc14366a5e98cd32f617"
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/m8/process_provider.py": {
+      "bytes": 6887,
+      "sha256": "b53cf34ab127fa17c250e89ff966226a1c0087e3830372dcbf57d1d4bf608c84"
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/m8/recovery.py": {
+      "bytes": 14744,
+      "sha256": "715b609fe46cfa8377d7c4437501c755549f5ee5f5f95135136ce979da0aa73e"
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/m8/runner.py": {
+      "bytes": 14949,
+      "sha256": "503c3ebc3691c14d34fb151b0944617122fc658997d5ed317ae932312ab075ad"
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/m8/sdk_worker.py": {
+      "bytes": 8383,
+      "sha256": "92d514a95b0825ce843fe70da5be3052267f64b3522f8c8bb9bbce561664dd19"
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/m8/supervisor.py": {
+      "bytes": 10967,
+      "sha256": "69941df7721a7b246de780b43347daee21571ed6bb992a3965e9cb7eea1e00f1"
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/m8/tests.py": {
+      "bytes": 34077,
+      "sha256": "740030bfcfea76f7469bc807baaf1a6e0325a18d7cd08768f71f66040d90e111"
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/m8/wrapper_template.py": {
+      "bytes": 2282,
+      "sha256": "3b70c23597cd83f9f7016d1336c098d03343753ef7d195ca51b871cac785e3cd"
+    }
+  },
+  "adoption_map_sha256": "a10cbe1f0711125721f994b8cec5c01dd68b9ba6bad3054c0c33ff3c3f5a73fb",
+  "case_count": 46,
+  "checked_local_date": "2026-10-09",
+  "comparison_count": 196,
+  "controls": {
+    "actual_cpu": "NOT_RUN",
+    "actual_tpu": "NOT_RUN",
+    "credential_read_attempts": 0,
+    "errors": 0,
+    "failures": 0,
+    "kind": "M8_M2_OFFLINE_INTEGRATION_CONTROLS",
+    "m8_status": "NOT_QUALIFIED",
+    "network_attempts": 0,
+    "provider_calls": "SYNTHETIC_ONLY",
+    "seconds": 11.604664087295532,
+    "status": "PASS",
+    "tests": 39
+  },
+  "cpu_gate_scope": "BATCH_LOCAL_CPU_GATE_HOST_REVIEW_AFTER_DEVICE",
+  "dictionary_verification": "INCOMPLETE_OFFICIAL_STANDARD_UNAVAILABLE",
+  "docs_map_sha256": "50ef6c19b2dd2290bd341f313d0564626ccf37514bdedba47592ed398750a338",
+  "expected_output_members": 298,
+  "m8": "NOT_QUALIFIED",
+  "payload_inputs_verified": 40,
+  "root_review_sha256": "74e04f6eaa65920a2185c59dbf899be18a6fe37558905fde8a2cbebc415037f6",
+  "source_refresh_controls": {
+    "actual_device": "NOT_RUN",
+    "errors": 0,
+    "failures": 0,
+    "kind": "M8_TWO_FILE_SOURCE_REFRESH_CONTROLS",
+    "m8_status": "NOT_QUALIFIED",
+    "provider_calls": 0,
+    "seconds": 0.32602906227111816,
+    "status": "PASS",
+    "tests": 8
+  },
+  "status": "ROOT_CANONICAL_PREPARATION_ACCEPTED"
+}

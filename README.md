@@ -83,6 +83,7 @@ The backend must give an explicit error for an option that it cannot execute.
 - [Design](docs/design.md)
 - [Research plan](docs/research-plan.md)
 - [Current design sources and decisions](docs/research/2026-10-08/README.md)
+- [Kaggle M2 repetition preparation](experiments/2026-10-04-bitsandbytes-tpu/m8/README.md)
 - [Test requirements](docs/validation.md)
 - [Writing guide](docs/writing-guide.md)
 - [Technical terms](docs/terms.md)
