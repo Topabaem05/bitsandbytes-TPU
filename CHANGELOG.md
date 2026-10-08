@@ -1,5 +1,15 @@
 # Change log
 
+## 2026-10-09 — Kaggle submission failure
+
+- Retain HTTP 400 and the original ambiguous submission state without a retry.
+- Observe the exact saved draft, inactive draft session, and absent saved version.
+- Verify two exact-version HTTP 404 results and five closed local process groups.
+
+Validation: Local closure passed; no accepted Kaggle execution identity or scientific result exists.
+The original owner retains unconfirmed remote closure, and M8 remains unqualified.
+Refer to [the submission record](docs/changes/r8-kaggle-submission-failure.md).
+
 ## 2026-10-09 — Arithmetic V5E1 record failure
 
 - Retain the native view fallback and the first builder's metric serialization failure.

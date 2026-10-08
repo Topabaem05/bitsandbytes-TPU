@@ -106,11 +106,15 @@ BF16 gradients remain outside the fixed diagnostic scope.
 
 The [Kaggle readiness inspection](changes/r8-kaggle-readiness.md) verified CLI 2.2.4 access on 2026-10-09.
 The reviewer repeated 16 offline SDK version controls; all passed.
-No job was submitted, and actual device capacity remains unobserved.
+That readiness inspection did not submit a job or establish actual device capacity.
 The [M2 repetition package](changes/r8-kaggle-m2-preparation.md) passed 39 canonical controls after adoption.
 Its fresh private candidate requires exact source, version, runtime, output, and independent closure records.
 The batch CPU gate precedes device execution; root review occurs after execution.
 An accepted M2 repetition supplies partial M8 evidence only.
+The [first actual submission](changes/r8-kaggle-submission-failure.md) returned HTTP 400 after the server saved a draft.
+The draft session was off, and exact `v1` source and session requests returned HTTP 404.
+No accepted execution identity or scientific result exists for that request.
+All five local submission and inspection groups closed; the owner preserves its unconfirmed remote state.
 M8 requires an identified version, the accepted runtime and scientific results, and independent resource closure.
 The earlier [cloud inspection](research/2026-10-08/cloud.md) remains a dated source record.
 
