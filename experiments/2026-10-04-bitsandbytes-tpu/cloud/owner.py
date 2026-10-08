@@ -350,7 +350,7 @@ def drive(packet, output, expected, acceptance, acceptance_sha, cli_python, cli_
         if adopting:
             assignment_lines=[line for line in text.splitlines() if 'Hardware:' in line]
             segments=assignment_lines[0].split(' | ') if len(assignment_lines)==1 else []
-            if not segments or segments[0]!='['+session+'] '+adoption['endpoint'] or segments.count('Hardware: V6E1')!=1 or segments.count('Variant: TPU')!=1:raise RuntimeError('ADOPTED_SESSION_NOT_OBSERVED')
+            if not segments or segments[0]!='['+session+'] '+adoption['endpoint'] or segments.count('Hardware: '+adoption['hardware'])!=1 or segments.count('Variant: TPU')!=1:raise RuntimeError('ADOPTED_SESSION_NOT_OBSERVED')
             marker_code=('import hashlib,json\nfrom pathlib import Path\n'+f'p=Path({adoption["marker_path"]!r})\n'+
                 f'assert p.is_file() and not p.is_symlink() and hashlib.sha256(p.read_bytes()).hexdigest()=={adoption["marker_sha256"]!r}, "ROOT_BROWSER_MARKER_MISMATCH"\n'+
                 f'print(json.dumps({{"status":"ROOT_BROWSER_MARKER_MATCH","marker_sha256":{adoption["marker_sha256"]!r}}},sort_keys=True))\n')

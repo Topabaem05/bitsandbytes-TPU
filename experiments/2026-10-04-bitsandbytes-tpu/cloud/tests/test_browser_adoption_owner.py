@@ -9,8 +9,9 @@ import test_transfer_cloud as F
 base_archive=F.base_archive
 nested_packet=NF.nested_packet
 
-@pytest.mark.parametrize('fault',[None,'numeric','case-error','marker','wrong-endpoint','additional-runtime','registration-fail','late-extra-runtime','endpoint-prefix-collision','stop'])
-def test_browser_adoption_owned_lifecycle(nested_packet,tmp_path,monkeypatch,fault):
+@pytest.mark.parametrize('hardware',['V6E1','V5E1'])
+@pytest.mark.parametrize('fault',[None,'numeric','case-error','marker','wrong-endpoint','additional-runtime','registration-fail','late-extra-runtime','endpoint-prefix-collision','stop','hardware-mismatch','gate-hardware','unlisted-hardware'])
+def test_browser_adoption_owned_lifecycle(nested_packet,tmp_path,monkeypatch,fault,hardware):
     """Actual source packet, full byte recovery and real verifier with synthetic service data."""
     import transport
     fixture=NF.saved_fixtures();packet,manifest,expected=nested_packet
@@ -68,25 +69,27 @@ def test_browser_adoption_owned_lifecycle(nested_packet,tmp_path,monkeypatch,fau
           'nested_scope':C.NESTED_SCOPE,'nested_source_variant':'nested-v1',
           **{field:manifest[field] for field in (*remote.TRANSFER_BINDINGS,*C.NESTED_BINDINGS)}}
     now=time.time();adoption={'format':'bnb-tpu.browser-adoption.v1','status':'ROOT_CREATED_BROWSER_RUNTIME_READY',
-        'endpoint':'OFFLINE_ENDPOINT','session':'offline-browser-adopted','hardware':'V6E1','variant':'TPU','authuser':'0',
+        'endpoint':'OFFLINE_ENDPOINT','session':'offline-browser-adopted','hardware':hardware,'variant':'TPU','authuser':'0',
         'allocation_epoch':now-100,'observed_epoch':now-1,'packet_sha256':expected,'driver_sha256':remote.sha(HERE/'owner.py'),
         'cli_identity_sha256':remote.sha(identity),'marker_path':'/tmp/bnb-tpu-root-browser-'+('1'*32)+'.json','marker_sha256':'2'*64}
     adoption_path=tmp_path/'adoption.json';F.write(adoption_path,adoption)
     gate.update(runtime_mode=A.MODE,browser_adoption_sha256=remote.sha(adoption_path),adopted_endpoint=adoption['endpoint'],
         adopted_session=adoption['session'],adopted_hardware=adoption['hardware'],original_allocation_epoch=adoption['allocation_epoch'],
         marker_path=adoption['marker_path'],marker_sha256=adoption['marker_sha256'])
+    if fault=='gate-hardware':gate['adopted_hardware']='V5E1' if hardware=='V6E1' else 'V6E1'
+    if fault=='unlisted-hardware':adoption['hardware']='V4';F.write(adoption_path,adoption);gate['browser_adoption_sha256']=remote.sha(adoption_path);gate['adopted_hardware']='V4'
     acceptance=tmp_path/'gate.json';F.write(acceptance,gate)
     monkeypatch.setattr(owner,'verify_cli_identity',lambda *args:None)
     calls=[];sessions=[];handlers={sig:signal.getsignal(sig) for sig in (signal.SIGTERM,signal.SIGINT)};timer=signal.getitimer(signal.ITIMER_REAL)
     def api(label,argv,timeout):
         calls.append(label)
         assert '--allocation-transport-v1' not in argv and 'new' not in argv
-        if label=='01-sessions-before':return {'status':'PASS'},'[?] OFFLINE_ENDPOINT | Hardware: V6E1 | Variant: TPU'
+        if label=='01-sessions-before':return {'status':'PASS'},'[?] OFFLINE_ENDPOINT | Hardware: '+hardware+' | Variant: TPU'
         if label=='03-browser-registration':
             assert argv==[A.FLAG,str(adoption_path),remote.sha(adoption_path)]
             if fault in ('wrong-endpoint','additional-runtime','registration-fail'):return {'status':'CLI_FAILED'},'SYNTHETIC registration refusal'
             sessions.append(adoption['session']);receipt['allocation_epoch']=adoption['allocation_epoch'];F.write(records/'receipt.json',receipt)
-        if label in ('04-sessions-after','90-before-stop'):return {'status':'PASS'},'['+sessions[0]+'] '+('OFFLINE_ENDPOINT_SUFFIX' if fault=='endpoint-prefix-collision' else 'OFFLINE_ENDPOINT')+' | Hardware: V6E1 | Variant: TPU'+('\n[?] EXTRA_ENDPOINT | Hardware: V6E1 | Variant: TPU' if fault=='late-extra-runtime' else '')
+        if label in ('04-sessions-after','90-before-stop'):return {'status':'PASS'},'['+sessions[0]+'] '+('OFFLINE_ENDPOINT_SUFFIX' if fault=='endpoint-prefix-collision' else 'OFFLINE_ENDPOINT')+' | Hardware: '+(('V5E1' if hardware=='V6E1' else 'V6E1') if fault=='hardware-mismatch' else hardware)+' | Variant: TPU'+('\n[?] EXTRA_ENDPOINT | Hardware: V6E1 | Variant: TPU' if fault=='late-extra-runtime' else '')
         if label=='04b-browser-marker':
             code=Path(argv[-1]).read_text();assert adoption['marker_path'] in code and adoption['marker_sha256'] in code
             return {'status':'PASS'},'SYNTHETIC marker missing traceback' if fault=='marker' else json.dumps({'status':'ROOT_BROWSER_MARKER_MATCH','marker_sha256':adoption['marker_sha256']})
@@ -120,9 +123,14 @@ def test_browser_adoption_owned_lifecycle(nested_packet,tmp_path,monkeypatch,fau
                 if fault=='part-bytes' and label.startswith('26-part-'):destination.write_bytes(destination.read_bytes()+b'bad')
         if fault=='stop' and label=='91-stop-exact':return {'status':'CLI_FAILED'},'SYNTHETIC stop refusal'
         return {'status':'PASS'},'Active assignments: 0\nUsage rate: 0.00/hr' if argv==['usage'] else 'No active sessions found on server.'
+    if fault in ('gate-hardware','unlisted-hardware'):
+        with pytest.raises((PermissionError,ValueError)):
+            owner.drive(packet,out,expected,acceptance,remote.sha(acceptance),Path('fixture-python'),identity,api=api,simulated=True,browser_adoption=adoption_path,browser_adoption_sha256=remote.sha(adoption_path))
+        assert calls==[]
+        return
     result=owner.drive(packet,out,expected,acceptance,remote.sha(acceptance),Path('fixture-python'),identity,api=api,simulated=True,browser_adoption=adoption_path,browser_adoption_sha256=remote.sha(adoption_path))
     assert result['allocation_attempts']==0 and '03-one-allocation' not in calls
-    if fault in ('marker','wrong-endpoint','additional-runtime','registration-fail','late-extra-runtime','endpoint-prefix-collision'):
+    if fault in ('marker','wrong-endpoint','additional-runtime','registration-fail','late-extra-runtime','endpoint-prefix-collision','hardware-mismatch'):
         assert not result['adoption_verified'] and result['remote_termination']=='NOT_RUN_UNPROVEN_BROWSER_IDENTITY'
         assert calls[-1]=='89-remove-provisional' and '91-stop-exact' not in calls and '13-tpu' not in calls
         assert result['status']=='BLOCKED'

@@ -21,7 +21,7 @@ It does not establish the cause of the V6E1 waits or future device availability.
 It supplies no numerical, compiler, memory, or performance result.
 Accepted milestones remain three of eight.
 
-The existing scientific owner admits only V6E1 browser records.
+At this observation, the scientific owner admitted only V6E1 browser records.
 An explicit V5E1 extension requires separate source and lifecycle tests before scientific execution.
 Each later result must retain its actual hardware type.
 

@@ -25,13 +25,15 @@ def assignment():return {'endpoint':'OFFLINE_ENDPOINT','accelerator':'V6E1','var
  'runtimeProxyInfo':{'token':'OFFLINE_SECRET_NOT_FOR_OUTPUT','tokenExpiresInSeconds':300,'url':'https://offline.invalid/'}}
 
 class Controls(unittest.TestCase):
- def run_case(self,fault=None,remove=False):
+ def run_case(self,fault=None,remove=False,hardware="V6E1"):
   with tempfile.TemporaryDirectory() as directory,ExitStack() as stack:
-   base=Path(directory);r=data();a=assignment();items=[a]
+   base=Path(directory);r=data();a=assignment();r['hardware']=hardware;a['accelerator']=hardware;items=[a]
    if fault=='wrong-endpoint':a['endpoint']='UNOWNED_ENDPOINT'
    elif fault=='extra-runtime':items.append(copy.deepcopy(a))
    elif fault=='missing-runtime':items=[]
-   elif fault=='wrong-hardware':a['accelerator']='V5E1'
+   elif fault=='wrong-hardware':a['accelerator']='V5E1' if hardware=='V6E1' else 'V6E1'
+   elif fault=='unlisted-hardware':r['hardware']='V4'
+   elif fault=='unlisted-gpu':r['hardware']='T4';r['variant']='GPU'
    elif fault=='expired-proxy':a['runtimeProxyInfo']['tokenExpiresInSeconds']=0
    elif fault=='wrong-account':r['authuser']='1'
    elif fault=='stale-record':r['observed_epoch']-=200
@@ -58,6 +60,11 @@ class Controls(unittest.TestCase):
    self.assertFalse(any(request.method=='POST' for request,kwargs in adapter.calls));http.close()
  def test_register_official_api_no_post(self):self.run_case()
  def test_remove_provisional_local_only(self):self.run_case(remove=True)
+ def test_v5_register_official_api_no_post(self):self.run_case(hardware='V5E1')
+ def test_v5_remove_provisional_local_only(self):self.run_case(remove=True,hardware='V5E1')
+ def test_v5_wrong_hardware(self):self.run_case('wrong-hardware',hardware='V5E1')
+ def test_unlisted_tpu(self):self.run_case('unlisted-hardware')
+ def test_unlisted_gpu(self):self.run_case('unlisted-gpu')
  def test_wrong_endpoint(self):self.run_case('wrong-endpoint')
  def test_extra_runtime(self):self.run_case('extra-runtime')
  def test_missing_runtime(self):self.run_case('missing-runtime')

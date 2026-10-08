@@ -89,7 +89,8 @@ It requires a fresh qualified CPU oracle and actual TPU execution under the new 
 Its fresh V6E1 allocation exceeded the planned wait before any code executed; resource closure passed inspection.
 The [V5E1 connection diagnostic](changes/colab-v5-connection.md) then connected in a new empty notebook.
 The reviewer terminated that runtime and verified zero active usage without scientific execution.
-An explicit hardware admission extension is required before a fresh V5E1 experiment.
+The [explicit hardware admission](changes/colab-v5-adoption.md) passed 48 local controls after adoption.
+A fresh V5E1 experiment requires its new packet, exact runtime record, marker, and qualified CPU oracle.
 The [measurement preparation](changes/r7-measurement-preparation.md) passed 64 local controls and nine independent retained-record checks.
 Actual M7 collection requires accepted M6 results.
 BF16 gradients remain outside the fixed diagnostic scope.

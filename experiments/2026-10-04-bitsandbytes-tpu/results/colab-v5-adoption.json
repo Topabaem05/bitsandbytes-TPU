@@ -1,0 +1,62 @@
+{
+  "accepted_milestones": 3,
+  "cli_stderr_sha256": "edd9d592de5df67d5d6de1982cfc317eac72e8844cd36106acf255f06e76c425",
+  "date": "2026-10-09",
+  "files": [
+    {
+      "bytes": 4359,
+      "sha256": "13a75920d19a760796b4f610b8d497e1011d4690f890d015fba281bb40ebe93d",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/browser_adoption.py"
+    },
+    {
+      "bytes": 54864,
+      "sha256": "9ec16750acaafa2750ebe60ee8ae9cb84599700723d23c0f4fedd0769691e3c3",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/owner.py"
+    },
+    {
+      "bytes": 5172,
+      "sha256": "a282004b368daaf6af84a7daa9cb3ee72fb191dc76e3dd4ee48a48c8b2a2a4c7",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/tests/browser_adoption_controls.py"
+    },
+    {
+      "bytes": 12810,
+      "sha256": "3938ac24c8864878c8e7262ce4d858fcb82ed1afff251cca5bc1f46817845ef2",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/tests/test_browser_adoption_owner.py"
+    }
+  ],
+  "host_deadline_controls": 5,
+  "junit_sha256": "d60b32f02cd118954ffc2af2bf8bd585166df1f9c37421d40d319b280d1606b6",
+  "official_cli_controls": 17,
+  "owner_controls": 26,
+  "packet": {
+    "actual_TPU": "NOT_RUN",
+    "changed_source_members_from_corrected_native_packet": [
+      "cloud/browser_adoption.py",
+      "cloud/owner.py"
+    ],
+    "hardware_proposal": "ROOT_EXPLICIT_V5E1_BROWSER_ADOPTION",
+    "m6": "NOT_QUALIFIED",
+    "manifest_sha256": "23e43f3bc93139751681f5dc10723e6f5903bbb4aee5fb05ae3edb062b93fcdf",
+    "members": 69,
+    "native_manifest_sha256": "c533a0b7ac754318ce4d6baa64e0e14d7961941983ffdf726d4b57177e865a14",
+    "payload_bytes": 1047881,
+    "payload_sha256": "5a94d35b09288eb0724aeae5b40fb0f725bc997f4643d95006be330ac933bf32",
+    "runtime_lock_sha256": "323371ff61c5fbcc4f79fd6a358cf2ba17cb72b907382a5ceaac07f91dc66ed6",
+    "source_admission_sha256": "8b2b3e26e2e7c98c0fde52f51663bed84999ac733dcbc39573ef8b3aeca4f9a1",
+    "status": "ROOT_PACKET_PREFLIGHT_AND_COMPLETE_MEMBER_REVIEW_PASS"
+  },
+  "production_line_changes": 2,
+  "retained_worker_setup_failure": {
+    "host_controls_pass": 5,
+    "setup_errors": 26,
+    "status": "MISSING_PRIVATE_FIXTURE_DEPENDENCY",
+    "xml_sha256": "e85ceacccfebebd262199f7dfee901982e9c1403a12a6c5dee77079f9d9f1225"
+  },
+  "schema": "bnb-tpu.v5-adoption-review.v1",
+  "scientific_execution_V5E1": "NOT_RUN",
+  "scientific_sources_runtime_criteria": "UNCHANGED",
+  "source_map_sha256": "8055b42753ef8348bef5b27be2a24af972e4face05ba1150c0cdb69e1e3c05d6",
+  "status": "ROOT_CANONICAL_CONTROLS_PASS",
+  "total_distinct_controls": 48,
+  "total_milestones": 8
+}

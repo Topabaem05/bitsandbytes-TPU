@@ -23,7 +23,7 @@ def record(path,expected,*,now=None,check_time=True):
         'packet_sha256','driver_sha256','cli_identity_sha256','marker_path','marker_sha256'}
     require(type(r) is dict and set(r)==fields,'BROWSER_ADOPTION_RECORD_FIELDS')
     require(r['format']=='bnb-tpu.browser-adoption.v1' and r['status']=='ROOT_CREATED_BROWSER_RUNTIME_READY' and
-        r['hardware']=='V6E1' and r['variant']=='TPU' and r['authuser']=='0','BROWSER_ADOPTION_PROFILE')
+        r['hardware'] in ('V5E1','V6E1') and r['variant']=='TPU' and r['authuser']=='0','BROWSER_ADOPTION_PROFILE')
     require(isinstance(r['endpoint'],str) and re.fullmatch('[A-Za-z0-9_-]{1,256}',r['endpoint']) and
         isinstance(r['session'],str) and re.fullmatch('[A-Za-z0-9][A-Za-z0-9_-]{0,127}',r['session']),'BROWSER_ADOPTION_IDENTITY')
     require(isinstance(r['marker_path'],str) and re.fullmatch('/tmp/bnb-tpu-root-browser-[0-9a-f]{32}\\.json',r['marker_path']),'BROWSER_ADOPTION_MARKER_PATH')

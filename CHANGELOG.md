@@ -1,5 +1,15 @@
 # Change log
 
+## 2026-10-09 — Explicit V5E1 browser admission
+
+- Admit V5E1 or V6E1 through an exact reviewer-created runtime record.
+- Require matching hardware in the official session listing.
+- Preserve scientific sources, numerical criteria, and the original lifecycle limit.
+
+Validation: All 48 canonical local controls and all 69 fresh packet members passed inspection.
+Actual V5E1 scientific execution remains required.
+Refer to [the admission record](docs/changes/colab-v5-adoption.md).
+
 ## 2026-10-09 — Colab V5E1 connection
 
 - Retain the successful V5E1 connection after two pending V6E1 requests.
