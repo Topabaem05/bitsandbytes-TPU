@@ -78,6 +78,11 @@ The native tensor view used fallback, and the first builder record failed metric
 All 113 archive members and complete resource closure passed inspection.
 The [metric correction](changes/r4-primitive-metric-repair.md) passed 24 controls before and after adoption.
 Its fresh 56-member packet requires a new qualified CPU oracle and actual arithmetic observations.
+The [second arithmetic run](changes/r4-primitive-parameter-failure.md) passed its new CPU gate and retained two builder rows.
+All four output and input byte comparisons passed inspection.
+The third case failed the parameter map requirement before it wrote its JSON record.
+The reviewer verified all 120 archive members and complete resource closure.
+Additional scalar parameters require source inspection and exact value observations before further arithmetic conclusions.
 The failed result cannot authorize the saved-state supplement or an accepted M4 dependency.
 The private CPU preparations for M4, M5, and M6 do not qualify those device milestones.
 The [bounded native preparation](changes/r6-native-cloud-preparation.md) uses accepted M2 sources and can execute independently of the M4 repair.

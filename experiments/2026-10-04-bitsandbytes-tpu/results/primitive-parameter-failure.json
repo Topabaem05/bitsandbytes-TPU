@@ -1,0 +1,67 @@
+{
+  "accepted_milestones": 3,
+  "active_usage_zero": true,
+  "actual_tpu_attempted": true,
+  "archive_bytes": 135978,
+  "archive_members": 120,
+  "archive_sha256": "8ab553f514bd3f06d8f34a72625c5f7326273a1b8f9ca7abb48917e5a731eef8",
+  "browser_tab_closed": true,
+  "builder_complete_record": false,
+  "builder_error": "PARAMETER_VALUE_MATRIX",
+  "builder_error_log_sha256": "f535b16db86d511b469610c0d9de8cb4b3ac72505e2556b690e1388fe28159a9",
+  "builder_retained_rows": 2,
+  "checked_local_date": "2026-10-09",
+  "cli_groups_closed": 46,
+  "cpu_archive_bytes": 36346,
+  "cpu_archive_members": 18,
+  "cpu_archive_sha256": "0b0c64401944caa7fe7ffe6f98d17e8ed562c578bf0ddb7302a103811e9b7d2d",
+  "cpu_gate_sha256": "74c892f2dfafc9631d33c858d4de2e65570ddfb964774fb3306cce97fe1f5660",
+  "cpu_mean_cases": 28,
+  "cpu_outputs": 206,
+  "cpu_record_validation": "PASS",
+  "cpu_rows": 32,
+  "direct_children_reaped": 2,
+  "hardware": "Colab V5E1",
+  "host_execution_seconds": 343.49336945899995,
+  "host_finalization_sha256": "4c522dc8c863a120a732fc19437c0f5ad3ab7493b37817d46b15f9305015590c",
+  "lifecycle_seconds": 391.73189997673035,
+  "local_verifier": "NOT_RUN_INCOMPLETE_PRIMITIVE_RECORDS",
+  "m4": "NOT_QUALIFIED",
+  "manifest_sha256": "6523be2c2f605a9fee25b7d90ed1bbae1d173cfd78989e1b03e751de1eb8d9c4",
+  "native_view_observation": "UNSUPPORTED_ATEN_FALLBACK",
+  "native_view_output_values": 0,
+  "native_view_row_sha256": "d0669303bc68f5d090dc18e8ce7f1e005c8d0dbf5028c7add1d5b6085809fa7c",
+  "original_deadline_unchanged": true,
+  "owner_sha256": "6f8fe05c09dcf0947db819547d2fdb8d7d98b5685ed10f99ece77b6857e8e566",
+  "packet_sha256": "97a1eba5455a954ac436ed6512d599564e36003d04eeaa2ed64e3017af97b3ec",
+  "partial_builder_observations": [
+    {
+      "bit_gates": {
+        "bits": "PASS",
+        "parameter_float_input": "PASS"
+      },
+      "case_id": "host-float-bits",
+      "qualifies_complete_diagnostic": false,
+      "retained_row_checks": "PASS"
+    },
+    {
+      "bit_gates": {
+        "float": "PASS",
+        "parameter_int_input": "PASS"
+      },
+      "case_id": "device-int-float",
+      "qualifies_complete_diagnostic": false,
+      "retained_row_checks": "PASS"
+    }
+  ],
+  "primitive_manifest_sha256": "2aef8f7b159eae2facb9aef985f74c0e8873e47d4fc164c678a6a835b9f24f85",
+  "receipt_sha256": "0e5cab26b9b429ab0c7ec40d26401e0e1cf28ac181657fda8e739369e8956984",
+  "remote_steps_closed": 14,
+  "resource_closure": "PASS",
+  "review_source_sha256": "8f06df5ea07b3e4294980b72058981b92edcbf2153faa6bbc244c38c9bb02975",
+  "root_review_sha256": "8bfc78b6b92e3d23753afc2ba254873fd4f4119eca6930fed47ab478a0932750",
+  "runtime_lock_sha256": "323371ff61c5fbcc4f79fd6a358cf2ba17cb72b907382a5ceaac07f91dc66ed6",
+  "server_empty": true,
+  "source_admission_sha256": "6647dbe8d4928a201020e7116105e836585bc1d4ad1adf3cc730976d9885b139",
+  "status": "ROOT_RETAINED_PRIMITIVE_FAILURE_VERIFIED"
+}

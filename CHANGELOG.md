@@ -1,5 +1,16 @@
 # Change log
 
+## 2026-10-09 — Arithmetic parameter observation failure
+
+- Retain two actual builder rows after the metric correction.
+- Verify four exact byte comparisons and preserve the third case's parameter failure.
+- Verify all 120 archive members and complete resource closure.
+
+Validation: The fresh CPU gate passed 32 rows and 206 outputs.
+All 46 CLI groups, 14 remote steps, and two scientific children closed.
+The diagnostic remains incomplete, and M4 remains unqualified.
+Refer to [the actual result](docs/changes/r4-primitive-parameter-failure.md).
+
 ## 2026-10-09 — Arithmetic metric correction
 
 - Convert complete metric tuples to JSON before the unchanged validator.
