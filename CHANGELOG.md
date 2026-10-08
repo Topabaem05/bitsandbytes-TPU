@@ -1,5 +1,15 @@
 # Change log
 
+## 2026-10-09 — Native gather decode preparation
+
+- Replace the rejected reshape with a gather that preserves nibble and scale order.
+- Bind the new kernel generation and retain the fixed runtime and numerical criteria.
+- Reject the earlier repeat candidate after inspection of its compiler semantics.
+
+Validation: All 52 independent controls and 73 canonical packet members passed inspection.
+Local layout passes and frontend preflight passed; actual TPU execution remains required.
+Refer to [the preparation record](docs/changes/r6-gather-decode.md).
+
 ## 2026-10-09 — Complete Colab arithmetic observations
 
 - Retain all 32 diagnostic rows and the previously missing clamp scalar values.

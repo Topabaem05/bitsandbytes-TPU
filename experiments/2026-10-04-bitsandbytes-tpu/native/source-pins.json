@@ -1,6 +1,6 @@
 {
   "files": {
-    ".work/r6-pallas-preparation/kernel.py": "ca2d28ea0857913115d97c4484e5d97eec60aefaa862c0c2eadf1e9eafdf4d87",
+    ".work/r6-pallas-preparation/kernel.py": "8547851a7ff60c4f3be53e3744dd8a0f60c65bd17030f7a758b8fa4109fba708",
     ".work/research-20261008/pallas/xla-bindings.cpp": "85105171d16d84dd181f364128a8098d9a02d9934c6a9865f81b012a457fcf43",
     ".work/research-20261008/pallas/xla-bridge.py": "c347f8fcb4844fa8849109680ad81b94e221a2c8b011462553b48ec9f67e6338",
     ".work/research-20261008/pallas/xla-guard.py": "fd8c53eb24fb373fba35c938e00b1ef36caadf3eaf8a74d266528ec6602ad42f",

@@ -38,12 +38,15 @@ def prepare_operands(packed,scales,weight_shape):
 def decode_tile(packed_group,scale_group,half):
     """Only a bounded [128,128] decoded weight tile; all NF4 literals are static."""
     byte_half=jnp.where(half==0,packed_group[:, :64],packed_group[:, 64:])
-    high=(byte_half>>jnp.uint8(4)).astype(jnp.int32);low=(byte_half&jnp.uint8(15)).astype(jnp.int32)
-    codes=jnp.stack((high,low),axis=-1).reshape(BN,BK)
+    lanes=jnp.arange(BK,dtype=jnp.int32)[None,:]
+    byte_source=jnp.concatenate((byte_half,byte_half),axis=1).astype(jnp.int32)
+    byte_indices=jnp.broadcast_to(lanes//2,(BN,BK))
+    byte_lanes=jnp.take_along_axis(byte_source,byte_indices,axis=1,mode="promise_in_bounds")
+    codes=jnp.where((lanes%2)==0,byte_lanes>>4,byte_lanes&15)
     values=jnp.zeros((BN,BK),jnp.float32)
     for index,value in enumerate(NF4_CODE):values=jnp.where(codes==index,jnp.float32(value),values)
     selected=jnp.where(half==0,scale_group[:, :2],scale_group[:, 2:])
-    scaled=jnp.repeat(selected,64,axis=1)
+    scaled=jnp.where(lanes<64,selected[:, :1],selected[:, 1:])
     return values*scaled
 
 

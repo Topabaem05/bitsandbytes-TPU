@@ -19,7 +19,7 @@ Port2TPU results do not count for these backend milestones.
 | M3 | Upstream module state | Bias, gradients, saved state, and restoration in a new process | Completed: eight fixed cases restored in a new TPU process |
 | M4 | Nested quantization | Upstream default statistics option and matching saved nested state | In progress: actual 79-case run failed 27 cases; arithmetic repair and saved-state results required |
 | M5 | QLoRA execution | Twenty steps, frozen base weights, and restoration after step ten | In progress: private CPU preparation; TPU test required |
-| M6 | Pallas NF4 kernel | Actual custom call, numerical tests, and compiler test records for memory use | In progress: version conversion passed; actual V5E1 compilation rejects the NF4 decode layout; kernel correction required |
+| M6 | Pallas NF4 kernel | Actual custom call, numerical tests, and compiler test records for memory use | In progress: gather decode correction passed local controls; fresh actual native results and compiler memory records required |
 | M7 | Measured performance | Raw time samples and memory measurements on the same TPU | In progress: local collector controls passed; actual measurements require accepted M6 |
 | M8 | Repeated cloud results | Matching source and inputs on Colab and Kaggle, with resource closure | In progress: bounded M2 repetition preparation passed local controls; actual device repetition and closure required |
 
@@ -117,6 +117,8 @@ The [Mosaic conversion preparation](changes/r6-mosaic-preparation.md) passed 56 
 The official versioned passes preserve the fixed kernel's current intermediate representation exactly.
 The reviewer verified all 73 packet members and the explicit JAX 0.7.1 CPU interpreter.
 The new generation requires fresh Linux CPU and actual TPU records.
+The [gather decode correction](changes/r6-gather-decode.md) passed 52 independent controls and the canonical packet preflight.
+Its source map preserves the original numerical criteria and requires a fresh qualified CPU oracle.
 The [portable conversion controls](changes/r6-mosaic-portable-controls.md) passed all 35 cases before and after adoption.
 The corrected rejection helper also rejects a fake successful verifier; production sources remain unchanged.
 Its [V5E1 allocation attempt](changes/r6-mosaic-allocation-wait.md) remained pending for 703.63 seconds without scientific execution.

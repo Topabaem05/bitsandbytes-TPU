@@ -18,7 +18,7 @@ import protocol as S
 import base64
 import recorder as E
 import verifier as V
-PINS_SHA='2cb1808f6c6148e6d898a152c960dfc2cfa3f9f748c6d35adfcb7833f0334602'
+PINS_SHA='d297d698ac862b334410057fda1d20bb05e48ce9b340a62188459b0f4cc5bd1a'
 
 def write(path,value):
     path=Path(path);path.parent.mkdir(parents=True,exist_ok=True);path.write_text(json.dumps(value,sort_keys=True,indent=2,allow_nan=False)+'\n')

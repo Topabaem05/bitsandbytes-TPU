@@ -1,6 +1,7 @@
 {
   "compiler_executable_link": "UNKNOWN",
-  "generation": "mosaic-serde7-v1",
+  "decode_layout_scope": "RANK2_GATHER_HIGH_NIBBLE_FIRST_UNQUALIFIED",
+  "generation": "mosaic-serde7-gather-v1",
   "kind": "R6_DEVICE_CANDIDATE",
   "m6": "NOT_QUALIFIED",
   "mosaic_frontend_scope": "SUPPORTED_SERDE_8_TO_7_EXACT_IR_ROUNDTRIP",
@@ -10,7 +11,7 @@
   "sources": {
     "adapter.py": {
       "bytes": 5992,
-      "sha256": "26f9afc9227a6d39573f885cbc867f05723509da6f106567f875ce1dd0fa30c5"
+      "sha256": "0ed4b9e89ac96e4c5ed4f2551651089be175ffa8ba57f21d60a1213c94ee8d7f"
     },
     "audit_preflight.py": {
       "bytes": 734,
@@ -26,15 +27,15 @@
     },
     "device_diagnostic.py": {
       "bytes": 16142,
-      "sha256": "5d3631361b57a3e8e636c6df1e4a7a24f91c5b9a8d12add31d1dc640b025b843"
+      "sha256": "55b27653e754f6c33091b6ac1a6465f1e4148d81f9a99ef7483d7a831df5d246"
     },
     "graph_binding.py": {
       "bytes": 3367,
       "sha256": "79f446e39a8f04a89197df28897176b2b8f207b031e04da7dccad02c38a5d4e6"
     },
     "kernel.py": {
-      "bytes": 4586,
-      "sha256": "ca2d28ea0857913115d97c4484e5d97eec60aefaa862c0c2eadf1e9eafdf4d87"
+      "bytes": 4787,
+      "sha256": "8547851a7ff60c4f3be53e3744dd8a0f60c65bd17030f7a758b8fa4109fba708"
     },
     "mosaic_audit.py": {
       "bytes": 7067,
@@ -94,7 +95,7 @@
     },
     "source-pins.json": {
       "bytes": 1886,
-      "sha256": "2cb1808f6c6148e6d898a152c960dfc2cfa3f9f748c6d35adfcb7833f0334602"
+      "sha256": "d297d698ac862b334410057fda1d20bb05e48ce9b340a62188459b0f4cc5bd1a"
     },
     "state_child_owner.py": {
       "bytes": 3753,

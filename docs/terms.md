@@ -39,6 +39,7 @@ They are not additions to the official ASD-STE100 dictionary.
 | FP16 | The IEEE binary16 numerical data type. |
 | FP32 | The IEEE binary32 numerical data type. |
 | GEMM | Matrix multiplication with an optional bias addition. |
+| gather | An operation that selects array elements using an index array. |
 | gate | A fixed acceptance condition for a test record. |
 | gradient | A derivative that the training algorithm uses. |
 | hash | A digest that identifies file content. |

@@ -1,0 +1,246 @@
+{
+  "accepted_milestones": 3,
+  "actual_tpu": "NOT_RUN",
+  "adopted_files": [
+    {
+      "baseline_sha256": "ca2d28ea0857913115d97c4484e5d97eec60aefaa862c0c2eadf1e9eafdf4d87",
+      "bytes": 4787,
+      "sha256": "8547851a7ff60c4f3be53e3744dd8a0f60c65bd17030f7a758b8fa4109fba708",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/native/kernel.py"
+    },
+    {
+      "baseline_sha256": "26f9afc9227a6d39573f885cbc867f05723509da6f106567f875ce1dd0fa30c5",
+      "bytes": 5992,
+      "sha256": "0ed4b9e89ac96e4c5ed4f2551651089be175ffa8ba57f21d60a1213c94ee8d7f",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/native/adapter.py"
+    },
+    {
+      "baseline_sha256": "2cb1808f6c6148e6d898a152c960dfc2cfa3f9f748c6d35adfcb7833f0334602",
+      "bytes": 1886,
+      "sha256": "d297d698ac862b334410057fda1d20bb05e48ce9b340a62188459b0f4cc5bd1a",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/native/source-pins.json"
+    },
+    {
+      "baseline_sha256": "5d3631361b57a3e8e636c6df1e4a7a24f91c5b9a8d12add31d1dc640b025b843",
+      "bytes": 16142,
+      "sha256": "55b27653e754f6c33091b6ac1a6465f1e4148d81f9a99ef7483d7a831df5d246",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/native/device_diagnostic.py"
+    },
+    {
+      "baseline_sha256": "d294b189011f8200e039761f054c5cc96a15275b679efeb7bdde1ef67b414ffa",
+      "bytes": 4288,
+      "sha256": "23eec6fb2db6f7058e71fe499fee1714fe88f2bb1249ec2ddd8b007d705271bb",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/native/manifest.json"
+    },
+    {
+      "baseline_sha256": "4f0d39a7f7baf2c4c69abd49609c8316c89c208624c14e4f5d187eb3ab8d4d06",
+      "bytes": 11585,
+      "sha256": "b50a20b036421c56bedb420f487ec7d0b9e31db7344474ae33d8ab8d14ba4ee4",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/native_contract.py"
+    },
+    {
+      "baseline_sha256": "f81389b663fe1418effa21466d1048e041b216086a884ad7880fa4a33b7bc837",
+      "bytes": 3593,
+      "sha256": "0c45d15d02e81b817d5b351298b0c3f2ae324e3299e7a381ad60c615aff34ea1",
+      "target": "experiments/2026-10-04-bitsandbytes-tpu/cloud/build_native_packet.py"
+    }
+  ],
+  "base_cloud_commit": "2c64223350ced1512fb7f6e78e1dde8cb0fc0ee9",
+  "builder_closed": true,
+  "control_groups_closed": 6,
+  "controls_sha256": "72bc4e3a88a357d289dbb3daf87c96002f39daef3e58b0197175af673d852f8f",
+  "format": "bnb-tpu.gather-decode-preparation.v1",
+  "fresh_qualified_cpu_oracle_required": true,
+  "independent_controls": 52,
+  "local_layout_scope": "PINNED_JAXLIB_071_CPU_PASSES_NOT_ACTUAL_LIBTPU",
+  "m6": "NOT_QUALIFIED",
+  "manifest_sha256": "a348f81cb41a979e2253d46102f554d0ffb775a634a49d4f3367c17254b93004",
+  "members": 73,
+  "native_generation": "mosaic-serde7-gather-v1",
+  "native_manifest_sha256": "23eec6fb2db6f7058e71fe499fee1714fe88f2bb1249ec2ddd8b007d705271bb",
+  "payload_bytes": 1057741,
+  "payload_sha256": "fa01a5ed18b13a4d02024e4c9621572ce68c179964717b080e44e0b6b8af822c",
+  "preallocation_frontend": {
+    "audit_sha256": "1b3004881ff74bf4e262eacc6b1a38179dc1d28614f763cd38f47dcc704a3c5c",
+    "cleanup": {
+      "errors": [],
+      "groups": [
+        {
+          "ended_at": "2026-10-08T20:24:58.463206+00:00",
+          "errors": [],
+          "exit_status": 0,
+          "group_absence": "OBSERVED_NO_SUCH_GROUP",
+          "leader_reaped": true,
+          "pgid": 87680,
+          "pid": 87680,
+          "signals": [
+            {
+              "result": "NO_SUCH_GROUP",
+              "signal": 15
+            },
+            {
+              "result": "NO_SUCH_GROUP",
+              "signal": 9
+            }
+          ],
+          "started_at": "2026-10-08T20:24:58.463152+00:00",
+          "status": "CLEANUP_VERIFIED"
+        }
+      ],
+      "guard_original_outcome": {
+        "error": null,
+        "status": "COMPLETED"
+      },
+      "restoration": {
+        "handlers_restored": true,
+        "previous_timer": [
+          0.0,
+          0.0
+        ],
+        "state": "RESTORATION_ATTEMPTED",
+        "timer_policy": "PAUSE_AND_RESTORE_CAPTURED_TIMER",
+        "timer_restored": true
+      },
+      "status": "NO_CLEANUP_ERRORS"
+    },
+    "provider_calls": 0,
+    "python": "/Users/topamini/code/bitsandbytes-TPU/.work/r6-pallas-preparation/venv-jax071/bin/python",
+    "python_sha256": "042454a41d6c32f2be126c4bbae2a4b8a54488c66f4b07379cd24dee75f93abb",
+    "runtime": {
+      "JAX_PLATFORMS": "cpu",
+      "TPU_backend": "NOT_RUN",
+      "jax": "0.7.1",
+      "jax_record_sha256": "326bfcfd91915c0ceb7e5afb04bd54b4d72a14d0f164bd0d154c007e023e535f",
+      "jaxlib": "0.7.1",
+      "jaxlib_record_sha256": "9f0d75a7fa6b70f6139089480a283cfa199dd396d2b5f3188e179ad9b06b0e34",
+      "machine": "arm64",
+      "mosaic_extension_sha256": "1af5d97f50deef11cebe6f892781f6f8cd6a6c1cd88be6b8465955136336da29",
+      "mosaic_python_sha256": "dab3921ef15402d4801734cae1c8d3177b8e98aa8ab010bd24c990e067112134",
+      "platform": "darwin",
+      "python": "3.12.14",
+      "python_executable": "/Users/topamini/code/bitsandbytes-TPU/.work/r6-pallas-preparation/venv-jax071/bin/python",
+      "qualification": "EXACT_PINNED_CPU_FRONTEND_ONLY",
+      "serializer_python_sha256": "ae78bf3e65571d8c15004e76863747e2b414e7f17073cee151c643f8c7932d37"
+    }
+  },
+  "primary_sources": {
+    "checked_date": "2026-10-09",
+    "current_docs": "https://docs.jax.dev/en/latest/pallas/tpu/details.html",
+    "current_docs_limit": "Supplementary only; not an admission for fixed JAX071 or libtpu.",
+    "libtpu_0_0_21_source_match": "UNKNOWN",
+    "sources": [
+      {
+        "accessed_date": "2026-10-09",
+        "bytes": 17452,
+        "line_evidence": [],
+        "path": "docs/pallas/tpu/details.rst",
+        "revision": "5712de44e97c455faed1fd45532e821ca66d025a",
+        "sha256": "e4ec9e3b3e8e275e561f2a93a46beff51c35773ea9e9bea85aab5969800d948e",
+        "url": "https://github.com/jax-ml/jax/blob/5712de44e97c455faed1fd45532e821ca66d025a/docs/pallas/tpu/details.rst"
+      },
+      {
+        "accessed_date": "2026-10-09",
+        "bytes": 143269,
+        "line_evidence": [
+          "2413-2474 gather constraints",
+          "2315-2336 shape-cast lowering"
+        ],
+        "path": "jax/_src/pallas/mosaic/lowering.py",
+        "revision": "5712de44e97c455faed1fd45532e821ca66d025a",
+        "sha256": "6e5d7b20367972ff2fc62604ee62c32dd33b2113f163bd6afde057086bed6ebb",
+        "url": "https://github.com/jax-ml/jax/blob/5712de44e97c455faed1fd45532e821ca66d025a/jax/_src/pallas/mosaic/lowering.py"
+      },
+      {
+        "accessed_date": "2026-10-09",
+        "bytes": 30054,
+        "line_evidence": [
+          "51-70 CPU repeat primitive"
+        ],
+        "path": "jax/_src/pallas/mosaic/primitives.py",
+        "revision": "5712de44e97c455faed1fd45532e821ca66d025a",
+        "sha256": "4df97127b67fce57792e36e2532505db0292249c8400e638446cc6b10df174cc",
+        "url": "https://github.com/jax-ml/jax/blob/5712de44e97c455faed1fd45532e821ca66d025a/jax/_src/pallas/mosaic/primitives.py"
+      },
+      {
+        "accessed_date": "2026-10-09",
+        "bytes": 6295,
+        "line_evidence": [
+          "51 public repeat export"
+        ],
+        "path": "jax/experimental/pallas/tpu.py",
+        "revision": "5712de44e97c455faed1fd45532e821ca66d025a",
+        "sha256": "ba872b4785da476932a174ba5339aea10f7f6847a3713456425d813656e537a0",
+        "url": "https://github.com/jax-ml/jax/blob/5712de44e97c455faed1fd45532e821ca66d025a/jax/experimental/pallas/tpu.py"
+      },
+      {
+        "accessed_date": "2026-10-09",
+        "bytes": 51560,
+        "line_evidence": [
+          "623-650 gather semantics",
+          "1296-1350 local pass names/options"
+        ],
+        "path": "jaxlib/mosaic/dialect/tpu/tpu.td",
+        "revision": "5712de44e97c455faed1fd45532e821ca66d025a",
+        "sha256": "da75fb9e562b3903961776ee089aa3a41983c43c6e6c1b2c93df9b97395f30a2",
+        "url": "https://github.com/jax-ml/jax/blob/5712de44e97c455faed1fd45532e821ca66d025a/jaxlib/mosaic/dialect/tpu/tpu.td"
+      },
+      {
+        "accessed_date": "2026-10-09",
+        "bytes": 76296,
+        "line_evidence": [],
+        "path": "jaxlib/mosaic/dialect/tpu/tpu_ops.cc",
+        "revision": "5712de44e97c455faed1fd45532e821ca66d025a",
+        "sha256": "e82610fcc234a4b94b83e3b0a0e8fe1c8795c72d8412a7a4a3097fd1322b3a61",
+        "url": "https://github.com/jax-ml/jax/blob/5712de44e97c455faed1fd45532e821ca66d025a/jaxlib/mosaic/dialect/tpu/tpu_ops.cc"
+      },
+      {
+        "accessed_date": "2026-10-09",
+        "bytes": 370253,
+        "line_evidence": [
+          "3303-3370 dynamic gather constraints"
+        ],
+        "path": "jaxlib/mosaic/dialect/tpu/transforms/apply_vector_layout.cc",
+        "revision": "5712de44e97c455faed1fd45532e821ca66d025a",
+        "sha256": "c37b7772293dab772e98fe054cfac00984e7c8cfe7f6a474eb139045af283906",
+        "url": "https://github.com/jax-ml/jax/blob/5712de44e97c455faed1fd45532e821ca66d025a/jaxlib/mosaic/dialect/tpu/transforms/apply_vector_layout.cc"
+      },
+      {
+        "accessed_date": "2026-10-09",
+        "bytes": 77025,
+        "line_evidence": [
+          "1042-1065 repeat canonicalization"
+        ],
+        "path": "jaxlib/mosaic/dialect/tpu/transforms/canonicalize_mosaic.cc",
+        "revision": "5712de44e97c455faed1fd45532e821ca66d025a",
+        "sha256": "556f36725a3bc77b13be90694d8de5dc8ee8d721bc1b3024ed654c019d42a21d",
+        "url": "https://github.com/jax-ml/jax/blob/5712de44e97c455faed1fd45532e821ca66d025a/jaxlib/mosaic/dialect/tpu/transforms/canonicalize_mosaic.cc"
+      },
+      {
+        "accessed_date": "2026-10-09",
+        "bytes": 96329,
+        "line_evidence": [
+          "977-1003 gather layout",
+          "1518 unsupported shape cast"
+        ],
+        "path": "jaxlib/mosaic/dialect/tpu/transforms/infer_vector_layout.cc",
+        "revision": "5712de44e97c455faed1fd45532e821ca66d025a",
+        "sha256": "f9ec64c6d920687dadb30672a2971658d36a2940f3dd38d6dd19f40358fa0ada",
+        "url": "https://github.com/jax-ml/jax/blob/5712de44e97c455faed1fd45532e821ca66d025a/jaxlib/mosaic/dialect/tpu/transforms/infer_vector_layout.cc"
+      }
+    ],
+    "version": "JAX_JAXLIB_0.7.1"
+  },
+  "primitive_contract_sha256": "35888719248865816d4a76d175cc74d8b401f0a3c26b7f9af20149fc8a38a0a1",
+  "private_packet_byte_exact": true,
+  "qualified_linux_cpu": "REQUIRED_NOT_RUN",
+  "rejected_repeat": {
+    "kernel_sha256": "f2332e9866f606668a76031e9d70ad9d700f29e26bb7bb14d65a7036164429da",
+    "reason": "CPU element repetition differs from pinned compiler vector concatenation."
+  },
+  "required_milestones": 8,
+  "review_date_kst": "2026-10-09",
+  "review_source_sha256": "14337236ba9fe45d02796773c6d48a1e983724f63a61f4850b00ac304807a46c",
+  "runtime_lock_sha256": "323371ff61c5fbcc4f79fd6a358cf2ba17cb72b907382a5ceaac07f91dc66ed6",
+  "source_admission_sha256": "8b2b3e26e2e7c98c0fde52f51663bed84999ac733dcbc39573ef8b3aeca4f9a1",
+  "status": "PREPARATION_ACCEPTED"
+}
