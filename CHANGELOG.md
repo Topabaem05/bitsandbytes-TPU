@@ -1,5 +1,17 @@
 # Change log
 
+## 2026-10-08 — Colab nested bootstrap correction
+
+- Load the admitted nested contract through its exact sibling file path.
+- Retain the original notebook import failure as an incorrect-case test.
+- Verify the generated entry point with neutral paths and a conflicting module cache.
+- Reject changed control bytes and missing installation receipts.
+
+Validation: The reviewer repeated 15 isolated local tests; all passed.
+Scientific sources, runtime files, and numerical tolerances did not change.
+A fresh Colab result remains required.
+Refer to [the bootstrap correction](docs/changes/r4-bootstrap-repair.md).
+
 ## 2026-10-08 — Colab nested bootstrap failure
 
 - Retain the first nested experiment failure before installation or numerical work.

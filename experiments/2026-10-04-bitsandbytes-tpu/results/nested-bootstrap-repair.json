@@ -1,0 +1,31 @@
+{
+  "accepted_milestones": 3,
+  "adopted_files": {
+    "experiments/2026-10-04-bitsandbytes-tpu/cloud/remote.py": {
+      "bytes": 51207,
+      "sha256": "09e93a9f766303608e78ca2d636403af5fd5a699fd48dde7b6fca58ed82ae2aa"
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/cloud/tests/test_remote_bootstrap.py": {
+      "bytes": 6909,
+      "sha256": "dcd113c355713ec17a133fc745b50f5cdab8e0df1dc80f0936ba07da4449b418"
+    }
+  },
+  "artifact_bindings": {
+    ".work/r4-bootstrap-repair/review.json": {
+      "bytes": 1335,
+      "sha256": "e5922d4e235a389b1b6f797943a78820d994fc7a9382d3ce38aff302ae2cc5e9"
+    },
+    ".work/root-r4-bootstrap-review/controls.xml": {
+      "bytes": 2745,
+      "sha256": "335540980db39b061706c4c7bdf70428a7719ca0bdb0ae21e5a5ad29b452232f"
+    }
+  },
+  "date": "2026-10-08",
+  "device_result": "NOT_RUN_AFTER_REPAIR",
+  "numerical_sources_and_tolerances": "UNCHANGED",
+  "old_remote_sha256": "5b9b54f4e2121ad845a158f54ee170e3cd2f7aa0a415e47c810fffa94d1e25dd",
+  "scope": "LOCAL_ACTUAL_GENERATED_NOTEBOOK_ENTRY_AND_OWNER_CLI",
+  "status": "PASS_BOOTSTRAP_ENTRY_CONTROLS",
+  "test_seconds": 1.168,
+  "tests": 15
+}

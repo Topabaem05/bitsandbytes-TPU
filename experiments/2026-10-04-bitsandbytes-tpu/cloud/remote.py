@@ -25,8 +25,14 @@ PRECISION_ROUTE_PROBE_SHA = 'feae751734e57c741b1bdade004ff7ca3c041ee7eb3b7086b53
 TRANSFER_PATCH_MANIFEST_SHA = 'e745fbf21aac10ed9118167a131d6505bf6dbe03e1fab0a669c663b26c5a5732'
 TRANSFER_PRECISION_PROBE_SHA = 'e0534955507e5f91e67ecddfffc738a367ad752e69a4eea7ae8052c6d76a8852'
 TRANSFER_SOURCE_CONTROLS_SHA = '5f5c8b6c3d04a0d8658dae1f4d70d7a909dfe63977b953936aecfb69bf9a16fe'
-from nested_contract import (NESTED_BINDINGS,NESTED_SCOPE,NESTED_SOURCE_SHA,NESTED_PLUGIN_MANIFEST_SHA,
-    NESTED_FILES,verify_nested_manifest,verify_nested_payload,verify_nested_wheel,nested_cli)
+# runpy.run_path does not add this admitted control directory to sys.path.
+# Load the exact sibling without consulting or replacing installed module caches.
+_contract_spec = importlib.util.spec_from_file_location('_bnb_admitted_nested_contract', HERE / 'nested_contract.py')
+_contract = importlib.util.module_from_spec(_contract_spec)
+_contract_spec.loader.exec_module(_contract)
+for _name in ('NESTED_BINDINGS', 'NESTED_SCOPE', 'NESTED_SOURCE_SHA', 'NESTED_PLUGIN_MANIFEST_SHA',
+              'NESTED_FILES', 'verify_nested_manifest', 'verify_nested_payload', 'verify_nested_wheel', 'nested_cli'):
+    globals()[_name] = getattr(_contract, _name)
 
 TRANSFER_BINDINGS = {'route_probe_sha256': 'probe_routes.py', 'precision_probe_sha256': 'probe_precision.py',
                      'transfer_probe_sha256': 'probe_transfer.py', 'transfer_admission_sha256': 'transfer_admission.py',
