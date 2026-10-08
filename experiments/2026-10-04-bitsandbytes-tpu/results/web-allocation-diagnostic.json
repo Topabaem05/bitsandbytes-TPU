@@ -1,0 +1,54 @@
+{
+  "accepted_milestones": {
+    "completed": 1,
+    "required": 8
+  },
+  "allocation_action_count": 1,
+  "bindings": {
+    "cli_reconciliation": {
+      "bytes": 2316,
+      "sha256": "9601651b2063fa43169b06eeb01322fb2033e2a38029196e3366f49d3346c56c"
+    },
+    "offline_cli_diagnosis": {
+      "bytes": 4419,
+      "sha256": "e2dc07593592b1becf9379cbda70ecfbd3895c337dae5740016ae5692ba061e5"
+    },
+    "offline_request_control": {
+      "bytes": 2216,
+      "sha256": "ee38028f30296c7554a2be4aae9325840b159252c818bc066f9f087d5f9b1bf1"
+    },
+    "root_offline_request_control": {
+      "bytes": 2216,
+      "sha256": "ee38028f30296c7554a2be4aae9325840b159252c818bc066f9f087d5f9b1bf1"
+    }
+  },
+  "browser_active_sessions_after_close": 0,
+  "cause_of_prior_cli_failures": "UNDETERMINED",
+  "cli_browser_principal_comparison": "NOT_RUN",
+  "cli_http_read_timeout_seconds": 120,
+  "cli_server_empty_after_close": true,
+  "cli_timeout_setting": "NO_SUPPORTED_SETTING_FOUND_IN_PINNED_0_7_4",
+  "cli_usage_zero_after_close": true,
+  "closure_readback_recorded_utc": "2026-10-08T10:26:58.741Z",
+  "connection_latency_seconds": {
+    "exact": "NOT_MEASURED",
+    "greater_than": 175,
+    "less_than_or_equal": 255
+  },
+  "date": "2026-10-08",
+  "first_connected_observation_seconds": 255,
+  "format": "bnb-tpu.web-allocation-diagnostic.v1",
+  "hypothesis": "A longer bounded assignment wait can accommodate the observed browser allocation interval; the browser result does not establish the CLI failure cause.",
+  "last_allocating_observation_seconds": 175,
+  "local_cleanup_errors": [],
+  "next_action": "Review a separate opt-in allocation transport with a 300-second read limit and a 360-second command limit before one new R2 run.",
+  "notebook_cells_executed": 0,
+  "observed_browser_hardware": "V6e1 (Python 3)",
+  "request_started_utc": "2026-10-08T10:16:21.336Z",
+  "requested_hardware": "V6E1",
+  "runtime_package_versions": "NOT_PROBED",
+  "scientific_payload_uploaded": false,
+  "scope": "BROWSER_ALLOCATION_DIAGNOSTIC_ONLY",
+  "status": "BROWSER_RUNTIME_CONNECTED_AND_CLOSED",
+  "tpu_scientific_cases_executed": 0
+}

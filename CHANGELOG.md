@@ -1,5 +1,18 @@
 # Change log
 
+## 2026-10-08 — Web allocation diagnostic
+
+- Record one successful V6E1 allocation through the Colab web interface.
+- Retain the observed connection interval of more than 175 seconds and at most 255 seconds.
+- Record exact runtime shutdown, an empty browser session list, and independent CLI closure queries.
+- Identify the fixed 120-second CLI read timeout and its missing configuration option.
+- Require review of a separate transport before an allocation with a longer wait.
+
+Validation: The reviewer examined browser state, pinned CLI source, isolated controls, and four bound diagnostic artifacts.
+The reviewer repeated the offline request controls; both passed.
+No notebook cell, scientific payload, or TPU test executed during this diagnostic.
+Refer to [the web diagnostic](docs/changes/r2-web-allocation-diagnostic.md).
+
 ## 2026-10-08 — Colab allocation repeat
 
 - Retain the second assignment timeout with the same reviewed transfer payload.

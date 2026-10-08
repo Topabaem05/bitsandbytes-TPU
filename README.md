@@ -19,6 +19,8 @@ This does not establish restoration in a new process.
 The full 42-case API test and milestones M2 and M3 remain unqualified.
 Refer to [the precision result](docs/changes/r1-precision-colab.md).
 Refer to [the allocation repeat](docs/changes/r2-colab-allocation-repeat.md) for the current execution blocker.
+The [web diagnostic](docs/changes/r2-web-allocation-diagnostic.md) then obtained and closed a TPU runtime.
+A longer bounded CLI allocation wait requires a separate transport review.
 
 The [October 8 source inspection](docs/research/2026-10-08/README.md) covers each design area before further implementation.
 It contains current documentation, original papers, fixed source revisions, and explicit version limits.
