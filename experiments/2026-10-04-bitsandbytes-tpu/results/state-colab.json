@@ -1,0 +1,163 @@
+{
+  "accepted_milestones": 3,
+  "artifact_bindings": {
+    ".work/cloud-20261008-state/archive-members.json": {
+      "bytes": 31564,
+      "sha256": "7a924e238341b0f218a37161286d495c3aec444e0b62a63890c309293d5fef94"
+    },
+    ".work/cloud-20261008-state/owner.json": {
+      "bytes": 67450,
+      "sha256": "26f4f08dee84f10ed6f47da58813f542e2263731abd3324179ced12329e96e08"
+    },
+    ".work/cloud-20261008-state/receipt.json": {
+      "bytes": 33691,
+      "sha256": "435da83c093942989f52b68c549c1fd5982ac1b8de3d8d3d0b0de4f9a63123c6"
+    },
+    ".work/cloud-20261008-state/recovered/runtime-probe.json": {
+      "bytes": 5793,
+      "sha256": "f1f8bdfdad9a8651e4f1e3b2e6ac4014a44969d23dc0452a8b38e55d35c6ecc7"
+    },
+    ".work/cloud-20261008-state/recovered/source-controls.json": {
+      "bytes": 5342,
+      "sha256": "7ac893eca2a22f8b3e88f4c0646d2317e91e589ced6f873c216ee1b3f7a6e20b"
+    },
+    ".work/cloud-20261008-state/recovered/state/parent.json": {
+      "bytes": 17117,
+      "sha256": "5b60b89e568d88c51f97fa229fc3ce92e07f76729f7bda0999f16b2d679d2ad8"
+    },
+    ".work/cloud-20261008-state/verify.json": {
+      "bytes": 20278,
+      "sha256": "d31809c2828347b9f1df4b8f3913bb06fcef14e09df1144dc8dbb4bd9f742bbd"
+    },
+    ".work/root-r3-adoption/actual-readback.json": {
+      "bytes": 13643,
+      "sha256": "9ba07c0b8e98be50ac0be313172cef2b17f5744d97ef88b08e83da88b6f14112"
+    },
+    ".work/root-r3-adoption/exit-tests.xml": {
+      "bytes": 1783,
+      "sha256": "239547d74385a0a7d3a8a9f2b09e48ccd79547b8492cd1679fbbaca3be9008fa"
+    },
+    ".work/root-r3-adoption/host-owner/host-finalization.json": {
+      "bytes": 2298,
+      "sha256": "3da8db1dd693599c955481b4c64a2f37d6e82eecbbcfa157097a8dda3617e4c1"
+    },
+    ".work/root-r3-adoption/root-comparison-controls.json": {
+      "bytes": 443,
+      "sha256": "b9bdd33d6db90971f9987bba0eeb2f528c5e81a584bab65c73b52fab30d83f1e"
+    }
+  },
+  "cases": {
+    "bias_options": [
+      false,
+      true
+    ],
+    "dtypes": [
+      "float32",
+      "bfloat16"
+    ],
+    "pairs": 8,
+    "passed_pairs": 8,
+    "ranks": [
+      2,
+      3
+    ],
+    "restore_executions": 8,
+    "save_executions": 8
+  },
+  "checkpoint_tensor_state": "EXACT",
+  "cli_exit_defect": {
+    "cause": "CLI success tuple omitted PASS_TPU_STATE_RECORDS",
+    "corrected_owner_sha256": "5cdd730bb15069a8e675ba538aa00c13a5e9b5bc731702c66b36c30aa4d7fe44",
+    "correction": "Add only that exact successful state; numerical failure, cleanup failure, and unknown states retain exit2",
+    "observed_driver_exit_code": 2,
+    "observed_host_wrapper_exit_code": 1,
+    "original_execution_records": "PRESERVED_UNCHANGED",
+    "owner_record_status": "PASS_TPU_STATE_RECORDS",
+    "provider_rerun": "NOT_NEEDED_FOR_EXIT_MAPPING_ONLY",
+    "root_actual_entry_controls": 9
+  },
+  "closure": {
+    "active_usage_zero": true,
+    "allocation_attempts": 1,
+    "lifecycle_seconds": 333.98052191734314,
+    "local_and_remote_processes": "CLEANUP_VERIFIED",
+    "server_empty": true
+  },
+  "date": "2026-10-08",
+  "executed_commit": "e869b245ab3aab0edc6a6c7820aa41266dc2c7af",
+  "experiment": "state-roundtrip",
+  "hardware": "Colab V6E1",
+  "independent_review": {
+    "archive_bytes": 248667,
+    "archive_members": 204,
+    "archive_sha256": "9def94bd54ac9cc9c988e4ba33cd8eecd265a2afa50249c6585dc355a0c63ed4",
+    "exact_checkpoints": 8,
+    "fresh_save_restore_processes": true,
+    "independently_compared_cases": 8,
+    "independently_compared_gates": 136,
+    "numerical_failure_gates": 0
+  },
+  "limits": {
+    "api42_device_matrix": "NOT_REPEATED_IN_R3; M2 remains independently accepted",
+    "bf16_gradients": "NOT_RUN",
+    "cuda": "NOT_RUN",
+    "hlo_scope": "PRE_OPTIMIZATION_ROOT_REACHABLE_DOT_OBSERVATION",
+    "nested_quantization": "NOT_RUN",
+    "pallas": "NOT_RUN",
+    "performance": "NOT_MEASURED",
+    "qlora": "NOT_RUN"
+  },
+  "manifest_sha256": "c6c75bbe8d9a87388377bee5ee2d59ed8947ce137d0e5ec05bf53c76f95908f3",
+  "packet_sha256": "5634b0512f6f3ef3aa1d96b951d87a34f0aa15d0f5165cafe67c52f74d5e3f5f",
+  "precision": {
+    "before_graph": true,
+    "readback": "highest",
+    "requested": "highest",
+    "set_calls_per_child": 1
+  },
+  "processes": {
+    "children": [
+      {
+        "child_absent": true,
+        "exit_code": 0,
+        "pgid": 3050,
+        "phase": "save",
+        "pid": 3055,
+        "reaped": true,
+        "timeout": false
+      },
+      {
+        "child_absent": true,
+        "exit_code": 0,
+        "pgid": 3050,
+        "phase": "restore",
+        "pid": 3813,
+        "reaped": true,
+        "timeout": false
+      }
+    ],
+    "coordinator_pid": 3050,
+    "shared_pgid": 3050
+  },
+  "required_milestones": 8,
+  "roundtrip_outputs": "EXACT",
+  "runtime": {
+    "devices": [
+      "TPU:0"
+    ],
+    "observed_backend": "TPU",
+    "python": "3.12.14",
+    "system": "Linux",
+    "versions": {
+      "jax": "0.7.1",
+      "jaxlib": "0.7.1",
+      "libtpu": "0.0.21",
+      "torch": "2.9.0+cpu",
+      "torch-xla": "2.9.0"
+    }
+  },
+  "runtime_lock_sha256": "323371ff61c5fbcc4f79fd6a358cf2ba17cb72b907382a5ceaac07f91dc66ed6",
+  "source_admission_sha256": "8b2b3e26e2e7c98c0fde52f51663bed84999ac733dcbc39573ef8b3aeca4f9a1",
+  "state_probe_sha256": "06a6d702bd74cc4602955249d31f1199b5aeaaf7bbecc5043a5ac25c349a9f67",
+  "status": "ACCEPTED_R3_M3_COLAB"
+}

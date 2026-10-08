@@ -1,5 +1,19 @@
 # Change log
 
+## 2026-10-08 — Colab M3 acceptance and CLI exit correction
+
+- Accept all eight fixed state cases after restoration in a new TPU process.
+- Record 136 independent numerical comparisons and eight exact checkpoint pairs.
+- Verify all 204 archive members and complete resource closure.
+- Add the exact state success status to the CLI exit list.
+- Preserve the original unsuccessful driver exit and its passing scientific records.
+- Set accepted milestones to three of eight, with nested quantization as the next device requirement.
+
+Validation: Independent record inspection passed, and nine actual CLI entry controls passed in 0.07 seconds.
+Numerical failure, cleanup failure, and unknown status controls still returned unsuccessful exits.
+No scientific source or tolerance changed for the exit correction.
+Refer to [the accepted state result](docs/changes/r3-state-colab.md).
+
 ## 2026-10-08 — M3 state restoration preparation
 
 - Add separate save and restore processes for all eight fixed linear cases.

@@ -16,19 +16,21 @@ Port2TPU results do not count for these backend milestones.
 | --- | --- | --- | --- |
 | M1 | Installable backend | Wheel installation, automatic registration, schema tests, and CPU differential tests | Completed: local CPU and package tests |
 | M2 | Actual TPU execution | Fixed runtime, TPU device test records, and upstream API output on Colab | Completed: 42 API cases and four public transfers on Colab V6E1 |
-| M3 | Upstream module state | Bias, gradients, saved state, and restoration in a new process | In progress: reviewed process and state tests; actual TPU restoration required |
-| M4 | Nested quantization | Upstream default statistics option and matching nested state | In progress: source inspection and local reference data |
-| M5 | QLoRA execution | Twenty steps, frozen base weights, and restoration after step ten | Not started |
-| M6 | Pallas NF4 kernel | Actual custom call, numerical tests, and compiler test records for memory use | In progress: source inspection; layout candidate has not compiled |
+| M3 | Upstream module state | Bias, gradients, saved state, and restoration in a new process | Completed: eight fixed cases restored in a new TPU process |
+| M4 | Nested quantization | Upstream default statistics option and matching nested state | In progress: local reference data and device experiment preparation |
+| M5 | QLoRA execution | Twenty steps, frozen base weights, and restoration after step ten | In progress: private CPU preparation; TPU test required |
+| M6 | Pallas NF4 kernel | Actual custom call, numerical tests, and compiler test records for memory use | In progress: CPU interpretation passed; native TPU integration required |
 | M7 | Measured performance | Raw time samples and memory measurements on the same TPU | Not started |
 | M8 | Repeated cloud results | Matching source and inputs on Colab and Kaggle, with resource closure | Not started |
 
-Accepted milestones: **2 of 8**.
+Accepted milestones: **3 of 8**.
 The reviewer accepted M1 on 2026-10-04.
 The reviewer repeated 71 package tests on macOS with Python 3.12.14 and PyTorch 2.14.1.
 This result does not show Linux PyTorch/XLA 2.9.0 or TPU execution.
 The reviewer accepted M2 on 2026-10-08 after 46 Colab cases and 196 independent numerical comparisons passed.
 The [M2 result](changes/r2-transfer-colab.md) includes the fixed Linux runtime, source inspection, complete archive, and resource closure.
+The reviewer accepted M3 on 2026-10-08 after all eight cases passed restoration in a new TPU process.
+The [M3 result](changes/r3-state-colab.md) includes 136 independent numerical comparisons, exact checkpoint pairs, and complete resource closure.
 Update this count only after inspection of the test records.
 
 ## Source inspection before implementation
@@ -54,9 +56,9 @@ The corrected CPU-to-XLA transfers and complete API42 matrix passed on Colab V6E
 The experiment used the [bounded transport](changes/r2-allocation-transport.md) after the retained allocation failures and web diagnostic.
 Refer to [the accepted transfer result](changes/r2-transfer-colab.md).
 Do not replace the upstream classes or methods dynamically during execution.
-M3 remains unqualified.
-Restoration in a new process requires separate device records.
-The [M3 preparation](changes/r3-state-preparation.md) supplies the reviewed eight-case experiment and portable controls.
+M3 restoration in a new process passed its separate device experiment.
+The next device requirement is M4 nested quantization with the default upstream statistics option.
+The private CPU preparations for M4, M5, and M6 do not qualify those device milestones.
 BF16 gradients remain outside the fixed diagnostic scope.
 
 The previous Kaggle inspection found no usable CLI credentials.
@@ -70,7 +72,7 @@ Refer to [the cloud inspection](research/2026-10-08/cloud.md).
 1. Keep the accepted source inspection and R1 precision records as the basis for the next changes.
 2. Keep the accepted public transfer correction and its qualified Linux source controls.
 3. Use the accepted M2 source, runtime, inputs, and `highest` precision for dependent experiments.
-4. Complete M3 restoration in a new process with the accepted source and runtime.
+4. Keep the accepted M3 state protocol, exact checkpoint requirements, and process ownership for dependent work.
 5. Complete M4 nested quantization with the identified reference implementation.
 6. Complete M5 QLoRA execution and checkpoint restoration.
 7. Qualify M6, then measure M7 on the same TPU as the correct reference path.

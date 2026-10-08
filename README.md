@@ -4,18 +4,21 @@ A TPU backend for the upstream bitsandbytes API.
 
 ## Project status
 
-The initial package and actual TPU execution milestones are completed.
-Accepted milestones: **2 of 8**.
+The package, actual TPU execution, and module state milestones are completed.
+Accepted milestones: **3 of 8**.
 The first target is NF4 quantization and `bitsandbytes.nn.Linear4bit` on a TPU.
-The latest Colab V6E1 run passed all 42 API cases and four public CPU-to-XLA transfer cases.
+The M2 Colab V6E1 run passed all 42 API cases and four public CPU-to-XLA transfer cases.
 The reviewer independently compared 196 numerical gates and verified all 273 archive members.
 The runtime stopped with an empty server list and zero active usage.
 Refer to [the accepted M2 result](docs/changes/r2-transfer-colab.md).
 The experiment used native precision `highest` before graph construction.
 The earlier `default` precision failures remain in [the precision result](docs/changes/r1-precision-colab.md).
 BF16 forward gates passed; BF16 gradients remain untested.
-The next milestone requires saved state restoration in a new TPU process.
-M3 and later milestones remain unqualified.
+The latest Colab run passed all eight saved-state cases after restoration in a new TPU process.
+The reviewer compared 136 numerical gates and all eight checkpoint pairs.
+Refer to [the accepted M3 result](docs/changes/r3-state-colab.md), including the separate CLI exit correction.
+The next milestone requires nested quantization with the upstream default statistics option.
+M4 and later milestones remain unqualified.
 
 The [October 8 source inspection](docs/research/2026-10-08/README.md) covers each design area before further implementation.
 It contains current documentation, original papers, fixed source revisions, and explicit version limits.
