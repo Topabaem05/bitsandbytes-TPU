@@ -24,6 +24,7 @@ M4 and later milestones remain unqualified.
 
 The [bounded Pallas experiment](docs/changes/r6-bf16-colab.md) passed five native and reference diagnostic cases on Colab.
 The [public API preparation](docs/changes/r6-public-cloud-preparation.md) passed 118 canonical controls for its separate 15-case experiment.
+The [first public attempt](docs/changes/r6-public-cpu-colab-failure.md) stopped at an exact CPU comparison before TPU execution.
 Actual public integration and compiler memory records remain required for M6.
 The [compiler flag failure](docs/changes/r6-compiler-flag-colab-failure.md) remains preserved with all five device cases unexecuted.
 

@@ -1,0 +1,142 @@
+{
+  "M6": "NOT_QUALIFIED",
+  "accepted_milestones": 3,
+  "allocation_epoch": 1791499524.646,
+  "archive_members": 103,
+  "cli_command_count": 54,
+  "controls": [
+    {
+      "case": "retained_actual_failure",
+      "status": "PASS"
+    },
+    {
+      "case": "false_owner_pass",
+      "rejected": "ORIGINAL_GATE_FAILURE",
+      "status": "PASS"
+    },
+    {
+      "case": "false_device_pass",
+      "rejected": "NO_TPU_EXECUTION",
+      "status": "PASS"
+    },
+    {
+      "case": "missing_original_rejection",
+      "rejected": "ORIGINAL_GATE_FAILURE",
+      "status": "PASS"
+    },
+    {
+      "case": "false_host_success",
+      "rejected": "OUTCOME_AND_CLOSURE",
+      "status": "PASS"
+    }
+  ],
+  "cpu_archive": {
+    "bytes": 2489028,
+    "sha256": "2321bb969fce3f287b50cbd381e822783954f59ab5d92ae65de0f0ae2b9418c1"
+  },
+  "cpu_archive_members": 24,
+  "cpu_inventory": {
+    "bytes": 3555,
+    "sha256": "1c0e06f652a83727460c86105a98bc580152c2f88a49e5f8a2ca5ad20c775036"
+  },
+  "cpu_oracle": {
+    "bytes": 18571,
+    "sha256": "f0cfe8777d923bae4c7d205ce0dcef4012ad490007f8846c7182dbd61120beaf"
+  },
+  "device_cases": {
+    "ERROR": 0,
+    "FAIL": 0,
+    "NOT_RUN": 15,
+    "PASS": 0
+  },
+  "documentation_inspection": {
+    "full_standard_dictionary": "UNAVAILABLE",
+    "independent_ASD_STE100_certification": false,
+    "links": "CHECKED",
+    "sentence_length": "CHECKED",
+    "technical_terms": "REVIEWED"
+  },
+  "elapsed_lifecycle_seconds": 440.5509350299835,
+  "format": "R6_PUBLIC_CPU_COLAB_FAILURE_V1",
+  "fresh_cpu_rows": 15,
+  "host_seconds": 321.5162168329989,
+  "local_group_count_excluding_this_reader": 59,
+  "local_group_count_including_readers": 61,
+  "original_owner_sha256": "483eb5f61214b78293be74eac28638910e12953a630de49b2cdfdafd7ef7e98d",
+  "original_receipt_sha256": "0e6de80d712e7028e779b5c0473e3dbdc2daab84152c93cded98312013f638de",
+  "packet_sha256": "4220f8b34d2775c1b81369c9e0302ae5cd999af0cf171166f80ac03d4b9b45dd",
+  "private_review_records": {
+    "actual-failure-readback.json": {
+      "bytes": 13345,
+      "sha256": "8dbd46f92079182736eabc3ba583307effac764e5348556727071cb2622d1258"
+    },
+    "browser-closure.json": {
+      "bytes": 222,
+      "sha256": "9c5ce4c8133f7119c622f4c1a92397f103c0065b28fb692c2f901adba8fe2f31"
+    },
+    "first-cpu-comparison.json": {
+      "bytes": 643,
+      "sha256": "2e5fc720c54bb1fc311622515f7102b71b237c95d894907f9dc8d7b58f76609e"
+    },
+    "fresh-resource-closure.json": {
+      "bytes": 3424,
+      "sha256": "7e060f28be7003d7a9fc2b8a27f9865a99d162fe1a793973a96e1802b834b6ad"
+    },
+    "host-owner/host-finalization.json": {
+      "bytes": 2894,
+      "sha256": "4008ec1ed54ac28825968fa55a55fb824678b8dd087346176be3aedbbc986000"
+    },
+    "recheck_first_cpu.py": {
+      "bytes": 1965,
+      "sha256": "aa5cc205d9b72ce1188abc3e1051b7eed58d84d76176b7e668d145e6b18fe728"
+    },
+    "review_failure.py": {
+      "bytes": 8669,
+      "sha256": "2442f094a9c5ecd9beb4b871d8e6a06a5b7b659b3556d3078fcaca191fb73533"
+    },
+    "tab-closure.json": {
+      "bytes": 87,
+      "sha256": "92b9327f5ea48b5386abc205a6cf77b700310a9378dbdab5407980279474d2d8"
+    }
+  },
+  "public_acceptance": null,
+  "qualified_cpu_oracle_accepted": false,
+  "remaining_compute_units": 1.06,
+  "remote_step_count": 13,
+  "required_milestones": 8,
+  "reviewed_on": "2026-10-09",
+  "root_cpu_gate": "REJECTED_CPU_INDEPENDENT_REPLAY_DIRECT_FLOAT32",
+  "root_first_row_diagnosis": {
+    "case": "direct-float32",
+    "device_executed": false,
+    "different_values": 30476,
+    "earlier_qualified_linux_native_reference": "EXACT_SAME_VALUES",
+    "exact_cpu_row_gate": "FAIL",
+    "first_host_value": -1.099454402923584,
+    "first_linux_value": -1.0994548797607422,
+    "host_torch": "2.14.1",
+    "input_digest_exact": true,
+    "output_shape_dtype_exact": true,
+    "scope": "CPU_DIAGNOSIS_ONLY_ORIGINAL_GATE_REMAINS_REJECTED",
+    "tolerance_changed": false,
+    "unchanged_device_gate": {
+      "max_abs": 3.2186508178710938e-06,
+      "nrmse": 4.984152727812131e-07,
+      "rmse": 7.030656865076925e-07,
+      "status": "PASS"
+    },
+    "values": 32768
+  },
+  "science_archive": {
+    "bytes": 4658338,
+    "sha256": "e12fa3003e6a667e28649eff4d095f6e77b96fc113a0cd6b2da79b38256ea867"
+  },
+  "science_inventory": {
+    "bytes": 15395,
+    "sha256": "85abfc71e9dc5c90b16c6419b96dc9609b6d92cdfed0a9291cfd5483e8907cd5"
+  },
+  "scope": "FAILURE_RECORD_ONLY_NOT_CPU_OR_TPU_ACCEPTANCE",
+  "source_commit": "5ada90eeef3f8a9ec3913a2a1a83d877be709f65",
+  "status": "FAILED_RUN_ARCHIVES_AND_CLOSURE_VERIFIED",
+  "verified_epoch": 1791500244.78787
+}

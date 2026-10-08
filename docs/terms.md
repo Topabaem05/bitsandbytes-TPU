@@ -19,6 +19,7 @@ They are not additions to the official ASD-STE100 dictionary.
 | autograd | The PyTorch system that calculates gradients. |
 | backend | The software that executes operations for a selected device. |
 | BF16 | The bfloat16 numerical data type. |
+| BLAS | The Basic Linear Algebra Subprograms interface for vector and matrix operations. |
 | bias | The additive parameter of a linear layer. |
 | bitcast | Reinterpretation of the same bits as another numerical data type. |
 | checkpoint | Saved model and optimizer state used to restore execution. |
@@ -64,6 +65,7 @@ They are not additions to the official ASD-STE100 dictionary.
 | NaN | A floating-point value that represents an undefined numerical result. |
 | nested quantization | Quantization of the scales from a first quantization operation. |
 | NF4 | The bitsandbytes four-bit NormalFloat codebook and its format. |
+| NRMSE | The root mean square error divided by the root mean square reference value. |
 | nibble | Four bits within one byte. |
 | nonce | A submission identifier that connects its plan and output records. |
 | overload | A named form of an operator with a specific schema. |

@@ -1,5 +1,15 @@
 # Change log
 
+## 2026-10-09 — Public CPU comparison rejection
+
+- Retain the exact CPU row rejection before public TPU execution.
+- Verify both complete archives and the separate host comparison.
+- Verify runtime termination, all process groups, and zero active usage.
+
+Validation: Five failure-record controls passed; all 15 public TPU cases remain unexecuted.
+The existing numerical criteria remain unchanged, and M6 remains unqualified.
+Refer to [the failure record](docs/changes/r6-public-cpu-colab-failure.md).
+
 ## 2026-10-09 — Public API cloud preparation
 
 - Add the 15-case public mode with a fresh qualified CPU gate.

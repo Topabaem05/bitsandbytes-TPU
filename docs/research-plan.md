@@ -149,6 +149,10 @@ The [public API preparation](changes/r6-public-cloud-preparation.md) passed all 
 Its 15 cases require a fresh qualified Linux CPU oracle before device execution.
 The packet covers FP32 gradients and BF16 outputs without compiler dump flags.
 Actual public numerical and graph records remain required.
+The [first public attempt](changes/r6-public-cpu-colab-failure.md) stopped at the independent CPU gate.
+The qualified Linux output differed from the host dense FP32 calculation under an exact row requirement.
+All 15 public device cases remain unexecuted.
+Inspect a separate reference revision without changing the original device criteria.
 The [measurement preparation](changes/r7-measurement-preparation.md) passed 64 local controls and nine independent retained-record checks.
 Actual M7 collection requires accepted M6 results.
 BF16 gradients remain outside the fixed diagnostic scope.
