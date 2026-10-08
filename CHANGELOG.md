@@ -1,5 +1,15 @@
 # Change log
 
+## 2026-10-09 — Arithmetic V5E1 record failure
+
+- Retain the native view fallback and the first builder's metric serialization failure.
+- Verify the qualified CPU gate with 32 rows and 206 outputs.
+- Recover all 113 archive members and verify complete resource closure.
+
+Validation: All 46 CLI groups, 14 remote steps, and two scientific children closed.
+The builder has no accepted numerical row, and M4 remains unqualified.
+Refer to [the actual result](docs/changes/r4-primitive-v5-record-failure.md).
+
 ## 2026-10-09 — Kaggle M2 repetition preparation
 
 - Add explicit source admission, a private submission script, and exact-version recovery.
