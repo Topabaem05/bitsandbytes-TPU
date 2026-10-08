@@ -264,7 +264,7 @@ def drive(packet, output, expected, acceptance, acceptance_sha, cli_python, cli_
         started = time.time()
         owner.update(allocation_attempts=1, allocation_epoch=started, deadline_utc=datetime.fromtimestamp(started + 3600, timezone.utc).isoformat())
         durable_json(output / 'owner.json', owner)
-        call('03-one-allocation', ['new', '-s', session, '--tpu', 'v6e1'], 180)
+        call('03-one-allocation', ['--allocation-transport-v1', 'new', '-s', session, '--tpu', 'v6e1'], 360)
         text = call('04-sessions-after', ['sessions'], 60)
         if '[' + session + ']' not in text or 'Hardware: V6E1' not in text:
             raise RuntimeError('OWNED_V6E1_NOT_OBSERVED')

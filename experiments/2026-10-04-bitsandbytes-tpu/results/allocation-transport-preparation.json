@@ -1,0 +1,83 @@
+{
+  "accepted_milestones": 1,
+  "actual_tpu": "NOT_RUN",
+  "artifact_bindings": {
+    ".work/r2-allocation-transport/cleanup-old-helper-control/stderr": {
+      "bytes": 2408,
+      "sha256": "1d0b02909637e3252c3ef049f9304749ed82e76e59b0a8c295102e535a34f47b"
+    },
+    ".work/root-r2-transport-review/cloud-final.xml": {
+      "bytes": 33045,
+      "sha256": "8a0e55635990a4d9c3f2134cd3c680ae1f13d8e1b0f94f67e19d0ff71d50ad01"
+    },
+    ".work/root-r2-transport-review/final-transport.stderr": {
+      "bytes": 2966,
+      "sha256": "fb7e8313477807e95f5675e8bf56589b47b289bedeb8c57805bf83791c9390d4"
+    },
+    ".work/root-r2-transport-review/packet-result.json": {
+      "bytes": 1164,
+      "sha256": "8c45edf4c16dad8b6a3a4fec20f25995d74f97cb7fc58b563b2d35b9b6618725"
+    }
+  },
+  "checks": {
+    "cli_identity": "PASS",
+    "cloud_controls": 191,
+    "cloud_skipped": 0,
+    "packet_preflight": "PASS",
+    "standalone_cleanup_negative_control": "OLD_HELPER_REJECTED",
+    "transport_controls": 25
+  },
+  "date": "2026-10-08",
+  "limits": [
+    "The transport call limit is evaluated after a request returns; the outer owner bounds the command.",
+    "The successful web diagnostic does not identify the prior CLI failure cause.",
+    "All scientific bytes and numerical gates remain unchanged."
+  ],
+  "packet": {
+    "all_scientific_bytes_unchanged": true,
+    "changed_or_added_files": {
+      "cloud/allocation_transport.py": {
+        "bytes": 6923,
+        "sha256": "f51014526d399c93c95c5c00c6855a949aaeda2af74fc24609da6bb9068d1696"
+      },
+      "cloud/official_cli_no_oauth.py": {
+        "bytes": 1226,
+        "sha256": "f1feb135abdf976f233f8973ff9a74054ca09d26f1fdd4151a28aefcf812b79c"
+      },
+      "cloud/owner.py": {
+        "bytes": 32133,
+        "sha256": "a8ece386ee3280d472f32d11f2f8cb64bddb78e8346d9457c84a9b9c3d44e196"
+      }
+    },
+    "cli_identity": "PASS",
+    "manifest_sha256": "8ea3d0a8648f4c6c097e35c0f809f8b2a622ec03b586ad851439389aafcc3eb8",
+    "members": 37,
+    "metadata_except_file_inventory_unchanged": true,
+    "original_packet_sha256": "e6157b159396ee0a7ce07814f650edf5dfd31e6be900592f58f1130b7a3eee82",
+    "payload_bytes": 948796,
+    "payload_sha256": "6ec9b2e8d1df9981f8040b3d74e22d6b73de1fdbe52c67dafdc1911f1ccfa3eb",
+    "reseal_script_sha256": "220b9bf2fd5d102623b98b296c420cf8d57b7530780d73d714c44f68e9a77a93",
+    "status": "PREFLIGHT_PASS",
+    "unchanged_file_count": 33
+  },
+  "policy": {
+    "assignment_post_limit": 1,
+    "automatic_assignment_retries": false,
+    "call_seconds": 310,
+    "command_seconds": 360,
+    "connect_seconds": 10,
+    "installed_cli_changed": false,
+    "lifecycle_seconds": 3600,
+    "new_oauth_flow": false,
+    "read_seconds": 300,
+    "redirects": false
+  },
+  "required_milestones": 8,
+  "source": {
+    "allocation_transport.py": "f51014526d399c93c95c5c00c6855a949aaeda2af74fc24609da6bb9068d1696",
+    "allocation_transport_controls.py": "39ea55a0637d176e797081e68ac9fea4358c580d24f882e99e359edee3be136e",
+    "official_cli_no_oauth.py": "f1feb135abdf976f233f8973ff9a74054ca09d26f1fdd4151a28aefcf812b79c",
+    "owner.py": "a8ece386ee3280d472f32d11f2f8cb64bddb78e8346d9457c84a9b9c3d44e196"
+  },
+  "status": "LOCAL_PREPARATION_ACCEPTED"
+}

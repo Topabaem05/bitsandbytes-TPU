@@ -1,5 +1,18 @@
 # Change log
 
+## 2026-10-08 — Bounded allocation transport
+
+- Add an explicit transport for one V6E1 assignment POST with a 300-second read limit.
+- Keep a 360-second command limit and the existing 3,600-second lifecycle limit.
+- Retain the original transport for other requests and prohibit automatic assignment repeats.
+- Correct successful CLI exits that could conceal a session closure failure.
+- Keep all scientific files, runtime requirements, and numerical gates unchanged in the new packet.
+
+Validation: The reviewer repeated 25 transport controls and 191 cloud controls; all passed.
+The reviewer also inspected the installed CLI identity and all 37 packet members.
+The device experiment remains required; accepted milestones remain one of eight.
+Refer to [the transport record](docs/changes/r2-allocation-transport.md).
+
 ## 2026-10-08 — Web allocation diagnostic
 
 - Record one successful V6E1 allocation through the Colab web interface.

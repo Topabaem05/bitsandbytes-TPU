@@ -57,7 +57,8 @@ Examine the allocation request path before another attempt.
 Refer to [the allocation repeat](changes/r2-colab-allocation-repeat.md).
 The subsequent [web diagnostic](changes/r2-web-allocation-diagnostic.md) obtained a V6E1 runtime after more than 175 seconds.
 The reviewer closed that runtime and confirmed empty session lists and zero CLI usage.
-Review a separate bounded transport before increasing the CLI assignment wait.
+The [bounded transport](changes/r2-allocation-transport.md) passed local review with one assignment POST and a 360-second command limit.
+Use this transport for the next Colab experiment with the same scientific payload.
 Keep that transfer requirement open until its own test passes.
 Do not replace the upstream classes or methods dynamically during execution.
 The next transfer experiment must also execute the complete fixed API42 matrix.
