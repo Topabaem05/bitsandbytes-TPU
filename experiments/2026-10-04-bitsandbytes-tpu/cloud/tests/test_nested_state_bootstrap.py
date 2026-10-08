@@ -13,9 +13,10 @@ sys.path.insert(0,str(HERE))
 import owner
 import remote
 import test_nested_cloud as N
+import test_nested_state_cloud as NS
 import test_transfer_cloud as F
 
-nested_packet=N.nested_packet
+state_packet=NS.state_packet
 base_archive=F.base_archive
 HERE=Path(__file__).resolve().parents[1]
 OLD="""from nested_contract import (NESTED_BINDINGS,NESTED_SCOPE,NESTED_SOURCE_SHA,NESTED_PLUGIN_MANIFEST_SHA,
@@ -32,19 +33,20 @@ for _name in ('NESTED_BINDINGS', 'NESTED_SCOPE', 'NESTED_SOURCE_SHA', 'NESTED_PL
 """
 
 
-@pytest.mark.parametrize('mode',['old','repaired','cached-module','bad-source'])
-def test_actual_generated_operation_runpy_without_sibling_path(nested_packet,tmp_path,monkeypatch,mode):
+@pytest.mark.parametrize('mode',['repaired','cached-module','bad-source'])
+def test_nested_state_generated_operation_without_sibling_path(state_packet,tmp_path,monkeypatch,mode):
     """The full owner generates code; only its remote base path is adapted locally."""
-    packet,manifest,expected=nested_packet
+    packet,manifest,expected=state_packet
     neutral=tmp_path/'neutral';neutral.mkdir();base=tmp_path/'remote-base';base.mkdir()
     out=tmp_path/'host';identity=tmp_path/'identity.json';identity.write_text('{}')
     C=N.C
     gate={'status':'ACTUAL_DISPATCH_AUTHORIZED','packet_sha256':expected,'driver_sha256':remote.sha(HERE/'owner.py'),
         'output':str(out.resolve()),'plugin_source_manifest_sha256':manifest['plugin_source_manifest_sha256'],
         'runtime_lock_sha256':manifest['runtime_lock_sha256'],'budget':manifest['budget'],'one_allocation_only':True,
-        'provider_or_solver':'FORBIDDEN','cli_identity_sha256':remote.sha(identity),'experiment':'nested-79','precision':'highest',
+        'provider_or_solver':'FORBIDDEN','cli_identity_sha256':remote.sha(identity),'experiment':'nested-state-8','precision':'highest',
         'nested_scope':C.NESTED_SCOPE,'nested_source_variant':'nested-v1',
-        **{field:manifest[field] for field in (*remote.TRANSFER_BINDINGS,*C.NESTED_BINDINGS)}}
+        'nested_state_scope':NS.S.NESTED_STATE_SCOPE,'nested_state_variant':'nested-state-v1',
+        **{field:manifest[field] for field in (*remote.TRANSFER_BINDINGS,*C.NESTED_BINDINGS,*NS.S.NESTED_STATE_BINDINGS)}}
     acceptance=tmp_path/'gate.json';F.write(acceptance,gate)
     monkeypatch.setattr(owner,'verify_cli_identity',lambda *args:None)
     calls=[];sessions=[];observed=[]
@@ -67,17 +69,17 @@ def test_actual_generated_operation_runpy_without_sibling_path(nested_packet,tmp
                 # The exact historical source replay remains in the accepted bootstrap records.
                 code=code.replace(manifest['files']['cloud/remote.py']['sha256'],legacy_sha)
             if mode=='bad-source':
-                contract=base/'control/nested_contract.py';contract.write_bytes(contract.read_bytes()+b'\nCORRUPT_SOURCE\n')
+                contract=base/'control/nested_state_contract.py';contract.write_bytes(contract.read_bytes()+b'\nCORRUPT_SOURCE\n')
             runner=neutral/'runner.py'
             runner.write_text("import sys,types,socket\nfrom pathlib import Path\n"
-                "assert 'nested_contract' not in sys.modules\n"
+                "assert 'nested_contract' not in sys.modules and 'nested_state_contract' not in sys.modules\n"
                 f"assert {str(base/'control')!r} not in sys.path\n"
                 "def forbidden(*args,**kwargs):raise AssertionError('PROVIDER_CALL_FORBIDDEN')\n"
                 "socket.socket.connect=forbidden\n"
-                +( "cached=types.ModuleType('nested_contract');sys.modules['nested_contract']=cached\n" if mode=='cached-module' else '')
+                +( "cached=types.ModuleType('nested_contract');sys.modules['nested_contract']=cached;state_cached=types.ModuleType('nested_state_contract');sys.modules['nested_state_contract']=state_cached\n" if mode=='cached-module' else '')
                 +"try:\n exec(compile(Path(sys.argv[1]).read_text(),sys.argv[1],'exec'),{'__name__':'__main__'})\n"
                 +"except SystemExit:\n"
-                +(" assert sys.modules['nested_contract'] is cached\n" if mode=='cached-module' else " assert 'nested_contract' not in sys.modules\n")
+                +(" assert sys.modules['nested_contract'] is cached and sys.modules['nested_state_contract'] is state_cached\n" if mode=='cached-module' else " assert 'nested_contract' not in sys.modules\n")
                 +" raise\n")
             snippet=neutral/'generated-operation.py';snippet.write_text(code)
             child=subprocess.run([sys.executable,'-I','-B',str(runner),str(snippet)],cwd=neutral,capture_output=True,text=True,timeout=15)

@@ -34,6 +34,12 @@ for _name in ('NESTED_BINDINGS', 'NESTED_SCOPE', 'NESTED_SOURCE_SHA', 'NESTED_PL
               'NESTED_FILES', 'verify_nested_manifest', 'verify_nested_payload', 'verify_nested_wheel', 'nested_cli'):
     globals()[_name] = getattr(_contract, _name)
 
+_state_contract_spec = importlib.util.spec_from_file_location('_bnb_admitted_nested_state_contract', HERE / 'nested_state_contract.py')
+_state_contract = importlib.util.module_from_spec(_state_contract_spec)
+_state_contract_spec.loader.exec_module(_state_contract)
+for _name in ('NESTED_STATE_BINDINGS', 'NESTED_STATE_SCOPE', 'verify_state_manifest', 'verify_state_payload', 'state_cli'):
+    globals()[_name] = getattr(_state_contract, _name)
+
 TRANSFER_BINDINGS = {'route_probe_sha256': 'probe_routes.py', 'precision_probe_sha256': 'probe_precision.py',
                      'transfer_probe_sha256': 'probe_transfer.py', 'transfer_admission_sha256': 'transfer_admission.py',
                      'source_controls_sha256': 'tests/test_transfer_source.py',
@@ -61,12 +67,12 @@ def require(value, message):
 
 def verify_experiment(manifest):
     experiment = manifest.get('experiment', 'api42')
-    require(experiment in {'api42', 'device-route-diagnostic', 'precision-diagnostic', 'transfer-api42', 'state-roundtrip', 'nested-79'}, 'EXPERIMENT_VARIANT')
+    require(experiment in {'api42', 'device-route-diagnostic', 'precision-diagnostic', 'transfer-api42', 'state-roundtrip', 'nested-79', 'nested-state-8'}, 'EXPERIMENT_VARIANT')
     if experiment in {'device-route-diagnostic', 'precision-diagnostic'}:
         pin = manifest.get('route_probe_sha256')
         require(manifest.get('diagnostic_only') is True and isinstance(pin, str) and len(pin) == 64 and
                 pin == manifest['files'].get('probe_routes.py', {}).get('sha256'), 'ROUTE_PROBE_BINDING')
-    if experiment in {'precision-diagnostic', 'transfer-api42', 'state-roundtrip', 'nested-79'}:
+    if experiment in {'precision-diagnostic', 'transfer-api42', 'state-roundtrip', 'nested-79', 'nested-state-8'}:
         require(manifest.get('route_probe_sha256') == PRECISION_ROUTE_PROBE_SHA, 'PRECISION_ROUTE_PROBE_BINDING')
         pin = manifest.get('precision_probe_sha256')
         require(isinstance(pin, str) and len(pin) == 64 and
@@ -74,7 +80,7 @@ def verify_experiment(manifest):
     else:
         require('precision_probe_sha256' not in manifest and 'probe_precision.py' not in manifest['files'],
                 'PRECISION_PROBE_NOT_REQUESTED')
-    if experiment in {'transfer-api42', 'state-roundtrip', 'nested-79'}:
+    if experiment in {'transfer-api42', 'state-roundtrip', 'nested-79', 'nested-state-8'}:
         for field, name in TRANSFER_BINDINGS.items():
             pin = manifest.get(field)
             require(isinstance(pin, str) and len(pin) == 64 and pin == manifest['files'].get(name, {}).get('sha256'),
@@ -94,12 +100,17 @@ def verify_experiment(manifest):
         require(manifest['state_helper_sha256'] == STATE_HELPER_SHA and manifest.get('state_scope') == 'FRESH_SAVE_AND_RESTORE_PROCESSES_ALL8_LINEAR', 'STATE_REVIEWED_SCOPE')
     else:
         require(not any(field in manifest or name in manifest['files'] for field, name in STATE_BINDINGS.items()) and 'state_scope' not in manifest, 'STATE_SOURCE_NOT_REQUESTED')
-    if experiment == 'nested-79':
+    if experiment in {'nested-79','nested-state-8'}:
         verify_nested_manifest(manifest)
     else:
         require(manifest.get('plugin_source_manifest_sha256')!=NESTED_PLUGIN_MANIFEST_SHA,'NESTED_PLUGIN_NOT_REQUESTED')
         require(not any(field in manifest or name in manifest['files'] for field,name in NESTED_BINDINGS.items()) and
                 'nested_scope' not in manifest and 'nested_source_variant' not in manifest,'NESTED_SOURCE_NOT_REQUESTED')
+    if experiment=='nested-state-8':
+        verify_state_manifest(manifest)
+    else:
+        require(not any(field in manifest or name in manifest['files'] for field,name in NESTED_STATE_BINDINGS.items()) and
+                'nested_state_scope' not in manifest and 'nested_state_variant' not in manifest,'NESTED_STATE_SOURCE_NOT_REQUESTED')
     return experiment
 
 
@@ -340,9 +351,10 @@ def execute(base, packet_sha, allocation_epoch, phase):
     experiment = verify_experiment(manifest)
     diagnostic = experiment == 'device-route-diagnostic'
     precision = experiment == 'precision-diagnostic'
-    nested = experiment == 'nested-79'
+    nested_state = experiment=='nested-state-8'
+    nested = experiment in {'nested-79','nested-state-8'}
     state = experiment == 'state-roundtrip'
-    transfer = experiment in {'transfer-api42', 'state-roundtrip', 'nested-79'}
+    transfer = experiment in {'transfer-api42', 'state-roundtrip', 'nested-79', 'nested-state-8'}
     if transfer:
         verify_transfer_payload(payload, manifest)
     out.mkdir(exist_ok=True)
@@ -388,6 +400,15 @@ def execute(base, packet_sha, allocation_epoch, phase):
     work_deadline = allocation_epoch + 3600 - 600 - 60
     if nested:
         verify_nested_payload(payload,manifest)
+    if nested_state:
+        verify_state_payload(payload,manifest)
+        if receipt_path.exists():
+            require(all(receipt.get(field)==manifest[field] for field in NESTED_STATE_BINDINGS) and
+                    receipt.get('nested_state_scope')==NESTED_STATE_SCOPE and receipt.get('nested_state_variant')=='nested-state-v1',
+                    'NESTED_STATE_PHASE_SOURCE_BINDING')
+        else:
+            receipt.update({field:manifest[field] for field in NESTED_STATE_BINDINGS})
+            receipt.update(nested_state_scope=NESTED_STATE_SCOPE,nested_state_variant='nested-state-v1')
     installed = base / 'venv/bin/python'
 
     def step(label, argv, deadline, limit, **kwargs):
@@ -501,7 +522,7 @@ def execute(base, packet_sha, allocation_epoch, phase):
             step('11-cpu-oracle', argv, deadline, 300)
             receipt.update(status='CPU_ORACLE_READY_TPU_NOT_RUN', cpu_status='PASS', oracle_sha256=sha(out / 'cpu-oracle/oracle-seal.json'))
         elif phase == 'nested':
-            require(nested,'WRONG_SCIENTIFIC_VARIANT')
+            require(nested and not nested_state,'WRONG_SCIENTIFIC_VARIANT')
             require(receipt.get('installed_source_status')=='POST_PATCH_PYTHON_SOURCE_PASS' and
                     receipt.get('built_source_status')=='POST_PATCH_WHEEL_PYTHON_SOURCE_PASS' and
                     receipt.get('built_plugin_source_status')=='NESTED_PLUGIN_WHEEL_PYTHON_SOURCE_PASS' and
@@ -533,6 +554,60 @@ def execute(base, packet_sha, allocation_epoch, phase):
                     'NESTED_PROCESS_GROUP_IDENTITY')
             receipt.update(status='NESTED_CHILD_TERMINAL_LOCAL_REVIEW_REQUIRED',tpu_status='NESTED_RECORDS_COMPLETE',
                            nested_receipt_sha256=sha(out/'nested/receipt.json'),m4_status='NOT_QUALIFIED')
+        elif phase == 'nested-state-cpu':
+            require(nested_state,'WRONG_SCIENTIFIC_VARIANT')
+            require(receipt.get('status')=='CPU_ORACLE_READY_TPU_NOT_RUN' and receipt['cpu_status']=='PASS' and
+                    receipt['tpu_status']=='NOT_RUN' and 'nested_oracle_sha256' not in receipt and
+                    receipt.get('runtime_status')=='PASS_TPU_RUNTIME_PROBE_ONLY' and
+                    receipt.get('built_plugin_source_status')=='NESTED_PLUGIN_WHEEL_PYTHON_SOURCE_PASS' and
+                    receipt.get('source_controls_status')=='PASS_QUALIFIED_LINUX_SOURCE_CONTROLS','NESTED_STATE_CPU_PHASE_ORDER')
+            launch=json.loads((base/'nested-launch.json').read_text())
+            require(launch.get('nested_oracle_sha256')==receipt['oracle_sha256'],'EXPLICIT_NESTED_ORACLE_HASH_REQUIRED')
+            argv=[installed,'-B',payload/'probe_nested_state.py','prepare',
+                  *state_cli(payload,out/'cpu-oracle',launch['nested_oracle_sha256']),
+                  '--admission',payload/'source-admission.json','--admission-sha256',manifest['source_admission_sha256'],
+                  '--output',out/'state-cpu-oracle']
+            step('11-nested-state-cpu-oracle',argv,receipt['science_deadline_epoch'],300)
+            receipt.update(status='NESTED_STATE_CPU_ORACLE_READY_TPU_NOT_RUN',nested_oracle_sha256=launch['nested_oracle_sha256'],
+                           oracle_sha256=sha(out/'state-cpu-oracle/oracle-seal.json'),nested_state_cpu_status='PASS')
+        elif phase == 'nested-state':
+            require(nested_state,'WRONG_SCIENTIFIC_VARIANT')
+            require(receipt.get('status')=='NESTED_STATE_CPU_ORACLE_READY_TPU_NOT_RUN' and receipt.get('nested_state_cpu_status')=='PASS' and
+                    receipt.get('installed_source_status')=='POST_PATCH_PYTHON_SOURCE_PASS' and
+                    receipt.get('built_source_status')=='POST_PATCH_WHEEL_PYTHON_SOURCE_PASS' and
+                    receipt.get('built_plugin_source_status')=='NESTED_PLUGIN_WHEEL_PYTHON_SOURCE_PASS' and
+                    receipt.get('source_controls_status')=='PASS_QUALIFIED_LINUX_SOURCE_CONTROLS','NESTED_STATE_CPU_CONTROLS_REQUIRED')
+            launch=json.loads((base/'launch.json').read_text())
+            require(receipt['cpu_status']=='PASS' and receipt['tpu_status']=='NOT_RUN' and
+                    launch.get('oracle_sha256')==receipt['oracle_sha256'] and
+                    launch.get('nested_oracle_sha256')==receipt['nested_oracle_sha256'],'EXPLICIT_STATE_ORACLE_HASH_REQUIRED')
+            deadline=min(work_deadline,receipt['science_deadline_epoch'],time.time()+1500);token=secrets.token_hex(16)
+            receipt.update(status='NESTED_STATE_CHILD_RUNNING',tpu_status='RUNNING',tpu_attempted=True)
+            durable_json(receipt_path,receipt)
+            argv=[installed,'-B',payload/'probe_nested_state.py','execute',
+                  *state_cli(payload,out/'cpu-oracle',receipt['nested_oracle_sha256']),
+                  '--admission',payload/'source-admission.json','--admission-sha256',manifest['source_admission_sha256'],
+                  '--oracle',out/'state-cpu-oracle','--oracle-sha256',launch['oracle_sha256'],
+                  '--deadline-epoch',deadline,'--process-token',token,'--output',out/'nested-state']
+            rec=run_step(out,'12-nested-state',[str(x) for x in argv],deadline,1500,cwd=payload,tpu=True)
+            receipt['steps'].append({'label':'12-nested-state',**rec})
+            require(not rec['cleanup']['errors'] and not rec.get('error') and
+                    (rec['status'],rec['exit_code']) in {('PASS',0),('CHILD_FAILED',2)},'NESTED_STATE_CHILD_UNQUALIFIED_OR_CLEANUP')
+            result=json.loads((out/'nested-state/receipt.json').read_text())
+            expected={'kind':'PRIVATE_NESTED_STATE_PROBE','status':'COMPLETE','state_variant':'nested-state-v1','probe_sha256':manifest['nested_state_probe_sha256'],
+                      'nested_probe_sha256':manifest['nested_probe_sha256'],'inputs_sha256':manifest['nested_inputs_sha256'],
+                      'nested_source_sha256':manifest['nested_source_sha256'],'schema_sha256':manifest['nested_schemas_sha256'],
+                      'source_variant':'nested-v1','patch_manifest_sha256':manifest['patch_manifest_sha256'],
+                      'source_admission_sha256':manifest['source_admission_sha256'],'source_pre':manifest['source_admission_sha256'],
+                      'source_post':manifest['source_admission_sha256'],'oracle_sha256':launch['oracle_sha256'],
+                      'nested_oracle_sha256':receipt['nested_oracle_sha256'],'runtime_lock_sha256':manifest['runtime_lock_sha256'],
+                      'process_token':token,'deadline_epoch':deadline}
+            require(all(result.get(field)==value for field,value in expected.items()),'NESTED_STATE_RECEIPT_BINDING')
+            require(type(result.get('pid')) is int and result.get('pid')==result.get('pgid') and
+                    any(group.get('pid')==group.get('pgid')==result['pid'] for group in rec['cleanup']['groups']),
+                    'NESTED_STATE_PROCESS_GROUP_IDENTITY')
+            receipt.update(status='NESTED_STATE_CHILD_TERMINAL_LOCAL_REVIEW_REQUIRED',tpu_status='NESTED_STATE_RECORDS_COMPLETE',
+                           nested_state_receipt_sha256=sha(out/'nested-state/receipt.json'),m4_status='NOT_QUALIFIED')
         elif phase == 'state':
             require(state, 'WRONG_SCIENTIFIC_VARIANT')
             require(receipt.get('installed_source_status') == 'POST_PATCH_PYTHON_SOURCE_PASS' and
@@ -637,7 +712,7 @@ def execute(base, packet_sha, allocation_epoch, phase):
         else:
             raise ValueError('UNKNOWN_PHASE')
     except BaseException as error:
-        if phase in ('tpu', 'routes', 'precision', 'transfer', 'state', 'nested') and receipt.get('tpu_status') == 'RUNNING':
+        if phase in ('tpu', 'routes', 'precision', 'transfer', 'state', 'nested', 'nested-state') and receipt.get('tpu_status') == 'RUNNING':
             receipt['tpu_status'] = 'ATTEMPTED_BLOCKED'
         receipt.update(status='BLOCKED', error={'type': type(error).__name__, 'message': str(error)})
     finally:
@@ -648,7 +723,7 @@ def execute(base, packet_sha, allocation_epoch, phase):
 
 def main():
     p = argparse.ArgumentParser(description=__doc__)
-    p.add_argument('operation', choices=['unpack', 'install', 'cpu', 'tpu', 'routes', 'precision', 'transfer', 'state', 'nested', 'transfer-source', 'export', 'download', 'metadata'])
+    p.add_argument('operation', choices=['unpack', 'install', 'cpu', 'tpu', 'routes', 'precision', 'transfer', 'state', 'nested', 'nested-state-cpu', 'nested-state', 'transfer-source', 'export', 'download', 'metadata'])
     p.add_argument('--base', type=Path, required=True)
     p.add_argument('--packet-sha256')
     p.add_argument('--allocation-epoch', type=float)
@@ -664,7 +739,7 @@ def main():
     if a.operation == 'transfer-source':
         payload = a.base / 'payload'
         manifest = json.loads((payload / 'manifest.json').read_text())
-        require(verify_experiment(manifest) in {'transfer-api42', 'state-roundtrip', 'nested-79'}, 'TRANSFER_SOURCE_VARIANT')
+        require(verify_experiment(manifest) in {'transfer-api42', 'state-roundtrip', 'nested-79', 'nested-state-8'}, 'TRANSFER_SOURCE_VARIANT')
         for name, rec in manifest['files'].items():
             require(not (payload / name).is_symlink() and sha(payload / name) == rec['sha256'], 'TRANSFER_SOURCE_FILES')
         verify_transfer_payload(payload, manifest)
@@ -674,7 +749,7 @@ def main():
         A = importlib.util.module_from_spec(spec); spec.loader.exec_module(A)
         admission, roots = A.admit(B, payload / 'source-admission.json', manifest['source_admission_sha256'], payload / 'patches/params4bit-xla-v1.json')
         nested_proof={}
-        if manifest.get('experiment')=='nested-79':
+        if manifest.get('experiment') in {'nested-79','nested-state-8'}:
             verify_nested_payload(payload,manifest)
             spec=importlib.util.spec_from_file_location('nested_source_admission',payload/'probe_nested.py')
             N=importlib.util.module_from_spec(spec);spec.loader.exec_module(N)

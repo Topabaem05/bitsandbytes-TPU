@@ -1,5 +1,18 @@
 # Change log
 
+## 2026-10-08 — Nested saved-state experiment preparation
+
+- Add eight saved-state cases with original public serialization and restoration.
+- Require an accepted 79-case nested result with exact source and runtime bindings.
+- Bind separate qualified CPU reference seals before owned save and restore processes.
+- Compare full checkpoint state exactly and outputs under the fixed tolerances.
+- Retain numerical failures, process errors, and incomplete cleanup as unsuccessful results.
+
+Validation: The reviewer repeated 23 scientific controls and all 391 cloud controls; all passed.
+Eight unqualified CPU cases passed 90 output comparisons and exact state comparisons.
+Actual Linux and TPU results remain required.
+Refer to [the state preparation](docs/changes/r4-nested-state-preparation.md).
+
 ## 2026-10-08 — Repeated nested allocation server failure
 
 - Retain a second `Bad Gateway` response from the unchanged corrected packet.

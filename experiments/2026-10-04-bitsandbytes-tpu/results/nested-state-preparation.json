@@ -1,0 +1,101 @@
+{
+  "accepted_milestones": 3,
+  "adopted_files": {
+    "cloud/build_packet.py": {
+      "bytes": 22626,
+      "sha256": "f738905aff707bfab0ed137ee1d2ec91109f0af3ab9485cb4752785e7efcef46"
+    },
+    "cloud/nested_state_contract.py": {
+      "bytes": 3590,
+      "sha256": "47e148748454ce473449e56ac42b7b1b65050988fdd8286085730b246c9d8136"
+    },
+    "cloud/owner.py": {
+      "bytes": 40455,
+      "sha256": "097646806f2a883a019a3f325b4f21e5d1fabdd2d0d1cd20ab6e503e56ecb618"
+    },
+    "cloud/remote.py": {
+      "bytes": 58246,
+      "sha256": "1b584a22188d8665f112dd5b5eaa84a95ba4d44cb0f2a0f5ce09c9bb3e532b43"
+    },
+    "cloud/tests/nested_state_saved_fixture.py": {
+      "bytes": 7974,
+      "sha256": "80ee93555175162eb0fbbac93f8931ab415aa249c96e0d7daa3bf5f9a376b0c2"
+    },
+    "cloud/tests/test_nested_state_bootstrap.py": {
+      "bytes": 7304,
+      "sha256": "7e6c1c7584cbd700c4957a50af687b3abb1ed34b22c5d12cd65a8f756c555c6f"
+    },
+    "cloud/tests/test_nested_state_cloud.py": {
+      "bytes": 24362,
+      "sha256": "996bf74860497657ce32cedb6ea356a3e5844f9f1813a49b2ceb97c18ef716c4"
+    },
+    "cloud/tests/test_owner_cli.py": {
+      "bytes": 2550,
+      "sha256": "2a083bde3f4348b996b6f1b96e9785fc7ac4348e48b71ca89c6719a404f81766"
+    },
+    "cloud/tests/test_remote_bootstrap.py": {
+      "bytes": 6933,
+      "sha256": "949617df4c6a1f5c5459f09a7862c372bbbef2656bd4f49dad6e3211ebdbfaf3"
+    },
+    "probe_nested_state.py": {
+      "bytes": 39413,
+      "sha256": "1233803f173b9e0d6e864e1fa3081f66408b357ffe17d925b0a69459514fb1f1"
+    }
+  },
+  "artifact_bindings": {
+    ".work/r4-state-cloud-preparation/review.json": {
+      "bytes": 3293,
+      "sha256": "143a2302fdd2441b61024090dc19166a9faf9a29f2cfdb7ae9d2c497c2fda9bb"
+    },
+    ".work/root-r4-state-cloud-review/controls.xml": {
+      "bytes": 63648,
+      "sha256": "2f94380fc9b12512705c3dfc553b037539cb9ed26cfc868eb9a89b0efd37ce59"
+    },
+    ".work/root-r4-state-cloud-review/review.json": {
+      "bytes": 2328,
+      "sha256": "897bdf9c075b5ffe0ff377e6a8c962173699fdf74329b9342188730d45dacaf3"
+    },
+    ".work/root-r4-state-science-review/cpu-controls.json": {
+      "bytes": 13417,
+      "sha256": "ab1c9a268666dde92123a4f70607a866afbb5c328fb2c4ffff3ec7c8a2b1bc53"
+    },
+    ".work/root-r4-state-science-review/review.json": {
+      "bytes": 900,
+      "sha256": "83f498358772bc073aad5ba7d0d25ff98618e3b591699e7c1df12977dce5c0f9"
+    },
+    ".work/root-r4-state-science-review/tests.stderr": {
+      "bytes": 2121,
+      "sha256": "7be01b4b6488bcf4b350cd5f4b11bd7d74f95d64b2a3e775bf61bfa9c3a62476"
+    }
+  },
+  "date": "2026-10-08",
+  "dispatch_dependency": "REQUIRES_SEPARATE_ACCEPTED79_DEVICE_RECORDS",
+  "experiment": "nested-state-8",
+  "m4_status": "NOT_QUALIFIED",
+  "reviewed_cloud": {
+    "controls": 391,
+    "provider_calls": false,
+    "seconds": 119.291,
+    "skipped": 0
+  },
+  "reviewed_science": {
+    "cpu_record_exact_worker_match": true,
+    "local_controls": 23,
+    "output_gates": 90,
+    "qualified_linux_cpu": "NOT_RUN",
+    "seconds": 32.426,
+    "tpu": "NOT_RUN",
+    "unqualified_cpu_module_cases": 8
+  },
+  "scope": [
+    "fixed original public classes and default compressed statistics",
+    "exact checkpoint and complete saved/restored state",
+    "separate qualified nested79 CPU oracle and state CPU oracle",
+    "owned sequential fresh save and restore processes",
+    "fixed output tolerances; exact packed arrays and state metadata",
+    "complete archive verification with preserved finite FAIL and case ERROR"
+  ],
+  "source_variant": "nested-v1",
+  "state_variant": "nested-state-v1",
+  "status": "PASS_NESTED_STATE_PREPARATION"
+}
