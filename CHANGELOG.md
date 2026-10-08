@@ -1,5 +1,16 @@
 # Change log
 
+## 2026-10-09 — Native diagnostic archive failure
+
+- Retain the remote transport import failure and secondary readback error.
+- Inspect all 92 recovered archive members and five qualified CPU reference cases.
+- Verify closure of 38 CLI process groups, 13 remote steps, and the host process.
+- Keep native execution and M6 unqualified.
+
+Validation: Record integrity and resource closure passed; eight isolated audit controls gave the expected results.
+The native device phase did not execute.
+Refer to [the failure record](docs/changes/r6-native-archive-failure.md).
+
 ## 2026-10-08 — Native Pallas cloud preparation
 
 - Add the bounded native diagnostic with 23 fixed source files.

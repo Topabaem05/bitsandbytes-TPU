@@ -1,0 +1,89 @@
+{
+  "accepted_milestones": 3,
+  "active_usage_zero": true,
+  "archive_bytes": 313509,
+  "archive_members": 92,
+  "archive_sha256": "a77a94b3f0cb72a4304b620769b8eb63314626b8ef9efc447d14b52ef3897c9c",
+  "audit_controls": {
+    "fixture_scope": "ISOLATED_SYNTHETIC_RECORDS",
+    "passed": 8,
+    "total": 8
+  },
+  "checked_utc_date": "2026-10-08",
+  "cli_groups_closed": 38,
+  "cpu_archive_bytes": 168696,
+  "cpu_archive_members": 11,
+  "cpu_gate": {
+    "kind": "ROOT_NATIVE_CPU_ORACLE_GATE",
+    "m6": "NOT_QUALIFIED",
+    "native_cpu_evidence_sha256": "9cbebd9054b1722188c03628db61c2fe47bf16fb81ef76214504f9b3ca34e0db",
+    "native_cpu_inventory_sha256": "af326335115dda67b803976bdbf12c25453a6c856cc3290ab4e5f4fdcc03eca5",
+    "native_manifest_sha256": "b25c5d2bf128b5164538c06267ec3a2f55a001a1a7f86eb63142153842eb3909",
+    "oracle_sha256": "2669f5f19c16d46e39c6248871f6d7254d70f43610420803beeac1f9c689a354",
+    "source_admission_sha256": "8b2b3e26e2e7c98c0fde52f51663bed84999ac733dcbc39573ef8b3aeca4f9a1",
+    "source_variant": "M2_CANONICAL_NON_NESTED_R2_PATCH",
+    "status": "QUALIFIED_LINUX_CPU_ORACLE_VERIFIED"
+  },
+  "cpu_gate_scope": "POSTHOC_READBACK_NOT_USED_FOR_DEVICE_LAUNCH",
+  "cpu_output_values": 164096,
+  "cpu_outputs": [
+    {
+      "array_sha256": "1d6e99a8d6e00c37ef7db3fb565077f01bb86d744eef1c33201b5bcf904be9a2",
+      "case": "direct-fp32",
+      "values": 32768
+    },
+    {
+      "array_sha256": "1d6e99a8d6e00c37ef7db3fb565077f01bb86d744eef1c33201b5bcf904be9a2",
+      "case": "functional-fp32",
+      "values": 32768
+    },
+    {
+      "array_sha256": "2a94386dd24b1a9b6701e1172488ef46ed25248e57c1de74a9af15e595e812e2",
+      "case": "direct-bf16",
+      "values": 32768
+    },
+    {
+      "array_sha256": "2a94386dd24b1a9b6701e1172488ef46ed25248e57c1de74a9af15e595e812e2",
+      "case": "functional-bf16",
+      "values": 32768
+    },
+    {
+      "array_sha256": "34da6cd3792f4055741109182e47945870f683fe9683fd0a685955ece1b5053f",
+      "case": "tail-reference-fp32",
+      "values": 33024
+    }
+  ],
+  "host_execution_seconds": 283.47601362500427,
+  "host_finalization_sha256": "b68822fb4d19837fda327b3007119a2906689318d7f371186f440f9908e0babb",
+  "lifecycle_seconds": 809.3956139087677,
+  "m6": "NOT_QUALIFIED",
+  "manifest_sha256": "130b51f970e15c95e6ceb0fbf7d7b48cb59bf51b3bbaa0f51e5a3c5bc215b366",
+  "native_numerical_comparisons": 0,
+  "original_error": {
+    "message": "No module named 'transport'",
+    "type": "ModuleNotFoundError"
+  },
+  "owner_sha256": "94f28ca2529336fca878e74d5c62eb7f6032126475768ffa4548672e9b060d7f",
+  "packet_sha256": "ad400e51a414544b467f9feaeebdae41d2924e586b709f4fa39391570efc4b9d",
+  "receipt_sha256": "94754f24a33778f5b586fc1cbccb0139b8cdde9e5cf993a5b7671161250455c4",
+  "remote_steps_closed": 13,
+  "resource_closure": "PASS",
+  "review_source_sha256": "f37e00b31e79f99c1088cf6423e352cccd70e11ed2b9ab5ed0d976d7fafef1c7",
+  "root_review_sha256": "4ce2f5d161899e4e0f38f65fff76aa06a1d8884431caf949671c59b89f3ee5f0",
+  "runtime_status": "PASS_TPU_RUNTIME_PROBE_ONLY",
+  "runtime_versions": {
+    "jax": "0.7.1",
+    "jaxlib": "0.7.1",
+    "libtpu": "0.0.21",
+    "python": "3.12.14",
+    "torch": "2.9.0+cpu",
+    "torch-xla": "2.9.0"
+  },
+  "science_status": "NATIVE_NOT_RUN",
+  "secondary_readback_error": {
+    "message": "'recovered_oracle_sha256'",
+    "type": "KeyError"
+  },
+  "server_empty": true,
+  "status": "RETAINED_FAILURE_RECORDS_VERIFIED"
+}
