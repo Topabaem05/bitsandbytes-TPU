@@ -1,0 +1,45 @@
+{
+  "accepted_milestones": 3,
+  "actual_tpu": "NOT_RUN",
+  "adopted_files": 12,
+  "adoption_map_sha256": "a7db2b0e174d03dc88f680277911647c97b3716d69619f466915855b2582da30",
+  "checked_local_date": "2026-10-09",
+  "correction": "Success assertion moved outside handler; fake-success control requires failed test with no pass record.",
+  "counts": {
+    "audit": 13,
+    "first_failure": 3,
+    "harness": 1,
+    "recovery": 14,
+    "serializer": 4
+  },
+  "fixture_archive_sha256": "bf8276c847523cf7e018fce586a43ad7fbbce3246a2a68ac51818e56a4c1f518",
+  "fixture_bytes": 172225,
+  "fixture_members": 17,
+  "m6": "NOT_QUALIFIED",
+  "native_manifest_sha256": "d294b189011f8200e039761f054c5cc96a15275b679efeb7bdde1ef67b414ffa",
+  "new_negative_records_genuine_value_error": 10,
+  "original_negative_readback_sha256": "64c3db20312e31f72b0608b4d2031e334eec1a12d80ed23c0a461fa406eee1b1",
+  "original_negative_records_genuine_value_error": 9,
+  "prior_harness_limitation": "Broad handler could catch its own assertion after unexpected acceptance.",
+  "provider_calls": 0,
+  "qualified_linux_cpu": "NOT_RUN",
+  "root_runs": [
+    {
+      "case": "root-mosaic-portable-review",
+      "controls": 35,
+      "groups_closed": 2,
+      "results_sha256": "b697b79c4b809cf234548ed7143cb4fef71bbfc581f4aadef9985f7b5b3855c4",
+      "status": "PASS"
+    },
+    {
+      "case": "root-mosaic-portable-canonical-review",
+      "controls": 35,
+      "groups_closed": 2,
+      "results_sha256": "73a5c319d609ac24842e3362fa44eecf1b81df2665f5e105af28c16c12ad32d2",
+      "status": "PASS"
+    }
+  ],
+  "scope": "PINNED_CPU_FRONTEND_AND_SYNTHETIC_RECORDS",
+  "source_generation_changes": false,
+  "status": "ROOT_PORTABLE_MOSAIC_CONTROLS_ACCEPTED"
+}

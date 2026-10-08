@@ -1,5 +1,15 @@
 # Change log
 
+## 2026-10-09 — Portable Mosaic controls
+
+- Add portable conversion, recovery, and first-error controls with a small sealed fixture archive.
+- Correct the rejection helper and test unexpected verifier success.
+- Verify genuine exceptions in all nine original negative records.
+
+Validation: All 35 controls passed before and after adoption; each run closed both owned process groups.
+Production sources remain unchanged, and M6 remains unqualified.
+Refer to [the control record](docs/changes/r6-mosaic-portable-controls.md).
+
 ## 2026-10-09 — Kaggle source size failure
 
 - Retain the new HTTP 400 source size classification and inactive draft observation.
