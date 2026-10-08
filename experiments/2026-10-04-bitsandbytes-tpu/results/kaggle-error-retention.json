@@ -1,0 +1,111 @@
+{
+  "accepted_milestones": 3,
+  "actual_kaggle": "NOT_RUN",
+  "files": {
+    "http_error_retention.py": {
+      "bytes": 4047,
+      "sha256": "5d57d9bf2ed6538b629c46a67996572c6caf28ca9019b9b1a9716cc8491845e0"
+    },
+    "sdk_worker.py": {
+      "bytes": 9254,
+      "sha256": "8eb4a5507106f626dd7774d3fea89f0a44457c248f0a6cd53706dd4e80e5597d"
+    },
+    "tests_error_retention.py": {
+      "bytes": 8998,
+      "sha256": "877466809f7d88dfe7b5c4da42e5ad1747fe67bfcd86bb5b2927ed1e9538d3cf"
+    }
+  },
+  "independent_controls": 80,
+  "kind": "ROOT_REVIEWED_KAGGLE_ERROR_RETENTION",
+  "m8": "NOT_QUALIFIED",
+  "original_http400_cause": "UNKNOWN",
+  "original_saved_draft": "PRESERVED",
+  "original_submission_state": "SUBMISSION_UNKNOWN",
+  "portable_repeat_after_adoption": 14,
+  "reports": [
+    {
+      "path": ".work/root-m8-error-retention-controls-001/controls.json",
+      "result": {
+        "acceptance": "NOT_QUALIFIED",
+        "credential_read_attempts": 0,
+        "errors": 0,
+        "failures": 0,
+        "network_attempts": 0,
+        "original_failure": "PRESERVED",
+        "provider_calls": "FAKE_ONLY",
+        "seconds": 0.719541072845459,
+        "status": "PASS",
+        "tests": 25
+      },
+      "sha256": "4e6c16cb852f35dca6681717bdf3656fa037a280e8cf9a8e63c77f6054a2db5a"
+    },
+    {
+      "path": ".work/root-m8-error-retention-integration-001/controls.json",
+      "result": {
+        "exact_generation_packet_match": true,
+        "exact_generation_wrapper_match": true,
+        "host_helper_excluded_from_packet": true,
+        "m8_status": "NOT_QUALIFIED",
+        "original_owner400_state": "SUBMISSION_UNKNOWN",
+        "original_recovery_source_unchanged": true,
+        "output_members": 298,
+        "packet_sha256": "654641d70a43bb1154097301b8ba41dfe5d2f95d16a2dd0e01c181e69eead80a",
+        "provider_calls": "FAKE_ONLY",
+        "status": "PASS",
+        "tests": 2,
+        "wrapper_sha256": "4a6c178bce89b13dce3825ded6999c9f0fee1352646be201bcdb7ba916aaadcb"
+      },
+      "sha256": "e64a498b67a120996ec35102ddf049a204821a5b17d22a764a2e74dacc265ea4"
+    },
+    {
+      "path": ".work/root-m8-error-retention-regression-001/controls.json",
+      "result": {
+        "actual_cpu": "NOT_RUN",
+        "actual_tpu": "NOT_RUN",
+        "credential_read_attempts": 0,
+        "errors": 0,
+        "failures": 0,
+        "kind": "M8_M2_OFFLINE_INTEGRATION_CONTROLS",
+        "m8_status": "NOT_QUALIFIED",
+        "network_attempts": 0,
+        "provider_calls": "SYNTHETIC_ONLY",
+        "seconds": 9.551036834716797,
+        "status": "PASS",
+        "tests": 39
+      },
+      "sha256": "a55ce0e157cf796426a6efd239f90614f04df231d2254da79cca4d4f65812789"
+    },
+    {
+      "path": ".work/root-m8-portable-error-controls-001/controls.json",
+      "result": {
+        "credential_read_attempts": 0,
+        "errors": 0,
+        "failures": 0,
+        "m8_status": "NOT_QUALIFIED",
+        "network_attempts": 0,
+        "provider_calls": 0,
+        "status": "PASS",
+        "tests": 14
+      },
+      "sha256": "1ae7dad5d7ab81348ed57d1ec1486d6f0f152445d26a28a8f567bad9f5568bc3"
+    },
+    {
+      "path": ".work/root-m8-error-retention-canonical-controls/controls.json",
+      "result": {
+        "credential_read_attempts": 0,
+        "errors": 0,
+        "failures": 0,
+        "m8_status": "NOT_QUALIFIED",
+        "network_attempts": 0,
+        "provider_calls": 0,
+        "status": "PASS",
+        "tests": 14
+      },
+      "sha256": "1ae7dad5d7ab81348ed57d1ec1486d6f0f152445d26a28a8f567bad9f5568bc3"
+    }
+  ],
+  "required_milestones": 8,
+  "review_date": "2026-10-09",
+  "scientific_payload_refresh": "NONE",
+  "status": "LOCAL_CONTROLS_PASS"
+}

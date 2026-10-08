@@ -11,13 +11,21 @@ from urllib.parse import urlparse
 
 SAVE_URL='https://api.kaggle.com/v1/kernels.KernelsApiService/SaveKernel'
 HERE=Path(__file__).resolve().parent
+RETENTION_SHA='5d57d9bf2ed6538b629c46a67996572c6caf28ca9019b9b1a9716cc8491845e0'
+RETENTION_BYTES=4047
 
 
 def sha(data):return hashlib.sha256(data).hexdigest()
 
 
+def admit_retention():
+    path=HERE/"http_error_retention.py"
+    if path.is_symlink() or not path.is_file() or path.stat().st_size!=RETENTION_BYTES or sha(path.read_bytes())!=RETENTION_SHA:
+        raise ValueError("ERROR_RETENTION_SOURCE_CHANGED")
+
+
 @contextmanager
-def bounded_transport(deadline, requests_module):
+def bounded_transport(deadline, requests_module, error_output=None):
     """Worker-local transport adaptation. Preserve original CLI implementation."""
     original=requests_module.sessions.Session.send
     saves=[]
@@ -38,6 +46,9 @@ def bounded_transport(deadline, requests_module):
             saves.append(sha(request.body if isinstance(request.body,bytes) else str(request.body).encode()))
             kwargs['allow_redirects']=False
         response=original(session,request,**kwargs)
+        if request.url==SAVE_URL and error_output is not None:
+            from http_error_retention import record_response_error
+            record_response_error(response,error_output)
         if request.url==SAVE_URL and 300<=response.status_code<400:
             raise ValueError('SAVE_REDIRECT_AMBIGUOUS')
         return response
@@ -58,6 +69,7 @@ def assert_sources():
 
 def run(packet,output):
     if type(packet['deadline_epoch']) not in (int,float) or not math.isfinite(packet['deadline_epoch']) or packet['deadline_epoch']<=time.time():raise ValueError('DEADLINE')
+    if packet["operation"]=="submit":admit_retention()
     assert_sources()
     op,r=packet['operation'],packet['request']
     if op=='submit':
@@ -72,7 +84,7 @@ def run(packet,output):
     # module uses existing configured auth. No token is copied into this packet.
     if any(os.environ.get(k) for k in ('KAGGLE_API_ENVIRONMENT','KAGGLE_CONFIG_DIR')):raise ValueError('AUTH_ENV_DRIFT')
     import requests
-    with bounded_transport(call_deadline,requests):
+    with bounded_transport(call_deadline,requests,error_output=output if op=="submit" else None):
         from kaggle import api
         if any(x in api.args for x in ('--staging','--admin','--local','--verbose','-v')):raise ValueError('CLI_ARGUMENT_DRIFT')
         op,r=packet['operation'],packet['request']
@@ -116,6 +128,11 @@ def run(packet,output):
 if __name__=='__main__':
     p=argparse.ArgumentParser();p.add_argument('--live-provider',action='store_true');p.add_argument('--request',type=Path,required=True);p.add_argument('--output',type=Path,required=True);args=p.parse_args()
     if not args.live_provider:raise SystemExit('LIVE_PROVIDER_OPT_IN_REQUIRED')
-    packet=json.loads(args.request.read_text());response=run(packet,args.output)
+    packet=json.loads(args.request.read_text())
+    if packet.get("operation")=="submit":
+        admit_retention()
+        from http_error_retention import retained_errors
+        with retained_errors(args.output):response=run(packet,args.output)
+    else:response=run(packet,args.output)
     data=(json.dumps(response,allow_nan=False)+'\n').encode()
     with open(args.output/'response.json','xb') as f:os.chmod(args.output/'response.json',0o600);f.write(data)

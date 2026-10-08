@@ -121,6 +121,10 @@ The [first actual submission](changes/r8-kaggle-submission-failure.md) returned 
 The draft session was off, and exact `v1` source and session requests returned HTTP 404.
 No accepted execution identity or scientific result exists for that request.
 All five local submission and inspection groups closed; the owner preserves its unconfirmed remote state.
+The [error record correction](changes/r8-error-retention.md) passed 80 independent controls.
+All 14 portable controls also passed after adoption.
+Future submissions can retain bounded response classifications without changing the original SDK error.
+The previous HTTP 400 body remains unavailable, and its cause remains unknown.
 M8 requires an identified version, the accepted runtime and scientific results, and independent resource closure.
 The earlier [cloud inspection](research/2026-10-08/cloud.md) remains a dated source record.
 

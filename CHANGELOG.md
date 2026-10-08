@@ -1,5 +1,16 @@
 # Change log
 
+## 2026-10-09 — Kaggle error record correction
+
+- Retain bounded error classifications without raw response messages or credentials.
+- Preserve the original SDK response or exception if recording fails.
+- Verify the recorder source before authentication and add portable controls.
+
+Validation: All 80 independent controls passed; the 14 portable controls also passed after adoption.
+The scientific ZIP and wrapper remain unchanged for identical generation inputs.
+The original HTTP 400 cause remains unknown, and M8 is unqualified.
+Refer to [the correction record](docs/changes/r8-error-retention.md).
+
 ## 2026-10-09 — Arithmetic parameter observation failure
 
 - Retain two actual builder rows after the metric correction.
