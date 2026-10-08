@@ -1,0 +1,84 @@
+{
+  "accepted_milestones": 3,
+  "actual_TPU": "NOT_RUN",
+  "actual_failure_result_sha256": "6fe3221f09a03c79dc77805e3d6528232cf5964f96ee74864e27ec93e9b21484",
+  "existing_bootstrap_controls": 7,
+  "fixture_scope": "SYNTHETIC_SCIENCE_AND_PROVIDER_RECORDS_REAL_LOCAL_PROCESSES",
+  "frozen_native23": "UNCHANGED",
+  "m6": "NOT_QUALIFIED",
+  "new_controls": 12,
+  "next_packet": {
+    "actual_upstream_commit": "833649043474794b8fe7a4136e0c40faf077b2e0",
+    "base_archive_sha256": "41e1fc76ddd4a25915f8f4f804d881be9fc1a89ab88834db4284f9971ae7769e",
+    "changed_payload_files": [
+      "cloud/owner.py",
+      "cloud/remote.py"
+    ],
+    "m2_dependency_sha256": "5daf942832153c6d6505f1ec4c941294cb8c376f28927b2f9cfc5b3d86a962fc",
+    "m6": "NOT_QUALIFIED",
+    "manifest_sha256": "8a5fd991797a9708c038a31c1526fbe28be2904bf181193eaf97b9a5d1d678a7",
+    "members": 68,
+    "native23": "EXACT_UNCHANGED",
+    "packet_sha256": "138e9ac03520f6e2e643a62bc6dac77788bf4e0a19f34dc3aa570192fbfc7d10",
+    "payload_bytes": 1039634,
+    "status": "PACKET_BYTES_VERIFIED_NO_PROVIDER"
+  },
+  "original_failure_retained": true,
+  "production_sources": {
+    "owner.py": {
+      "bytes": 50377,
+      "sha256": "078c55489cf17ca8dc08b956efc51fd2bcb9b2bb0d00b04d23a7e1fb2f2d071f"
+    },
+    "remote.py": {
+      "bytes": 61839,
+      "sha256": "f5bb36435c8890e59188d9aba287ebcf034de74a812bc1390765654b3d08b60d"
+    }
+  },
+  "provider_calls": 0,
+  "pytest": {
+    "bootstrap": {
+      "errors": "0",
+      "failures": "0",
+      "skipped": "0",
+      "tests": "7",
+      "time": "2.067"
+    },
+    "recovery": {
+      "errors": "0",
+      "failures": "0",
+      "skipped": "0",
+      "tests": "1",
+      "time": "32.111"
+    }
+  },
+  "recovery_controls_sha256": "7f3577b2e37b237871a6ee3a9b8bb6f9f0ff3893e6ac7bcc13fd8ba145f525ef",
+  "reviewed_date": "2026-10-09",
+  "root_review_sha256": "aaa42ee84030e5e49e228d7ab5446296548435b0d39de04529270c4cebe70320",
+  "status": "LOCAL_RECOVERY_REPAIR_REVIEW_PASS",
+  "test_files": {
+    "tests/fixtures/native/pre-transport-fix-source.json": {
+      "bytes": 502,
+      "sha256": "9ba41549cd32ece973cf223aaadc10aa28bca9fc217189e18de0bf0820d688ed"
+    },
+    "tests/fixtures/native/pre-transport-fix-source.tar.gz": {
+      "bytes": 23663,
+      "sha256": "26f0442350be14428e87bc2c0864dd1180d6ccf6614ac36492d8937062d548b5"
+    },
+    "tests/native_owner_child.py": {
+      "bytes": 5005,
+      "sha256": "cd7a9d9bdc53b2507a4a3321c86900549f2ff6349e36c2a8ae37bff5edc7929b"
+    },
+    "tests/native_recovery_controls.py": {
+      "bytes": 6412,
+      "sha256": "4dee015ceedc7c652495bf2372e8ff3ac54d17abf9d675b8d872d60366941e2e"
+    },
+    "tests/native_runpy_child.py": {
+      "bytes": 3087,
+      "sha256": "909c78b02b3272f85e2cb50742f61d69c93bddb0403c361823c58533d1a9f6b9"
+    },
+    "tests/test_native_recovery.py": {
+      "bytes": 1301,
+      "sha256": "34f32dc5098e9d1bf52e4536b9df5ecfb26f15b2b4d407a07f47cd5668d1c2e5"
+    }
+  }
+}

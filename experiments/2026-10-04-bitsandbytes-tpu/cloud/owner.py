@@ -28,6 +28,22 @@ from browser_adoption import MODE as BROWSER_MODE, record as browser_record
 from nested_state_contract import (NESTED_STATE_BINDINGS,NESTED_STATE_SCOPE,verify_state_payload,state_cli)
 
 
+class _NativeReadbackUnavailable(Exception):
+    """The archive is recoverable, but no terminal native proof can be verified."""
+
+
+def native_readback_missing(owner, receipt, output, native_gate):
+    missing=[]
+    if not isinstance(native_gate,dict) or native_gate.get('status')!='QUALIFIED_LINUX_CPU_ORACLE_VERIFIED':missing.append('root_cpu_oracle_gate')
+    if 'recovered_oracle_sha256' not in owner:missing.append('recovered_cpu_oracle_seal')
+    if receipt.get('status')!='NATIVE_CHILD_TERMINAL_LOCAL_REVIEW_REQUIRED' or receipt.get('tpu_status')!='NATIVE_RECORDS_TERMINAL':missing.append('terminal_native_receipt')
+    for field in ('native_expected_sha256','native_outer_owner_sha256','native_parent_sha256'):
+        if field not in receipt:missing.append(field)
+    for name in ('native/expected.json','native/parent.json','steps/12-native-parent/ownership.json'):
+        if not (output/'recovered'/name).is_file():missing.append(name)
+    return missing
+
+
 def clamp(started, limit, reserve, clock=None):
     value = min(limit, started + 3600 - (clock or time.time)() - reserve)
     if not math.isfinite(value) or value <= 0:
@@ -303,6 +319,7 @@ def drive(packet, output, expected, acceptance, acceptance_sha, cli_python, cli_
         return r
 
     receipt = None
+    native_gate = None
     try:
         for sig in prior:
             signal.signal(sig, interrupted)
@@ -456,6 +473,9 @@ def drive(packet, output, expected, acceptance, acceptance_sha, cli_python, cli_
         try:
             inventory = verify_result(output, receipt)
             owner['whole_archive_verified'] = True
+            if native:
+                missing=native_readback_missing(owner,receipt,output,native_gate)
+                if missing:raise _NativeReadbackUnavailable(','.join(missing))
             # The existing probe verifier uses retained arrays; no TPU or CPU science is repeated.
             verify = Ownership(output)
             log = (output / 'local-verifier.raw').open('wb', buffering=0)
@@ -582,6 +602,9 @@ def drive(packet, output, expected, acceptance, acceptance_sha, cli_python, cli_
                     owner.update(status='PASS_DEVICE_ROUTE_RECORDS', record_validation='PASS', api42_status='NOT_QUALIFIED')
             elif owner['status'] == 'CHILD_TERMINAL_RETRIEVAL_REQUIRED' and not owner['local_verifier_cleanup']['errors'] and owner.get('local_verifier_exit_code') in (0, 2) and receipt['runtime_status'] == 'PASS_TPU_RUNTIME_PROBE_ONLY' and receipt['cpu_status'] == 'PASS' and receipt['tpu_status'] in ('PASS', 'FAIL') and all(not step['cleanup']['errors'] for step in receipt['steps']):
                 owner['status'] = 'PASS_TPU_API_PROBE' if owner['local_verifier_exit_code'] == 0 else 'FAIL_TPU_API_PROBE'
+        except _NativeReadbackUnavailable as error:
+            owner.update(local_verifier_status='NOT_RUN_INCOMPLETE_NATIVE_RECORDS',native_record_validation='NOT_RUN',local_verifier_unavailable_reason=str(error))
+            if owner['status']=='CHILD_TERMINAL_RETRIEVAL_REQUIRED':owner['status']='BLOCKED'
         except BaseException as error:
             owner['local_readback_error'] = {'type': type(error).__name__, 'message': str(error)}
     owner['finished_utc'] = datetime.now(timezone.utc).isoformat()

@@ -22,6 +22,8 @@ from cleanup_lifecycle import Ownership
 from lifecycle import durable_json
 _native_spec=importlib.util.spec_from_file_location('_bnb_admitted_native_contract',HERE/'native_contract.py')
 NC=importlib.util.module_from_spec(_native_spec);_native_spec.loader.exec_module(NC)
+_transport_spec=importlib.util.spec_from_file_location('_bnb_admitted_byte_transport',HERE/'transport.py')
+_transport=importlib.util.module_from_spec(_transport_spec);_transport_spec.loader.exec_module(_transport)
 
 PRECISION_ROUTE_PROBE_SHA = 'feae751734e57c741b1bdade004ff7ca3c041ee7eb3b7086b531bc6be433038e'
 TRANSFER_PATCH_MANIFEST_SHA = 'e745fbf21aac10ed9118167a131d6505bf6dbe03e1fab0a669c663b26c5a5732'
@@ -530,8 +532,8 @@ def execute(base, packet_sha, allocation_epoch, phase):
             step('11-cpu-oracle', argv, deadline, 300)
             receipt.update(status='CPU_ORACLE_READY_TPU_NOT_RUN', cpu_status='PASS', oracle_sha256=sha(out / 'cpu-oracle/oracle-seal.json'))
             if native:
-                receipt.update(NC.cpu_archive(out));import transport
-                transport.split(out/'native-cpu-evidence.zip',base/'native-cpu-parts',expected_sha256=receipt['native_cpu_evidence_sha256'],expected_bytes=receipt['native_cpu_evidence_bytes'])
+                receipt.update(NC.cpu_archive(out))
+                _transport.split(out/'native-cpu-evidence.zip',base/'native-cpu-parts',expected_sha256=receipt['native_cpu_evidence_sha256'],expected_bytes=receipt['native_cpu_evidence_bytes'])
         elif phase == 'native':
             require(native and receipt.get('cpu_status')=='PASS' and receipt['tpu_status']=='NOT_RUN','NATIVE_PHASE_ORDER')
             gate=json.loads((base/'launch.json').read_text());require(gate.get('kind')=='ROOT_NATIVE_CPU_ORACLE_GATE' and gate.get('status')=='QUALIFIED_LINUX_CPU_ORACLE_VERIFIED' and gate.get('oracle_sha256')==receipt['oracle_sha256'] and gate.get('source_admission_sha256')==manifest['source_admission_sha256'] and gate.get('native_manifest_sha256')==NC.MANIFEST_SHA and gate.get('native_cpu_inventory_sha256')==receipt['native_cpu_inventory_sha256'] and gate.get('native_cpu_evidence_sha256')==receipt['native_cpu_evidence_sha256'] and gate.get('source_variant')==NC.VARIANT,'NATIVE_ROOT_ORACLE_GATE')

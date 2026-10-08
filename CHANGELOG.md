@@ -1,5 +1,17 @@
 # Change log
 
+## 2026-10-09 — Native archive entry correction
+
+- Load the admitted transport file through its exact sibling path.
+- Preserve original failures when native verification records are absent.
+- Add portable reproduction, recovery, and incorrect-record controls.
+- Keep all 23 native source files and the numerical criteria unchanged.
+
+Validation: The reviewer repeated 12 new controls and seven existing bootstrap controls; all passed.
+All 68 members of the fresh packet passed inspection.
+Actual native execution remains required.
+Refer to [the correction record](docs/changes/r6-native-archive-repair.md).
+
 ## 2026-10-09 — Native diagnostic archive failure
 
 - Retain the remote transport import failure and secondary readback error.

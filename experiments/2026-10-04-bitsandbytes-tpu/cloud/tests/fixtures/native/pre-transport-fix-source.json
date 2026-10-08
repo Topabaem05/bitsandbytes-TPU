@@ -1,0 +1,16 @@
+{
+  "archive_bytes": 23663,
+  "archive_sha256": "26f0442350be14428e87bc2c0864dd1180d6ccf6614ac36492d8937062d548b5",
+  "members": {
+    "owner.py": {
+      "bytes": 48891,
+      "sha256": "a8abaa375b14df8763444a6f90eea6b6633c5b7eaf2adf2225011084df686e86"
+    },
+    "remote.py": {
+      "bytes": 61641,
+      "sha256": "4fc7644dc868791f1b7a8144e6476f51aa57267e1565f44a1070a827ca23dd8f"
+    }
+  },
+  "revision": "7a8dd84",
+  "scope": "OWNED_CLOUD_SOURCE_BEFORE_TRANSPORT_IMPORT_FIX_NO_SCIENCE_RECORDS"
+}

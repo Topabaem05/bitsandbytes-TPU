@@ -73,7 +73,9 @@ The private CPU preparations for M4, M5, and M6 do not qualify those device mile
 The [bounded native preparation](changes/r6-native-cloud-preparation.md) uses accepted M2 sources and can execute independently of the M4 repair.
 It requires actual native graph and output records before a separate compiler memory experiment.
 The [first native attempt](changes/r6-native-archive-failure.md) stopped at a remote archive import after five CPU reference cases completed.
-The native device phase did not execute; an entry correction and fresh execution remain required.
+The native device phase did not execute; a fresh execution remains required.
+The [archive entry correction](changes/r6-native-archive-repair.md) passed 12 new controls and seven existing bootstrap controls.
+Its fresh packet retains all 23 native files and is ready for another Colab run.
 The [measurement preparation](changes/r7-measurement-preparation.md) passed 64 local controls and nine independent retained-record checks.
 Actual M7 collection requires accepted M6 results.
 BF16 gradients remain outside the fixed diagnostic scope.
