@@ -1,5 +1,15 @@
 # Change log
 
+## 2026-10-09 — Native Mosaic version failure
+
+- Retain the actual V5E1 compiler rejection of Mosaic version 8.
+- Preserve four subsequent synchronization errors and the unchanged verifier rejection.
+- Verify the qualified CPU oracle, all 118 archive members, and complete resource closure.
+
+Validation: Six isolated audit controls passed; all 47 CLI groups and 14 remote steps closed.
+No native numerical case passed, and M6 remains unqualified.
+Refer to [the actual result](docs/changes/r6-native-v5-mosaic.md).
+
 ## 2026-10-09 — Explicit V5E1 browser admission
 
 - Admit V5E1 or V6E1 through an exact reviewer-created runtime record.

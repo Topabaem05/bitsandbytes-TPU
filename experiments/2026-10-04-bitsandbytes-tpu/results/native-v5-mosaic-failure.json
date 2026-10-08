@@ -1,0 +1,123 @@
+{
+  "accepted_milestones": 3,
+  "active_usage_zero": true,
+  "actual_device_attempted": true,
+  "archive_bytes": 393447,
+  "archive_members": 118,
+  "archive_sha256": "153c0eeb4712926744d81efe923856d8f1dace38b8a113ca2b957558187cd437",
+  "browser_tab_closed": true,
+  "cases": [
+    {
+      "case": "direct-fp32",
+      "error_summary": "Failed to deserialize the Mosaic module: INTERNAL: Unsupported version: expected <= 7 but got 8",
+      "error_type": "ValueError",
+      "full_error_bytes": 26036,
+      "raw_sha256": "ca566a1ee9edad1fd08acb631d97f78df408784eaaef87701752d822e0642cff",
+      "status": "ERROR"
+    },
+    {
+      "case": "functional-fp32",
+      "error_summary": "Check failed: tensor_data:",
+      "error_type": "RuntimeError",
+      "full_error_bytes": 27,
+      "raw_sha256": "5801470e074ba519ab658af2e69e9f224b13b3036f7f8a37166bf2086ae3cf7d",
+      "status": "ERROR"
+    },
+    {
+      "case": "direct-bf16",
+      "error_summary": "Check failed: tensor_data:",
+      "error_type": "RuntimeError",
+      "full_error_bytes": 27,
+      "raw_sha256": "08bb6d0cb1f823fd059f777933b3f51fac78c0e0a4c5e6695253578bcde214db",
+      "status": "ERROR"
+    },
+    {
+      "case": "functional-bf16",
+      "error_summary": "Check failed: tensor_data:",
+      "error_type": "RuntimeError",
+      "full_error_bytes": 27,
+      "raw_sha256": "b5ea1f9d3fab22dd1d341648bc2826f01706cb5cd9cad77806f76991c559e97e",
+      "status": "ERROR"
+    },
+    {
+      "case": "tail-reference-fp32",
+      "error_summary": "Check failed: tensor_data:",
+      "error_type": "RuntimeError",
+      "full_error_bytes": 27,
+      "raw_sha256": "67f6941ed39a19c068c2efef6166d8f718f821e215dd9f46349a485a60eaa1c3",
+      "status": "ERROR"
+    }
+  ],
+  "checked_local_date": "2026-10-09",
+  "checked_utc_date": "2026-10-08",
+  "cli_groups_closed": 47,
+  "cpu_archive_bytes": 168693,
+  "cpu_archive_members": 11,
+  "cpu_archive_sha256": "8ae2b397980676a0637473423f123a66522655af61a5d80dae5993cbc21d6058",
+  "cpu_gate_status": "QUALIFIED_LINUX_CPU_ORACLE_VERIFIED",
+  "cpu_output_values": 164096,
+  "cpu_outputs": [
+    {
+      "array_sha256": "1d6e99a8d6e00c37ef7db3fb565077f01bb86d744eef1c33201b5bcf904be9a2",
+      "case": "direct-fp32",
+      "values": 32768
+    },
+    {
+      "array_sha256": "1d6e99a8d6e00c37ef7db3fb565077f01bb86d744eef1c33201b5bcf904be9a2",
+      "case": "functional-fp32",
+      "values": 32768
+    },
+    {
+      "array_sha256": "2a94386dd24b1a9b6701e1172488ef46ed25248e57c1de74a9af15e595e812e2",
+      "case": "direct-bf16",
+      "values": 32768
+    },
+    {
+      "array_sha256": "2a94386dd24b1a9b6701e1172488ef46ed25248e57c1de74a9af15e595e812e2",
+      "case": "functional-bf16",
+      "values": 32768
+    },
+    {
+      "array_sha256": "34da6cd3792f4055741109182e47945870f683fe9683fd0a685955ece1b5053f",
+      "case": "tail-reference-fp32",
+      "values": 33024
+    }
+  ],
+  "cpu_value_check_scope": "SOURCE_RUNTIME_ORACLE_CONTRACT_TYPED_FINITE_VALUES_NOT_NUMERICAL_RECOMPUTATION",
+  "device_error_cases": 5,
+  "first_error_stage": "TPU_COMPILER_MOSAIC_DESERIALIZATION",
+  "host_execution_seconds": 311.77560366599937,
+  "host_finalization_sha256": "7f603f2f3ea067a443bd158f51f7cfafa0523f2ee53e3cd2d2ef088ad1ca15c3",
+  "independent_isolated_controls": 6,
+  "lifecycle_seconds": 387.72747707366943,
+  "m6": "NOT_QUALIFIED",
+  "manifest_sha256": "23e43f3bc93139751681f5dc10723e6f5903bbb4aee5fb05ae3edb062b93fcdf",
+  "native_manifest_sha256": "c533a0b7ac754318ce4d6baa64e0e14d7961941983ffdf726d4b57177e865a14",
+  "native_pass_cases": 0,
+  "original_deadline_unchanged": true,
+  "owner_sha256": "390e9bbcd2f17710c42eae4fa71eb059f960bd5c330163473c254168da36aab7",
+  "packet_sha256": "5a94d35b09288eb0724aeae5b40fb0f725bc997f4643d95006be330ac933bf32",
+  "qualified_native_numerical_comparisons": 0,
+  "receipt_sha256": "fdb8c54fc260f8944984082af7b293771c22219ca89270ed001643ad75f480fd",
+  "remote_steps_closed": 14,
+  "resource_closure": "PASS",
+  "review_source_sha256": "9bccea89b08ead7a2a1cc6e1079db4890dea9b47d8ec480b29f6fe118f5768cb",
+  "root_review_sha256": "387cfdf7e0bc74498ff889f7c562160de8f9293805cdb62c662cee8f9250df1a",
+  "runtime_hardware": "Colab V5E1",
+  "runtime_library_sha256": "cdb7980d4332097b8e16576568e138ef54cf9fb8ed5aae2aeefbd0c5a425e94a",
+  "runtime_versions": {
+    "jax": "0.7.1",
+    "jaxlib": "0.7.1",
+    "libtpu": "0.0.21",
+    "python": "3.12.14",
+    "torch": "2.9.0+cpu",
+    "torch-xla": "2.9.0"
+  },
+  "same_allocation_connection_retry": 0,
+  "server_empty": true,
+  "shared_state_cause": "HYPOTHESIS_NOT_ISOLATED",
+  "source_variant": "M2_CANONICAL_NON_NESTED_R2_PATCH",
+  "status": "ACTUAL_NATIVE_ERRORS_AND_CLOSURE_VERIFIED",
+  "subsequent_errors_stage": "PRE_CASE_XLA_SYNCHRONIZATION",
+  "verifier_result_sha256": "86253a931ce0deda3ba4d505cdb9dc81df2b722a3e0f23f9aab849d199608f8c"
+}
