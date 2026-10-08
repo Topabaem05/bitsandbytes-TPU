@@ -62,6 +62,7 @@ The [nested preparation](changes/r4-nested-preparation.md) provides 79 fixed cas
 Those cases do not test saved nested state; M4 also requires that separate result.
 The [first nested Colab attempt](changes/r4-bootstrap-failure.md) stopped at a bootstrap import before numerical work.
 The [entry correction](changes/r4-bootstrap-repair.md) passed 15 local controls and is ready for a fresh Colab attempt.
+Its [first retry](changes/r4-allocation-failure.md) received an allocation server error before payload execution.
 The private CPU preparations for M4, M5, and M6 do not qualify those device milestones.
 BF16 gradients remain outside the fixed diagnostic scope.
 

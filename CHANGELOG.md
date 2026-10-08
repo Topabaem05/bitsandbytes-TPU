@@ -1,5 +1,15 @@
 # Change log
 
+## 2026-10-08 — Nested Colab allocation server failure
+
+- Retain the allocation server response before any payload execution.
+- Record one allocation request and zero numerical cases.
+- Verify host closure, eight CLI process groups, an empty server list, and zero active usage.
+
+Validation: The reviewer inspected the retained `Bad Gateway` response and all closure records.
+The corrected import path did not execute during this attempt.
+Refer to [the allocation failure](docs/changes/r4-allocation-failure.md).
+
 ## 2026-10-08 — Design status reconciliation
 
 - Update the design and decision notes with accepted M2 and M3 records.
