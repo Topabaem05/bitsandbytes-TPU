@@ -1,5 +1,17 @@
 # Change log
 
+## 2026-10-09 — Verified archive and local cleanup
+
+- Archive 2,039,703 regular files in private Google Drive storage.
+- Remove 326 verified historical paths and retain 20 active paths.
+- Record complete archive inspection, exact file restoration, and unchanged source comparison.
+- Preserve the read-only directory failure and its verified recovery.
+
+Validation: All 123 stored packs passed inspection, and four restored files matched their original hashes.
+Local `.work` allocation decreased by 126,929,895,424 bytes.
+Research acceptance remains unchanged.
+Refer to [the completion record](docs/changes/artifact-storage-20261009.md).
+
 ## 2026-10-09 — Artifact storage procedure
 
 - Separate public source records from private research archives.

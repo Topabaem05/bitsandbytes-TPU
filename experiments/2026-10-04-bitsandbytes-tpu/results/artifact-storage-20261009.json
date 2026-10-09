@@ -1,0 +1,41 @@
+{
+  "backup": {
+    "access": "private Google Drive; owner only",
+    "archive_password": "none; Google Drive access permissions protect the archive",
+    "packed_bytes_added": 4188249418,
+    "regular_files": 2039703,
+    "source_bytes": 128613676037,
+    "source_errors": 0
+  },
+  "cleanup": {
+    "completed_utc": "2026-10-09T04:08:32.401446+00:00",
+    "recovered_failure": "read-only source directories; exact journal resume",
+    "removed_logical_bytes": 124380183918,
+    "removed_top_level_items": 326,
+    "retained_top_level_items": 20,
+    "volume_available_bytes_after": 145864171520,
+    "volume_available_bytes_before": 17872486400,
+    "work_allocated_bytes_after": 3840954368,
+    "work_allocated_bytes_before": 130770849792,
+    "work_allocated_bytes_reduction": 126929895424
+  },
+  "completed_utc": "2026-10-09T04:08:32.401446+00:00",
+  "receipt_sha256": "d530c7c37b7aa1abfb0bc7355ec35affa7ce68ca9b847af3847a64a0ad83e580",
+  "research_acceptance_changed": false,
+  "schema_version": 1,
+  "scope": "research .work artifacts only",
+  "snapshot_id": "a06abedfe14c1e8451d8ad500b48b1bf82104de7a314cba4c4886b396a034a86",
+  "status": "COMPLETE",
+  "verification": {
+    "archive_coverage": "all 345 source roots",
+    "downloaded_private_file_count": 3,
+    "downloaded_private_guide_receipt_and_audit_exact_sha256": "PASS",
+    "full_remote_data_read": "PASS",
+    "new_data_bytes": 0,
+    "new_or_changed_files": 0,
+    "packs_read": 123,
+    "path_and_resume_controls": "PASS",
+    "restored_files_exact_sha256_and_size": 4,
+    "unchanged_regular_files": 2039703
+  }
+}

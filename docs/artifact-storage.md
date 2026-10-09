@@ -36,3 +36,8 @@ Refer to the [official verification instructions](https://restic.readthedocs.io/
 Restore historical dependencies before executing a preparation that refers to archived `.work` paths.
 Use a new destination and compare the original source maps before execution.
 Refer to the [official restoration instructions](https://restic.readthedocs.io/en/stable/050_restore.html).
+
+## Completed archives
+
+The [2026-10-09 storage record](changes/artifact-storage-20261009.md) reports the verified archive and local removal.
+The record includes exact byte counts, restoration results, and the recovered permission failure.

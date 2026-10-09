@@ -15,7 +15,7 @@ They are not additions to the official ASD-STE100 dictionary.
 | application | A computer program that uses the backend. |
 | API | The public interface that application code uses. |
 | API42 | The fixed project matrix of 42 public API test cases. |
-| archive | A file that stores a collection of named member files. |
+| archive | A stored collection of named member files. |
 | autograd | The PyTorch system that calculates gradients. |
 | backend | The software that executes operations for a selected device. |
 | artifact | A file or directory that records a software or research result. |
@@ -30,6 +30,7 @@ They are not additions to the official ASD-STE100 dictionary.
 | CLI | A command-line interface. |
 | codebook | The numerical values that quantized codes identify. |
 | collector | Software that records raw measurements and their execution context. |
+| completion journal | An ordered record of completed file operations. |
 | compiler | Software that converts source operations into executable operations. |
 | contiguous layout | A tensor layout without gaps between consecutive stored elements. |
 | CPU | A central processing unit. |
@@ -78,6 +79,7 @@ They are not additions to the official ASD-STE100 dictionary.
 | operator schema | The declared arguments and results of a PyTorch operator. |
 | operand | An input value for a numerical or compiler operation. |
 | oracle | The identified reference calculation that supplies expected test values. |
+| pack | A restic storage file that contains compressed data or directory records. |
 | profile | The fixed configuration and criteria for an experiment. |
 | profiler | A tool that records execution time, activity, or memory use. |
 | process group | An operating system group of processes with one group identifier. |
@@ -109,6 +111,7 @@ They are not additions to the official ASD-STE100 dictionary.
 | state_dict | The upstream PyTorch mapping of model state. |
 | subnormal number | A floating-point value with a magnitude below the smallest normal value for its data type. |
 | subnormal flushing | Replacement of subnormal floating-point values with zero during computation. |
+| symbolic link | A filesystem entry that refers to another path. |
 | synchronization | Submission and completion of specified device operations before further host activity. |
 | supervisor | The program that starts, records, and closes its owned local child processes. |
 | functionalization | The PyTorch transformation that replaces tensor mutations and views with functional operations. |
