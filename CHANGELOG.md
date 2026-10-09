@@ -1,5 +1,15 @@
 # Change log
 
+## 2026-10-09 — Artifact storage procedure
+
+- Separate public source records from private research archives.
+- Require complete archive verification and selected restoration before local removal.
+- Keep active research files and runtime environments locally.
+
+Validation: Document links, sentence lengths, and technical terms passed inspection.
+This procedure does not claim that an archive or local removal is complete.
+Refer to [the storage procedure](docs/artifact-storage.md).
+
 ## 2026-10-09 — Fixed libtpu compiler flags
 
 - Remove the rejected dump flag and require a separate backend initialization process.

@@ -88,6 +88,7 @@ The backend must give an explicit error for an option that it cannot execute.
 
 ## Documents
 
+- [Artifact storage](docs/artifact-storage.md)
 - [Design](docs/design.md)
 - [Research plan](docs/research-plan.md)
 - [Current design sources and decisions](docs/research/2026-10-08/README.md)

@@ -18,6 +18,8 @@ They are not additions to the official ASD-STE100 dictionary.
 | archive | A file that stores a collection of named member files. |
 | autograd | The PyTorch system that calculates gradients. |
 | backend | The software that executes operations for a selected device. |
+| artifact | A file or directory that records a software or research result. |
+| backup | A separate stored copy that permits restoration of the original files. |
 | BF16 | The bfloat16 numerical data type. |
 | BLAS | The Basic Linear Algebra Subprograms interface for vector and matrix operations. |
 | bias | The additive parameter of a linear layer. |
