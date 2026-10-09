@@ -4,8 +4,8 @@
   "base_native_manifest_sha256": "30b820b90a4404a89da6e6c7b6fc91dbec47afbe06ae322eb5835b9eb0e70901",
   "compiler_executable_link": "UNKNOWN",
   "compiler_mode": "R6_EXPLICIT_COMPILER_CONTENT_DIAGNOSTIC_V1",
-  "compiler_policy_sha256": "f07575c74e367c869f0fbcd5ef563de52f92614f7529122f9c01063ff4956c96",
-  "generation": "compiler-mosaic-serde7-gather-bf16-fp32-accepted-native-fix-v1",
+  "compiler_policy_sha256": "131637cedccf2ed86c4d800a42782bb082329c64a62e06ef4f1c8c713709b932",
+  "generation": "compiler-mosaic-serde7-gather-bf16-fp32-libtpu021-flags-v1",
   "kind": "R6_DEVICE_CANDIDATE",
   "m6": "NOT_QUALIFIED",
   "mosaic_frontend_scope": "SUPPORTED_SERDE_8_TO_7_EXACT_IR_ROUNDTRIP",
@@ -29,28 +29,36 @@
       "sha256": "4189666b35d5b638399eb3f40a9174554bca8cbd0cc564b46b3b534bba2bcc77"
     },
     "compiler-policy.json": {
-      "bytes": 1499,
-      "sha256": "f07575c74e367c869f0fbcd5ef563de52f92614f7529122f9c01063ff4956c96"
+      "bytes": 1780,
+      "sha256": "131637cedccf2ed86c4d800a42782bb082329c64a62e06ef4f1c8c713709b932"
     },
     "compiler_contract.py": {
-      "bytes": 5987,
-      "sha256": "d8d8d5e6584e87eed75636aca9426f7fc1a3df17e5b51d9aff6f69c2cd0d3311"
+      "bytes": 5491,
+      "sha256": "4264e693e0707dc608951527a1293f212724e4940dbe4d7b58ea0e38521992d0"
     },
     "compiler_exec.py": {
       "bytes": 2812,
       "sha256": "8a59f324954216f6156fcf09c97dcc16375dd99f30be042b67cdf0be7497e46d"
     },
+    "compiler_flag_probe.py": {
+      "bytes": 3746,
+      "sha256": "1377eeebb6e6724a483e0e07e1453b43eff3fd0b49ed4e75c1d434994290e5e0"
+    },
+    "compiler_flags.py": {
+      "bytes": 6065,
+      "sha256": "67210fbadd872b9a4c9309ed467103e1d16322871c5d0900a92589fbfb7c0ca5"
+    },
     "compiler_verify.py": {
-      "bytes": 17679,
-      "sha256": "acb3a7af4955082d673313ddf12ad6d25b101f30f3df99046008bd4b435d902b"
+      "bytes": 18261,
+      "sha256": "97239a4eefa49ac09840687856e582fc986082418cc20194f10a414783745483"
     },
     "conversion_recovery.py": {
       "bytes": 3698,
       "sha256": "6a6ce33279a48ed22f525c04d1e995066e7b39e2516233288c673463b8ec63ff"
     },
     "coordinator.py": {
-      "bytes": 8162,
-      "sha256": "45fa9ff97301efcee6252660f5b2436ac1de492229b22aa62bce6a7c475a1f91"
+      "bytes": 8610,
+      "sha256": "656c1f8e0073d46577d0ce533149da3cc47bd0323c4abf0cc2d089b4b3000c51"
     },
     "device_diagnostic.py": {
       "bytes": 16142,

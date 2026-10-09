@@ -1,0 +1,18 @@
+{
+  "PUBLIC15_remote_and_ordinary_native_phase_bodies": "UNCHANGED_BYTES",
+  "base_six_sha256": {
+    "build_public_packet.py": "0e9f0eb944d6cfd105df91c4c14611d4d2deab50fcfa7580e5cbb89385c1eda7",
+    "owner.py": "dcfa490f94de91bb1dc6734f2b89c564d37dc27886ff122e64c7ed64ba99736b",
+    "public_contract.py": "7c1669d611e3425c5f2fb540980526eb9a44a326309e8eeb36090b55ec9c3421",
+    "public_gate.py": "e7d9f842e303b33e36db2b5993c10c474ab79f30c84666c08a5e68bebc903f14",
+    "public_transport.py": "8ff569c37d805474e773210f36a541eb59750aac3b9e23f69f152ea26f8fbabd",
+    "remote.py": "5d03b80630cfd88fae91056b9a59825c27839c15f2e6c5a4f64de64e1fe0f616"
+  },
+  "exact_composition_readback": "composition-resume.json",
+  "failed_generic_patch_check": "compose-first-failure.json",
+  "failed_unused_block_extractor": "compose-second-failure.json",
+  "merged_remote_sha256": "4cd32218eb79f24bfbf472f15e203415f9adaafca44485949cf8d5c50a9856be",
+  "provider_calls": 0,
+  "revision": "5ada90eeef3f8a9ec3913a2a1a83d877be709f65",
+  "status": "ROOT_ADOPTED_PUBLIC_CLOUD_EXACT_BASE_WITH_PRIVATE_COMPILER_ONLY_DELTA"
+}

@@ -11,15 +11,11 @@ import time
 
 HERE = Path(__file__).resolve().parent
 HELPERS = ('compiler_contract.py', 'compiler_exec.py', 'compiler_verify.py',
-           'dump_observation.py', 'dump_inventory.py', 'analyzer.py')
+           'dump_observation.py', 'dump_inventory.py', 'analyzer.py',
+           'compiler_flags.py', 'compiler_flag_probe.py')
 
-DUMP_FLAGS = ['--xla_dump_hlo_as_text=true', '--xla_dump_hlo_as_proto=true',
-              '--xla_dump_module_metadata=true', '--xla_dump_hlo_pass_re=pipeline-start|pipeline-end',
-              '--xla_dump_include_timestamp=true', '--xla_dump_max_hlo_modules=32',
-              '--xla_dump_compress_protos=false', '--xla_dump_hlo_snapshots=false',
-              '--xla_dump_hlo_unoptimized_snapshots=false', '--xla_dump_full_hlo_config=false',
-              '--xla_dump_large_constants=false', '--xla_dump_hlo_as_dot=false',
-              '--xla_dump_hlo_as_html=false', '--xla_dump_hlo_as_url=false']
+import compiler_flags as F
+DUMP_FLAGS = F.FLAGS
 
 def require(test, label):
     if not test:

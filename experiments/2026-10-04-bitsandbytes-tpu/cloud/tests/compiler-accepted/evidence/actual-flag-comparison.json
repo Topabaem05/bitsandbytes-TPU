@@ -1,0 +1,195 @@
+{
+  "M6": "NOT_QUALIFIED",
+  "actual_failed_request_tokens": 15,
+  "actual_requested_option_tokens_excluding_dump_destination": 14,
+  "actual_sources": [
+    {
+      "bytes": 15951,
+      "path": "/Users/topamini/code/bitsandbytes-TPU/.work/cloud-20261009-compiler-bf16-v5-browser/recovered/native/parent.json",
+      "sha256": "d239980dcb634f1af7a2463df016e8367468666733ec2d915a7a0f6fe8695a3a"
+    },
+    {
+      "bytes": 317,
+      "path": "/Users/topamini/code/bitsandbytes-TPU/.work/cloud-20261009-compiler-bf16-v5-browser/recovered/native/device-logs/stderr.raw",
+      "sha256": "8dc74ca171057def4b0c35570abf4bd70eb197001881f137ccef9e30381b8a72"
+    },
+    {
+      "bytes": 5801,
+      "path": "/Users/topamini/code/bitsandbytes-TPU/.work/cloud-20261009-compiler-bf16-v5-browser/recovered/runtime-probe.json",
+      "sha256": "01e89ebb1802517567a00dce55d615478224537132be814a04dc43bae087d417"
+    },
+    {
+      "bytes": 2196,
+      "path": "/Users/topamini/code/bitsandbytes-TPU/.work/root-compiler-bf16-colab-review/actual-failure-readback.json",
+      "sha256": "c42f01ce28bdc6a366f5de25a09efb17e0aee0f6dfc9562abafa89cec34a1ec0"
+    }
+  ],
+  "actual_unknown_requested_tokens": 1,
+  "complete_libtpu_registry": "NOT_OBTAINED",
+  "corrected_options_excluding_dump_destination": 13,
+  "corrected_request_tokens_including_dump_destination": 14,
+  "flags": [
+    {
+      "actual_unknown_list_contains": false,
+      "first_name_suffix_offset": 80117113,
+      "fixed_library_any_name_bytes_present": true,
+      "fixed_library_null_terminated_name_suffix_present": true,
+      "name": "xla_dump_to",
+      "requested_value": "/content/bnb-tpu-first/records/native.compiler-private/raw-private",
+      "retained_in_new_request": true,
+      "runtime_value_parse_qualification": "NOT_RUN_CORRECTED_REQUEST"
+    },
+    {
+      "actual_unknown_list_contains": false,
+      "first_name_suffix_offset": 79327025,
+      "fixed_library_any_name_bytes_present": true,
+      "fixed_library_null_terminated_name_suffix_present": true,
+      "name": "xla_dump_hlo_as_text",
+      "requested_value": "true",
+      "retained_in_new_request": true,
+      "runtime_value_parse_qualification": "NOT_RUN_CORRECTED_REQUEST"
+    },
+    {
+      "actual_unknown_list_contains": false,
+      "first_name_suffix_offset": 80056845,
+      "fixed_library_any_name_bytes_present": true,
+      "fixed_library_null_terminated_name_suffix_present": true,
+      "name": "xla_dump_hlo_as_proto",
+      "requested_value": "true",
+      "retained_in_new_request": true,
+      "runtime_value_parse_qualification": "NOT_RUN_CORRECTED_REQUEST"
+    },
+    {
+      "actual_unknown_list_contains": false,
+      "first_name_suffix_offset": 81482458,
+      "fixed_library_any_name_bytes_present": true,
+      "fixed_library_null_terminated_name_suffix_present": true,
+      "name": "xla_dump_module_metadata",
+      "requested_value": "true",
+      "retained_in_new_request": true,
+      "runtime_value_parse_qualification": "NOT_RUN_CORRECTED_REQUEST"
+    },
+    {
+      "actual_unknown_list_contains": false,
+      "first_name_suffix_offset": 80701631,
+      "fixed_library_any_name_bytes_present": true,
+      "fixed_library_null_terminated_name_suffix_present": true,
+      "name": "xla_dump_hlo_pass_re",
+      "requested_value": "pipeline-start|pipeline-end",
+      "retained_in_new_request": true,
+      "runtime_value_parse_qualification": "NOT_RUN_CORRECTED_REQUEST"
+    },
+    {
+      "actual_unknown_list_contains": false,
+      "first_name_suffix_offset": 80038757,
+      "fixed_library_any_name_bytes_present": true,
+      "fixed_library_null_terminated_name_suffix_present": true,
+      "name": "xla_dump_include_timestamp",
+      "requested_value": "true",
+      "retained_in_new_request": true,
+      "runtime_value_parse_qualification": "NOT_RUN_CORRECTED_REQUEST"
+    },
+    {
+      "actual_unknown_list_contains": false,
+      "first_name_suffix_offset": 79729347,
+      "fixed_library_any_name_bytes_present": true,
+      "fixed_library_null_terminated_name_suffix_present": true,
+      "name": "xla_dump_max_hlo_modules",
+      "requested_value": "32",
+      "retained_in_new_request": true,
+      "runtime_value_parse_qualification": "NOT_RUN_CORRECTED_REQUEST"
+    },
+    {
+      "actual_unknown_list_contains": false,
+      "first_name_suffix_offset": 79597645,
+      "fixed_library_any_name_bytes_present": true,
+      "fixed_library_null_terminated_name_suffix_present": true,
+      "name": "xla_dump_compress_protos",
+      "requested_value": "false",
+      "retained_in_new_request": true,
+      "runtime_value_parse_qualification": "NOT_RUN_CORRECTED_REQUEST"
+    },
+    {
+      "actual_unknown_list_contains": false,
+      "first_name_suffix_offset": 79514974,
+      "fixed_library_any_name_bytes_present": true,
+      "fixed_library_null_terminated_name_suffix_present": true,
+      "name": "xla_dump_hlo_snapshots",
+      "requested_value": "false",
+      "retained_in_new_request": true,
+      "runtime_value_parse_qualification": "NOT_RUN_CORRECTED_REQUEST"
+    },
+    {
+      "actual_unknown_list_contains": true,
+      "first_name_suffix_offset": null,
+      "fixed_library_any_name_bytes_present": false,
+      "fixed_library_null_terminated_name_suffix_present": false,
+      "name": "xla_dump_hlo_unoptimized_snapshots",
+      "requested_value": "false",
+      "retained_in_new_request": false,
+      "runtime_value_parse_qualification": "NOT_RUN_CORRECTED_REQUEST"
+    },
+    {
+      "actual_unknown_list_contains": false,
+      "first_name_suffix_offset": 80531244,
+      "fixed_library_any_name_bytes_present": true,
+      "fixed_library_null_terminated_name_suffix_present": true,
+      "name": "xla_dump_full_hlo_config",
+      "requested_value": "false",
+      "retained_in_new_request": true,
+      "runtime_value_parse_qualification": "NOT_RUN_CORRECTED_REQUEST"
+    },
+    {
+      "actual_unknown_list_contains": false,
+      "first_name_suffix_offset": 79528641,
+      "fixed_library_any_name_bytes_present": true,
+      "fixed_library_null_terminated_name_suffix_present": true,
+      "name": "xla_dump_large_constants",
+      "requested_value": "false",
+      "retained_in_new_request": true,
+      "runtime_value_parse_qualification": "NOT_RUN_CORRECTED_REQUEST"
+    },
+    {
+      "actual_unknown_list_contains": false,
+      "first_name_suffix_offset": 79379188,
+      "fixed_library_any_name_bytes_present": true,
+      "fixed_library_null_terminated_name_suffix_present": true,
+      "name": "xla_dump_hlo_as_dot",
+      "requested_value": "false",
+      "retained_in_new_request": true,
+      "runtime_value_parse_qualification": "NOT_RUN_CORRECTED_REQUEST"
+    },
+    {
+      "actual_unknown_list_contains": false,
+      "first_name_suffix_offset": 80319779,
+      "fixed_library_any_name_bytes_present": true,
+      "fixed_library_null_terminated_name_suffix_present": true,
+      "name": "xla_dump_hlo_as_html",
+      "requested_value": "false",
+      "retained_in_new_request": true,
+      "runtime_value_parse_qualification": "NOT_RUN_CORRECTED_REQUEST"
+    },
+    {
+      "actual_unknown_list_contains": false,
+      "first_name_suffix_offset": 80312926,
+      "fixed_library_any_name_bytes_present": true,
+      "fixed_library_null_terminated_name_suffix_present": true,
+      "name": "xla_dump_hlo_as_url",
+      "requested_value": "false",
+      "retained_in_new_request": true,
+      "runtime_value_parse_qualification": "NOT_RUN_CORRECTED_REQUEST"
+    }
+  ],
+  "inference_scope": "Actual failure lists one unknown requested token; the pinned upstream parser consumes recognized options before listing all remaining tokens. This is recognized-option-name evidence, not corrected parse or device PASS.",
+  "inferred_recognized_requested_tokens_including_dump_destination": 14,
+  "installation": "NOT_RUN",
+  "kind": "R6_FIXED_LIBTPU021_FLAG_RESEARCH_V1",
+  "library_execution": "NOT_RUN",
+  "library_sha256": "cdb7980d4332097b8e16576568e138ef54cf9fb8ed5aae2aeefbd0c5a425e94a",
+  "libtpu_internal_source_revision": "UNKNOWN",
+  "new_libtpu_parse": "NOT_RUN",
+  "new_native_cases": "NOT_RUN",
+  "pinned_upstream_relation": "JAX 0.7.1 upstream XLA revision 31eb6029e8973337ef6c99810c27e1d807791c11; this is not a verified libtpu 0.0.21 internal source revision. This upstream source registers the rejected option.",
+  "static_string_scope": "Null-terminated suffix names can be tail-merged within xla.DebugOptions.* strings. Presence does not prove registry membership or supported values.",
+  "status": "PRIVATE_PREPARATION_ONLY"
+}

@@ -36,9 +36,9 @@ assert calls==[]and not(out/'never-created-host').exists()
 # Hash/type/name readback of both genuine packets, with the actual admitted dependency bytes.
 assert(packet/'payload.zip').read_bytes()==(second/'payload.zip').read_bytes()
 with zipfile.ZipFile(packet/'payload.zip')as z:
- assert len(z.infolist())==86 and len(z.namelist())==len(set(z.namelist()))and set(z.namelist())=={*m['files'],'manifest.json'}
+ assert len(z.infolist())==len(m['files'])+1 and len(z.namelist())==len(set(z.namelist()))and set(z.namelist())=={*m['files'],'manifest.json'}
  for i in z.infolist():assert i.create_system==3 and i.external_attr==0o100644<<16 and z.read(i)==(packet/i.filename).read_bytes()
-rows.append({'name':'two_identical86_member_genuine_packets','status':'PASS'})
+rows.append({'name':'two_identical_current_member_genuine_packets','status':'PASS'})
 for name,key in [('native-dependency.json','native_dependency_sha256'),('accepted-native-result.json','native_accepted_result_sha256')]:
  mutant=out/('changed-'+name);shutil.copytree(packet,mutant);q=mutant/name;q.write_bytes(q.read_bytes()+b' ')
  bad=copy.deepcopy(m);bad['files'][name]={'bytes':q.stat().st_size,'sha256':C.sha(q)};bad[key]=C.sha(q);no('resealed_changed_'+name,lambda mutant=mutant,bad=bad:C.payload(mutant,bad),'COMPILER_ACCEPTED_NATIVE_BINDING')
@@ -48,5 +48,5 @@ for name,fn in [('cpu',lambda r:C.recover_cpu(out/'nonexistent',r)),('compiler',
 # Every native scientific file and all policy-bound helpers remain exact pending bytes.
 native=C.read(HERE/'compiler-native/manifest.json')
 for n,r in native['sources'].items():assert C.sha(HERE/'compiler-native'/n)==r['sha256'] and (HERE/'compiler-native'/n).stat().st_size==r['bytes']
-assert C.sha(HERE/'compiler-native/compiler-policy.json')==C.POLICY_SHA;rows.append({'name':'native34_policy8_helpers_exact_admitted_bytes','status':'PASS'})
+assert C.sha(HERE/'compiler-native/compiler-policy.json')==C.POLICY_SHA;rows.append({'name':'native36_policy10_sources_exact_admitted_bytes','status':'PASS'})
 C.write(out/'results.json',{'status':'PASS','count':len(rows),'controls':rows,'provider_calls':0,'actual_native_dependency':'ROOT_ACCEPTED_EXACT_BYTES','actual_compiler':'NOT_RUN','dispatch':'NOT_AUTHORIZED','M6':'NOT_QUALIFIED'});print(json.dumps({'status':'PASS','count':len(rows)}))

@@ -1,0 +1,6 @@
+{
+  "operation": "freeze_prepare.py --final",
+  "reason": "Closure enumeration attempted to read a directory whose name ends in .json. No review freeze was written.",
+  "repair": "Skip directories and symlinks before JSON read.",
+  "status": "PRESERVED_PREPARATION_FAILURE"
+}

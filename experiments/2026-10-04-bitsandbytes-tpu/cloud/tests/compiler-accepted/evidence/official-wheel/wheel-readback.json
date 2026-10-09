@@ -1,0 +1,66 @@
+{
+  "elapsed_seconds": 19.473874457995407,
+  "installation": "NOT_RUN",
+  "library_execution": "NOT_RUN",
+  "lock_record": {
+    "extras": [],
+    "filename": "libtpu-0.0.21-cp312-cp312-manylinux_2_31_x86_64.whl",
+    "metadata_sha256": "8684732d6457945cab123943b07d8a12462942a622560228b1b9e3b6e51dfe80",
+    "name": "libtpu",
+    "requires_dist": [],
+    "requires_python": ">=3.10, <3.13",
+    "sha256": "0a5aaf71f45f8d72f1298b175d076ac2ae806ce7ab4b7d81c02315bd3adc5021",
+    "size": 149753420,
+    "url": "https://files.pythonhosted.org/packages/5c/b9/6c9bd8aca50d01d6d919ff8bec2d93ca1276dbdb999ef5ad21a0efc2f661/libtpu-0.0.21-cp312-cp312-manylinux_2_31_x86_64.whl",
+    "version": "0.0.21",
+    "zip_members": 9
+  },
+  "members": [
+    {
+      "bytes": 0,
+      "compressed_bytes": 0,
+      "name": "libtpu/"
+    },
+    {
+      "bytes": 1131,
+      "compressed_bytes": 594,
+      "name": "libtpu/__init__.py"
+    },
+    {
+      "bytes": 376021592,
+      "compressed_bytes": 148950683,
+      "name": "libtpu/libtpu.so"
+    },
+    {
+      "bytes": 3461272,
+      "compressed_bytes": 800013,
+      "name": "libtpu/sdk.so"
+    },
+    {
+      "bytes": 0,
+      "compressed_bytes": 0,
+      "name": "libtpu-0.0.21.dist-info/"
+    },
+    {
+      "bytes": 1043,
+      "compressed_bytes": 541,
+      "name": "libtpu-0.0.21.dist-info/METADATA"
+    },
+    {
+      "bytes": 113,
+      "compressed_bytes": 109,
+      "name": "libtpu-0.0.21.dist-info/WHEEL"
+    },
+    {
+      "bytes": 7,
+      "compressed_bytes": 9,
+      "name": "libtpu-0.0.21.dist-info/top_level.txt"
+    },
+    {
+      "bytes": 531,
+      "compressed_bytes": 353,
+      "name": "libtpu-0.0.21.dist-info/RECORD"
+    }
+  ],
+  "status": "LOCKED_OFFICIAL_WHEEL_EXACT"
+}

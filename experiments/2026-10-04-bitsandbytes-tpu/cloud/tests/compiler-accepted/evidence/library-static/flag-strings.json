@@ -1,0 +1,94 @@
+{
+  "actual_runtime_library_sha256_match": true,
+  "complete_runtime_registry": "NOT_OBTAINED",
+  "flags": {
+    "xla_dump_compress_protos": {
+      "exact_null_terminated_name_offsets": [
+        79597645
+      ],
+      "present": true
+    },
+    "xla_dump_full_hlo_config": {
+      "exact_null_terminated_name_offsets": [
+        80531244
+      ],
+      "present": true
+    },
+    "xla_dump_hlo_as_dot": {
+      "exact_null_terminated_name_offsets": [
+        79379188
+      ],
+      "present": true
+    },
+    "xla_dump_hlo_as_html": {
+      "exact_null_terminated_name_offsets": [
+        80319779
+      ],
+      "present": true
+    },
+    "xla_dump_hlo_as_proto": {
+      "exact_null_terminated_name_offsets": [
+        80056845
+      ],
+      "present": true
+    },
+    "xla_dump_hlo_as_text": {
+      "exact_null_terminated_name_offsets": [
+        79327025
+      ],
+      "present": true
+    },
+    "xla_dump_hlo_as_url": {
+      "exact_null_terminated_name_offsets": [
+        80312926
+      ],
+      "present": true
+    },
+    "xla_dump_hlo_pass_re": {
+      "exact_null_terminated_name_offsets": [],
+      "present": false
+    },
+    "xla_dump_hlo_snapshots": {
+      "exact_null_terminated_name_offsets": [
+        79514974
+      ],
+      "present": true
+    },
+    "xla_dump_hlo_unoptimized_snapshots": {
+      "exact_null_terminated_name_offsets": [],
+      "present": false
+    },
+    "xla_dump_include_timestamp": {
+      "exact_null_terminated_name_offsets": [
+        80038757
+      ],
+      "present": true
+    },
+    "xla_dump_large_constants": {
+      "exact_null_terminated_name_offsets": [
+        79528641
+      ],
+      "present": true
+    },
+    "xla_dump_max_hlo_modules": {
+      "exact_null_terminated_name_offsets": [
+        79729347
+      ],
+      "present": true
+    },
+    "xla_dump_module_metadata": {
+      "exact_null_terminated_name_offsets": [
+        81482458
+      ],
+      "present": true
+    },
+    "xla_dump_to": {
+      "exact_null_terminated_name_offsets": [],
+      "present": false
+    }
+  },
+  "library_bytes": 376021592,
+  "library_sha256": "cdb7980d4332097b8e16576568e138ef54cf9fb8ed5aae2aeefbd0c5a425e94a",
+  "parser_execution": "NOT_RUN_MACOS_HOST",
+  "status": "FIXED_WHEEL_STATIC_NAMES_ONLY"
+}

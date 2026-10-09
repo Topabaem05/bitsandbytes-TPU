@@ -10,6 +10,7 @@ import time
 import compiler_contract as C
 import dump_inventory as D
 import analyzer as A
+import compiler_flags as F
 
 def evidence_files(root):
     root = Path(root)
@@ -160,6 +161,9 @@ def verify(actual, evidence, oracle, oracle_sha, admission_sha, expected_sha, co
     native = N.verify(actual, oracle, oracle_sha, admission_sha, expected_sha, outer,
                       mosaic_audit_python=mosaic_audit_python, audit_deadline_epoch=audit_deadline_epoch)
     root = Path(actual)
+    parent=C.read(Path(actual)/'parent.json');flag=parent['compiler_flag_preflight'];archived=Path(actual).parent/'compiler-flag-preflight.json'
+    C.require(C.sha(archived)==flag['sha256']and C.read(archived)==flag['record'],'FLAG_PREFLIGHT_ARCHIVED_HASH')
+    F.owned(flag['record'],C.read(Path(actual).parent/'steps/11d-compiler-flags/ownership.json'),C.read(Path(actual).parent/'steps/11d-compiler-flags/result.json'),manifest_sha=parent['manifest_sha256'],policy_sha=parent['compiler_policy_sha256'],dump_directory=flag['record']['dump_directory'])
     supplement = capture_verified(evidence, compiler_expected_sha, post_sha, outer,
                                   C.read(root / 'parent.json'), C.read(root / 'expected.json'),
                                   C.read(root / 'device/receipt.json'))

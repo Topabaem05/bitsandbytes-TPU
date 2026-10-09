@@ -55,6 +55,9 @@ They are not additions to the official ASD-STE100 dictionary.
 | fixture | Fixed data that a software test uses. |
 | kernel | A function that executes a device computation. |
 | libtpu | The TPU runtime library. |
+| dump flag | A program option that controls compiler record output. |
+| parser | A software component that reads a defined input format. |
+| preflight | A preliminary admission procedure before an experiment starts. |
 | manifest | A file that records file names, byte counts, and hashes. |
 | matrix multiplication | The mathematical operation that multiplies two matrices. |
 | marker | A temporary file whose exact bytes identify a previously observed runtime. |

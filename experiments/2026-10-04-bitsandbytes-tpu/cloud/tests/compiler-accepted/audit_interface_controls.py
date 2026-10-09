@@ -17,7 +17,12 @@ def run(output):
     def imported(name,*args,**kwargs):
         assert name=='verify_run';return native
     def capture(*args):captures.append(args);return {'status':'ISOLATED_CAPTURE_DOUBLE_ONLY','selected_executable_link':'UNKNOWN'}
-    namespace={'__builtins__':{**vars(__import__('builtins')),'__import__':imported},'Path':Path,'C':types.SimpleNamespace(read=lambda p:{}),'capture_verified':capture}
+    flag={'sha256':'f'*64,'record':{'dump_directory':'/isolated/fixture-only'}}
+    parent={'compiler_flag_preflight':flag,'manifest_sha256':'m'*64,'compiler_policy_sha256':'p'*64}
+    def read_fixture(p):return parent if Path(p).name=='parent.json'else flag['record']if Path(p).name=='compiler-flag-preflight.json'else {}
+    def require_fixture(value,label):
+        if not value:raise ValueError(label)
+    namespace={'__builtins__':{**vars(__import__('builtins')),'__import__':imported},'Path':Path,'C':types.SimpleNamespace(read=read_fixture,sha=lambda p:'f'*64,require=require_fixture),'F':types.SimpleNamespace(owned=lambda *args,**kwargs:None),'capture_verified':capture}
     exec(compile(ast.fix_missing_locations(ast.Module(body=[function],type_ignores=[])),str(source),'exec'),namespace)
     verify=namespace['verify'];args=['actual','evidence','oracle','o'*64,'a'*64,'e'*64,'c'*64,'p'*64,{'pid':12}]
     value=verify(*args,mosaic_audit_python=expected_python,audit_deadline_epoch=expected_deadline)

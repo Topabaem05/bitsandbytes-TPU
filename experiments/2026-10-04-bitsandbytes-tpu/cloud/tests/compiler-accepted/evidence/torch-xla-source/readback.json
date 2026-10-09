@@ -1,0 +1,7 @@
+{
+  "bytes": 9429,
+  "libtpu_internal_revision": "UNKNOWN",
+  "sha256": "c3e11a63b8ebe9dcf9ca94d4f7ceebba4983d49e98f57ceddeb79880063eb29c",
+  "status": "MATCHES_ACTUAL_FRONTEND_SOURCE",
+  "url": "https://raw.githubusercontent.com/pytorch/xla/5fab7053df86c8d503b98d9e7202ca8b8d4978c7/torch_xla/__init__.py"
+}

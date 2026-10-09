@@ -1,0 +1,8 @@
+{
+  "compiler_native_public_base_identical_to_frozen": true,
+  "merged_remote_sha256": "4cd32218eb79f24bfbf472f15e203415f9adaafca44485949cf8d5c50a9856be",
+  "provider_calls": 0,
+  "public_and_ordinary_native_branch_changes": "NONE",
+  "run_step_public_base_identical_to_frozen": true,
+  "status": "EXACT_TWO_UNCHANGED_BASE_BLOCKS_COMPOSED"
+}

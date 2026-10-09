@@ -1,0 +1,7 @@
+{
+  "operation": "freeze_prepare.py --final",
+  "reason": "External-source sealing reused the control-count variable. Review creation raised TypeError before any frozen review was written.",
+  "repair": "Use distinct counts and expected_source variable names.",
+  "revised_diagnosis": "The behavioral controls and artifact closure pass. The error is only a metadata variable collision.",
+  "status": "PRESERVED_PREPARATION_FAILURE"
+}

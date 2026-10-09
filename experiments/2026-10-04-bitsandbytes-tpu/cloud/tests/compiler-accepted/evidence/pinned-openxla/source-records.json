@@ -1,0 +1,22 @@
+{
+  "files": {
+    "debug_options_flags.cc": {
+      "bytes": 132354,
+      "sha256": "1309ad5b457ef4c6e25c8eefc65eac7d4ef2dbfd2255d8ad048726c2864952fb",
+      "url": "https://raw.githubusercontent.com/openxla/xla/31eb6029e8973337ef6c99810c27e1d807791c11/xla/debug_options_flags.cc"
+    },
+    "jax-xla-revision.bzl": {
+      "bytes": 1063,
+      "sha256": "177be49a2b676e12860da240318812817e5c7c30b8b58659a5dba2d6b5d06255",
+      "url": "https://raw.githubusercontent.com/jax-ml/jax/jax-v0.7.1/third_party/xla/revision.bzl"
+    },
+    "parse_flags_from_env.cc": {
+      "bytes": 9519,
+      "sha256": "690224581d22a0c6aa0b328630e9a0897082c7ed555856f8237c54c685211560",
+      "url": "https://raw.githubusercontent.com/openxla/xla/31eb6029e8973337ef6c99810c27e1d807791c11/xla/parse_flags_from_env.cc"
+    }
+  },
+  "libtpu_internal_commit": "UNKNOWN",
+  "status": "PINNED_JAXLIB071_UPSTREAM_CONTEXT_NOT_LIBTPU_BUILD_ID",
+  "xla_commit": "31eb6029e8973337ef6c99810c27e1d807791c11"
+}

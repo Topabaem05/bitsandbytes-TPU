@@ -145,6 +145,9 @@ The fixed runtime rejected a dump flag before native numerical execution.
 All five device cases remain unexecuted, and the compiler archive contains no raw dumps.
 Independent archive and resource closure inspection passed.
 Inspect runtime flag support before a new compiler generation executes.
+The [libtpu flag correction](changes/r6-compiler-libtpu021-flags.md) passed 250 local controls before and after adoption.
+It requires a separate backend initialization process before native numerical execution.
+The corrected request still requires fresh qualified Linux CPU records and actual TPU observation.
 The [public API preparation](changes/r6-public-cloud-preparation.md) passed all 118 controls before and after adoption.
 Its 15 cases require a fresh qualified Linux CPU oracle before device execution.
 The packet covers FP32 gradients and BF16 outputs without compiler dump flags.

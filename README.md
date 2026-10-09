@@ -27,6 +27,8 @@ The [public API preparation](docs/changes/r6-public-cloud-preparation.md) passed
 The [first public attempt](docs/changes/r6-public-cpu-colab-failure.md) stopped at an exact CPU comparison before TPU execution.
 Actual public integration and compiler memory records remain required for M6.
 The [compiler flag failure](docs/changes/r6-compiler-flag-colab-failure.md) remains preserved with all five device cases unexecuted.
+The [compiler correction](docs/changes/r6-compiler-libtpu021-flags.md) passed 250 local controls before and after adoption.
+Its corrected TPU request still requires a new Colab experiment.
 
 The [October 8 source inspection](docs/research/2026-10-08/README.md) covers each design area before further implementation.
 It contains current documentation, original papers, fixed source revisions, and explicit version limits.

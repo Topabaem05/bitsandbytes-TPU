@@ -1,5 +1,16 @@
 # Change log
 
+## 2026-10-09 — Fixed libtpu compiler flags
+
+- Remove the rejected dump flag and require a separate backend initialization process.
+- Preserve the accepted native dependency and the public API phase.
+- Correct the portable instructions to include both source maps.
+
+Validation: All 250 distinct controls passed before and after adoption.
+The final documentation revision passed both portable controls; 60 canonical process groups closed.
+Actual corrected TPU execution remains required, and M6 remains unqualified.
+Refer to [the change record](docs/changes/r6-compiler-libtpu021-flags.md).
+
 ## 2026-10-09 — Public CPU comparison rejection
 
 - Retain the exact CPU row rejection before public TPU execution.

@@ -1,0 +1,6 @@
+{
+  "operation": "git apply --check private compiler delta onto adopted public cloud",
+  "reason": "First import hunk has different surrounding context after the public imports. No patch was applied.",
+  "repair": "Use exact unchanged run_step and compiler-native branch byte admission plus a unique CC import anchor.",
+  "status": "PRESERVED_PREPARATION_FAILURE"
+}

@@ -1,0 +1,1 @@
+{"status":"PRESERVED_PREPARATION_FAILURE","reason":"The block extractor used nonexistent finalize phase. Direct source inspection found primitives as the next branch. No composed source write occurred.","repair":"Use actual primitives branch boundary after exact byte comparison."}

@@ -6,7 +6,7 @@ sys.path.insert(0,str(HERE/'cloud'));import compiler_cloud_contract as CC
 
 def run(output,packet,selected=None):
  output=Path(output).resolve();output.mkdir(exist_ok=False);packet=Path(packet).resolve();owner=Ownership(output);jax=ROOT/'.work/r6-pallas-preparation/venv-jax071/bin/python';rows=[]
- tests=[('cloud',[str(HERE/'cloud/tests/compiler_cloud_controls.py'),'--packet',str(packet),'--output',str(output/'cloud')],24),('cpu',[str(HERE/'cloud/tests/compiler_cpu_controls.py'),'--packet',str(packet),'--output',str(output/'cpu')],16),('phase',[str(HERE/'cloud/tests/compiler_phase_controls.py'),'--packet',str(packet),'--output',str(output/'phase')],16),('owner',[str(HERE/'cloud/tests/compiler_owner_controls.py'),'--packet',str(packet),'--cpu-proofs',str(output/'cpu'),'--closed-fixture',str(output/'phase/count-overflow/records'),'--jax-python',str(jax),'--output',str(output/'owner')],4),('audit',[str(HERE/'audit_interface_controls.py'),'--output',str(output/'audit')],5)]
+ tests=[('cloud',[str(HERE/'cloud/tests/compiler_cloud_controls.py'),'--packet',str(packet),'--output',str(output/'cloud')],24),('cpu',[str(HERE/'cloud/tests/compiler_cpu_controls.py'),'--packet',str(packet),'--output',str(output/'cpu')],16),('phase',[str(HERE/'cloud/tests/compiler_phase_controls.py'),'--packet',str(packet),'--output',str(output/'phase')],18),('owner',[str(HERE/'cloud/tests/compiler_owner_controls.py'),'--packet',str(packet),'--cpu-proofs',str(output/'cpu'),'--closed-fixture',str(output/'phase/count-overflow/records'),'--jax-python',str(jax),'--output',str(output/'owner')],4),('audit',[str(HERE/'audit_interface_controls.py'),'--output',str(output/'audit')],5)]
  if selected:tests=[r for r in tests if r[0]in selected]
  try:
   with owner.guard(230):

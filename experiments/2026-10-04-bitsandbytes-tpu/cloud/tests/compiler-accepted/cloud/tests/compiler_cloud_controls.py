@@ -16,16 +16,16 @@ def run(packet,output):
    if reason is not None:assert reason in str(e),(name,str(e),reason)
    rows.append({'case':name,'status':'PASS','rejected':type(e).__name__+': '+str(e)})
   else:raise AssertionError('FALSE_ACCEPT:'+name)
- m=yes('exact34-production-shaped-preflight',lambda:owner.preflight(packet,CC.sha(packet/'payload.zip')))
- assert m['experiment']==CC.MODE and len(CC.SOURCES)==34
+ m=yes('exact36-production-shaped-preflight',lambda:owner.preflight(packet,CC.sha(packet/'payload.zip')))
+ assert m['experiment']==CC.MODE and len(CC.SOURCES)==36
  def wrong_manifest(key,val):
   bad=copy.deepcopy(m);bad[key]=val;return remote.verify_experiment(bad)
- no('native-mode-cannot-admit-compiler34',lambda:wrong_manifest('experiment','m6-native-boundary'),'NATIVE_REVIEWED_SCOPE')
+ no('native-mode-cannot-admit-compiler36',lambda:wrong_manifest('experiment','m6-native-boundary'),'NATIVE_REVIEWED_SCOPE')
  no('policy-hash-unknown',lambda:wrong_manifest('compiler_policy_sha256','0'*64),'COMPILER_EXACT_POLICY')
  no('compiler-source-unknown',lambda:wrong_manifest('compiler_manifest_sha256','0'*64),'NATIVE_REVIEWED_SCOPE')
  no('wrong-source-variant',lambda:wrong_manifest('compiler_source_variant','nested-v1'),'NATIVE_REVIEWED_SCOPE')
  bad=copy.deepcopy(m);bad['files']['native/kernel.py']['sha256']='0'*64
- no('known-kernel-only',lambda:remote.verify_experiment(bad),'COMPILER_EXACT_34_SOURCES')
+ no('known-kernel-only',lambda:remote.verify_experiment(bad),'COMPILER_EXACT_36_SOURCES')
  bad=copy.deepcopy(m);bad['precision']='high';no('fixed-highest',lambda:remote.verify_experiment(bad),'TRANSFER_REVIEWED_SCOPE')
  # Actual empty-module-cache runpy import, unrelated cwd and no cloud/native PYTHONPATH.
  script=output/'fresh-runpy.py';script.write_text('import runpy,sys,json\nsys.path=[p for p in sys.path if "r6-compiler" not in p]\nr=runpy.run_path(sys.argv[1],run_name="isolated_remote")\nm=json.load(open(sys.argv[2]));assert r["verify_experiment"](m)=="m6-compiler-content"\nassert "torch" not in sys.modules and "jax" not in sys.modules\nprint("PASS_FRESH_RUNPY_NO_CLIENT")\n')

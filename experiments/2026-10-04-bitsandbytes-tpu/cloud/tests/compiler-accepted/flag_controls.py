@@ -1,0 +1,40 @@
+"""Synthetic admission plus real bounded local parser/monitor controls. No libTPU/device claim."""
+import argparse,copy,json,os,resource,sys,time
+from pathlib import Path
+HERE=Path(__file__).resolve().parent;ROOT=next(p for p in HERE.parents if(p/'packages/bitsandbytes-tpu/pyproject.toml').is_file());sys.path[:0]=[str(HERE/'cloud'),str(HERE/'compiler-native')]
+import remote,compiler_flags as F,compiler_cloud_contract as CC,dump_observation as D
+p=argparse.ArgumentParser();p.add_argument('--output',required=True);a=p.parse_args();out=Path(a.output).resolve();out.mkdir(exist_ok=False);rows=[]
+def yes(n,fn):fn();rows.append({'name':n,'status':'PASS'})
+def no(n,fn,label):
+ try:fn()
+ except ValueError as e:assert str(e)==label,(n,str(e),label);rows.append({'name':n,'status':'EXPECTED_REJECT','reason':label})
+ else:raise AssertionError('FALSE_ACCEPT:'+n)
+dump='/content/bnb-tpu-first/compiler-flag-preflight-private';token='d'*32
+r={'kind':'R6_LIBTPU_DUMP_FLAG_PREFLIGHT_V1','status':'LIBTPU_FLAGS_RECOGNIZED_BACKEND_INIT_ONLY','manifest_sha256':CC.MANIFEST_SHA,'policy_sha256':CC.POLICY_SHA,'library_sha256':F.LIBTPU_SHA,'versions':F.VERSIONS,'system':'Linux','machine':'x86_64','python':'3.12.14','requested_backend':'TPU','observed_backend':'TPU','devices':['TPU:0'],'torch_xla_init_sha256':F.TORCH_XLA_INIT_SHA,'effective_xla_flags':F.flags(dump)+' --xla_cpu_enable_fast_math=false','effective_libtpu_init_args':' '+ ' '.join(F.LIBTPU_INIT_FLAGS),'dump_directory':dump,'xla_flags':F.flags(dump),'native_case_count':0,'tensor_computation_count':0,'scope':'PARSER_AND_BACKEND_INITIALIZATION_ONLY_NOT_NATIVE_SCIENCE','pid':1234,'pgid':1234,'parent_pid':4567,'process_token':token,'started_epoch':1.,'finished_epoch':2.}
+o={'argv':['/content/bnb-tpu-first/venv/bin/python','-B','/content/bnb-tpu-first/payload/native/compiler_flag_probe.py','--output','/content/bnb-tpu-first/records/compiler-flag-preflight.json','--dump-directory',dump,'--policy','/content/bnb-tpu-first/payload/native/compiler-policy.json','--policy-sha256',CC.POLICY_SHA,'--process-token',token],'pid':1234,'pgid':1234,'owner_pid':4567,'cleanup':{'status':'CLEANUP_VERIFIED','leader_reaped':True,'group_absence':'OBSERVED_NO_SUCH_GROUP','errors':[],'exit_status':0}}
+t={'status':'PASS','exit_code':0,'cleanup':{'errors':[]},'flag_dump_terminal':{'status':'WITHIN_OBSERVED_LIMITS','entries':0,'total_bytes':0,'largest_file_bytes':0},'flag_dump_scope':'PRIVATE_PREFLIGHT_ONLY','flag_dump_poll_seconds':.01,'timeout_seconds':90,'flag_dump_observations':4,'flag_dump_terminal_after_group_cleanup':True}
+def check(r=r,o=o,t=t):return F.owned(r,o,t,manifest_sha=CC.MANIFEST_SHA,policy_sha=CC.POLICY_SHA,dump_directory=dump)
+yes('correct_complete_SYNTHETIC_fixed_library_owned_preflight',check)
+for k,v,label in [('status','PARTIAL_BEFORE_BACKEND_INITIALIZATION','FLAG_PREFLIGHT_STATUS'),('manifest_sha256','0'*64,'FLAG_PREFLIGHT_SOURCE_BINDING'),('policy_sha256','0'*64,'FLAG_PREFLIGHT_SOURCE_BINDING'),('library_sha256','0'*64,'FLAG_PREFLIGHT_FIXED_LIBRARY'),('versions',dict(F.VERSIONS,libtpu='0.0.22'),'FLAG_PREFLIGHT_FIXED_LIBRARY'),('system','Darwin','FLAG_PREFLIGHT_RUNTIME'),('observed_backend','CPU','FLAG_PREFLIGHT_RUNTIME'),('devices',['CPU:0'],'FLAG_PREFLIGHT_DEVICES'),('torch_xla_init_sha256','0'*64,'FLAG_PREFLIGHT_FRONTEND_DEFAULTS'),('effective_xla_flags',F.flags(dump),'FLAG_PREFLIGHT_FRONTEND_DEFAULTS'),('effective_libtpu_init_args','--unknown=false','FLAG_PREFLIGHT_LIBTPU_DEFAULTS'),('process_token','0','FLAG_PREFLIGHT_TOKEN'),('dump_directory',dump+'-other','FLAG_PREFLIGHT_DIRECTORY_BINDING'),('xla_flags',F.flags(dump)+' --xla_dump_hlo_unoptimized_snapshots=false','FLAG_PREFLIGHT_EXACT_REQUEST'),('tensor_computation_count',1,'FLAG_PREFLIGHT_SCOPE'),('native_case_count',5,'FLAG_PREFLIGHT_SCOPE'),('scope','NATIVE_PASS','FLAG_PREFLIGHT_SCOPE'),('pgid',1235,'FLAG_PREFLIGHT_GROUP_LEADER'),('finished_epoch',float('nan'),'FLAG_PREFLIGHT_TIME')]:
+ b=copy.deepcopy(r);b[k]=v;no('reject_record_'+k,lambda b=b:check(r=b),label)
+for k,v,label in [('argv',[*o['argv'][:-1],'e'*32],'FLAG_PREFLIGHT_OWNED_ARGV'),('pid',1240,'FLAG_PREFLIGHT_OWNED_IDENTITY'),('cleanup',dict(o['cleanup'],group_absence='UNVERIFIED'),'FLAG_PREFLIGHT_OWNED_CLOSURE')]:
+ b=copy.deepcopy(o);b[k]=v;no('reject_owner_'+k,lambda b=b:check(o=b),label)
+for k,v,label in [('status','CHILD_FAILED','FLAG_PREFLIGHT_STEP_PASS'),('flag_dump_terminal_after_group_cleanup',False,'FLAG_PREFLIGHT_BOUNDED_DUMP'),('flag_dump_terminal',{'status':'DUMP_TOTAL_SIZE_LIMIT','entries':0,'total_bytes':0,'largest_file_bytes':0},'FLAG_PREFLIGHT_BOUNDED_DUMP'),('flag_dump_scope','SCIENTIFIC_CAPTURE','FLAG_PREFLIGHT_BOUNDED_STAGE'),('timeout_seconds',91,'FLAG_PREFLIGHT_BOUNDED_STAGE'),('flag_dump_terminal',{'status':'WITHIN_OBSERVED_LIMITS','entries':1025,'total_bytes':0,'largest_file_bytes':0},'FLAG_PREFLIGHT_BOUNDED_COUNTS')]:
+ b=copy.deepcopy(t);b[k]=v;no('reject_step_'+k,lambda b=b:check(t=b),label)
+# Actual owned local process groups and observer limits, independent from synthetic parser report.
+limits={'entries':8,'file_bytes':1024,'total_bytes':2048}
+for case,code,expected in [('bounded',"from pathlib import Path;import sys,time;Path(sys.argv[1],'raw').write_bytes(b'ok');time.sleep(.08)",'PASS'),('oversize',"from pathlib import Path;import sys,time;Path(sys.argv[1],'raw').write_bytes(b'x'*1025);time.sleep(2)",'BLOCKED'),('deadline',"import time;time.sleep(5)",'BLOCKED')]:
+ d=out/(case+'-private');d.mkdir();st=d.stat();observe=lambda d=d,st=st:D.observe(d,(st.st_dev,st.st_ino),limits)
+ step=remote.run_step(out,'monitor-'+case,[sys.executable,'-B','-c',code,str(d)],time.time()+1,.35 if case=='deadline'else 1,cwd=HERE,flag_dump_observer=observe)
+ own=json.loads((out/'steps'/('monitor-'+case)/'ownership.json').read_text());assert own['cleanup']['leader_reaped']and own['cleanup']['group_absence']=='OBSERVED_NO_SUCH_GROUP'and not step['cleanup']['errors']
+ assert(step['status']=='PASS')==(case=='bounded');assert (step.get('flag_dump_terminal_after_group_cleanup')is True)==(case!='oversize')
+ rows.append({'name':'actual_owned_monitor_'+case,'status':'PASS','actual_child_exit_code':step['exit_code'],'child_status':step['status'],'scope':'LOCAL_STDLIB_ONLY'})
+# The frontend parser has a different registry. These are frontend-only actual parse controls.
+jax=ROOT/'.work/r6-pallas-preparation/venv-jax071/bin/python';probe=out/'frontend-probe.py';probe.write_text("import resource\nresource.setrlimit(resource.RLIMIT_CORE,(0,0))\nresource.setrlimit(resource.RLIMIT_FSIZE,(16777216,16777216))\nimport jax,json\nassert jax.__version__=='0.7.1'\nprint(json.dumps({'devices':[str(x)for x in jax.devices('cpu')],'scope':'JAXLIB071_CPU_PARSE_ONLY_NOT_LIBTPU'}))\n")
+for case,extra,ok in [('corrected',[],True),('unknown',['--r6_unknown_flag_must_reject=false'],False),('old_unsupported_libtpu',['--xla_dump_hlo_unoptimized_snapshots=false'],True)]:
+ d=out/('frontend-'+case+'-private');d.mkdir();request=F.flags(d)+' '+ ' '.join(extra)
+ step=remote.run_step(out,'frontend-'+case,[str(jax),'-B',str(probe)],time.time()+20,18,cwd=HERE,extra_env={'XLA_FLAGS':request.strip(),'JAX_PLATFORMS':'cpu'})
+ own=json.loads((out/'steps'/('frontend-'+case)/'ownership.json').read_text());assert own['cleanup']['leader_reaped']and own['cleanup']['group_absence']=='OBSERVED_NO_SUCH_GROUP'and not step['cleanup']['errors'];assert(step['status']=='PASS')is ok
+ if not ok:assert b'r6_unknown_flag_must_reject' in(out/'steps'/('frontend-'+case)/'stderr.raw').read_bytes()
+ rows.append({'name':'actual_JAX071_frontend_parser_'+case,'status':'PASS','actual_child_exit_code':step['exit_code'],'scope':'JAXLIB071_CPU_PARSE_ONLY_NOT_LIBTPU'})
+(out/'results.json').write_text(json.dumps({'status':'PASS','count':len(rows),'controls':rows,'actual_fixed_libtpu_parse':'NOT_RUN','actual_TPU':'NOT_RUN','native_case_count':0,'provider_calls':0,'scope':'SYNTHETIC_ADMISSION_AND_LOCAL_FRONTEND_PARSE_MONITOR_ONLY'},sort_keys=True,indent=2)+'\n');print(json.dumps({'status':'PASS','count':len(rows)}))

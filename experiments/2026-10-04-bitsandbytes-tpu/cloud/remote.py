@@ -26,6 +26,7 @@ _transport_spec=importlib.util.spec_from_file_location('_bnb_admitted_byte_trans
 _transport=importlib.util.module_from_spec(_transport_spec);_transport_spec.loader.exec_module(_transport)
 _compiler_spec=importlib.util.spec_from_file_location('_bnb_compiler_cloud_contract',HERE/'compiler_cloud_contract.py')
 CC=importlib.util.module_from_spec(_compiler_spec);_compiler_spec.loader.exec_module(CC)
+_flag_spec=importlib.util.spec_from_file_location('_compiler_flag_cloud',HERE/'compiler_flag_preflight.py');FP=importlib.util.module_from_spec(_flag_spec);_flag_spec.loader.exec_module(FP)
 _public_spec=importlib.util.spec_from_file_location('_bnb_public_contract',HERE/'public_contract.py');UC=importlib.util.module_from_spec(_public_spec);_public_spec.loader.exec_module(UC)
 _public_transport_spec=importlib.util.spec_from_file_location('_bnb_public_transport',HERE/'public_transport.py');UT=importlib.util.module_from_spec(_public_transport_spec);_public_transport_spec.loader.exec_module(UT)
 
@@ -258,7 +259,7 @@ def allowance(deadline, requested, clock=time.time):
     return value
 
 
-def run_step(out, label, argv, deadline, limit, *, cwd, tpu=False, extra_env=None):
+def run_step(out, label, argv, deadline, limit, *, cwd, tpu=False, extra_env=None, flag_dump_observer=None):
     directory = out / 'steps' / label
     directory.mkdir(parents=True)
     owner = Ownership(directory)
@@ -276,6 +277,12 @@ def run_step(out, label, argv, deadline, limit, *, cwd, tpu=False, extra_env=Non
         with owner.guard(budget):
             p = owner.launch(argv, record=directory / 'ownership.json', cwd=cwd, env=env,
                              stdout=streams[0], stderr=streams[1])
+            if flag_dump_observer is not None:
+                record['flag_dump_observations']=0;record['flag_dump_poll_seconds']=.01;record['flag_dump_scope']='PRIVATE_PREFLIGHT_ONLY'
+                while p.poll() is None:
+                    snapshot=flag_dump_observer();record['flag_dump_observations']+=1;record['flag_dump_last']=snapshot
+                    require(snapshot['status']=='WITHIN_OBSERVED_LIMITS','FLAG_PREFLIGHT_BOUNDED_DUMP')
+                    time.sleep(.01)
             p.wait()
             record.update(exit_code=p.returncode, status='PASS' if p.returncode == 0 else 'CHILD_FAILED')
     except BaseException as error:
@@ -293,6 +300,14 @@ def run_step(out, label, argv, deadline, limit, *, cwd, tpu=False, extra_env=Non
                 except Exception as error:
                     owner.note_error('close_child_log', error)
         record['cleanup'] = owner.summary()
+        if flag_dump_observer is not None:
+            try:
+                record['flag_dump_terminal']=flag_dump_observer()
+                require(record['flag_dump_terminal']['status']=='WITHIN_OBSERVED_LIMITS','FLAG_PREFLIGHT_BOUNDED_DUMP')
+                record['flag_dump_terminal_after_group_cleanup']=True
+            except BaseException as error:
+                record['flag_dump_terminal_error']={'type':type(error).__name__,'message':str(error)}
+                record['status']='BLOCKED_FLAG_DUMP'
         if record['cleanup']['errors']:
             record['status'] = 'BLOCKED_CLEANUP'
         durable_json(directory / 'result.json', record)
@@ -611,9 +626,12 @@ def execute(base, packet_sha, allocation_epoch, phase):
         elif phase == 'compiler-native':
             require(compiler and receipt.get('cpu_status')=='PASS' and receipt['tpu_status']=='NOT_RUN','NATIVE_PHASE_ORDER')
             gate=json.loads((base/'launch.json').read_text());CC.dependency_fields(gate);require(gate.get('compiler_generation')==CC.GENERATION,'COMPILER_CPU_GATE_GENERATION');require(gate.get('kind')=='ROOT_COMPILER_CPU_ORACLE_GATE' and gate.get('status')=='QUALIFIED_LINUX_CPU_ORACLE_VERIFIED' and gate.get('oracle_sha256')==receipt['oracle_sha256'] and gate.get('source_admission_sha256')==manifest['source_admission_sha256'] and gate.get('compiler_manifest_sha256')==CC.MANIFEST_SHA and gate.get('compiler_cpu_inventory_sha256')==receipt['compiler_cpu_inventory_sha256'] and gate.get('compiler_cpu_evidence_sha256')==receipt['compiler_cpu_evidence_sha256'] and gate.get('compiler_policy_sha256')==CC.POLICY_SHA and gate.get('source_variant')==CC.VARIANT,'NATIVE_ROOT_ORACLE_GATE')
+            flag_deadline=min(work_deadline,receipt['science_deadline_epoch']-30,time.time()+90);require(time.time()+10<flag_deadline,'FLAG_PREFLIGHT_DEADLINE_RESERVE')
+            receipt.update(FP.execute(base,payload,out,installed,flag_deadline,run_step=run_step));receipt['steps'].append({'label':'11d-compiler-flags',**CC.read(out/'steps/11d-compiler-flags/result.json')});durable_json(receipt_path,receipt)
             deadline=min(work_deadline,receipt['science_deadline_epoch'],time.time()+1500);require(time.time()+30<deadline,'NATIVE_DEADLINE_RESERVE');token=secrets.token_hex(16)
             receipt.update(compiler_manifest_sha256=CC.MANIFEST_SHA,compiler_policy_sha256=CC.POLICY_SHA,compiler_source_variant=CC.VARIANT,tpu_status='RUNNING',native_source_variant=CC.VARIANT,native_manifest_sha256=CC.MANIFEST_SHA,native_oracle_gate_sha256=sha(base/'launch.json'),m6_status='NOT_QUALIFIED');durable_json(receipt_path,receipt)
             argv=[installed,'-B',payload/'native/coordinator.py','--output',out/'native','--manifest',payload/'native/manifest.json','--manifest-sha256',CC.MANIFEST_SHA,'--admission',payload/'source-admission.json','--admission-sha256',manifest['source_admission_sha256'],'--patch-manifest',payload/'patches/params4bit-xla-v1.json','--oracle',out/'cpu-oracle','--oracle-sha256',receipt['oracle_sha256'],'--process-token',token,'--deadline-epoch',str(deadline-10),'--compiler-dumps','request','--compiler-policy',payload/'native/compiler-policy.json','--compiler-policy-sha256',CC.POLICY_SHA]
+            argv+=['--flag-preflight',out/'compiler-flag-preflight.json','--flag-preflight-sha256',receipt['compiler_flag_preflight_sha256']]
             rec=run_step(out,'12-native-parent',[str(x) for x in argv],deadline,1500,cwd=payload,tpu=True);receipt['steps'].append({'label':'12-native-parent',**rec})
             primary=None
             try:

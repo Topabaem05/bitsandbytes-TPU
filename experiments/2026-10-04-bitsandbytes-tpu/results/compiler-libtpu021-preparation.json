@@ -1,0 +1,83 @@
+{
+  "actual_native_acceptance": "c64fca47f57374fab691d9870005cf614fc6eebbc8a02706ed70781f9dd1042a",
+  "adopted_changes": 54,
+  "adoption_map": {
+    "bytes": 63186,
+    "sha256": "720f2126682ad8b2df9806516812b66df9e17a11740aac36903cd2ad74a8e62f"
+  },
+  "base_revision": "25da21434208ce4436a6b66621a5ada830c74be6",
+  "claims": {
+    "M6": "NOT_QUALIFIED",
+    "accepted_milestones": 3,
+    "actual_compiler_TPU": "NOT_RUN",
+    "actual_corrected_libtpu_parse": "NOT_RUN",
+    "allocator_peak": "UNKNOWN",
+    "fresh_qualified_linux_cpu": "REQUIRED_NOT_RUN",
+    "required_milestones": 8,
+    "selected_executable_memory": "UNKNOWN"
+  },
+  "compiler_manifest_sha256": "f2a3e62f3a8fc7790fdeff12973af71a2be831f2a057199812b8f2f4c6676a88",
+  "compiler_policy_sha256": "131637cedccf2ed86c4d800a42782bb082329c64a62e06ef4f1c8c713709b932",
+  "documentation_inspection": {
+    "full_standard_dictionary": "UNAVAILABLE",
+    "independent_ASD_STE100_certification": false,
+    "links": "CHECKED",
+    "sentence_length": "CHECKED",
+    "technical_terms": "REVIEWED"
+  },
+  "exact_prerequisites": 133,
+  "format": "R6_LIBTPU021_COMPILER_PREPARATION_RESULT_V1",
+  "generation": "compiler-mosaic-serde7-gather-bf16-fp32-libtpu021-flags-v1",
+  "independent_root_validation": {
+    "all_groups_closed": true,
+    "canonical_distinct_controls": 250,
+    "canonical_group_count": 60,
+    "canonical_review": {
+      "bytes": 9035,
+      "sha256": "6e353b9cd45594100539eec57554620f4d3e788d92516b05d0c611d851a8074d"
+    },
+    "counts_do_not_add_repeated_tests": true,
+    "executable_bodies_unchanged_after_250_controls": true,
+    "final_metadata_change": "REPRODUCE_ONLY_TWO_MAP_COPY_COMMANDS",
+    "final_metadata_portable_controls": 2,
+    "final_portable_review": {
+      "bytes": 664,
+      "sha256": "d955dd6f602bcc579e1614ca78d8e9e739a2c752e79ac99c5491af80a3af085a"
+    },
+    "private_distinct_controls": 250,
+    "private_review": {
+      "bytes": 5779,
+      "sha256": "4b31f24a1672902c303060f976ceae1c70cf8f769e943275d595fec7bd542a8e"
+    }
+  },
+  "native_accepted_result_sha256": "fd15cb724a398b9079b0b97c19f66bd858fe3f7027e9ae9e1a0ff8983eb1a291",
+  "packet": {
+    "M6": "NOT_QUALIFIED",
+    "actual_TPU": "NOT_RUN",
+    "compiler_manifest_sha256": "f2a3e62f3a8fc7790fdeff12973af71a2be831f2a057199812b8f2f4c6676a88",
+    "fresh_qualified_linux_cpu_oracle": "REQUIRED_NOT_RUN",
+    "generation": "compiler-mosaic-serde7-gather-bf16-fp32-libtpu021-flags-v1",
+    "m6": "NOT_QUALIFIED",
+    "manifest_sha256": "789e7d6170d523940c28952b9f1c816347573c2d6a2a180bd0cdb0f26a5599c0",
+    "members": 93,
+    "payload_bytes": 1114172,
+    "payload_sha256": "5992724099a519a82a265ff823b09a8d2e1524789f17b3ee69b10be977b32884",
+    "provider_calls": 0,
+    "scope": "PRIVATE_NO_DISPATCH",
+    "source_admission_sha256": "8b2b3e26e2e7c98c0fde52f51663bed84999ac733dcbc39573ef8b3aeca4f9a1",
+    "status": "GENUINE_PACKET_PREFLIGHT_READBACK_PASS",
+    "upstream_method": "ACTUAL_GIT_ARCHIVE_FIXED_833649043474794b8fe7a4136e0c40faf077b2e0"
+  },
+  "retained_failures": [
+    "prior actual unsupported flag abort",
+    "root scan of intentionally malformed fixture JSON",
+    "portable replay missing metadata copy instructions",
+    "three root relative-path invocation errors before tests",
+    "prior private fixture and metadata preparation failures"
+  ],
+  "source_files": 187,
+  "source_map": {
+    "bytes": 26832,
+    "sha256": "c302d652a31108a8d52806daad017296c428d88c22a814aec9af95e4724eb8ad"
+  }
+}
