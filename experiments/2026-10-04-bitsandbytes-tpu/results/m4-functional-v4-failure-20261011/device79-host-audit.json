@@ -1,0 +1,965 @@
+{
+  "m4_status": "NOT_QUALIFIED",
+  "numerical_status": "ERROR",
+  "record_validation": "FAIL",
+  "record_validation_reason": "DEVICE_OUTER_CLOSURE",
+  "rows": [
+    {
+      "case_id": "block-0001-zero",
+      "gates": {},
+      "reason": "ERROR_BEARING_PASS_REJECTED",
+      "status": "ERROR"
+    },
+    {
+      "case_id": "block-0001-constant",
+      "gates": {},
+      "reason": "ERROR_BEARING_PASS_REJECTED",
+      "status": "ERROR"
+    },
+    {
+      "case_id": "block-0001-signed_ramp",
+      "gates": {},
+      "reason": "ERROR_BEARING_PASS_REJECTED",
+      "status": "ERROR"
+    },
+    {
+      "case_id": "block-0001-ties",
+      "gates": {},
+      "reason": "ERROR_BEARING_PASS_REJECTED",
+      "status": "ERROR"
+    },
+    {
+      "case_id": "block-0001-neighbors_lo",
+      "gates": {},
+      "reason": "ERROR_BEARING_PASS_REJECTED",
+      "status": "ERROR"
+    },
+    {
+      "case_id": "block-0001-neighbors_hi",
+      "gates": {},
+      "reason": "ERROR_BEARING_PASS_REJECTED",
+      "status": "ERROR"
+    },
+    {
+      "case_id": "block-0255-zero",
+      "gates": {},
+      "reason": "ERROR_BEARING_PASS_REJECTED",
+      "status": "ERROR"
+    },
+    {
+      "case_id": "block-0255-constant",
+      "gates": {},
+      "reason": "ERROR_BEARING_PASS_REJECTED",
+      "status": "ERROR"
+    },
+    {
+      "case_id": "block-0255-signed_ramp",
+      "gates": {},
+      "reason": "ERROR_BEARING_PASS_REJECTED",
+      "status": "ERROR"
+    },
+    {
+      "case_id": "block-0255-ties",
+      "gates": {},
+      "reason": "ERROR_BEARING_PASS_REJECTED",
+      "status": "ERROR"
+    },
+    {
+      "case_id": "block-0255-neighbors_lo",
+      "gates": {},
+      "reason": "ERROR_BEARING_PASS_REJECTED",
+      "status": "ERROR"
+    },
+    {
+      "case_id": "block-0255-neighbors_hi",
+      "gates": {},
+      "reason": "ERROR_BEARING_PASS_REJECTED",
+      "status": "ERROR"
+    },
+    {
+      "case_id": "block-0256-zero",
+      "gates": {
+        "codes": {
+          "max_abs": 108,
+          "nrmse": 0.8503937007874016,
+          "rmse": 108.0,
+          "status": "FAIL"
+        },
+        "decoded": {
+          "max_abs": 0.0,
+          "nrmse": 0.0,
+          "rmse": 0.0,
+          "status": "PASS"
+        },
+        "decoded_out": {
+          "max_abs": 0.0,
+          "nrmse": 0.0,
+          "rmse": 0.0,
+          "status": "PASS"
+        },
+        "dynamic_map": {
+          "max_abs": 0.0,
+          "nrmse": 0.0,
+          "rmse": 0.0,
+          "status": "PASS"
+        },
+        "second_scales": {
+          "max_abs": 0.0,
+          "nrmse": 0.0,
+          "rmse": 0.0,
+          "status": "PASS"
+        }
+      },
+      "observation_status": "COMPLETE",
+      "status": "FAIL"
+    },
+    {
+      "case_id": "block-0256-constant",
+      "gates": {
+        "codes": {
+          "max_abs": 0,
+          "nrmse": 0.0,
+          "rmse": 0.0,
+          "status": "PASS"
+        },
+        "decoded": {
+          "max_abs": 0.0,
+          "nrmse": 0.0,
+          "rmse": 0.0,
+          "status": "PASS"
+        },
+        "decoded_out": {
+          "max_abs": 0.0,
+          "nrmse": 0.0,
+          "rmse": 0.0,
+          "status": "PASS"
+        },
+        "dynamic_map": {
+          "max_abs": 0.0,
+          "nrmse": 0.0,
+          "rmse": 0.0,
+          "status": "PASS"
+        },
+        "second_scales": {
+          "max_abs": 0.0,
+          "nrmse": 0.0,
+          "rmse": 0.0,
+          "status": "PASS"
+        }
+      },
+      "observation_status": "COMPLETE",
+      "status": "PASS"
+    },
+    {
+      "case_id": "block-0256-signed_ramp",
+      "gates": {
+        "codes": {
+          "max_abs": 99,
+          "nrmse": 0.26965323131476954,
+          "rmse": 42.541386099303345,
+          "status": "FAIL"
+        },
+        "decoded": {
+          "max_abs": 0.9168749749660492,
+          "nrmse": 0.9657763314269975,
+          "rmse": 0.5596209675353252,
+          "status": "FAIL"
+        },
+        "decoded_out": {
+          "max_abs": 0.9168749749660492,
+          "nrmse": 0.9657763314269975,
+          "rmse": 0.5596209675353252,
+          "status": "FAIL"
+        },
+        "dynamic_map": {
+          "max_abs": 0.0,
+          "nrmse": 0.0,
+          "rmse": 0.0,
+          "status": "PASS"
+        },
+        "second_scales": {
+          "max_abs": 0.0,
+          "nrmse": 0.0,
+          "rmse": 0.0,
+          "status": "PASS"
+        }
+      },
+      "observation_status": "COMPLETE",
+      "status": "FAIL"
+    },
+    {
+      "case_id": "block-0256-ties",
+      "gates": {
+        "codes": {
+          "max_abs": 109,
+          "nrmse": 0.46566259865512316,
+          "rmse": 68.62403232468928,
+          "status": "FAIL"
+        },
+        "decoded": {
+          "max_abs": 0.9196874760091305,
+          "nrmse": 1.6440373635077143,
+          "rmse": 0.7164982083900368,
+          "status": "FAIL"
+        },
+        "decoded_out": {
+          "max_abs": 0.9196874760091305,
+          "nrmse": 1.6440373635077143,
+          "rmse": 0.7164982083900368,
+          "status": "FAIL"
+        },
+        "dynamic_map": {
+          "max_abs": 0.0,
+          "nrmse": 0.0,
+          "rmse": 0.0,
+          "status": "PASS"
+        },
+        "second_scales": {
+          "max_abs": 0.0,
+          "nrmse": 0.0,
+          "rmse": 0.0,
+          "status": "PASS"
+        }
+      },
+      "observation_status": "COMPLETE",
+      "status": "FAIL"
+    },
+    {
+      "case_id": "block-0256-neighbors_lo",
+      "gates": {
+        "codes": {
+          "max_abs": 109,
+          "nrmse": 0.4657041196764658,
+          "rmse": 68.63015121832386,
+          "status": "FAIL"
+        },
+        "decoded": {
+          "max_abs": 0.9196874760091305,
+          "nrmse": 1.6441662716256713,
+          "rmse": 0.7165543886433651,
+          "status": "FAIL"
+        },
+        "decoded_out": {
+          "max_abs": 0.9196874760091305,
+          "nrmse": 1.6441662716256713,
+          "rmse": 0.7165543886433651,
+          "status": "FAIL"
+        },
+        "dynamic_map": {
+          "max_abs": 0.0,
+          "nrmse": 0.0,
+          "rmse": 0.0,
+          "status": "PASS"
+        },
+        "second_scales": {
+          "max_abs": 0.0,
+          "nrmse": 0.0,
+          "rmse": 0.0,
+          "status": "PASS"
+        }
+      },
+      "observation_status": "COMPLETE",
+      "status": "FAIL"
+    },
+    {
+      "case_id": "block-0256-neighbors_hi",
+      "gates": {
+        "codes": {
+          "max_abs": 109,
+          "nrmse": 0.46299029865429797,
+          "rmse": 68.62804524208744,
+          "status": "FAIL"
+        },
+        "decoded": {
+          "max_abs": 0.9196874760091305,
+          "nrmse": 1.6434203686908249,
+          "rmse": 0.716533770592225,
+          "status": "FAIL"
+        },
+        "decoded_out": {
+          "max_abs": 0.9196874760091305,
+          "nrmse": 1.6434203686908249,
+          "rmse": 0.716533770592225,
+          "status": "FAIL"
+        },
+        "dynamic_map": {
+          "max_abs": 0.0,
+          "nrmse": 0.0,
+          "rmse": 0.0,
+          "status": "PASS"
+        },
+        "second_scales": {
+          "max_abs": 0.0,
+          "nrmse": 0.0,
+          "rmse": 0.0,
+          "status": "PASS"
+        }
+      },
+      "observation_status": "COMPLETE",
+      "status": "FAIL"
+    },
+    {
+      "case_id": "block-0257-zero",
+      "gates": {},
+      "reason": "ERROR_BEARING_PASS_REJECTED",
+      "status": "ERROR"
+    },
+    {
+      "case_id": "block-0257-constant",
+      "gates": {},
+      "reason": "ERROR_BEARING_PASS_REJECTED",
+      "status": "ERROR"
+    },
+    {
+      "case_id": "block-0257-signed_ramp",
+      "gates": {},
+      "reason": "ERROR_BEARING_PASS_REJECTED",
+      "status": "ERROR"
+    },
+    {
+      "case_id": "block-0257-ties",
+      "gates": {},
+      "reason": "ERROR_BEARING_PASS_REJECTED",
+      "status": "ERROR"
+    },
+    {
+      "case_id": "block-0257-neighbors_lo",
+      "gates": {},
+      "reason": "ERROR_BEARING_PASS_REJECTED",
+      "status": "ERROR"
+    },
+    {
+      "case_id": "block-0257-neighbors_hi",
+      "gates": {},
+      "reason": "ERROR_BEARING_PASS_REJECTED",
+      "status": "ERROR"
+    },
+    {
+      "case_id": "block-0511-zero",
+      "gates": {},
+      "reason": "ERROR_BEARING_PASS_REJECTED",
+      "status": "ERROR"
+    },
+    {
+      "case_id": "block-0511-constant",
+      "gates": {},
+      "reason": "ERROR_BEARING_PASS_REJECTED",
+      "status": "ERROR"
+    },
+    {
+      "case_id": "block-0511-signed_ramp",
+      "gates": {},
+      "reason": "ERROR_BEARING_PASS_REJECTED",
+      "status": "ERROR"
+    },
+    {
+      "case_id": "block-0511-ties",
+      "gates": {},
+      "reason": "ERROR_BEARING_PASS_REJECTED",
+      "status": "ERROR"
+    },
+    {
+      "case_id": "block-0511-neighbors_lo",
+      "gates": {},
+      "reason": "ERROR_BEARING_PASS_REJECTED",
+      "status": "ERROR"
+    },
+    {
+      "case_id": "block-0511-neighbors_hi",
+      "gates": {},
+      "reason": "ERROR_BEARING_PASS_REJECTED",
+      "status": "ERROR"
+    },
+    {
+      "case_id": "block-0512-zero",
+      "gates": {
+        "codes": {
+          "max_abs": 108,
+          "nrmse": 0.8503937007874016,
+          "rmse": 108.0,
+          "status": "FAIL"
+        },
+        "decoded": {
+          "max_abs": 0.0,
+          "nrmse": 0.0,
+          "rmse": 0.0,
+          "status": "PASS"
+        },
+        "decoded_out": {
+          "max_abs": 0.0,
+          "nrmse": 0.0,
+          "rmse": 0.0,
+          "status": "PASS"
+        },
+        "dynamic_map": {
+          "max_abs": 0.0,
+          "nrmse": 0.0,
+          "rmse": 0.0,
+          "status": "PASS"
+        },
+        "second_scales": {
+          "max_abs": 0.0,
+          "nrmse": 0.0,
+          "rmse": 0.0,
+          "status": "PASS"
+        }
+      },
+      "observation_status": "COMPLETE",
+      "status": "FAIL"
+    },
+    {
+      "case_id": "block-0512-constant",
+      "gates": {
+        "codes": {
+          "max_abs": 0,
+          "nrmse": 0.0,
+          "rmse": 0.0,
+          "status": "PASS"
+        },
+        "decoded": {
+          "max_abs": 0.0,
+          "nrmse": 0.0,
+          "rmse": 0.0,
+          "status": "PASS"
+        },
+        "decoded_out": {
+          "max_abs": 0.0,
+          "nrmse": 0.0,
+          "rmse": 0.0,
+          "status": "PASS"
+        },
+        "dynamic_map": {
+          "max_abs": 0.0,
+          "nrmse": 0.0,
+          "rmse": 0.0,
+          "status": "PASS"
+        },
+        "second_scales": {
+          "max_abs": 0.0,
+          "nrmse": 0.0,
+          "rmse": 0.0,
+          "status": "PASS"
+        }
+      },
+      "observation_status": "COMPLETE",
+      "status": "PASS"
+    },
+    {
+      "case_id": "block-0512-signed_ramp",
+      "gates": {
+        "codes": {
+          "max_abs": 102,
+          "nrmse": 0.2700551476115712,
+          "rmse": 42.593302914014544,
+          "status": "FAIL"
+        },
+        "decoded": {
+          "max_abs": 0.9196874517947435,
+          "nrmse": 0.9685238085560737,
+          "rmse": 0.5602468979735654,
+          "status": "FAIL"
+        },
+        "decoded_out": {
+          "max_abs": 0.9196874517947435,
+          "nrmse": 0.9685238085560737,
+          "rmse": 0.5602468979735654,
+          "status": "FAIL"
+        },
+        "dynamic_map": {
+          "max_abs": 0.0,
+          "nrmse": 0.0,
+          "rmse": 0.0,
+          "status": "PASS"
+        },
+        "second_scales": {
+          "max_abs": 0.0,
+          "nrmse": 0.0,
+          "rmse": 0.0,
+          "status": "PASS"
+        }
+      },
+      "observation_status": "COMPLETE",
+      "status": "FAIL"
+    },
+    {
+      "case_id": "block-0512-ties",
+      "gates": {
+        "codes": {
+          "max_abs": 109,
+          "nrmse": 0.46566237177837383,
+          "rmse": 68.62398963281719,
+          "status": "FAIL"
+        },
+        "decoded": {
+          "max_abs": 0.9196874760091305,
+          "nrmse": 1.6438045057331665,
+          "rmse": 0.7164973997960199,
+          "status": "FAIL"
+        },
+        "decoded_out": {
+          "max_abs": 0.9196874760091305,
+          "nrmse": 1.6438045057331665,
+          "rmse": 0.7164973997960199,
+          "status": "FAIL"
+        },
+        "dynamic_map": {
+          "max_abs": 0.0,
+          "nrmse": 0.0,
+          "rmse": 0.0,
+          "status": "PASS"
+        },
+        "second_scales": {
+          "max_abs": 0.0,
+          "nrmse": 0.0,
+          "rmse": 0.0,
+          "status": "PASS"
+        }
+      },
+      "observation_status": "COMPLETE",
+      "status": "FAIL"
+    },
+    {
+      "case_id": "block-0512-neighbors_lo",
+      "gates": {
+        "codes": {
+          "max_abs": 109,
+          "nrmse": 0.4657038928311461,
+          "rmse": 68.63010853025806,
+          "status": "FAIL"
+        },
+        "decoded": {
+          "max_abs": 0.9196874760091305,
+          "nrmse": 1.6439333958837685,
+          "rmse": 0.7165535801127446,
+          "status": "FAIL"
+        },
+        "decoded_out": {
+          "max_abs": 0.9196874760091305,
+          "nrmse": 1.6439333958837685,
+          "rmse": 0.7165535801127446,
+          "status": "FAIL"
+        },
+        "dynamic_map": {
+          "max_abs": 0.0,
+          "nrmse": 0.0,
+          "rmse": 0.0,
+          "status": "PASS"
+        },
+        "second_scales": {
+          "max_abs": 0.0,
+          "nrmse": 0.0,
+          "rmse": 0.0,
+          "status": "PASS"
+        }
+      },
+      "observation_status": "COMPLETE",
+      "status": "FAIL"
+    },
+    {
+      "case_id": "block-0512-neighbors_hi",
+      "gates": {
+        "codes": {
+          "max_abs": 109,
+          "nrmse": 0.46298992154900465,
+          "rmse": 68.62797409311308,
+          "status": "FAIL"
+        },
+        "decoded": {
+          "max_abs": 0.9196874760091305,
+          "nrmse": 1.643189896186672,
+          "rmse": 0.7165324229988623,
+          "status": "FAIL"
+        },
+        "decoded_out": {
+          "max_abs": 0.9196874760091305,
+          "nrmse": 1.643189896186672,
+          "rmse": 0.7165324229988623,
+          "status": "FAIL"
+        },
+        "dynamic_map": {
+          "max_abs": 0.0,
+          "nrmse": 0.0,
+          "rmse": 0.0,
+          "status": "PASS"
+        },
+        "second_scales": {
+          "max_abs": 0.0,
+          "nrmse": 0.0,
+          "rmse": 0.0,
+          "status": "PASS"
+        }
+      },
+      "observation_status": "COMPLETE",
+      "status": "FAIL"
+    },
+    {
+      "case_id": "block-0513-zero",
+      "gates": {},
+      "reason": "ERROR_BEARING_PASS_REJECTED",
+      "status": "ERROR"
+    },
+    {
+      "case_id": "block-0513-constant",
+      "gates": {},
+      "reason": "ERROR_BEARING_PASS_REJECTED",
+      "status": "ERROR"
+    },
+    {
+      "case_id": "block-0513-signed_ramp",
+      "gates": {},
+      "reason": "ERROR_BEARING_PASS_REJECTED",
+      "status": "ERROR"
+    },
+    {
+      "case_id": "block-0513-ties",
+      "gates": {},
+      "reason": "ERROR_BEARING_PASS_REJECTED",
+      "status": "ERROR"
+    },
+    {
+      "case_id": "block-0513-neighbors_lo",
+      "gates": {},
+      "reason": "ERROR_BEARING_PASS_REJECTED",
+      "status": "ERROR"
+    },
+    {
+      "case_id": "block-0513-neighbors_hi",
+      "gates": {},
+      "reason": "ERROR_BEARING_PASS_REJECTED",
+      "status": "ERROR"
+    },
+    {
+      "case_id": "nested-00001-float32",
+      "gates": {},
+      "reason": "ERROR_BEARING_PASS_REJECTED",
+      "status": "ERROR"
+    },
+    {
+      "case_id": "nested-00064-float32",
+      "gates": {},
+      "reason": "ERROR_BEARING_PASS_REJECTED",
+      "status": "ERROR"
+    },
+    {
+      "case_id": "nested-00065-float32",
+      "gates": {},
+      "reason": "ERROR_BEARING_PASS_REJECTED",
+      "status": "ERROR"
+    },
+    {
+      "case_id": "nested-16320-float32",
+      "gates": {},
+      "reason": "ERROR_BEARING_PASS_REJECTED",
+      "status": "ERROR"
+    },
+    {
+      "case_id": "nested-16384-float32",
+      "gates": {
+        "decoded": {
+          "max_abs": 1.7836994379758835,
+          "nrmse": 1.3624040731297362,
+          "rmse": 0.9826325595946872,
+          "status": "FAIL"
+        },
+        "decoded_out": {
+          "max_abs": 1.7836994379758835,
+          "nrmse": 1.3624040731297362,
+          "rmse": 0.9826325595946872,
+          "status": "FAIL"
+        },
+        "dynamic_map": {
+          "max_abs": 0.0,
+          "nrmse": 0.0,
+          "rmse": 0.0,
+          "status": "PASS"
+        },
+        "nf4_map": {
+          "max_abs": 0.0,
+          "nrmse": 0.0,
+          "rmse": 0.0,
+          "status": "PASS"
+        },
+        "offset": {
+          "max_abs": 0.9921875,
+          "nrmse": 1.0,
+          "rmse": 0.9921875,
+          "status": "FAIL"
+        },
+        "packed": {
+          "max_abs": 51,
+          "nrmse": 0.2262919090667445,
+          "rmse": 33.499994534164664,
+          "status": "FAIL"
+        },
+        "restored_scales": {
+          "max_abs": 1.6262146830558777,
+          "nrmse": 0.9011633370761507,
+          "rmse": 1.0763317229679208,
+          "status": "FAIL"
+        },
+        "scale_codes": {
+          "max_abs": 229,
+          "nrmse": 0.7658870826094425,
+          "rmse": 124.82415756775609,
+          "status": "FAIL"
+        },
+        "second_scales": {
+          "max_abs": 0.9921875,
+          "nrmse": 0.9844961240310077,
+          "rmse": 0.9921875,
+          "status": "FAIL"
+        }
+      },
+      "observation_status": "ERROR",
+      "status": "FAIL"
+    },
+    {
+      "case_id": "nested-16385-float32",
+      "gates": {},
+      "reason": "ERROR_BEARING_PASS_REJECTED",
+      "status": "ERROR"
+    },
+    {
+      "case_id": "nested-32768-float32",
+      "gates": {
+        "decoded": {
+          "max_abs": 1.7860044538974762,
+          "nrmse": 1.3560134191057487,
+          "rmse": 0.9828135420421102,
+          "status": "FAIL"
+        },
+        "decoded_out": {
+          "max_abs": 1.7860044538974762,
+          "nrmse": 1.3560134191057487,
+          "rmse": 0.9828135420421102,
+          "status": "FAIL"
+        },
+        "dynamic_map": {
+          "max_abs": 0.0,
+          "nrmse": 0.0,
+          "rmse": 0.0,
+          "status": "PASS"
+        },
+        "nf4_map": {
+          "max_abs": 0.0,
+          "nrmse": 0.0,
+          "rmse": 0.0,
+          "status": "PASS"
+        },
+        "offset": {
+          "max_abs": 0.994140625,
+          "nrmse": 0.9960861056751468,
+          "rmse": 0.994140625,
+          "status": "FAIL"
+        },
+        "packed": {
+          "max_abs": 51,
+          "nrmse": 0.22627500843730108,
+          "rmse": 33.501491228761466,
+          "status": "FAIL"
+        },
+        "restored_scales": {
+          "max_abs": 1.7640761733055115,
+          "nrmse": 0.9482756407099431,
+          "rmse": 1.1382610510783697,
+          "status": "FAIL"
+        },
+        "scale_codes": {
+          "max_abs": 230,
+          "nrmse": 0.7744864978807713,
+          "rmse": 125.68525451748506,
+          "status": "FAIL"
+        },
+        "second_scales": {
+          "max_abs": 0.998046875,
+          "nrmse": 0.9961013645224172,
+          "rmse": 0.998046875,
+          "status": "FAIL"
+        }
+      },
+      "observation_status": "ERROR",
+      "status": "FAIL"
+    },
+    {
+      "case_id": "nested-32769-float32",
+      "gates": {},
+      "reason": "MISSING_LOGICAL_FILE",
+      "status": "ERROR"
+    },
+    {
+      "case_id": "nested-00001-bfloat16",
+      "gates": {},
+      "reason": "MISSING_LOGICAL_FILE",
+      "status": "ERROR"
+    },
+    {
+      "case_id": "nested-00064-bfloat16",
+      "gates": {},
+      "reason": "MISSING_LOGICAL_FILE",
+      "status": "ERROR"
+    },
+    {
+      "case_id": "nested-00065-bfloat16",
+      "gates": {},
+      "reason": "MISSING_LOGICAL_FILE",
+      "status": "ERROR"
+    },
+    {
+      "case_id": "nested-16320-bfloat16",
+      "gates": {},
+      "reason": "MISSING_LOGICAL_FILE",
+      "status": "ERROR"
+    },
+    {
+      "case_id": "nested-16384-bfloat16",
+      "gates": {},
+      "reason": "MISSING_LOGICAL_FILE",
+      "status": "ERROR"
+    },
+    {
+      "case_id": "nested-16385-bfloat16",
+      "gates": {},
+      "reason": "MISSING_LOGICAL_FILE",
+      "status": "ERROR"
+    },
+    {
+      "case_id": "nested-32768-bfloat16",
+      "gates": {},
+      "reason": "MISSING_LOGICAL_FILE",
+      "status": "ERROR"
+    },
+    {
+      "case_id": "nested-32769-bfloat16",
+      "gates": {},
+      "reason": "MISSING_LOGICAL_FILE",
+      "status": "ERROR"
+    },
+    {
+      "case_id": "known-code-0003",
+      "gates": {},
+      "reason": "MISSING_LOGICAL_FILE",
+      "status": "ERROR"
+    },
+    {
+      "case_id": "known-code-0257",
+      "gates": {},
+      "reason": "MISSING_LOGICAL_FILE",
+      "status": "ERROR"
+    },
+    {
+      "case_id": "known-code-0513",
+      "gates": {},
+      "reason": "MISSING_LOGICAL_FILE",
+      "status": "ERROR"
+    },
+    {
+      "case_id": "positive-known-3",
+      "gates": {},
+      "reason": "MISSING_LOGICAL_FILE",
+      "status": "ERROR"
+    },
+    {
+      "case_id": "positive-known-257",
+      "gates": {},
+      "reason": "MISSING_LOGICAL_FILE",
+      "status": "ERROR"
+    },
+    {
+      "case_id": "positive-known-513",
+      "gates": {},
+      "reason": "MISSING_LOGICAL_FILE",
+      "status": "ERROR"
+    },
+    {
+      "case_id": "module-float32-rank2-bias0",
+      "gates": {},
+      "reason": "MISSING_LOGICAL_FILE",
+      "status": "ERROR"
+    },
+    {
+      "case_id": "module-float32-rank2-bias1",
+      "gates": {},
+      "reason": "MISSING_LOGICAL_FILE",
+      "status": "ERROR"
+    },
+    {
+      "case_id": "module-float32-rank3-bias0",
+      "gates": {},
+      "reason": "MISSING_LOGICAL_FILE",
+      "status": "ERROR"
+    },
+    {
+      "case_id": "module-float32-rank3-bias1",
+      "gates": {},
+      "reason": "MISSING_LOGICAL_FILE",
+      "status": "ERROR"
+    },
+    {
+      "case_id": "nested-zero-65-float32",
+      "gates": {},
+      "reason": "MISSING_LOGICAL_FILE",
+      "status": "ERROR"
+    },
+    {
+      "case_id": "nested-zero-16385-float32",
+      "gates": {},
+      "reason": "MISSING_LOGICAL_FILE",
+      "status": "ERROR"
+    },
+    {
+      "case_id": "module-bfloat16-rank2-bias0",
+      "gates": {},
+      "reason": "MISSING_LOGICAL_FILE",
+      "status": "ERROR"
+    },
+    {
+      "case_id": "module-bfloat16-rank2-bias1",
+      "gates": {},
+      "reason": "MISSING_LOGICAL_FILE",
+      "status": "ERROR"
+    },
+    {
+      "case_id": "module-bfloat16-rank3-bias0",
+      "gates": {},
+      "reason": "MISSING_LOGICAL_FILE",
+      "status": "ERROR"
+    },
+    {
+      "case_id": "module-bfloat16-rank3-bias1",
+      "gates": {},
+      "reason": "MISSING_LOGICAL_FILE",
+      "status": "ERROR"
+    },
+    {
+      "case_id": "nested-zero-65-bfloat16",
+      "gates": {},
+      "reason": "MISSING_LOGICAL_FILE",
+      "status": "ERROR"
+    },
+    {
+      "case_id": "nested-zero-16385-bfloat16",
+      "gates": {},
+      "reason": "MISSING_LOGICAL_FILE",
+      "status": "ERROR"
+    },
+    {
+      "case_id": "block-subnormal-255",
+      "gates": {},
+      "reason": "MISSING_LOGICAL_FILE",
+      "status": "ERROR"
+    },
+    {
+      "case_id": "block-subnormal-256",
+      "gates": {},
+      "reason": "MISSING_LOGICAL_FILE",
+      "status": "ERROR"
+    },
+    {
+      "case_id": "block-subnormal-257",
+      "gates": {},
+      "reason": "MISSING_LOGICAL_FILE",
+      "status": "ERROR"
+    }
+  ],
+  "scope": "RETAINED_RETURNED_NUMERICS_ONLY_NO_DEVICE_OR_GRAPH_QUALIFICATION"
+}

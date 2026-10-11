@@ -1,0 +1,25 @@
+{
+  "archive_bytes": 11313062,
+  "archive_sha256": "269a9fdbbf5e3d824cef12077aabe8dc26ad4c56eb089f2cfd3f15a87d3aad02",
+  "created_epoch": 1791706736.785173,
+  "download_verified_epoch": 1791706775.614639,
+  "every_member_sha256_verified": true,
+  "input_entries": 973,
+  "inventory_sha256": "f4a975f9e92ad06ac138252cf5bc803438f80ee9128dae2eb3cda28ff785f7c6",
+  "logical_bytes": 61495021,
+  "members": 974,
+  "owner_only_permissions_verified": true,
+  "remote_id": "14J4jLVytGo4ApevWsucyvPzL6agT5hrT",
+  "roots": [
+    "/tmp/bnb-tpu-root-m4-v4-actual-20261011",
+    "/tmp/bnb-tpu-root-m4-v4-preparation-20261011",
+    "/tmp/bnb-tpu-root-m4-v4-preconnect-status-20261011",
+    "/tmp/bnb-tpu-root-m4-v4-connecting-status-20261011",
+    "/tmp/bnb-tpu-root-m4-v4-connected-status-20261011",
+    "/tmp/bnb-tpu-root-m4-v4-postclosure-status-20261011",
+    "/tmp/bnb-tpu-root-m4-v4-failure-records-20261011"
+  ],
+  "status": "INDEPENDENT_DOWNLOAD_FULL_READBACK_PASS",
+  "symlinks": 0,
+  "zip_crc_verified": true
+}

@@ -1,0 +1,166 @@
+{
+  "M4": "NOT_QUALIFIED",
+  "additional_status_groups_fresh_absent": 8,
+  "all_actual_and_status_groups_absent": 70,
+  "browser": {
+    "closed": true,
+    "disconnected_screenshot": "bnb-tpu-m4-functional-v4-disconnected.jpg",
+    "owned_tab_id": "8",
+    "remaining_owned_tabs": 0
+  },
+  "elapsed_lifecycle_seconds": 742.8494348526001,
+  "evidence_limit": [
+    {
+      "logical_file": "trace/nested-32768-float32/001/context.textproto",
+      "raw_bytes": 37924102,
+      "raw_sha256": "ee5d1cf25a896ad6957d2e10332cce77eec1d8b7e5446fb38038813c0d17272c",
+      "reason": "OBJECT_RAW_SIZE",
+      "required_evidence": "MISSING_NOT_ACCEPTED",
+      "status": "EVIDENCE_LIMIT"
+    }
+  ],
+  "exact_runtime_stopped": true,
+  "fresh_absence_epoch": 1791706609.336035,
+  "host_reason_counts": {
+    "ERROR_BEARING_PASS_REJECTED": 35,
+    "MISSING_LOGICAL_FILE": 30,
+    "NUMERICAL": 14
+  },
+  "host_status_counts": {
+    "ERROR": 65,
+    "FAIL": 12,
+    "PASS": 2
+  },
+  "kind": "ROOT_M4_V4_FAILURE_RECORDS",
+  "local_actual_groups_fresh_absent": 62,
+  "logical_bytes_verified": 131235819,
+  "lossless_gzip_single_member": "PASS",
+  "lossless_logical_files_verified": 191,
+  "original_deadline_epoch": 1791708759.466062,
+  "outer_phase": "TPU_EXECUTE",
+  "outer_status": "FAILED",
+  "packet_sha256": "91cf933b7049b709ebf71d5da309961120ef4c382dc069a48c8f661202a986a6",
+  "raw_error_groups": [
+    {
+      "case_ids": [
+        "block-0001-constant",
+        "block-0001-neighbors_hi",
+        "block-0001-neighbors_lo",
+        "block-0001-signed_ramp",
+        "block-0001-ties",
+        "block-0001-zero",
+        "block-0255-constant",
+        "block-0255-neighbors_hi",
+        "block-0255-neighbors_lo",
+        "block-0255-signed_ramp",
+        "block-0255-ties",
+        "block-0255-zero"
+      ],
+      "count": 12,
+      "error_message": "Second scales must have one float32 value per 256 codes",
+      "error_type": "ValueError",
+      "status": "ERROR"
+    },
+    {
+      "case_ids": [
+        "block-0256-constant",
+        "block-0256-neighbors_hi",
+        "block-0256-neighbors_lo",
+        "block-0256-signed_ramp",
+        "block-0256-ties",
+        "block-0256-zero",
+        "block-0512-constant",
+        "block-0512-neighbors_hi",
+        "block-0512-neighbors_lo",
+        "block-0512-signed_ramp",
+        "block-0512-ties",
+        "block-0512-zero",
+        "nested-16384-float32",
+        "nested-32768-float32"
+      ],
+      "count": 14,
+      "error_message": null,
+      "error_type": null,
+      "status": "PASS"
+    },
+    {
+      "case_ids": [
+        "block-0257-constant",
+        "block-0257-neighbors_hi",
+        "block-0257-neighbors_lo",
+        "block-0257-signed_ramp",
+        "block-0257-ties",
+        "block-0257-zero",
+        "nested-00065-float32"
+      ],
+      "count": 7,
+      "error_message": "cat(): cannot concatenate tensors of shape s32[1] with s32[1,1] at dimension 0. Expected shapes to be equal (except at dimension 0) or that either of them was a 1D empty tensor of size (0,).",
+      "error_type": "RuntimeError",
+      "status": "ERROR"
+    },
+    {
+      "case_ids": [
+        "block-0511-constant",
+        "block-0511-neighbors_hi",
+        "block-0511-neighbors_lo",
+        "block-0511-signed_ramp",
+        "block-0511-ties",
+        "block-0511-zero"
+      ],
+      "count": 6,
+      "error_message": "cat(): cannot concatenate tensors of shape s32[1] with s32[1,255] at dimension 0. Expected shapes to be equal (except at dimension 0) or that either of them was a 1D empty tensor of size (0,).",
+      "error_type": "RuntimeError",
+      "status": "ERROR"
+    },
+    {
+      "case_ids": [
+        "block-0513-constant",
+        "block-0513-neighbors_hi",
+        "block-0513-neighbors_lo",
+        "block-0513-signed_ramp",
+        "block-0513-ties",
+        "block-0513-zero"
+      ],
+      "count": 6,
+      "error_message": "cat(): cannot concatenate tensors of shape s32[2] with s32[1,1] at dimension 0. Expected shapes to be equal (except at dimension 0) or that either of them was a 1D empty tensor of size (0,).",
+      "error_type": "RuntimeError",
+      "status": "ERROR"
+    },
+    {
+      "case_ids": [
+        "nested-00001-float32"
+      ],
+      "count": 1,
+      "error_message": "FIXED_FIRST_SCALE_DOMAIN",
+      "error_type": "ValueError",
+      "status": "ERROR"
+    },
+    {
+      "case_ids": [
+        "nested-00064-float32",
+        "nested-16320-float32"
+      ],
+      "count": 2,
+      "error_message": "SECOND_SCALES_REQUIRED",
+      "error_type": "ValueError",
+      "status": "ERROR"
+    },
+    {
+      "case_ids": [
+        "nested-16385-float32"
+      ],
+      "count": 1,
+      "error_message": "cat(): cannot concatenate tensors of shape s32[256] with s32[1,1] at dimension 0. Expected shapes to be equal (except at dimension 0) or that either of them was a 1D empty tensor of size (0,).",
+      "error_type": "RuntimeError",
+      "status": "ERROR"
+    }
+  ],
+  "raw_status_counts": {
+    "ERROR": 35,
+    "PASS": 14
+  },
+  "retained_raw_cases": 49,
+  "science_manifest_sha256": "29beb28f4320acc5e07ce6822f2120eaff846809bfc54bd123ac37f501700c06",
+  "state8": "NOT_RUN",
+  "status_group_check_epoch": 1791706717.946552
+}

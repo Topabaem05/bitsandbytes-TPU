@@ -1,5 +1,17 @@
 # Change log
 
+## 2026-10-11 — M4 functional output experiment failure
+
+- Record the new qualified Linux CPU pass for 79 cases and 540 arrays.
+- Preserve two TPU passes, 12 numerical failures, 35 execution errors, and 30 missing cases.
+- Stop on the unchanged evidence limit and verify exact runtime closure.
+- Verify all 974 private archive members before local disposal.
+
+Validation: All 191 retained logical files passed full lossless readback.
+All 70 local groups were absent; fresh sessions and assignments were empty.
+State save and restore did not run; M4 remains unqualified.
+Refer to [the experiment record](docs/changes/r4-functional-v4-failure-20261011.md).
+
 ## 2026-10-11 — Passive PJRT preparation disposal
 
 - Verify all 184 private archive members through an independent download.

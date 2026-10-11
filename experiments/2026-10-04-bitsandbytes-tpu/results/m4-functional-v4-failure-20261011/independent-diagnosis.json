@@ -1,0 +1,4432 @@
+{
+  "case_count": 79,
+  "retained_raw": 49,
+  "missing": [
+    "nested-32769-float32",
+    "nested-00001-bfloat16",
+    "nested-00064-bfloat16",
+    "nested-00065-bfloat16",
+    "nested-16320-bfloat16",
+    "nested-16384-bfloat16",
+    "nested-16385-bfloat16",
+    "nested-32768-bfloat16",
+    "nested-32769-bfloat16",
+    "known-code-0003",
+    "known-code-0257",
+    "known-code-0513",
+    "positive-known-3",
+    "positive-known-257",
+    "positive-known-513",
+    "module-float32-rank2-bias0",
+    "module-float32-rank2-bias1",
+    "module-float32-rank3-bias0",
+    "module-float32-rank3-bias1",
+    "nested-zero-65-float32",
+    "nested-zero-16385-float32",
+    "module-bfloat16-rank2-bias0",
+    "module-bfloat16-rank2-bias1",
+    "module-bfloat16-rank3-bias0",
+    "module-bfloat16-rank3-bias1",
+    "nested-zero-65-bfloat16",
+    "nested-zero-16385-bfloat16",
+    "block-subnormal-255",
+    "block-subnormal-256",
+    "block-subnormal-257"
+  ],
+  "raw_status": {
+    "ERROR": 35,
+    "PASS": 14
+  },
+  "observation_status": {
+    "COMPLETE": 12,
+    "ERROR": 2
+  },
+  "error_groups": [
+    {
+      "type": "ValueError",
+      "message": "Second scales must have one float32 value per 256 codes",
+      "cases": [
+        "block-0001-constant",
+        "block-0001-neighbors_hi",
+        "block-0001-neighbors_lo",
+        "block-0001-signed_ramp",
+        "block-0001-ties",
+        "block-0001-zero",
+        "block-0255-constant",
+        "block-0255-neighbors_hi",
+        "block-0255-neighbors_lo",
+        "block-0255-signed_ramp",
+        "block-0255-ties",
+        "block-0255-zero"
+      ]
+    },
+    {
+      "type": "RuntimeError",
+      "message": "cat(): cannot concatenate tensors of shape s32[1] with s32[1,1] at dimension 0. Expected shapes to be equal (except at dimension 0) or that either of them was a 1D empty tensor of size (0,).",
+      "cases": [
+        "block-0257-constant",
+        "block-0257-neighbors_hi",
+        "block-0257-neighbors_lo",
+        "block-0257-signed_ramp",
+        "block-0257-ties",
+        "block-0257-zero",
+        "nested-00065-float32"
+      ]
+    },
+    {
+      "type": "RuntimeError",
+      "message": "cat(): cannot concatenate tensors of shape s32[1] with s32[1,255] at dimension 0. Expected shapes to be equal (except at dimension 0) or that either of them was a 1D empty tensor of size (0,).",
+      "cases": [
+        "block-0511-constant",
+        "block-0511-neighbors_hi",
+        "block-0511-neighbors_lo",
+        "block-0511-signed_ramp",
+        "block-0511-ties",
+        "block-0511-zero"
+      ]
+    },
+    {
+      "type": "RuntimeError",
+      "message": "cat(): cannot concatenate tensors of shape s32[2] with s32[1,1] at dimension 0. Expected shapes to be equal (except at dimension 0) or that either of them was a 1D empty tensor of size (0,).",
+      "cases": [
+        "block-0513-constant",
+        "block-0513-neighbors_hi",
+        "block-0513-neighbors_lo",
+        "block-0513-signed_ramp",
+        "block-0513-ties",
+        "block-0513-zero"
+      ]
+    },
+    {
+      "type": "ValueError",
+      "message": "FIXED_FIRST_SCALE_DOMAIN",
+      "cases": [
+        "nested-00001-float32"
+      ]
+    },
+    {
+      "type": "ValueError",
+      "message": "SECOND_SCALES_REQUIRED",
+      "cases": [
+        "nested-00064-float32",
+        "nested-16320-float32"
+      ]
+    },
+    {
+      "type": "RuntimeError",
+      "message": "cat(): cannot concatenate tensors of shape s32[256] with s32[1,1] at dimension 0. Expected shapes to be equal (except at dimension 0) or that either of them was a 1D empty tensor of size (0,).",
+      "cases": [
+        "nested-16385-float32"
+      ]
+    }
+  ],
+  "audit_rows_summary": {
+    "status": {
+      "ERROR": 65,
+      "FAIL": 12,
+      "PASS": 2
+    },
+    "reason": {
+      "ERROR_BEARING_PASS_REJECTED": 35,
+      "None": 14,
+      "MISSING_LOGICAL_FILE": 30
+    }
+  },
+  "retained_pass_rows": [
+    {
+      "case": "block-0256-constant",
+      "observation_errors": [],
+      "arrays": [
+        {
+          "name": "codes",
+          "dtype": "uint8",
+          "shape": [
+            256
+          ],
+          "cpu_dtype": "uint8",
+          "cpu_shape": [
+            256
+          ],
+          "length": 256,
+          "cpu_length": 256,
+          "unequal_values": 0,
+          "first_values": [
+            255,
+            255,
+            255,
+            255,
+            255,
+            255,
+            255,
+            255
+          ],
+          "cpu_first_values": [
+            255,
+            255,
+            255,
+            255,
+            255,
+            255,
+            255,
+            255
+          ],
+          "distinct_values": 1,
+          "unequal_storage_words": 0
+        },
+        {
+          "name": "second_scales",
+          "dtype": "float32",
+          "shape": [
+            1
+          ],
+          "cpu_dtype": "float32",
+          "cpu_shape": [
+            1
+          ],
+          "length": 1,
+          "cpu_length": 1,
+          "unequal_values": 0,
+          "first_values": [
+            1.0
+          ],
+          "cpu_first_values": [
+            1.0
+          ],
+          "distinct_values": 1,
+          "unequal_storage_words": 0
+        },
+        {
+          "name": "dynamic_map",
+          "dtype": "float32",
+          "shape": [
+            256
+          ],
+          "cpu_dtype": "float32",
+          "cpu_shape": [
+            256
+          ],
+          "length": 256,
+          "cpu_length": 256,
+          "unequal_values": 0,
+          "first_values": [
+            -0.992968738079071,
+            -0.9789062738418579,
+            -0.96484375,
+            -0.9507812261581421,
+            -0.936718761920929,
+            -0.922656238079071,
+            -0.9085937738418579,
+            -0.89453125
+          ],
+          "cpu_first_values": [
+            -0.992968738079071,
+            -0.9789062738418579,
+            -0.96484375,
+            -0.9507812261581421,
+            -0.936718761920929,
+            -0.922656238079071,
+            -0.9085937738418579,
+            -0.89453125
+          ],
+          "distinct_values": 256,
+          "unequal_storage_words": 0
+        },
+        {
+          "name": "decoded",
+          "dtype": "float32",
+          "shape": [
+            256
+          ],
+          "cpu_dtype": "float32",
+          "cpu_shape": [
+            256
+          ],
+          "length": 256,
+          "cpu_length": 256,
+          "unequal_values": 0,
+          "first_values": [
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "cpu_first_values": [
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "distinct_values": 1,
+          "unequal_storage_words": 0
+        },
+        {
+          "name": "decoded_out",
+          "dtype": "float32",
+          "shape": [
+            256
+          ],
+          "cpu_dtype": "float32",
+          "cpu_shape": [
+            256
+          ],
+          "length": 256,
+          "cpu_length": 256,
+          "unequal_values": 0,
+          "first_values": [
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "cpu_first_values": [
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "distinct_values": 1,
+          "unequal_storage_words": 0
+        }
+      ],
+      "observation_status": "COMPLETE"
+    },
+    {
+      "case": "block-0256-neighbors_hi",
+      "observation_errors": [],
+      "arrays": [
+        {
+          "name": "codes",
+          "dtype": "uint8",
+          "shape": [
+            256
+          ],
+          "cpu_dtype": "uint8",
+          "cpu_shape": [
+            256
+          ],
+          "length": 256,
+          "cpu_length": 256,
+          "unequal_values": 253,
+          "first_values": [
+            255,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "cpu_first_values": [
+            255,
+            0,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "distinct_values": 39,
+          "unequal_storage_words": 253
+        },
+        {
+          "name": "second_scales",
+          "dtype": "float32",
+          "shape": [
+            1
+          ],
+          "cpu_dtype": "float32",
+          "cpu_shape": [
+            1
+          ],
+          "length": 1,
+          "cpu_length": 1,
+          "unequal_values": 0,
+          "first_values": [
+            1.0
+          ],
+          "cpu_first_values": [
+            1.0
+          ],
+          "distinct_values": 1,
+          "unequal_storage_words": 0
+        },
+        {
+          "name": "dynamic_map",
+          "dtype": "float32",
+          "shape": [
+            256
+          ],
+          "cpu_dtype": "float32",
+          "cpu_shape": [
+            256
+          ],
+          "length": 256,
+          "cpu_length": 256,
+          "unequal_values": 0,
+          "first_values": [
+            -0.992968738079071,
+            -0.9789062738418579,
+            -0.96484375,
+            -0.9507812261581421,
+            -0.936718761920929,
+            -0.922656238079071,
+            -0.9085937738418579,
+            -0.89453125
+          ],
+          "cpu_first_values": [
+            -0.992968738079071,
+            -0.9789062738418579,
+            -0.96484375,
+            -0.9507812261581421,
+            -0.936718761920929,
+            -0.922656238079071,
+            -0.9085937738418579,
+            -0.89453125
+          ],
+          "distinct_values": 256,
+          "unequal_storage_words": 0
+        },
+        {
+          "name": "decoded",
+          "dtype": "float32",
+          "shape": [
+            256
+          ],
+          "cpu_dtype": "float32",
+          "cpu_shape": [
+            256
+          ],
+          "length": 256,
+          "cpu_length": 256,
+          "unequal_values": 254,
+          "first_values": [
+            1.0,
+            -0.9929686784744263,
+            -0.9929686784744263,
+            -0.9929686784744263,
+            -0.9929686784744263,
+            -0.9929686784744263,
+            -0.9929686784744263,
+            -0.9929686784744263
+          ],
+          "cpu_first_values": [
+            1.0,
+            -0.992968738079071,
+            -0.9507812261581421,
+            -0.936718761920929,
+            -0.922656238079071,
+            -0.9085937738418579,
+            -0.89453125,
+            -0.8804687261581421
+          ],
+          "distinct_values": 39,
+          "unequal_storage_words": 254
+        },
+        {
+          "name": "decoded_out",
+          "dtype": "float32",
+          "shape": [
+            256
+          ],
+          "cpu_dtype": "float32",
+          "cpu_shape": [
+            256
+          ],
+          "length": 256,
+          "cpu_length": 256,
+          "unequal_values": 254,
+          "first_values": [
+            1.0,
+            -0.9929686784744263,
+            -0.9929686784744263,
+            -0.9929686784744263,
+            -0.9929686784744263,
+            -0.9929686784744263,
+            -0.9929686784744263,
+            -0.9929686784744263
+          ],
+          "cpu_first_values": [
+            1.0,
+            -0.992968738079071,
+            -0.9507812261581421,
+            -0.936718761920929,
+            -0.922656238079071,
+            -0.9085937738418579,
+            -0.89453125,
+            -0.8804687261581421
+          ],
+          "distinct_values": 39,
+          "unequal_storage_words": 254
+        }
+      ],
+      "observation_status": "COMPLETE"
+    },
+    {
+      "case": "block-0256-neighbors_lo",
+      "observation_errors": [],
+      "arrays": [
+        {
+          "name": "codes",
+          "dtype": "uint8",
+          "shape": [
+            256
+          ],
+          "cpu_dtype": "uint8",
+          "cpu_shape": [
+            256
+          ],
+          "length": 256,
+          "cpu_length": 256,
+          "unequal_values": 253,
+          "first_values": [
+            255,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "cpu_first_values": [
+            255,
+            0,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "distinct_values": 39,
+          "unequal_storage_words": 253
+        },
+        {
+          "name": "second_scales",
+          "dtype": "float32",
+          "shape": [
+            1
+          ],
+          "cpu_dtype": "float32",
+          "cpu_shape": [
+            1
+          ],
+          "length": 1,
+          "cpu_length": 1,
+          "unequal_values": 0,
+          "first_values": [
+            1.0
+          ],
+          "cpu_first_values": [
+            1.0
+          ],
+          "distinct_values": 1,
+          "unequal_storage_words": 0
+        },
+        {
+          "name": "dynamic_map",
+          "dtype": "float32",
+          "shape": [
+            256
+          ],
+          "cpu_dtype": "float32",
+          "cpu_shape": [
+            256
+          ],
+          "length": 256,
+          "cpu_length": 256,
+          "unequal_values": 0,
+          "first_values": [
+            -0.992968738079071,
+            -0.9789062738418579,
+            -0.96484375,
+            -0.9507812261581421,
+            -0.936718761920929,
+            -0.922656238079071,
+            -0.9085937738418579,
+            -0.89453125
+          ],
+          "cpu_first_values": [
+            -0.992968738079071,
+            -0.9789062738418579,
+            -0.96484375,
+            -0.9507812261581421,
+            -0.936718761920929,
+            -0.922656238079071,
+            -0.9085937738418579,
+            -0.89453125
+          ],
+          "distinct_values": 256,
+          "unequal_storage_words": 0
+        },
+        {
+          "name": "decoded",
+          "dtype": "float32",
+          "shape": [
+            256
+          ],
+          "cpu_dtype": "float32",
+          "cpu_shape": [
+            256
+          ],
+          "length": 256,
+          "cpu_length": 256,
+          "unequal_values": 255,
+          "first_values": [
+            1.0,
+            -0.9929686784744263,
+            -0.9929686784744263,
+            -0.9929686784744263,
+            -0.9929686784744263,
+            -0.9929686784744263,
+            -0.9929686784744263,
+            -0.9929686784744263
+          ],
+          "cpu_first_values": [
+            1.0,
+            -0.992968738079071,
+            -0.96484375,
+            -0.9507812261581421,
+            -0.936718761920929,
+            -0.922656238079071,
+            -0.9085937738418579,
+            -0.89453125
+          ],
+          "distinct_values": 39,
+          "unequal_storage_words": 255
+        },
+        {
+          "name": "decoded_out",
+          "dtype": "float32",
+          "shape": [
+            256
+          ],
+          "cpu_dtype": "float32",
+          "cpu_shape": [
+            256
+          ],
+          "length": 256,
+          "cpu_length": 256,
+          "unequal_values": 255,
+          "first_values": [
+            1.0,
+            -0.9929686784744263,
+            -0.9929686784744263,
+            -0.9929686784744263,
+            -0.9929686784744263,
+            -0.9929686784744263,
+            -0.9929686784744263,
+            -0.9929686784744263
+          ],
+          "cpu_first_values": [
+            1.0,
+            -0.992968738079071,
+            -0.96484375,
+            -0.9507812261581421,
+            -0.936718761920929,
+            -0.922656238079071,
+            -0.9085937738418579,
+            -0.89453125
+          ],
+          "distinct_values": 39,
+          "unequal_storage_words": 255
+        }
+      ],
+      "observation_status": "COMPLETE"
+    },
+    {
+      "case": "block-0256-signed_ramp",
+      "observation_errors": [],
+      "arrays": [
+        {
+          "name": "codes",
+          "dtype": "uint8",
+          "shape": [
+            256
+          ],
+          "cpu_dtype": "uint8",
+          "cpu_shape": [
+            256
+          ],
+          "length": 256,
+          "cpu_length": 256,
+          "unequal_values": 253,
+          "first_values": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "cpu_first_values": [
+            0,
+            0,
+            1,
+            1,
+            2,
+            2,
+            3,
+            3
+          ],
+          "distinct_values": 15,
+          "unequal_storage_words": 253
+        },
+        {
+          "name": "second_scales",
+          "dtype": "float32",
+          "shape": [
+            1
+          ],
+          "cpu_dtype": "float32",
+          "cpu_shape": [
+            1
+          ],
+          "length": 1,
+          "cpu_length": 1,
+          "unequal_values": 0,
+          "first_values": [
+            1.0
+          ],
+          "cpu_first_values": [
+            1.0
+          ],
+          "distinct_values": 1,
+          "unequal_storage_words": 0
+        },
+        {
+          "name": "dynamic_map",
+          "dtype": "float32",
+          "shape": [
+            256
+          ],
+          "cpu_dtype": "float32",
+          "cpu_shape": [
+            256
+          ],
+          "length": 256,
+          "cpu_length": 256,
+          "unequal_values": 0,
+          "first_values": [
+            -0.992968738079071,
+            -0.9789062738418579,
+            -0.96484375,
+            -0.9507812261581421,
+            -0.936718761920929,
+            -0.922656238079071,
+            -0.9085937738418579,
+            -0.89453125
+          ],
+          "cpu_first_values": [
+            -0.992968738079071,
+            -0.9789062738418579,
+            -0.96484375,
+            -0.9507812261581421,
+            -0.936718761920929,
+            -0.922656238079071,
+            -0.9085937738418579,
+            -0.89453125
+          ],
+          "distinct_values": 256,
+          "unequal_storage_words": 0
+        },
+        {
+          "name": "decoded",
+          "dtype": "float32",
+          "shape": [
+            256
+          ],
+          "cpu_dtype": "float32",
+          "cpu_shape": [
+            256
+          ],
+          "length": 256,
+          "cpu_length": 256,
+          "unequal_values": 255,
+          "first_values": [
+            -0.9929686784744263,
+            -0.9929686784744263,
+            -0.9929686784744263,
+            -0.9929686784744263,
+            -0.9929686784744263,
+            -0.9929686784744263,
+            -0.9929686784744263,
+            -0.9929686784744263
+          ],
+          "cpu_first_values": [
+            -0.992968738079071,
+            -0.992968738079071,
+            -0.9789062738418579,
+            -0.9789062738418579,
+            -0.96484375,
+            -0.96484375,
+            -0.9507812261581421,
+            -0.9507812261581421
+          ],
+          "distinct_values": 15,
+          "unequal_storage_words": 255
+        },
+        {
+          "name": "decoded_out",
+          "dtype": "float32",
+          "shape": [
+            256
+          ],
+          "cpu_dtype": "float32",
+          "cpu_shape": [
+            256
+          ],
+          "length": 256,
+          "cpu_length": 256,
+          "unequal_values": 255,
+          "first_values": [
+            -0.9929686784744263,
+            -0.9929686784744263,
+            -0.9929686784744263,
+            -0.9929686784744263,
+            -0.9929686784744263,
+            -0.9929686784744263,
+            -0.9929686784744263,
+            -0.9929686784744263
+          ],
+          "cpu_first_values": [
+            -0.992968738079071,
+            -0.992968738079071,
+            -0.9789062738418579,
+            -0.9789062738418579,
+            -0.96484375,
+            -0.96484375,
+            -0.9507812261581421,
+            -0.9507812261581421
+          ],
+          "distinct_values": 15,
+          "unequal_storage_words": 255
+        }
+      ],
+      "observation_status": "COMPLETE"
+    },
+    {
+      "case": "block-0256-ties",
+      "observation_errors": [],
+      "arrays": [
+        {
+          "name": "codes",
+          "dtype": "uint8",
+          "shape": [
+            256
+          ],
+          "cpu_dtype": "uint8",
+          "cpu_shape": [
+            256
+          ],
+          "length": 256,
+          "cpu_length": 256,
+          "unequal_values": 253,
+          "first_values": [
+            255,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "cpu_first_values": [
+            255,
+            0,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "distinct_values": 39,
+          "unequal_storage_words": 253
+        },
+        {
+          "name": "second_scales",
+          "dtype": "float32",
+          "shape": [
+            1
+          ],
+          "cpu_dtype": "float32",
+          "cpu_shape": [
+            1
+          ],
+          "length": 1,
+          "cpu_length": 1,
+          "unequal_values": 0,
+          "first_values": [
+            1.0
+          ],
+          "cpu_first_values": [
+            1.0
+          ],
+          "distinct_values": 1,
+          "unequal_storage_words": 0
+        },
+        {
+          "name": "dynamic_map",
+          "dtype": "float32",
+          "shape": [
+            256
+          ],
+          "cpu_dtype": "float32",
+          "cpu_shape": [
+            256
+          ],
+          "length": 256,
+          "cpu_length": 256,
+          "unequal_values": 0,
+          "first_values": [
+            -0.992968738079071,
+            -0.9789062738418579,
+            -0.96484375,
+            -0.9507812261581421,
+            -0.936718761920929,
+            -0.922656238079071,
+            -0.9085937738418579,
+            -0.89453125
+          ],
+          "cpu_first_values": [
+            -0.992968738079071,
+            -0.9789062738418579,
+            -0.96484375,
+            -0.9507812261581421,
+            -0.936718761920929,
+            -0.922656238079071,
+            -0.9085937738418579,
+            -0.89453125
+          ],
+          "distinct_values": 256,
+          "unequal_storage_words": 0
+        },
+        {
+          "name": "decoded",
+          "dtype": "float32",
+          "shape": [
+            256
+          ],
+          "cpu_dtype": "float32",
+          "cpu_shape": [
+            256
+          ],
+          "length": 256,
+          "cpu_length": 256,
+          "unequal_values": 255,
+          "first_values": [
+            1.0,
+            -0.9929686784744263,
+            -0.9929686784744263,
+            -0.9929686784744263,
+            -0.9929686784744263,
+            -0.9929686784744263,
+            -0.9929686784744263,
+            -0.9929686784744263
+          ],
+          "cpu_first_values": [
+            1.0,
+            -0.992968738079071,
+            -0.96484375,
+            -0.9507812261581421,
+            -0.936718761920929,
+            -0.922656238079071,
+            -0.9085937738418579,
+            -0.89453125
+          ],
+          "distinct_values": 39,
+          "unequal_storage_words": 255
+        },
+        {
+          "name": "decoded_out",
+          "dtype": "float32",
+          "shape": [
+            256
+          ],
+          "cpu_dtype": "float32",
+          "cpu_shape": [
+            256
+          ],
+          "length": 256,
+          "cpu_length": 256,
+          "unequal_values": 255,
+          "first_values": [
+            1.0,
+            -0.9929686784744263,
+            -0.9929686784744263,
+            -0.9929686784744263,
+            -0.9929686784744263,
+            -0.9929686784744263,
+            -0.9929686784744263,
+            -0.9929686784744263
+          ],
+          "cpu_first_values": [
+            1.0,
+            -0.992968738079071,
+            -0.96484375,
+            -0.9507812261581421,
+            -0.936718761920929,
+            -0.922656238079071,
+            -0.9085937738418579,
+            -0.89453125
+          ],
+          "distinct_values": 39,
+          "unequal_storage_words": 255
+        }
+      ],
+      "observation_status": "COMPLETE"
+    },
+    {
+      "case": "block-0256-zero",
+      "observation_errors": [],
+      "arrays": [
+        {
+          "name": "codes",
+          "dtype": "uint8",
+          "shape": [
+            256
+          ],
+          "cpu_dtype": "uint8",
+          "cpu_shape": [
+            256
+          ],
+          "length": 256,
+          "cpu_length": 256,
+          "unequal_values": 256,
+          "first_values": [
+            19,
+            19,
+            19,
+            19,
+            19,
+            19,
+            19,
+            19
+          ],
+          "cpu_first_values": [
+            127,
+            127,
+            127,
+            127,
+            127,
+            127,
+            127,
+            127
+          ],
+          "distinct_values": 1,
+          "unequal_storage_words": 256
+        },
+        {
+          "name": "second_scales",
+          "dtype": "float32",
+          "shape": [
+            1
+          ],
+          "cpu_dtype": "float32",
+          "cpu_shape": [
+            1
+          ],
+          "length": 1,
+          "cpu_length": 1,
+          "unequal_values": 0,
+          "first_values": [
+            0.0
+          ],
+          "cpu_first_values": [
+            0.0
+          ],
+          "distinct_values": 1,
+          "unequal_storage_words": 0
+        },
+        {
+          "name": "dynamic_map",
+          "dtype": "float32",
+          "shape": [
+            256
+          ],
+          "cpu_dtype": "float32",
+          "cpu_shape": [
+            256
+          ],
+          "length": 256,
+          "cpu_length": 256,
+          "unequal_values": 0,
+          "first_values": [
+            -0.992968738079071,
+            -0.9789062738418579,
+            -0.96484375,
+            -0.9507812261581421,
+            -0.936718761920929,
+            -0.922656238079071,
+            -0.9085937738418579,
+            -0.89453125
+          ],
+          "cpu_first_values": [
+            -0.992968738079071,
+            -0.9789062738418579,
+            -0.96484375,
+            -0.9507812261581421,
+            -0.936718761920929,
+            -0.922656238079071,
+            -0.9085937738418579,
+            -0.89453125
+          ],
+          "distinct_values": 256,
+          "unequal_storage_words": 0
+        },
+        {
+          "name": "decoded",
+          "dtype": "float32",
+          "shape": [
+            256
+          ],
+          "cpu_dtype": "float32",
+          "cpu_shape": [
+            256
+          ],
+          "length": 256,
+          "cpu_length": 256,
+          "unequal_values": 0,
+          "first_values": [
+            -0.0,
+            -0.0,
+            -0.0,
+            -0.0,
+            -0.0,
+            -0.0,
+            -0.0,
+            -0.0
+          ],
+          "cpu_first_values": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "distinct_values": 1,
+          "unequal_storage_words": 256
+        },
+        {
+          "name": "decoded_out",
+          "dtype": "float32",
+          "shape": [
+            256
+          ],
+          "cpu_dtype": "float32",
+          "cpu_shape": [
+            256
+          ],
+          "length": 256,
+          "cpu_length": 256,
+          "unequal_values": 0,
+          "first_values": [
+            -0.0,
+            -0.0,
+            -0.0,
+            -0.0,
+            -0.0,
+            -0.0,
+            -0.0,
+            -0.0
+          ],
+          "cpu_first_values": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "distinct_values": 1,
+          "unequal_storage_words": 256
+        }
+      ],
+      "observation_status": "COMPLETE"
+    },
+    {
+      "case": "block-0512-constant",
+      "observation_errors": [],
+      "arrays": [
+        {
+          "name": "codes",
+          "dtype": "uint8",
+          "shape": [
+            512
+          ],
+          "cpu_dtype": "uint8",
+          "cpu_shape": [
+            512
+          ],
+          "length": 512,
+          "cpu_length": 512,
+          "unequal_values": 0,
+          "first_values": [
+            255,
+            255,
+            255,
+            255,
+            255,
+            255,
+            255,
+            255
+          ],
+          "cpu_first_values": [
+            255,
+            255,
+            255,
+            255,
+            255,
+            255,
+            255,
+            255
+          ],
+          "distinct_values": 1,
+          "unequal_storage_words": 0
+        },
+        {
+          "name": "second_scales",
+          "dtype": "float32",
+          "shape": [
+            2
+          ],
+          "cpu_dtype": "float32",
+          "cpu_shape": [
+            2
+          ],
+          "length": 2,
+          "cpu_length": 2,
+          "unequal_values": 0,
+          "first_values": [
+            1.0,
+            1.0
+          ],
+          "cpu_first_values": [
+            1.0,
+            1.0
+          ],
+          "distinct_values": 1,
+          "unequal_storage_words": 0
+        },
+        {
+          "name": "dynamic_map",
+          "dtype": "float32",
+          "shape": [
+            256
+          ],
+          "cpu_dtype": "float32",
+          "cpu_shape": [
+            256
+          ],
+          "length": 256,
+          "cpu_length": 256,
+          "unequal_values": 0,
+          "first_values": [
+            -0.992968738079071,
+            -0.9789062738418579,
+            -0.96484375,
+            -0.9507812261581421,
+            -0.936718761920929,
+            -0.922656238079071,
+            -0.9085937738418579,
+            -0.89453125
+          ],
+          "cpu_first_values": [
+            -0.992968738079071,
+            -0.9789062738418579,
+            -0.96484375,
+            -0.9507812261581421,
+            -0.936718761920929,
+            -0.922656238079071,
+            -0.9085937738418579,
+            -0.89453125
+          ],
+          "distinct_values": 256,
+          "unequal_storage_words": 0
+        },
+        {
+          "name": "decoded",
+          "dtype": "float32",
+          "shape": [
+            512
+          ],
+          "cpu_dtype": "float32",
+          "cpu_shape": [
+            512
+          ],
+          "length": 512,
+          "cpu_length": 512,
+          "unequal_values": 0,
+          "first_values": [
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "cpu_first_values": [
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "distinct_values": 1,
+          "unequal_storage_words": 0
+        },
+        {
+          "name": "decoded_out",
+          "dtype": "float32",
+          "shape": [
+            512
+          ],
+          "cpu_dtype": "float32",
+          "cpu_shape": [
+            512
+          ],
+          "length": 512,
+          "cpu_length": 512,
+          "unequal_values": 0,
+          "first_values": [
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "cpu_first_values": [
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "distinct_values": 1,
+          "unequal_storage_words": 0
+        }
+      ],
+      "observation_status": "COMPLETE"
+    },
+    {
+      "case": "block-0512-neighbors_hi",
+      "observation_errors": [],
+      "arrays": [
+        {
+          "name": "codes",
+          "dtype": "uint8",
+          "shape": [
+            512
+          ],
+          "cpu_dtype": "uint8",
+          "cpu_shape": [
+            512
+          ],
+          "length": 512,
+          "cpu_length": 512,
+          "unequal_values": 506,
+          "first_values": [
+            255,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "cpu_first_values": [
+            255,
+            0,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "distinct_values": 39,
+          "unequal_storage_words": 506
+        },
+        {
+          "name": "second_scales",
+          "dtype": "float32",
+          "shape": [
+            2
+          ],
+          "cpu_dtype": "float32",
+          "cpu_shape": [
+            2
+          ],
+          "length": 2,
+          "cpu_length": 2,
+          "unequal_values": 0,
+          "first_values": [
+            1.0,
+            1.0
+          ],
+          "cpu_first_values": [
+            1.0,
+            1.0
+          ],
+          "distinct_values": 1,
+          "unequal_storage_words": 0
+        },
+        {
+          "name": "dynamic_map",
+          "dtype": "float32",
+          "shape": [
+            256
+          ],
+          "cpu_dtype": "float32",
+          "cpu_shape": [
+            256
+          ],
+          "length": 256,
+          "cpu_length": 256,
+          "unequal_values": 0,
+          "first_values": [
+            -0.992968738079071,
+            -0.9789062738418579,
+            -0.96484375,
+            -0.9507812261581421,
+            -0.936718761920929,
+            -0.922656238079071,
+            -0.9085937738418579,
+            -0.89453125
+          ],
+          "cpu_first_values": [
+            -0.992968738079071,
+            -0.9789062738418579,
+            -0.96484375,
+            -0.9507812261581421,
+            -0.936718761920929,
+            -0.922656238079071,
+            -0.9085937738418579,
+            -0.89453125
+          ],
+          "distinct_values": 256,
+          "unequal_storage_words": 0
+        },
+        {
+          "name": "decoded",
+          "dtype": "float32",
+          "shape": [
+            512
+          ],
+          "cpu_dtype": "float32",
+          "cpu_shape": [
+            512
+          ],
+          "length": 512,
+          "cpu_length": 512,
+          "unequal_values": 508,
+          "first_values": [
+            1.0,
+            -0.9929686784744263,
+            -0.9929686784744263,
+            -0.9929686784744263,
+            -0.9929686784744263,
+            -0.9929686784744263,
+            -0.9929686784744263,
+            -0.9929686784744263
+          ],
+          "cpu_first_values": [
+            1.0,
+            -0.992968738079071,
+            -0.9507812261581421,
+            -0.936718761920929,
+            -0.922656238079071,
+            -0.9085937738418579,
+            -0.89453125,
+            -0.8804687261581421
+          ],
+          "distinct_values": 39,
+          "unequal_storage_words": 508
+        },
+        {
+          "name": "decoded_out",
+          "dtype": "float32",
+          "shape": [
+            512
+          ],
+          "cpu_dtype": "float32",
+          "cpu_shape": [
+            512
+          ],
+          "length": 512,
+          "cpu_length": 512,
+          "unequal_values": 508,
+          "first_values": [
+            1.0,
+            -0.9929686784744263,
+            -0.9929686784744263,
+            -0.9929686784744263,
+            -0.9929686784744263,
+            -0.9929686784744263,
+            -0.9929686784744263,
+            -0.9929686784744263
+          ],
+          "cpu_first_values": [
+            1.0,
+            -0.992968738079071,
+            -0.9507812261581421,
+            -0.936718761920929,
+            -0.922656238079071,
+            -0.9085937738418579,
+            -0.89453125,
+            -0.8804687261581421
+          ],
+          "distinct_values": 39,
+          "unequal_storage_words": 508
+        }
+      ],
+      "observation_status": "COMPLETE"
+    },
+    {
+      "case": "block-0512-neighbors_lo",
+      "observation_errors": [],
+      "arrays": [
+        {
+          "name": "codes",
+          "dtype": "uint8",
+          "shape": [
+            512
+          ],
+          "cpu_dtype": "uint8",
+          "cpu_shape": [
+            512
+          ],
+          "length": 512,
+          "cpu_length": 512,
+          "unequal_values": 506,
+          "first_values": [
+            255,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "cpu_first_values": [
+            255,
+            0,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "distinct_values": 39,
+          "unequal_storage_words": 506
+        },
+        {
+          "name": "second_scales",
+          "dtype": "float32",
+          "shape": [
+            2
+          ],
+          "cpu_dtype": "float32",
+          "cpu_shape": [
+            2
+          ],
+          "length": 2,
+          "cpu_length": 2,
+          "unequal_values": 0,
+          "first_values": [
+            1.0,
+            1.0
+          ],
+          "cpu_first_values": [
+            1.0,
+            1.0
+          ],
+          "distinct_values": 1,
+          "unequal_storage_words": 0
+        },
+        {
+          "name": "dynamic_map",
+          "dtype": "float32",
+          "shape": [
+            256
+          ],
+          "cpu_dtype": "float32",
+          "cpu_shape": [
+            256
+          ],
+          "length": 256,
+          "cpu_length": 256,
+          "unequal_values": 0,
+          "first_values": [
+            -0.992968738079071,
+            -0.9789062738418579,
+            -0.96484375,
+            -0.9507812261581421,
+            -0.936718761920929,
+            -0.922656238079071,
+            -0.9085937738418579,
+            -0.89453125
+          ],
+          "cpu_first_values": [
+            -0.992968738079071,
+            -0.9789062738418579,
+            -0.96484375,
+            -0.9507812261581421,
+            -0.936718761920929,
+            -0.922656238079071,
+            -0.9085937738418579,
+            -0.89453125
+          ],
+          "distinct_values": 256,
+          "unequal_storage_words": 0
+        },
+        {
+          "name": "decoded",
+          "dtype": "float32",
+          "shape": [
+            512
+          ],
+          "cpu_dtype": "float32",
+          "cpu_shape": [
+            512
+          ],
+          "length": 512,
+          "cpu_length": 512,
+          "unequal_values": 510,
+          "first_values": [
+            1.0,
+            -0.9929686784744263,
+            -0.9929686784744263,
+            -0.9929686784744263,
+            -0.9929686784744263,
+            -0.9929686784744263,
+            -0.9929686784744263,
+            -0.9929686784744263
+          ],
+          "cpu_first_values": [
+            1.0,
+            -0.992968738079071,
+            -0.96484375,
+            -0.9507812261581421,
+            -0.936718761920929,
+            -0.922656238079071,
+            -0.9085937738418579,
+            -0.89453125
+          ],
+          "distinct_values": 39,
+          "unequal_storage_words": 510
+        },
+        {
+          "name": "decoded_out",
+          "dtype": "float32",
+          "shape": [
+            512
+          ],
+          "cpu_dtype": "float32",
+          "cpu_shape": [
+            512
+          ],
+          "length": 512,
+          "cpu_length": 512,
+          "unequal_values": 510,
+          "first_values": [
+            1.0,
+            -0.9929686784744263,
+            -0.9929686784744263,
+            -0.9929686784744263,
+            -0.9929686784744263,
+            -0.9929686784744263,
+            -0.9929686784744263,
+            -0.9929686784744263
+          ],
+          "cpu_first_values": [
+            1.0,
+            -0.992968738079071,
+            -0.96484375,
+            -0.9507812261581421,
+            -0.936718761920929,
+            -0.922656238079071,
+            -0.9085937738418579,
+            -0.89453125
+          ],
+          "distinct_values": 39,
+          "unequal_storage_words": 510
+        }
+      ],
+      "observation_status": "COMPLETE"
+    },
+    {
+      "case": "block-0512-signed_ramp",
+      "observation_errors": [],
+      "arrays": [
+        {
+          "name": "codes",
+          "dtype": "uint8",
+          "shape": [
+            512
+          ],
+          "cpu_dtype": "uint8",
+          "cpu_shape": [
+            512
+          ],
+          "length": 512,
+          "cpu_length": 512,
+          "unequal_values": 507,
+          "first_values": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "cpu_first_values": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1
+          ],
+          "distinct_values": 17,
+          "unequal_storage_words": 507
+        },
+        {
+          "name": "second_scales",
+          "dtype": "float32",
+          "shape": [
+            2
+          ],
+          "cpu_dtype": "float32",
+          "cpu_shape": [
+            2
+          ],
+          "length": 2,
+          "cpu_length": 2,
+          "unequal_values": 0,
+          "first_values": [
+            1.0,
+            1.0
+          ],
+          "cpu_first_values": [
+            1.0,
+            1.0
+          ],
+          "distinct_values": 1,
+          "unequal_storage_words": 0
+        },
+        {
+          "name": "dynamic_map",
+          "dtype": "float32",
+          "shape": [
+            256
+          ],
+          "cpu_dtype": "float32",
+          "cpu_shape": [
+            256
+          ],
+          "length": 256,
+          "cpu_length": 256,
+          "unequal_values": 0,
+          "first_values": [
+            -0.992968738079071,
+            -0.9789062738418579,
+            -0.96484375,
+            -0.9507812261581421,
+            -0.936718761920929,
+            -0.922656238079071,
+            -0.9085937738418579,
+            -0.89453125
+          ],
+          "cpu_first_values": [
+            -0.992968738079071,
+            -0.9789062738418579,
+            -0.96484375,
+            -0.9507812261581421,
+            -0.936718761920929,
+            -0.922656238079071,
+            -0.9085937738418579,
+            -0.89453125
+          ],
+          "distinct_values": 256,
+          "unequal_storage_words": 0
+        },
+        {
+          "name": "decoded",
+          "dtype": "float32",
+          "shape": [
+            512
+          ],
+          "cpu_dtype": "float32",
+          "cpu_shape": [
+            512
+          ],
+          "length": 512,
+          "cpu_length": 512,
+          "unequal_values": 511,
+          "first_values": [
+            -0.9929686784744263,
+            -0.9929686784744263,
+            -0.9929686784744263,
+            -0.9929686784744263,
+            -0.9929686784744263,
+            -0.9929686784744263,
+            -0.9929686784744263,
+            -0.9929686784744263
+          ],
+          "cpu_first_values": [
+            -0.992968738079071,
+            -0.992968738079071,
+            -0.992968738079071,
+            -0.992968738079071,
+            -0.9789062738418579,
+            -0.9789062738418579,
+            -0.9789062738418579,
+            -0.9789062738418579
+          ],
+          "distinct_values": 17,
+          "unequal_storage_words": 511
+        },
+        {
+          "name": "decoded_out",
+          "dtype": "float32",
+          "shape": [
+            512
+          ],
+          "cpu_dtype": "float32",
+          "cpu_shape": [
+            512
+          ],
+          "length": 512,
+          "cpu_length": 512,
+          "unequal_values": 511,
+          "first_values": [
+            -0.9929686784744263,
+            -0.9929686784744263,
+            -0.9929686784744263,
+            -0.9929686784744263,
+            -0.9929686784744263,
+            -0.9929686784744263,
+            -0.9929686784744263,
+            -0.9929686784744263
+          ],
+          "cpu_first_values": [
+            -0.992968738079071,
+            -0.992968738079071,
+            -0.992968738079071,
+            -0.992968738079071,
+            -0.9789062738418579,
+            -0.9789062738418579,
+            -0.9789062738418579,
+            -0.9789062738418579
+          ],
+          "distinct_values": 17,
+          "unequal_storage_words": 511
+        }
+      ],
+      "observation_status": "COMPLETE"
+    },
+    {
+      "case": "block-0512-ties",
+      "observation_errors": [],
+      "arrays": [
+        {
+          "name": "codes",
+          "dtype": "uint8",
+          "shape": [
+            512
+          ],
+          "cpu_dtype": "uint8",
+          "cpu_shape": [
+            512
+          ],
+          "length": 512,
+          "cpu_length": 512,
+          "unequal_values": 506,
+          "first_values": [
+            255,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "cpu_first_values": [
+            255,
+            0,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "distinct_values": 39,
+          "unequal_storage_words": 506
+        },
+        {
+          "name": "second_scales",
+          "dtype": "float32",
+          "shape": [
+            2
+          ],
+          "cpu_dtype": "float32",
+          "cpu_shape": [
+            2
+          ],
+          "length": 2,
+          "cpu_length": 2,
+          "unequal_values": 0,
+          "first_values": [
+            1.0,
+            1.0
+          ],
+          "cpu_first_values": [
+            1.0,
+            1.0
+          ],
+          "distinct_values": 1,
+          "unequal_storage_words": 0
+        },
+        {
+          "name": "dynamic_map",
+          "dtype": "float32",
+          "shape": [
+            256
+          ],
+          "cpu_dtype": "float32",
+          "cpu_shape": [
+            256
+          ],
+          "length": 256,
+          "cpu_length": 256,
+          "unequal_values": 0,
+          "first_values": [
+            -0.992968738079071,
+            -0.9789062738418579,
+            -0.96484375,
+            -0.9507812261581421,
+            -0.936718761920929,
+            -0.922656238079071,
+            -0.9085937738418579,
+            -0.89453125
+          ],
+          "cpu_first_values": [
+            -0.992968738079071,
+            -0.9789062738418579,
+            -0.96484375,
+            -0.9507812261581421,
+            -0.936718761920929,
+            -0.922656238079071,
+            -0.9085937738418579,
+            -0.89453125
+          ],
+          "distinct_values": 256,
+          "unequal_storage_words": 0
+        },
+        {
+          "name": "decoded",
+          "dtype": "float32",
+          "shape": [
+            512
+          ],
+          "cpu_dtype": "float32",
+          "cpu_shape": [
+            512
+          ],
+          "length": 512,
+          "cpu_length": 512,
+          "unequal_values": 510,
+          "first_values": [
+            1.0,
+            -0.9929686784744263,
+            -0.9929686784744263,
+            -0.9929686784744263,
+            -0.9929686784744263,
+            -0.9929686784744263,
+            -0.9929686784744263,
+            -0.9929686784744263
+          ],
+          "cpu_first_values": [
+            1.0,
+            -0.992968738079071,
+            -0.96484375,
+            -0.9507812261581421,
+            -0.936718761920929,
+            -0.922656238079071,
+            -0.9085937738418579,
+            -0.89453125
+          ],
+          "distinct_values": 39,
+          "unequal_storage_words": 510
+        },
+        {
+          "name": "decoded_out",
+          "dtype": "float32",
+          "shape": [
+            512
+          ],
+          "cpu_dtype": "float32",
+          "cpu_shape": [
+            512
+          ],
+          "length": 512,
+          "cpu_length": 512,
+          "unequal_values": 510,
+          "first_values": [
+            1.0,
+            -0.9929686784744263,
+            -0.9929686784744263,
+            -0.9929686784744263,
+            -0.9929686784744263,
+            -0.9929686784744263,
+            -0.9929686784744263,
+            -0.9929686784744263
+          ],
+          "cpu_first_values": [
+            1.0,
+            -0.992968738079071,
+            -0.96484375,
+            -0.9507812261581421,
+            -0.936718761920929,
+            -0.922656238079071,
+            -0.9085937738418579,
+            -0.89453125
+          ],
+          "distinct_values": 39,
+          "unequal_storage_words": 510
+        }
+      ],
+      "observation_status": "COMPLETE"
+    },
+    {
+      "case": "block-0512-zero",
+      "observation_errors": [],
+      "arrays": [
+        {
+          "name": "codes",
+          "dtype": "uint8",
+          "shape": [
+            512
+          ],
+          "cpu_dtype": "uint8",
+          "cpu_shape": [
+            512
+          ],
+          "length": 512,
+          "cpu_length": 512,
+          "unequal_values": 512,
+          "first_values": [
+            19,
+            19,
+            19,
+            19,
+            19,
+            19,
+            19,
+            19
+          ],
+          "cpu_first_values": [
+            127,
+            127,
+            127,
+            127,
+            127,
+            127,
+            127,
+            127
+          ],
+          "distinct_values": 1,
+          "unequal_storage_words": 512
+        },
+        {
+          "name": "second_scales",
+          "dtype": "float32",
+          "shape": [
+            2
+          ],
+          "cpu_dtype": "float32",
+          "cpu_shape": [
+            2
+          ],
+          "length": 2,
+          "cpu_length": 2,
+          "unequal_values": 0,
+          "first_values": [
+            0.0,
+            0.0
+          ],
+          "cpu_first_values": [
+            0.0,
+            0.0
+          ],
+          "distinct_values": 1,
+          "unequal_storage_words": 0
+        },
+        {
+          "name": "dynamic_map",
+          "dtype": "float32",
+          "shape": [
+            256
+          ],
+          "cpu_dtype": "float32",
+          "cpu_shape": [
+            256
+          ],
+          "length": 256,
+          "cpu_length": 256,
+          "unequal_values": 0,
+          "first_values": [
+            -0.992968738079071,
+            -0.9789062738418579,
+            -0.96484375,
+            -0.9507812261581421,
+            -0.936718761920929,
+            -0.922656238079071,
+            -0.9085937738418579,
+            -0.89453125
+          ],
+          "cpu_first_values": [
+            -0.992968738079071,
+            -0.9789062738418579,
+            -0.96484375,
+            -0.9507812261581421,
+            -0.936718761920929,
+            -0.922656238079071,
+            -0.9085937738418579,
+            -0.89453125
+          ],
+          "distinct_values": 256,
+          "unequal_storage_words": 0
+        },
+        {
+          "name": "decoded",
+          "dtype": "float32",
+          "shape": [
+            512
+          ],
+          "cpu_dtype": "float32",
+          "cpu_shape": [
+            512
+          ],
+          "length": 512,
+          "cpu_length": 512,
+          "unequal_values": 0,
+          "first_values": [
+            -0.0,
+            -0.0,
+            -0.0,
+            -0.0,
+            -0.0,
+            -0.0,
+            -0.0,
+            -0.0
+          ],
+          "cpu_first_values": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "distinct_values": 1,
+          "unequal_storage_words": 512
+        },
+        {
+          "name": "decoded_out",
+          "dtype": "float32",
+          "shape": [
+            512
+          ],
+          "cpu_dtype": "float32",
+          "cpu_shape": [
+            512
+          ],
+          "length": 512,
+          "cpu_length": 512,
+          "unequal_values": 0,
+          "first_values": [
+            -0.0,
+            -0.0,
+            -0.0,
+            -0.0,
+            -0.0,
+            -0.0,
+            -0.0,
+            -0.0
+          ],
+          "cpu_first_values": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "distinct_values": 1,
+          "unequal_storage_words": 512
+        }
+      ],
+      "observation_status": "COMPLETE"
+    },
+    {
+      "case": "nested-16384-float32",
+      "observation_errors": [
+        {
+          "record": "001",
+          "reason": "COMPOSITE_CAPTURE_DTYPE"
+        },
+        {
+          "record": "002",
+          "reason": "COMPOSITE_CAPTURE_DTYPE"
+        },
+        {
+          "record": "003",
+          "reason": "COMPOSITE_CAPTURE_DTYPE"
+        },
+        {
+          "record": "004",
+          "reason": "COMPOSITE_CAPTURE_DTYPE"
+        }
+      ],
+      "arrays": [
+        {
+          "name": "packed",
+          "dtype": "uint8",
+          "shape": [
+            8192,
+            1
+          ],
+          "cpu_dtype": "uint8",
+          "cpu_shape": [
+            8192,
+            1
+          ],
+          "length": 8192,
+          "cpu_length": 8192,
+          "unequal_values": 7654,
+          "first_values": [
+            85,
+            85,
+            85,
+            85,
+            85,
+            85,
+            85,
+            85
+          ],
+          "cpu_first_values": [
+            119,
+            119,
+            119,
+            119,
+            119,
+            119,
+            119,
+            119
+          ],
+          "distinct_values": 11,
+          "unequal_storage_words": 7654
+        },
+        {
+          "name": "scale_codes",
+          "dtype": "uint8",
+          "shape": [
+            256
+          ],
+          "cpu_dtype": "uint8",
+          "cpu_shape": [
+            256
+          ],
+          "length": 256,
+          "cpu_length": 256,
+          "unequal_values": 220,
+          "first_values": [
+            19,
+            253,
+            254,
+            254,
+            255,
+            255,
+            255,
+            19
+          ],
+          "cpu_first_values": [
+            1,
+            24,
+            48,
+            155,
+            207,
+            231,
+            255,
+            1
+          ],
+          "distinct_values": 4,
+          "unequal_storage_words": 220
+        },
+        {
+          "name": "offset",
+          "dtype": "float32",
+          "shape": [],
+          "cpu_dtype": "float32",
+          "cpu_shape": [],
+          "length": 1,
+          "cpu_length": 1,
+          "unequal_values": 1,
+          "first_values": [
+            0.0
+          ],
+          "cpu_first_values": [
+            0.9921875
+          ],
+          "distinct_values": 1,
+          "unequal_storage_words": 1
+        },
+        {
+          "name": "second_scales",
+          "dtype": "float32",
+          "shape": [
+            1
+          ],
+          "cpu_dtype": "float32",
+          "cpu_shape": [
+            1
+          ],
+          "length": 1,
+          "cpu_length": 1,
+          "unequal_values": 1,
+          "first_values": [
+            2.0
+          ],
+          "cpu_first_values": [
+            1.0078125
+          ],
+          "distinct_values": 1,
+          "unequal_storage_words": 1
+        },
+        {
+          "name": "dynamic_map",
+          "dtype": "float32",
+          "shape": [
+            256
+          ],
+          "cpu_dtype": "float32",
+          "cpu_shape": [
+            256
+          ],
+          "length": 256,
+          "cpu_length": 256,
+          "unequal_values": 0,
+          "first_values": [
+            -0.992968738079071,
+            -0.9789062738418579,
+            -0.96484375,
+            -0.9507812261581421,
+            -0.936718761920929,
+            -0.922656238079071,
+            -0.9085937738418579,
+            -0.89453125
+          ],
+          "cpu_first_values": [
+            -0.992968738079071,
+            -0.9789062738418579,
+            -0.96484375,
+            -0.9507812261581421,
+            -0.936718761920929,
+            -0.922656238079071,
+            -0.9085937738418579,
+            -0.89453125
+          ],
+          "distinct_values": 256,
+          "unequal_storage_words": 0
+        },
+        {
+          "name": "nf4_map",
+          "dtype": "float32",
+          "shape": [
+            16
+          ],
+          "cpu_dtype": "float32",
+          "cpu_shape": [
+            16
+          ],
+          "length": 16,
+          "cpu_length": 16,
+          "unequal_values": 0,
+          "first_values": [
+            -1.0,
+            -0.6961928009986877,
+            -0.5250730514526367,
+            -0.39491748809814453,
+            -0.28444138169288635,
+            -0.18477343022823334,
+            -0.09105003625154495,
+            0.0
+          ],
+          "cpu_first_values": [
+            -1.0,
+            -0.6961928009986877,
+            -0.5250730514526367,
+            -0.39491748809814453,
+            -0.28444138169288635,
+            -0.18477343022823334,
+            -0.09105003625154495,
+            0.0
+          ],
+          "distinct_values": 16,
+          "unequal_storage_words": 0
+        },
+        {
+          "name": "restored_scales",
+          "dtype": "float32",
+          "shape": [
+            256
+          ],
+          "cpu_dtype": "float32",
+          "cpu_shape": [
+            256
+          ],
+          "length": 256,
+          "cpu_length": 256,
+          "unequal_values": 220,
+          "first_values": [
+            -1.4515624046325684,
+            1.9578125476837158,
+            1.9859373569488525,
+            1.9859373569488525,
+            2.0,
+            2.0,
+            2.0,
+            -1.4515624046325684
+          ],
+          "cpu_first_values": [
+            0.005633533000946045,
+            0.33159786462783813,
+            0.671734631061554,
+            1.0002814531326294,
+            1.326812744140625,
+            1.6669495105743408,
+            2.0,
+            0.005633533000946045
+          ],
+          "distinct_values": 4,
+          "unequal_storage_words": 220
+        },
+        {
+          "name": "decoded",
+          "dtype": "float32",
+          "shape": [
+            1,
+            16384
+          ],
+          "cpu_dtype": "float32",
+          "cpu_shape": [
+            1,
+            16384
+          ],
+          "length": 16384,
+          "cpu_length": 16384,
+          "unequal_values": 16029,
+          "first_values": [
+            0.26821017265319824,
+            0.26821017265319824,
+            0.26821017265319824,
+            0.26821017265319824,
+            0.26821017265319824,
+            0.26821017265319824,
+            0.26821017265319824,
+            0.26821017265319824
+          ],
+          "cpu_first_values": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "distinct_values": 22,
+          "unequal_storage_words": 16029
+        },
+        {
+          "name": "decoded_out",
+          "dtype": "float32",
+          "shape": [
+            1,
+            16384
+          ],
+          "cpu_dtype": "float32",
+          "cpu_shape": [
+            1,
+            16384
+          ],
+          "length": 16384,
+          "cpu_length": 16384,
+          "unequal_values": 16029,
+          "first_values": [
+            0.26821017265319824,
+            0.26821017265319824,
+            0.26821017265319824,
+            0.26821017265319824,
+            0.26821017265319824,
+            0.26821017265319824,
+            0.26821017265319824,
+            0.26821017265319824
+          ],
+          "cpu_first_values": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "distinct_values": 22,
+          "unequal_storage_words": 16029
+        }
+      ],
+      "observation_status": "ERROR"
+    },
+    {
+      "case": "nested-32768-float32",
+      "observation_errors": [
+        {
+          "record": "001",
+          "reason": "COMPOSITE_CAPTURE_DTYPE"
+        },
+        {
+          "record": "001",
+          "reason": "EVIDENCE_LIMIT:OBJECT_RAW_SIZE"
+        }
+      ],
+      "arrays": [
+        {
+          "name": "packed",
+          "dtype": "uint8",
+          "shape": [
+            16384,
+            1
+          ],
+          "cpu_dtype": "uint8",
+          "cpu_shape": [
+            16384,
+            1
+          ],
+          "length": 16384,
+          "cpu_length": 16384,
+          "unequal_values": 15306,
+          "first_values": [
+            85,
+            85,
+            85,
+            85,
+            85,
+            85,
+            85,
+            85
+          ],
+          "cpu_first_values": [
+            119,
+            119,
+            119,
+            119,
+            119,
+            119,
+            119,
+            119
+          ],
+          "distinct_values": 11,
+          "unequal_storage_words": 15306
+        },
+        {
+          "name": "scale_codes",
+          "dtype": "uint8",
+          "shape": [
+            512
+          ],
+          "cpu_dtype": "uint8",
+          "cpu_shape": [
+            512
+          ],
+          "length": 512,
+          "cpu_length": 512,
+          "unequal_values": 439,
+          "first_values": [
+            8,
+            253,
+            254,
+            254,
+            255,
+            255,
+            255,
+            8
+          ],
+          "cpu_first_values": [
+            0,
+            23,
+            47,
+            144,
+            207,
+            231,
+            255,
+            0
+          ],
+          "distinct_values": 4,
+          "unequal_storage_words": 439
+        },
+        {
+          "name": "offset",
+          "dtype": "float32",
+          "shape": [],
+          "cpu_dtype": "float32",
+          "cpu_shape": [],
+          "length": 1,
+          "cpu_length": 1,
+          "unequal_values": 1,
+          "first_values": [
+            0.00390625
+          ],
+          "cpu_first_values": [
+            0.998046875
+          ],
+          "distinct_values": 1,
+          "unequal_storage_words": 1
+        },
+        {
+          "name": "second_scales",
+          "dtype": "float32",
+          "shape": [
+            2
+          ],
+          "cpu_dtype": "float32",
+          "cpu_shape": [
+            2
+          ],
+          "length": 2,
+          "cpu_length": 2,
+          "unequal_values": 2,
+          "first_values": [
+            2.0,
+            2.0
+          ],
+          "cpu_first_values": [
+            1.001953125,
+            1.001953125
+          ],
+          "distinct_values": 1,
+          "unequal_storage_words": 2
+        },
+        {
+          "name": "dynamic_map",
+          "dtype": "float32",
+          "shape": [
+            256
+          ],
+          "cpu_dtype": "float32",
+          "cpu_shape": [
+            256
+          ],
+          "length": 256,
+          "cpu_length": 256,
+          "unequal_values": 0,
+          "first_values": [
+            -0.992968738079071,
+            -0.9789062738418579,
+            -0.96484375,
+            -0.9507812261581421,
+            -0.936718761920929,
+            -0.922656238079071,
+            -0.9085937738418579,
+            -0.89453125
+          ],
+          "cpu_first_values": [
+            -0.992968738079071,
+            -0.9789062738418579,
+            -0.96484375,
+            -0.9507812261581421,
+            -0.936718761920929,
+            -0.922656238079071,
+            -0.9085937738418579,
+            -0.89453125
+          ],
+          "distinct_values": 256,
+          "unequal_storage_words": 0
+        },
+        {
+          "name": "nf4_map",
+          "dtype": "float32",
+          "shape": [
+            16
+          ],
+          "cpu_dtype": "float32",
+          "cpu_shape": [
+            16
+          ],
+          "length": 16,
+          "cpu_length": 16,
+          "unequal_values": 0,
+          "first_values": [
+            -1.0,
+            -0.6961928009986877,
+            -0.5250730514526367,
+            -0.39491748809814453,
+            -0.28444138169288635,
+            -0.18477343022823334,
+            -0.09105003625154495,
+            0.0
+          ],
+          "cpu_first_values": [
+            -1.0,
+            -0.6961928009986877,
+            -0.5250730514526367,
+            -0.39491748809814453,
+            -0.28444138169288635,
+            -0.18477343022823334,
+            -0.09105003625154495,
+            0.0
+          ],
+          "distinct_values": 16,
+          "unequal_storage_words": 0
+        },
+        {
+          "name": "restored_scales",
+          "dtype": "float32",
+          "shape": [
+            512
+          ],
+          "cpu_dtype": "float32",
+          "cpu_shape": [
+            512
+          ],
+          "length": 512,
+          "cpu_length": 512,
+          "unequal_values": 439,
+          "first_values": [
+            -1.7609374523162842,
+            1.9578125476837158,
+            1.9859373569488525,
+            1.9859373569488525,
+            2.0,
+            2.0,
+            2.0,
+            -1.7609374523162842
+          ],
+          "cpu_first_values": [
+            0.003138720989227295,
+            0.3272079825401306,
+            0.6653671264648438,
+            0.9998942017555237,
+            1.3307266235351562,
+            1.6688857078552246,
+            2.0,
+            0.003138720989227295
+          ],
+          "distinct_values": 4,
+          "unequal_storage_words": 439
+        },
+        {
+          "name": "decoded",
+          "dtype": "float32",
+          "shape": [
+            1,
+            32768
+          ],
+          "cpu_dtype": "float32",
+          "cpu_shape": [
+            1,
+            32768
+          ],
+          "length": 32768,
+          "cpu_length": 32768,
+          "unequal_values": 32049,
+          "first_values": [
+            0.32537445425987244,
+            0.32537445425987244,
+            0.32537445425987244,
+            0.32537445425987244,
+            0.32537445425987244,
+            0.32537445425987244,
+            0.32537445425987244,
+            0.32537445425987244
+          ],
+          "cpu_first_values": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "distinct_values": 22,
+          "unequal_storage_words": 32049
+        },
+        {
+          "name": "decoded_out",
+          "dtype": "float32",
+          "shape": [
+            1,
+            32768
+          ],
+          "cpu_dtype": "float32",
+          "cpu_shape": [
+            1,
+            32768
+          ],
+          "length": 32768,
+          "cpu_length": 32768,
+          "unequal_values": 32049,
+          "first_values": [
+            0.32537445425987244,
+            0.32537445425987244,
+            0.32537445425987244,
+            0.32537445425987244,
+            0.32537445425987244,
+            0.32537445425987244,
+            0.32537445425987244,
+            0.32537445425987244
+          ],
+          "cpu_first_values": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "distinct_values": 22,
+          "unequal_storage_words": 32049
+        }
+      ],
+      "observation_status": "ERROR"
+    }
+  ],
+  "traces": [
+    {
+      "logical_file": "trace/nested-00001-float32/001/raw.json",
+      "status": "ERROR",
+      "error_type": "ValueError",
+      "error_message": "FIXED_FIRST_SCALE_DOMAIN",
+      "schema_name": "bnb_tpu_exact::compress_statistics",
+      "parameter_shapes": [],
+      "output_shapes": [],
+      "frames": []
+    },
+    {
+      "logical_file": "trace/nested-00064-float32/001/raw.json",
+      "status": "ERROR",
+      "error_type": "ValueError",
+      "error_message": "COMPOSITE_CAPTURE_DTYPE",
+      "schema_name": "bnb_tpu_exact::compress_statistics",
+      "parameter_shapes": [],
+      "output_shapes": [],
+      "frames": [
+        {
+          "source": "functionalization.py",
+          "source_sha256": "0b31b2d86e7dd4aa10629e236fa1c0c18518eb5a3fb565714a9e40f432c2c93e",
+          "function": "wrapped",
+          "line": 14,
+          "inputs": [
+            {
+              "shape": [
+                1
+              ],
+              "dtype": "float32",
+              "device": "xla:0",
+              "native_functional": false
+            },
+            {
+              "shape": [
+                256
+              ],
+              "dtype": "float32",
+              "device": "xla:0",
+              "native_functional": false
+            }
+          ],
+          "status": "RETURN",
+          "outputs": [
+            {
+              "shape": [
+                1
+              ],
+              "dtype": "uint8",
+              "device": "xla:0",
+              "native_functional": false
+            },
+            {
+              "shape": [],
+              "dtype": "float32",
+              "device": "xla:0",
+              "native_functional": false
+            },
+            {
+              "shape": [
+                1,
+                1
+              ],
+              "dtype": "float32",
+              "device": "xla:0",
+              "native_functional": false
+            }
+          ]
+        },
+        {
+          "source": "exact.py",
+          "source_sha256": "0b9965a0c98a8e62ea4119e48e4bfb0f69a4b92c0efa5a9ba58ba02a3b960846",
+          "function": "compress_statistics",
+          "line": 116,
+          "inputs": [
+            {
+              "shape": [
+                1
+              ],
+              "dtype": "float32",
+              "device": "xla:0",
+              "native_functional": true
+            },
+            {
+              "shape": [
+                256
+              ],
+              "dtype": "float32",
+              "device": "xla:0",
+              "native_functional": true
+            }
+          ],
+          "status": "RETURN",
+          "outputs": [
+            {
+              "shape": [
+                1
+              ],
+              "dtype": "uint8",
+              "device": "xla:0",
+              "native_functional": true
+            },
+            {
+              "shape": [],
+              "dtype": "float32",
+              "device": "xla:0",
+              "native_functional": true
+            },
+            {
+              "shape": [
+                1,
+                1
+              ],
+              "dtype": "float32",
+              "device": "xla:0",
+              "native_functional": true
+            }
+          ]
+        },
+        {
+          "source": "exact.py",
+          "source_sha256": "0b9965a0c98a8e62ea4119e48e4bfb0f69a4b92c0efa5a9ba58ba02a3b960846",
+          "function": "bitcast",
+          "line": 21,
+          "inputs": [
+            {
+              "shape": [
+                1
+              ],
+              "dtype": "float32",
+              "device": "xla:0",
+              "native_functional": true
+            }
+          ],
+          "status": "RETURN",
+          "outputs": [
+            {
+              "shape": [
+                1
+              ],
+              "dtype": "int32",
+              "device": "xla:0",
+              "native_functional": true
+            }
+          ]
+        },
+        {
+          "source": "exact.py",
+          "source_sha256": "0b9965a0c98a8e62ea4119e48e4bfb0f69a4b92c0efa5a9ba58ba02a3b960846",
+          "function": "bitcast",
+          "line": 21,
+          "inputs": [
+            {
+              "shape": [
+                256
+              ],
+              "dtype": "float32",
+              "device": "xla:0",
+              "native_functional": true
+            }
+          ],
+          "status": "RETURN",
+          "outputs": [
+            {
+              "shape": [
+                256
+              ],
+              "dtype": "int32",
+              "device": "xla:0",
+              "native_functional": true
+            }
+          ]
+        },
+        {
+          "source": "exact.py",
+          "source_sha256": "0b9965a0c98a8e62ea4119e48e4bfb0f69a4b92c0efa5a9ba58ba02a3b960846",
+          "function": "bitcast",
+          "line": 21,
+          "inputs": [
+            {
+              "shape": [],
+              "dtype": "int32",
+              "device": "xla:0",
+              "native_functional": true
+            }
+          ],
+          "status": "RETURN",
+          "outputs": [
+            {
+              "shape": [],
+              "dtype": "float32",
+              "device": "xla:0",
+              "native_functional": true
+            }
+          ]
+        },
+        {
+          "source": "exact.py",
+          "source_sha256": "0b9965a0c98a8e62ea4119e48e4bfb0f69a4b92c0efa5a9ba58ba02a3b960846",
+          "function": "bitcast",
+          "line": 21,
+          "inputs": [
+            {
+              "shape": [
+                1,
+                1
+              ],
+              "dtype": "int32",
+              "device": "xla:0",
+              "native_functional": true
+            }
+          ],
+          "status": "RETURN",
+          "outputs": [
+            {
+              "shape": [
+                1,
+                1
+              ],
+              "dtype": "float32",
+              "device": "xla:0",
+              "native_functional": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "logical_file": "trace/nested-00064-float32/002/raw.json",
+      "status": "ERROR",
+      "error_type": "ValueError",
+      "error_message": "SECOND_SCALES_REQUIRED",
+      "schema_name": "bnb_tpu_exact::restore_scales",
+      "parameter_shapes": [],
+      "output_shapes": [],
+      "frames": []
+    },
+    {
+      "logical_file": "trace/nested-16320-float32/001/raw.json",
+      "status": "ERROR",
+      "error_type": "ValueError",
+      "error_message": "COMPOSITE_CAPTURE_DTYPE",
+      "schema_name": "bnb_tpu_exact::compress_statistics",
+      "parameter_shapes": [],
+      "output_shapes": [],
+      "frames": [
+        {
+          "source": "functionalization.py",
+          "source_sha256": "0b31b2d86e7dd4aa10629e236fa1c0c18518eb5a3fb565714a9e40f432c2c93e",
+          "function": "wrapped",
+          "line": 14,
+          "inputs": [
+            {
+              "shape": [
+                255
+              ],
+              "dtype": "float32",
+              "device": "xla:0",
+              "native_functional": false
+            },
+            {
+              "shape": [
+                256
+              ],
+              "dtype": "float32",
+              "device": "xla:0",
+              "native_functional": false
+            }
+          ],
+          "status": "RETURN",
+          "outputs": [
+            {
+              "shape": [
+                255
+              ],
+              "dtype": "uint8",
+              "device": "xla:0",
+              "native_functional": false
+            },
+            {
+              "shape": [],
+              "dtype": "float32",
+              "device": "xla:0",
+              "native_functional": false
+            },
+            {
+              "shape": [
+                1,
+                255
+              ],
+              "dtype": "float32",
+              "device": "xla:0",
+              "native_functional": false
+            }
+          ]
+        },
+        {
+          "source": "exact.py",
+          "source_sha256": "0b9965a0c98a8e62ea4119e48e4bfb0f69a4b92c0efa5a9ba58ba02a3b960846",
+          "function": "compress_statistics",
+          "line": 116,
+          "inputs": [
+            {
+              "shape": [
+                255
+              ],
+              "dtype": "float32",
+              "device": "xla:0",
+              "native_functional": true
+            },
+            {
+              "shape": [
+                256
+              ],
+              "dtype": "float32",
+              "device": "xla:0",
+              "native_functional": true
+            }
+          ],
+          "status": "RETURN",
+          "outputs": [
+            {
+              "shape": [
+                255
+              ],
+              "dtype": "uint8",
+              "device": "xla:0",
+              "native_functional": true
+            },
+            {
+              "shape": [],
+              "dtype": "float32",
+              "device": "xla:0",
+              "native_functional": true
+            },
+            {
+              "shape": [
+                1,
+                255
+              ],
+              "dtype": "float32",
+              "device": "xla:0",
+              "native_functional": true
+            }
+          ]
+        },
+        {
+          "source": "exact.py",
+          "source_sha256": "0b9965a0c98a8e62ea4119e48e4bfb0f69a4b92c0efa5a9ba58ba02a3b960846",
+          "function": "bitcast",
+          "line": 21,
+          "inputs": [
+            {
+              "shape": [
+                255
+              ],
+              "dtype": "float32",
+              "device": "xla:0",
+              "native_functional": true
+            }
+          ],
+          "status": "RETURN",
+          "outputs": [
+            {
+              "shape": [
+                255
+              ],
+              "dtype": "int32",
+              "device": "xla:0",
+              "native_functional": true
+            }
+          ]
+        },
+        {
+          "source": "exact.py",
+          "source_sha256": "0b9965a0c98a8e62ea4119e48e4bfb0f69a4b92c0efa5a9ba58ba02a3b960846",
+          "function": "bitcast",
+          "line": 21,
+          "inputs": [
+            {
+              "shape": [
+                256
+              ],
+              "dtype": "float32",
+              "device": "xla:0",
+              "native_functional": true
+            }
+          ],
+          "status": "RETURN",
+          "outputs": [
+            {
+              "shape": [
+                256
+              ],
+              "dtype": "int32",
+              "device": "xla:0",
+              "native_functional": true
+            }
+          ]
+        },
+        {
+          "source": "exact.py",
+          "source_sha256": "0b9965a0c98a8e62ea4119e48e4bfb0f69a4b92c0efa5a9ba58ba02a3b960846",
+          "function": "bitcast",
+          "line": 21,
+          "inputs": [
+            {
+              "shape": [],
+              "dtype": "int32",
+              "device": "xla:0",
+              "native_functional": true
+            }
+          ],
+          "status": "RETURN",
+          "outputs": [
+            {
+              "shape": [],
+              "dtype": "float32",
+              "device": "xla:0",
+              "native_functional": true
+            }
+          ]
+        },
+        {
+          "source": "exact.py",
+          "source_sha256": "0b9965a0c98a8e62ea4119e48e4bfb0f69a4b92c0efa5a9ba58ba02a3b960846",
+          "function": "bitcast",
+          "line": 21,
+          "inputs": [
+            {
+              "shape": [
+                1,
+                255
+              ],
+              "dtype": "int32",
+              "device": "xla:0",
+              "native_functional": true
+            }
+          ],
+          "status": "RETURN",
+          "outputs": [
+            {
+              "shape": [
+                1,
+                255
+              ],
+              "dtype": "float32",
+              "device": "xla:0",
+              "native_functional": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "logical_file": "trace/nested-16320-float32/002/raw.json",
+      "status": "ERROR",
+      "error_type": "ValueError",
+      "error_message": "SECOND_SCALES_REQUIRED",
+      "schema_name": "bnb_tpu_exact::restore_scales",
+      "parameter_shapes": [],
+      "output_shapes": [],
+      "frames": []
+    },
+    {
+      "logical_file": "trace/nested-16384-float32/001/raw.json",
+      "status": "ERROR",
+      "error_type": "ValueError",
+      "error_message": "COMPOSITE_CAPTURE_DTYPE",
+      "schema_name": "bnb_tpu_exact::compress_statistics",
+      "parameter_shapes": [],
+      "output_shapes": [],
+      "frames": [
+        {
+          "source": "functionalization.py",
+          "source_sha256": "0b31b2d86e7dd4aa10629e236fa1c0c18518eb5a3fb565714a9e40f432c2c93e",
+          "function": "wrapped",
+          "line": 14,
+          "inputs": [
+            {
+              "shape": [
+                256
+              ],
+              "dtype": "float32",
+              "device": "xla:0",
+              "native_functional": false
+            },
+            {
+              "shape": [
+                256
+              ],
+              "dtype": "float32",
+              "device": "xla:0",
+              "native_functional": false
+            }
+          ],
+          "status": "RETURN",
+          "outputs": [
+            {
+              "shape": [
+                256
+              ],
+              "dtype": "uint8",
+              "device": "xla:0",
+              "native_functional": false
+            },
+            {
+              "shape": [],
+              "dtype": "float32",
+              "device": "xla:0",
+              "native_functional": false
+            },
+            {
+              "shape": [
+                1
+              ],
+              "dtype": "float32",
+              "device": "xla:0",
+              "native_functional": false
+            }
+          ]
+        },
+        {
+          "source": "exact.py",
+          "source_sha256": "0b9965a0c98a8e62ea4119e48e4bfb0f69a4b92c0efa5a9ba58ba02a3b960846",
+          "function": "compress_statistics",
+          "line": 116,
+          "inputs": [
+            {
+              "shape": [
+                256
+              ],
+              "dtype": "float32",
+              "device": "xla:0",
+              "native_functional": true
+            },
+            {
+              "shape": [
+                256
+              ],
+              "dtype": "float32",
+              "device": "xla:0",
+              "native_functional": true
+            }
+          ],
+          "status": "RETURN",
+          "outputs": [
+            {
+              "shape": [
+                256
+              ],
+              "dtype": "uint8",
+              "device": "xla:0",
+              "native_functional": true
+            },
+            {
+              "shape": [],
+              "dtype": "float32",
+              "device": "xla:0",
+              "native_functional": true
+            },
+            {
+              "shape": [
+                1
+              ],
+              "dtype": "float32",
+              "device": "xla:0",
+              "native_functional": true
+            }
+          ]
+        },
+        {
+          "source": "exact.py",
+          "source_sha256": "0b9965a0c98a8e62ea4119e48e4bfb0f69a4b92c0efa5a9ba58ba02a3b960846",
+          "function": "bitcast",
+          "line": 21,
+          "inputs": [
+            {
+              "shape": [
+                256
+              ],
+              "dtype": "float32",
+              "device": "xla:0",
+              "native_functional": true
+            }
+          ],
+          "status": "RETURN",
+          "outputs": [
+            {
+              "shape": [
+                256
+              ],
+              "dtype": "int32",
+              "device": "xla:0",
+              "native_functional": true
+            }
+          ]
+        },
+        {
+          "source": "exact.py",
+          "source_sha256": "0b9965a0c98a8e62ea4119e48e4bfb0f69a4b92c0efa5a9ba58ba02a3b960846",
+          "function": "bitcast",
+          "line": 21,
+          "inputs": [
+            {
+              "shape": [
+                256
+              ],
+              "dtype": "float32",
+              "device": "xla:0",
+              "native_functional": true
+            }
+          ],
+          "status": "RETURN",
+          "outputs": [
+            {
+              "shape": [
+                256
+              ],
+              "dtype": "int32",
+              "device": "xla:0",
+              "native_functional": true
+            }
+          ]
+        },
+        {
+          "source": "exact.py",
+          "source_sha256": "0b9965a0c98a8e62ea4119e48e4bfb0f69a4b92c0efa5a9ba58ba02a3b960846",
+          "function": "bitcast",
+          "line": 21,
+          "inputs": [
+            {
+              "shape": [],
+              "dtype": "int32",
+              "device": "xla:0",
+              "native_functional": true
+            }
+          ],
+          "status": "RETURN",
+          "outputs": [
+            {
+              "shape": [],
+              "dtype": "float32",
+              "device": "xla:0",
+              "native_functional": true
+            }
+          ]
+        },
+        {
+          "source": "exact.py",
+          "source_sha256": "0b9965a0c98a8e62ea4119e48e4bfb0f69a4b92c0efa5a9ba58ba02a3b960846",
+          "function": "bitcast",
+          "line": 21,
+          "inputs": [
+            {
+              "shape": [
+                1
+              ],
+              "dtype": "int32",
+              "device": "xla:0",
+              "native_functional": true
+            }
+          ],
+          "status": "RETURN",
+          "outputs": [
+            {
+              "shape": [
+                1
+              ],
+              "dtype": "float32",
+              "device": "xla:0",
+              "native_functional": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "logical_file": "trace/nested-16384-float32/002/raw.json",
+      "status": "ERROR",
+      "error_type": "ValueError",
+      "error_message": "COMPOSITE_CAPTURE_DTYPE",
+      "schema_name": "bnb_tpu_exact::restore_scales",
+      "parameter_shapes": [],
+      "output_shapes": [],
+      "frames": [
+        {
+          "source": "functionalization.py",
+          "source_sha256": "0b31b2d86e7dd4aa10629e236fa1c0c18518eb5a3fb565714a9e40f432c2c93e",
+          "function": "wrapped",
+          "line": 14,
+          "inputs": [
+            {
+              "shape": [
+                256
+              ],
+              "dtype": "uint8",
+              "device": "xla:0",
+              "native_functional": false
+            },
+            {
+              "shape": [
+                1
+              ],
+              "dtype": "float32",
+              "device": "xla:0",
+              "native_functional": false
+            },
+            {
+              "shape": [
+                256
+              ],
+              "dtype": "float32",
+              "device": "xla:0",
+              "native_functional": false
+            },
+            {
+              "shape": [],
+              "dtype": "float32",
+              "device": "xla:0",
+              "native_functional": false
+            }
+          ],
+          "status": "RETURN",
+          "outputs": [
+            {
+              "shape": [
+                256
+              ],
+              "dtype": "float32",
+              "device": "xla:0",
+              "native_functional": false
+            }
+          ]
+        },
+        {
+          "source": "exact.py",
+          "source_sha256": "0b9965a0c98a8e62ea4119e48e4bfb0f69a4b92c0efa5a9ba58ba02a3b960846",
+          "function": "restore_scales",
+          "line": 125,
+          "inputs": [
+            {
+              "shape": [
+                256
+              ],
+              "dtype": "uint8",
+              "device": "xla:0",
+              "native_functional": true
+            },
+            {
+              "shape": [
+                1
+              ],
+              "dtype": "float32",
+              "device": "xla:0",
+              "native_functional": true
+            },
+            {
+              "shape": [
+                256
+              ],
+              "dtype": "float32",
+              "device": "xla:0",
+              "native_functional": true
+            },
+            {
+              "shape": [],
+              "dtype": "float32",
+              "device": "xla:0",
+              "native_functional": true
+            }
+          ],
+          "status": "RETURN",
+          "outputs": [
+            {
+              "shape": [
+                256
+              ],
+              "dtype": "float32",
+              "device": "xla:0",
+              "native_functional": true
+            }
+          ]
+        },
+        {
+          "source": "exact.py",
+          "source_sha256": "0b9965a0c98a8e62ea4119e48e4bfb0f69a4b92c0efa5a9ba58ba02a3b960846",
+          "function": "bitcast",
+          "line": 21,
+          "inputs": [
+            {
+              "shape": [
+                1
+              ],
+              "dtype": "float32",
+              "device": "xla:0",
+              "native_functional": true
+            }
+          ],
+          "status": "RETURN",
+          "outputs": [
+            {
+              "shape": [
+                1
+              ],
+              "dtype": "int32",
+              "device": "xla:0",
+              "native_functional": true
+            }
+          ]
+        },
+        {
+          "source": "exact.py",
+          "source_sha256": "0b9965a0c98a8e62ea4119e48e4bfb0f69a4b92c0efa5a9ba58ba02a3b960846",
+          "function": "bitcast",
+          "line": 21,
+          "inputs": [
+            {
+              "shape": [
+                256
+              ],
+              "dtype": "float32",
+              "device": "xla:0",
+              "native_functional": true
+            }
+          ],
+          "status": "RETURN",
+          "outputs": [
+            {
+              "shape": [
+                256
+              ],
+              "dtype": "int32",
+              "device": "xla:0",
+              "native_functional": true
+            }
+          ]
+        },
+        {
+          "source": "exact.py",
+          "source_sha256": "0b9965a0c98a8e62ea4119e48e4bfb0f69a4b92c0efa5a9ba58ba02a3b960846",
+          "function": "bitcast",
+          "line": 21,
+          "inputs": [
+            {
+              "shape": [],
+              "dtype": "float32",
+              "device": "xla:0",
+              "native_functional": true
+            }
+          ],
+          "status": "RETURN",
+          "outputs": [
+            {
+              "shape": [],
+              "dtype": "int32",
+              "device": "xla:0",
+              "native_functional": true
+            }
+          ]
+        },
+        {
+          "source": "exact.py",
+          "source_sha256": "0b9965a0c98a8e62ea4119e48e4bfb0f69a4b92c0efa5a9ba58ba02a3b960846",
+          "function": "bitcast",
+          "line": 21,
+          "inputs": [
+            {
+              "shape": [
+                256
+              ],
+              "dtype": "int32",
+              "device": "xla:0",
+              "native_functional": true
+            }
+          ],
+          "status": "RETURN",
+          "outputs": [
+            {
+              "shape": [
+                256
+              ],
+              "dtype": "float32",
+              "device": "xla:0",
+              "native_functional": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "logical_file": "trace/nested-16384-float32/003/raw.json",
+      "status": "ERROR",
+      "error_type": "ValueError",
+      "error_message": "COMPOSITE_CAPTURE_DTYPE",
+      "schema_name": "bnb_tpu_exact::restore_scales",
+      "parameter_shapes": [],
+      "output_shapes": [],
+      "frames": [
+        {
+          "source": "functionalization.py",
+          "source_sha256": "0b31b2d86e7dd4aa10629e236fa1c0c18518eb5a3fb565714a9e40f432c2c93e",
+          "function": "wrapped",
+          "line": 14,
+          "inputs": [
+            {
+              "shape": [
+                256
+              ],
+              "dtype": "uint8",
+              "device": "xla:0",
+              "native_functional": false
+            },
+            {
+              "shape": [
+                1
+              ],
+              "dtype": "float32",
+              "device": "xla:0",
+              "native_functional": false
+            },
+            {
+              "shape": [
+                256
+              ],
+              "dtype": "float32",
+              "device": "xla:0",
+              "native_functional": false
+            },
+            {
+              "shape": [],
+              "dtype": "float32",
+              "device": "xla:0",
+              "native_functional": false
+            }
+          ],
+          "status": "RETURN",
+          "outputs": [
+            {
+              "shape": [
+                256
+              ],
+              "dtype": "float32",
+              "device": "xla:0",
+              "native_functional": false
+            }
+          ]
+        },
+        {
+          "source": "exact.py",
+          "source_sha256": "0b9965a0c98a8e62ea4119e48e4bfb0f69a4b92c0efa5a9ba58ba02a3b960846",
+          "function": "restore_scales",
+          "line": 125,
+          "inputs": [
+            {
+              "shape": [
+                256
+              ],
+              "dtype": "uint8",
+              "device": "xla:0",
+              "native_functional": true
+            },
+            {
+              "shape": [
+                1
+              ],
+              "dtype": "float32",
+              "device": "xla:0",
+              "native_functional": true
+            },
+            {
+              "shape": [
+                256
+              ],
+              "dtype": "float32",
+              "device": "xla:0",
+              "native_functional": true
+            },
+            {
+              "shape": [],
+              "dtype": "float32",
+              "device": "xla:0",
+              "native_functional": true
+            }
+          ],
+          "status": "RETURN",
+          "outputs": [
+            {
+              "shape": [
+                256
+              ],
+              "dtype": "float32",
+              "device": "xla:0",
+              "native_functional": true
+            }
+          ]
+        },
+        {
+          "source": "exact.py",
+          "source_sha256": "0b9965a0c98a8e62ea4119e48e4bfb0f69a4b92c0efa5a9ba58ba02a3b960846",
+          "function": "bitcast",
+          "line": 21,
+          "inputs": [
+            {
+              "shape": [
+                1
+              ],
+              "dtype": "float32",
+              "device": "xla:0",
+              "native_functional": true
+            }
+          ],
+          "status": "RETURN",
+          "outputs": [
+            {
+              "shape": [
+                1
+              ],
+              "dtype": "int32",
+              "device": "xla:0",
+              "native_functional": true
+            }
+          ]
+        },
+        {
+          "source": "exact.py",
+          "source_sha256": "0b9965a0c98a8e62ea4119e48e4bfb0f69a4b92c0efa5a9ba58ba02a3b960846",
+          "function": "bitcast",
+          "line": 21,
+          "inputs": [
+            {
+              "shape": [
+                256
+              ],
+              "dtype": "float32",
+              "device": "xla:0",
+              "native_functional": true
+            }
+          ],
+          "status": "RETURN",
+          "outputs": [
+            {
+              "shape": [
+                256
+              ],
+              "dtype": "int32",
+              "device": "xla:0",
+              "native_functional": true
+            }
+          ]
+        },
+        {
+          "source": "exact.py",
+          "source_sha256": "0b9965a0c98a8e62ea4119e48e4bfb0f69a4b92c0efa5a9ba58ba02a3b960846",
+          "function": "bitcast",
+          "line": 21,
+          "inputs": [
+            {
+              "shape": [],
+              "dtype": "float32",
+              "device": "xla:0",
+              "native_functional": true
+            }
+          ],
+          "status": "RETURN",
+          "outputs": [
+            {
+              "shape": [],
+              "dtype": "int32",
+              "device": "xla:0",
+              "native_functional": true
+            }
+          ]
+        },
+        {
+          "source": "exact.py",
+          "source_sha256": "0b9965a0c98a8e62ea4119e48e4bfb0f69a4b92c0efa5a9ba58ba02a3b960846",
+          "function": "bitcast",
+          "line": 21,
+          "inputs": [
+            {
+              "shape": [
+                256
+              ],
+              "dtype": "int32",
+              "device": "xla:0",
+              "native_functional": true
+            }
+          ],
+          "status": "RETURN",
+          "outputs": [
+            {
+              "shape": [
+                256
+              ],
+              "dtype": "float32",
+              "device": "xla:0",
+              "native_functional": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "logical_file": "trace/nested-16384-float32/004/raw.json",
+      "status": "ERROR",
+      "error_type": "ValueError",
+      "error_message": "COMPOSITE_CAPTURE_DTYPE",
+      "schema_name": "bnb_tpu_exact::restore_scales",
+      "parameter_shapes": [],
+      "output_shapes": [],
+      "frames": [
+        {
+          "source": "functionalization.py",
+          "source_sha256": "0b31b2d86e7dd4aa10629e236fa1c0c18518eb5a3fb565714a9e40f432c2c93e",
+          "function": "wrapped",
+          "line": 14,
+          "inputs": [
+            {
+              "shape": [
+                256
+              ],
+              "dtype": "uint8",
+              "device": "xla:0",
+              "native_functional": false
+            },
+            {
+              "shape": [
+                1
+              ],
+              "dtype": "float32",
+              "device": "xla:0",
+              "native_functional": false
+            },
+            {
+              "shape": [
+                256
+              ],
+              "dtype": "float32",
+              "device": "xla:0",
+              "native_functional": false
+            },
+            {
+              "shape": [],
+              "dtype": "float32",
+              "device": "xla:0",
+              "native_functional": false
+            }
+          ],
+          "status": "RETURN",
+          "outputs": [
+            {
+              "shape": [
+                256
+              ],
+              "dtype": "float32",
+              "device": "xla:0",
+              "native_functional": false
+            }
+          ]
+        },
+        {
+          "source": "exact.py",
+          "source_sha256": "0b9965a0c98a8e62ea4119e48e4bfb0f69a4b92c0efa5a9ba58ba02a3b960846",
+          "function": "restore_scales",
+          "line": 125,
+          "inputs": [
+            {
+              "shape": [
+                256
+              ],
+              "dtype": "uint8",
+              "device": "xla:0",
+              "native_functional": true
+            },
+            {
+              "shape": [
+                1
+              ],
+              "dtype": "float32",
+              "device": "xla:0",
+              "native_functional": true
+            },
+            {
+              "shape": [
+                256
+              ],
+              "dtype": "float32",
+              "device": "xla:0",
+              "native_functional": true
+            },
+            {
+              "shape": [],
+              "dtype": "float32",
+              "device": "xla:0",
+              "native_functional": true
+            }
+          ],
+          "status": "RETURN",
+          "outputs": [
+            {
+              "shape": [
+                256
+              ],
+              "dtype": "float32",
+              "device": "xla:0",
+              "native_functional": true
+            }
+          ]
+        },
+        {
+          "source": "exact.py",
+          "source_sha256": "0b9965a0c98a8e62ea4119e48e4bfb0f69a4b92c0efa5a9ba58ba02a3b960846",
+          "function": "bitcast",
+          "line": 21,
+          "inputs": [
+            {
+              "shape": [
+                1
+              ],
+              "dtype": "float32",
+              "device": "xla:0",
+              "native_functional": true
+            }
+          ],
+          "status": "RETURN",
+          "outputs": [
+            {
+              "shape": [
+                1
+              ],
+              "dtype": "int32",
+              "device": "xla:0",
+              "native_functional": true
+            }
+          ]
+        },
+        {
+          "source": "exact.py",
+          "source_sha256": "0b9965a0c98a8e62ea4119e48e4bfb0f69a4b92c0efa5a9ba58ba02a3b960846",
+          "function": "bitcast",
+          "line": 21,
+          "inputs": [
+            {
+              "shape": [
+                256
+              ],
+              "dtype": "float32",
+              "device": "xla:0",
+              "native_functional": true
+            }
+          ],
+          "status": "RETURN",
+          "outputs": [
+            {
+              "shape": [
+                256
+              ],
+              "dtype": "int32",
+              "device": "xla:0",
+              "native_functional": true
+            }
+          ]
+        },
+        {
+          "source": "exact.py",
+          "source_sha256": "0b9965a0c98a8e62ea4119e48e4bfb0f69a4b92c0efa5a9ba58ba02a3b960846",
+          "function": "bitcast",
+          "line": 21,
+          "inputs": [
+            {
+              "shape": [],
+              "dtype": "float32",
+              "device": "xla:0",
+              "native_functional": true
+            }
+          ],
+          "status": "RETURN",
+          "outputs": [
+            {
+              "shape": [],
+              "dtype": "int32",
+              "device": "xla:0",
+              "native_functional": true
+            }
+          ]
+        },
+        {
+          "source": "exact.py",
+          "source_sha256": "0b9965a0c98a8e62ea4119e48e4bfb0f69a4b92c0efa5a9ba58ba02a3b960846",
+          "function": "bitcast",
+          "line": 21,
+          "inputs": [
+            {
+              "shape": [
+                256
+              ],
+              "dtype": "int32",
+              "device": "xla:0",
+              "native_functional": true
+            }
+          ],
+          "status": "RETURN",
+          "outputs": [
+            {
+              "shape": [
+                256
+              ],
+              "dtype": "float32",
+              "device": "xla:0",
+              "native_functional": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "logical_file": "trace/nested-32768-float32/001/raw.json",
+      "status": "ERROR",
+      "error_type": "ValueError",
+      "error_message": "COMPOSITE_CAPTURE_DTYPE",
+      "schema_name": "bnb_tpu_exact::compress_statistics",
+      "parameter_shapes": [],
+      "output_shapes": [],
+      "frames": [
+        {
+          "source": "functionalization.py",
+          "source_sha256": "0b31b2d86e7dd4aa10629e236fa1c0c18518eb5a3fb565714a9e40f432c2c93e",
+          "function": "wrapped",
+          "line": 14,
+          "inputs": [
+            {
+              "shape": [
+                512
+              ],
+              "dtype": "float32",
+              "device": "xla:0",
+              "native_functional": false
+            },
+            {
+              "shape": [
+                256
+              ],
+              "dtype": "float32",
+              "device": "xla:0",
+              "native_functional": false
+            }
+          ],
+          "status": "RETURN",
+          "outputs": [
+            {
+              "shape": [
+                512
+              ],
+              "dtype": "uint8",
+              "device": "xla:0",
+              "native_functional": false
+            },
+            {
+              "shape": [],
+              "dtype": "float32",
+              "device": "xla:0",
+              "native_functional": false
+            },
+            {
+              "shape": [
+                2
+              ],
+              "dtype": "float32",
+              "device": "xla:0",
+              "native_functional": false
+            }
+          ]
+        },
+        {
+          "source": "exact.py",
+          "source_sha256": "0b9965a0c98a8e62ea4119e48e4bfb0f69a4b92c0efa5a9ba58ba02a3b960846",
+          "function": "compress_statistics",
+          "line": 116,
+          "inputs": [
+            {
+              "shape": [
+                512
+              ],
+              "dtype": "float32",
+              "device": "xla:0",
+              "native_functional": true
+            },
+            {
+              "shape": [
+                256
+              ],
+              "dtype": "float32",
+              "device": "xla:0",
+              "native_functional": true
+            }
+          ],
+          "status": "RETURN",
+          "outputs": [
+            {
+              "shape": [
+                512
+              ],
+              "dtype": "uint8",
+              "device": "xla:0",
+              "native_functional": true
+            },
+            {
+              "shape": [],
+              "dtype": "float32",
+              "device": "xla:0",
+              "native_functional": true
+            },
+            {
+              "shape": [
+                2
+              ],
+              "dtype": "float32",
+              "device": "xla:0",
+              "native_functional": true
+            }
+          ]
+        },
+        {
+          "source": "exact.py",
+          "source_sha256": "0b9965a0c98a8e62ea4119e48e4bfb0f69a4b92c0efa5a9ba58ba02a3b960846",
+          "function": "bitcast",
+          "line": 21,
+          "inputs": [
+            {
+              "shape": [
+                512
+              ],
+              "dtype": "float32",
+              "device": "xla:0",
+              "native_functional": true
+            }
+          ],
+          "status": "RETURN",
+          "outputs": [
+            {
+              "shape": [
+                512
+              ],
+              "dtype": "int32",
+              "device": "xla:0",
+              "native_functional": true
+            }
+          ]
+        },
+        {
+          "source": "exact.py",
+          "source_sha256": "0b9965a0c98a8e62ea4119e48e4bfb0f69a4b92c0efa5a9ba58ba02a3b960846",
+          "function": "bitcast",
+          "line": 21,
+          "inputs": [
+            {
+              "shape": [
+                256
+              ],
+              "dtype": "float32",
+              "device": "xla:0",
+              "native_functional": true
+            }
+          ],
+          "status": "RETURN",
+          "outputs": [
+            {
+              "shape": [
+                256
+              ],
+              "dtype": "int32",
+              "device": "xla:0",
+              "native_functional": true
+            }
+          ]
+        },
+        {
+          "source": "exact.py",
+          "source_sha256": "0b9965a0c98a8e62ea4119e48e4bfb0f69a4b92c0efa5a9ba58ba02a3b960846",
+          "function": "bitcast",
+          "line": 21,
+          "inputs": [
+            {
+              "shape": [],
+              "dtype": "int32",
+              "device": "xla:0",
+              "native_functional": true
+            }
+          ],
+          "status": "RETURN",
+          "outputs": [
+            {
+              "shape": [],
+              "dtype": "float32",
+              "device": "xla:0",
+              "native_functional": true
+            }
+          ]
+        },
+        {
+          "source": "exact.py",
+          "source_sha256": "0b9965a0c98a8e62ea4119e48e4bfb0f69a4b92c0efa5a9ba58ba02a3b960846",
+          "function": "bitcast",
+          "line": 21,
+          "inputs": [
+            {
+              "shape": [
+                2
+              ],
+              "dtype": "int32",
+              "device": "xla:0",
+              "native_functional": true
+            }
+          ],
+          "status": "RETURN",
+          "outputs": [
+            {
+              "shape": [
+                2
+              ],
+              "dtype": "float32",
+              "device": "xla:0",
+              "native_functional": true
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "evidence_limit": [
+    {
+      "logical_file": "trace/nested-32768-float32/001/context.textproto",
+      "raw_bytes": 37924102,
+      "raw_sha256": "ee5d1cf25a896ad6957d2e10332cce77eec1d8b7e5446fb38038813c0d17272c",
+      "reason": "OBJECT_RAW_SIZE",
+      "required_evidence": "MISSING_NOT_ACCEPTED",
+      "status": "EVIDENCE_LIMIT"
+    }
+  ],
+  "successful_bitcast_frame_count": 28,
+  "bitcast_rank_preserved": true,
+  "bitcast_functional_preserved": true,
+  "double_wrap_assert_occurrences": 0,
+  "shape_hlo_evidence": {
+    "file": "trace/nested-00064-float32/001/graph.hlo.txt",
+    "tail_maximum": "%reduce.21602 = s32[1]{0} reduce(s32[1]{0} %and.21595, s32[] %constant.21596), dimensions={}, to_apply=%MaxComputation.21598",
+    "unsqueeze": "%reshape.23398 = s32[1,1]{1,0} reshape(s32[1]{0} %select.21626)",
+    "root": "(u8[1], f32[], f32[1,1])",
+    "inference": "Omitted-dim tail amax is not reducing the 1D input in this actual XLA graph. Explicit dim=0 is a focused candidate diagnostic."
+  },
+  "focused_diagnostic": [
+    "Fresh bounded same-pinned-runtime diagnostic only; preserve scientific79 criteria and archive limits.",
+    "Bitcast F32/S32 vector and scalar roundtrip: bits, dtype, shape, and native-functional metadata; positive/negative zero, finite values, subnormal words.",
+    "Compare actual tensor torch.amax(x), torch.amax(x,dim=0), and torch.amax(x,dim=-1) for int32 1D lengths1,255 and 257; retain result rank and HLO reduce dimensions. No science monkeypatch.",
+    "Compare legacy operators << and >> with explicit torch.bitwise_left_shift/right_shift for signed32 boundaries and counts0,1,23,24,30,31,32,149; include negative words and zero. Retain literal parameter dtype and HLO opcode.",
+    "Run existing exact.midpoints(dynamic_words), normalization of 0,+1,-1 and a short signed ramp, multiply_bits(word,ONE), divide_count_bits(words,2), and add_bits identities individually. Return exact words versus isolated actualTorchCPU controls.",
+    "Inspect LoweringContext device_parameter_id_tensor_mapping metadata without changing capture schema. Identify each s64 literal and its generating op; do not accept unsupported dtype silently.",
+    "Only after focused diagnosis and explicit new source admission should public block256-zero/constant/ramp and tail257 plus nested64/16384 be used as bounded smoke cases. Required graph archive overflow remains an unresolved blocker."
+  ],
+  "cpu_oracle": {
+    "retained_raw": 79,
+    "statuses": {
+      "PASS": 79
+    },
+    "array_count": 540
+  },
+  "source_exact_sha256": "0b9965a0c98a8e62ea4119e48e4bfb0f69a4b92c0efa5a9ba58ba02a3b960846"
+}

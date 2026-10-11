@@ -1,0 +1,18 @@
+{
+  "array_count": 540,
+  "case_count": 79,
+  "cpu_step_result_sha256": "725a32e81b636b6f926f61fd4adb6f0366dd1738ccf4baa14fb6b0f1d9701600",
+  "kind": "ROOT_NESTED_EXACT_CPU_ORACLE_GATE",
+  "m4_status": "NOT_QUALIFIED",
+  "observation_report_sha256": "8aee66650cd81bf43bb6bf2c6adf8828f9c8aabb1d6372dc708ed403c6cca924",
+  "oracle_sha256": "b4611bed754e17301f0ccc7cb96aa04e747b4d59507d680b68165be644ac76e7",
+  "owned_cpu_pgid": 1446,
+  "owned_cpu_pid": 1446,
+  "owned_cpu_token": "ca5224477dab65119dcc0d6feaa80e1b",
+  "plugin_wheel_sha256": "2116a01a6389cf096092501113c5271b5c5a868a7895e00d3fea12bc07c0742c",
+  "science_manifest_sha256": "29beb28f4320acc5e07ce6822f2120eaff846809bfc54bd123ac37f501700c06",
+  "source_admission_sha256": "8b5aa5f0c86346db982664cfad3b1e242dc8a67a4e49865584ccc01c8620f4bf",
+  "source_variant": "nested-exact-v2-functional-output",
+  "status": "QUALIFIED_LINUX_CPU_ORACLE_VERIFIED",
+  "upstream_wheel_sha256": "27825345de8150ff3629f3fa4a855cdfc1b92382916a764eb4e28c60ec8ee395"
+}
