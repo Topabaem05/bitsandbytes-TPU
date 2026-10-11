@@ -7,13 +7,29 @@
     "native_adoption_revision": "a084a4d578362f9733453595ab208385cf70afba",
     "status": "REQUIRED_ROOT_ACCEPTED_BOUNDED_NATIVE_RECORDS"
   },
-  "package_admission_sha256": "e467e9d711b61140bf5be91f7ecf1da518986683a2bb530b3341194dd28fa518",
-  "protocol_sha256": "dc22c7a3891786947d1127dc45e6d82fcd993f6b6a8d64ba804ee5d835a915c6",
-  "scientific_variant": "public-pallas-device-mosaic7-gather-bf16-fp32-v1",
+  "package_admission_sha256": "b552fd2f9b3bf66b7b13cbf10c7904a7a958926e076347f91ad344997b9a703a",
+  "protocol_sha256": "2e27f6c1d1476d65a7f18e5c9a135dd3e83552fab2ba2f0512ff39141c488e76",
+  "reference_semantics": {
+    "device_tolerances": "UNCHANGED",
+    "fresh_qualified_linux_primary_and_supplement": "REQUIRED",
+    "host_gemm_bit_equality": "NOT_REQUIRED",
+    "primary": "ORIGINAL_QUALIFIED_LINUX_F_LINEAR_AUTOGRAD",
+    "supplement": "EXACT_INTEGER_DYADIC",
+    "version": "PUBLIC15_QUALIFIED_CPU_PLUS_EXACT_DYADIC_V1"
+  },
+  "scientific_variant": "public-pallas-device-mosaic7-gather-bf16-fp32-dyadic-v2",
   "source_files": {
+    "audit.py": {
+      "bytes": 1704,
+      "sha256": "2ac5b0eee29465a9417f57e667e14f377e6c52f5638c150a5eb8a8f53bca3c74"
+    },
     "contract.py": {
-      "bytes": 11692,
-      "sha256": "d8bfbbab507a2e867ac32c134b5f9752a4e017373e81967b93677de6883ecac7"
+      "bytes": 12161,
+      "sha256": "b159dfbdf25d5b26112ed4cae40ce55e89e4776b92491a14fdf828df75c7fa96"
+    },
+    "dyadic.py": {
+      "bytes": 7126,
+      "sha256": "e36234073cbddde82386b3beaf20606e7ef676a2ff423c7221fb5aff285b6fc4"
     },
     "helpers/conversion_recovery.py": {
       "bytes": 3698,
@@ -65,31 +81,35 @@
     },
     "package-admission.json": {
       "bytes": 16205,
-      "sha256": "e467e9d711b61140bf5be91f7ecf1da518986683a2bb530b3341194dd28fa518"
+      "sha256": "b552fd2f9b3bf66b7b13cbf10c7904a7a958926e076347f91ad344997b9a703a"
     },
     "prepare_public_oracle.py": {
-      "bytes": 3680,
-      "sha256": "e831b77dd15b63c14d29cb3108b839138a18d645b8d73055e02449dff31a9261"
+      "bytes": 3958,
+      "sha256": "4dbbad78e29b072c230d574f7d49eda250d7d7dae2e16cc11a6cdff8c2b0910b"
     },
     "probe_public.py": {
       "bytes": 16402,
       "sha256": "70dd9623942ba51f37321324a3c8fad83b79997c230805bef98b7db50fc205e0"
     },
     "public-protocol.json": {
-      "bytes": 8017,
-      "sha256": "dc22c7a3891786947d1127dc45e6d82fcd993f6b6a8d64ba804ee5d835a915c6"
+      "bytes": 8368,
+      "sha256": "2e27f6c1d1476d65a7f18e5c9a135dd3e83552fab2ba2f0512ff39141c488e76"
     },
     "public_graph.py": {
       "bytes": 11651,
       "sha256": "c9b43070fbcbb8ea078c4cb5239caa89002a3e9c6b24121af1bc35a55b2d8d0d"
+    },
+    "reference_math.py": {
+      "bytes": 1806,
+      "sha256": "6aa02901c35e243340088db1659de191fd7f8312b14682890e04741c2c89aac9"
     },
     "verify_public.py": {
       "bytes": 13286,
       "sha256": "9cd70c6b4d439f85515d16bf5bdaaa483c04e2ec22634192964b04c884d28e5e"
     },
     "verify_public_oracle.py": {
-      "bytes": 4152,
-      "sha256": "01a033e0a2ce2dafb712f5d8531ff0188f9d98d3e05b38736fa6f12e8d12a5f8"
+      "bytes": 4387,
+      "sha256": "f2d18069787ed507c0457b16c20de5233138184363fba1315e1356e1ae8c1b36"
     }
   },
   "source_variant": "pallas-forward-mosaic7-gather-bf16-fp32-v1",

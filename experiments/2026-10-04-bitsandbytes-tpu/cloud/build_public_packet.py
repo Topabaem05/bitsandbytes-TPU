@@ -21,7 +21,7 @@ def build(upstream,out,repo_root,public_source,public_manifest_sha):
  for n in ['public/public-device-manifest.json',prefix+'manifest.json']:
   key=n if n.startswith('public/')else'public-baseline/'+n;m['files'][key]=U.row(out/key)
  # The source manifest filename differs and already appears above.
- m.update(experiment=U.MODE,public_manifest_sha256=U.MANIFEST_SHA,public_admission_sha256=U.ADMISSION_SHA,public_protocol_sha256=U.PROTOCOL_SHA,public_native_acceptance_sha256=U.NATIVE_ACCEPTANCE_SHA,public_generation=U.GENERATION,public_source_variant=U.VARIANT,public_scope=U.SCOPE,public_result_max_bytes=U.RESULT_MAX_BYTES,public_result_max_members=U.RESULT_MAX_MEMBERS,base_cloud_revision='0b9f79a5a94e9342817582b4fb786ec0c73fc104',m6_status='NOT_QUALIFIED',optimized_executable_link='UNKNOWN')
+ m.update(experiment=U.MODE,public_manifest_sha256=U.MANIFEST_SHA,public_admission_sha256=U.ADMISSION_SHA,public_protocol_sha256=U.PROTOCOL_SHA,public_native_acceptance_sha256=U.NATIVE_ACCEPTANCE_SHA,public_generation=U.GENERATION,public_source_variant=U.VARIANT,public_scope=U.SCOPE,public_result_max_bytes=U.RESULT_MAX_BYTES,public_result_max_members=U.RESULT_MAX_MEMBERS,base_cloud_revision='5dbfd05128fe741ba19c513d43a87c09b7cca017',m6_status='NOT_QUALIFIED',optimized_executable_link='UNKNOWN')
  U.write(out/'manifest.json',m);U.payload(out,m)
  with zipfile.ZipFile(out/'payload.zip','w',zipfile.ZIP_DEFLATED)as z:
   for n in sorted([*m['files'],'manifest.json']):

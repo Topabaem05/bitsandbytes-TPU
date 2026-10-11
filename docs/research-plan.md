@@ -156,6 +156,9 @@ The [first public attempt](changes/r6-public-cpu-colab-failure.md) stopped at th
 The qualified Linux output differed from the host dense FP32 calculation under an exact row requirement.
 All 15 public device cases remain unexecuted.
 Inspect a separate reference revision without changing the original device criteria.
+The [versioned CPU reference preparation](changes/r6-public-dyadic-reference.md) preserves the primary Linux calculations and original device criteria.
+It adds exact integer supplements and rejects old CPU seals.
+A fresh qualified Linux CPU seal and actual public TPU records remain required.
 The [measurement preparation](changes/r7-measurement-preparation.md) passed 64 local controls and nine independent retained-record checks.
 Actual M7 collection requires accepted M6 results.
 BF16 gradients remain outside the fixed diagnostic scope.

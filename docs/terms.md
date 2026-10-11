@@ -38,6 +38,7 @@ They are not additions to the official ASD-STE100 dictionary.
 | deadline | The fixed last permitted time for specified program actions. |
 | dispatch key | The PyTorch identifier that selects an operator implementation. |
 | entry point | Package metadata that identifies a function for automatic discovery. |
+| dyadic operand | A finite number expressed as an integer multiplied by a power of two. |
 | endpoint | The service identifier for one remote runtime. |
 | fallback | An alternative implementation selected when the requested implementation cannot execute. |
 | FP16 | The IEEE binary16 numerical data type. |

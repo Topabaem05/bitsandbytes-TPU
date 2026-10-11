@@ -2,12 +2,12 @@
 import hashlib,importlib.util,json,math,os,re,stat,sys,zipfile
 from pathlib import Path
 MODE='m6-public-pallas-15'
-GENERATION='public-pallas-device-mosaic7-gather-bf16-fp32-v1'
+GENERATION='public-pallas-device-mosaic7-gather-bf16-fp32-dyadic-v2'
 VARIANT='pallas-forward-mosaic7-gather-bf16-fp32-v1'
 SCOPE='PUBLIC15_NON_NESTED_FP32_GRAD_BF16_FORWARD'
-MANIFEST_SHA='131cdd25935b3216858b823c59732a30f3e5e43c25bbd8cc2eb9f284108e12bf'
-ADMISSION_SHA='e467e9d711b61140bf5be91f7ecf1da518986683a2bb530b3341194dd28fa518'
-PROTOCOL_SHA='dc22c7a3891786947d1127dc45e6d82fcd993f6b6a8d64ba804ee5d835a915c6'
+MANIFEST_SHA='72e0f202ae8c274853b0a2e1e29c4dd21aeaf5b5b9464839025926b641563b5d'
+ADMISSION_SHA='b552fd2f9b3bf66b7b13cbf10c7904a7a958926e076347f91ad344997b9a703a'
+PROTOCOL_SHA='2e27f6c1d1476d65a7f18e5c9a135dd3e83552fab2ba2f0512ff39141c488e76'
 NATIVE_ACCEPTANCE_SHA='c64fca47f57374fab691d9870005cf614fc6eebbc8a02706ed70781f9dd1042a'
 BINDINGS={'public_manifest_sha256':'public/public-device-manifest.json','public_admission_sha256':'public/package-admission.json','public_protocol_sha256':'public/public-protocol.json','public_native_acceptance_sha256':'public-baseline/experiments/2026-10-04-bitsandbytes-tpu/results/native-bf16-acceptance.json'}
 RESULT_MAX_BYTES=256*1024*1024
@@ -127,7 +127,7 @@ def cpu_gate(packet,recovered,receipt,runtime_wheels):
  remote='/content/bnb-tpu-first';expected_args={'admission':remote+'/payload/public/package-admission.json','protocol':remote+'/payload/public/public-protocol.json','package-root':remote+'/venv/lib/python3.12/site-packages/bitsandbytes_tpu_pallas','upstream-source':remote+'/venv/lib/python3.12/site-packages/bitsandbytes','repo-root':remote+'/payload/public-baseline','plugin-wheel':remote+'/built-plugin/'+plugin['wheel_name'],'upstream-wheel':remote+'/built-upstream/'+built['wheel_name'],'runtime-wheels':remote+'/wheels','output':remote+'/records/cpu-oracle','process-token':seal['process_token'],'deadline-epoch':str(seal['deadline_epoch'])}
  require(argv[0]==remote+'/venv/bin/python'and len(argv)==3+2*len(expected_args)and all(argv.count('--'+k)==1 and argv[argv.index('--'+k)+1]==v for k,v in expected_args.items()),'PUBLIC_CPU_EXACT_SOURCE_ARGV')
  require(any(r.get('sha256')==sha(root/'wheels/plugin.whl')and r.get('name')==plugin.get('wheel_name')for r in receipt.get('built_wheels',[]))and any(r.get('sha256')==sha(root/'wheels/upstream.whl')and r.get('name')==built.get('wheel_name')for r in receipt.get('built_wheels',[])),'PUBLIC_RECEIPT_BUILT_WHEEL_BINDING')
- return gate_bindings(m,receipt),{'scope':'QUALIFIED_RECORD_REPLAY_ON_HOST_CPU','case_count':len(rows),'record_validation':result['record_validation'],'qualified_record_runtime':seal['runtime'],'source_generation':GENERATION}
+ return gate_bindings(m,receipt),{'scope':'QUALIFIED_PRIMARY_AND_EXACT_MATH_REPLAY_ON_HOST_CPU','case_count':len(rows),'record_validation':result['record_validation'],'qualified_record_runtime':seal['runtime'],'source_generation':GENERATION,'reference_semantics':result['reference_semantics'],'primary_comparison':'UNCHANGED_ORIGINAL_DEVICE_TOLERANCE'}
 
 def verifier_cli(packet,recovered_cpu,out,receipt,runtime_wheels,audit_python,deadline):
  packet=Path(packet);out=Path(out);args=host_args(packet,recovered_cpu,runtime_wheels);C,a=payload(packet,read(packet/'manifest.json'))

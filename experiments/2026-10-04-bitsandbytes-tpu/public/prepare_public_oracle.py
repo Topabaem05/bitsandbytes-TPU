@@ -9,13 +9,14 @@ from pathlib import Path
 import torch
 import contract as C
 import oracle_math as M
+import reference_math as R
 
 
 def prepare(args):
     root=Path(args.output);root.mkdir(parents=True,exist_ok=False)
     started=time.time();runtime={'platform':platform.system(),'machine':platform.machine(),'python':platform.python_version(),'torch':str(torch.__version__)}
     qualified=runtime=={'platform':'Linux','machine':'x86_64','python':'3.12.14','torch':'2.9.0+cpu'}
-    seal={'kind':'PUBLIC_PALLAS_CPU_ORACLE','status':'PARTIAL','scientific_variant':C.VARIANT,'source_variant':'pallas-forward-mosaic7-gather-bf16-fp32-v1','pid':os.getpid(),'pgid':os.getpgid(0),'parent_pid':os.getppid(),'process_token':args.process_token,'deadline_epoch':args.deadline_epoch,'started_epoch':started,'runtime':runtime,'qualified_runtime':qualified,'admission_sha256':C.ADMISSION_SHA,'protocol_sha256':C.PROTOCOL_SHA,'scope':'QUALIFIED_LINUX_CPU' if qualified else 'UNQUALIFIED_LOCAL_CPU_REHEARSAL'}
+    seal={'kind':'PUBLIC_PALLAS_CPU_ORACLE_V2','reference_semantics':R.SEMANTICS,'status':'PARTIAL','scientific_variant':C.VARIANT,'source_variant':'pallas-forward-mosaic7-gather-bf16-fp32-v1','pid':os.getpid(),'pgid':os.getpgid(0),'parent_pid':os.getppid(),'process_token':args.process_token,'deadline_epoch':args.deadline_epoch,'started_epoch':started,'runtime':runtime,'qualified_runtime':qualified,'admission_sha256':C.ADMISSION_SHA,'protocol_sha256':C.PROTOCOL_SHA,'scope':'QUALIFIED_LINUX_CPU' if qualified else 'UNQUALIFIED_LOCAL_CPU_REHEARSAL'}
     C.write(root/'oracle-seal.json',seal)
     try:
         C.owner(os.getpid(),os.getpgid(0),os.getppid(),args.process_token,args.deadline_epoch)
@@ -28,7 +29,11 @@ def prepare(args):
         torch.set_num_threads(1);decode,code=M.decode_original(upstream)
         for case in p['cases']:
             C.require(time.time()<args.deadline_epoch,'CPU_DEADLINE')
-            C.write(root/'rows'/(case['id']+'.json'),M.expected(case,decode,code))
+            primary=M.expected(case,decode,code)
+            supplement=R.supplement(case,decode,code)
+            R.verify(primary,supplement,case,decode,code,p)
+            C.write(root/'rows'/(case['id']+'.json'),primary)
+            C.write(root/'supplements'/(case['id']+'.json'),supplement)
         C.admission(args.admission,args.protocol,args.package_root,args.upstream_source,args.repo_root)
         C.require(not any(n in sys.modules for n in forbidden),'CPU_NO_PACKAGE_DEVICE_IMPORT')
         seal.update(status='COMPLETE',source_post=C.ADMISSION_SHA,no_package_device_import=True,thread_count=torch.get_num_threads(),case_ids=[c['id'] for c in p['cases']])

@@ -1,5 +1,17 @@
 # Change log
 
+## 2026-10-11 — Versioned public CPU reference preparation
+
+- Preserve the original Linux primary calculations and public device tolerances.
+- Add exact integer supplements and reject old CPU seals.
+- Preserve the corrected compiler mode and accepted native sources.
+- Retain bounded controls and remove disposable fixtures after hash capture.
+
+Validation: All 164 distinct local controls and three mode packet preflights passed.
+A fresh qualified Linux CPU seal and actual public TPU records remain required.
+M6 remains unqualified.
+Refer to [the preparation record](docs/changes/r6-public-dyadic-reference.md).
+
 ## 2026-10-09 — Verified archive and local cleanup
 
 - Archive 2,039,703 regular files in private Google Drive storage.

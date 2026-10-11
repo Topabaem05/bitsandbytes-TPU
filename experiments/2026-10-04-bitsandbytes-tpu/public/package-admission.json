@@ -144,7 +144,7 @@
     "registration.py": "afcade4cb093cb1cff31f3edfda625c251b2ff7bf31c20602659a1afb4a7f174",
     "source_admission.py": "c9763d3dc351c1c6514ce2ffbae8f0f840a9579775da71dfa496f063a2b50d02"
   },
-  "public_protocol_sha256": "dc22c7a3891786947d1127dc45e6d82fcd993f6b6a8d64ba804ee5d835a915c6",
+  "public_protocol_sha256": "2e27f6c1d1476d65a7f18e5c9a135dd3e83552fab2ba2f0512ff39141c488e76",
   "qualification": "NOT_QUALIFIED",
   "runtime": {
     "jax": "0.7.1",

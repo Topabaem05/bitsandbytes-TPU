@@ -293,7 +293,7 @@
     }
   ],
   "first_error_policy": "RETAIN_ERROR_THEN_NOT_RUN_SHARED_XLA_STATE",
-  "format": "bnb-tpu.public-pallas-protocol.v1",
+  "format": "bnb-tpu.public-pallas-protocol.v2",
   "milestone_status": {
     "m4": "NOT_QUALIFIED",
     "m6_memory": "NOT_QUALIFIED",
@@ -312,6 +312,14 @@
     "tail_rows": 129
   },
   "reference_case_count": 4,
+  "reference_semantics": {
+    "device_tolerances": "UNCHANGED",
+    "fresh_qualified_linux_primary_and_supplement": "REQUIRED",
+    "host_gemm_bit_equality": "NOT_REQUIRED",
+    "primary": "ORIGINAL_QUALIFIED_LINUX_F_LINEAR_AUTOGRAD",
+    "supplement": "EXACT_INTEGER_DYADIC",
+    "version": "PUBLIC15_QUALIFIED_CPU_PLUS_EXACT_DYADIC_V1"
+  },
   "runtime": {
     "jax": "0.7.1",
     "jaxlib": "0.7.1",
@@ -323,7 +331,7 @@
     "torch": "2.9.0+cpu",
     "torch_xla": "2.9.0"
   },
-  "scientific_variant": "public-pallas-device-mosaic7-gather-bf16-fp32-v1",
+  "scientific_variant": "public-pallas-device-mosaic7-gather-bf16-fp32-dyadic-v2",
   "source_variant": "pallas-forward-mosaic7-gather-bf16-fp32-v1",
   "status": "NOT_RUN",
   "tolerances": {

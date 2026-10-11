@@ -1,0 +1,23 @@
+{
+  "accepted_milestones": "3/8_UNCHANGED",
+  "actual_public_TPU": "NOT_RUN",
+  "adoption_map_sha256": "4a23dbddb19e27f2b8e1b80d360ae7dcbe5634cd96850865ac4574d9c93b6b13",
+  "baseline_revision": "5dbfd05128fe741ba19c513d43a87c09b7cca017",
+  "device_tolerances": "UNCHANGED",
+  "fresh_qualified_linux_cpu": "NOT_RUN",
+  "generation": "public-pallas-device-mosaic7-gather-bf16-fp32-dyadic-v2",
+  "m6": "NOT_QUALIFIED",
+  "primary_linux_calculations": "UNCHANGED",
+  "private_records": "OWNER_ONLY_DRIVE_ARCHIVE_PENDING_FINAL_REVIEW",
+  "reviewed_at": "2026-10-11",
+  "root_control_counts": {
+    "cpu_archive": 6,
+    "saved_device_consumer": 5,
+    "science": 33
+  },
+  "root_independent_controls": 44,
+  "source_map_sha256": "ccab0ad894659291dc4f8dc5d749d7b45c84481ab7c34d20051a2ee314ac34eb",
+  "status": "ROOT_ACCEPTED_SOURCE_PREPARATION_ONLY",
+  "worker_controls": 164,
+  "worker_fixture_logical_bytes_deleted": 3195950085
+}
