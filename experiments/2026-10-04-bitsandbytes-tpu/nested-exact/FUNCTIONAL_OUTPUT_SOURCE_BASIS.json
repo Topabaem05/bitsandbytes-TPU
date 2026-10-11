@@ -1,0 +1,82 @@
+{
+  "actual_failure": "All 79 returned device cases failed at exact.py output wrapping; this change has no new device result.",
+  "inspection": "Astra adviser read each complete pinned raw source and verified bytes/SHA-256; worker used these records.",
+  "kind": "M4_FUNCTIONAL_OUTPUT_PINNED_SOURCE_BASIS_V1",
+  "sources": [
+    {
+      "bytes": 6538,
+      "lines": [
+        86,
+        105
+      ],
+      "path": "aten/src/ATen/FunctionalStorageImpl.cpp",
+      "repository": "pytorch/pytorch",
+      "revision": "0fabc3ba44823f257e70ce397d989c8de5e362c1",
+      "sha256": "364713b777c679230d51f46c901c268e40183f878dd08a9a6bced934c42d52ae",
+      "url": "https://raw.githubusercontent.com/pytorch/pytorch/0fabc3ba44823f257e70ce397d989c8de5e362c1/aten/src/ATen/FunctionalStorageImpl.cpp"
+    },
+    {
+      "bytes": 41925,
+      "lines": [
+        518,
+        524
+      ],
+      "path": "aten/src/ATen/FunctionalTensorWrapper.cpp",
+      "repository": "pytorch/pytorch",
+      "revision": "0fabc3ba44823f257e70ce397d989c8de5e362c1",
+      "sha256": "70fc705f4aaf51bfbd5bde12e4977c2c371d7239dd3202c3297d2fe2492d8488",
+      "url": "https://raw.githubusercontent.com/pytorch/pytorch/0fabc3ba44823f257e70ce397d989c8de5e362c1/aten/src/ATen/FunctionalTensorWrapper.cpp"
+    },
+    {
+      "bytes": 37611,
+      "lines": [
+        835,
+        846
+      ],
+      "path": "torch_xla/core/xla_builder.py",
+      "repository": "pytorch/xla",
+      "revision": "5fab7053df86c8d503b98d9e7202ca8b8d4978c7",
+      "sha256": "ee315ac0cfa9f052a5a437d693bc1d65aae7ea7bf7c3d0b661384bc6723a8772",
+      "url": "https://raw.githubusercontent.com/pytorch/xla/5fab7053df86c8d503b98d9e7202ca8b8d4978c7/torch_xla/core/xla_builder.py"
+    },
+    {
+      "bytes": 155693,
+      "lines": [
+        935,
+        948
+      ],
+      "path": "torch_xla/csrc/init_python_bindings.cpp",
+      "repository": "pytorch/xla",
+      "revision": "5fab7053df86c8d503b98d9e7202ca8b8d4978c7",
+      "sha256": "85105171d16d84dd181f364128a8098d9a02d9934c6a9865f81b012a457fcf43",
+      "url": "https://raw.githubusercontent.com/pytorch/xla/5fab7053df86c8d503b98d9e7202ca8b8d4978c7/torch_xla/csrc/init_python_bindings.cpp"
+    },
+    {
+      "bytes": 17292,
+      "lines": [
+        458,
+        487
+      ],
+      "path": "torch_xla/csrc/aten_xla_bridge.cpp",
+      "repository": "pytorch/xla",
+      "revision": "5fab7053df86c8d503b98d9e7202ca8b8d4978c7",
+      "sha256": "f22e3ae932dea480017fdedf114e2cbebbe12d1cedcffe331b58e5190d6e9bd3",
+      "url": "https://raw.githubusercontent.com/pytorch/xla/5fab7053df86c8d503b98d9e7202ca8b8d4978c7/torch_xla/csrc/aten_xla_bridge.cpp"
+    },
+    {
+      "bytes": 2820,
+      "lines": [
+        67,
+        74
+      ],
+      "path": "torch_xla/csrc/torch_util.cpp",
+      "repository": "pytorch/xla",
+      "revision": "5fab7053df86c8d503b98d9e7202ca8b8d4978c7",
+      "sha256": "494e82641fc5585c8b94def4071d0aa5ec8151e61b19b3d82a27325f4f1f4c20",
+      "url": "https://raw.githubusercontent.com/pytorch/xla/5fab7053df86c8d503b98d9e7202ca8b8d4978c7/torch_xla/csrc/torch_util.cpp"
+    }
+  ],
+  "supported_claim": "The XLA bridge can return a functional tensor. The PyTorch functional tensor constructor rejects a base that is already functional.",
+  "uncertainty": "CPU boundary controls use a device facade and stub builder. Fresh pinned Linux CPU79 and actual TPU79/state8 remain required.",
+  "verification_date": "2026-10-11"
+}

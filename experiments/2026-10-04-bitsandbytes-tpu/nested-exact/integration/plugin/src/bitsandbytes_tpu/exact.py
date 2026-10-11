@@ -38,7 +38,12 @@ def bitcast(value, dtype):
     outputs = xb.xla_computation_as_func(computation, name=name)([value])
     if len(outputs) != 1 or outputs[0].dtype != dtype or outputs[0].device != value.device:
         raise ValueError('DEVICE_BITCAST_RESULT')
-    return torch._to_functional_tensor(outputs[0]) if functional else outputs[0]
+    result = outputs[0]
+    # The XLA bridge can return an existing functional tensor.
+    # Add a wrapper only when the functional input requires one.
+    if functional and not torch._is_functional_tensor(result):
+        result = torch._to_functional_tensor(result)
+    return result
 
 
 def words(value):

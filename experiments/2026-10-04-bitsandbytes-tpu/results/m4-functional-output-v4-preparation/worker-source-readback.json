@@ -1,0 +1,14 @@
+{
+  "TPU": "NOT_RUN",
+  "all_member_lengths_and_hashes": "PASS",
+  "archive_bytes": 587941,
+  "archive_sha256": "62ba070abc30f6154af73cf556437e36f0fded2bb567b2d5e884eae0d4354531",
+  "kind": "M4_FUNCTIONAL_OUTPUT_SOURCE_ARCHIVE_READBACK_V1",
+  "m4_status": "NOT_QUALIFIED",
+  "members": 168,
+  "members_fully_read": 168,
+  "provider_calls": 0,
+  "replacement_map_sha256": "bf8851ab514ace91ad23611816c33a2242f667bf84b329cd79b694525230dc1b",
+  "source_files": 160,
+  "status": "PASS"
+}

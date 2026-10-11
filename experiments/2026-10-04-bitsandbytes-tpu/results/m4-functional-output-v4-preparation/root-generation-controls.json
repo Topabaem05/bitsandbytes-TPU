@@ -1,0 +1,44 @@
+{
+  "TPU": "NOT_RUN",
+  "control_count": 8,
+  "controls": [
+    {
+      "name": "correct_complete_source_generation",
+      "status": "PASS"
+    },
+    {
+      "name": "old_admission_sha_rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "old_generation_rejected_even_with_self_hash",
+      "status": "PASS"
+    },
+    {
+      "name": "science19_exactly_three_identity_changes_sixteen_unchanged",
+      "status": "PASS"
+    },
+    {
+      "name": "all_math_function_asts_and_integer_helper_bytes_unchanged",
+      "status": "PASS"
+    },
+    {
+      "name": "historical19_reconstructed_from_three_preimages_and_sixteen_current_files",
+      "status": "PASS"
+    },
+    {
+      "name": "altered_plugin_rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "plugin_symlink_rejected",
+      "status": "PASS"
+    }
+  ],
+  "kind": "M4_FUNCTIONAL_OUTPUT_GENERATION_CONTROLS_V1",
+  "m4_status": "NOT_QUALIFIED",
+  "provider_calls": 0,
+  "source_variant": "nested-exact-v2-functional-output",
+  "status": "PASS",
+  "temporary_fixture_removed": true
+}

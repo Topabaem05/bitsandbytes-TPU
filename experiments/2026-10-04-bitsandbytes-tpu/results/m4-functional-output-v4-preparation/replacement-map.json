@@ -1,0 +1,1736 @@
+{
+  "TPU": "NOT_RUN",
+  "base_revision": "0485e6892151952de94985ba18966c4628381a6c",
+  "device_acceptance": null,
+  "files": {
+    "CHANGELOG.md": {
+      "action": "REPLACE",
+      "after": {
+        "bytes": 59394,
+        "sha256": "826330d41e04122384607110478582d32a467fe9342ce2ba9ede8ab9319658f3"
+      },
+      "before": {
+        "bytes": 59001,
+        "sha256": "e38cb3843d0d7f269fd7d878fb087f48c18631fca64d62253f3cf41aaecf3f48"
+      }
+    },
+    "docs/changes/r4-functional-output-preparation.md": {
+      "action": "CREATE",
+      "after": {
+        "bytes": 419,
+        "sha256": "7c4f8d4abe929fda3ca42644fa31633300b93a68813c3f82f7a7723e51632a59"
+      },
+      "before": null
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/cloud/exact-nested/allocation_transport.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 6923,
+        "sha256": "f51014526d399c93c95c5c00c6855a949aaeda2af74fc24609da6bb9068d1696"
+      },
+      "before": {
+        "bytes": 6923,
+        "sha256": "f51014526d399c93c95c5c00c6855a949aaeda2af74fc24609da6bb9068d1696"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/cloud/exact-nested/browser_adoption.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 4359,
+        "sha256": "13a75920d19a760796b4f610b8d497e1011d4690f890d015fba281bb40ebe93d"
+      },
+      "before": {
+        "bytes": 4359,
+        "sha256": "13a75920d19a760796b4f610b8d497e1011d4690f890d015fba281bb40ebe93d"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/cloud/exact-nested/browser_record.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 2792,
+        "sha256": "59c0cee37fc3aac525bae4c665d788cfae8f3443e0ac635b8894a61f9be6bd45"
+      },
+      "before": {
+        "bytes": 2792,
+        "sha256": "59c0cee37fc3aac525bae4c665d788cfae8f3443e0ac635b8894a61f9be6bd45"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/cloud/exact-nested/build-requirements.lock.json": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 7898,
+        "sha256": "65f27f3a93b4aa533d040225609bfb819fcf5ddbbc6f17456d0fcfd28bd6b546"
+      },
+      "before": {
+        "bytes": 7898,
+        "sha256": "65f27f3a93b4aa533d040225609bfb819fcf5ddbbc6f17456d0fcfd28bd6b546"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/cloud/exact-nested/build_packet.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 1976,
+        "sha256": "52decff86353e68ba3e7320879107c6f6a831bb4d68c83aa66e10cf766f3c39e"
+      },
+      "before": {
+        "bytes": 1976,
+        "sha256": "52decff86353e68ba3e7320879107c6f6a831bb4d68c83aa66e10cf766f3c39e"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/cloud/exact-nested/cli_transport.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 4521,
+        "sha256": "56f173f3a65dddcf68c548982b8f879173fceff65a1ddcf82a6791d8c578eb2a"
+      },
+      "before": {
+        "bytes": 4521,
+        "sha256": "56f173f3a65dddcf68c548982b8f879173fceff65a1ddcf82a6791d8c578eb2a"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/cloud/exact-nested/contract.py": {
+      "action": "REPLACE",
+      "after": {
+        "bytes": 7943,
+        "sha256": "dc086838bfa662d76071229f98c1a654ed20436d0fe301cf28b398bf475685d5"
+      },
+      "before": {
+        "bytes": 7892,
+        "sha256": "60e1244b995b2f4eb891fb99906868a418fbf9f517f80ce5ee24420f1967e4fc"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/cloud/exact-nested/driver.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 15776,
+        "sha256": "30dbe9d3756825381fe6f1e9af34ec3f9bb944ab081a2fdd910bcd844a3f0b14"
+      },
+      "before": {
+        "bytes": 15776,
+        "sha256": "30dbe9d3756825381fe6f1e9af34ec3f9bb944ab081a2fdd910bcd844a3f0b14"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/cloud/exact-nested/host_audit.py": {
+      "action": "REPLACE",
+      "after": {
+        "bytes": 10091,
+        "sha256": "6d60acd6d9bef2be854a4c63c66f0c8be04c513c868bd77a71604788c089a918"
+      },
+      "before": {
+        "bytes": 10092,
+        "sha256": "40de59e531524a1dd4957b7e5db7f190c4f65d5f5d2fb76464fcc6c2a948f3ba"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/cloud/exact-nested/installed_source.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 908,
+        "sha256": "8c6341f264735fbeb9af1f3dd83da4f1f7131e969ac7d323c32f76c760a23e69"
+      },
+      "before": {
+        "bytes": 908,
+        "sha256": "8c6341f264735fbeb9af1f3dd83da4f1f7131e969ac7d323c32f76c760a23e69"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/cloud/exact-nested/kernel_protocol.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 8477,
+        "sha256": "e9c7a5b7b943cea08dfb8986205e47e008ceac37553a2f8576687527a58f9d5f"
+      },
+      "before": {
+        "bytes": 8477,
+        "sha256": "e9c7a5b7b943cea08dfb8986205e47e008ceac37553a2f8576687527a58f9d5f"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/cloud/exact-nested/official_cli_no_oauth.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 1501,
+        "sha256": "a6c8713d8be39e7185a3f759ee6bdbd64a0d6b8c47eca0ba08526f9bc1bc4d7e"
+      },
+      "before": {
+        "bytes": 1501,
+        "sha256": "a6c8713d8be39e7185a3f759ee6bdbd64a0d6b8c47eca0ba08526f9bc1bc4d7e"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/cloud/exact-nested/ownership/bootstrap.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 244,
+        "sha256": "7ed51ad613dbd6c0cbaa76575ae1da5d68b205e8b88c9e702cf206c09bb2150d"
+      },
+      "before": {
+        "bytes": 244,
+        "sha256": "7ed51ad613dbd6c0cbaa76575ae1da5d68b205e8b88c9e702cf206c09bb2150d"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/cloud/exact-nested/ownership/cleanup_lifecycle.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 9410,
+        "sha256": "6557b3522ec68ddcd9106027d08e89e872eb90587eae8cbff2859ac5668cbf76"
+      },
+      "before": {
+        "bytes": 9410,
+        "sha256": "6557b3522ec68ddcd9106027d08e89e872eb90587eae8cbff2859ac5668cbf76"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/cloud/exact-nested/ownership/lifecycle.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 4558,
+        "sha256": "4ef29a2c673ab7dadce5a965bff18e51f4850134af2dfb5f44b3d3153949f986"
+      },
+      "before": {
+        "bytes": 4558,
+        "sha256": "4ef29a2c673ab7dadce5a965bff18e51f4850134af2dfb5f44b3d3153949f986"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/cloud/exact-nested/python_bootstrap.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 7601,
+        "sha256": "11f7b025a4e7dd28315eb862e2e0b1697cf8d3f7a7e3c6e7d5b07c0adc918603"
+      },
+      "before": {
+        "bytes": 7601,
+        "sha256": "11f7b025a4e7dd28315eb862e2e0b1697cf8d3f7a7e3c6e7d5b07c0adc918603"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/cloud/exact-nested/remote.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 10227,
+        "sha256": "2bd1e53601159e45200c0e3bf80d2886a48ba56c67d5d6bc9c4ea33a5d040cad"
+      },
+      "before": {
+        "bytes": 10227,
+        "sha256": "2bd1e53601159e45200c0e3bf80d2886a48ba56c67d5d6bc9c4ea33a5d040cad"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/cloud/exact-nested/root_records.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 3056,
+        "sha256": "ff67bb1636217bb0c8afe099df1a8b18ca2fc8bf883c6f048adb3eb60139b01a"
+      },
+      "before": {
+        "bytes": 3056,
+        "sha256": "ff67bb1636217bb0c8afe099df1a8b18ca2fc8bf883c6f048adb3eb60139b01a"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/cloud/exact-nested/tests/cli_identity_controls.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 6410,
+        "sha256": "258e4bedb650c659cc551f5a2cfac9110afc2e0d25050c12aad7e7b55ff10027"
+      },
+      "before": {
+        "bytes": 6410,
+        "sha256": "258e4bedb650c659cc551f5a2cfac9110afc2e0d25050c12aad7e7b55ff10027"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/cloud/exact-nested/tests/controls.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 12732,
+        "sha256": "df2e7823adb0c44aa06b11b741e98f32acc4231446c230b30d5dd128997578c3"
+      },
+      "before": {
+        "bytes": 12732,
+        "sha256": "df2e7823adb0c44aa06b11b741e98f32acc4231446c230b30d5dd128997578c3"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/cloud/exact-nested/tests/driver_controls.py": {
+      "action": "REPLACE",
+      "after": {
+        "bytes": 14691,
+        "sha256": "a71050e9e8aa8707cd33145c03f8e7dc5bf3100879d4d10af891f7d56acd1af9"
+      },
+      "before": {
+        "bytes": 14692,
+        "sha256": "606b071b3bf3b5359ceaf139844192f2dfe59ce66976d8ff85b47dc9747d755d"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/cloud/exact-nested/tests/kernel_controls.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 12794,
+        "sha256": "1653bf6ea76ae23d33571bd6919309d3b1910b0be2fdc116a7572cbff0325524"
+      },
+      "before": {
+        "bytes": 12794,
+        "sha256": "1653bf6ea76ae23d33571bd6919309d3b1910b0be2fdc116a7572cbff0325524"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/cloud/exact-nested/transport.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 6690,
+        "sha256": "09f9394f6285bb477b382e800fe3ea66378ce99f462531da48b66a61cbbfa202"
+      },
+      "before": {
+        "bytes": 6690,
+        "sha256": "09f9394f6285bb477b382e800fe3ea66378ce99f462531da48b66a61cbbfa202"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/CHANGES-PROPOSAL.md": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 1631,
+        "sha256": "efd9d37e47eeeaf837fd5cae133cb0521e8c597dcc69352480e935e173a14055"
+      },
+      "before": {
+        "bytes": 1631,
+        "sha256": "efd9d37e47eeeaf837fd5cae133cb0521e8c597dcc69352480e935e173a14055"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/CLI_ADMISSION_V2.md": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 1395,
+        "sha256": "bab26a562eb73412b13492bcb13dab5b2f1e88168522d59cfc391479af34336a"
+      },
+      "before": {
+        "bytes": 1395,
+        "sha256": "bab26a562eb73412b13492bcb13dab5b2f1e88168522d59cfc391479af34336a"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/FUNCTIONAL_OUTPUT_SOURCE_BASIS.json": {
+      "action": "CREATE",
+      "after": {
+        "bytes": 3431,
+        "sha256": "bb6f1ff913d61a236b8040ce6e660f06af86aadd8bb68fab933354920c8c233e"
+      },
+      "before": null
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/FUNCTIONAL_OUTPUT_V4.md": {
+      "action": "CREATE",
+      "after": {
+        "bytes": 4505,
+        "sha256": "cce18067f3e0c174bd713de88ae1fbef92a571a0bb5dd6482c76af7b9af9b239"
+      },
+      "before": null
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/KERNEL_COMPLETION_V3.md": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 3665,
+        "sha256": "3ca3eaf1200f86afcd540327511ee33c9cd63c9b58b79e352c7ee25fe7daf419"
+      },
+      "before": {
+        "bytes": 3665,
+        "sha256": "3ca3eaf1200f86afcd540327511ee33c9cd63c9b58b79e352c7ee25fe7daf419"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/README.md": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 1905,
+        "sha256": "2bb11d959a412d1137ea4058bbda5cf05c0964c5e9ed1902fdde0dc0e92563e1"
+      },
+      "before": {
+        "bytes": 1905,
+        "sha256": "2bb11d959a412d1137ea4058bbda5cf05c0964c5e9ed1902fdde0dc0e92563e1"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/REPRODUCE.md": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 17257,
+        "sha256": "66b15c7f17b9d8840b9cfa75b8485bf4cc323795db232acb10c24e648881fab6"
+      },
+      "before": {
+        "bytes": 17257,
+        "sha256": "66b15c7f17b9d8840b9cfa75b8485bf4cc323795db232acb10c24e648881fab6"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/adopt_functional_revision.py": {
+      "action": "CREATE",
+      "after": {
+        "bytes": 4339,
+        "sha256": "0f0063273aaf2f5268d2db81b62a37cadd89798ef2de0f1f2a7c8c8c1c305978"
+      },
+      "before": null
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/functional_generation_controls.py": {
+      "action": "CREATE",
+      "after": {
+        "bytes": 4768,
+        "sha256": "149a51008332350d4faa2ce6ee55622861aaf579dd64c2edd299ea2d6e596946"
+      },
+      "before": null
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/functional_output_controls.py": {
+      "action": "CREATE",
+      "after": {
+        "bytes": 9562,
+        "sha256": "2a98afa44e70dea3301f6fd2650ce0d8f71e6ba000b2a788dcb194a189228251"
+      },
+      "before": null
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/history/functional-output-v1-20261011/exact.py": {
+      "action": "CREATE",
+      "after": {
+        "bytes": 5621,
+        "sha256": "e5064072609753d3a5f1e1920b46db48ccce5751402fe7a5ba5c5b7c0ddf2831"
+      },
+      "before": null
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/history/functional-output-v1-20261011/exact_admission.py": {
+      "action": "CREATE",
+      "after": {
+        "bytes": 6950,
+        "sha256": "5817efdb682024639d7bcf689373ac505393b7490ee6476896f2714de27b84f3"
+      },
+      "before": null
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/history/functional-output-v1-20261011/generation_gate.py": {
+      "action": "CREATE",
+      "after": {
+        "bytes": 3760,
+        "sha256": "591578f214f024f92f2e39e9c79463c6df38bf6a6097271e8a8c4f354d2698a7"
+      },
+      "before": null
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/history/functional-output-v1-20261011/integration-admission.json": {
+      "action": "CREATE",
+      "after": {
+        "bytes": 13839,
+        "sha256": "75790f1d4613e20daa06d99111288463ef24b05aaa29922a7580512078f9912f"
+      },
+      "before": null
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/history/functional-output-v1-20261011/integration-adoption-map.json": {
+      "action": "CREATE",
+      "after": {
+        "bytes": 15153,
+        "sha256": "cc237461aa97a4b33ebca3d794cba0b158139c137ce2323cbb9b2ebda0cd50b6"
+      },
+      "before": null
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/history/functional-output-v1-20261011/science-manifest.json": {
+      "action": "CREATE",
+      "after": {
+        "bytes": 3027,
+        "sha256": "9e71efc73b0f2b3a210f8131c10972569a5e2d04cf298fcf5a8da59772cf4f5a"
+      },
+      "before": null
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/history/functional-output-v1-20261011/source-map.json": {
+      "action": "CREATE",
+      "after": {
+        "bytes": 3798,
+        "sha256": "eae4e85d0f78e0c2080e0a8882e0ba9a6c113fee9d688116c2519ee77d6f9741"
+      },
+      "before": null
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/integration/SOURCE_BASIS.json": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 8998,
+        "sha256": "24dd04e12e8a1af124b051a2f0e59edcc043deb50c77d9389db26e33ea4eb22f"
+      },
+      "before": {
+        "bytes": 8998,
+        "sha256": "24dd04e12e8a1af124b051a2f0e59edcc043deb50c77d9389db26e33ea4eb22f"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/integration/adoption-map.json": {
+      "action": "REPLACE",
+      "after": {
+        "bytes": 7142,
+        "sha256": "bfd7ce45a900fee3bc5ecfed54524c17931e2964ef5b7295fca6e6038883729a"
+      },
+      "before": {
+        "bytes": 15153,
+        "sha256": "cc237461aa97a4b33ebca3d794cba0b158139c137ce2323cbb9b2ebda0cd50b6"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/integration/nested-exact.patch": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 5323,
+        "sha256": "c4da2eb8ca25ce34e4f67849ce69d68ec6998ec229fc6341c74c56169b40cc49"
+      },
+      "before": {
+        "bytes": 5323,
+        "sha256": "c4da2eb8ca25ce34e4f67849ce69d68ec6998ec229fc6341c74c56169b40cc49"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/integration/patch-manifest.json": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 9593,
+        "sha256": "947b679cf5833dcef021245117a53f49d0c04eace0b32e911b492303ae6149aa"
+      },
+      "before": {
+        "bytes": 9593,
+        "sha256": "947b679cf5833dcef021245117a53f49d0c04eace0b32e911b492303ae6149aa"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/integration/plugin/LICENSE": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 11357,
+        "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+      },
+      "before": {
+        "bytes": 11357,
+        "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/integration/plugin/README.md": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 1753,
+        "sha256": "1794f3f31aa5df01aee93bf348d7d5021c10973dfe6f1dde307b8c09582f3676"
+      },
+      "before": {
+        "bytes": 1753,
+        "sha256": "1794f3f31aa5df01aee93bf348d7d5021c10973dfe6f1dde307b8c09582f3676"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/integration/plugin/THIRD_PARTY_NOTICES.md": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 2319,
+        "sha256": "f2095a16719cdb849a624357e17d877f4b650e75a93b845b5a227ee0d9d35bc6"
+      },
+      "before": {
+        "bytes": 2319,
+        "sha256": "f2095a16719cdb849a624357e17d877f4b650e75a93b845b5a227ee0d9d35bc6"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/integration/plugin/pyproject.toml": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 662,
+        "sha256": "58dd06c835cb5221cd0a174630cf3054e1edd0265832c271a1fc1b18ceb8305c"
+      },
+      "before": {
+        "bytes": 662,
+        "sha256": "58dd06c835cb5221cd0a174630cf3054e1edd0265832c271a1fc1b18ceb8305c"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/integration/plugin/src/bitsandbytes_tpu/__init__.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 296,
+        "sha256": "0d23c43ef09e8b3aafee1a81fece97091c0b2cbb3ca14c680ff61f9866e9a7a0"
+      },
+      "before": {
+        "bytes": 296,
+        "sha256": "0d23c43ef09e8b3aafee1a81fece97091c0b2cbb3ca14c680ff61f9866e9a7a0"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/integration/plugin/src/bitsandbytes_tpu/_integer_addsub.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 3350,
+        "sha256": "0294486d6cad96d0ceb88ecd492bd0aeaa106788e289735167cd8ef3d3b9fe66"
+      },
+      "before": {
+        "bytes": 3350,
+        "sha256": "0294486d6cad96d0ceb88ecd492bd0aeaa106788e289735167cd8ef3d3b9fe66"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/integration/plugin/src/bitsandbytes_tpu/_integer_clamp.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 3930,
+        "sha256": "77edb6a7dc30caa49cd6a4260a5663f4c5a0fa146b6f084e207a6aaae9804b59"
+      },
+      "before": {
+        "bytes": 3930,
+        "sha256": "77edb6a7dc30caa49cd6a4260a5663f4c5a0fa146b6f084e207a6aaae9804b59"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/integration/plugin/src/bitsandbytes_tpu/_integer_muldiv.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 4780,
+        "sha256": "89cc079e3dee6a2ff3b79cf8b176ea62c5bd2183a14427bbc0c235de02a27187"
+      },
+      "before": {
+        "bytes": 4780,
+        "sha256": "89cc079e3dee6a2ff3b79cf8b176ea62c5bd2183a14427bbc0c235de02a27187"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/integration/plugin/src/bitsandbytes_tpu/_source_order.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 2183,
+        "sha256": "700bac513eb69eb22c5d11391b488367b4f56fbeedd741a58e841c6a5fe911a0"
+      },
+      "before": {
+        "bytes": 2183,
+        "sha256": "700bac513eb69eb22c5d11391b488367b4f56fbeedd741a58e841c6a5fe911a0"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/integration/plugin/src/bitsandbytes_tpu/blockwise.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 2913,
+        "sha256": "6d4c2d9af7bb1b7c72c8743839fabbc92e2218978974314f7322b43edc912e47"
+      },
+      "before": {
+        "bytes": 2913,
+        "sha256": "6d4c2d9af7bb1b7c72c8743839fabbc92e2218978974314f7322b43edc912e47"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/integration/plugin/src/bitsandbytes_tpu/compatibility.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 9480,
+        "sha256": "5b4a2125b4d90c7c81a0eb44156322dcb893b6cbec9c03728711db18ae93c633"
+      },
+      "before": {
+        "bytes": 9480,
+        "sha256": "5b4a2125b4d90c7c81a0eb44156322dcb893b6cbec9c03728711db18ae93c633"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/integration/plugin/src/bitsandbytes_tpu/exact.py": {
+      "action": "REPLACE",
+      "after": {
+        "bytes": 5826,
+        "sha256": "0b9965a0c98a8e62ea4119e48e4bfb0f69a4b92c0efa5a9ba58ba02a3b960846"
+      },
+      "before": {
+        "bytes": 5621,
+        "sha256": "e5064072609753d3a5f1e1920b46db48ccce5751402fe7a5ba5c5b7c0ddf2831"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/integration/plugin/src/bitsandbytes_tpu/functionalization.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 3292,
+        "sha256": "0b31b2d86e7dd4aa10629e236fa1c0c18518eb5a3fb565714a9e40f432c2c93e"
+      },
+      "before": {
+        "bytes": 3292,
+        "sha256": "0b31b2d86e7dd4aa10629e236fa1c0c18518eb5a3fb565714a9e40f432c2c93e"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/integration/plugin/src/bitsandbytes_tpu/reference.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 3502,
+        "sha256": "a901df09a9cdb4b655a1f61a491466e1a4db1006eb38f0a89a2c2eb8df656907"
+      },
+      "before": {
+        "bytes": 3502,
+        "sha256": "a901df09a9cdb4b655a1f61a491466e1a4db1006eb38f0a89a2c2eb8df656907"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/integration/plugin/src/bitsandbytes_tpu/registration.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 4330,
+        "sha256": "7b261e5f6e5409ecf9abf735679e14746cbed8c0fbebb55d47ccc66e2ab4fd0b"
+      },
+      "before": {
+        "bytes": 4330,
+        "sha256": "7b261e5f6e5409ecf9abf735679e14746cbed8c0fbebb55d47ccc66e2ab4fd0b"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/integration/source-admission.json": {
+      "action": "REPLACE",
+      "after": {
+        "bytes": 13857,
+        "sha256": "8b5aa5f0c86346db982664cfad3b1e242dc8a67a4e49865584ccc01c8620f4bf"
+      },
+      "before": {
+        "bytes": 13839,
+        "sha256": "75790f1d4613e20daa06d99111288463ef24b05aaa29922a7580512078f9912f"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/integration/upstream/LICENSE": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 1086,
+        "sha256": "52412d7bc7ce4157ea628bbaacb8829e0a9cb3c58f57f99176126bc8cf2bfc85"
+      },
+      "before": {
+        "bytes": 1086,
+        "sha256": "52412d7bc7ce4157ea628bbaacb8829e0a9cb3c58f57f99176126bc8cf2bfc85"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/integration/upstream/MANIFEST.in": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 48,
+        "sha256": "5c090cd4be2241e35a1ef97eb7369269700d753d08752b53158736dfa7bb8108"
+      },
+      "before": {
+        "bytes": 48,
+        "sha256": "5c090cd4be2241e35a1ef97eb7369269700d753d08752b53158736dfa7bb8108"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/integration/upstream/NOTICE.md": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 171,
+        "sha256": "4bc3a95e162a5fbdb704ec294fcea97706509ac73d9b9432b041e90227097bec"
+      },
+      "before": {
+        "bytes": 171,
+        "sha256": "4bc3a95e162a5fbdb704ec294fcea97706509ac73d9b9432b041e90227097bec"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/integration/upstream/README.md": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 8266,
+        "sha256": "68fc2df60317162ca34ba4a1aa0ff3dbc195634391ddeff326b3b109ff7d5ea3"
+      },
+      "before": {
+        "bytes": 8266,
+        "sha256": "68fc2df60317162ca34ba4a1aa0ff3dbc195634391ddeff326b3b109ff7d5ea3"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/integration/upstream/bitsandbytes/__init__.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 2227,
+        "sha256": "026aeaf979736dd15f80b145880dc4de03ebbe131b47b9f066645da1772255b8"
+      },
+      "before": {
+        "bytes": 2227,
+        "sha256": "026aeaf979736dd15f80b145880dc4de03ebbe131b47b9f066645da1772255b8"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/integration/upstream/bitsandbytes/__main__.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 90,
+        "sha256": "037880f501fcc9f9feeb4b8deb0ffb5948ae44833befbad9fe97ff1ec66db1ee"
+      },
+      "before": {
+        "bytes": 90,
+        "sha256": "037880f501fcc9f9feeb4b8deb0ffb5948ae44833befbad9fe97ff1ec66db1ee"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/integration/upstream/bitsandbytes/_ops.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 19919,
+        "sha256": "e6d9ed4c268e52044a8ff5f895f94ca88bf02d156b25c4616141cfa9daaf924c"
+      },
+      "before": {
+        "bytes": 19919,
+        "sha256": "e6d9ed4c268e52044a8ff5f895f94ca88bf02d156b25c4616141cfa9daaf924c"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/integration/upstream/bitsandbytes/autograd/__init__.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "before": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/integration/upstream/bitsandbytes/autograd/_functions.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 17700,
+        "sha256": "77ca54c87b69ad470ac73e5d7dde94948f20de9de8b8764957728bc29831f37f"
+      },
+      "before": {
+        "bytes": 17700,
+        "sha256": "77ca54c87b69ad470ac73e5d7dde94948f20de9de8b8764957728bc29831f37f"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/integration/upstream/bitsandbytes/backends/__init__.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "before": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/integration/upstream/bitsandbytes/backends/cpu/__init__.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "before": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/integration/upstream/bitsandbytes/backends/cpu/ops.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 20911,
+        "sha256": "d4bfca8b4ce6a6a368aeccdd1516f98f505bf374f6e66d64fb22e6229eb1ff67"
+      },
+      "before": {
+        "bytes": 20911,
+        "sha256": "d4bfca8b4ce6a6a368aeccdd1516f98f505bf374f6e66d64fb22e6229eb1ff67"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/integration/upstream/bitsandbytes/backends/cuda/__init__.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "before": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/integration/upstream/bitsandbytes/backends/cuda/ops.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 42583,
+        "sha256": "d58fa0a0c053d5a0ecd1e93d847531d5e0226a0bd8048472ee0ca632464cc20f"
+      },
+      "before": {
+        "bytes": 42583,
+        "sha256": "d58fa0a0c053d5a0ecd1e93d847531d5e0226a0bd8048472ee0ca632464cc20f"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/integration/upstream/bitsandbytes/backends/default/__init__.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "before": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/integration/upstream/bitsandbytes/backends/default/ops.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 19802,
+        "sha256": "e39afd16dca6e6f34a14305ade0ba4acbb49dc2c7a9baf937341d7e33b682819"
+      },
+      "before": {
+        "bytes": 19802,
+        "sha256": "e39afd16dca6e6f34a14305ade0ba4acbb49dc2c7a9baf937341d7e33b682819"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/integration/upstream/bitsandbytes/backends/hpu/__init__.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "before": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/integration/upstream/bitsandbytes/backends/hpu/ops.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 1457,
+        "sha256": "1a017363ed6b3a0aa61fb71c5e22bf69ea3dc8a4e2b6f8fbf966cea86806f6e3"
+      },
+      "before": {
+        "bytes": 1457,
+        "sha256": "1a017363ed6b3a0aa61fb71c5e22bf69ea3dc8a4e2b6f8fbf966cea86806f6e3"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/integration/upstream/bitsandbytes/backends/mps/__init__.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "before": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/integration/upstream/bitsandbytes/backends/mps/ops.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 9105,
+        "sha256": "d93a6ceb2d03359d061f61abd70d152ffed4af26bf2693d7c6d47f8470bd0770"
+      },
+      "before": {
+        "bytes": 9105,
+        "sha256": "d93a6ceb2d03359d061f61abd70d152ffed4af26bf2693d7c6d47f8470bd0770"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/integration/upstream/bitsandbytes/backends/triton/__init__.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "before": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/integration/upstream/bitsandbytes/backends/triton/kernels_4bit.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 22434,
+        "sha256": "6e380698b4b40056fa19e457d71fea113c32a9f3ce4a83a6d93ea33cea18ef84"
+      },
+      "before": {
+        "bytes": 22434,
+        "sha256": "6e380698b4b40056fa19e457d71fea113c32a9f3ce4a83a6d93ea33cea18ef84"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/integration/upstream/bitsandbytes/backends/triton/kernels_8bit_quant.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 6542,
+        "sha256": "92774d59c8f4ffe143b52997529c9ac5fc4f7c73831aafd6cf9d425de9a3adfc"
+      },
+      "before": {
+        "bytes": 6542,
+        "sha256": "92774d59c8f4ffe143b52997529c9ac5fc4f7c73831aafd6cf9d425de9a3adfc"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/integration/upstream/bitsandbytes/backends/triton/kernels_optim.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 38685,
+        "sha256": "4e0458ad0c4c1bd931dccb772d92c1dd53dbff9a2da5ed9991550197f20771b1"
+      },
+      "before": {
+        "bytes": 38685,
+        "sha256": "4e0458ad0c4c1bd931dccb772d92c1dd53dbff9a2da5ed9991550197f20771b1"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/integration/upstream/bitsandbytes/backends/triton/ops.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 10276,
+        "sha256": "723cfe3134cc8d598477e238a84bb697de43e3956f648e1faa8e91a1a99e2ab8"
+      },
+      "before": {
+        "bytes": 10276,
+        "sha256": "723cfe3134cc8d598477e238a84bb697de43e3956f648e1faa8e91a1a99e2ab8"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/integration/upstream/bitsandbytes/backends/utils.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 2322,
+        "sha256": "dc564f2fbf13dba81388a23d4c87167dd54da04af8f17b0db52685fe42b11c84"
+      },
+      "before": {
+        "bytes": 2322,
+        "sha256": "dc564f2fbf13dba81388a23d4c87167dd54da04af8f17b0db52685fe42b11c84"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/integration/upstream/bitsandbytes/backends/xpu/__init__.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "before": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/integration/upstream/bitsandbytes/backends/xpu/ops.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 9845,
+        "sha256": "0ffcde964e1bf23c4b4ae9f39b73ba8a50b90a2d9a02909446f1467074432596"
+      },
+      "before": {
+        "bytes": 9845,
+        "sha256": "0ffcde964e1bf23c4b4ae9f39b73ba8a50b90a2d9a02909446f1467074432596"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/integration/upstream/bitsandbytes/cextension.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 17174,
+        "sha256": "a7ce4d7bcb504bf7d268ce96658dbe832804b6f6ed999f61eaf2beeb9385c9bd"
+      },
+      "before": {
+        "bytes": 17174,
+        "sha256": "a7ce4d7bcb504bf7d268ce96658dbe832804b6f6ed999f61eaf2beeb9385c9bd"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/integration/upstream/bitsandbytes/consts.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 380,
+        "sha256": "c5f0da75001ac7e99ac6a907ad535b67a5084c9a12d1781c51fa299a32e08a53"
+      },
+      "before": {
+        "bytes": 380,
+        "sha256": "c5f0da75001ac7e99ac6a907ad535b67a5084c9a12d1781c51fa299a32e08a53"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/integration/upstream/bitsandbytes/cuda_specs.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 3236,
+        "sha256": "6a4153476671439085a452de83940a15b54e678c73dd449ac78dd1c5accfdb69"
+      },
+      "before": {
+        "bytes": 3236,
+        "sha256": "6a4153476671439085a452de83940a15b54e678c73dd449ac78dd1c5accfdb69"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/integration/upstream/bitsandbytes/diagnostics/__init__.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "before": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/integration/upstream/bitsandbytes/diagnostics/cuda.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 7256,
+        "sha256": "3b7f74ecfc45ad6af980ddf89c31e063b75609a61c3f63f90f7e4360895aa463"
+      },
+      "before": {
+        "bytes": 7256,
+        "sha256": "3b7f74ecfc45ad6af980ddf89c31e063b75609a61c3f63f90f7e4360895aa463"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/integration/upstream/bitsandbytes/diagnostics/main.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 4202,
+        "sha256": "d3ca45b8a8d0ae5b735728fb177721df548f25c23a3c6892c9542db341ad4c9a"
+      },
+      "before": {
+        "bytes": 4202,
+        "sha256": "d3ca45b8a8d0ae5b735728fb177721df548f25c23a3c6892c9542db341ad4c9a"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/integration/upstream/bitsandbytes/diagnostics/utils.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 284,
+        "sha256": "102888dbbf6387bf3defb45664520e9264c91b88353bf62240bc0fe2249aed3c"
+      },
+      "before": {
+        "bytes": 284,
+        "sha256": "102888dbbf6387bf3defb45664520e9264c91b88353bf62240bc0fe2249aed3c"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/integration/upstream/bitsandbytes/functional.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 66739,
+        "sha256": "77ddf34d6ca49166202abd13e7181311e6f90b333b799c2d376793bd5e1dde28"
+      },
+      "before": {
+        "bytes": 66739,
+        "sha256": "77ddf34d6ca49166202abd13e7181311e6f90b333b799c2d376793bd5e1dde28"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/integration/upstream/bitsandbytes/nn/__init__.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 432,
+        "sha256": "69338d130d2b0abe714edf71c365feb1ba5727170583e317364b05c57b602ffe"
+      },
+      "before": {
+        "bytes": 432,
+        "sha256": "69338d130d2b0abe714edf71c365feb1ba5727170583e317364b05c57b602ffe"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/integration/upstream/bitsandbytes/nn/modules.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 46057,
+        "sha256": "690987fda1219e91b8b72930402c424ea1875b66b853a9b5472e00de18314e4a"
+      },
+      "before": {
+        "bytes": 46057,
+        "sha256": "690987fda1219e91b8b72930402c424ea1875b66b853a9b5472e00de18314e4a"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/integration/upstream/bitsandbytes/nn/parametrize.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 8365,
+        "sha256": "b527362228f8ab52767af19d0fb9d517c358f5d55d691ebbf24296d557bb6c03"
+      },
+      "before": {
+        "bytes": 8365,
+        "sha256": "b527362228f8ab52767af19d0fb9d517c358f5d55d691ebbf24296d557bb6c03"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/integration/upstream/bitsandbytes/optim/__init__.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 881,
+        "sha256": "d11a8cd54ea3c14f0509e78f0dc878404bb601911856bb4323cf651767752140"
+      },
+      "before": {
+        "bytes": 881,
+        "sha256": "d11a8cd54ea3c14f0509e78f0dc878404bb601911856bb4323cf651767752140"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/integration/upstream/bitsandbytes/optim/adagrad.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 6774,
+        "sha256": "bcfb69d0cf68a6fd88e3645d4b079042225af6abb875d6206f329a806225f96e"
+      },
+      "before": {
+        "bytes": 6774,
+        "sha256": "bcfb69d0cf68a6fd88e3645d4b079042225af6abb875d6206f329a806225f96e"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/integration/upstream/bitsandbytes/optim/adam.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 12832,
+        "sha256": "5086e35454e6419539133a55e3ed23cc09f86e56ce627450af768f4a19517557"
+      },
+      "before": {
+        "bytes": 12832,
+        "sha256": "5086e35454e6419539133a55e3ed23cc09f86e56ce627450af768f4a19517557"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/integration/upstream/bitsandbytes/optim/adamw.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 12449,
+        "sha256": "da6b56da8475cf2eb5591e68114501d159b4e40f9367c463a3324dc202aa263b"
+      },
+      "before": {
+        "bytes": 12449,
+        "sha256": "da6b56da8475cf2eb5591e68114501d159b4e40f9367c463a3324dc202aa263b"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/integration/upstream/bitsandbytes/optim/ademamix.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 12750,
+        "sha256": "05201c910272c146b75035a2ced263a8de63a062f3534eabf24012acd4f63cca"
+      },
+      "before": {
+        "bytes": 12750,
+        "sha256": "05201c910272c146b75035a2ced263a8de63a062f3534eabf24012acd4f63cca"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/integration/upstream/bitsandbytes/optim/lamb.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 7315,
+        "sha256": "6a639a61e348c14ed1e817a79e3f8e4bb40d09a9071c4adef155cce49be730b3"
+      },
+      "before": {
+        "bytes": 7315,
+        "sha256": "6a639a61e348c14ed1e817a79e3f8e4bb40d09a9071c4adef155cce49be730b3"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/integration/upstream/bitsandbytes/optim/lars.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 8326,
+        "sha256": "a37dacd45522138f4646973e59d4e646efc5781efddb6641321dd4341c5c6968"
+      },
+      "before": {
+        "bytes": 8326,
+        "sha256": "a37dacd45522138f4646973e59d4e646efc5781efddb6641321dd4341c5c6968"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/integration/upstream/bitsandbytes/optim/lion.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 8309,
+        "sha256": "394bb56b2b0833ce4d347345bbe2c34c22c8e87a2a3cd329f9b2d5819006b479"
+      },
+      "before": {
+        "bytes": 8309,
+        "sha256": "394bb56b2b0833ce4d347345bbe2c34c22c8e87a2a3cd329f9b2d5819006b479"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/integration/upstream/bitsandbytes/optim/optimizer.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 28127,
+        "sha256": "2e07a06ea0736e4e6ce7bb821207264aa5c2e7044718c88021b7bae3a15ddf2e"
+      },
+      "before": {
+        "bytes": 28127,
+        "sha256": "2e07a06ea0736e4e6ce7bb821207264aa5c2e7044718c88021b7bae3a15ddf2e"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/integration/upstream/bitsandbytes/optim/rmsprop.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 6134,
+        "sha256": "dac1d263585f4ebf37699bc198811fce84e228447c2d973f043926c891b794fb"
+      },
+      "before": {
+        "bytes": 6134,
+        "sha256": "dac1d263585f4ebf37699bc198811fce84e228447c2d973f043926c891b794fb"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/integration/upstream/bitsandbytes/optim/sgd.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 4916,
+        "sha256": "8158db8e362b9b5f7b4623adeaf2e85da33169654ae837bdd40a7f28be9616d8"
+      },
+      "before": {
+        "bytes": 4916,
+        "sha256": "8158db8e362b9b5f7b4623adeaf2e85da33169654ae837bdd40a7f28be9616d8"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/integration/upstream/bitsandbytes/py.typed": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "before": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/integration/upstream/bitsandbytes/utils.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 6928,
+        "sha256": "1b5a196e0200b74ee6f7eed2a4b051b488ec8a923c902a6d75f4d62b3f7a83d2"
+      },
+      "before": {
+        "bytes": 6928,
+        "sha256": "1b5a196e0200b74ee6f7eed2a4b051b488ec8a923c902a6d75f4d62b3f7a83d2"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/integration/upstream/pyproject.toml": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 5019,
+        "sha256": "d88a6f7fd14f5226438a2cab4b48ace737b998fc5444bcbb972e6586ec8ce676"
+      },
+      "before": {
+        "bytes": 5019,
+        "sha256": "d88a6f7fd14f5226438a2cab4b48ace737b998fc5444bcbb972e6586ec8ce676"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/integration/upstream/setup.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 1558,
+        "sha256": "7413e623fc960932a42c496ce8f49059d1a85d0fc0adc390653bef7c81a2a161"
+      },
+      "before": {
+        "bytes": 1558,
+        "sha256": "7413e623fc960932a42c496ce8f49059d1a85d0fc0adc390653bef7c81a2a161"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/legacy/nested-inputs.json": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 3643113,
+        "sha256": "b7490f4c622aef793d14bd9a7a38727754cb1fb8e6e1dec7ff91ef8c45fbafbc"
+      },
+      "before": {
+        "bytes": 3643113,
+        "sha256": "b7490f4c622aef793d14bd9a7a38727754cb1fb8e6e1dec7ff91ef8c45fbafbc"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/legacy/nested-schemas.json": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 1131,
+        "sha256": "bd7dd210b2451749556f053b4472d4cbb820320d6608d246153888d0dcda0b71"
+      },
+      "before": {
+        "bytes": 1131,
+        "sha256": "bd7dd210b2451749556f053b4472d4cbb820320d6608d246153888d0dcda0b71"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/legacy/nested-source.json": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 705,
+        "sha256": "c8d7519c92202e0238fbee55a63ffff32860f821b8957c8a135046a4294f13d2"
+      },
+      "before": {
+        "bytes": 705,
+        "sha256": "c8d7519c92202e0238fbee55a63ffff32860f821b8957c8a135046a4294f13d2"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/legacy/probe-inputs.json": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 132064,
+        "sha256": "d0c9cdf6a82449a56923499698f19bfd3cc8d13c042f1f5ad2bdf587701f5e54"
+      },
+      "before": {
+        "bytes": 132064,
+        "sha256": "d0c9cdf6a82449a56923499698f19bfd3cc8d13c042f1f5ad2bdf587701f5e54"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/legacy/probe-profile.json": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 3695,
+        "sha256": "ad53f6416bdabf6440f08b313963c947a468cd39afd413bfe41bb381c4a7a166"
+      },
+      "before": {
+        "bytes": 3695,
+        "sha256": "ad53f6416bdabf6440f08b313963c947a468cd39afd413bfe41bb381c4a7a166"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/legacy/probe_backend.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 24512,
+        "sha256": "e8743e33e6a0454d5d05b77075d47a5c9f983cf32f3956c38f2b544f86f5ef6d"
+      },
+      "before": {
+        "bytes": 24512,
+        "sha256": "e8743e33e6a0454d5d05b77075d47a5c9f983cf32f3956c38f2b544f86f5ef6d"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/legacy/probe_nested.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 32915,
+        "sha256": "9cfbc7c6b9841b365b47ecfd0bf1b184fda754208aec5f214fe3d0cd9198348d"
+      },
+      "before": {
+        "bytes": 32915,
+        "sha256": "9cfbc7c6b9841b365b47ecfd0bf1b184fda754208aec5f214fe3d0cd9198348d"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/legacy/probe_precision.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 35743,
+        "sha256": "e0534955507e5f91e67ecddfffc738a367ad752e69a4eea7ae8052c6d76a8852"
+      },
+      "before": {
+        "bytes": 35743,
+        "sha256": "e0534955507e5f91e67ecddfffc738a367ad752e69a4eea7ae8052c6d76a8852"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/legacy/probe_routes.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 26296,
+        "sha256": "feae751734e57c741b1bdade004ff7ca3c041ee7eb3b7086b531bc6be433038e"
+      },
+      "before": {
+        "bytes": 26296,
+        "sha256": "feae751734e57c741b1bdade004ff7ca3c041ee7eb3b7086b531bc6be433038e"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/legacy/transfer_admission.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 4358,
+        "sha256": "6a7c925211b14aba990318360c8f0ca2d4d803e4528c634135c8bde86326816b"
+      },
+      "before": {
+        "bytes": 4358,
+        "sha256": "6a7c925211b14aba990318360c8f0ca2d4d803e4528c634135c8bde86326816b"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/materialize.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 2479,
+        "sha256": "aa45a20aca571ba96f5e1dd383140f39e3af483012138a90565520cd2e5989b9"
+      },
+      "before": {
+        "bytes": 2479,
+        "sha256": "aa45a20aca571ba96f5e1dd383140f39e3af483012138a90565520cd2e5989b9"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/new_controls.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 11871,
+        "sha256": "381742d5c1fb14fa5c983ac9c78af7c702bd8950a033eb7c5565763004312abb"
+      },
+      "before": {
+        "bytes": 11871,
+        "sha256": "381742d5c1fb14fa5c983ac9c78af7c702bd8950a033eb7c5565763004312abb"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/portable-source-map.json": {
+      "action": "REPLACE",
+      "after": {
+        "bytes": 21697,
+        "sha256": "30352ab1519e5eaa526ce4297889c117925fc30b9981b8e9618b2b23c4ae2f60"
+      },
+      "before": {
+        "bytes": 19609,
+        "sha256": "ded15a538dbcf8fe58a733c4f46a6e9c81bbc8c701c54cc54898a014b0c10010"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/review.json": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 13236,
+        "sha256": "226cdfbe15b6d67fd8df1e1452aaf538a1a577afac144967597f5bc380f27ed5"
+      },
+      "before": {
+        "bytes": 13236,
+        "sha256": "226cdfbe15b6d67fd8df1e1452aaf538a1a577afac144967597f5bc380f27ed5"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/run_controls.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 3242,
+        "sha256": "af0dd4380ff532203cb32b09b3169770baf6d2069834e5618fdf224aa985b442"
+      },
+      "before": {
+        "bytes": 3242,
+        "sha256": "af0dd4380ff532203cb32b09b3169770baf6d2069834e5618fdf224aa985b442"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/run_new_owned.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 355,
+        "sha256": "5ca23a4dc30a8adce653a66ce566ceb8153b6bf3b3b70c70c9046113b45ef792"
+      },
+      "before": {
+        "bytes": 355,
+        "sha256": "5ca23a4dc30a8adce653a66ce566ceb8153b6bf3b3b70c70c9046113b45ef792"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/runtime/probe_runtime.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 4536,
+        "sha256": "c0f27f05af742ccdee46df98f8ec2454a3ec5ee288880950cf057ef0961e7816"
+      },
+      "before": {
+        "bytes": 4536,
+        "sha256": "c0f27f05af742ccdee46df98f8ec2454a3ec5ee288880950cf057ef0961e7816"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/runtime/requirements.lock.json": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 39667,
+        "sha256": "323371ff61c5fbcc4f79fd6a358cf2ba17cb72b907382a5ceaac07f91dc66ed6"
+      },
+      "before": {
+        "bytes": 39667,
+        "sha256": "323371ff61c5fbcc4f79fd6a358cf2ba17cb72b907382a5ceaac07f91dc66ed6"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/runtime/resolve.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 14974,
+        "sha256": "21cc9342ae664f881bb07f900e47236bc6917b3b461df656b758507584471bf9"
+      },
+      "before": {
+        "bytes": 14974,
+        "sha256": "21cc9342ae664f881bb07f900e47236bc6917b3b461df656b758507584471bf9"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/source-freeze.json": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 3180,
+        "sha256": "bd2cb1572946670eaac1d257d11e0a8544a4a42c0ce7fa721e8bb2aaf5e5f861"
+      },
+      "before": {
+        "bytes": 3180,
+        "sha256": "bd2cb1572946670eaac1d257d11e0a8544a4a42c0ce7fa721e8bb2aaf5e5f861"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/source/SOURCE_BASIS.json": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 4162,
+        "sha256": "e60a3623cb248b8fcc0b832272eb196b4d93020fb4b2d22aea7248da5fcd47a5"
+      },
+      "before": {
+        "bytes": 4162,
+        "sha256": "e60a3623cb248b8fcc0b832272eb196b4d93020fb4b2d22aea7248da5fcd47a5"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/source/archive_objects.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 3741,
+        "sha256": "413ebfd562f89eedebaa1e35f3931d1cd00654e2d49cbf9e15712a512b89858b"
+      },
+      "before": {
+        "bytes": 3741,
+        "sha256": "413ebfd562f89eedebaa1e35f3931d1cd00654e2d49cbf9e15712a512b89858b"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/source/archive_store.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 7415,
+        "sha256": "06d4fbaa3aa02be0f743ad366c3ebb5219e71f318921a9e527e1488d10be7c22"
+      },
+      "before": {
+        "bytes": 7415,
+        "sha256": "06d4fbaa3aa02be0f743ad366c3ebb5219e71f318921a9e527e1488d10be7c22"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/source/controls.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 27625,
+        "sha256": "90031c8287d1135d05cd8bcae2fe88a9914f1daaf753e16e6d680f02f1a666d8"
+      },
+      "before": {
+        "bytes": 27625,
+        "sha256": "90031c8287d1135d05cd8bcae2fe88a9914f1daaf753e16e6d680f02f1a666d8"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/source/cpu_gate.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 2502,
+        "sha256": "f635ae0c4c4e577b83185597133280c0c2673d1e0a4b278e6fa08c77f12e4766"
+      },
+      "before": {
+        "bytes": 2502,
+        "sha256": "f635ae0c4c4e577b83185597133280c0c2673d1e0a4b278e6fa08c77f12e4766"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/source/exact_admission.py": {
+      "action": "REPLACE",
+      "after": {
+        "bytes": 6968,
+        "sha256": "adfaa0dda919e396038db7fe0dd45654b0a1799537a98bfa959500525c821f50"
+      },
+      "before": {
+        "bytes": 6950,
+        "sha256": "5817efdb682024639d7bcf689373ac505393b7490ee6476896f2714de27b84f3"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/source/generation_gate.py": {
+      "action": "REPLACE",
+      "after": {
+        "bytes": 3796,
+        "sha256": "e23a48247e5d370f624364e945f87526c624fbd806f65d74205ddc86bf9645e3"
+      },
+      "before": {
+        "bytes": 3760,
+        "sha256": "591578f214f024f92f2e39e9c79463c6df38bf6a6097271e8a8c4f354d2698a7"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/source/graph_witness.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 15421,
+        "sha256": "72a677b95415fabe3ac763f3d0c4513739b74800d1b7545015450ed96fb1c8c2"
+      },
+      "before": {
+        "bytes": 15421,
+        "sha256": "72a677b95415fabe3ac763f3d0c4513739b74800d1b7545015450ed96fb1c8c2"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/source/hlo_parser.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 9783,
+        "sha256": "60f8ac1ea1b0a7ebfce27036da02470dae6ad1bb824dc894d462d6e54ce1a39b"
+      },
+      "before": {
+        "bytes": 9783,
+        "sha256": "60f8ac1ea1b0a7ebfce27036da02470dae6ad1bb824dc894d462d6e54ce1a39b"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/source/integration-admission.json": {
+      "action": "REPLACE",
+      "after": {
+        "bytes": 13857,
+        "sha256": "8b5aa5f0c86346db982664cfad3b1e242dc8a67a4e49865584ccc01c8620f4bf"
+      },
+      "before": {
+        "bytes": 13839,
+        "sha256": "75790f1d4613e20daa06d99111288463ef24b05aaa29922a7580512078f9912f"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/source/nested-inputs.json": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 3643113,
+        "sha256": "b7490f4c622aef793d14bd9a7a38727754cb1fb8e6e1dec7ff91ef8c45fbafbc"
+      },
+      "before": {
+        "bytes": 3643113,
+        "sha256": "b7490f4c622aef793d14bd9a7a38727754cb1fb8e6e1dec7ff91ef8c45fbafbc"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/source/nine-schemas.json": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 1533,
+        "sha256": "a502a2e9f8eddd6a09e0010d44337854f011d2be699e15ad4e8d9bcce316ee7d"
+      },
+      "before": {
+        "bytes": 1533,
+        "sha256": "a502a2e9f8eddd6a09e0010d44337854f011d2be699e15ad4e8d9bcce316ee7d"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/source/original-seven-schemas.json": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 1131,
+        "sha256": "bd7dd210b2451749556f053b4472d4cbb820320d6608d246153888d0dcda0b71"
+      },
+      "before": {
+        "bytes": 1131,
+        "sha256": "bd7dd210b2451749556f053b4472d4cbb820320d6608d246153888d0dcda0b71"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/source/probe_nested_exact.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 30237,
+        "sha256": "d21671dcadd04e156c99de3e3dff17bd119233abb94d8afb13b8b3b8f9d0cf4a"
+      },
+      "before": {
+        "bytes": 30237,
+        "sha256": "d21671dcadd04e156c99de3e3dff17bd119233abb94d8afb13b8b3b8f9d0cf4a"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/source/probe_state8_exact.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 39930,
+        "sha256": "7125639def89b2dc8b31805fd6383699aab2aab92daa398216e4e76b7260a870"
+      },
+      "before": {
+        "bytes": 39930,
+        "sha256": "7125639def89b2dc8b31805fd6383699aab2aab92daa398216e4e76b7260a870"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/source/public_cases.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 7101,
+        "sha256": "160794e7150e54057b8d8e8a2e3b4918ccfec896ca88b3921a244b967bafe6aa"
+      },
+      "before": {
+        "bytes": 7101,
+        "sha256": "160794e7150e54057b8d8e8a2e3b4918ccfec896ca88b3921a244b967bafe6aa"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/source/public_trace.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 13862,
+        "sha256": "d8ab2edee7ee29b700da2a1a999c5eaa22ad15b98d17bf0cd341af361685c8be"
+      },
+      "before": {
+        "bytes": 13862,
+        "sha256": "d8ab2edee7ee29b700da2a1a999c5eaa22ad15b98d17bf0cd341af361685c8be"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/source/rational_reference.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 7102,
+        "sha256": "55f84e79507600dbf545c146a76c968d3476349326be910b6c2dd65cd69626ae"
+      },
+      "before": {
+        "bytes": 7102,
+        "sha256": "55f84e79507600dbf545c146a76c968d3476349326be910b6c2dd65cd69626ae"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/source/record_validation.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 15339,
+        "sha256": "070f1c034f8750409740b019d57e759405476f64b958facd9606a58790883134"
+      },
+      "before": {
+        "bytes": 15339,
+        "sha256": "070f1c034f8750409740b019d57e759405476f64b958facd9606a58790883134"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/source/run_owned.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 2028,
+        "sha256": "36256e2ab9999e12f793464603f4c9e09fd9f9461ac453871a0cd66a4fb1addc"
+      },
+      "before": {
+        "bytes": 2028,
+        "sha256": "36256e2ab9999e12f793464603f4c9e09fd9f9461ac453871a0cd66a4fb1addc"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/source/science-manifest.json": {
+      "action": "REPLACE",
+      "after": {
+        "bytes": 3045,
+        "sha256": "29beb28f4320acc5e07ce6822f2120eaff846809bfc54bd123ac37f501700c06"
+      },
+      "before": {
+        "bytes": 3027,
+        "sha256": "9e71efc73b0f2b3a210f8131c10972569a5e2d04cf298fcf5a8da59772cf4f5a"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/source/state8_contract.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 2579,
+        "sha256": "3860ec6388cfc3714e52d7fa58fd4440cf8eee14fdb173eb67db4189e8d6a234"
+      },
+      "before": {
+        "bytes": 2579,
+        "sha256": "3860ec6388cfc3714e52d7fa58fd4440cf8eee14fdb173eb67db4189e8d6a234"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/source/state8_public.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 10119,
+        "sha256": "6ff5c0804e4bf25764f7c4f834065267af7aaab4ac3d4b305b20b0f66a564f31"
+      },
+      "before": {
+        "bytes": 10119,
+        "sha256": "6ff5c0804e4bf25764f7c4f834065267af7aaab4ac3d4b305b20b0f66a564f31"
+      }
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/state_fixture_child.py": {
+      "action": "KEEP",
+      "after": {
+        "bytes": 2938,
+        "sha256": "dbebb2306db9e2e25c6a76c28d13c898e060006ec67254842e70732985dd8846"
+      },
+      "before": {
+        "bytes": 2938,
+        "sha256": "dbebb2306db9e2e25c6a76c28d13c898e060006ec67254842e70732985dd8846"
+      }
+    }
+  },
+  "integration_map_sha256": "bfd7ce45a900fee3bc5ecfed54524c17931e2964ef5b7295fca6e6038883729a",
+  "kind": "M4_FUNCTIONAL_OUTPUT_CLOSED_REPLACEMENT_MAP_V1",
+  "m4_status": "NOT_QUALIFIED",
+  "provider_calls": 0,
+  "review_status": "ROOT_REVIEW_REQUIRED",
+  "science_manifest_sha256": "29beb28f4320acc5e07ce6822f2120eaff846809bfc54bd123ac37f501700c06",
+  "source_admission_sha256": "8b5aa5f0c86346db982664cfad3b1e242dc8a67a4e49865584ccc01c8620f4bf",
+  "source_variant": "nested-exact-v2-functional-output"
+}

@@ -5,7 +5,7 @@
   "cpu_oracle": "FRESH_QUALIFIED_LINUX_REQUIRED",
   "device_acceptance": null,
   "format": "bnb-tpu.nested-exact-source-admission.v1",
-  "generation": "nested-exact-v1",
+  "generation": "nested-exact-v2-functional-output",
   "inputs_sha256": "b7490f4c622aef793d14bd9a7a38727754cb1fb8e6e1dec7ff91ef8c45fbafbc",
   "m4_status": "NOT_QUALIFIED",
   "old_source_oracles": "NOT_CURRENT_FOR_THIS_GENERATION",
@@ -23,7 +23,7 @@
     "src/bitsandbytes_tpu/_source_order.py": "700bac513eb69eb22c5d11391b488367b4f56fbeedd741a58e841c6a5fe911a0",
     "src/bitsandbytes_tpu/blockwise.py": "6d4c2d9af7bb1b7c72c8743839fabbc92e2218978974314f7322b43edc912e47",
     "src/bitsandbytes_tpu/compatibility.py": "5b4a2125b4d90c7c81a0eb44156322dcb893b6cbec9c03728711db18ae93c633",
-    "src/bitsandbytes_tpu/exact.py": "e5064072609753d3a5f1e1920b46db48ccce5751402fe7a5ba5c5b7c0ddf2831",
+    "src/bitsandbytes_tpu/exact.py": "0b9965a0c98a8e62ea4119e48e4bfb0f69a4b92c0efa5a9ba58ba02a3b960846",
     "src/bitsandbytes_tpu/functionalization.py": "0b31b2d86e7dd4aa10629e236fa1c0c18518eb5a3fb565714a9e40f432c2c93e",
     "src/bitsandbytes_tpu/reference.py": "a901df09a9cdb4b655a1f61a491466e1a4db1006eb38f0a89a2c2eb8df656907",
     "src/bitsandbytes_tpu/registration.py": "7b261e5f6e5409ecf9abf735679e14746cbed8c0fbebb55d47ccc66e2ab4fd0b"
@@ -36,7 +36,7 @@
     "_source_order.py": "700bac513eb69eb22c5d11391b488367b4f56fbeedd741a58e841c6a5fe911a0",
     "blockwise.py": "6d4c2d9af7bb1b7c72c8743839fabbc92e2218978974314f7322b43edc912e47",
     "compatibility.py": "5b4a2125b4d90c7c81a0eb44156322dcb893b6cbec9c03728711db18ae93c633",
-    "exact.py": "e5064072609753d3a5f1e1920b46db48ccce5751402fe7a5ba5c5b7c0ddf2831",
+    "exact.py": "0b9965a0c98a8e62ea4119e48e4bfb0f69a4b92c0efa5a9ba58ba02a3b960846",
     "functionalization.py": "0b31b2d86e7dd4aa10629e236fa1c0c18518eb5a3fb565714a9e40f432c2c93e",
     "reference.py": "a901df09a9cdb4b655a1f61a491466e1a4db1006eb38f0a89a2c2eb8df656907",
     "registration.py": "7b261e5f6e5409ecf9abf735679e14746cbed8c0fbebb55d47ccc66e2ab4fd0b"
@@ -49,7 +49,7 @@
     "_source_order.py": "700bac513eb69eb22c5d11391b488367b4f56fbeedd741a58e841c6a5fe911a0",
     "blockwise.py": "6d4c2d9af7bb1b7c72c8743839fabbc92e2218978974314f7322b43edc912e47",
     "compatibility.py": "5b4a2125b4d90c7c81a0eb44156322dcb893b6cbec9c03728711db18ae93c633",
-    "exact.py": "e5064072609753d3a5f1e1920b46db48ccce5751402fe7a5ba5c5b7c0ddf2831",
+    "exact.py": "0b9965a0c98a8e62ea4119e48e4bfb0f69a4b92c0efa5a9ba58ba02a3b960846",
     "functionalization.py": "0b31b2d86e7dd4aa10629e236fa1c0c18518eb5a3fb565714a9e40f432c2c93e",
     "reference.py": "a901df09a9cdb4b655a1f61a491466e1a4db1006eb38f0a89a2c2eb8df656907",
     "registration.py": "7b261e5f6e5409ecf9abf735679e14746cbed8c0fbebb55d47ccc66e2ab4fd0b"

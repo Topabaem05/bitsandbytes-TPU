@@ -1,0 +1,74 @@
+{
+  "M5": "FROZEN_CANDIDATE_UNCHANGED_SEPARATE_PROPAGATION_REQUIRED",
+  "TPU79": "NOT_RUN",
+  "archive_readback": {
+    "TPU": "NOT_RUN",
+    "all_member_lengths_and_hashes": "PASS",
+    "archive_bytes": 587941,
+    "archive_sha256": "62ba070abc30f6154af73cf556437e36f0fded2bb567b2d5e884eae0d4354531",
+    "kind": "M4_FUNCTIONAL_OUTPUT_SOURCE_ARCHIVE_READBACK_V1",
+    "m4_status": "NOT_QUALIFIED",
+    "members": 168,
+    "members_fully_read": 168,
+    "provider_calls": 0,
+    "replacement_map_sha256": "bf8851ab514ace91ad23611816c33a2242f667bf84b329cd79b694525230dc1b",
+    "source_files": 160,
+    "status": "PASS"
+  },
+  "canonical_git_status_after": "CLEAN",
+  "canonical_writes": 0,
+  "document_sentence_word_bound": "Both changed prose documents maximum25 words per sentence by lexical check; no complete dictionary claim.",
+  "fixture_trees_deleted": true,
+  "kind": "M4_FUNCTIONAL_OUTPUT_WORKER_HANDOFF_V1",
+  "m4_status": "NOT_QUALIFIED",
+  "provider_calls": 0,
+  "qualified_linux_cpu": "NOT_RUN",
+  "replacement_map_sha256": "bf8851ab514ace91ad23611816c33a2242f667bf84b329cd79b694525230dc1b",
+  "science_changed_members": [
+    "exact_admission.py",
+    "generation_gate.py",
+    "integration-admission.json"
+  ],
+  "science_unchanged_members": 16,
+  "source_bytecode_count": 0,
+  "source_root": "/tmp/bnb-tpu-m4-functional-v4-20261011-bbbxlf36/source",
+  "source_variant": "nested-exact-v2-functional-output",
+  "state8": "NOT_RUN",
+  "status": "LOCAL_PREPARATION_PASS_ROOT_REVIEW_REQUIRED",
+  "test_reports": {
+    "adoption": {
+      "path": "/tmp/bnb-tpu-m4-functional-v4-20261011-bbbxlf36/adoption-controls.json",
+      "sha256": "afdcfcc4ffa87395cb38ba2825fd04784ad1b20c00cde441e4e31ba54abc8cf6"
+    },
+    "boundary": {
+      "path": "/tmp/bnb-tpu-m4-functional-v4-20261011-bbbxlf36/functional-controls.json",
+      "sha256": "13d5e72e6b9977ae1eac4b489ddb342c7e96799b6adec24e62abd0740e03bfc1"
+    },
+    "driver": {
+      "path": "/tmp/bnb-tpu-m4-functional-v4-20261011-bbbxlf36/driver-test-output/review.json",
+      "sha256": "d1871ad6ba9f391902443d09874d5ef015486e08e91a9829c78316f6890add59"
+    },
+    "generation": {
+      "path": "/tmp/bnb-tpu-m4-functional-v4-20261011-bbbxlf36/generation-controls.json",
+      "sha256": "576f76ed9d76d22f8cf723578a9244afd7f88a6ac05e3b0422215d5868923b85"
+    },
+    "integration": {
+      "path": "/tmp/bnb-tpu-m4-functional-v4-20261011-bbbxlf36/integration-test-output/review.json",
+      "sha256": "ebd90c94c53cfe807780b712c91cf8f60930b310e95b182e778e7871f4cf568e"
+    },
+    "kernel": {
+      "path": "/tmp/bnb-tpu-m4-functional-v4-20261011-bbbxlf36/kernel-test-output/review.json",
+      "sha256": "189d8b82729ffbfe903c1ddb0ce1b1e8a427d864e36d06dfe44e072bb37c44fd"
+    }
+  },
+  "tests": {
+    "adoption": 4,
+    "driver_scenarios": 9,
+    "driver_tests": 5,
+    "generation_identity": 8,
+    "integration": 11,
+    "kernel_v3": 29,
+    "real_torch_cpu_boundary": 23
+  },
+  "wiki_writes": 0
+}

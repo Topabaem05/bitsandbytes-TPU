@@ -22,7 +22,7 @@ def wheel_files(wheel,prefix):
 def verify(admission_path,expected_sha,*,plugin=None,upstream=None,plugin_wheel=None,upstream_wheel=None):
     require(not admission_path.is_symlink() and sha(admission_path)==expected_sha,'ADMISSION_BYTE_SHA')
     a=json.loads(admission_path.read_text())
-    require(a.get('generation')=='nested-exact-v1' and a.get('status')=='NOT_ADOPTED','EXACT_SOURCE_VARIANT')
+    require(a.get('generation')=='nested-exact-v2-functional-output' and a.get('status')=='NOT_ADOPTED','EXACT_SOURCE_VARIANT')
     require(a.get('device_acceptance') is None and a.get('m4_status')=='NOT_QUALIFIED','NO_DEVICE_ACCEPTANCE')
     require(a.get('inputs_sha256')=='b7490f4c622aef793d14bd9a7a38727754cb1fb8e6e1dec7ff91ef8c45fbafbc','ORIGINAL79_INPUTS')
     require(a.get('profile_sha256')=='ad53f6416bdabf6440f08b313963c947a468cd39afd413bfe41bb381c4a7a166','UNCHANGED_PROFILE')
@@ -42,5 +42,5 @@ def verify(admission_path,expected_sha,*,plugin=None,upstream=None,plugin_wheel=
     if upstream is not None:require(files(upstream)==a['upstream_package_files'],'UPSTREAM_PACKAGE_BYTES')
     if plugin_wheel is not None:require(wheel_files(plugin_wheel,'bitsandbytes_tpu/')==a['plugin_package_files'],'PLUGIN_WHEEL_SOURCE')
     if upstream_wheel is not None:require(wheel_files(upstream_wheel,'bitsandbytes/')==a['upstream_package_files'],'UPSTREAM_WHEEL_SOURCE')
-    return {'record_validation':'PASS','scope':'SOURCE_AND_WHEEL_NOT_TPU','generation':'nested-exact-v1','upstream_files':48,
+    return {'record_validation':'PASS','scope':'SOURCE_AND_WHEEL_NOT_TPU','generation':'nested-exact-v2-functional-output','upstream_files':48,
             'plugin_python_files':len(a['plugin_python_files']),'TPU':'NOT_RUN','m4_status':'NOT_QUALIFIED'}

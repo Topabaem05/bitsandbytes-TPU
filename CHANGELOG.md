@@ -1,5 +1,12 @@
 # Change log
 
+## 2026-10-11: M4 functional output source preparation
+
+- Add one functional wrapper only when the bitcast input requires it and the XLA output has none.
+- Bind the change to a new source generation and preserve the historical 19-member source identity.
+- Pass 76 local tests with unchanged mathematical and device criteria. Fresh pinned Linux CPU79 and actual TPU79/state8 remain required.
+
+
 ## 2026-10-11 — Completed preparation disposal
 
 - Verify 685 private archive members through an independent download.

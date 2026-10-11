@@ -9,10 +9,10 @@ import types
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
-INTEGRATION_MAP_SHA = 'cc237461aa97a4b33ebca3d794cba0b158139c137ce2323cbb9b2ebda0cd50b6'
-INTEGRATION_ADMISSION_SHA = '75790f1d4613e20daa06d99111288463ef24b05aaa29922a7580512078f9912f'
+INTEGRATION_MAP_SHA = 'bfd7ce45a900fee3bc5ecfed54524c17931e2964ef5b7295fca6e6038883729a'
+INTEGRATION_ADMISSION_SHA = '8b5aa5f0c86346db982664cfad3b1e242dc8a67a4e49865584ccc01c8620f4bf'
 PATCH_MANIFEST_SHA = '947b679cf5833dcef021245117a53f49d0c04eace0b32e911b492303ae6149aa'
-VARIANT = 'nested-exact-v1'
+VARIANT = 'nested-exact-v2-functional-output'
 
 def require(value, message):
     if not value:

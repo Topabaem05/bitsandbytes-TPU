@@ -15,12 +15,12 @@
       "sha256": "f635ae0c4c4e577b83185597133280c0c2673d1e0a4b278e6fa08c77f12e4766"
     },
     "exact_admission.py": {
-      "bytes": 6950,
-      "sha256": "5817efdb682024639d7bcf689373ac505393b7490ee6476896f2714de27b84f3"
+      "bytes": 6968,
+      "sha256": "adfaa0dda919e396038db7fe0dd45654b0a1799537a98bfa959500525c821f50"
     },
     "generation_gate.py": {
-      "bytes": 3760,
-      "sha256": "591578f214f024f92f2e39e9c79463c6df38bf6a6097271e8a8c4f354d2698a7"
+      "bytes": 3796,
+      "sha256": "e23a48247e5d370f624364e945f87526c624fbd806f65d74205ddc86bf9645e3"
     },
     "graph_witness.py": {
       "bytes": 15421,
@@ -31,8 +31,8 @@
       "sha256": "60f8ac1ea1b0a7ebfce27036da02470dae6ad1bb824dc894d462d6e54ce1a39b"
     },
     "integration-admission.json": {
-      "bytes": 13839,
-      "sha256": "75790f1d4613e20daa06d99111288463ef24b05aaa29922a7580512078f9912f"
+      "bytes": 13857,
+      "sha256": "8b5aa5f0c86346db982664cfad3b1e242dc8a67a4e49865584ccc01c8620f4bf"
     },
     "nested-inputs.json": {
       "bytes": 3643113,
@@ -79,9 +79,9 @@
       "sha256": "6ff5c0804e4bf25764f7c4f834065267af7aaab4ac3d4b305b20b0f66a564f31"
     }
   },
-  "generation": "nested-exact79-v2",
-  "integration_map_sha256": "cc237461aa97a4b33ebca3d794cba0b158139c137ce2323cbb9b2ebda0cd50b6",
+  "generation": "nested-exact79-v4-functional-output",
+  "integration_map_sha256": "bfd7ce45a900fee3bc5ecfed54524c17931e2964ef5b7295fca6e6038883729a",
   "kind": "NESTED_EXACT79_SCIENCE_SOURCES_V1",
-  "source_admission_sha256": "75790f1d4613e20daa06d99111288463ef24b05aaa29922a7580512078f9912f",
+  "source_admission_sha256": "8b5aa5f0c86346db982664cfad3b1e242dc8a67a4e49865584ccc01c8620f4bf",
   "status": "NOT_ADOPTED"
 }
