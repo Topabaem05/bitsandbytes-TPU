@@ -1,0 +1,29 @@
+{
+  "source": {
+    "url": "https://raw.githubusercontent.com/openxla/xla/92f7b5952dd585c5be17c9a5caad27407005b513/xla/service/hlo.proto",
+    "sha256": "12657c4bb5e39d55fbeea9bb4a45d9191daf59c8636aa586661452f13070623c",
+    "bytes": 28916,
+    "path": "xla/service/hlo.proto",
+    "revision": "92f7b5952dd585c5be17c9a5caad27407005b513"
+  },
+  "sections": [
+    {
+      "start": 401,
+      "end": 428,
+      "text": "message HloComputationProto {\n  reserved 3;\n  reserved \"root_name\";\n\n  string name = 1;\n\n  // The array of instructions is always in a valid dependency order, where\n  // operands appear before their users.\n  repeated HloInstructionProto instructions = 2;\n\n  // The program shape (with layout) of this computation.\n\n  xla.ProgramShapeProto program_shape = 4;\n\n  // The id of this computation.\n  int64 id = 5;\n\n  // The id of the root of the computation.\n  int64 root_id = 6;\n\n  // Whether this is a fusion computation. Fusion computations should use this\n  // to determine whether they are a fusion in CreateFromProto since the\n  // parent fusion_instruction_ may get removed and be nullptr.\n  bool is_fusion_computation = 7;\n\n  // The name of execution thread this computation belongs to.\n  string execution_thread = 8;\n}\n",
+      "sha256": "92a352da6121f0a0cfa99e278840c1ead1c81698bed0d1e60a7b42673cc5fff3"
+    },
+    {
+      "start": 553,
+      "end": 566,
+      "text": "message HloModuleProto {\n  string name = 1;\n  string entry_computation_name = 2;\n  int64 entry_computation_id = 6;\n\n  // The array of computations is always in a valid dependency order, where\n  // callees appear before their callers.\n  repeated HloComputationProto computations = 3;\n\n  // The host program shape (with layout) of the entry computation.\n  xla.ProgramShapeProto host_program_shape = 4;\n\n  // The id of this module.\n  int64 id = 5;\n",
+      "sha256": "26a93a5b21784cd7ecba31a4acbc50d212c4d847ca15c88a3a189f96875a260f"
+    },
+    {
+      "start": 751,
+      "end": 757,
+      "text": "message HloProto {\n  reserved 2;\n  reserved \"hlo_ordering\";\n\n  HloModuleProto hlo_module = 1;\n  BufferAssignmentProto buffer_assignment = 3;\n}\n",
+      "sha256": "5f9b694dd86fbe304934f15876408c4a5a682a249606bc273dd70ddb38512329"
+    }
+  ]
+}

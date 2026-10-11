@@ -1,0 +1,107 @@
+{
+  "workspace": {
+    "url": "https://raw.githubusercontent.com/pytorch/xla/5fab7053df86c8d503b98d9e7202ca8b8d4978c7/WORKSPACE",
+    "sha256": "aeaad036a5a67263fc08e31d7582f71b6bd1fe6f935b6cc2d2db3bb25dee4f08",
+    "bytes": 4677,
+    "path": "WORKSPACE",
+    "revision": "5fab7053df86c8d503b98d9e7202ca8b8d4978c7"
+  },
+  "debug_util": {
+    "url": "https://raw.githubusercontent.com/pytorch/xla/5fab7053df86c8d503b98d9e7202ca8b8d4978c7/torch_xla/csrc/debug_util.cpp",
+    "sha256": "b298f7c69af5302615b77f57328fd35e383fcd977adaaac06343099a7b3c6be9",
+    "bytes": 19661,
+    "path": "torch_xla/csrc/debug_util.cpp",
+    "revision": "5fab7053df86c8d503b98d9e7202ca8b8d4978c7"
+  },
+  "pjrt_client": {
+    "url": "https://raw.githubusercontent.com/pytorch/xla/5fab7053df86c8d503b98d9e7202ca8b8d4978c7/torch_xla/csrc/runtime/pjrt_computation_client.cpp",
+    "sha256": "d5073536b68e7750bb9170cdc3708d9757383c2ac88f18c8f891bba995fe2449",
+    "bytes": 44118,
+    "path": "torch_xla/csrc/runtime/pjrt_computation_client.cpp",
+    "revision": "5fab7053df86c8d503b98d9e7202ca8b8d4978c7"
+  },
+  "graph_executor": {
+    "url": "https://raw.githubusercontent.com/pytorch/xla/5fab7053df86c8d503b98d9e7202ca8b8d4978c7/torch_xla/csrc/xla_graph_executor.cpp",
+    "sha256": "aac117eeedf94f0c0e629b5ae51426cf97957a3edc2616915941570d1a25d97a",
+    "bytes": 70746,
+    "path": "torch_xla/csrc/xla_graph_executor.cpp",
+    "revision": "5fab7053df86c8d503b98d9e7202ca8b8d4978c7"
+  },
+  "hash": {
+    "url": "https://raw.githubusercontent.com/pytorch/pytorch/0fabc3ba44823f257e70ce397d989c8de5e362c1/torch/csrc/lazy/core/hash.cpp",
+    "sha256": "cea580b0e84875a241eac29e044e9d9f9b779a6a61c0550bce1686231c90c091",
+    "bytes": 3000,
+    "path": "torch/csrc/lazy/core/hash.cpp",
+    "revision": "0fabc3ba44823f257e70ce397d989c8de5e362c1"
+  },
+  "hash_header": {
+    "url": "https://raw.githubusercontent.com/pytorch/pytorch/0fabc3ba44823f257e70ce397d989c8de5e362c1/torch/csrc/lazy/core/hash.h",
+    "sha256": "f637b7059e897a752d5a51c42384b966abd80073267b13169ae75a9e7b1dc845",
+    "bytes": 7599,
+    "path": "torch/csrc/lazy/core/hash.h",
+    "revision": "0fabc3ba44823f257e70ce397d989c8de5e362c1"
+  },
+  "registry": {
+    "url": "https://raw.githubusercontent.com/pytorch/xla/5fab7053df86c8d503b98d9e7202ca8b8d4978c7/torch_xla/csrc/runtime/pjrt_registry.cpp",
+    "sha256": "54f039124a7c0acca92fb68e485d27dc8b34d084c493502cb1095f8752b052b3",
+    "bytes": 7317,
+    "path": "torch_xla/csrc/runtime/pjrt_registry.cpp",
+    "revision": "5fab7053df86c8d503b98d9e7202ca8b8d4978c7"
+  },
+  "bindings": {
+    "url": "https://raw.githubusercontent.com/pytorch/xla/5fab7053df86c8d503b98d9e7202ca8b8d4978c7/torch_xla/csrc/init_python_bindings.cpp",
+    "sha256": "85105171d16d84dd181f364128a8098d9a02d9934c6a9865f81b012a457fcf43",
+    "bytes": 155693,
+    "path": "torch_xla/csrc/init_python_bindings.cpp",
+    "revision": "5fab7053df86c8d503b98d9e7202ca8b8d4978c7"
+  },
+  "c_api": {
+    "url": "https://raw.githubusercontent.com/openxla/xla/92f7b5952dd585c5be17c9a5caad27407005b513/xla/pjrt/c/pjrt_c_api.h",
+    "sha256": "a946f54b0df19ecae28015b86e4c10fad23ba0ce6fc3f14941157db79c437cf6",
+    "bytes": 102174,
+    "path": "xla/pjrt/c/pjrt_c_api.h",
+    "revision": "92f7b5952dd585c5be17c9a5caad27407005b513"
+  },
+  "xla_util": {
+    "url": "https://raw.githubusercontent.com/pytorch/xla/5fab7053df86c8d503b98d9e7202ca8b8d4978c7/torch_xla/csrc/runtime/xla_util.cpp",
+    "sha256": "c6df61fe128d8fc4b0f8be1b08705041d86217322124d9140cd0d02d9e5b7dab",
+    "bytes": 4587,
+    "path": "torch_xla/csrc/runtime/xla_util.cpp",
+    "revision": "5fab7053df86c8d503b98d9e7202ca8b8d4978c7"
+  },
+  "int128": {
+    "url": "https://raw.githubusercontent.com/pytorch/pytorch/0fabc3ba44823f257e70ce397d989c8de5e362c1/c10/util/int128.h",
+    "sha256": "aa7a454c20826054b7dded909f39df95ec07bc8ca759e5b804ec1f54cbbb5931",
+    "bytes": 12292,
+    "path": "c10/util/int128.h",
+    "revision": "0fabc3ba44823f257e70ce397d989c8de5e362c1"
+  },
+  "hlo_schema": {
+    "url": "https://raw.githubusercontent.com/openxla/xla/92f7b5952dd585c5be17c9a5caad27407005b513/xla/service/hlo.proto",
+    "sha256": "12657c4bb5e39d55fbeea9bb4a45d9191daf59c8636aa586661452f13070623c",
+    "bytes": 28916,
+    "path": "xla/service/hlo.proto",
+    "revision": "92f7b5952dd585c5be17c9a5caad27407005b513"
+  },
+  "computation_client": {
+    "url": "https://raw.githubusercontent.com/pytorch/xla/5fab7053df86c8d503b98d9e7202ca8b8d4978c7/torch_xla/csrc/runtime/computation_client.h",
+    "sha256": "6f5b78101634218595f48bbcbaa8446addf5ec47fd80819299e1bd55131cfa90",
+    "bytes": 19068,
+    "path": "torch_xla/csrc/runtime/computation_client.h",
+    "revision": "5fab7053df86c8d503b98d9e7202ca8b8d4978c7"
+  },
+  "xla_computation": {
+    "url": "https://raw.githubusercontent.com/openxla/xla/92f7b5952dd585c5be17c9a5caad27407005b513/xla/hlo/builder/xla_computation.cc",
+    "sha256": "c22bbf87adc87a2ce175ace0040a8ee015901a5efb0d3e96898363c503f63c77",
+    "bytes": 1363,
+    "path": "xla/hlo/builder/xla_computation.cc",
+    "revision": "92f7b5952dd585c5be17c9a5caad27407005b513"
+  },
+  "xla_data": {
+    "url": "https://raw.githubusercontent.com/openxla/xla/92f7b5952dd585c5be17c9a5caad27407005b513/xla/xla_data.proto",
+    "sha256": "f5d56d6aa3e5bf84266d64c64c107bbd88ec60f09caacfb2ba8ab8063304a2ec",
+    "bytes": 44255,
+    "path": "xla/xla_data.proto",
+    "revision": "92f7b5952dd585c5be17c9a5caad27407005b513"
+  }
+}

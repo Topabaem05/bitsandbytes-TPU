@@ -1,0 +1,17 @@
+{
+  "source": {
+    "url": "https://raw.githubusercontent.com/openxla/xla/92f7b5952dd585c5be17c9a5caad27407005b513/xla/hlo/builder/xla_computation.cc",
+    "sha256": "c22bbf87adc87a2ce175ace0040a8ee015901a5efb0d3e96898363c503f63c77",
+    "bytes": 1363,
+    "path": "xla/hlo/builder/xla_computation.cc",
+    "revision": "92f7b5952dd585c5be17c9a5caad27407005b513"
+  },
+  "sections": [
+    {
+      "start": 28,
+      "end": 31,
+      "text": "absl::StatusOr<ProgramShape> XlaComputation::GetProgramShape() const {\n  TF_RET_CHECK(proto_.has_host_program_shape());\n  return ProgramShape::FromProto(proto_.host_program_shape());\n}\n",
+      "sha256": "c83679d9a97fbeb285fa550448a46565322bd3bf451cf4d92cc950bb5559072a"
+    }
+  ]
+}

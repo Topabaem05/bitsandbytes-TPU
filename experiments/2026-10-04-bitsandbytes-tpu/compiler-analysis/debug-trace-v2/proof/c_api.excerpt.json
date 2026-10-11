@@ -1,0 +1,35 @@
+{
+  "source": {
+    "url": "https://raw.githubusercontent.com/openxla/xla/92f7b5952dd585c5be17c9a5caad27407005b513/xla/pjrt/c/pjrt_c_api.h",
+    "sha256": "a946f54b0df19ecae28015b86e4c10fad23ba0ce6fc3f14941157db79c437cf6",
+    "bytes": 102174,
+    "path": "xla/pjrt/c/pjrt_c_api.h",
+    "revision": "92f7b5952dd585c5be17c9a5caad27407005b513"
+  },
+  "sections": [
+    {
+      "start": 657,
+      "end": 675,
+      "text": "struct PJRT_Client_Compile_Args {\n  size_t struct_size;\n  PJRT_Extension_Base* extension_start;\n  PJRT_Client* client;\n  // Only needs to stay alive for the duration of the Compile call.\n  // `program->format` and `program->format_size` are owned by the caller.\n  const PJRT_Program* program;\n  // TODO(b/240560013): consider putting some of option fields in priv.\n  // Serialized CompileOptionsProto\n  // (https://github.com/tensorflow/tensorflow/blob/master/tensorflow/compiler/xla/pjrt/compile_options.proto)\n  const char* compile_options;\n  size_t compile_options_size;\n  PJRT_LoadedExecutable* executable;  // out\n};\nPJRT_DEFINE_STRUCT_TRAITS(PJRT_Client_Compile_Args, executable);\n\n// Compiles a program in specified format (such as MLIR or HLO) with given\n// `options`.\ntypedef PJRT_Error* PJRT_Client_Compile(PJRT_Client_Compile_Args* args);\n",
+      "sha256": "1567dd5440e4b5e7ca69bfda227f066de92bdc420c17c073a5ab883844d3decb"
+    },
+    {
+      "start": 1450,
+      "end": 1461,
+      "text": "struct PJRT_LoadedExecutable_GetExecutable_Args {\n  size_t struct_size;\n  PJRT_Extension_Base* extension_start;\n  PJRT_LoadedExecutable* loaded_executable;\n  PJRT_Executable* executable;  // out\n};\nPJRT_DEFINE_STRUCT_TRAITS(PJRT_LoadedExecutable_GetExecutable_Args, executable);\n\n// Constructs a PJRT_Executable from a PJRT_LoadedExecutable. The returned\n// executable should be freed by the caller with PJRT_Executable_Destroy.\ntypedef PJRT_Error* PJRT_LoadedExecutable_GetExecutable(\n    PJRT_LoadedExecutable_GetExecutable_Args* args);\n",
+      "sha256": "97274134c180ea77d661245e361fe0e03ebfb7b6c154af26422cdc15bc1d2cdb"
+    },
+    {
+      "start": 1516,
+      "end": 1548,
+      "text": "struct PJRT_Executable_OptimizedProgram_Args {\n  size_t struct_size;\n  PJRT_Extension_Base* extension_start;\n  PJRT_Executable* executable;\n  PJRT_Program* program;  // out, but read below\n};\nPJRT_DEFINE_STRUCT_TRAITS(PJRT_Executable_OptimizedProgram_Args, program);\n\n// Retrieves the optimized program for a given PJRT_Executable (SPMD).\n// The caller should populate `program->format` and `format_size`.\n//\n// The implementation will set `program->format` and `program->format_size`\n// to inform callers of the format of the optimized program returned.\n// These members are owned by the implementation.\n//\n// If called with nullptr as `program->code`, `PJRT_Executable_OptimizedProgram`\n// will populate `program->code_size` as an output indicating the number of\n// bytes the string `program->code` requires.\n//\n// If `program->code` is not null, `PJRT_Executable_OptimizedProgram` will fill\n// the buffer pointed to by `program->code` with the serialization of the\n// optimized HLO program. `program->code` must point to a client-owned buffer of\n// size >= `program->code_size`, which must be at large enough to hold the\n// serialization of the optimized program.\n//\n// Callers should generally call this function twice with the same `args`.\n// In the first call, `program->code` must be nullptr. This call will populate\n// `program->code_size`. Clients should then allocate a buffer `code_buff` of at\n// least `code_size` bytes. Before the second call, callers should set\n// `program->code = code_buff`. The second call will then write the serialized\n// program to `code_buff`.\ntypedef PJRT_Error* PJRT_Executable_OptimizedProgram(\n    PJRT_Executable_OptimizedProgram_Args* args);\n",
+      "sha256": "f3b0f334f29b248a4baaf9c58243d749653786a1aedaf9b3b540418fde1f2848"
+    },
+    {
+      "start": 1655,
+      "end": 1692,
+      "text": "struct PJRT_LoadedExecutable_Execute_Args {\n  size_t struct_size;\n  PJRT_Extension_Base* extension_start;\n  PJRT_LoadedExecutable* executable;\n  // Only needs to stay alive for the duration of the Execute call.\n  PJRT_ExecuteOptions* options;\n  // Execution input of size [`num_devices`, `num_args`].\n  PJRT_Buffer* const* const* argument_lists;\n  size_t num_devices;\n  size_t num_args;\n  // Execution output of size [`num_devices`, num_outputs`], where `num_outputs`\n  // is the number of outputs returned by this executable per device. Both the\n  // outer (`PJRT_Buffer***`) and inner lists (`PJRT_Buffer**`) must be\n  // allocated and deallocated by the caller. PJRT_Buffer_Destroy must be called\n  // on the output PJRT_Buffer*.\n  PJRT_Buffer** const* output_lists;  // in/out\n  // If `device_complete_events` isn't nullptr, `device_complete_events` needs\n  // to be the same length as `output_lists` (i.e. of length `num_devices`), and\n  // each `PJRT_Event` will become ready once the corresponding device execution\n  // is complete. If Execute returns an error, then `device_complete_events`\n  // will not be populated. The caller is responsible for calling\n  // PJRT_Event_Destroy on the returned PJRT_Event*s.\n  PJRT_Event** device_complete_events;  // in/out\n  // The device to execute on. If nullptr, will execute on the device(s)\n  // specified at compile time. If set, must be an addressable device, and\n  // `num_devices` should be 1 with `argument_lists` only containing arguments\n  // for `execute_device`. Can be set with a multi-device executable to launch\n  // just on this device. In this case, it's the responsibility of the caller to\n  // make sure the executable is launched on all participating devices specified\n  // at compile time. Setting this field may not be supported on all platforms\n  // or executables.\n  PJRT_Device* execute_device;\n};\nPJRT_DEFINE_STRUCT_TRAITS(PJRT_LoadedExecutable_Execute_Args, execute_device);\n\n// Executes on devices addressable by the client.\ntypedef PJRT_Error* PJRT_LoadedExecutable_Execute(\n    PJRT_LoadedExecutable_Execute_Args* args);\n",
+      "sha256": "d47d972368b6393ea412020f4eef9ae43d1c3af08b81e6edcce98f5f0d68776c"
+    }
+  ]
+}

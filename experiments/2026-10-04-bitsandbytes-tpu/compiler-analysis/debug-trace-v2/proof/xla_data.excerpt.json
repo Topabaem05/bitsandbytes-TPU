@@ -1,0 +1,29 @@
+{
+  "source": {
+    "url": "https://raw.githubusercontent.com/openxla/xla/92f7b5952dd585c5be17c9a5caad27407005b513/xla/xla_data.proto",
+    "sha256": "f5d56d6aa3e5bf84266d64c64c107bbd88ec60f09caacfb2ba8ab8063304a2ec",
+    "bytes": 44255,
+    "path": "xla/xla_data.proto",
+    "revision": "92f7b5952dd585c5be17c9a5caad27407005b513"
+  },
+  "sections": [
+    {
+      "start": 27,
+      "end": 60,
+      "text": "enum PrimitiveType {\n  // Invalid primitive type to serve as default.\n  PRIMITIVE_TYPE_INVALID = 0;\n\n  // Predicates are two-state booleans.\n  PRED = 1;\n\n  // Signed integral values of fixed width.\n  S1 = 30;\n  S2 = 26;\n  S4 = 21;\n  S8 = 2;\n  S16 = 3;\n  S32 = 4;\n  S64 = 5;\n\n  // Unsigned integral values of fixed width.\n  U1 = 31;\n  U2 = 27;\n  U4 = 22;\n  U8 = 6;\n  U16 = 7;\n  U32 = 8;\n  U64 = 9;\n\n  // Floating-point values of fixed width.\n  //\n  // Note: if f16s are not natively supported on the device, they will be\n  // converted to f16 from f32 at arbirary points in the computation.\n  F16 = 10;\n  F32 = 11;\n\n  // Truncated 16 bit floating-point format. This is similar to IEEE's 16 bit\n  // floating-point format, but uses 1 bit for the sign, 8 bits for the exponent\n",
+      "sha256": "c7c5a73a2195603d1f4f8869927233b2d1f83efb2968f2b5c03b0b793ed16e9f"
+    },
+    {
+      "start": 126,
+      "end": 155,
+      "text": "  C64 = 15;   // Paired F32 (real, imag), as in std::complex<float>.\n  C128 = 18;  // Paired F64 (real, imag), as in std::complex<double>.\n\n  // A tuple is a polymorphic sequence; e.g. a shape that holds different\n  // sub-shapes. They are used for things like returning multiple values from a\n  // computation; e.g. a computation that returns weights and biases may have a\n  // signature that results in a tuple like (f32[784x2000], f32[2000])\n  //\n  // If a shape proto has the tuple element type, it may not have any entries\n  // in the dimensions field.\n  TUPLE = 13;\n\n  // An opaque type used for passing context-specific data to a custom\n  // operation. Shapes of this primitive type will have empty dimensions and\n  // tuple_shapes fields.\n  //\n  // (OPAQUE would be a better name for this identifier, but that conflicts with\n  // a macro defined in windows.h.)\n  OPAQUE_TYPE = 14;\n\n  // A token type threaded between side-effecting operations. Shapes of this\n  // primitive type will have empty dimensions and tuple_shapes fields.\n  TOKEN = 17;\n\n  // A buffer type. A shape of this primitive type has empty dimensions and\n  // its underlying primitive type is in the tuple_shapes field.\n  BUFFER = 34;\n\n  // Next = 35\n}\n",
+      "sha256": "ccbd7df83e1d8e60acfbeaa56fc9f6ebbfa43e6c7c3f58e6afe815cdeb9d9baf"
+    },
+    {
+      "start": 326,
+      "end": 377,
+      "text": "message ShapeProto {\n  reserved 1;\n  reserved \"rank\";\n\n  // If this is TUPLE/TOKEN/OPAQUE_TYPE, the shape is a tuple/token/opaque shape\n  // respectively. Otherwise, the shape is an array shape and this is its\n  // element type.\n  PrimitiveType element_type = 2;\n\n  // Used only for an array shape.\n  //\n  // The size (number of elements) for each dimension, or an upper bound on the\n  // size if the dimension is dynamic.  In XLA, dimensions are numbered from 0\n  // to N-1 for an N-dimensional array. The first element of 'dimensions' is the\n  // size of dimension 0, the second element is the size of dimension 1, and so\n  // forth.  Empty list indicates a scalar.\n  //\n  // Each element in this list must be >= 0. In particular, 0 is a valid value\n  // for a dimension size.\n  //\n  // If a dimension is dynamic (see `is_dynamic_dimension` below), its value\n  // in this list is an upper bound on the size of the dimension.\n  repeated int64 dimensions = 3;\n\n  // Used only for an array shape.\n  //\n  // Indicates whether or not each dimension is dynamically-sized. If this list\n  // is empty, all dimensions are statically-sized. Otherwise, this must have\n  // the same size as 'dimensions' and the value at index i indicates whether\n  // or not the dimension at index i is dynamically-sized.\n  repeated bool is_dynamic_dimension = 6;\n\n  // For tuples only. The constituent shapes in the tuple.\n  repeated ShapeProto tuple_shapes = 4;\n\n  // The layout used to back this shape.\n  LayoutProto layout = 5;\n\n  // Important: if any field is added, be sure to modify ShapeUtil::Equal(),\n  // ShapeUtil::Compatible() and Shape::Hash() appropriately to account for the\n  // new field.\n}\n// LINT.ThenChange( \\\n//     https://www.tensorflow.org/code/tensorflow/compiler/xla/shape_util.cc)\n\n// Shape of the parameters and output of a computation (like a traditional\n// function signature).\nmessage ProgramShapeProto {\n  repeated ShapeProto parameters = 1;\n  ShapeProto result = 2;\n  repeated string parameter_names = 3;\n}\n",
+      "sha256": "10318829d5ad2d0152898b7597f8f9c854142ff53e299710f17d94fc23c81cd1"
+    }
+  ]
+}

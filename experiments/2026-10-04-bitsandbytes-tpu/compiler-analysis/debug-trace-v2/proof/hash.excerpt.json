@@ -1,0 +1,23 @@
+{
+  "source": {
+    "url": "https://raw.githubusercontent.com/pytorch/pytorch/0fabc3ba44823f257e70ce397d989c8de5e362c1/torch/csrc/lazy/core/hash.cpp",
+    "sha256": "cea580b0e84875a241eac29e044e9d9f9b779a6a61c0550bce1686231c90c091",
+    "bytes": 3000,
+    "path": "torch/csrc/lazy/core/hash.cpp",
+    "revision": "0fabc3ba44823f257e70ce397d989c8de5e362c1"
+  },
+  "sections": [
+    {
+      "start": 10,
+      "end": 60,
+      "text": "namespace torch::lazy {\nnamespace {\n\nhash_t LoadHash(const uint8_t** data, const uint8_t* top) {\n  std::ptrdiff_t size = top - (*data);\n  if (size >= (int)sizeof(hash_t)) {\n    hash_t v;\n    std::memcpy(&v, *data, sizeof(v));\n    *data += sizeof(hash_t);\n    return v;\n  }\n  union {\n    hash_t h;\n    std::array<uint8_t, sizeof(hash_t)> b{};\n#ifdef _MSC_VER\n    // MSVC (or some versions we use) doesn't support C99 union field init\n    // but it initializes the first member of the union.\n  } uval = {hash_t(0)};\n#else\n  } uval = {.h = hash_t(0)};\n#endif\n  // use memcpy for compatibility with platforms not supporting unaligned access\n  // note: compiled as single `movl` instr on x64.\n  std::memcpy(uval.b.data(), *data, size);\n  *data += size;\n  return uval.h;\n}\n\n} // namespace\n\nhash_t HashBlock(const void* data, size_t n, const hash_t& seed) {\n  const hash_t m(static_cast<uint64_t>(0xc6a4a7935bd1e995));\n  const int r = 47;\n\n  const uint8_t* u8_data = reinterpret_cast<const uint8_t*>(data);\n  const uint8_t* top = u8_data + n;\n  hash_t h(seed ^ ((uint64_t)n * m));\n  while (u8_data < top) {\n    hash_t k = LoadHash(&u8_data, top);\n    k *= m;\n    k ^= k >> r;\n    k *= m;\n\n    h ^= k;\n    h *= m;\n  }\n  h ^= h >> r;\n  h *= m;\n  h ^= h >> r;\n  return h;\n}\n",
+      "sha256": "1ededcbc4eb407cd1f3b8d818ecb4c3081eb2c7e624ea8e53861689be46d00cf"
+    },
+    {
+      "start": 80,
+      "end": 85,
+      "text": "}\n\nsize_t HashReduce(const hash_t& a) {\n  return StdHashCombine(c10::Uint128Low64(a), c10::Uint128High64(a));\n}\n\n",
+      "sha256": "f99446bacb6ef3fac0bcb8b970b0fd6bd867998c4f7332e0f2cb1f80610e558b"
+    }
+  ]
+}

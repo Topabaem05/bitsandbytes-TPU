@@ -16,12 +16,14 @@ They are not additions to the official ASD-STE100 dictionary.
 | application | A computer program that uses the backend. |
 | API | The public interface that application code uses. |
 | API42 | The fixed project matrix of 42 public API test cases. |
+| arity | The number of top-level inputs or outputs in a computation. |
 | archive | A stored collection of named member files. |
 | autograd | The PyTorch system that calculates gradients. |
 | backend | The software that executes operations for a selected device. |
 | artifact | A file or directory that records a software or research result. |
 | backup | A separate stored copy that permits restoration of the original files. |
 | BF16 | The bfloat16 numerical data type. |
+| bytecode | Python instructions stored after source compilation. |
 | BLAS | The Basic Linear Algebra Subprograms interface for vector and matrix operations. |
 | bias | The additive parameter of a linear layer. |
 | bitcast | Reinterpretation of the same bits as another numerical data type. |
@@ -63,7 +65,9 @@ They are not additions to the official ASD-STE100 dictionary.
 | logical buffer | The compiler representation of stored values at an instruction and shape index. |
 | dump flag | A program option that controls compiler record output. |
 | parser | A software component that reads a defined input format. |
+| PJRT | The runtime interface used to compile and execute programs on an accelerator. |
 | preflight | A preliminary admission procedure before an experiment starts. |
+| protobuf | The structured binary message format used for XLA module records. |
 | manifest | A file that records file names, byte counts, and hashes. |
 | matrix multiplication | The mathematical operation that multiplies two matrices. |
 | marker | A temporary file whose exact bytes identify a previously observed runtime. |

@@ -1,0 +1,17 @@
+{
+  "source": {
+    "url": "https://raw.githubusercontent.com/pytorch/xla/5fab7053df86c8d503b98d9e7202ca8b8d4978c7/WORKSPACE",
+    "sha256": "aeaad036a5a67263fc08e31d7582f71b6bd1fe6f935b6cc2d2db3bb25dee4f08",
+    "bytes": 4677,
+    "path": "WORKSPACE",
+    "revision": "5fab7053df86c8d503b98d9e7202ca8b8d4978c7"
+  },
+  "sections": [
+    {
+      "start": 45,
+      "end": 63,
+      "text": "new_local_repository(\n    name = \"fmt\",\n    build_file = \"//bazel:fmt.BUILD\",\n    path = PYTORCH_LOCAL_DIR + \"/third_party/fmt\",\n)\n\n############################# OpenXLA Setup ###############################\n\n# To build PyTorch/XLA with a new revison of OpenXLA, update the xla_hash to\n# the openxla git commit hash and note the date of the commit.\nxla_hash = '92f7b5952dd585c5be17c9a5caad27407005b513'  # Committed on 2025-08-15.\n\nhttp_archive(\n    name = \"xla\",\n    patch_args = [\n        \"-l\",\n        \"-p1\",\n    ],\n    patch_tool = \"patch\",\n",
+      "sha256": "f52ab9c53e2c3ff6584ba4b31a0006acb3997aeb088528c76e0e6582fb9a7110"
+    }
+  ]
+}

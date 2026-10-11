@@ -1,0 +1,99 @@
+{
+  "kind": "M6_PINNED_SOURCE_PROOF_V2",
+  "status": "PASS",
+  "sources": [
+    {
+      "source": "hlo_schema",
+      "status": "PASS",
+      "verification": "COMPLETE_BODY_SHA256_AND_EXACT_EXPRESSIONS_VERIFIED",
+      "complete_body_sha256": "12657c4bb5e39d55fbeea9bb4a45d9191daf59c8636aa586661452f13070623c"
+    },
+    {
+      "source": "computation_client",
+      "status": "PASS",
+      "verification": "COMPLETE_BODY_SHA256_AND_EXACT_EXPRESSIONS_VERIFIED",
+      "complete_body_sha256": "6f5b78101634218595f48bbcbaa8446addf5ec47fd80819299e1bd55131cfa90"
+    },
+    {
+      "source": "xla_computation",
+      "status": "PASS",
+      "verification": "COMPLETE_BODY_SHA256_AND_EXACT_EXPRESSIONS_VERIFIED",
+      "complete_body_sha256": "c22bbf87adc87a2ce175ace0040a8ee015901a5efb0d3e96898363c503f63c77"
+    },
+    {
+      "source": "xla_data",
+      "status": "PASS",
+      "verification": "COMPLETE_BODY_SHA256_AND_EXACT_EXPRESSIONS_VERIFIED",
+      "complete_body_sha256": "f5d56d6aa3e5bf84266d64c64c107bbd88ec60f09caacfb2ba8ab8063304a2ec"
+    },
+    {
+      "source": "workspace",
+      "status": "PASS",
+      "verification": "COMPLETE_BODY_SHA256_AND_EXACT_EXPRESSIONS_VERIFIED",
+      "complete_body_sha256": "aeaad036a5a67263fc08e31d7582f71b6bd1fe6f935b6cc2d2db3bb25dee4f08"
+    },
+    {
+      "source": "debug_util",
+      "status": "PASS",
+      "verification": "COMPLETE_BODY_SHA256_AND_EXACT_EXPRESSIONS_VERIFIED",
+      "complete_body_sha256": "b298f7c69af5302615b77f57328fd35e383fcd977adaaac06343099a7b3c6be9"
+    },
+    {
+      "source": "pjrt_client",
+      "status": "PASS",
+      "verification": "COMPLETE_BODY_SHA256_AND_EXACT_EXPRESSIONS_VERIFIED",
+      "complete_body_sha256": "d5073536b68e7750bb9170cdc3708d9757383c2ac88f18c8f891bba995fe2449"
+    },
+    {
+      "source": "graph_executor",
+      "status": "PASS",
+      "verification": "COMPLETE_BODY_SHA256_AND_EXACT_EXPRESSIONS_VERIFIED",
+      "complete_body_sha256": "aac117eeedf94f0c0e629b5ae51426cf97957a3edc2616915941570d1a25d97a"
+    },
+    {
+      "source": "hash",
+      "status": "PASS",
+      "verification": "COMPLETE_BODY_SHA256_AND_EXACT_EXPRESSIONS_VERIFIED",
+      "complete_body_sha256": "cea580b0e84875a241eac29e044e9d9f9b779a6a61c0550bce1686231c90c091"
+    },
+    {
+      "source": "hash_header",
+      "status": "PASS",
+      "verification": "COMPLETE_BODY_SHA256_AND_EXACT_EXPRESSIONS_VERIFIED",
+      "complete_body_sha256": "f637b7059e897a752d5a51c42384b966abd80073267b13169ae75a9e7b1dc845"
+    },
+    {
+      "source": "int128",
+      "status": "PASS",
+      "verification": "COMPLETE_BODY_SHA256_AND_EXACT_EXPRESSIONS_VERIFIED",
+      "complete_body_sha256": "aa7a454c20826054b7dded909f39df95ec07bc8ca759e5b804ec1f54cbbb5931"
+    },
+    {
+      "source": "xla_util",
+      "status": "PASS",
+      "verification": "COMPLETE_BODY_SHA256_AND_EXACT_EXPRESSIONS_VERIFIED",
+      "complete_body_sha256": "c6df61fe128d8fc4b0f8be1b08705041d86217322124d9140cd0d02d9e5b7dab"
+    },
+    {
+      "source": "bindings",
+      "status": "PASS",
+      "verification": "COMPLETE_BODY_SHA256_AND_EXACT_EXPRESSIONS_VERIFIED",
+      "complete_body_sha256": "85105171d16d84dd181f364128a8098d9a02d9934c6a9865f81b012a457fcf43"
+    },
+    {
+      "source": "registry",
+      "status": "PASS",
+      "verification": "COMPLETE_BODY_SHA256_AND_EXACT_EXPRESSIONS_VERIFIED",
+      "complete_body_sha256": "54f039124a7c0acca92fb68e485d27dc8b34d084c493502cb1095f8752b052b3"
+    },
+    {
+      "source": "c_api",
+      "status": "PASS",
+      "verification": "COMPLETE_BODY_SHA256_AND_EXACT_EXPRESSIONS_VERIFIED",
+      "complete_body_sha256": "a946f54b0df19ecae28015b86e4c10fad23ba0ce6fc3f14941157db79c437cf6"
+    }
+  ],
+  "libtpu_internal_revision": "UNKNOWN",
+  "actual_runtime_behavior": "NOT_RUN",
+  "verified_at_utc": "2026-10-11T06:36:09.725638+00:00"
+}

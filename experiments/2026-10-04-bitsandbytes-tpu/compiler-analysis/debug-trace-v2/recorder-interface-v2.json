@@ -1,0 +1,74 @@
+{
+  "kind": "M6_DEBUG_HASH_RECORDER_INTERFACE_V2_ARITY_REV1",
+  "implementation": "NOT_IMPLEMENTED",
+  "actual_device_verification": "NOT_RUN",
+  "source_revision": "5fab7053df86c8d503b98d9e7202ca8b8d4978c7",
+  "preconditions": {
+    "fresh_process": true,
+    "single_device": true,
+    "serial": true,
+    "spmd": false,
+    "eager": false,
+    "persistent_cache": false,
+    "debug_level": 2,
+    "dedicated_fresh_debug_file": true
+  },
+  "ordered_phases": [
+    "prepare",
+    "target",
+    "reference"
+  ],
+  "phase_sequence": [
+    "Synchronize all earlier work and finish its readback.",
+    "Record the sealed debug file identity and starting byte offset.",
+    "Set the unique phase graph name before graph construction.",
+    "Retain the exact submitted HloModuleProto after parameter wrapping and before compilation.",
+    "Construct and execute the phase computation.",
+    "Wait for synchronization and complete output readback.",
+    "Record the ending offset, complete bytes, and SHA-256.",
+    "Retain the independently obtained full deterministic HloModuleProto bytes."
+  ],
+  "module_rules": [
+    "Hash the full HloModuleProto, including identifiers and metadata.",
+    "Use the pinned deterministic serialization helper.",
+    "Do not hash HloProto envelopes, text HLO, or raw native graph-hash bytes.",
+    "Do not strip or change fields to obtain hash agreement.",
+    "Report unsupported capture when full module bytes are unavailable.",
+    "Bind compilation inputs and outputs to the retained submitted host_program_shape.",
+    "Bind execution inputs and outputs to the matched optimized host_program_shape.",
+    "Count only top-level parameters and top-level result tuple children.",
+    "Allow submitted and optimized arities to differ.",
+    "Report UNSUPPORTED when required module shape evidence is absent."
+  ],
+  "identity": [
+    "process_nonce",
+    "pid",
+    "process_start_identity",
+    "debug_file_device_inode"
+  ],
+  "limits": {
+    "entries": 1024,
+    "file_bytes": 16777216,
+    "total_bytes": 134217728
+  },
+  "budget_rules": [
+    "Count all logs and program files against the existing combined budget.",
+    "Use the original parent deadline without extension.",
+    "Stop capture before a bounded read or write exceeds its admitted budget.",
+    "Retain failures and unsupported observations with their bounded evidence.",
+    "Reuse the existing independent process owner and dump monitor."
+  ],
+  "hard_aggregate_quota": "UNAVAILABLE",
+  "polling_overshoot": "POSSIBLE_UNBOUNDED_BY_WRITER_RATE",
+  "failure_policy": "Missing, truncated, changed, interleaved, or ambiguous evidence fails admission.",
+  "verifier_input": "debug_trace_v2.verify: M6_DEBUG_HASH_TRACE_V2_ARITY_REV1, full optimized and submitted module bytes.",
+  "caller_attestation_limit": "Scope, synchronization, readback, and module provenance require independent recorder review.",
+  "claim_level": "DEBUG_SOURCE_LINK",
+  "loaded_handle_link": "UNKNOWN",
+  "m6_status": "NOT_QUALIFIED",
+  "deadline_semantics": {
+    "live_owner": "Continue to require now <= original deadline. No owner code changed.",
+    "offline_verifier": "Require started <= finished <= deadline <= parent deadline and finished <= review time."
+  },
+  "module_provenance_limit": "The recorder must independently capture submitted and optimized bytes; caller seals alone do not prove their runtime provenance."
+}

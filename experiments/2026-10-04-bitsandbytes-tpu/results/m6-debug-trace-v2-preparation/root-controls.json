@@ -1,0 +1,321 @@
+{
+  "kind": "M6_DEBUG_HASH_V2_ARITY_REV1_CPU_CONTROLS",
+  "status": "PASS",
+  "checks": [
+    {
+      "name": "hash_0B_",
+      "status": "PASS"
+    },
+    {
+      "name": "hash_15B_000102030405060708090a0b0c0d0e",
+      "status": "PASS"
+    },
+    {
+      "name": "hash_16B_000102030405060708090a0b0c0d0e0f",
+      "status": "PASS"
+    },
+    {
+      "name": "hash_17B_000102030405060708090a0b0c0d0e0f10",
+      "status": "PASS"
+    },
+    {
+      "name": "hash_1B_05",
+      "status": "PASS"
+    },
+    {
+      "name": "format_0",
+      "status": "PASS"
+    },
+    {
+      "name": "format_1",
+      "status": "PASS"
+    },
+    {
+      "name": "format_10000000000000000",
+      "status": "PASS"
+    },
+    {
+      "name": "format_123456789abcdef0000000000000001",
+      "status": "PASS"
+    },
+    {
+      "name": "format_ffffffffffffffffffffffffffffffff",
+      "status": "PASS"
+    },
+    {
+      "name": "wrong_hash_and_native_byte_format",
+      "status": "PASS"
+    },
+    {
+      "name": "complete_cold_execute_all_phases",
+      "status": "PASS"
+    },
+    {
+      "name": "retrospective_review_now1000_finished110_deadline120",
+      "status": "PASS"
+    },
+    {
+      "name": "future_finish",
+      "status": "PASS",
+      "rejection": "ORIGINAL_DEADLINE"
+    },
+    {
+      "name": "late_finish_review_now1000",
+      "status": "PASS",
+      "rejection": "ORIGINAL_DEADLINE"
+    },
+    {
+      "name": "valid_separate_submitted_and_optimized_arities",
+      "status": "PASS"
+    },
+    {
+      "name": "nested_tuple_top_level_two_outputs_not_three_leaves",
+      "status": "PASS"
+    },
+    {
+      "name": "valid_empty_tuple_zero_outputs",
+      "status": "PASS"
+    },
+    {
+      "name": "ignore_internal_helper_parameters",
+      "status": "PASS"
+    },
+    {
+      "name": "corrupt_cold_inputs999",
+      "status": "PASS",
+      "rejection": "EXECUTION_ARITY_MISMATCH"
+    },
+    {
+      "name": "corrupt_cold_outputs999",
+      "status": "PASS",
+      "rejection": "EXECUTION_ARITY_MISMATCH"
+    },
+    {
+      "name": "corrupt_compilation_inputs999",
+      "status": "PASS",
+      "rejection": "COMPILATION_ARITY_MISMATCH"
+    },
+    {
+      "name": "corrupt_compilation_outputs999",
+      "status": "PASS",
+      "rejection": "COMPILATION_ARITY_MISMATCH"
+    },
+    {
+      "name": "corrupt_warm_inputs",
+      "status": "PASS",
+      "rejection": "EXECUTION_ARITY_MISMATCH"
+    },
+    {
+      "name": "corrupt_warm_outputs",
+      "status": "PASS",
+      "rejection": "EXECUTION_ARITY_MISMATCH"
+    },
+    {
+      "name": "tuple_recursive_leaf_count_rejected",
+      "status": "PASS",
+      "rejection": "EXECUTION_ARITY_MISMATCH"
+    },
+    {
+      "name": "duplicate_arity_in_cause",
+      "status": "PASS",
+      "rejection": "DUPLICATE_ARITY_FIELDS"
+    },
+    {
+      "name": "missing_submitted_evidence_unsupported",
+      "status": "PASS",
+      "rejection": "UNSUPPORTED_SUBMITTED_MODULE_REQUIRED"
+    },
+    {
+      "name": "missing_optimized_host_shape_unsupported",
+      "status": "PASS",
+      "rejection": "UNSUPPORTED_MODULE_HOST_PROGRAM_SHAPE"
+    },
+    {
+      "name": "missing_submitted_host_shape_unsupported",
+      "status": "PASS",
+      "rejection": "UNSUPPORTED_MODULE_HOST_PROGRAM_SHAPE"
+    },
+    {
+      "name": "submitted_module_bad_seal",
+      "status": "PASS",
+      "rejection": "SUBMITTED_MODULE_SEAL"
+    },
+    {
+      "name": "submitted_module_envelope_format",
+      "status": "PASS",
+      "rejection": "SUBMITTED_MODULE_FORMAT"
+    },
+    {
+      "name": "observed_cold_then_warm",
+      "status": "PASS"
+    },
+    {
+      "name": "orphan_warm",
+      "status": "PASS",
+      "rejection": "ORPHAN_WARM_EXECUTION"
+    },
+    {
+      "name": "warm_key_for_wrong_module",
+      "status": "PASS",
+      "rejection": "WARM_COMPUTATION_HASH_MISMATCH"
+    },
+    {
+      "name": "duplicate_graph_hash_in_cause",
+      "status": "PASS",
+      "rejection": "DUPLICATE_GRAPH_FIELDS"
+    },
+    {
+      "name": "truncated_newline",
+      "status": "PASS",
+      "rejection": "LOG_TRUNCATED"
+    },
+    {
+      "name": "truncated_block",
+      "status": "PASS",
+      "rejection": "BLOCK_INTERLEAVING_OR_TRUNCATION"
+    },
+    {
+      "name": "interleaved_block",
+      "status": "PASS",
+      "rejection": "BLOCK_INTERLEAVING_OR_TRUNCATION"
+    },
+    {
+      "name": "wrong_computation",
+      "status": "PASS",
+      "rejection": "COMPUTATION_HASH_MISMATCH"
+    },
+    {
+      "name": "whole_envelope_hash",
+      "status": "PASS",
+      "rejection": "COMPUTATION_HASH_MISMATCH"
+    },
+    {
+      "name": "wrong_cold_execution_key",
+      "status": "PASS",
+      "rejection": "COLD_EXECUTION_HASH_MISMATCH"
+    },
+    {
+      "name": "wrong_graph_name",
+      "status": "PASS",
+      "rejection": "GRAPH_NAME"
+    },
+    {
+      "name": "compile_without_execution",
+      "status": "PASS",
+      "rejection": "INCOMPLETE_WINDOW"
+    },
+    {
+      "name": "duplicate_compile_same_key",
+      "status": "PASS",
+      "rejection": "RECOMPILE_AMBIGUOUS_CACHE_KEY"
+    },
+    {
+      "name": "unknown_log_output",
+      "status": "PASS",
+      "rejection": "UNKNOWN_OR_INTERLEAVED_LOG_LINE"
+    },
+    {
+      "name": "missing_reference",
+      "status": "PASS",
+      "rejection": "COMPLETE_PHASE_WINDOWS"
+    },
+    {
+      "name": "offset_gap",
+      "status": "PASS",
+      "rejection": "COMPLETE_CONTIGUOUS_OFFSETS"
+    },
+    {
+      "name": "no_sync",
+      "status": "PASS",
+      "rejection": "SYNC_READBACK_REQUIRED"
+    },
+    {
+      "name": "no_readback",
+      "status": "PASS",
+      "rejection": "SYNC_READBACK_REQUIRED"
+    },
+    {
+      "name": "wrong_module_seal",
+      "status": "PASS",
+      "rejection": "MODULE_SEAL"
+    },
+    {
+      "name": "wrong_log_seal",
+      "status": "PASS",
+      "rejection": "LOG_SEAL"
+    },
+    {
+      "name": "envelope_format",
+      "status": "PASS",
+      "rejection": "MODULE_FORMAT"
+    },
+    {
+      "name": "finish_after_deadline109",
+      "status": "PASS",
+      "rejection": "ORIGINAL_DEADLINE"
+    },
+    {
+      "name": "extended_parent_deadline",
+      "status": "PASS",
+      "rejection": "ORIGINAL_DEADLINE"
+    },
+    {
+      "name": "spmd",
+      "status": "PASS",
+      "rejection": "UNSUPPORTED_SCOPE"
+    },
+    {
+      "name": "persistent_cache",
+      "status": "PASS",
+      "rejection": "UNSUPPORTED_SCOPE"
+    },
+    {
+      "name": "invalid_nonce",
+      "status": "PASS",
+      "rejection": "PROCESS_NONCE"
+    },
+    {
+      "name": "overlarge_log",
+      "status": "PASS",
+      "rejection": "LOG_BOUND"
+    }
+  ],
+  "count": 59,
+  "hash_vectors": [
+    {
+      "input_hex": "",
+      "bytes": 0,
+      "cpp": "97136cad8e149d59c1a402742839698c",
+      "python": "97136cad8e149d59c1a402742839698c"
+    },
+    {
+      "input_hex": "000102030405060708090a0b0c0d0e",
+      "bytes": 15,
+      "cpp": "9cbfcb44e4ff9c2ac1806f577ab239a0",
+      "python": "9cbfcb44e4ff9c2ac1806f577ab239a0"
+    },
+    {
+      "input_hex": "000102030405060708090a0b0c0d0e0f",
+      "bytes": 16,
+      "cpp": "e6b0d419b394ed5b7c1518eca5a47a98",
+      "python": "e6b0d419b394ed5b7c1518eca5a47a98"
+    },
+    {
+      "input_hex": "000102030405060708090a0b0c0d0e0f10",
+      "bytes": 17,
+      "cpp": "cf64ab5e451b78dd502384cbabbf8f3f",
+      "python": "cf64ab5e451b78dd502384cbabbf8f3f"
+    },
+    {
+      "input_hex": "05",
+      "bytes": 1,
+      "cpp": "8f35066166ec18db89da64330c973fa",
+      "python": "8f35066166ec18db89da64330c973fa"
+    }
+  ],
+  "actual_device": "NOT_RUN",
+  "loaded_handle_link": "UNKNOWN",
+  "m6_status": "NOT_QUALIFIED",
+  "generated_fixture_files_retained": 0,
+  "compiled_reference_retained": false
+}

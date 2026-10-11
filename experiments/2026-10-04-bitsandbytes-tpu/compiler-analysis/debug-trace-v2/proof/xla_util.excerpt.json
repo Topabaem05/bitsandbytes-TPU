@@ -1,0 +1,17 @@
+{
+  "source": {
+    "url": "https://raw.githubusercontent.com/pytorch/xla/5fab7053df86c8d503b98d9e7202ca8b8d4978c7/torch_xla/csrc/runtime/xla_util.cpp",
+    "sha256": "c6df61fe128d8fc4b0f8be1b08705041d86217322124d9140cd0d02d9e5b7dab",
+    "bytes": 4587,
+    "path": "torch_xla/csrc/runtime/xla_util.cpp",
+    "revision": "5fab7053df86c8d503b98d9e7202ca8b8d4978c7"
+  },
+  "sections": [
+    {
+      "start": 120,
+      "end": 138,
+      "text": "absl::StatusOr<std::string> GetDeterministicSerializedModuleProto(\n    const xla::HloModuleProto& hlo_proto) {\n  const size_t size = hlo_proto.ByteSizeLong();\n  if (size == 0) {\n    return std::string();\n  }\n  std::string serialized;\n  // Pre-allocate the string buffer for the serialized result.\n  serialized.resize(size);\n\n  // Perform deterministic serialization ensuring consistent ordering\n  // of map fields and repeated elements\n  if (!tsl::SerializeToBufferDeterministic(hlo_proto, serialized.data(),\n                                           size)) {\n    return absl::InvalidArgumentError(\"Could not serialize module proto\");\n  }\n\n  return serialized;\n}\n",
+      "sha256": "9369d05b9ad5dcbaf48d15b59eea0dc20c9ce4f6536622a66577dafcb10bfa3d"
+    }
+  ]
+}

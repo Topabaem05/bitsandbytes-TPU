@@ -1,0 +1,47 @@
+{
+  "source": {
+    "url": "https://raw.githubusercontent.com/pytorch/xla/5fab7053df86c8d503b98d9e7202ca8b8d4978c7/torch_xla/csrc/xla_graph_executor.cpp",
+    "sha256": "aac117eeedf94f0c0e629b5ae51426cf97957a3edc2616915941570d1a25d97a",
+    "bytes": 70746,
+    "path": "torch_xla/csrc/xla_graph_executor.cpp",
+    "revision": "5fab7053df86c8d503b98d9e7202ca8b8d4978c7"
+  },
+  "sections": [
+    {
+      "start": 1106,
+      "end": 1128,
+      "text": "std::shared_ptr<XLAGraphExecutor::Async>\nXLAGraphExecutor::ScheduleSyncTensorsGraph(\n    SyncTensorCollection* coll,\n    std::vector<torch::lazy::BackendDataPtr> parameters_data,\n    std::vector<torch::lazy::BackendDataPtr> tensors_data,\n    std::vector<XLATensor::ShardingSpecPtr> sharding_specs,\n    ComputationCache::TypePtr cached_computation) {\n  DebugUtil::analyze_graph_execution_python_frame(\n      DebugUtil::GraphAnalysisSource::Execution,\n      /*graph_hash=*/coll->hash,\n      /*program_shape=*/&(cached_computation->computation->program_shape()));\n  tsl::profiler::TraceMe activity(\"ScheduleSyncTensorsGraph\",\n                                  tsl::profiler::TraceMeLevel::kInfo);\n  TensorCollectionBarrier(coll);\n  std::shared_ptr<XLAGraphExecutor::Async> async = std::make_shared<Async>(\n      coll, std::move(parameters_data), std::move(tensors_data),\n      std::move(cached_computation));\n  auto syncfn = [async, hash = coll->hash, sharding_specs = sharding_specs,\n                 use_eager_mode = UseEagerMode()]() {\n    try {\n      std::vector<torch::lazy::BackendDataPtr> results;\n      // Execute replicated if the compiled computation is partitioned.\n      XLA_ASSIGN_OR_THROW(\n",
+      "sha256": "96645e4065006f9e89646c4b56b65d8edce21e4daddf451b782c632a5040276e"
+    },
+    {
+      "start": 1148,
+      "end": 1168,
+      "text": "                   << torch::lazy::HashToString(hash)\n                   << \" on devices: \" << absl::StrJoin(devices, \",\")\n                   << \" done!\";\n      } else {\n        TF_VLOG(3) << \"Executing IR graph hash \"\n                   << torch::lazy::HashToString(hash) << \" on device \"\n                   << async->device << \" ...\";\n        XLA_ASSIGN_OR_THROW(\n            std::vector<runtime::ComputationClient::DataPtr> outputs,\n            client->ExecuteComputation(*async->cached_computation->computation,\n                                       UnwrapXlaData(async->parameters_data),\n                                       async->device.toString(),\n                                       {/*explode_tuple=*/true,\n                                        /*eager_mode=*/use_eager_mode}));\n        results = WrapXlaData(outputs);\n        TORCH_LAZY_COUNTER(\"ExecuteComputation\", 1);\n        TF_VLOG(3) << \"Executing IR graph hash \"\n                   << torch::lazy::HashToString(hash) << \" on device \"\n                   << async->device << \" done!\";\n      }\n      for (size_t i = 0; i < results.size(); ++i) {\n",
+      "sha256": "64be48cdde23f9329e93eb1f84ee25e68b6c19543495945c154c39137033393c"
+    },
+    {
+      "start": 1230,
+      "end": 1282,
+      "text": "XLAGraphExecutor::LookupCachedCompile(const torch::lazy::hash_t& hash) {\n  ComputationCache::TypePtr cached_computation =\n      GetComputationCache()->Get(hash);\n  if (cached_computation == nullptr) {\n    TORCH_LAZY_COUNTER(\"UncachedCompile\", 1);\n    return nullptr;\n  }\n  TF_VLOG(5) << \"Graph hash: \" << torch::lazy::HashToString(hash);\n  TORCH_LAZY_COUNTER(\"CachedCompile\", 1);\n  return cached_computation;\n}\n\nstd::pair<bool, std::shared_ptr<XLAGraphExecutor::Async>>\nXLAGraphExecutor::TryRunCachedSync(\n    std::vector<XLATensorPtr>* tensors, SyncTensorCollection* coll,\n    PostOrderData* po_data,\n    const std::vector<torch::lazy::BackendDataPtr>& tensor_data_vec,\n    bool warm_up_cache_only) {\n  ComputationCache::TypePtr cached_computation =\n      LookupCachedCompile(coll->hash);\n  bool cache_hit = false;\n  if (cached_computation == nullptr) {\n    return std::pair<bool, std::shared_ptr<XLAGraphExecutor::Async>>(cache_hit,\n                                                                     nullptr);\n  } else {\n    cache_hit = true;\n  }\n  TORCH_LAZY_VALUE_METRIC(\"TensorsGraphSize\", po_data->post_order.size());\n  TF_VLOG(5) << \"TensorsGraphSize=\" << po_data->post_order.size();\n\n  if (ShardingUtil::GetAutoSharding()) {\n    // TODO(yeounoh) we may be able to update the cache to avoid this.\n    // The current issue is that we are not properly updating the original\n    // tensors to track the new sharded data after resharding.\n    const xla::HloModuleProto& computation_proto =\n        cached_computation->computation->computation().proto();\n    ShardingUtil::ReshardParameters(computation_proto, tensors,\n                                    &po_data->parameters_data,\n                                    &po_data->post_order);\n    TF_VLOG(5) << \"Parameter sequence hash after resharding: \"\n               << torch::lazy::Hash(po_data->parameter_sequence);\n  }\n\n  // don't schedule the execution if the purpose of this SyncTensor is just to\n  // warm up the cache.\n  return std::pair<bool, std::shared_ptr<XLAGraphExecutor::Async>>(\n      cache_hit, warm_up_cache_only\n                     ? nullptr\n                     : ScheduleSyncTensorsGraph(\n                           tensors, coll, std::move(po_data->parameters_data),\n                           coll->device.toString(),\n                           std::move(cached_computation), tensor_data_vec));\n}\n",
+      "sha256": "279a659e26e0efe9de53a774dc9cc3b19b6332ec3a1d3dd1119b328cadcae8cd"
+    },
+    {
+      "start": 1431,
+      "end": 1454,
+      "text": "  XLA_ASSIGN_OR_THROW(xla::XlaComputation computation, lowering_ctx.BuildXla());\n  XLA_ASSIGN_OR_THROW(xla::ProgramShape program_shape,\n                      computation.GetProgramShape());\n\n  // TODO(yeounoh) enable wrapping with auto-sharding.\n  bool should_wrap_parameter =\n      (program_shape.parameters_size() >= parameter_wrapping_threadshold) &&\n      !use_autosharding;\n  if (should_wrap_parameter) {\n    TF_VLOG(3) << \"Wrapping graph with \" << program_shape.parameters_size()\n               << \" parameters. Threadshold = \"\n               << parameter_wrapping_threadshold;\n\n    // trying to get all op shardings\n    std::vector<xla::HloSharding> param_shardings;\n    if (is_sharded) {\n      param_shardings = XlaHelpers::ExtractInputShardings(computation);\n    }\n\n    XLA_ASSIGN_OR_THROW(\n        computation,\n        XlaHelpers::WrapXlaComputation(computation, program_shape.parameters(),\n                                       param_shardings, buffer_donor_indices));\n    XLA_ASSIGN_OR_THROW(program_shape, computation.GetProgramShape());\n",
+      "sha256": "02d74191e0495ed7cc1a276edb043d76a8b2aa308bef2f155b9bdf6a257c8fe8"
+    },
+    {
+      "start": 1488,
+      "end": 1497,
+      "text": "  DebugUtil::analyze_graph_execution_python_frame(\n      DebugUtil::GraphAnalysisSource::Compilation,\n      /*graph_hash=*/coll.hash, /*program_shape=*/&program_shape);\n\n  TF_VLOG(3) << \"Compiling IR graph hash \"\n             << torch::lazy::HashToString(coll.hash) << \" on device \"\n             << coll.device << \" ...\";\n  std::vector<std::shared_ptr<runtime::ComputationClient::Computation>>\n      computations = client->Compile(std::move(instances));\n  DebugUtil::post_compilation_analysis(computations[0]);\n",
+      "sha256": "2acd28751aaee2fb1cc5860778567f0a7f4a55470a09a2c8d8051df128a2e1ab"
+    },
+    {
+      "start": 1581,
+      "end": 1604,
+      "text": "  std::pair<bool, std::shared_ptr<XLAGraphExecutor::Async>> cache_res =\n      TryRunCachedSync(tensors, &coll, &po_data, tensor_data_vec,\n                       warm_up_cache_only);\n  if (cache_res.first) {\n    // we have a cache hit, execution has been scheduled by TryRunCachedSync.\n    return cache_res.second;\n  }\n  CompilationResult compile_result = Compile(*tensors, devices, coll, &po_data,\n                                             ir_values, buffer_donor_indices);\n\n  TORCH_LAZY_VALUE_METRIC(\"TensorsGraphSize\", compile_result.emitted_nodes);\n  TF_VLOG(5) << \"TensorsGraphSize=\" << compile_result.emitted_nodes;\n  auto cached_computation = std::make_shared<CachedComputation>(\n      std::move(compile_result.computation), compile_result.is_sharded);\n  GetComputationCache()->Add(coll.hash, cached_computation);\n\n  if (warm_up_cache_only) {\n    return nullptr;\n  } else {\n    return ScheduleSyncTensorsGraph(\n        tensors, &coll, std::move(compile_result.parameters_data),\n        compile_result.device.toString(), std::move(cached_computation),\n        tensor_data_vec);\n  }\n",
+      "sha256": "108714ed961de4607852f774b8c9cd5d2b4fa27fed44b1b56f4394a2b0eb3e73"
+    }
+  ]
+}

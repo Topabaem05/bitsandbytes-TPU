@@ -1,0 +1,17 @@
+{
+  "source": {
+    "url": "https://raw.githubusercontent.com/pytorch/xla/5fab7053df86c8d503b98d9e7202ca8b8d4978c7/torch_xla/csrc/runtime/computation_client.h",
+    "sha256": "6f5b78101634218595f48bbcbaa8446addf5ec47fd80819299e1bd55131cfa90",
+    "bytes": 19068,
+    "path": "torch_xla/csrc/runtime/computation_client.h",
+    "revision": "5fab7053df86c8d503b98d9e7202ca8b8d4978c7"
+  },
+  "sections": [
+    {
+      "start": 114,
+      "end": 121,
+      "text": "    Computation(std::string name, xla::XlaComputation computation,\n                std::vector<std::string> devices = {})\n        : name_(name),\n          computation_(std::move(computation)),\n          devices_(std::move(devices)) {\n      XLA_ASSIGN_OR_THROW(program_shape_, computation_.GetProgramShape());\n      const xla::HloModuleProto& proto = computation_.proto();\n      XLA_ASSIGN_OR_THROW(hash_, ComputeHash(proto, name));\n",
+      "sha256": "f6252fafd42209984b760801fbdf5cbf9439f1af16b9e23189679b524bdbd60f"
+    }
+  ]
+}

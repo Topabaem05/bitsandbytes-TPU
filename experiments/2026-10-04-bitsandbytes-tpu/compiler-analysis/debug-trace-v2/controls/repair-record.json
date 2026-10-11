@@ -1,0 +1,8 @@
+{
+  "status": "RETAINED_CONTROL_REPAIR",
+  "attempt": 1,
+  "failure": "Legacy expired_deadline fixture expected finish=110 deadline=110 review=111 to fail.",
+  "diagnosis": "That record is valid under the required retrospective semantics.",
+  "correction": "Reject finish=110 deadline=109 instead; keep new valid retrospective fixture.",
+  "scientific_criteria_changed": false
+}

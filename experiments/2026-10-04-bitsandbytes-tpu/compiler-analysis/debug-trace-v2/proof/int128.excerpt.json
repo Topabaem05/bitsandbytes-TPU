@@ -1,0 +1,23 @@
+{
+  "source": {
+    "url": "https://raw.githubusercontent.com/pytorch/pytorch/0fabc3ba44823f257e70ce397d989c8de5e362c1/c10/util/int128.h",
+    "sha256": "aa7a454c20826054b7dded909f39df95ec07bc8ca759e5b804ec1f54cbbb5931",
+    "bytes": 12292,
+    "path": "c10/util/int128.h",
+    "revision": "0fabc3ba44823f257e70ce397d989c8de5e362c1"
+  },
+  "sections": [
+    {
+      "start": 103,
+      "end": 107,
+      "text": "  // Little-endian memory order optimizations can benefit from\n  // having lo_ first, hi_ last.\n  // See util/endian/endian.h and Load128/Store128 for storing a uint128.\n  uint64_t lo_;\n  uint64_t hi_;\n",
+      "sha256": "ca4a72d3d38d0a92009e1c200e8e55335ea06cbfd0d807da4682c31dc6a238e9"
+    },
+    {
+      "start": 157,
+      "end": 163,
+      "text": "inline UINT128_CONSTEXPR uint128::uint128() : lo_(0), hi_(0) {}\ninline UINT128_CONSTEXPR uint128::uint128(uint64_t top, uint64_t bottom)\n    : lo_(bottom), hi_(top) {}\ninline UINT128_CONSTEXPR uint128::uint128(const uint128_pod& v)\n    : lo_(v.lo), hi_(v.hi) {}\ninline UINT128_CONSTEXPR uint128::uint128(uint64_t bottom)\n    : lo_(bottom), hi_(0) {}\n",
+      "sha256": "3ac7593b5e5c0182c988841d504a51add6fc9b7b5985da8da0c7caf9bfd67f30"
+    }
+  ]
+}

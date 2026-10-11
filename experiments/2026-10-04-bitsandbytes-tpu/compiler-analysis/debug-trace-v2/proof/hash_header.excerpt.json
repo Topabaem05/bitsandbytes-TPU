@@ -1,0 +1,23 @@
+{
+  "source": {
+    "url": "https://raw.githubusercontent.com/pytorch/pytorch/0fabc3ba44823f257e70ce397d989c8de5e362c1/torch/csrc/lazy/core/hash.h",
+    "sha256": "f637b7059e897a752d5a51c42384b966abd80073267b13169ae75a9e7b1dc845",
+    "bytes": 7599,
+    "path": "torch/csrc/lazy/core/hash.h",
+    "revision": "0fabc3ba44823f257e70ce397d989c8de5e362c1"
+  },
+  "sections": [
+    {
+      "start": 21,
+      "end": 33,
+      "text": "class TORCH_API hash_t : public c10::uint128 {\n public:\n  // Switch from typedef hash_t = uint128 to provide explicit casters\n  hash_t(int8_t val) : uint128(static_cast<uint32_t>(val)) {}\n  hash_t(int16_t val) : uint128(static_cast<uint32_t>(val)) {}\n  hash_t(int32_t val) : uint128(static_cast<uint32_t>(val)) {}\n  hash_t(int64_t val) : uint128(static_cast<uint64_t>(val)) {}\n  hash_t(uint32_t val) : uint128(val) {}\n  hash_t(uint64_t val) : uint128(val) {}\n  hash_t(uint128 val) : uint128(val) {}\n  hash_t(uint64_t top, uint64_t bottom) : uint128(top, bottom) {}\n  hash_t() = default;\n};\n",
+      "sha256": "185bb9d51baddd49ef1c86fab7f50ae0c2f4a6b0806c42de787500e696a4b309"
+    },
+    {
+      "start": 148,
+      "end": 155,
+      "text": "static inline hash_t Hash(const std::string& value) {\n  return DataHash(value.data(), value.size());\n}\n\nstatic inline hash_t Hash(const std::string_view& value) {\n  return DataHash(value.data(), value.size());\n}\n\n",
+      "sha256": "fe3f94e69b0ebd3f918d51ed5e847a5be5ce4d1d3c6221660030e9976bd99176"
+    }
+  ]
+}

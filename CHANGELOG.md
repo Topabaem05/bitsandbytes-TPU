@@ -1,5 +1,17 @@
 # Change log
 
+## 2026-10-11 — Compiler debug trace preparation
+
+- Bind compilation and execution counts to their separate complete module records.
+- Permit later offline review of execution that finished within its original deadline.
+- Preserve the compiler analyzer, allocation auditors, and evidence limits.
+- Verify private preparation archives before removal of completed local copies.
+
+Validation: The reviewer passed 59 CPU controls and 15 retained source excerpt checks.
+Astra Max passed 21 additional memory-only controls.
+Actual TPU observation and the direct PJRT recorder remain incomplete; M6 remains unqualified.
+Refer to [the preparation record](docs/changes/r6-debug-trace-v2.md).
+
 ## 2026-10-11 — Exact nested interactive failure and disposal
 
 - Record the source inventory and bytecode failures before numerical execution.

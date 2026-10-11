@@ -1,0 +1,23 @@
+{
+  "actual_TPU": "NOT_RUN",
+  "adopted_directory": "experiments/2026-10-04-bitsandbytes-tpu/compiler-analysis/debug-trace-v2",
+  "allocator_peak": "UNKNOWN",
+  "astra_max_independent_memory_controls": 21,
+  "binary_identity": "UNKNOWN",
+  "direct_recorder": "NOT_IMPLEMENTED",
+  "frozen_analyzer_unchanged": true,
+  "kind": "ROOT_M6_DEBUG_TRACE_V2_SOURCE_REVIEW",
+  "loaded_handle": "UNKNOWN",
+  "m6": "NOT_QUALIFIED",
+  "manifest_sha256": "de6960aa70390065d9e1f611017a81646d43e188f4a09dcb549a0e98bef5945f",
+  "mosaic_internal_storage": "UNKNOWN",
+  "provenance": "CALLER_ATTESTATIONS_REQUIRE_INDEPENDENT_RUNTIME_PROOF",
+  "provider_calls": 0,
+  "reviewed_epoch": 1791701226.984527,
+  "root_cpu_controls": 59,
+  "root_retained_source_excerpt_checks": 15,
+  "source_bytes": 117678,
+  "source_files": 31,
+  "source_tar_sha256": "e0d17b4d965d97368ade23f6fbe3534746d37820e001b2f776524e32733b4919",
+  "status": "ACCEPT_SOURCE_PREPARATION_ONLY"
+}

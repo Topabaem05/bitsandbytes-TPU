@@ -1,0 +1,17 @@
+{
+  "source": {
+    "url": "https://raw.githubusercontent.com/pytorch/xla/5fab7053df86c8d503b98d9e7202ca8b8d4978c7/torch_xla/csrc/init_python_bindings.cpp",
+    "sha256": "85105171d16d84dd181f364128a8098d9a02d9934c6a9865f81b012a457fcf43",
+    "bytes": 155693,
+    "path": "torch_xla/csrc/init_python_bindings.cpp",
+    "revision": "5fab7053df86c8d503b98d9e7202ca8b8d4978c7"
+  },
+  "sections": [
+    {
+      "start": 3438,
+      "end": 3451,
+      "text": "      .def(\"_get_graph_hash\",\n           [](const std::vector<at::Tensor>& tensors) -> py::bytes {\n             absl::StatusOr<std::vector<absl_nonnull XLATensorPtr>>\n                 xtensors_status = bridge::GetXlaTensors(tensors);\n             XLA_CHECK_OK(xtensors_status,\n                          \"_get_graph_hash(): error retrieving the XLA tensors \"\n                          \"from the given tensor arguments.\");\n             std::vector<absl_nonnull XLATensorPtr> xtensors =\n                 xtensors_status.value();\n             torch::lazy::hash_t hash =\n                 XLAGraphExecutor::Get()->GetGraphHash(xtensors);\n             std::string bin((const char*)&hash, sizeof(hash));\n             return py::bytes(bin);\n           })\n",
+      "sha256": "b10a4ed1dab7428da36aee57afea9efab686fa0e725965dbc9c3b43f7db9339c"
+    }
+  ]
+}

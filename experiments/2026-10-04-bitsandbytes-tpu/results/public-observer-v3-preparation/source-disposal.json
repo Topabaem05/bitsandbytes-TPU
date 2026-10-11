@@ -1,0 +1,13 @@
+{
+  "archive_bytes": 115275,
+  "archive_members": 51,
+  "archive_sha256": "1f00f58a586cc8ebf8edcdab6021e27af0d1dceca0b91b181324753351d147ab",
+  "candidate_removed": "/tmp/bnb-tpu-public-observer-v2-20261011-qku6jies",
+  "independent_download_verified": true,
+  "input_fixture_already_deleted": true,
+  "private_owner_only": true,
+  "remote_id": "1whkgE48MjFtPH0hU3ycWfuxJfO-bgIU6",
+  "shared": false,
+  "status": "PRIVATE_SOURCE_DOWNLOAD_FULL_MEMBER_READBACK_PASS_AND_LOCAL_CANDIDATE_DELETED",
+  "verified_epoch": 1791701013.78041
+}

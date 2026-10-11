@@ -50,6 +50,8 @@
   "status": "EXACT_11_ROOTS_DELETED",
   "symlinks": 0,
   "symlinks_stored_not_dereferenced": true,
+  "temporary_archive_creator_deleted": true,
+  "temporary_archive_creator_deleted_epoch": 1791701089.522704,
   "verified_epoch": 1791700788.996018,
   "visualization_originals_preserved": true,
   "zip_crc_verified": true

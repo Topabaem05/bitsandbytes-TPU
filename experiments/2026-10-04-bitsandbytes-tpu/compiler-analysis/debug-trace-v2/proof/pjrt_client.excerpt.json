@@ -1,0 +1,17 @@
+{
+  "source": {
+    "url": "https://raw.githubusercontent.com/pytorch/xla/5fab7053df86c8d503b98d9e7202ca8b8d4978c7/torch_xla/csrc/runtime/pjrt_computation_client.cpp",
+    "sha256": "d5073536b68e7750bb9170cdc3708d9757383c2ac88f18c8f891bba995fe2449",
+    "bytes": 44118,
+    "path": "torch_xla/csrc/runtime/pjrt_computation_client.cpp",
+    "revision": "5fab7053df86c8d503b98d9e7202ca8b8d4978c7"
+  },
+  "sections": [
+    {
+      "start": 643,
+      "end": 671,
+      "text": "                   ? fake_xla_compile_()\n                   : client_->CompileAndLoad(mlir_module, compile_options);\n      });\n      StableHloCompileCounter()->AddValue(1);\n    } else {\n      executable = util::RaisePythonValueErrorOnFailure([&] {\n        return fake_xla_compile_ ? fake_xla_compile_()\n                                 : client_->CompileAndLoad(instance.computation,\n                                                           compile_options);\n      });\n    }\n\n    auto memory_stats_status_or = executable->GetCompiledMemoryStats();\n    if (memory_stats_status_or.ok()) {\n      xla::CompiledMemoryStats memory_stats = memory_stats_status_or.value();\n      TF_VLOG(3) << \"memory usage detail = \" << memory_stats.DebugString();\n    } else {\n      TF_VLOG(3) << \"memory usage is not availiable\";\n    }\n\n    XLA_ASSIGN_OR_THROW(\n        const std::vector<std::shared_ptr<xla::HloModule>>& hlo_modules,\n        executable->GetHloModules());\n    xla::HloComputation* hlo_computation = hlo_modules[0]->entry_computation();\n    std::shared_ptr<PjRtComputation> pjrt_computation =\n        std::make_shared<PjRtComputation>(\n            std::move(xla::XlaComputation(hlo_modules[0]->ToProto())),\n            instance.devices, std::move(executable));\n\n",
+      "sha256": "ebd72bea6502ee08516b93055d2d0ac4a83e7cde062cd10d48eb886151d4318c"
+    }
+  ]
+}
