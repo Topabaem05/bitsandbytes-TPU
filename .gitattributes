@@ -1,2 +1,6 @@
 # Retain exact compiler printer output, including its final blank line.
 experiments/2026-10-04-bitsandbytes-tpu/cloud/tests/fixtures/native/printer/*.hlo.txt whitespace=-blank-at-eof
+# Retain reviewed source hashes and the space-prefixed context in the exact patch.
+experiments/2026-10-04-bitsandbytes-tpu/cloud/exact-nested/driver.py whitespace=-blank-at-eof
+experiments/2026-10-04-bitsandbytes-tpu/nested-exact/source/state8_public.py whitespace=-blank-at-eof
+experiments/2026-10-04-bitsandbytes-tpu/nested-exact/integration/nested-exact.patch whitespace=-blank-at-eol

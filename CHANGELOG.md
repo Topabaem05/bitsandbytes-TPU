@@ -1,5 +1,14 @@
 # Change log
 
+## 2026-10-11 — Exact source formatting inspection
+
+- Retain the reviewed final blank lines in two exact nested source files.
+- Retain the required space-prefixed context lines in the exact nested patch.
+- Apply narrow Git whitespace rules without changing any source or patch hash.
+
+Validation: The complete nested adoption diff passed whitespace inspection with these format rules.
+The 143 adopted source hashes remain unchanged.
+
 ## 2026-10-11 — Portable exact nested preparation
 
 - Add the complete exact nested source and a separate cloud owner.
