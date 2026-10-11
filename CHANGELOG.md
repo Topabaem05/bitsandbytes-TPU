@@ -1,5 +1,15 @@
 # Change log
 
+## 2026-10-11 — M5 reviewed preparation disposal
+
+- Verify all 352 private archive members through an independent download.
+- Delete ten completed preparation and review roots after source adoption.
+- Preserve compact review and disposal records in Git.
+
+Validation: The full archive hash matched, and no active process referenced the deleted roots.
+No new output was added to `.work`.
+M5 remains unqualified.
+
 ## 2026-10-11 — Current research execution plan
 
 - Update the README and milestone table with the latest reviewed experiment results.

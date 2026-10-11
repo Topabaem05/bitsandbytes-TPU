@@ -1,0 +1,30 @@
+{
+  "active_process_conflicts": 0,
+  "archive_bytes": 1913501,
+  "archive_sha256": "e8aad261c680ec98f4eb19165c176108904ce1d9bfd8d3e7d56a34572ee7f302",
+  "created_epoch": 1791707071.753515,
+  "deleted_epoch": 1791707227.873896,
+  "download_verified_epoch": 1791707092.9523442,
+  "every_member_sha256_verified": true,
+  "input_entries": 351,
+  "inventory_sha256": "793f9fb4f879bab5e3f63e3cd5317dace92781a900fb3d94554ceefde0ae2e2d",
+  "local_inputs_absent": true,
+  "logical_bytes": 6862441,
+  "members": 352,
+  "remote_id": "1_r23DYLWWwGbLPmpsR-BP6_IWF0l8CMi",
+  "roots": [
+    "/tmp/bnb-tpu-m5-independent-review-20261011-zpr3ew",
+    "/tmp/m5-reader-peer-review.QXJi9c",
+    "/tmp/bnb-tpu-root-m5-reader-v3-driver-owner-20261011",
+    "/tmp/bnb-tpu-root-m5-v3-bundle-owner-20261011",
+    "/tmp/bnb-tpu-m5-reader-v4-20261011-pccc37y3",
+    "/tmp/bnb-tpu-root-m5-reader-v4-replay-20261011",
+    "/tmp/bnb-tpu-root-m5-reader-v4-owner-20261011",
+    "/tmp/bnb-tpu-root-m5-reader-v4-canonical-owner-20261011",
+    "/tmp/m5-reader-v4-independent-peer-20261011-tW7TOo",
+    "/tmp/bnb-tpu-root-m5-retired-receipts-20261011"
+  ],
+  "status": "PRIVATE_ARCHIVE_VERIFIED_AND_LOCAL_ROOTS_DELETED",
+  "symlinks": 0,
+  "zip_crc_verified": true
+}

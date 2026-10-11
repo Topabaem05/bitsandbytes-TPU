@@ -26,3 +26,8 @@ Genuine accepted M4 records remain required before device dispatch.
 No synthetic acceptance was created.
 
 The full ASD-STE100 dictionary was unavailable; no certified conformity is claimed.
+
+Ten completed preparation and review roots were archived in private Drive after source adoption.
+An independent download verified every hash and all 352 archive members.
+The ten roots and temporary archive copy were then deleted.
+The [private archive](https://drive.google.com/file/d/1_r23DYLWWwGbLPmpsR-BP6_IWF0l8CMi/view) preserves the complete local preparation records.
