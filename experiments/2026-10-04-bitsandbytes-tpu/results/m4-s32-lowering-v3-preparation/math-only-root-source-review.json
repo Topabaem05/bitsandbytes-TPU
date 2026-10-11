@@ -1,0 +1,20 @@
+{
+  "M4": "NOT_QUALIFIED",
+  "TPU79": "NOT_RUN",
+  "archive_members": 215,
+  "changed_files": 27,
+  "closed_replacement_files": 173,
+  "replacement_map_sha256": "aa4a9cd1d9ffd25b9b3c619975195399272fbb4548a757a6d25e976d557f35ba",
+  "science_manifest_sha256": "8cb222f0c6b9e38937e1f04a04d8a77cbd7b60675694a45e9133534582c8290e",
+  "source_admission_sha256": "7768e37081ca3a35af25595a38a1229a62ff67e54ecf2a253e696d7e51228404",
+  "source_archive_sha256": "e8837609208c3610f2140b4cee6a083d923d8aa61d9ca01bbab0b4b18b885048",
+  "source_variant": "nested-exact-v3-s32-tensor-lowering",
+  "state8": "NOT_RUN",
+  "status": "ROOT_SOURCE_ARCHIVE_PREIMAGES_AND_STRICT_GATES_PASS",
+  "strict_gate_sha256": {
+    "graph_witness.py": "72a677b95415fabe3ac763f3d0c4513739b74800d1b7545015450ed96fb1c8c2",
+    "public_trace.py": "d8ab2edee7ee29b700da2a1a999c5eaa22ad15b98d17bf0cd341af361685c8be",
+    "record_validation.py": "070f1c034f8750409740b019d57e759405476f64b958facd9606a58790883134"
+  },
+  "verified_epoch": 1791711648.410254
+}

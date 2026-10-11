@@ -1,0 +1,31 @@
+{
+  "M4": "NOT_QUALIFIED",
+  "actual_CPU79": "NOT_RUN",
+  "actual_TPU79": "NOT_RUN",
+  "adviser_independent_controls": {
+    "browser_ownership": 15,
+    "math": 21
+  },
+  "all_canonical_after_images_pass": true,
+  "archive_members": 231,
+  "changed_files": 28,
+  "closed_files": 173,
+  "driver_sha256": "1726746954f14cc2dc227551e27bd6e63b271369fb23dd906f383c1a56d649b6",
+  "replacement_map_sha256": "15057bb32519cfb3171770fe46378e2db3248b67c5a518d4f8637ece2e0c81ab",
+  "root_fresh_controls": {
+    "browser_ownership": 15,
+    "comparison": 21,
+    "generation": 8,
+    "word": 11
+  },
+  "science_manifest_sha256": "8cb222f0c6b9e38937e1f04a04d8a77cbd7b60675694a45e9133534582c8290e",
+  "source_archive_sha256": "3c5970c07a5f0918156a15cb185cddf1ec5c0063ebb9f2f32e043118a2afb435",
+  "source_closure_sha256": "cc68d50295d9dc7e2ad1fe3ea7e63d8f21e05031901001ab6abe9dded4e547c6",
+  "source_variant": "nested-exact-v3-s32-tensor-lowering",
+  "state8": "NOT_RUN",
+  "status": "SOURCE_ACCEPTED_FOR_FRESH_EXPERIMENT_ONLY",
+  "strict_readers_unchanged": true,
+  "superseded_ownership_controls": "REJECTED_BRANCH_COVERAGE_AND_EXACT_PARSER_THEN_REPAIRED",
+  "unchanged_scientific_files": 16,
+  "verified_epoch": 1791712637.2605572
+}

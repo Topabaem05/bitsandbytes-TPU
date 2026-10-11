@@ -1,0 +1,33 @@
+{
+  "actual_linux_cpu79": "NOT_RUN",
+  "actual_state8": "NOT_RUN",
+  "actual_tpu79": "NOT_RUN",
+  "controls": {
+    "browser_ownership": 15,
+    "comparison": 21,
+    "functional_boundary": 23,
+    "generation": 8,
+    "preparation": 7,
+    "word": 11
+  },
+  "identities": {
+    "TPU": "NOT_RUN",
+    "integration_map_sha256": "fd0f20f513315f0f8202c7f464cb6cf457740d55339369ff5eb7ac03c18a1597",
+    "m4_status": "NOT_QUALIFIED",
+    "provider_calls": 0,
+    "science_manifest_sha256": "8cb222f0c6b9e38937e1f04a04d8a77cbd7b60675694a45e9133534582c8290e",
+    "source_admission_sha256": "7768e37081ca3a35af25595a38a1229a62ff67e54ecf2a253e696d7e51228404",
+    "source_variant": "nested-exact-v3-s32-tensor-lowering",
+    "status": "SOURCE_PREPARATION_PENDING_ROOT_REVIEW"
+  },
+  "m4_status": "NOT_QUALIFIED",
+  "provider_calls": 0,
+  "replacement_map_sha256": "15057bb32519cfb3171770fe46378e2db3248b67c5a518d4f8637ece2e0c81ab",
+  "scientific_admission": "PENDING_ROOT_REVIEW_AND_FRESH_QUALIFICATION",
+  "source_archive_bytes": 813950,
+  "source_archive_sha256": "3c5970c07a5f0918156a15cb185cddf1ec5c0063ebb9f2f32e043118a2afb435",
+  "source_closure_sha256": "cc68d50295d9dc7e2ad1fe3ea7e63d8f21e05031901001ab6abe9dded4e547c6",
+  "source_members": 231,
+  "source_raw_bytes": 10121536,
+  "status": "SOURCE_PREPARATION_COMPLETE_FULL_READBACK_PASS"
+}

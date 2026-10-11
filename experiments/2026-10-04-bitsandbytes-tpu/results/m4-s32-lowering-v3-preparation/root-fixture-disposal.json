@@ -1,0 +1,20 @@
+{
+  "active_process_conflicts": 0,
+  "all_absent": true,
+  "deleted_paths": [
+    "/tmp/bnb-tpu-root-m4-s32-word-owner-20261011",
+    "/tmp/bnb-tpu-root-m4-s32-word-result-20261011.json",
+    "/tmp/bnb-tpu-root-m4-s32-generation-owner-20261011",
+    "/tmp/bnb-tpu-root-m4-s32-generation-result-20261011.json",
+    "/tmp/bnb-tpu-root-m4-s32-comparison-owner-20261011",
+    "/tmp/bnb-tpu-root-m4-s32-comparison-result-20261011.json",
+    "/tmp/bnb-tpu-root-m4-s32-v3-generation-owner-20261011",
+    "/tmp/bnb-tpu-root-m4-s32-v3-generation-result-20261011.json",
+    "/tmp/bnb-tpu-root-m4-s32-v3-word-owner-20261011",
+    "/tmp/bnb-tpu-root-m4-s32-v3-word-result-20261011.json"
+  ],
+  "groups_fresh_absent": true,
+  "new_work_output": false,
+  "status": "COMPACT_PROOFS_VERIFIED_REPRODUCIBLE_FIXTURES_DELETED",
+  "verified_epoch": 1791711648.457547
+}

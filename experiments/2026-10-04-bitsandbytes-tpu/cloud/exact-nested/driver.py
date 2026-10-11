@@ -93,8 +93,12 @@ def run(a):
   else:owned=True;call('one-allocation',['--allocation-transport-v1','new','-s',session,'--tpu','v6e1'],360);owned=True
   after=call('sessions-after',['sessions']);lines=[l for l in after.splitlines()if'Hardware:'in l]
   if adoption:
-   C.require(len(lines)==1 and lines[0].split(' | ')[0]=='['+session+'] '+adoption['endpoint']and'Hardware: '+adoption['hardware']in lines[0]and'Variant: TPU'in lines[0],'BROWSER_EXACT_ASSIGNMENT')
-   proof=kernel('browser-marker','import hashlib\nfrom pathlib import Path\n'+f'p=Path({adoption["marker_path"]!r});assert p.is_file()and not p.is_symlink()and hashlib.sha256(p.read_bytes()).hexdigest()=={adoption["marker_sha256"]!r}\nprint("EXACT_ROOT_MARKER_MATCH")\n',30);C.require('EXACT_ROOT_MARKER_MATCH'in proof,'BROWSER_MARKER_READBACK');owned=True
+   segments=lines[0].split(' | ')if len(lines)==1 else[]
+   hardware=[part for part in segments[1:]if part.startswith('Hardware:')]
+   variant=[part for part in segments[1:]if part.startswith('Variant:')]
+   C.require(bool(segments)and segments[0]=='['+session+'] '+adoption['endpoint']and hardware==['Hardware: '+adoption['hardware']]and variant==['Variant: TPU'],'BROWSER_EXACT_ASSIGNMENT')
+   owned=True
+   proof=kernel('browser-marker','import hashlib\nfrom pathlib import Path\n'+f'p=Path({adoption["marker_path"]!r});assert p.is_file()and not p.is_symlink()and hashlib.sha256(p.read_bytes()).hexdigest()=={adoption["marker_sha256"]!r}\nprint("EXACT_ROOT_MARKER_MATCH")\n',30);C.require('EXACT_ROOT_MARKER_MATCH'in proof,'BROWSER_MARKER_READBACK')
   else:C.require(len(lines)==1 and'['+session+']'in lines[0]and'Hardware: V6E1'in lines[0],'EXACT_ALLOCATED_SESSION')
   kernel('readiness','from pathlib import Path\n'+f'b=Path({base!r});assert not b.exists()and not b.is_symlink();(b/"control/ownership").mkdir(parents=True)\n',30)
   for name in sorted(m['files']):

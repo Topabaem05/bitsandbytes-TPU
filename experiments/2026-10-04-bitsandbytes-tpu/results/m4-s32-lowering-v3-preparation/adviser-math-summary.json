@@ -1,0 +1,268 @@
+{
+  "archive": {
+    "members": 215,
+    "raw_bytes": 9710337,
+    "sha256": "e8837609208c3610f2140b4cee6a083d923d8aa61d9ca01bbab0b4b18b885048"
+  },
+  "replacement": {
+    "files": 173,
+    "actions": {
+      "KEEP": 146,
+      "REPLACE": 12,
+      "CREATE": 15
+    },
+    "changed": [
+      "experiments/2026-10-04-bitsandbytes-tpu/cloud/exact-nested/contract.py",
+      "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/S32_COMPARISON_SOURCE_DELTA.json",
+      "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/S32_SHIFT_DRAFT.md",
+      "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/S32_SHIFT_SOURCE_DELTA.json",
+      "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/adopt_shift_revision.py",
+      "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/history/functional-output-v2-20261011/_integer_addsub.py",
+      "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/history/functional-output-v2-20261011/_integer_clamp.py",
+      "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/history/functional-output-v2-20261011/_integer_muldiv.py",
+      "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/history/functional-output-v2-20261011/exact.py",
+      "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/history/functional-output-v2-20261011/exact_admission.py",
+      "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/history/functional-output-v2-20261011/generation_gate.py",
+      "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/history/functional-output-v2-20261011/integration-admission.json",
+      "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/history/functional-output-v2-20261011/integration-adoption-map.json",
+      "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/history/functional-output-v2-20261011/science-manifest.json",
+      "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/history/functional-output-v2-20261011/source-map.json",
+      "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/integration/adoption-map.json",
+      "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/integration/plugin/src/bitsandbytes_tpu/_integer_addsub.py",
+      "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/integration/plugin/src/bitsandbytes_tpu/_integer_clamp.py",
+      "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/integration/plugin/src/bitsandbytes_tpu/_integer_muldiv.py",
+      "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/integration/plugin/src/bitsandbytes_tpu/exact.py",
+      "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/integration/source-admission.json",
+      "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/portable-source-map.json",
+      "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/shift_generation_controls.py",
+      "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/source/exact_admission.py",
+      "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/source/generation_gate.py",
+      "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/source/integration-admission.json",
+      "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/source/science-manifest.json"
+    ],
+    "canonical_preimages_verified": true
+  },
+  "science": {
+    "changed_identity_files": [
+      "exact_admission.py",
+      "generation_gate.py",
+      "integration-admission.json"
+    ],
+    "unchanged_scientific_files": 16,
+    "sha256": "8cb222f0c6b9e38937e1f04a04d8a77cbd7b60675694a45e9133534582c8290e",
+    "strict_gate_sha256": {
+      "public_trace.py": "d8ab2edee7ee29b700da2a1a999c5eaa22ad15b98d17bf0cd341af361685c8be",
+      "record_validation.py": "070f1c034f8750409740b019d57e759405476f64b958facd9606a58790883134",
+      "graph_witness.py": "72a677b95415fabe3ac763f3d0c4513739b74800d1b7545015450ed96fb1c8c2"
+    }
+  },
+  "ast": {
+    "_integer_clamp.py": {
+      "typed_comparisons": 24,
+      "typed_shifts": 12
+    },
+    "_integer_addsub.py": {
+      "typed_comparisons": 20,
+      "typed_shifts": 13
+    },
+    "_integer_muldiv.py": {
+      "typed_comparisons": 34,
+      "typed_shifts": 19
+    },
+    "exact.py": {
+      "typed_comparisons": 1,
+      "typed_shifts": 0
+    }
+  },
+  "runtime": {
+    "torch": "2.14.1",
+    "python": "3.12.14",
+    "platform": "darwin",
+    "qualified": false,
+    "TPU": "NOT_RUN"
+  },
+  "kind": "ASTRA_M4_S32_SOURCE_INDEPENDENT_REVIEW",
+  "status": "PASS",
+  "checks": [
+    {
+      "name": "archive_every_member_full_bytes_and_closed_inventory",
+      "status": "PASS"
+    },
+    {
+      "name": "173_source_afterimages_and_live_canonical_preimages",
+      "status": "PASS"
+    },
+    {
+      "name": "science19_only3_identity_changes_and16_exact_criteria",
+      "status": "PASS"
+    },
+    {
+      "name": "79_comparison_and44_shift_reverse_AST_exact_preimages",
+      "status": "PASS"
+    },
+    {
+      "name": "wrong_swapped_direction_rejected_by_preimage",
+      "status": "PASS"
+    },
+    {
+      "name": "wrong_static_metadata_change_rejected_by_preimage",
+      "status": "PASS"
+    },
+    {
+      "name": "typed_scalar_bounds_scalar_vector_noncontiguous_functional_meta",
+      "status": "PASS"
+    },
+    {
+      "name": "reject_bool",
+      "status": "PASS"
+    },
+    {
+      "name": "reject_float",
+      "status": "PASS"
+    },
+    {
+      "name": "reject_underflow",
+      "status": "PASS"
+    },
+    {
+      "name": "reject_overflow",
+      "status": "PASS"
+    },
+    {
+      "name": "reject_int64_reference",
+      "status": "PASS"
+    },
+    {
+      "name": "reject_float_reference",
+      "status": "PASS"
+    },
+    {
+      "name": "reject_non_tensor_reference",
+      "status": "PASS"
+    },
+    {
+      "name": "six_comparisons_independent_signed_python_integer_oracle",
+      "status": "PASS"
+    },
+    {
+      "name": "native_functional_pending_update_alias_and_TLS_preserved",
+      "status": "PASS"
+    },
+    {
+      "name": "S32_tensor_shifts_independent_signed_word_oracle",
+      "status": "PASS"
+    },
+    {
+      "name": "detect_wrong_constructor_int64",
+      "status": "PASS"
+    },
+    {
+      "name": "detect_wrong_constructor_wrong_device",
+      "status": "PASS"
+    },
+    {
+      "name": "detect_wrong_constructor_wrong_value",
+      "status": "PASS"
+    },
+    {
+      "name": "detect_wrong_constructor_vector_shape",
+      "status": "PASS"
+    }
+  ],
+  "check_count": 21,
+  "source_variant": "nested-exact-v3-s32-tensor-lowering",
+  "scope": "SOURCE_PREPARATION_ONLY",
+  "m4_status": "NOT_QUALIFIED",
+  "provider_calls": 0,
+  "forward_ast": {
+    "status": "PASS",
+    "modules": {
+      "_integer_addsub.py": {
+        "forward_comparisons": 20,
+        "forward_shifts": 13,
+        "flat_tail_dim0": 0
+      },
+      "_integer_clamp.py": {
+        "forward_comparisons": 24,
+        "forward_shifts": 12,
+        "flat_tail_dim0": 0
+      },
+      "_integer_muldiv.py": {
+        "forward_comparisons": 34,
+        "forward_shifts": 19,
+        "flat_tail_dim0": 0
+      },
+      "exact.py": {
+        "forward_comparisons": 1,
+        "forward_shifts": 0,
+        "flat_tail_dim0": 1
+      }
+    },
+    "wrong_direction_rejected": true
+  },
+  "owned_local_execution": {
+    "argv": [
+      "/Users/topamini/code/Post2TPU/.venv/bin/python",
+      "-B",
+      "/tmp/m4-s32-adviser-20261011-b26rm0s6/review.py"
+    ],
+    "status": "PASS",
+    "exit_code": 0,
+    "cleanup": {
+      "errors": [],
+      "groups": [
+        {
+          "ended_at": "2026-10-11T09:40:19.902839+00:00",
+          "errors": [],
+          "exit_status": 0,
+          "group_absence": "OBSERVED_NO_SUCH_GROUP",
+          "leader_reaped": true,
+          "pgid": 51263,
+          "pid": 51263,
+          "signals": [
+            {
+              "result": "NO_SUCH_GROUP",
+              "signal": 15
+            },
+            {
+              "result": "NO_SUCH_GROUP",
+              "signal": 9
+            }
+          ],
+          "started_at": "2026-10-11T09:40:19.902742+00:00",
+          "status": "CLEANUP_VERIFIED"
+        }
+      ],
+      "guard_original_outcome": {
+        "error": null,
+        "status": "COMPLETED"
+      },
+      "restoration": {
+        "handlers_restored": true,
+        "previous_timer": [
+          0.0,
+          0.0
+        ],
+        "state": "RESTORATION_ATTEMPTED",
+        "timer_policy": "PAUSE_AND_RESTORE_CAPTURED_TIMER",
+        "timer_restored": true
+      },
+      "status": "NO_CLEANUP_ERRORS"
+    },
+    "raw_sha256": {
+      "summary.json": "f62378cec7a21367892ba9659654d775f8cc6170964715ea3dfd248028a8c3e2",
+      "steps/recipe/ownership.json": "8e84f03e1f700c02f3d23ac998b6d3ed9ba1acd1da52b906cf4b112200e03572",
+      "steps/recipe/result.json": "f62378cec7a21367892ba9659654d775f8cc6170964715ea3dfd248028a8c3e2",
+      "steps/recipe/stderr.raw": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "steps/recipe/cleanup.json": "9ee0a389470c441682ed72383f12cfd4a090221c2a0918465b9d5f35adc067db",
+      "steps/recipe/lifecycle.jsonl": "476e10bf440658ef0a385e9a43a61d4982c0806a0c88def4505fe2c5cc20a26f",
+      "steps/recipe/stdout.raw": "04314bb8629b06ff01c928030423f92718a0b5bd72533a0da88dd6caf3724d30"
+    }
+  },
+  "review_script_sha256": "4d4478b12222c10474531dd98a25d1db14bcd1de1fa636510b4c04e6f0f77fbf",
+  "remaining_blocker": {
+    "scope": "SEPARATE_TRANSPORT_SOURCE_RESEAL_REQUIRED",
+    "description": "Adopted-browser assignment must set owned immediately after exact match, before marker, so marker failure still stops exact owned runtime. Old e883 source seal is not dispatch approval."
+  },
+  "disposable_outputs": "DELETED_AFTER_VERIFIED_LOCAL_PROCESS_CLOSURE"
+}

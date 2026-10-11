@@ -1,0 +1,111 @@
+{
+  "TPU": "NOT_RUN",
+  "XLA": "NOT_RUN",
+  "boundary": "REAL_CPU_FUNCTIONAL_WRAPPERS_STUB_XLA_BUILDER_DEVICE_FACADE",
+  "complete_record_sha256": "be3ae578229d3e0a9920e2c3b3c9314477d6f6a55c02a006b015890d0df548ef",
+  "control_count": 23,
+  "controls": [
+    {
+      "name": "old_unconditional_wrap_reproduces_real_torch_assertion",
+      "status": "PASS"
+    },
+    {
+      "name": "matrix_input_False_output_False_torch.float32",
+      "status": "PASS"
+    },
+    {
+      "name": "matrix_input_False_output_False_torch.int32",
+      "status": "PASS"
+    },
+    {
+      "name": "matrix_input_False_output_True_torch.float32",
+      "status": "PASS"
+    },
+    {
+      "name": "matrix_input_False_output_True_torch.int32",
+      "status": "PASS"
+    },
+    {
+      "name": "matrix_input_True_output_False_torch.float32",
+      "status": "PASS"
+    },
+    {
+      "name": "matrix_input_True_output_False_torch.int32",
+      "status": "PASS"
+    },
+    {
+      "name": "matrix_input_True_output_True_torch.float32",
+      "status": "PASS"
+    },
+    {
+      "name": "matrix_input_True_output_True_torch.int32",
+      "status": "PASS"
+    },
+    {
+      "name": "pending_input_mutation_syncs_before_bridge",
+      "status": "PASS"
+    },
+    {
+      "name": "result_gate_{'arity': 0}_functional_False",
+      "status": "PASS"
+    },
+    {
+      "name": "result_gate_{'arity': 2}_functional_False",
+      "status": "PASS"
+    },
+    {
+      "name": "result_gate_{'wrong_dtype': True}_functional_False",
+      "status": "PASS"
+    },
+    {
+      "name": "result_gate_{'wrong_device': True}_functional_False",
+      "status": "PASS"
+    },
+    {
+      "name": "result_gate_{'arity': 0}_functional_True",
+      "status": "PASS"
+    },
+    {
+      "name": "result_gate_{'arity': 2}_functional_True",
+      "status": "PASS"
+    },
+    {
+      "name": "result_gate_{'wrong_dtype': True}_functional_True",
+      "status": "PASS"
+    },
+    {
+      "name": "result_gate_{'wrong_device': True}_functional_True",
+      "status": "PASS"
+    },
+    {
+      "name": "cpu_input_rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "wrong_input_dtype_rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "wrong_target_dtype_rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "builder_sha_rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "builder_exception_preserves_tls",
+      "status": "PASS"
+    }
+  ],
+  "exact_sha256": "03d2eb1cb90ef8679ccdbe0977030ae5cee10d1e39d1dd9a7f648d6e703fe59a",
+  "kind": "M4_FUNCTIONAL_OUTPUT_CPU_BOUNDARY_CONTROLS_V1",
+  "m4_status": "NOT_QUALIFIED",
+  "original_exact_sha256": "e5064072609753d3a5f1e1920b46db48ccce5751402fe7a5ba5c5b7c0ddf2831",
+  "platform": "darwin",
+  "provider_calls": 0,
+  "qualified_pinned_runtime": false,
+  "status": "PASS",
+  "temporary_fixture_removed": true,
+  "torch_version": "2.14.1"
+}

@@ -1,0 +1,19 @@
+{
+  "active_process_conflicts": 0,
+  "adviser_records_and_scripts_preserved_in_git": true,
+  "all_roots_absent": true,
+  "archive_members": 231,
+  "canonical_source_files_verified": 173,
+  "deleted_bytes": 11008396,
+  "deleted_files": 238,
+  "new_work_output": false,
+  "private_file_id": "1khezhk_3BYGrsqbuj1kQLGwko-Gctt54",
+  "roots": [
+    "/tmp/bnb-tpu-m4-s32-lowering-v3-20261011-oj7mwf5m",
+    "/tmp/m4-s32-adviser-20261011-b26rm0s6",
+    "/tmp/m4-ownership-adviser-20261011-153bl9_5"
+  ],
+  "source_archive_sha256": "3c5970c07a5f0918156a15cb185cddf1ec5c0063ebb9f2f32e043118a2afb435",
+  "status": "PRIVATE_ARCHIVE_AND_CANONICAL_SOURCE_VERIFIED_COMPLETED_ROOTS_DELETED",
+  "verified_epoch": 1791712863.782212
+}

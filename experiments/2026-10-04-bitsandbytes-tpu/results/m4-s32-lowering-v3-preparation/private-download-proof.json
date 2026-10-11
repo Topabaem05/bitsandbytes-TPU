@@ -1,0 +1,18 @@
+{
+  "archive_bytes": 813950,
+  "archive_sha256": "3c5970c07a5f0918156a15cb185cddf1ec5c0063ebb9f2f32e043118a2afb435",
+  "every_member_size_sha256_crc_pass": true,
+  "file_id": "1khezhk_3BYGrsqbuj1kQLGwko-Gctt54",
+  "members": 231,
+  "parent_id": "1Wj_aNLgxquksWtyHthccE7bpTnT5Z4Vz",
+  "permissions": [
+    {
+      "role": "owner",
+      "type": "user"
+    }
+  ],
+  "shared": false,
+  "source_adoption": "SOURCE_ACCEPTED_FOR_FRESH_EXPERIMENT_ONLY",
+  "status": "INDEPENDENT_DRIVE_DOWNLOAD_FULL_READBACK_PASS",
+  "verified_epoch": 1791712799.416781
+}

@@ -1,0 +1,1099 @@
+{
+  "conclusion": "PASS_FOCUSED_TRANSPORT_PREPARATION_ONLY_NO_SCIENTIFIC_QUALIFICATION",
+  "control_count": 15,
+  "disposable_fixture_outputs": "DELETED_AFTER_REAPED_ABSENT_GROUP",
+  "driver_sha256": "1726746954f14cc2dc227551e27bd6e63b271369fb23dd906f383c1a56d649b6",
+  "fixtures": "DELETED_AFTER_TEST",
+  "independent_branch_observations": [
+    {
+      "case": "valid_marker",
+      "error": "CLI_FAILED:readiness",
+      "marker_exec": 1,
+      "readiness_exec": 1,
+      "stop_exact": 1
+    },
+    {
+      "case": "valid_extra_field",
+      "error": "CLI_FAILED:readiness",
+      "marker_exec": 1,
+      "readiness_exec": 1,
+      "stop_exact": 1
+    },
+    {
+      "case": "bad_marker",
+      "error": "CLI_FAILED:browser-marker",
+      "marker_exec": 1,
+      "readiness_exec": 0,
+      "stop_exact": 1
+    },
+    {
+      "case": "missing_marker",
+      "error": "MISSING_ACTUAL_MARKER",
+      "marker_exec": 1,
+      "readiness_exec": 0,
+      "stop_exact": 1
+    },
+    {
+      "case": "cli_exception",
+      "error": "SIMULATED_CLI_EXCEPTION",
+      "marker_exec": 1,
+      "readiness_exec": 0,
+      "stop_exact": 1
+    },
+    {
+      "case": "missing_completion",
+      "error": "MISSING_COMPLETION_FIXTURE",
+      "marker_exec": 1,
+      "readiness_exec": 0,
+      "stop_exact": 1
+    },
+    {
+      "case": "wrong_endpoint",
+      "error": "BROWSER_EXACT_ASSIGNMENT",
+      "marker_exec": 0,
+      "readiness_exec": 0,
+      "stop_exact": 0
+    },
+    {
+      "case": "wrong_session",
+      "error": "BROWSER_EXACT_ASSIGNMENT",
+      "marker_exec": 0,
+      "readiness_exec": 0,
+      "stop_exact": 0
+    },
+    {
+      "case": "wrong_hardware",
+      "error": "BROWSER_EXACT_ASSIGNMENT",
+      "marker_exec": 0,
+      "readiness_exec": 0,
+      "stop_exact": 0
+    },
+    {
+      "case": "wrong_hardware_prefix",
+      "error": "BROWSER_EXACT_ASSIGNMENT",
+      "marker_exec": 0,
+      "readiness_exec": 0,
+      "stop_exact": 0
+    },
+    {
+      "case": "wrong_variant_prefix",
+      "error": "BROWSER_EXACT_ASSIGNMENT",
+      "marker_exec": 0,
+      "readiness_exec": 0,
+      "stop_exact": 0
+    },
+    {
+      "case": "wrong_duplicate_hardware",
+      "error": "BROWSER_EXACT_ASSIGNMENT",
+      "marker_exec": 0,
+      "readiness_exec": 0,
+      "stop_exact": 0
+    },
+    {
+      "case": "wrong_duplicate_variant",
+      "error": "BROWSER_EXACT_ASSIGNMENT",
+      "marker_exec": 0,
+      "readiness_exec": 0,
+      "stop_exact": 0
+    },
+    {
+      "case": "stop_failure",
+      "error": "CLI_FAILED:readiness",
+      "marker_exec": 1,
+      "readiness_exec": 1,
+      "stop_exact": 1
+    },
+    {
+      "case": "old_bad_marker_regression_rejected",
+      "error": null,
+      "marker_exec": 0,
+      "readiness_exec": 0,
+      "stop_exact": 0
+    }
+  ],
+  "independent_owned_cleanup": {
+    "argv": [
+      "/Users/topamini/code/Post2TPU/.venv/bin/python",
+      "-B",
+      "/tmp/bnb-tpu-m4-s32-lowering-v3-20261011-oj7mwf5m/browser_ownership_controls.py",
+      "--output",
+      "/tmp/m4-ownership-adviser-20261011-153bl9_5/repaired-controls.json"
+    ],
+    "cleanup": {
+      "errors": [],
+      "groups": [
+        {
+          "ended_at": "2026-10-11T09:55:22.367880+00:00",
+          "errors": [],
+          "exit_status": 0,
+          "group_absence": "OBSERVED_NO_SUCH_GROUP",
+          "leader_reaped": true,
+          "pgid": 54864,
+          "pid": 54864,
+          "signals": [
+            {
+              "result": "NO_SUCH_GROUP",
+              "signal": 15
+            },
+            {
+              "result": "NO_SUCH_GROUP",
+              "signal": 9
+            }
+          ],
+          "started_at": "2026-10-11T09:55:22.367830+00:00",
+          "status": "CLEANUP_VERIFIED"
+        }
+      ],
+      "guard_original_outcome": {
+        "error": null,
+        "status": "COMPLETED"
+      },
+      "restoration": {
+        "handlers_restored": true,
+        "previous_timer": [
+          0.0,
+          0.0
+        ],
+        "state": "RESTORATION_ATTEMPTED",
+        "timer_policy": "PAUSE_AND_RESTORE_CAPTURED_TIMER",
+        "timer_restored": true
+      },
+      "status": "NO_CLEANUP_ERRORS"
+    },
+    "environment": {
+      "HOME_and_CODEX_HOME": "INHERITED_WITHOUT_CHANGE",
+      "names_unset": [
+        "PYTHONPATH",
+        "PYTHONHOME",
+        "TPU_LIBRARY_PATH",
+        "PTXLA_TPU_LIBRARY_PATH",
+        "PJRT_DEVICE"
+      ],
+      "set": {
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONNOUSERSITE": "1",
+        "TPU_LOG_DIR": "disabled"
+      }
+    },
+    "exit_code": 0,
+    "original_outcome": {
+      "error": null,
+      "exit_code": 0,
+      "status": "PASS"
+    },
+    "status": "PASS",
+    "timeout_seconds": 55.0
+  },
+  "kind": "M4_ACTUAL_DRIVER_BROWSER_OWNERSHIP_CONTROLS",
+  "rows": [
+    {
+      "actual_driver_error": "CLI_FAILED:readiness",
+      "calls": [
+        {
+          "argv": [
+            "sessions"
+          ],
+          "label": "001-sessions-before"
+        },
+        {
+          "argv": [
+            "usage"
+          ],
+          "label": "002-usage-before"
+        },
+        {
+          "argv": [
+            "--adopt-root-browser-v1",
+            "/tmp/m4-browser-ownership-3s8yjc_1/valid_marker/adoption.json",
+            "8d7b5eb2721b5c3e9aa0dac37b1af75c48e3d55d849d2d2d786789fcca970773"
+          ],
+          "label": "003-browser-registration"
+        },
+        {
+          "argv": [
+            "sessions"
+          ],
+          "label": "004-sessions-after"
+        },
+        {
+          "argv": [
+            "exec",
+            "-s",
+            "owned-fixture",
+            "--timeout",
+            "30",
+            "-f",
+            "/private/tmp/m4-browser-ownership-3s8yjc_1/valid_marker/actual-driver-output/browser-marker.py"
+          ],
+          "label": "005-browser-marker"
+        },
+        {
+          "argv": [
+            "download",
+            "-s",
+            "owned-fixture",
+            "content/m4-exact-owned-fixture/fixture-completion.json",
+            "/private/tmp/m4-browser-ownership-3s8yjc_1/valid_marker/actual-driver-output/kernel-readbacks/browser-marker.json"
+          ],
+          "label": "006-browser-marker-completion"
+        },
+        {
+          "argv": [
+            "exec",
+            "-s",
+            "owned-fixture",
+            "--timeout",
+            "30",
+            "-f",
+            "/private/tmp/m4-browser-ownership-3s8yjc_1/valid_marker/actual-driver-output/readiness.py"
+          ],
+          "label": "007-readiness"
+        },
+        {
+          "argv": [
+            "sessions"
+          ],
+          "label": "008-sessions-before-stop"
+        },
+        {
+          "argv": [
+            "stop",
+            "-s",
+            "owned-fixture"
+          ],
+          "label": "009-stop-exact"
+        },
+        {
+          "argv": [
+            "sessions"
+          ],
+          "label": "010-sessions-after-stop"
+        },
+        {
+          "argv": [
+            "usage"
+          ],
+          "label": "011-usage-after"
+        }
+      ],
+      "case": "valid_marker",
+      "driver_status": "BLOCKED",
+      "fake_transport": true,
+      "no_cli_allocation": true,
+      "status": "PASS"
+    },
+    {
+      "actual_driver_error": "CLI_FAILED:readiness",
+      "calls": [
+        {
+          "argv": [
+            "sessions"
+          ],
+          "label": "001-sessions-before"
+        },
+        {
+          "argv": [
+            "usage"
+          ],
+          "label": "002-usage-before"
+        },
+        {
+          "argv": [
+            "--adopt-root-browser-v1",
+            "/tmp/m4-browser-ownership-3s8yjc_1/valid_extra_field/adoption.json",
+            "2b28b55651ec4dcd7d44a9dd0dd616fa9e673916a58fc92f21767c87b38a8070"
+          ],
+          "label": "003-browser-registration"
+        },
+        {
+          "argv": [
+            "sessions"
+          ],
+          "label": "004-sessions-after"
+        },
+        {
+          "argv": [
+            "exec",
+            "-s",
+            "owned-fixture",
+            "--timeout",
+            "30",
+            "-f",
+            "/private/tmp/m4-browser-ownership-3s8yjc_1/valid_extra_field/actual-driver-output/browser-marker.py"
+          ],
+          "label": "005-browser-marker"
+        },
+        {
+          "argv": [
+            "download",
+            "-s",
+            "owned-fixture",
+            "content/m4-exact-owned-fixture/fixture-completion.json",
+            "/private/tmp/m4-browser-ownership-3s8yjc_1/valid_extra_field/actual-driver-output/kernel-readbacks/browser-marker.json"
+          ],
+          "label": "006-browser-marker-completion"
+        },
+        {
+          "argv": [
+            "exec",
+            "-s",
+            "owned-fixture",
+            "--timeout",
+            "30",
+            "-f",
+            "/private/tmp/m4-browser-ownership-3s8yjc_1/valid_extra_field/actual-driver-output/readiness.py"
+          ],
+          "label": "007-readiness"
+        },
+        {
+          "argv": [
+            "sessions"
+          ],
+          "label": "008-sessions-before-stop"
+        },
+        {
+          "argv": [
+            "stop",
+            "-s",
+            "owned-fixture"
+          ],
+          "label": "009-stop-exact"
+        },
+        {
+          "argv": [
+            "sessions"
+          ],
+          "label": "010-sessions-after-stop"
+        },
+        {
+          "argv": [
+            "usage"
+          ],
+          "label": "011-usage-after"
+        }
+      ],
+      "case": "valid_extra_field",
+      "driver_status": "BLOCKED",
+      "fake_transport": true,
+      "no_cli_allocation": true,
+      "status": "PASS"
+    },
+    {
+      "actual_driver_error": "CLI_FAILED:browser-marker",
+      "calls": [
+        {
+          "argv": [
+            "sessions"
+          ],
+          "label": "001-sessions-before"
+        },
+        {
+          "argv": [
+            "usage"
+          ],
+          "label": "002-usage-before"
+        },
+        {
+          "argv": [
+            "--adopt-root-browser-v1",
+            "/tmp/m4-browser-ownership-3s8yjc_1/bad_marker/adoption.json",
+            "3ff85d725e9386d3e7da11a9017dc8537cf6bf533485a652a340dd8dfe7a6704"
+          ],
+          "label": "003-browser-registration"
+        },
+        {
+          "argv": [
+            "sessions"
+          ],
+          "label": "004-sessions-after"
+        },
+        {
+          "argv": [
+            "exec",
+            "-s",
+            "owned-fixture",
+            "--timeout",
+            "30",
+            "-f",
+            "/private/tmp/m4-browser-ownership-3s8yjc_1/bad_marker/actual-driver-output/browser-marker.py"
+          ],
+          "label": "005-browser-marker"
+        },
+        {
+          "argv": [
+            "sessions"
+          ],
+          "label": "006-sessions-before-stop"
+        },
+        {
+          "argv": [
+            "stop",
+            "-s",
+            "owned-fixture"
+          ],
+          "label": "007-stop-exact"
+        },
+        {
+          "argv": [
+            "sessions"
+          ],
+          "label": "008-sessions-after-stop"
+        },
+        {
+          "argv": [
+            "usage"
+          ],
+          "label": "009-usage-after"
+        }
+      ],
+      "case": "bad_marker",
+      "driver_status": "BLOCKED",
+      "fake_transport": true,
+      "no_cli_allocation": true,
+      "status": "PASS"
+    },
+    {
+      "actual_driver_error": "MISSING_ACTUAL_MARKER",
+      "calls": [
+        {
+          "argv": [
+            "sessions"
+          ],
+          "label": "001-sessions-before"
+        },
+        {
+          "argv": [
+            "usage"
+          ],
+          "label": "002-usage-before"
+        },
+        {
+          "argv": [
+            "--adopt-root-browser-v1",
+            "/tmp/m4-browser-ownership-3s8yjc_1/missing_marker/adoption.json",
+            "f830ada45c097f02c5a9e0aab10f91bb2416d5f9513ab9b866f9cb2db725baca"
+          ],
+          "label": "003-browser-registration"
+        },
+        {
+          "argv": [
+            "sessions"
+          ],
+          "label": "004-sessions-after"
+        },
+        {
+          "argv": [
+            "exec",
+            "-s",
+            "owned-fixture",
+            "--timeout",
+            "30",
+            "-f",
+            "/private/tmp/m4-browser-ownership-3s8yjc_1/missing_marker/actual-driver-output/browser-marker.py"
+          ],
+          "label": "005-browser-marker"
+        },
+        {
+          "argv": [
+            "sessions"
+          ],
+          "label": "006-sessions-before-stop"
+        },
+        {
+          "argv": [
+            "stop",
+            "-s",
+            "owned-fixture"
+          ],
+          "label": "007-stop-exact"
+        },
+        {
+          "argv": [
+            "sessions"
+          ],
+          "label": "008-sessions-after-stop"
+        },
+        {
+          "argv": [
+            "usage"
+          ],
+          "label": "009-usage-after"
+        }
+      ],
+      "case": "missing_marker",
+      "driver_status": "BLOCKED",
+      "fake_transport": true,
+      "no_cli_allocation": true,
+      "status": "PASS"
+    },
+    {
+      "actual_driver_error": "SIMULATED_CLI_EXCEPTION",
+      "calls": [
+        {
+          "argv": [
+            "sessions"
+          ],
+          "label": "001-sessions-before"
+        },
+        {
+          "argv": [
+            "usage"
+          ],
+          "label": "002-usage-before"
+        },
+        {
+          "argv": [
+            "--adopt-root-browser-v1",
+            "/tmp/m4-browser-ownership-3s8yjc_1/cli_exception/adoption.json",
+            "0da7330edf109d4bf145ea19d376a498c7e5bec478d673b2791554192687c4ca"
+          ],
+          "label": "003-browser-registration"
+        },
+        {
+          "argv": [
+            "sessions"
+          ],
+          "label": "004-sessions-after"
+        },
+        {
+          "argv": [
+            "exec",
+            "-s",
+            "owned-fixture",
+            "--timeout",
+            "30",
+            "-f",
+            "/private/tmp/m4-browser-ownership-3s8yjc_1/cli_exception/actual-driver-output/browser-marker.py"
+          ],
+          "label": "005-browser-marker"
+        },
+        {
+          "argv": [
+            "sessions"
+          ],
+          "label": "006-sessions-before-stop"
+        },
+        {
+          "argv": [
+            "stop",
+            "-s",
+            "owned-fixture"
+          ],
+          "label": "007-stop-exact"
+        },
+        {
+          "argv": [
+            "sessions"
+          ],
+          "label": "008-sessions-after-stop"
+        },
+        {
+          "argv": [
+            "usage"
+          ],
+          "label": "009-usage-after"
+        }
+      ],
+      "case": "cli_exception",
+      "driver_status": "BLOCKED",
+      "fake_transport": true,
+      "no_cli_allocation": true,
+      "status": "PASS"
+    },
+    {
+      "actual_driver_error": "MISSING_COMPLETION_FIXTURE",
+      "calls": [
+        {
+          "argv": [
+            "sessions"
+          ],
+          "label": "001-sessions-before"
+        },
+        {
+          "argv": [
+            "usage"
+          ],
+          "label": "002-usage-before"
+        },
+        {
+          "argv": [
+            "--adopt-root-browser-v1",
+            "/tmp/m4-browser-ownership-3s8yjc_1/missing_completion/adoption.json",
+            "a03afb4ed11e8e2476b725c7f32634683327ba7ecf2ef0b5b07defb4bbef0918"
+          ],
+          "label": "003-browser-registration"
+        },
+        {
+          "argv": [
+            "sessions"
+          ],
+          "label": "004-sessions-after"
+        },
+        {
+          "argv": [
+            "exec",
+            "-s",
+            "owned-fixture",
+            "--timeout",
+            "30",
+            "-f",
+            "/private/tmp/m4-browser-ownership-3s8yjc_1/missing_completion/actual-driver-output/browser-marker.py"
+          ],
+          "label": "005-browser-marker"
+        },
+        {
+          "argv": [
+            "download",
+            "-s",
+            "owned-fixture",
+            "content/m4-exact-owned-fixture/fixture-completion.json",
+            "/private/tmp/m4-browser-ownership-3s8yjc_1/missing_completion/actual-driver-output/kernel-readbacks/browser-marker.json"
+          ],
+          "label": "006-browser-marker-completion"
+        },
+        {
+          "argv": [
+            "sessions"
+          ],
+          "label": "007-sessions-before-stop"
+        },
+        {
+          "argv": [
+            "stop",
+            "-s",
+            "owned-fixture"
+          ],
+          "label": "008-stop-exact"
+        },
+        {
+          "argv": [
+            "sessions"
+          ],
+          "label": "009-sessions-after-stop"
+        },
+        {
+          "argv": [
+            "usage"
+          ],
+          "label": "010-usage-after"
+        }
+      ],
+      "case": "missing_completion",
+      "driver_status": "BLOCKED",
+      "fake_transport": true,
+      "no_cli_allocation": true,
+      "status": "PASS"
+    },
+    {
+      "actual_driver_error": "BROWSER_EXACT_ASSIGNMENT",
+      "calls": [
+        {
+          "argv": [
+            "sessions"
+          ],
+          "label": "001-sessions-before"
+        },
+        {
+          "argv": [
+            "usage"
+          ],
+          "label": "002-usage-before"
+        },
+        {
+          "argv": [
+            "--adopt-root-browser-v1",
+            "/tmp/m4-browser-ownership-3s8yjc_1/wrong_endpoint/adoption.json",
+            "aaa37fa314f89903ad4431b5aa3f8838b671c6b90a6b6eef5b3fc786fd676451"
+          ],
+          "label": "003-browser-registration"
+        },
+        {
+          "argv": [
+            "sessions"
+          ],
+          "label": "004-sessions-after"
+        },
+        {
+          "argv": [
+            "--remove-browser-provisional-v1",
+            "/tmp/m4-browser-ownership-3s8yjc_1/wrong_endpoint/adoption.json",
+            "aaa37fa314f89903ad4431b5aa3f8838b671c6b90a6b6eef5b3fc786fd676451"
+          ],
+          "label": "005-remove-provisional"
+        }
+      ],
+      "case": "wrong_endpoint",
+      "driver_status": "BLOCKED",
+      "fake_transport": true,
+      "no_cli_allocation": true,
+      "status": "PASS"
+    },
+    {
+      "actual_driver_error": "BROWSER_EXACT_ASSIGNMENT",
+      "calls": [
+        {
+          "argv": [
+            "sessions"
+          ],
+          "label": "001-sessions-before"
+        },
+        {
+          "argv": [
+            "usage"
+          ],
+          "label": "002-usage-before"
+        },
+        {
+          "argv": [
+            "--adopt-root-browser-v1",
+            "/tmp/m4-browser-ownership-3s8yjc_1/wrong_session/adoption.json",
+            "0f0a16c97f024f376c97c39b9d833e02f3184e4b9e4541bb7d385576387f388d"
+          ],
+          "label": "003-browser-registration"
+        },
+        {
+          "argv": [
+            "sessions"
+          ],
+          "label": "004-sessions-after"
+        },
+        {
+          "argv": [
+            "--remove-browser-provisional-v1",
+            "/tmp/m4-browser-ownership-3s8yjc_1/wrong_session/adoption.json",
+            "0f0a16c97f024f376c97c39b9d833e02f3184e4b9e4541bb7d385576387f388d"
+          ],
+          "label": "005-remove-provisional"
+        }
+      ],
+      "case": "wrong_session",
+      "driver_status": "BLOCKED",
+      "fake_transport": true,
+      "no_cli_allocation": true,
+      "status": "PASS"
+    },
+    {
+      "actual_driver_error": "BROWSER_EXACT_ASSIGNMENT",
+      "calls": [
+        {
+          "argv": [
+            "sessions"
+          ],
+          "label": "001-sessions-before"
+        },
+        {
+          "argv": [
+            "usage"
+          ],
+          "label": "002-usage-before"
+        },
+        {
+          "argv": [
+            "--adopt-root-browser-v1",
+            "/tmp/m4-browser-ownership-3s8yjc_1/wrong_hardware/adoption.json",
+            "68ba823d679b149eb85cddc8247922faafda0877e5d8eae8f4cffed33d115200"
+          ],
+          "label": "003-browser-registration"
+        },
+        {
+          "argv": [
+            "sessions"
+          ],
+          "label": "004-sessions-after"
+        },
+        {
+          "argv": [
+            "--remove-browser-provisional-v1",
+            "/tmp/m4-browser-ownership-3s8yjc_1/wrong_hardware/adoption.json",
+            "68ba823d679b149eb85cddc8247922faafda0877e5d8eae8f4cffed33d115200"
+          ],
+          "label": "005-remove-provisional"
+        }
+      ],
+      "case": "wrong_hardware",
+      "driver_status": "BLOCKED",
+      "fake_transport": true,
+      "no_cli_allocation": true,
+      "status": "PASS"
+    },
+    {
+      "actual_driver_error": "BROWSER_EXACT_ASSIGNMENT",
+      "calls": [
+        {
+          "argv": [
+            "sessions"
+          ],
+          "label": "001-sessions-before"
+        },
+        {
+          "argv": [
+            "usage"
+          ],
+          "label": "002-usage-before"
+        },
+        {
+          "argv": [
+            "--adopt-root-browser-v1",
+            "/tmp/m4-browser-ownership-3s8yjc_1/wrong_hardware_prefix/adoption.json",
+            "ad92c9d01fd40d8a705b3f960310921235088e8ffed7997c7f23016a2ebacae6"
+          ],
+          "label": "003-browser-registration"
+        },
+        {
+          "argv": [
+            "sessions"
+          ],
+          "label": "004-sessions-after"
+        },
+        {
+          "argv": [
+            "--remove-browser-provisional-v1",
+            "/tmp/m4-browser-ownership-3s8yjc_1/wrong_hardware_prefix/adoption.json",
+            "ad92c9d01fd40d8a705b3f960310921235088e8ffed7997c7f23016a2ebacae6"
+          ],
+          "label": "005-remove-provisional"
+        }
+      ],
+      "case": "wrong_hardware_prefix",
+      "driver_status": "BLOCKED",
+      "fake_transport": true,
+      "no_cli_allocation": true,
+      "status": "PASS"
+    },
+    {
+      "actual_driver_error": "BROWSER_EXACT_ASSIGNMENT",
+      "calls": [
+        {
+          "argv": [
+            "sessions"
+          ],
+          "label": "001-sessions-before"
+        },
+        {
+          "argv": [
+            "usage"
+          ],
+          "label": "002-usage-before"
+        },
+        {
+          "argv": [
+            "--adopt-root-browser-v1",
+            "/tmp/m4-browser-ownership-3s8yjc_1/wrong_variant_prefix/adoption.json",
+            "a37107f90b2b2a742cffd9347dde7decadd4ae7c1ede57a905950fc7467405b6"
+          ],
+          "label": "003-browser-registration"
+        },
+        {
+          "argv": [
+            "sessions"
+          ],
+          "label": "004-sessions-after"
+        },
+        {
+          "argv": [
+            "--remove-browser-provisional-v1",
+            "/tmp/m4-browser-ownership-3s8yjc_1/wrong_variant_prefix/adoption.json",
+            "a37107f90b2b2a742cffd9347dde7decadd4ae7c1ede57a905950fc7467405b6"
+          ],
+          "label": "005-remove-provisional"
+        }
+      ],
+      "case": "wrong_variant_prefix",
+      "driver_status": "BLOCKED",
+      "fake_transport": true,
+      "no_cli_allocation": true,
+      "status": "PASS"
+    },
+    {
+      "actual_driver_error": "BROWSER_EXACT_ASSIGNMENT",
+      "calls": [
+        {
+          "argv": [
+            "sessions"
+          ],
+          "label": "001-sessions-before"
+        },
+        {
+          "argv": [
+            "usage"
+          ],
+          "label": "002-usage-before"
+        },
+        {
+          "argv": [
+            "--adopt-root-browser-v1",
+            "/tmp/m4-browser-ownership-3s8yjc_1/wrong_duplicate_hardware/adoption.json",
+            "af591a0de84d944852e6b9c4f2fb42827782b09fbc2db933ef48496fbbdaf76a"
+          ],
+          "label": "003-browser-registration"
+        },
+        {
+          "argv": [
+            "sessions"
+          ],
+          "label": "004-sessions-after"
+        },
+        {
+          "argv": [
+            "--remove-browser-provisional-v1",
+            "/tmp/m4-browser-ownership-3s8yjc_1/wrong_duplicate_hardware/adoption.json",
+            "af591a0de84d944852e6b9c4f2fb42827782b09fbc2db933ef48496fbbdaf76a"
+          ],
+          "label": "005-remove-provisional"
+        }
+      ],
+      "case": "wrong_duplicate_hardware",
+      "driver_status": "BLOCKED",
+      "fake_transport": true,
+      "no_cli_allocation": true,
+      "status": "PASS"
+    },
+    {
+      "actual_driver_error": "BROWSER_EXACT_ASSIGNMENT",
+      "calls": [
+        {
+          "argv": [
+            "sessions"
+          ],
+          "label": "001-sessions-before"
+        },
+        {
+          "argv": [
+            "usage"
+          ],
+          "label": "002-usage-before"
+        },
+        {
+          "argv": [
+            "--adopt-root-browser-v1",
+            "/tmp/m4-browser-ownership-3s8yjc_1/wrong_duplicate_variant/adoption.json",
+            "a71fac768ca8f80d3d91ada713a149c450fc4ee1bf4872df1a197732477f1569"
+          ],
+          "label": "003-browser-registration"
+        },
+        {
+          "argv": [
+            "sessions"
+          ],
+          "label": "004-sessions-after"
+        },
+        {
+          "argv": [
+            "--remove-browser-provisional-v1",
+            "/tmp/m4-browser-ownership-3s8yjc_1/wrong_duplicate_variant/adoption.json",
+            "a71fac768ca8f80d3d91ada713a149c450fc4ee1bf4872df1a197732477f1569"
+          ],
+          "label": "005-remove-provisional"
+        }
+      ],
+      "case": "wrong_duplicate_variant",
+      "driver_status": "BLOCKED",
+      "fake_transport": true,
+      "no_cli_allocation": true,
+      "status": "PASS"
+    },
+    {
+      "actual_driver_error": "CLI_FAILED:readiness",
+      "calls": [
+        {
+          "argv": [
+            "sessions"
+          ],
+          "label": "001-sessions-before"
+        },
+        {
+          "argv": [
+            "usage"
+          ],
+          "label": "002-usage-before"
+        },
+        {
+          "argv": [
+            "--adopt-root-browser-v1",
+            "/tmp/m4-browser-ownership-3s8yjc_1/stop_failure/adoption.json",
+            "a220399af0f3e923c1e6e3ec5dafac59cc622ca0262bfc825daddad02457bac6"
+          ],
+          "label": "003-browser-registration"
+        },
+        {
+          "argv": [
+            "sessions"
+          ],
+          "label": "004-sessions-after"
+        },
+        {
+          "argv": [
+            "exec",
+            "-s",
+            "owned-fixture",
+            "--timeout",
+            "30",
+            "-f",
+            "/private/tmp/m4-browser-ownership-3s8yjc_1/stop_failure/actual-driver-output/browser-marker.py"
+          ],
+          "label": "005-browser-marker"
+        },
+        {
+          "argv": [
+            "download",
+            "-s",
+            "owned-fixture",
+            "content/m4-exact-owned-fixture/fixture-completion.json",
+            "/private/tmp/m4-browser-ownership-3s8yjc_1/stop_failure/actual-driver-output/kernel-readbacks/browser-marker.json"
+          ],
+          "label": "006-browser-marker-completion"
+        },
+        {
+          "argv": [
+            "exec",
+            "-s",
+            "owned-fixture",
+            "--timeout",
+            "30",
+            "-f",
+            "/private/tmp/m4-browser-ownership-3s8yjc_1/stop_failure/actual-driver-output/readiness.py"
+          ],
+          "label": "007-readiness"
+        },
+        {
+          "argv": [
+            "sessions"
+          ],
+          "label": "008-sessions-before-stop"
+        },
+        {
+          "argv": [
+            "stop",
+            "-s",
+            "owned-fixture"
+          ],
+          "label": "009-stop-exact"
+        },
+        {
+          "argv": [
+            "sessions"
+          ],
+          "label": "010-sessions-after-stop"
+        },
+        {
+          "argv": [
+            "usage"
+          ],
+          "label": "011-usage-after"
+        }
+      ],
+      "case": "stop_failure",
+      "driver_status": "BLOCKED_CLEANUP",
+      "fake_transport": true,
+      "no_cli_allocation": true,
+      "status": "PASS"
+    },
+    {
+      "case": "old_bad_marker_regression_rejected",
+      "expected_failure": "actual bad-marker exec followed by no exact stop in old driver",
+      "status": "PASS"
+    }
+  ],
+  "scope": "ACTUAL_DRIVER_CONTROL_FLOW_FAKE_CLI_AND_KERNEL_PROTOCOL_NO_PROVIDER_CALLS",
+  "status": "PASS"
+}

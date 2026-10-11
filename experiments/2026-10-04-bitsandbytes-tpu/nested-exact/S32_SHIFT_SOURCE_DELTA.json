@@ -1,0 +1,254 @@
+{
+  "TPU": "NOT_RUN",
+  "kind": "M4_S32_SHIFT_FLAT_AMAX_DRAFT_DELTA_V1",
+  "m4_status": "NOT_QUALIFIED",
+  "modules": {
+    "_integer_addsub.py": {
+      "postimage_sha256": "55fef77275f6415e32e0cde22d5069c10095af8a4a1997de8e922b548bc66fdd",
+      "preimage_sha256": "0294486d6cad96d0ceb88ecd492bd0aeaa106788e289735167cd8ef3d3b9fe66",
+      "shifts": [
+        {
+          "after": "right_shift(large_mag, 23)",
+          "before": "large_mag >> 23",
+          "line": 41
+        },
+        {
+          "after": "right_shift(small_mag, 23)",
+          "before": "small_mag >> 23",
+          "line": 42
+        },
+        {
+          "after": "right_shift(extended, 3)",
+          "before": "extended >> 3",
+          "line": 58
+        },
+        {
+          "after": "left_shift(torch.ones_like(value), bounded)",
+          "before": "torch.ones_like(value) << bounded",
+          "line": 21
+        },
+        {
+          "after": "right_shift(value, bounded)",
+          "before": "value >> bounded",
+          "line": 22
+        },
+        {
+          "after": "left_shift((le != 0).to(torch.int32), 23)",
+          "before": "(le != 0).to(torch.int32) << 23",
+          "line": 43
+        },
+        {
+          "after": "left_shift((se != 0).to(torch.int32), 23)",
+          "before": "(se != 0).to(torch.int32) << 23",
+          "line": 44
+        },
+        {
+          "after": "left_shift(small_sig, 3)",
+          "before": "small_sig << 3",
+          "line": 47
+        },
+        {
+          "after": "right_shift(rounded, 1)",
+          "before": "rounded >> 1",
+          "line": 63
+        },
+        {
+          "after": "left_shift(large_sig, 3)",
+          "before": "large_sig << 3",
+          "line": 49
+        },
+        {
+          "after": "left_shift(large_sig, 3)",
+          "before": "large_sig << 3",
+          "line": 50
+        },
+        {
+          "after": "left_shift(extended, 1)",
+          "before": "extended << 1",
+          "line": 56
+        },
+        {
+          "after": "left_shift(exponent, 23)",
+          "before": "exponent << 23",
+          "line": 66
+        }
+      ]
+    },
+    "_integer_clamp.py": {
+      "postimage_sha256": "ba8ae0af4d23f8a64ae2233bea93b4a5ff65d2d1d1f4ad5c0e73478de053dd85",
+      "preimage_sha256": "77edb6a7dc30caa49cd6a4260a5663f4c5a0fa146b6f084e207a6aaae9804b59",
+      "shifts": [
+        {
+          "after": "right_shift(magnitude, 23)",
+          "before": "magnitude>>23",
+          "line": 42
+        },
+        {
+          "after": "left_shift(remainder, 1)",
+          "before": "remainder<<1",
+          "line": 66
+        },
+        {
+          "after": "left_shift(one, half_shift)",
+          "before": "one<<half_shift",
+          "line": 70
+        },
+        {
+          "after": "right_shift(quotient, right)",
+          "before": "quotient>>right",
+          "line": 71
+        },
+        {
+          "after": "left_shift(remainder, 1)",
+          "before": "remainder<<1",
+          "line": 63
+        },
+        {
+          "after": "right_shift(rounded, 1)",
+          "before": "rounded>>1",
+          "line": 77
+        },
+        {
+          "after": "left_shift(normal_power+127, 23)",
+          "before": "(normal_power+127)<<23",
+          "line": 79
+        },
+        {
+          "after": "left_shift(mantissa, 1)",
+          "before": "mantissa<<1",
+          "line": 47
+        },
+        {
+          "after": "left_shift(remainder, 1)",
+          "before": "remainder<<1",
+          "line": 57
+        },
+        {
+          "after": "left_shift(quotient, 1)",
+          "before": "quotient<<1",
+          "line": 60
+        },
+        {
+          "after": "right_shift(mantissa, bit)",
+          "before": "mantissa>>bit",
+          "line": 57
+        },
+        {
+          "after": "left_shift(quotient, 1)",
+          "before": "quotient<<1",
+          "line": 65
+        }
+      ]
+    },
+    "_integer_muldiv.py": {
+      "postimage_sha256": "ffd5cd484bffb60c8ff233637acdd39db7b4f140c0c6f57734b5ba89677f7064",
+      "preimage_sha256": "89cc079e3dee6a2ff3b79cf8b176ea62c5bd2183a14427bbc0c235de02a27187",
+      "shifts": [
+        {
+          "after": "right_shift(magnitude, 23)",
+          "before": "magnitude>>23",
+          "line": 16
+        },
+        {
+          "after": "right_shift(high, high_shift)",
+          "before": "high>>high_shift",
+          "line": 52
+        },
+        {
+          "after": "left_shift(torch.ones_like(low), low_shift-1)",
+          "before": "torch.ones_like(low)<<(low_shift-1)",
+          "line": 53
+        },
+        {
+          "after": "left_shift(torch.ones_like(high), torch.where(high_shift>0,high_shift-1,0))",
+          "before": "torch.ones_like(high)<<torch.where(high_shift>0,high_shift-1,0)",
+          "line": 54
+        },
+        {
+          "after": "left_shift(remainder, 1)",
+          "before": "remainder<<1",
+          "line": 94
+        },
+        {
+          "after": "left_shift(torch.ones_like(quotient), torch.where(bounded>0,bounded-1,0))",
+          "before": "torch.ones_like(quotient)<<torch.where(bounded>0,bounded-1,0)",
+          "line": 98
+        },
+        {
+          "after": "right_shift(quotient, bounded)",
+          "before": "quotient>>bounded",
+          "line": 99
+        },
+        {
+          "after": "left_shift((exponent!=0).to(torch.int32), 23)",
+          "before": "(exponent!=0).to(torch.int32)<<23",
+          "line": 17
+        },
+        {
+          "after": "right_shift(rounded, 1)",
+          "before": "rounded>>1",
+          "line": 27
+        },
+        {
+          "after": "left_shift(left&((1<<(24-bit))-1), bit)",
+          "before": "(left&((1<<(24-bit))-1))<<bit",
+          "line": 40
+        },
+        {
+          "after": "right_shift(left, 24-bit)",
+          "before": "left>>(24-bit)",
+          "line": 41
+        },
+        {
+          "after": "left_shift(high, 24-low_shift)",
+          "before": "high<<(24-low_shift)",
+          "line": 50
+        },
+        {
+          "after": "right_shift(low, low_shift)",
+          "before": "low>>low_shift",
+          "line": 50
+        },
+        {
+          "after": "left_shift(remainder, 1)",
+          "before": "remainder<<1",
+          "line": 89
+        },
+        {
+          "after": "left_shift(mantissa, 1)",
+          "before": "mantissa<<1",
+          "line": 21
+        },
+        {
+          "after": "left_shift(exponent, 23)",
+          "before": "exponent<<23",
+          "line": 31
+        },
+        {
+          "after": "right_shift(trial, 24)",
+          "before": "trial>>24",
+          "line": 43
+        },
+        {
+          "after": "right_shift(right, bit)",
+          "before": "right>>bit",
+          "line": 39
+        },
+        {
+          "after": "left_shift(quotient, 1)",
+          "before": "quotient<<1",
+          "line": 91
+        }
+      ]
+    }
+  },
+  "parent_variant": "nested-exact-v2-functional-output",
+  "provider_calls": 0,
+  "source_variant": "nested-exact-v3-s32-tensor-lowering",
+  "status": "FOCUSED_TPU_SHIFT_AND_AXIS_CAUSAL_SUPPORT_TYPED_COMPARISON_PREPARATION",
+  "tail_amax": {
+    "change": "Specify dimension0 for the already flat partial block.",
+    "postimage_sha256": "03d2eb1cb90ef8679ccdbe0977030ae5cee10d1e39d1dd9a7f648d6e703fe59a",
+    "preimage_sha256": "0b9965a0c98a8e62ea4119e48e4bfb0f69a4b92c0efa5a9ba58ba02a3b960846"
+  }
+}

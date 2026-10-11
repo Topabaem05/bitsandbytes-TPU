@@ -1,0 +1,45 @@
+{
+  "TPU": "NOT_RUN",
+  "complete_record_sha256": "a8ebaa1253fd1597cfbd8a84132645fb8945ee82e3370415b1d94d733315e5eb",
+  "control_count": 8,
+  "controls": [
+    {
+      "name": "correct_complete_source_generation",
+      "status": "PASS"
+    },
+    {
+      "name": "parent_admission_sha_rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "parent_variant_rejected_even_with_self_hash",
+      "status": "PASS"
+    },
+    {
+      "name": "sixteen_scientific_criteria_and_inputs_unchanged",
+      "status": "PASS"
+    },
+    {
+      "name": "all_existing_math_asts_differ_only_in_shifts_typed_comparisons_tail_axis",
+      "status": "PASS"
+    },
+    {
+      "name": "parent_science19_reconstructed_exactly",
+      "status": "PASS"
+    },
+    {
+      "name": "altered_helper_rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "symlink_helper_rejected",
+      "status": "PASS"
+    }
+  ],
+  "fixtures": "DELETED_AFTER_TEST",
+  "kind": "M4_S32_SHIFT_GENERATION_CONTROLS_V1",
+  "m4_status": "NOT_QUALIFIED",
+  "provider_calls": 0,
+  "source_variant": "nested-exact-v3-s32-tensor-lowering",
+  "status": "PASS"
+}

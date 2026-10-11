@@ -1,5 +1,18 @@
 # Change log
 
+## 2026-10-11 — Explicit S32 lowering preparation
+
+- Use explicit Tensor shifts, checked S32 comparison constants, and a flat tail reduction axis.
+- Preserve the original graph witness, trace formats, fixed inputs, and numerical criteria.
+- Acquire browser runtime ownership after exact assignment matching and before marker validation.
+- Require branch-specific marker controls and reject ambiguous assignment fields.
+
+Validation: Root repeated 11 word, 21 comparison, eight generation, and 15 browser ownership controls.
+Astra independently passed 21 mathematical and 15 corrected ownership controls.
+All 231 source archive members and all 173 adopted source files passed readback.
+Fresh CPU79, TPU79, and state8 remain required.
+Refer to [the preparation record](docs/changes/m4-s32-lowering-v3-preparation.md).
+
 ## 2026-10-11 — Actual integer diagnostic and source direction
 
 - Record 24 qualified CPU probes and 24 returned TPU probes without execution errors.

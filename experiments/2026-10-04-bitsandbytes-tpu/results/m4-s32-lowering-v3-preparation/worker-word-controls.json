@@ -1,0 +1,66 @@
+{
+  "TPU": "NOT_RUN",
+  "complete_record_sha256": "411add04d301407c5a9d63a10485e2d9709cbe8c593c7ff18874ef025c2f3611",
+  "control_count": 11,
+  "controls": [
+    {
+      "name": "independent_signed_S32_tensor_and_scalar_counts_0_1_23_30_31_32",
+      "status": "PASS"
+    },
+    {
+      "name": "reject_wrong_value_dtype",
+      "status": "PASS"
+    },
+    {
+      "name": "reject_wrong_count_dtype",
+      "status": "PASS"
+    },
+    {
+      "name": "reject_wrong_count_type",
+      "status": "PASS"
+    },
+    {
+      "name": "reject_wrong_count_device",
+      "status": "PASS"
+    },
+    {
+      "name": "parent_vs_draft_exact_addsub",
+      "status": "PASS"
+    },
+    {
+      "name": "parent_vs_draft_exact_muldiv",
+      "status": "PASS"
+    },
+    {
+      "name": "parent_vs_draft_exact_midpoints",
+      "status": "PASS"
+    },
+    {
+      "name": "parent_vs_draft_exact_zero-normalize",
+      "status": "PASS"
+    },
+    {
+      "name": "parent_vs_draft_exact_tail-1-255",
+      "status": "PASS"
+    },
+    {
+      "name": "zero_codes127_and_midpoints127",
+      "status": "PASS"
+    }
+  ],
+  "counts": [
+    0,
+    1,
+    23,
+    30,
+    31,
+    32
+  ],
+  "kind": "M4_S32_SHIFT_HOST_WORD_CONTROLS_V1",
+  "m4_status": "NOT_QUALIFIED",
+  "provider_calls": 0,
+  "qualified_pinned_runtime": false,
+  "scope": "ACTUAL_MACOS_CPU_ONLY",
+  "status": "PASS",
+  "torch_version": "2.14.1"
+}

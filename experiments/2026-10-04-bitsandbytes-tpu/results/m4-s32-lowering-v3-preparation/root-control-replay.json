@@ -1,0 +1,646 @@
+{
+  "qualified_runtime": false,
+  "runs": [
+    {
+      "control_count": 11,
+      "controls": [
+        {
+          "name": "independent_signed_S32_tensor_and_scalar_counts_0_1_23_30_31_32",
+          "status": "PASS"
+        },
+        {
+          "name": "reject_wrong_value_dtype",
+          "status": "PASS"
+        },
+        {
+          "name": "reject_wrong_count_dtype",
+          "status": "PASS"
+        },
+        {
+          "name": "reject_wrong_count_type",
+          "status": "PASS"
+        },
+        {
+          "name": "reject_wrong_count_device",
+          "status": "PASS"
+        },
+        {
+          "name": "parent_vs_draft_exact_addsub",
+          "status": "PASS"
+        },
+        {
+          "name": "parent_vs_draft_exact_muldiv",
+          "status": "PASS"
+        },
+        {
+          "name": "parent_vs_draft_exact_midpoints",
+          "status": "PASS"
+        },
+        {
+          "name": "parent_vs_draft_exact_zero-normalize",
+          "status": "PASS"
+        },
+        {
+          "name": "parent_vs_draft_exact_tail-1-255",
+          "status": "PASS"
+        },
+        {
+          "name": "zero_codes127_and_midpoints127",
+          "status": "PASS"
+        }
+      ],
+      "label": "s32-word",
+      "result_sha256": "411add04d301407c5a9d63a10485e2d9709cbe8c593c7ff18874ef025c2f3611",
+      "summary": {
+        "argv": [
+          "/Users/topamini/code/Post2TPU/.venv/bin/python",
+          "-B",
+          "/tmp/bnb-tpu-m4-s32-shift-draft-20261011-dsToOm/word_controls.py",
+          "--output",
+          "/tmp/bnb-tpu-root-m4-s32-word-result-20261011.json"
+        ],
+        "cleanup": {
+          "errors": [],
+          "groups": [
+            {
+              "ended_at": "2026-10-11T09:22:15.175080+00:00",
+              "errors": [],
+              "exit_status": 0,
+              "group_absence": "OBSERVED_NO_SUCH_GROUP",
+              "leader_reaped": true,
+              "pgid": 47700,
+              "pid": 47700,
+              "signals": [
+                {
+                  "result": "NO_SUCH_GROUP",
+                  "signal": 15
+                },
+                {
+                  "result": "NO_SUCH_GROUP",
+                  "signal": 9
+                }
+              ],
+              "started_at": "2026-10-11T09:22:15.175010+00:00",
+              "status": "CLEANUP_VERIFIED"
+            }
+          ],
+          "guard_original_outcome": {
+            "error": null,
+            "status": "COMPLETED"
+          },
+          "restoration": {
+            "handlers_restored": true,
+            "previous_timer": [
+              0.0,
+              0.0
+            ],
+            "state": "RESTORATION_ATTEMPTED",
+            "timer_policy": "PAUSE_AND_RESTORE_CAPTURED_TIMER",
+            "timer_restored": true
+          },
+          "status": "NO_CLEANUP_ERRORS"
+        },
+        "environment": {
+          "HOME_and_CODEX_HOME": "INHERITED_WITHOUT_CHANGE",
+          "names_unset": [
+            "PYTHONPATH",
+            "PYTHONHOME",
+            "TPU_LIBRARY_PATH",
+            "PTXLA_TPU_LIBRARY_PATH",
+            "PJRT_DEVICE"
+          ],
+          "set": {
+            "PYTHONDONTWRITEBYTECODE": "1",
+            "PYTHONNOUSERSITE": "1",
+            "TPU_LOG_DIR": "disabled"
+          }
+        },
+        "exit_code": 0,
+        "original_outcome": {
+          "error": null,
+          "exit_code": 0,
+          "status": "PASS"
+        },
+        "status": "PASS",
+        "timeout_seconds": 115.0
+      }
+    },
+    {
+      "control_count": 8,
+      "controls": [
+        {
+          "name": "correct_complete_source_generation",
+          "status": "PASS"
+        },
+        {
+          "name": "parent_admission_sha_rejected",
+          "status": "PASS"
+        },
+        {
+          "name": "parent_variant_rejected_even_with_self_hash",
+          "status": "PASS"
+        },
+        {
+          "name": "sixteen_scientific_criteria_and_inputs_unchanged",
+          "status": "PASS"
+        },
+        {
+          "name": "all_existing_math_asts_differ_only_in_shifts_and_tail_axis",
+          "status": "PASS"
+        },
+        {
+          "name": "parent_science19_reconstructed_exactly",
+          "status": "PASS"
+        },
+        {
+          "name": "altered_helper_rejected",
+          "status": "PASS"
+        },
+        {
+          "name": "symlink_helper_rejected",
+          "status": "PASS"
+        }
+      ],
+      "label": "s32-generation",
+      "result_sha256": "a910adf092d573bf18af47e798e94cc670310420017a3e1d9358b2481e3dddb2",
+      "summary": {
+        "argv": [
+          "/Users/topamini/code/Post2TPU/.venv/bin/python",
+          "-B",
+          "/tmp/bnb-tpu-m4-s32-shift-draft-20261011-dsToOm/bundle/experiments/2026-10-04-bitsandbytes-tpu/nested-exact/shift_generation_controls.py",
+          "--original-repository",
+          "/Users/topamini/code/bitsandbytes-TPU",
+          "--output",
+          "/tmp/bnb-tpu-root-m4-s32-generation-result-20261011.json"
+        ],
+        "cleanup": {
+          "errors": [],
+          "groups": [
+            {
+              "ended_at": "2026-10-11T09:22:14.399687+00:00",
+              "errors": [],
+              "exit_status": 0,
+              "group_absence": "OBSERVED_NO_SUCH_GROUP",
+              "leader_reaped": true,
+              "pgid": 47699,
+              "pid": 47699,
+              "signals": [
+                {
+                  "result": "NO_SUCH_GROUP",
+                  "signal": 15
+                },
+                {
+                  "result": "NO_SUCH_GROUP",
+                  "signal": 9
+                }
+              ],
+              "started_at": "2026-10-11T09:22:14.399641+00:00",
+              "status": "CLEANUP_VERIFIED"
+            }
+          ],
+          "guard_original_outcome": {
+            "error": null,
+            "status": "COMPLETED"
+          },
+          "restoration": {
+            "handlers_restored": true,
+            "previous_timer": [
+              0.0,
+              0.0
+            ],
+            "state": "RESTORATION_ATTEMPTED",
+            "timer_policy": "PAUSE_AND_RESTORE_CAPTURED_TIMER",
+            "timer_restored": true
+          },
+          "status": "NO_CLEANUP_ERRORS"
+        },
+        "environment": {
+          "HOME_and_CODEX_HOME": "INHERITED_WITHOUT_CHANGE",
+          "names_unset": [
+            "PYTHONPATH",
+            "PYTHONHOME",
+            "TPU_LIBRARY_PATH",
+            "PTXLA_TPU_LIBRARY_PATH",
+            "PJRT_DEVICE"
+          ],
+          "set": {
+            "PYTHONDONTWRITEBYTECODE": "1",
+            "PYTHONNOUSERSITE": "1",
+            "TPU_LOG_DIR": "disabled"
+          }
+        },
+        "exit_code": 0,
+        "original_outcome": {
+          "error": null,
+          "exit_code": 0,
+          "status": "PASS"
+        },
+        "status": "PASS",
+        "timeout_seconds": 55.0
+      }
+    },
+    {
+      "control_count": 21,
+      "controls": [
+        {
+          "name": "scalar_vector_noncontiguous_functional_same_device_S32_boundaries",
+          "status": "PASS"
+        },
+        {
+          "name": "reject_bool",
+          "status": "PASS"
+        },
+        {
+          "name": "reject_float",
+          "status": "PASS"
+        },
+        {
+          "name": "reject_low",
+          "status": "PASS"
+        },
+        {
+          "name": "reject_high",
+          "status": "PASS"
+        },
+        {
+          "name": "reject_reference_int64",
+          "status": "PASS"
+        },
+        {
+          "name": "reject_reference_not_tensor",
+          "status": "PASS"
+        },
+        {
+          "name": "six_explicit_comparisons_independent_python_oracle",
+          "status": "PASS"
+        },
+        {
+          "name": "reject_wrong_constructor_int64",
+          "status": "PASS"
+        },
+        {
+          "name": "reject_wrong_constructor_device",
+          "status": "PASS"
+        },
+        {
+          "name": "reject_swapped_LT_GT_wrong_operand_order",
+          "status": "PASS"
+        },
+        {
+          "name": "closed_AST_reversal__integer_clamp.py",
+          "status": "PASS"
+        },
+        {
+          "name": "closed_AST_reversal__integer_addsub.py",
+          "status": "PASS"
+        },
+        {
+          "name": "closed_AST_reversal__integer_muldiv.py",
+          "status": "PASS"
+        },
+        {
+          "name": "closed_AST_reversal_exact.py",
+          "status": "PASS"
+        },
+        {
+          "name": "reject_altered_comparison_AST",
+          "status": "PASS"
+        },
+        {
+          "name": "five_family_exact_addsub",
+          "status": "PASS"
+        },
+        {
+          "name": "five_family_exact_muldiv",
+          "status": "PASS"
+        },
+        {
+          "name": "five_family_exact_midpoints",
+          "status": "PASS"
+        },
+        {
+          "name": "five_family_exact_zero-normalize",
+          "status": "PASS"
+        },
+        {
+          "name": "five_family_exact_tail-1-255",
+          "status": "PASS"
+        }
+      ],
+      "label": "v3-comparison",
+      "result_sha256": "43fbab2aaac0a3852cbb8240cb0a5fae12d247ed95ce514175cf1e85f46bad95",
+      "summary": {
+        "argv": [
+          "/Users/topamini/code/Post2TPU/.venv/bin/python",
+          "-B",
+          "/tmp/bnb-tpu-m4-s32-lowering-v3-20261011-oj7mwf5m/comparison_controls.py",
+          "--output",
+          "/tmp/bnb-tpu-root-m4-s32-comparison-result-20261011.json"
+        ],
+        "cleanup": {
+          "errors": [],
+          "groups": [
+            {
+              "ended_at": "2026-10-11T09:39:30.274221+00:00",
+              "errors": [],
+              "exit_status": 0,
+              "group_absence": "OBSERVED_NO_SUCH_GROUP",
+              "leader_reaped": true,
+              "pgid": 50957,
+              "pid": 50957,
+              "signals": [
+                {
+                  "result": "NO_SUCH_GROUP",
+                  "signal": 15
+                },
+                {
+                  "result": "NO_SUCH_GROUP",
+                  "signal": 9
+                }
+              ],
+              "started_at": "2026-10-11T09:39:30.274132+00:00",
+              "status": "CLEANUP_VERIFIED"
+            }
+          ],
+          "guard_original_outcome": {
+            "error": null,
+            "status": "COMPLETED"
+          },
+          "restoration": {
+            "handlers_restored": true,
+            "previous_timer": [
+              0.0,
+              0.0
+            ],
+            "state": "RESTORATION_ATTEMPTED",
+            "timer_policy": "PAUSE_AND_RESTORE_CAPTURED_TIMER",
+            "timer_restored": true
+          },
+          "status": "NO_CLEANUP_ERRORS"
+        },
+        "environment": {
+          "HOME_and_CODEX_HOME": "INHERITED_WITHOUT_CHANGE",
+          "names_unset": [
+            "PYTHONPATH",
+            "PYTHONHOME",
+            "TPU_LIBRARY_PATH",
+            "PTXLA_TPU_LIBRARY_PATH",
+            "PJRT_DEVICE"
+          ],
+          "set": {
+            "PYTHONDONTWRITEBYTECODE": "1",
+            "PYTHONNOUSERSITE": "1",
+            "TPU_LOG_DIR": "disabled"
+          }
+        },
+        "exit_code": 0,
+        "original_outcome": {
+          "error": null,
+          "exit_code": 0,
+          "status": "PASS"
+        },
+        "status": "PASS",
+        "timeout_seconds": 115.0
+      }
+    },
+    {
+      "control_count": 8,
+      "controls": [
+        {
+          "name": "correct_complete_source_generation",
+          "status": "PASS"
+        },
+        {
+          "name": "parent_admission_sha_rejected",
+          "status": "PASS"
+        },
+        {
+          "name": "parent_variant_rejected_even_with_self_hash",
+          "status": "PASS"
+        },
+        {
+          "name": "sixteen_scientific_criteria_and_inputs_unchanged",
+          "status": "PASS"
+        },
+        {
+          "name": "all_existing_math_asts_differ_only_in_shifts_typed_comparisons_tail_axis",
+          "status": "PASS"
+        },
+        {
+          "name": "parent_science19_reconstructed_exactly",
+          "status": "PASS"
+        },
+        {
+          "name": "altered_helper_rejected",
+          "status": "PASS"
+        },
+        {
+          "name": "symlink_helper_rejected",
+          "status": "PASS"
+        }
+      ],
+      "label": "v3-generation",
+      "result_sha256": "a8ebaa1253fd1597cfbd8a84132645fb8945ee82e3370415b1d94d733315e5eb",
+      "summary": {
+        "argv": [
+          "/Users/topamini/code/Post2TPU/.venv/bin/python",
+          "-B",
+          "/tmp/bnb-tpu-m4-s32-lowering-v3-20261011-oj7mwf5m/bundle/experiments/2026-10-04-bitsandbytes-tpu/nested-exact/shift_generation_controls.py",
+          "--original-repository",
+          "/Users/topamini/code/bitsandbytes-TPU",
+          "--output",
+          "/tmp/bnb-tpu-root-m4-s32-v3-generation-result-20261011.json"
+        ],
+        "cleanup": {
+          "errors": [],
+          "groups": [
+            {
+              "ended_at": "2026-10-11T09:40:05.362258+00:00",
+              "errors": [],
+              "exit_status": 0,
+              "group_absence": "OBSERVED_NO_SUCH_GROUP",
+              "leader_reaped": true,
+              "pgid": 51221,
+              "pid": 51221,
+              "signals": [
+                {
+                  "result": "NO_SUCH_GROUP",
+                  "signal": 15
+                },
+                {
+                  "result": "NO_SUCH_GROUP",
+                  "signal": 9
+                }
+              ],
+              "started_at": "2026-10-11T09:40:05.362151+00:00",
+              "status": "CLEANUP_VERIFIED"
+            }
+          ],
+          "guard_original_outcome": {
+            "error": null,
+            "status": "COMPLETED"
+          },
+          "restoration": {
+            "handlers_restored": true,
+            "previous_timer": [
+              0.0,
+              0.0
+            ],
+            "state": "RESTORATION_ATTEMPTED",
+            "timer_policy": "PAUSE_AND_RESTORE_CAPTURED_TIMER",
+            "timer_restored": true
+          },
+          "status": "NO_CLEANUP_ERRORS"
+        },
+        "environment": {
+          "HOME_and_CODEX_HOME": "INHERITED_WITHOUT_CHANGE",
+          "names_unset": [
+            "PYTHONPATH",
+            "PYTHONHOME",
+            "TPU_LIBRARY_PATH",
+            "PTXLA_TPU_LIBRARY_PATH",
+            "PJRT_DEVICE"
+          ],
+          "set": {
+            "PYTHONDONTWRITEBYTECODE": "1",
+            "PYTHONNOUSERSITE": "1",
+            "TPU_LOG_DIR": "disabled"
+          }
+        },
+        "exit_code": 0,
+        "original_outcome": {
+          "error": null,
+          "exit_code": 0,
+          "status": "PASS"
+        },
+        "status": "PASS",
+        "timeout_seconds": 115.0
+      }
+    },
+    {
+      "control_count": 11,
+      "controls": [
+        {
+          "name": "independent_signed_S32_tensor_and_scalar_counts_0_1_23_30_31_32",
+          "status": "PASS"
+        },
+        {
+          "name": "reject_wrong_value_dtype",
+          "status": "PASS"
+        },
+        {
+          "name": "reject_wrong_count_dtype",
+          "status": "PASS"
+        },
+        {
+          "name": "reject_wrong_count_type",
+          "status": "PASS"
+        },
+        {
+          "name": "reject_wrong_count_device",
+          "status": "PASS"
+        },
+        {
+          "name": "parent_vs_draft_exact_addsub",
+          "status": "PASS"
+        },
+        {
+          "name": "parent_vs_draft_exact_muldiv",
+          "status": "PASS"
+        },
+        {
+          "name": "parent_vs_draft_exact_midpoints",
+          "status": "PASS"
+        },
+        {
+          "name": "parent_vs_draft_exact_zero-normalize",
+          "status": "PASS"
+        },
+        {
+          "name": "parent_vs_draft_exact_tail-1-255",
+          "status": "PASS"
+        },
+        {
+          "name": "zero_codes127_and_midpoints127",
+          "status": "PASS"
+        }
+      ],
+      "label": "v3-word",
+      "result_sha256": "411add04d301407c5a9d63a10485e2d9709cbe8c593c7ff18874ef025c2f3611",
+      "summary": {
+        "argv": [
+          "/Users/topamini/code/Post2TPU/.venv/bin/python",
+          "-B",
+          "/tmp/bnb-tpu-m4-s32-lowering-v3-20261011-oj7mwf5m/word_controls.py",
+          "--output",
+          "/tmp/bnb-tpu-root-m4-s32-v3-word-result-20261011.json"
+        ],
+        "cleanup": {
+          "errors": [],
+          "groups": [
+            {
+              "ended_at": "2026-10-11T09:40:05.956630+00:00",
+              "errors": [],
+              "exit_status": 0,
+              "group_absence": "OBSERVED_NO_SUCH_GROUP",
+              "leader_reaped": true,
+              "pgid": 51220,
+              "pid": 51220,
+              "signals": [
+                {
+                  "result": "NO_SUCH_GROUP",
+                  "signal": 15
+                },
+                {
+                  "result": "NO_SUCH_GROUP",
+                  "signal": 9
+                }
+              ],
+              "started_at": "2026-10-11T09:40:05.956574+00:00",
+              "status": "CLEANUP_VERIFIED"
+            }
+          ],
+          "guard_original_outcome": {
+            "error": null,
+            "status": "COMPLETED"
+          },
+          "restoration": {
+            "handlers_restored": true,
+            "previous_timer": [
+              0.0,
+              0.0
+            ],
+            "state": "RESTORATION_ATTEMPTED",
+            "timer_policy": "PAUSE_AND_RESTORE_CAPTURED_TIMER",
+            "timer_restored": true
+          },
+          "status": "NO_CLEANUP_ERRORS"
+        },
+        "environment": {
+          "HOME_and_CODEX_HOME": "INHERITED_WITHOUT_CHANGE",
+          "names_unset": [
+            "PYTHONPATH",
+            "PYTHONHOME",
+            "TPU_LIBRARY_PATH",
+            "PTXLA_TPU_LIBRARY_PATH",
+            "PJRT_DEVICE"
+          ],
+          "set": {
+            "PYTHONDONTWRITEBYTECODE": "1",
+            "PYTHONNOUSERSITE": "1",
+            "TPU_LOG_DIR": "disabled"
+          }
+        },
+        "exit_code": 0,
+        "original_outcome": {
+          "error": null,
+          "exit_code": 0,
+          "status": "PASS"
+        },
+        "status": "PASS",
+        "timeout_seconds": 115.0
+      }
+    }
+  ],
+  "status": "PASS"
+}

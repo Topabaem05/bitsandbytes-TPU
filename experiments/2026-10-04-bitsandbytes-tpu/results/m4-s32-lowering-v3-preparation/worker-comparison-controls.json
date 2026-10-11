@@ -1,0 +1,96 @@
+{
+  "TPU": "NOT_RUN",
+  "complete_record_sha256": "43fbab2aaac0a3852cbb8240cb0a5fae12d247ed95ce514175cf1e85f46bad95",
+  "control_count": 21,
+  "controls": [
+    {
+      "name": "scalar_vector_noncontiguous_functional_same_device_S32_boundaries",
+      "status": "PASS"
+    },
+    {
+      "name": "reject_bool",
+      "status": "PASS"
+    },
+    {
+      "name": "reject_float",
+      "status": "PASS"
+    },
+    {
+      "name": "reject_low",
+      "status": "PASS"
+    },
+    {
+      "name": "reject_high",
+      "status": "PASS"
+    },
+    {
+      "name": "reject_reference_int64",
+      "status": "PASS"
+    },
+    {
+      "name": "reject_reference_not_tensor",
+      "status": "PASS"
+    },
+    {
+      "name": "six_explicit_comparisons_independent_python_oracle",
+      "status": "PASS"
+    },
+    {
+      "name": "reject_wrong_constructor_int64",
+      "status": "PASS"
+    },
+    {
+      "name": "reject_wrong_constructor_device",
+      "status": "PASS"
+    },
+    {
+      "name": "reject_swapped_LT_GT_wrong_operand_order",
+      "status": "PASS"
+    },
+    {
+      "name": "closed_AST_reversal__integer_clamp.py",
+      "status": "PASS"
+    },
+    {
+      "name": "closed_AST_reversal__integer_addsub.py",
+      "status": "PASS"
+    },
+    {
+      "name": "closed_AST_reversal__integer_muldiv.py",
+      "status": "PASS"
+    },
+    {
+      "name": "closed_AST_reversal_exact.py",
+      "status": "PASS"
+    },
+    {
+      "name": "reject_altered_comparison_AST",
+      "status": "PASS"
+    },
+    {
+      "name": "five_family_exact_addsub",
+      "status": "PASS"
+    },
+    {
+      "name": "five_family_exact_muldiv",
+      "status": "PASS"
+    },
+    {
+      "name": "five_family_exact_midpoints",
+      "status": "PASS"
+    },
+    {
+      "name": "five_family_exact_zero-normalize",
+      "status": "PASS"
+    },
+    {
+      "name": "five_family_exact_tail-1-255",
+      "status": "PASS"
+    }
+  ],
+  "kind": "M4_TYPED_COMPARISON_SOURCE_CONTROLS",
+  "m4_status": "NOT_QUALIFIED",
+  "qualified_runtime": false,
+  "status": "PASS",
+  "torch_version": "2.14.1"
+}

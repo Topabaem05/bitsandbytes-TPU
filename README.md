@@ -25,7 +25,8 @@ Refer to [the latest M4 result](docs/changes/r4-functional-v4-failure-20261011.m
 The focused [integer diagnostic](docs/changes/m4-word-diagnostic-v2-actual.md) returned all 24 TPU probes without execution errors.
 Explicit Tensor shifts and the flat tail reduction axis made all five selected mathematical families match the CPU oracle.
 Their graphs still contain S64 comparison operands from Python integer scalars.
-A reviewed source revision must remove these operands before the complete experiment repeats.
+The reviewed [S32 source preparation](docs/changes/m4-s32-lowering-v3-preparation.md) uses explicit Tensor comparison operands.
+Fresh CPU79, TPU79, and saved state8 must test this generation.
 The original graph criteria remain unchanged.
 
 The [M5 record reader](docs/changes/m5-reader-v4-preparation.md) passed independent resource and lifecycle checks.

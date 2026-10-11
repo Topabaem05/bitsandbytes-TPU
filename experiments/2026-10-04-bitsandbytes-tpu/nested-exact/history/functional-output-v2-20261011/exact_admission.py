@@ -1,0 +1,119 @@
+"""Candidate-only literal admission. Never extends a historical source gate."""
+import ast
+import hashlib
+import importlib.util
+import json
+import re
+import sys
+import types
+from pathlib import Path
+
+HERE = Path(__file__).resolve().parent
+INTEGRATION_MAP_SHA = 'bfd7ce45a900fee3bc5ecfed54524c17931e2964ef5b7295fca6e6038883729a'
+INTEGRATION_ADMISSION_SHA = '8b5aa5f0c86346db982664cfad3b1e242dc8a67a4e49865584ccc01c8620f4bf'
+PATCH_MANIFEST_SHA = '947b679cf5833dcef021245117a53f49d0c04eace0b32e911b492303ae6149aa'
+VARIANT = 'nested-exact-v2-functional-output'
+
+def require(value, message):
+    if not value:
+        raise ValueError(message)
+
+def sha(path):
+    return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+
+def read(path):
+    return json.loads(Path(path).read_text())
+
+def admission(path, expected_sha):
+    path = Path(path)
+    require(not path.is_symlink() and expected_sha == INTEGRATION_ADMISSION_SHA
+            and sha(path) == expected_sha, 'EXACT_ADMISSION_LITERAL')
+    value = read(path)
+    require(value == read(HERE / 'integration-admission.json')
+            and sha(HERE / 'integration-admission.json') == INTEGRATION_ADMISSION_SHA,
+            'EXACT_COMPLETE_ADMISSION')
+    require(len(value['upstream_package_files']) == 48
+            and len(value['upstream_python_files']) == 47
+            and set(value['upstream_package_files']) - set(value['upstream_python_files']) == {'py.typed'}
+            and len(value['plugin_python_files']) == 11, 'EXACT_48_47_11_INVENTORIES')
+    require(value['generation'] == VARIANT and value['device_acceptance'] is None
+            and value['old_source_oracles'] == 'NOT_CURRENT_FOR_THIS_GENERATION', 'NO_OLD_DEVICE_ADMISSION')
+    return value
+
+def verify_installed(value, roots):
+    for name, key in [('bitsandbytes', 'upstream_python_files'), ('bitsandbytes_tpu', 'plugin_python_files')]:
+        root = Path(roots[name]).resolve()
+        require(root.is_dir(), 'INSTALLED_SOURCE_ROOT')
+        observed = {}
+        for path in root.rglob('*'):
+            require(not path.is_symlink(), 'INSTALLED_SOURCE_SYMLINK')
+            require(not path.is_file() or path.suffix != '.pyc', 'INSTALLED_SOURCE_BYTECODE')
+            if path.is_file() and path.suffix == '.py':
+                observed[path.relative_to(root).as_posix()] = sha(path)
+        require(observed == value[key], 'INSTALLED_COMPLETE_PYTHON_' + name)
+    # The complete source and wheel gate separately admits all 48 upstream files.
+    require(sha(Path(roots['bitsandbytes']) / 'py.typed')
+            == value['upstream_package_files']['py.typed'], 'INSTALLED_PY_TYPED')
+    return {'upstream_package_members': 48, 'upstream_python_members': 47, 'plugin_python_members': 11}
+
+def admit(path, expected_sha, patch_manifest):
+    value = admission(path, expected_sha)
+    require(sha(patch_manifest) == PATCH_MANIFEST_SHA, 'EXACT_PATCH_MANIFEST')
+    roots = {}
+    for name in ('bitsandbytes', 'bitsandbytes_tpu'):
+        require(name not in sys.modules, 'PACKAGE_ALREADY_IMPORTED_' + name)
+        spec = importlib.util.find_spec(name)
+        require(spec is not None and spec.origin is not None, 'PACKAGE_SOURCE_MISSING_' + name)
+        roots[name] = Path(spec.origin).resolve().parent
+    verify_installed(value, roots)
+    return value, roots
+
+def loaded_plugin_functions(value, plugin_root):
+    """Bind loaded function code to compiled admitted files, without replacement."""
+    root = Path(plugin_root).resolve()
+    for name in value['plugin_python_files']:
+        module_name = 'bitsandbytes_tpu' if name == '__init__.py' else 'bitsandbytes_tpu.' + name[:-3]
+        module = sys.modules.get(module_name)
+        require(module is not None and Path(module.__file__).resolve() == root / name,
+                'LOADED_PLUGIN_SOURCE_' + name)
+        code = compile((root / name).read_text(), str(root / name), 'exec')
+        expected = {c.co_name: c for c in code.co_consts if isinstance(c, types.CodeType)}
+        defined = {n.name for n in ast.parse((root / name).read_text()).body if isinstance(n, (ast.FunctionDef, ast.AsyncFunctionDef))}
+        require(all(isinstance(vars(module).get(n), types.FunctionType) and vars(module)[n].__module__ == module_name for n in defined),
+                'PLUGIN_DEFINED_FUNCTION_MISSING_' + name)
+        for function_name, function in vars(module).items():
+            if isinstance(function, types.FunctionType) and function.__module__ == module_name:
+                require(function_name in expected and function.__code__ == expected[function_name]
+                        and Path(function.__code__.co_filename).resolve() == root / name,
+                        'PLUGIN_FUNCTION_REPLACED_' + function_name)
+    return {'loaded_plugin_code': 'COMPILED_ADMITTED_SOURCE', 'python_files': 11}
+
+def reviewer_dependency(record, expected_sha, *, record_path=None):
+    """Separate root action, not generated by a synthetic scientific receipt."""
+    require(record_path is not None and sha(record_path) == expected_sha
+            and read(record_path) == record, 'REVIEW_RECORD_BYTES')
+    require(record.get('kind') == 'ROOT_NESTED_EXACT_SOURCE_REVIEW'
+            and record.get('status') == 'SOURCE_REVIEW_ACCEPTED_FOR_EXPERIMENT'
+            and record.get('integration_map_sha256') == INTEGRATION_MAP_SHA
+            and record.get('source_admission_sha256') == INTEGRATION_ADMISSION_SHA
+            and record.get('device_acceptance') is None, 'SOURCE_REVIEW_PENDING')
+    require(re.fullmatch('[0-9a-f]{64}', record.get('science_map_sha256', '')) is not None,
+            'SCIENCE_REVIEW_BINDING')
+    return record
+
+def state_dependency(record, accepted_result_path, expected_sha, science_map_sha):
+    require(sha(accepted_result_path) == expected_sha and read(accepted_result_path) == record,
+            'STATE_ACCEPTED_RESULT_BYTES')
+    expected = {'kind': 'ROOT_NESTED_EXACT79_DEVICE_ACCEPTANCE',
+                'status': 'ACCEPTED_NESTED_EXACT79_DEVICE_RECORDS',
+                'record_validation': 'PASS', 'numerical_status': 'PASS', 'case_count': 79,
+                'source_variant': VARIANT, 'source_admission_sha256': INTEGRATION_ADMISSION_SHA,
+                'integration_map_sha256': INTEGRATION_MAP_SHA, 'science_map_sha256': science_map_sha,
+                'inputs_sha256': 'b7490f4c622aef793d14bd9a7a38727754cb1fb8e6e1dec7ff91ef8c45fbafbc',
+                'profile_sha256': 'ad53f6416bdabf6440f08b313963c947a468cd39afd413bfe41bb381c4a7a166',
+                'runtime_lock_sha256': '323371ff61c5fbcc4f79fd6a358cf2ba17cb72b907382a5ceaac07f91dc66ed6',
+                'saved_state_status': 'NOT_RUN', 'm4_status': 'NOT_QUALIFIED'}
+    require(all(record.get(k) == v for k, v in expected.items()), 'STATE79_DEPENDENCY_NOT_ACCEPTED')
+    for key in ('packet_sha256', 'actual_receipt_sha256', 'fresh_cpu_oracle_sha256'):
+        require(re.fullmatch('[0-9a-f]{64}', record.get(key, '')) is not None, 'STATE79_PROVENANCE_' + key)
+    return record

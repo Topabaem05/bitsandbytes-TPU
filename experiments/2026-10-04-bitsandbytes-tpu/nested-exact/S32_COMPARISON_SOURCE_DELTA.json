@@ -1,0 +1,941 @@
+{
+  "criterion_changes": [],
+  "kind": "M4_CLOSED_TYPED_S32_COMPARISON_PROPOSAL",
+  "modules": {
+    "_integer_addsub.py": {
+      "postimage_sha256": "55fef77275f6415e32e0cde22d5069c10095af8a4a1997de8e922b548bc66fdd",
+      "preimage_sha256": "65da1ab7832f353f7b5a16f25ea2262442eb7df0b135e242b7929ce4d30e2e3e",
+      "retained_comparisons": [
+        {
+          "expression": "left.device != right.device",
+          "function": "require_pair",
+          "line": 15
+        },
+        {
+          "expression": "left.dtype != torch.int32",
+          "function": "require_pair",
+          "line": 13
+        },
+        {
+          "expression": "right.dtype != torch.int32",
+          "function": "require_pair",
+          "line": 13
+        },
+        {
+          "expression": "count == zero",
+          "function": "shift_right_jam",
+          "line": 25
+        },
+        {
+          "expression": "lm >= rm",
+          "function": "add_bits",
+          "line": 37
+        }
+      ],
+      "rewritten_comparisons": [
+        {
+          "after": "torch.ops.aten.lt.Tensor(count, scalar_s32(value, 31))",
+          "before": "count < 31",
+          "function": "shift_right_jam",
+          "line": 21,
+          "operator": "lt",
+          "reference": "value"
+        },
+        {
+          "after": "torch.ops.aten.ge.Tensor(count, scalar_s32(value, 31))",
+          "before": "count >= 31",
+          "function": "shift_right_jam",
+          "line": 24,
+          "operator": "ge",
+          "reference": "value"
+        },
+        {
+          "after": "torch.ops.aten.ne.Tensor(value & mask, scalar_s32(value, 0))",
+          "before": "(value & mask) != 0",
+          "function": "shift_right_jam",
+          "line": 23,
+          "operator": "ne",
+          "reference": "value"
+        },
+        {
+          "after": "torch.ops.aten.ne.Tensor(value, scalar_s32(value, 0))",
+          "before": "value != 0",
+          "function": "shift_right_jam",
+          "line": 24,
+          "operator": "ne",
+          "reference": "value"
+        },
+        {
+          "after": "torch.ops.aten.eq.Tensor((large ^ small) & SIGN, scalar_s32(left, 0))",
+          "before": "((large ^ small) & SIGN) == 0",
+          "function": "add_bits",
+          "line": 49,
+          "operator": "eq",
+          "reference": "left"
+        },
+        {
+          "after": "torch.ops.aten.ge.Tensor(extended, scalar_s32(left, 1 << 27))",
+          "before": "extended >= (1 << 27)",
+          "function": "add_bits",
+          "line": 52,
+          "operator": "ge",
+          "reference": "left"
+        },
+        {
+          "after": "torch.ops.aten.ge.Tensor(rounded, scalar_s32(left, 1 << 24))",
+          "before": "rounded >= (1 << 24)",
+          "function": "add_bits",
+          "line": 63,
+          "operator": "ge",
+          "reference": "left"
+        },
+        {
+          "after": "torch.ops.aten.ge.Tensor(rounded, scalar_s32(left, 1 << 23))",
+          "before": "rounded >= (1 << 23)",
+          "function": "add_bits",
+          "line": 66,
+          "operator": "ge",
+          "reference": "left"
+        },
+        {
+          "after": "torch.ops.aten.eq.Tensor(le, scalar_s32(left, 0))",
+          "before": "le == 0",
+          "function": "add_bits",
+          "line": 46,
+          "operator": "eq",
+          "reference": "left"
+        },
+        {
+          "after": "torch.ops.aten.eq.Tensor(se, scalar_s32(left, 0))",
+          "before": "se == 0",
+          "function": "add_bits",
+          "line": 47,
+          "operator": "eq",
+          "reference": "left"
+        },
+        {
+          "after": "torch.ops.aten.gt.Tensor(tail, scalar_s32(left, 4))",
+          "before": "tail > 4",
+          "function": "add_bits",
+          "line": 61,
+          "operator": "gt",
+          "reference": "left"
+        },
+        {
+          "after": "torch.ops.aten.ge.Tensor(exponent, scalar_s32(left, 255))",
+          "before": "exponent >= 255",
+          "function": "add_bits",
+          "line": 68,
+          "operator": "ge",
+          "reference": "left"
+        },
+        {
+          "after": "torch.ops.aten.gt.Tensor(exponent, scalar_s32(left, 1))",
+          "before": "exponent > 1",
+          "function": "add_bits",
+          "line": 56,
+          "operator": "gt",
+          "reference": "left"
+        },
+        {
+          "after": "torch.ops.aten.eq.Tensor(tail, scalar_s32(left, 4))",
+          "before": "tail == 4",
+          "function": "add_bits",
+          "line": 61,
+          "operator": "eq",
+          "reference": "left"
+        },
+        {
+          "after": "torch.ops.aten.ne.Tensor(mantissa & 1, scalar_s32(left, 0))",
+          "before": "(mantissa & 1) != 0",
+          "function": "add_bits",
+          "line": 61,
+          "operator": "ne",
+          "reference": "left"
+        },
+        {
+          "after": "torch.ops.aten.eq.Tensor(magnitude, scalar_s32(left, 0))",
+          "before": "magnitude == 0",
+          "function": "add_bits",
+          "line": 71,
+          "operator": "eq",
+          "reference": "left"
+        },
+        {
+          "after": "torch.ops.aten.ne.Tensor(extended, scalar_s32(left, 0))",
+          "before": "extended != 0",
+          "function": "add_bits",
+          "line": 56,
+          "operator": "ne",
+          "reference": "left"
+        },
+        {
+          "after": "torch.ops.aten.lt.Tensor(extended, scalar_s32(left, 1 << 26))",
+          "before": "extended < (1 << 26)",
+          "function": "add_bits",
+          "line": 56,
+          "operator": "lt",
+          "reference": "left"
+        },
+        {
+          "after": "torch.ops.aten.ne.Tensor(le, scalar_s32(left, 0))",
+          "before": "le != 0",
+          "function": "add_bits",
+          "line": 44,
+          "operator": "ne",
+          "reference": "left"
+        },
+        {
+          "after": "torch.ops.aten.ne.Tensor(se, scalar_s32(left, 0))",
+          "before": "se != 0",
+          "function": "add_bits",
+          "line": 45,
+          "operator": "ne",
+          "reference": "left"
+        }
+      ]
+    },
+    "_integer_clamp.py": {
+      "postimage_sha256": "ba8ae0af4d23f8a64ae2233bea93b4a5ff65d2d1d1f4ad5c0e73478de053dd85",
+      "preimage_sha256": "1328b7c9f2f9a669546ee1e865bb10b5ffad14a5cb5a028a4d4e98a0a1e59567",
+      "retained_comparisons": [
+        {
+          "expression": "words.dtype!=torch.int32",
+          "function": "require_words",
+          "line": 13
+        },
+        {
+          "expression": "type(count) is int",
+          "function": "_shift_count",
+          "line": 18
+        },
+        {
+          "expression": "count.device != value.device",
+          "function": "_shift_count",
+          "line": 23
+        },
+        {
+          "expression": "((word&0x7fffffff)>>23)==255",
+          "function": "scalar_word",
+          "line": 37
+        },
+        {
+          "expression": "type(word) is not int",
+          "function": "scalar_word",
+          "line": 36
+        },
+        {
+          "expression": "-(1<<31)<=word<(1<<31)",
+          "function": "scalar_word",
+          "line": 36
+        },
+        {
+          "expression": "word<0",
+          "function": "scalar_key",
+          "line": 41
+        },
+        {
+          "expression": "low>high",
+          "function": "clamp_bits",
+          "line": 47
+        },
+        {
+          "expression": "type(count) is not int",
+          "function": "divide_count_bits",
+          "line": 60
+        },
+        {
+          "expression": "log_count<=23",
+          "function": "divide_count_bits",
+          "line": 70
+        },
+        {
+          "expression": "1<=count<=1<<24",
+          "function": "divide_count_bits",
+          "line": 60
+        }
+      ],
+      "rewritten_comparisons": [
+        {
+          "after": "torch.ops.aten.lt.Tensor(words, scalar_s32(words, 0))",
+          "before": "words<0",
+          "function": "clamp_bits",
+          "line": 48,
+          "operator": "lt",
+          "reference": "words"
+        },
+        {
+          "after": "torch.ops.aten.lt.Tensor(keys, scalar_s32(words, low))",
+          "before": "keys<low",
+          "function": "clamp_bits",
+          "line": 49,
+          "operator": "lt",
+          "reference": "words"
+        },
+        {
+          "after": "torch.ops.aten.gt.Tensor(keys, scalar_s32(words, high))",
+          "before": "keys>high",
+          "function": "clamp_bits",
+          "line": 50,
+          "operator": "gt",
+          "reference": "words"
+        },
+        {
+          "after": "torch.ops.aten.lt.Tensor(mantissa, scalar_s32(words, threshold))",
+          "before": "mantissa<threshold",
+          "function": "divide_count_bits",
+          "line": 71,
+          "operator": "lt",
+          "reference": "words"
+        },
+        {
+          "after": "torch.ops.aten.ge.Tensor(result_power, scalar_s32(words, -126))",
+          "before": "result_power>=-126",
+          "function": "divide_count_bits",
+          "line": 73,
+          "operator": "ge",
+          "reference": "words"
+        },
+        {
+          "after": "torch.ops.aten.ne.Tensor(quotient&half, scalar_s32(words, 0))",
+          "before": "(quotient&half)!=0",
+          "function": "divide_count_bits",
+          "line": 92,
+          "operator": "ne",
+          "reference": "words"
+        },
+        {
+          "after": "torch.ops.aten.eq.Tensor(rounded, scalar_s32(words, 1<<24))",
+          "before": "rounded==(1<<24)",
+          "function": "divide_count_bits",
+          "line": 96,
+          "operator": "eq",
+          "reference": "words"
+        },
+        {
+          "after": "torch.ops.aten.eq.Tensor(exponent, scalar_s32(words, 0))",
+          "before": "exponent==0",
+          "function": "divide_count_bits",
+          "line": 63,
+          "operator": "eq",
+          "reference": "words"
+        },
+        {
+          "after": "torch.ops.aten.eq.Tensor(exponent, scalar_s32(words, 0))",
+          "before": "exponent==0",
+          "function": "divide_count_bits",
+          "line": 64,
+          "operator": "eq",
+          "reference": "words"
+        },
+        {
+          "after": "torch.ops.aten.ge.Tensor(remainder, scalar_s32(words, count))",
+          "before": "remainder>=count",
+          "function": "divide_count_bits",
+          "line": 78,
+          "operator": "ge",
+          "reference": "words"
+        },
+        {
+          "after": "torch.ops.aten.gt.Tensor(shift, scalar_s32(words, bit))",
+          "before": "shift>bit",
+          "function": "divide_count_bits",
+          "line": 82,
+          "operator": "gt",
+          "reference": "words"
+        },
+        {
+          "after": "torch.ops.aten.ge.Tensor(trial, scalar_s32(words, count))",
+          "before": "trial>=count",
+          "function": "divide_count_bits",
+          "line": 83,
+          "operator": "ge",
+          "reference": "words"
+        },
+        {
+          "after": "torch.ops.aten.lt.Tensor(shift, scalar_s32(words, 0))",
+          "before": "shift<0",
+          "function": "divide_count_bits",
+          "line": 88,
+          "operator": "lt",
+          "reference": "words"
+        },
+        {
+          "after": "torch.ops.aten.gt.Tensor(right, scalar_s32(words, 0))",
+          "before": "right>0",
+          "function": "divide_count_bits",
+          "line": 89,
+          "operator": "gt",
+          "reference": "words"
+        },
+        {
+          "after": "torch.ops.aten.ne.Tensor(quotient&lower_mask, scalar_s32(words, 0))",
+          "before": "(quotient&lower_mask)!=0",
+          "function": "divide_count_bits",
+          "line": 93,
+          "operator": "ne",
+          "reference": "words"
+        },
+        {
+          "after": "torch.ops.aten.ne.Tensor(remainder, scalar_s32(words, 0))",
+          "before": "remainder!=0",
+          "function": "divide_count_bits",
+          "line": 93,
+          "operator": "ne",
+          "reference": "words"
+        },
+        {
+          "after": "torch.ops.aten.lt.Tensor(shift, scalar_s32(words, 0))",
+          "before": "shift<0",
+          "function": "divide_count_bits",
+          "line": 95,
+          "operator": "lt",
+          "reference": "words"
+        },
+        {
+          "after": "torch.ops.aten.eq.Tensor(magnitude, scalar_s32(words, 0))",
+          "before": "magnitude==0",
+          "function": "divide_count_bits",
+          "line": 101,
+          "operator": "eq",
+          "reference": "words"
+        },
+        {
+          "after": "torch.ops.aten.gt.Tensor(mantissa, scalar_s32(words, 0))",
+          "before": "mantissa>0",
+          "function": "divide_count_bits",
+          "line": 66,
+          "operator": "gt",
+          "reference": "words"
+        },
+        {
+          "after": "torch.ops.aten.lt.Tensor(mantissa, scalar_s32(words, 1<<23))",
+          "before": "mantissa<(1<<23)",
+          "function": "divide_count_bits",
+          "line": 66,
+          "operator": "lt",
+          "reference": "words"
+        },
+        {
+          "after": "torch.ops.aten.gt.Tensor(twice, scalar_s32(words, count))",
+          "before": "twice>count",
+          "function": "divide_count_bits",
+          "line": 87,
+          "operator": "gt",
+          "reference": "words"
+        },
+        {
+          "after": "torch.ops.aten.eq.Tensor(twice, scalar_s32(words, count))",
+          "before": "twice==count",
+          "function": "divide_count_bits",
+          "line": 87,
+          "operator": "eq",
+          "reference": "words"
+        },
+        {
+          "after": "torch.ops.aten.ne.Tensor(quotient&1, scalar_s32(words, 0))",
+          "before": "(quotient&1)!=0",
+          "function": "divide_count_bits",
+          "line": 87,
+          "operator": "ne",
+          "reference": "words"
+        },
+        {
+          "after": "torch.ops.aten.ne.Tensor(truncated&1, scalar_s32(words, 0))",
+          "before": "(truncated&1)!=0",
+          "function": "divide_count_bits",
+          "line": 94,
+          "operator": "ne",
+          "reference": "words"
+        }
+      ]
+    },
+    "_integer_muldiv.py": {
+      "postimage_sha256": "ffd5cd484bffb60c8ff233637acdd39db7b4f140c0c6f57734b5ba89677f7064",
+      "preimage_sha256": "04181f6d933ed7f535c65ce495d30a47aaea5138b98f07ac04be93e0baf6d069",
+      "retained_comparisons": [
+        {
+          "expression": "left.device!=right.device",
+          "function": "require_pair",
+          "line": 14
+        },
+        {
+          "expression": "left.dtype!=torch.int32",
+          "function": "require_pair",
+          "line": 13
+        },
+        {
+          "expression": "right.dtype!=torch.int32",
+          "function": "require_pair",
+          "line": 13
+        },
+        {
+          "expression": "nm>=dm",
+          "function": "divide_bits",
+          "line": 83
+        },
+        {
+          "expression": "nm<dm",
+          "function": "divide_bits",
+          "line": 86
+        },
+        {
+          "expression": "trial>=dm",
+          "function": "divide_bits",
+          "line": 90
+        },
+        {
+          "expression": "twice>dm",
+          "function": "divide_bits",
+          "line": 96
+        },
+        {
+          "expression": "twice==dm",
+          "function": "divide_bits",
+          "line": 96
+        }
+      ],
+      "rewritten_comparisons": [
+        {
+          "after": "torch.ops.aten.eq.Tensor(exponent, scalar_s32(words, 0))",
+          "before": "exponent==0",
+          "function": "decode",
+          "line": 19,
+          "operator": "eq",
+          "reference": "words"
+        },
+        {
+          "after": "torch.ops.aten.eq.Tensor(magnitude, scalar_s32(words, 0))",
+          "before": "magnitude==0",
+          "function": "decode",
+          "line": 24,
+          "operator": "eq",
+          "reference": "words"
+        },
+        {
+          "after": "torch.ops.aten.ne.Tensor(mantissa, scalar_s32(words, 0))",
+          "before": "mantissa!=0",
+          "function": "decode",
+          "line": 21,
+          "operator": "ne",
+          "reference": "words"
+        },
+        {
+          "after": "torch.ops.aten.lt.Tensor(mantissa, scalar_s32(words, 1<<23))",
+          "before": "mantissa<(1<<23)",
+          "function": "decode",
+          "line": 21,
+          "operator": "lt",
+          "reference": "words"
+        },
+        {
+          "after": "torch.ops.aten.ne.Tensor(exponent, scalar_s32(words, 0))",
+          "before": "exponent!=0",
+          "function": "decode",
+          "line": 18,
+          "operator": "ne",
+          "reference": "words"
+        },
+        {
+          "after": "torch.ops.aten.ge.Tensor(rounded, scalar_s32(rounded, 1<<24))",
+          "before": "rounded>=(1<<24)",
+          "function": "encode",
+          "line": 27,
+          "operator": "ge",
+          "reference": "rounded"
+        },
+        {
+          "after": "torch.ops.aten.gt.Tensor(final_power, scalar_s32(rounded, 127))",
+          "before": "final_power>127",
+          "function": "encode",
+          "line": 30,
+          "operator": "gt",
+          "reference": "rounded"
+        },
+        {
+          "after": "torch.ops.aten.ge.Tensor(final_power, scalar_s32(rounded, 128))",
+          "before": "final_power>=128",
+          "function": "encode",
+          "line": 33,
+          "operator": "ge",
+          "reference": "rounded"
+        },
+        {
+          "after": "torch.ops.aten.ne.Tensor((right_shift(right, bit))&1, scalar_s32(left, 0))",
+          "before": "((right_shift(right, bit))&1)!=0",
+          "function": "product48",
+          "line": 40,
+          "operator": "ne",
+          "reference": "left"
+        },
+        {
+          "after": "torch.ops.aten.ne.Tensor(low&low_half, scalar_s32(high, 0))",
+          "before": "(low&low_half)!=0",
+          "function": "rounded_shift48",
+          "line": 56,
+          "operator": "ne",
+          "reference": "high"
+        },
+        {
+          "after": "torch.ops.aten.ne.Tensor(high&high_half, scalar_s32(high, 0))",
+          "before": "(high&high_half)!=0",
+          "function": "rounded_shift48",
+          "line": 57,
+          "operator": "ne",
+          "reference": "high"
+        },
+        {
+          "after": "torch.ops.aten.ne.Tensor(low&(low_half-1), scalar_s32(high, 0))",
+          "before": "(low&(low_half-1))!=0",
+          "function": "rounded_shift48",
+          "line": 58,
+          "operator": "ne",
+          "reference": "high"
+        },
+        {
+          "after": "torch.ops.aten.gt.Tensor(shift, scalar_s32(high, 24))",
+          "before": "shift>24",
+          "function": "rounded_shift48",
+          "line": 60,
+          "operator": "gt",
+          "reference": "high"
+        },
+        {
+          "after": "torch.ops.aten.lt.Tensor(shift, scalar_s32(high, 24))",
+          "before": "shift<24",
+          "function": "rounded_shift48",
+          "line": 50,
+          "operator": "lt",
+          "reference": "high"
+        },
+        {
+          "after": "torch.ops.aten.lt.Tensor(shift-24, scalar_s32(high, 0))",
+          "before": "shift-24<0",
+          "function": "rounded_shift48",
+          "line": 52,
+          "operator": "lt",
+          "reference": "high"
+        },
+        {
+          "after": "torch.ops.aten.ne.Tensor(high&(high_half-1), scalar_s32(high, 0))",
+          "before": "(high&(high_half-1))!=0",
+          "function": "rounded_shift48",
+          "line": 59,
+          "operator": "ne",
+          "reference": "high"
+        },
+        {
+          "after": "torch.ops.aten.ne.Tensor(low, scalar_s32(high, 0))",
+          "before": "low!=0",
+          "function": "rounded_shift48",
+          "line": 59,
+          "operator": "ne",
+          "reference": "high"
+        },
+        {
+          "after": "torch.ops.aten.gt.Tensor(shift, scalar_s32(high, 48))",
+          "before": "shift>48",
+          "function": "rounded_shift48",
+          "line": 66,
+          "operator": "gt",
+          "reference": "high"
+        },
+        {
+          "after": "torch.ops.aten.gt.Tensor(shift-24, scalar_s32(high, 24))",
+          "before": "shift-24>24",
+          "function": "rounded_shift48",
+          "line": 52,
+          "operator": "gt",
+          "reference": "high"
+        },
+        {
+          "after": "torch.ops.aten.gt.Tensor(high_shift, scalar_s32(high, 0))",
+          "before": "high_shift>0",
+          "function": "rounded_shift48",
+          "line": 55,
+          "operator": "gt",
+          "reference": "high"
+        },
+        {
+          "after": "torch.ops.aten.ne.Tensor(truncated&1, scalar_s32(high, 0))",
+          "before": "(truncated&1)!=0",
+          "function": "rounded_shift48",
+          "line": 64,
+          "operator": "ne",
+          "reference": "high"
+        },
+        {
+          "after": "torch.ops.aten.ge.Tensor(high, scalar_s32(left, 1<<23))",
+          "before": "high>=(1<<23)",
+          "function": "multiply_bits",
+          "line": 72,
+          "operator": "ge",
+          "reference": "left"
+        },
+        {
+          "after": "torch.ops.aten.ge.Tensor(power, scalar_s32(left, -126))",
+          "before": "power>=-126",
+          "function": "multiply_bits",
+          "line": 74,
+          "operator": "ge",
+          "reference": "left"
+        },
+        {
+          "after": "torch.ops.aten.ge.Tensor(power, scalar_s32(numerator, -126))",
+          "before": "power>=-126",
+          "function": "divide_bits",
+          "line": 94,
+          "operator": "ge",
+          "reference": "numerator"
+        },
+        {
+          "after": "torch.ops.aten.ne.Tensor(quotient&half, scalar_s32(numerator, 0))",
+          "before": "(quotient&half)!=0",
+          "function": "divide_bits",
+          "line": 101,
+          "operator": "ne",
+          "reference": "numerator"
+        },
+        {
+          "after": "torch.ops.aten.gt.Tensor(precision_shift, scalar_s32(numerator, bit))",
+          "before": "precision_shift>bit",
+          "function": "divide_bits",
+          "line": 89,
+          "operator": "gt",
+          "reference": "numerator"
+        },
+        {
+          "after": "torch.ops.aten.lt.Tensor(right, scalar_s32(numerator, 0))",
+          "before": "right<0",
+          "function": "divide_bits",
+          "line": 98,
+          "operator": "lt",
+          "reference": "numerator"
+        },
+        {
+          "after": "torch.ops.aten.ne.Tensor(quotient&(half-1), scalar_s32(numerator, 0))",
+          "before": "(quotient&(half-1))!=0",
+          "function": "divide_bits",
+          "line": 102,
+          "operator": "ne",
+          "reference": "numerator"
+        },
+        {
+          "after": "torch.ops.aten.ne.Tensor(remainder, scalar_s32(numerator, 0))",
+          "before": "remainder!=0",
+          "function": "divide_bits",
+          "line": 102,
+          "operator": "ne",
+          "reference": "numerator"
+        },
+        {
+          "after": "torch.ops.aten.gt.Tensor(right, scalar_s32(numerator, 24))",
+          "before": "right>24",
+          "function": "divide_bits",
+          "line": 104,
+          "operator": "gt",
+          "reference": "numerator"
+        },
+        {
+          "after": "torch.ops.aten.gt.Tensor(right, scalar_s32(numerator, 24))",
+          "before": "right>24",
+          "function": "divide_bits",
+          "line": 98,
+          "operator": "gt",
+          "reference": "numerator"
+        },
+        {
+          "after": "torch.ops.aten.gt.Tensor(bounded, scalar_s32(numerator, 0))",
+          "before": "bounded>0",
+          "function": "divide_bits",
+          "line": 99,
+          "operator": "gt",
+          "reference": "numerator"
+        },
+        {
+          "after": "torch.ops.aten.ne.Tensor(quotient&1, scalar_s32(numerator, 0))",
+          "before": "(quotient&1)!=0",
+          "function": "divide_bits",
+          "line": 96,
+          "operator": "ne",
+          "reference": "numerator"
+        },
+        {
+          "after": "torch.ops.aten.ne.Tensor(truncated&1, scalar_s32(numerator, 0))",
+          "before": "(truncated&1)!=0",
+          "function": "divide_bits",
+          "line": 103,
+          "operator": "ne",
+          "reference": "numerator"
+        }
+      ]
+    },
+    "exact.py": {
+      "postimage_sha256": "03d2eb1cb90ef8679ccdbe0977030ae5cee10d1e39d1dd9a7f648d6e703fe59a",
+      "preimage_sha256": "eb13d70bab677138842be354724df7c438650ffaf0cf3ab35045c7aa395df0b4",
+      "retained_comparisons": [
+        {
+          "expression": "value.device.type != 'xla'",
+          "function": "bitcast",
+          "line": 22
+        },
+        {
+          "expression": "(value.dtype, dtype) not in ((torch.float32, torch.int32), (torch.int32, torch.float32))",
+          "function": "bitcast",
+          "line": 24
+        },
+        {
+          "expression": "hashlib.sha256(Path(xb.__file__).read_bytes()).hexdigest() != BUILDER_SHA",
+          "function": "bitcast",
+          "line": 33
+        },
+        {
+          "expression": "dtype == torch.int32",
+          "function": "bitcast",
+          "line": 35
+        },
+        {
+          "expression": "len(outputs) != 1",
+          "function": "bitcast",
+          "line": 39
+        },
+        {
+          "expression": "outputs[0].dtype != dtype",
+          "function": "bitcast",
+          "line": 39
+        },
+        {
+          "expression": "outputs[0].device != value.device",
+          "function": "bitcast",
+          "line": 39
+        },
+        {
+          "expression": "value.dtype != torch.int32",
+          "function": "quantize_words",
+          "line": 76
+        },
+        {
+          "expression": "code.dtype != torch.int32",
+          "function": "quantize_words",
+          "line": 76
+        },
+        {
+          "expression": "value.numel() == 0",
+          "function": "quantize_words",
+          "line": 76
+        },
+        {
+          "expression": "finite_key(scaled).unsqueeze(-1) > bounds",
+          "function": "quantize_words",
+          "line": 90
+        },
+        {
+          "expression": "first.dtype != torch.int32",
+          "function": "compress_words",
+          "line": 103
+        },
+        {
+          "expression": "first.ndim != 1",
+          "function": "compress_words",
+          "line": 103
+        },
+        {
+          "expression": "1 <= first.numel() <= 513",
+          "function": "compress_words",
+          "line": 103
+        },
+        {
+          "expression": "first.dtype != torch.float32",
+          "function": "compress_statistics",
+          "line": 117
+        },
+        {
+          "expression": "first.ndim != 1",
+          "function": "compress_statistics",
+          "line": 117
+        },
+        {
+          "expression": "dynamic.dtype != torch.float32",
+          "function": "compress_statistics",
+          "line": 119
+        },
+        {
+          "expression": "tuple(dynamic.shape) != (256,)",
+          "function": "compress_statistics",
+          "line": 119
+        },
+        {
+          "expression": "dynamic.device != first.device",
+          "function": "compress_statistics",
+          "line": 119
+        },
+        {
+          "expression": "1 <= first.numel() <= 513",
+          "function": "compress_statistics",
+          "line": 117
+        },
+        {
+          "expression": "codes.dtype != torch.uint8",
+          "function": "restore_scales",
+          "line": 126
+        },
+        {
+          "expression": "codes.ndim != 1",
+          "function": "restore_scales",
+          "line": 126
+        },
+        {
+          "expression": "second.dtype != torch.float32",
+          "function": "restore_scales",
+          "line": 128
+        },
+        {
+          "expression": "tuple(second.shape) != ((codes.numel()+255)//256,)",
+          "function": "restore_scales",
+          "line": 128
+        },
+        {
+          "expression": "offset.dtype != torch.float32",
+          "function": "restore_scales",
+          "line": 130
+        },
+        {
+          "expression": "offset.ndim != 0",
+          "function": "restore_scales",
+          "line": 130
+        },
+        {
+          "expression": "dynamic.dtype != torch.float32",
+          "function": "restore_scales",
+          "line": 132
+        },
+        {
+          "expression": "tuple(dynamic.shape) != (256,)",
+          "function": "restore_scales",
+          "line": 132
+        },
+        {
+          "expression": "1 <= codes.numel() <= 513",
+          "function": "restore_scales",
+          "line": 126
+        },
+        {
+          "expression": "t.device != codes.device",
+          "function": "restore_scales",
+          "line": 134
+        }
+      ],
+      "rewritten_comparisons": [
+        {
+          "after": "torch.ops.aten.lt.Tensor(words, C.scalar_s32(words, 0))",
+          "before": "words < 0",
+          "function": "finite_key",
+          "line": 58,
+          "operator": "lt",
+          "reference": "words"
+        }
+      ]
+    }
+  },
+  "status": "ROOT_SOURCE_REVIEW_PENDING"
+}

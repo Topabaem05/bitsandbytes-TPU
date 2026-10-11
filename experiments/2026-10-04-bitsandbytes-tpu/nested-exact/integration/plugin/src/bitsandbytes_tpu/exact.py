@@ -55,7 +55,7 @@ def floats(value):
 
 
 def finite_key(words):
-    return torch.where(words < 0, -(words & 0x7fffffff), words)
+    return torch.where(torch.ops.aten.lt.Tensor(words, C.scalar_s32(words, 0)), -(words & 0x7fffffff), words)
 
 
 def midpoints(code):
@@ -83,7 +83,7 @@ def quantize_words(value, code, blocksize):
     scaled = normalize(blocks, maximum, full=True).reshape(-1)
     if tail:
         remaining = flat[full:]
-        tail_maximum = C.clamp_bits(torch.amax(remaining & 0x7fffffff), FLOOR)
+        tail_maximum = C.clamp_bits(torch.amax(remaining & 0x7fffffff, dim=0), FLOOR)
         maximum = torch.cat((maximum, tail_maximum.unsqueeze(0)))
         scaled = torch.cat((scaled, normalize(remaining, tail_maximum, full=False)))
     bounds = finite_key(midpoints(code))

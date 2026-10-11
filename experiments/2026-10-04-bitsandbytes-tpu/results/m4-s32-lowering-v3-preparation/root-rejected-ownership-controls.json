@@ -1,0 +1,603 @@
+{
+  "M4": "NOT_QUALIFIED",
+  "TPU": "NOT_RUN",
+  "disposable_paths": [
+    "/tmp/bnb-tpu-root-m4-browser-ownership-owner-20261011",
+    "/tmp/bnb-tpu-root-m4-browser-ownership-result-20261011.json"
+  ],
+  "independent_finding": "All six owned cases fail with missing generation_gate manifest entry before browser marker execution; fixture needs admitted source rows and branch-specific assertions. Substring Hardware/Variant matching also requires exact unique segments.",
+  "owned_replay": {
+    "argv": [
+      "/Users/topamini/code/Post2TPU/.venv/bin/python",
+      "-B",
+      "/tmp/bnb-tpu-m4-s32-lowering-v3-20261011-oj7mwf5m/browser_ownership_controls.py",
+      "--output",
+      "/tmp/bnb-tpu-root-m4-browser-ownership-result-20261011.json"
+    ],
+    "cleanup": {
+      "errors": [],
+      "groups": [
+        {
+          "ended_at": "2026-10-11T09:51:02.004966+00:00",
+          "errors": [],
+          "exit_status": 0,
+          "group_absence": "OBSERVED_NO_SUCH_GROUP",
+          "leader_reaped": true,
+          "pgid": 54102,
+          "pid": 54102,
+          "signals": [
+            {
+              "result": "NO_SUCH_GROUP",
+              "signal": 15
+            },
+            {
+              "result": "NO_SUCH_GROUP",
+              "signal": 9
+            }
+          ],
+          "started_at": "2026-10-11T09:51:02.004927+00:00",
+          "status": "CLEANUP_VERIFIED"
+        }
+      ],
+      "guard_original_outcome": {
+        "error": null,
+        "status": "COMPLETED"
+      },
+      "restoration": {
+        "handlers_restored": true,
+        "previous_timer": [
+          0.0,
+          0.0
+        ],
+        "state": "RESTORATION_ATTEMPTED",
+        "timer_policy": "PAUSE_AND_RESTORE_CAPTURED_TIMER",
+        "timer_restored": true
+      },
+      "status": "NO_CLEANUP_ERRORS"
+    },
+    "environment": {
+      "HOME_and_CODEX_HOME": "INHERITED_WITHOUT_CHANGE",
+      "names_unset": [
+        "PYTHONPATH",
+        "PYTHONHOME",
+        "TPU_LIBRARY_PATH",
+        "PTXLA_TPU_LIBRARY_PATH",
+        "PJRT_DEVICE"
+      ],
+      "set": {
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONNOUSERSITE": "1",
+        "TPU_LOG_DIR": "disabled"
+      }
+    },
+    "exit_code": 0,
+    "original_outcome": {
+      "error": null,
+      "exit_code": 0,
+      "status": "PASS"
+    },
+    "status": "PASS",
+    "timeout_seconds": 115.0
+  },
+  "reported_replay": {
+    "control_count": 10,
+    "driver_sha256": "f40ec778f35b8c899638d4f4482a27b535c6b13a82e176f9295ed9d0a3ee3c87",
+    "fixtures": "DELETED_AFTER_TEST",
+    "kind": "M4_ACTUAL_DRIVER_BROWSER_OWNERSHIP_CONTROLS",
+    "rows": [
+      {
+        "actual_driver_error": "'nested-exact/source/generation_gate.py'",
+        "calls": [
+          {
+            "argv": [
+              "sessions"
+            ],
+            "label": "001-sessions-before"
+          },
+          {
+            "argv": [
+              "usage"
+            ],
+            "label": "002-usage-before"
+          },
+          {
+            "argv": [
+              "--adopt-root-browser-v1",
+              "/tmp/m4-browser-ownership-8vtbmihk/valid_marker/adoption.json",
+              "19f4655e25cca97d241c510c0cdac5428fad8532fcf7b239f9ede2ab1de09344"
+            ],
+            "label": "003-browser-registration"
+          },
+          {
+            "argv": [
+              "sessions"
+            ],
+            "label": "004-sessions-after"
+          },
+          {
+            "argv": [
+              "sessions"
+            ],
+            "label": "005-sessions-before-stop"
+          },
+          {
+            "argv": [
+              "stop",
+              "-s",
+              "owned-fixture"
+            ],
+            "label": "006-stop-exact"
+          },
+          {
+            "argv": [
+              "sessions"
+            ],
+            "label": "007-sessions-after-stop"
+          },
+          {
+            "argv": [
+              "usage"
+            ],
+            "label": "008-usage-after"
+          }
+        ],
+        "case": "valid_marker",
+        "driver_status": "BLOCKED",
+        "fake_transport": true,
+        "no_cli_allocation": true,
+        "status": "PASS"
+      },
+      {
+        "actual_driver_error": "'nested-exact/source/generation_gate.py'",
+        "calls": [
+          {
+            "argv": [
+              "sessions"
+            ],
+            "label": "001-sessions-before"
+          },
+          {
+            "argv": [
+              "usage"
+            ],
+            "label": "002-usage-before"
+          },
+          {
+            "argv": [
+              "--adopt-root-browser-v1",
+              "/tmp/m4-browser-ownership-8vtbmihk/bad_marker/adoption.json",
+              "3ab7d5cb5adc94b7aea57300e48c3f81a80d1143c6ebf72e2f5107047752b09e"
+            ],
+            "label": "003-browser-registration"
+          },
+          {
+            "argv": [
+              "sessions"
+            ],
+            "label": "004-sessions-after"
+          },
+          {
+            "argv": [
+              "sessions"
+            ],
+            "label": "005-sessions-before-stop"
+          },
+          {
+            "argv": [
+              "stop",
+              "-s",
+              "owned-fixture"
+            ],
+            "label": "006-stop-exact"
+          },
+          {
+            "argv": [
+              "sessions"
+            ],
+            "label": "007-sessions-after-stop"
+          },
+          {
+            "argv": [
+              "usage"
+            ],
+            "label": "008-usage-after"
+          }
+        ],
+        "case": "bad_marker",
+        "driver_status": "BLOCKED",
+        "fake_transport": true,
+        "no_cli_allocation": true,
+        "status": "PASS"
+      },
+      {
+        "actual_driver_error": "'nested-exact/source/generation_gate.py'",
+        "calls": [
+          {
+            "argv": [
+              "sessions"
+            ],
+            "label": "001-sessions-before"
+          },
+          {
+            "argv": [
+              "usage"
+            ],
+            "label": "002-usage-before"
+          },
+          {
+            "argv": [
+              "--adopt-root-browser-v1",
+              "/tmp/m4-browser-ownership-8vtbmihk/missing_marker/adoption.json",
+              "401508728026b04cbb120b4b7bc304c0ec9a6ab72bb951bcd5b115b59918ce05"
+            ],
+            "label": "003-browser-registration"
+          },
+          {
+            "argv": [
+              "sessions"
+            ],
+            "label": "004-sessions-after"
+          },
+          {
+            "argv": [
+              "sessions"
+            ],
+            "label": "005-sessions-before-stop"
+          },
+          {
+            "argv": [
+              "stop",
+              "-s",
+              "owned-fixture"
+            ],
+            "label": "006-stop-exact"
+          },
+          {
+            "argv": [
+              "sessions"
+            ],
+            "label": "007-sessions-after-stop"
+          },
+          {
+            "argv": [
+              "usage"
+            ],
+            "label": "008-usage-after"
+          }
+        ],
+        "case": "missing_marker",
+        "driver_status": "BLOCKED",
+        "fake_transport": true,
+        "no_cli_allocation": true,
+        "status": "PASS"
+      },
+      {
+        "actual_driver_error": "'nested-exact/source/generation_gate.py'",
+        "calls": [
+          {
+            "argv": [
+              "sessions"
+            ],
+            "label": "001-sessions-before"
+          },
+          {
+            "argv": [
+              "usage"
+            ],
+            "label": "002-usage-before"
+          },
+          {
+            "argv": [
+              "--adopt-root-browser-v1",
+              "/tmp/m4-browser-ownership-8vtbmihk/cli_exception/adoption.json",
+              "94246bb59753eeef368b25b1fe05cc3bcae2d3843a72bdf8c9855a96cd398909"
+            ],
+            "label": "003-browser-registration"
+          },
+          {
+            "argv": [
+              "sessions"
+            ],
+            "label": "004-sessions-after"
+          },
+          {
+            "argv": [
+              "sessions"
+            ],
+            "label": "005-sessions-before-stop"
+          },
+          {
+            "argv": [
+              "stop",
+              "-s",
+              "owned-fixture"
+            ],
+            "label": "006-stop-exact"
+          },
+          {
+            "argv": [
+              "sessions"
+            ],
+            "label": "007-sessions-after-stop"
+          },
+          {
+            "argv": [
+              "usage"
+            ],
+            "label": "008-usage-after"
+          }
+        ],
+        "case": "cli_exception",
+        "driver_status": "BLOCKED",
+        "fake_transport": true,
+        "no_cli_allocation": true,
+        "status": "PASS"
+      },
+      {
+        "actual_driver_error": "'nested-exact/source/generation_gate.py'",
+        "calls": [
+          {
+            "argv": [
+              "sessions"
+            ],
+            "label": "001-sessions-before"
+          },
+          {
+            "argv": [
+              "usage"
+            ],
+            "label": "002-usage-before"
+          },
+          {
+            "argv": [
+              "--adopt-root-browser-v1",
+              "/tmp/m4-browser-ownership-8vtbmihk/missing_completion/adoption.json",
+              "81963cbd18a0e12022034680721e728eeeeef6fd03c7501b7bd4cab6436b68cb"
+            ],
+            "label": "003-browser-registration"
+          },
+          {
+            "argv": [
+              "sessions"
+            ],
+            "label": "004-sessions-after"
+          },
+          {
+            "argv": [
+              "sessions"
+            ],
+            "label": "005-sessions-before-stop"
+          },
+          {
+            "argv": [
+              "stop",
+              "-s",
+              "owned-fixture"
+            ],
+            "label": "006-stop-exact"
+          },
+          {
+            "argv": [
+              "sessions"
+            ],
+            "label": "007-sessions-after-stop"
+          },
+          {
+            "argv": [
+              "usage"
+            ],
+            "label": "008-usage-after"
+          }
+        ],
+        "case": "missing_completion",
+        "driver_status": "BLOCKED",
+        "fake_transport": true,
+        "no_cli_allocation": true,
+        "status": "PASS"
+      },
+      {
+        "actual_driver_error": "BROWSER_EXACT_ASSIGNMENT",
+        "calls": [
+          {
+            "argv": [
+              "sessions"
+            ],
+            "label": "001-sessions-before"
+          },
+          {
+            "argv": [
+              "usage"
+            ],
+            "label": "002-usage-before"
+          },
+          {
+            "argv": [
+              "--adopt-root-browser-v1",
+              "/tmp/m4-browser-ownership-8vtbmihk/wrong_endpoint/adoption.json",
+              "73a8f9b717b1db3cfe4d97983aaf04f0465883f305502a7c9a5ed4deb9c5475a"
+            ],
+            "label": "003-browser-registration"
+          },
+          {
+            "argv": [
+              "sessions"
+            ],
+            "label": "004-sessions-after"
+          },
+          {
+            "argv": [
+              "--remove-browser-provisional-v1",
+              "/tmp/m4-browser-ownership-8vtbmihk/wrong_endpoint/adoption.json",
+              "73a8f9b717b1db3cfe4d97983aaf04f0465883f305502a7c9a5ed4deb9c5475a"
+            ],
+            "label": "005-remove-provisional"
+          }
+        ],
+        "case": "wrong_endpoint",
+        "driver_status": "BLOCKED",
+        "fake_transport": true,
+        "no_cli_allocation": true,
+        "status": "PASS"
+      },
+      {
+        "actual_driver_error": "BROWSER_EXACT_ASSIGNMENT",
+        "calls": [
+          {
+            "argv": [
+              "sessions"
+            ],
+            "label": "001-sessions-before"
+          },
+          {
+            "argv": [
+              "usage"
+            ],
+            "label": "002-usage-before"
+          },
+          {
+            "argv": [
+              "--adopt-root-browser-v1",
+              "/tmp/m4-browser-ownership-8vtbmihk/wrong_session/adoption.json",
+              "f68a72381892e3b320e1e49421add7c5ee3ffcb74fe8110e7805b3f8f97eda37"
+            ],
+            "label": "003-browser-registration"
+          },
+          {
+            "argv": [
+              "sessions"
+            ],
+            "label": "004-sessions-after"
+          },
+          {
+            "argv": [
+              "--remove-browser-provisional-v1",
+              "/tmp/m4-browser-ownership-8vtbmihk/wrong_session/adoption.json",
+              "f68a72381892e3b320e1e49421add7c5ee3ffcb74fe8110e7805b3f8f97eda37"
+            ],
+            "label": "005-remove-provisional"
+          }
+        ],
+        "case": "wrong_session",
+        "driver_status": "BLOCKED",
+        "fake_transport": true,
+        "no_cli_allocation": true,
+        "status": "PASS"
+      },
+      {
+        "actual_driver_error": "BROWSER_EXACT_ASSIGNMENT",
+        "calls": [
+          {
+            "argv": [
+              "sessions"
+            ],
+            "label": "001-sessions-before"
+          },
+          {
+            "argv": [
+              "usage"
+            ],
+            "label": "002-usage-before"
+          },
+          {
+            "argv": [
+              "--adopt-root-browser-v1",
+              "/tmp/m4-browser-ownership-8vtbmihk/wrong_hardware/adoption.json",
+              "2f56593958f69eceaa17c48f933625c0d5caef960c675702aeaf1d2b0e09eba8"
+            ],
+            "label": "003-browser-registration"
+          },
+          {
+            "argv": [
+              "sessions"
+            ],
+            "label": "004-sessions-after"
+          },
+          {
+            "argv": [
+              "--remove-browser-provisional-v1",
+              "/tmp/m4-browser-ownership-8vtbmihk/wrong_hardware/adoption.json",
+              "2f56593958f69eceaa17c48f933625c0d5caef960c675702aeaf1d2b0e09eba8"
+            ],
+            "label": "005-remove-provisional"
+          }
+        ],
+        "case": "wrong_hardware",
+        "driver_status": "BLOCKED",
+        "fake_transport": true,
+        "no_cli_allocation": true,
+        "status": "PASS"
+      },
+      {
+        "actual_driver_error": "'nested-exact/source/generation_gate.py'",
+        "calls": [
+          {
+            "argv": [
+              "sessions"
+            ],
+            "label": "001-sessions-before"
+          },
+          {
+            "argv": [
+              "usage"
+            ],
+            "label": "002-usage-before"
+          },
+          {
+            "argv": [
+              "--adopt-root-browser-v1",
+              "/tmp/m4-browser-ownership-8vtbmihk/stop_failure/adoption.json",
+              "f87c2729d51b81a8cbba44de0abbc8887f39036627b444c5b18b59e3da07208b"
+            ],
+            "label": "003-browser-registration"
+          },
+          {
+            "argv": [
+              "sessions"
+            ],
+            "label": "004-sessions-after"
+          },
+          {
+            "argv": [
+              "sessions"
+            ],
+            "label": "005-sessions-before-stop"
+          },
+          {
+            "argv": [
+              "stop",
+              "-s",
+              "owned-fixture"
+            ],
+            "label": "006-stop-exact"
+          },
+          {
+            "argv": [
+              "sessions"
+            ],
+            "label": "007-sessions-after-stop"
+          },
+          {
+            "argv": [
+              "usage"
+            ],
+            "label": "008-usage-after"
+          }
+        ],
+        "case": "stop_failure",
+        "driver_status": "BLOCKED_CLEANUP",
+        "fake_transport": true,
+        "no_cli_allocation": true,
+        "status": "PASS"
+      },
+      {
+        "case": "old_bad_marker_regression_rejected",
+        "expected_failure": "old driver omits exact stop after matched assignment",
+        "status": "PASS"
+      }
+    ],
+    "scope": "ACTUAL_DRIVER_CONTROL_FLOW_FAKE_CLI_AND_KERNEL_PROTOCOL_NO_PROVIDER_CALLS",
+    "status": "PASS"
+  },
+  "status": "REJECTED_CONTROL_COVERAGE",
+  "verified_epoch": 1791712400.273418
+}

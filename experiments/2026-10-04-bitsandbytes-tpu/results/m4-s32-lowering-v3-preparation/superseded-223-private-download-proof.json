@@ -1,0 +1,18 @@
+{
+  "archive_bytes": 775263,
+  "archive_sha256": "d29fa98bdc938d7e6cc126843ec5e74c7727b865b8346428f4b41b402d9a2344",
+  "every_member_size_sha256_crc_pass": true,
+  "file_id": "1DrbyeCDH3PeauIMcW2UXDySkPBzV_qwg",
+  "members": 223,
+  "parent_id": "1Wj_aNLgxquksWtyHthccE7bpTnT5Z4Vz",
+  "permissions": [
+    {
+      "role": "owner",
+      "type": "user"
+    }
+  ],
+  "shared": false,
+  "source_adoption": "BLOCKED_OWNERSHIP_CONTROL_COVERAGE_AND_EXACT_ASSIGNMENT_PARSER",
+  "status": "INDEPENDENT_DRIVE_DOWNLOAD_FULL_READBACK_PASS",
+  "verified_epoch": 1791712418.758967
+}

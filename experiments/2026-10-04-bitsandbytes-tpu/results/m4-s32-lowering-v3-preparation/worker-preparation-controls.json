@@ -1,0 +1,42 @@
+{
+  "TPU": "NOT_RUN",
+  "actual_source_admission": "PENDING_ACTUAL_DIAGNOSTIC_AND_ROOT_REVIEW",
+  "complete_record_sha256": "642725ce42da36787c904437a8dde401bb42b3d0b2ac5ed3f10f96485cdd72a8",
+  "control_count": 7,
+  "controls": [
+    {
+      "name": "canonical_parent_exact_preimage_check_only",
+      "status": "PASS"
+    },
+    {
+      "name": "wrong_destination_preimage_rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "correct_isolated_replacement_applied_and_read_back",
+      "status": "PASS"
+    },
+    {
+      "name": "unlisted_source_rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "synthetic_correct_packet_complete_gate",
+      "status": "PASS"
+    },
+    {
+      "name": "pending_root_review_rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "altered_packet_helper_rejected",
+      "status": "PASS"
+    }
+  ],
+  "fixtures": "DELETED_AFTER_TEST",
+  "kind": "M4_S32_DRAFT_PREPARATION_CONTROLS",
+  "m4_status": "NOT_QUALIFIED",
+  "provider_calls": 0,
+  "status": "PASS",
+  "synthetic_reviewer_record": "ISOLATED_FIXTURE_ONLY_DELETED"
+}
