@@ -1,0 +1,107 @@
+{
+  "access_scope": "Existing pinned primary caches; no new network requests",
+  "additional_sources": [
+    {
+      "line_ranges": [
+        [
+          1285,
+          1372
+        ],
+        [
+          1415,
+          1485
+        ]
+      ],
+      "path": "/Users/topamini/code/bitsandbytes-TPU/.work/task1-precision/sources/torch_xla__csrc__init_python_bindings.cpp",
+      "sha256": "85105171d16d84dd181f364128a8098d9a02d9934c6a9865f81b012a457fcf43",
+      "supports": "Actual parameter mapping and -1 when an argument is not a device-data parameter; context hlo() bytes versus hlo_text() protobuf text",
+      "url": "https://github.com/pytorch/xla/blob/5fab7053df86c8d503b98d9e7202ca8b8d4978c7/torch_xla/csrc/init_python_bindings.cpp"
+    },
+    {
+      "line_ranges": [
+        [
+          137,
+          156
+        ],
+        [
+          245,
+          260
+        ],
+        [
+          413,
+          424
+        ],
+        [
+          548,
+          561
+        ]
+      ],
+      "path": "/Users/topamini/code/bitsandbytes-TPU/.work/r6-compiler-link-preparation/sources/xla__service__hlo.proto",
+      "sha256": "12657c4bb5e39d55fbeea9bb4a45d9191daf59c8636aa586661452f13070623c",
+      "supports": "Parameter number, instruction operands/callees, computation/root/entry IDs; bounded parser retains semantic node attributes",
+      "url": "https://github.com/openxla/xla/blob/92f7b5952dd585c5be17c9a5caad27407005b513/xla/service/hlo.proto"
+    },
+    {
+      "line_ranges": [
+        [
+          30,
+          75
+        ],
+        [
+          594,
+          611
+        ]
+      ],
+      "path": "/Users/topamini/code/bitsandbytes-TPU/.work/r6-compiler-link-preparation/sources/xla__xla_data.proto",
+      "sha256": "f5d56d6aa3e5bf84266d64c64c107bbd88ec60f09caacfb2ba8ab8063304a2ec",
+      "supports": "Pinned primitive type IDs and literal proto fields",
+      "url": "https://github.com/openxla/xla/blob/92f7b5952dd585c5be17c9a5caad27407005b513/xla/xla_data.proto"
+    },
+    {
+      "line_ranges": [
+        [
+          346,
+          463
+        ]
+      ],
+      "path": "/Users/topamini/code/bitsandbytes-TPU/.work/r4-numerical-repair/cache/SumKernel-2.9.0.cpp",
+      "sha256": "ed0af1f8d99378801ec0ff5b66c4ebff8c9ca37dd33187b6f15a9c909de5637c",
+      "supports": "Four-level ILP4 vector-row sum, scalar tail, then AVX2 lane accumulation",
+      "url": "https://github.com/pytorch/pytorch/blob/0fabc3ba44823f257e70ce397d989c8de5e362c1/aten/src/ATen/native/cpu/SumKernel.cpp"
+    },
+    {
+      "line_ranges": [
+        [
+          1374,
+          1414
+        ]
+      ],
+      "path": "/Users/topamini/code/bitsandbytes-TPU/.work/r4-numerical-repair/cache/ReduceOps-2.9.0.cpp",
+      "sha256": "3ba2de1c28bb1ddd7c9374b22879f8353170b7291bd98f2ccdd06cc671aa209c",
+      "supports": "CPU mean uses sum_out followed by div_",
+      "url": "https://github.com/pytorch/pytorch/blob/0fabc3ba44823f257e70ce397d989c8de5e362c1/aten/src/ATen/native/ReduceOps.cpp"
+    },
+    {
+      "line_ranges": [
+        [
+          481,
+          491
+        ]
+      ],
+      "path": "/Users/topamini/code/bitsandbytes-TPU/.work/r4-numerical-repair/cache/DispatchStub-2.9.0.h",
+      "sha256": "8ccd731ed22d6078012986b168501cf822464ef504ad50a496a9c54034723553",
+      "supports": "AVX512 dispatch specialization is conditional; fresh CPU gate requires AVX2 evidence",
+      "url": "https://github.com/pytorch/pytorch/blob/0fabc3ba44823f257e70ce397d989c8de5e362c1/aten/src/ATen/native/DispatchStub.h"
+    }
+  ],
+  "integration_basis": {
+    "claims": "Unchanged default full reciprocal-multiply/tail direct-divide, public quantize mean/center, dequantize offset and original state serialization",
+    "path": "/Users/topamini/code/bitsandbytes-TPU/.work/r4-nested-exact-integration/SOURCE_BASIS.json",
+    "sha256": "24dd04e12e8a1af124b051a2f0e59edcc043deb50c77d9389db26e33ea4eb22f"
+  },
+  "limitations": [
+    "Local TorchDispatchMode/source-profile controls run on macOS Torch2.14.1; target Torch2.9 behavior is not device-qualified.",
+    "No fresh qualified Linux CPU oracle, TPU graph, executable or performance is recorded."
+  ],
+  "review_date": "2026-10-09"
+}

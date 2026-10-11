@@ -91,6 +91,10 @@ Its 265 byte comparisons include 229 passes and 36 failures; both clamp scalar s
 The reviewer verified all 406 archive members and complete resource closure.
 The observed output bits now supply the basis for the arithmetic correction.
 The failed result cannot authorize the saved-state supplement or an accepted M4 dependency.
+The [portable exact nested preparation](changes/r4-exact-portable-preparation.md) preserves all 19 reviewed scientific members.
+The reviewer passed 24 CLI identity controls, 11 integration controls, and five driver tests covering nine scenarios.
+The new complete source tree requires fresh Linux CPU, actual79, and state8 records.
+The state phase requires the root reviewer's genuine accepted actual79 record within the original deadline.
 The private CPU preparations for M4, M5, and M6 do not qualify those device milestones.
 The [bounded native preparation](changes/r6-native-cloud-preparation.md) uses accepted M2 sources and can execute independently of the M4 repair.
 It requires actual native graph and output records before a separate compiler memory experiment.

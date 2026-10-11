@@ -1,5 +1,17 @@
 # Change log
 
+## 2026-10-11 — Portable exact nested preparation
+
+- Add the complete exact nested source and a separate cloud owner.
+- Preserve all 19 scientific members and the 79-case and eight-state criteria.
+- Require an independent CPU launch audit and external actual79 acceptance before state execution.
+- Resolve interpreter content identity while retaining the original CLI environment and invocation.
+
+Validation: The reviewer passed 24 CLI identity controls, 11 integration controls, and five driver tests covering nine scenarios.
+All 143 adopted files matched the reviewed source archive.
+Actual Linux CPU and TPU execution remain required; M4 remains unqualified.
+Refer to [the preparation record](docs/changes/r4-exact-portable-preparation.md).
+
 ## 2026-10-11 — Actual default dumps and partial public results
 
 - Retain five passed compiler diagnostic cases and all 234 raw compiler files.

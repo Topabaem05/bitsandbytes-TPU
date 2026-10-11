@@ -1,0 +1,347 @@
+{
+  "M4": "NOT_QUALIFIED",
+  "TPU": "NOT_RUN",
+  "canonical_mutations": 0,
+  "cleanup": {
+    "after": {
+      "bytes": 4083090,
+      "files": 66
+    },
+    "before": {
+      "bytes": 5735590,
+      "files": 251
+    },
+    "checkpoint_or_raw_graph_or_test_archive_files_remaining": 0,
+    "deleted_file_bytes": 1651424,
+    "deleted_file_count": 184,
+    "frozen_stages_modified": false,
+    "removed": [
+      {
+        "bytes": 44997,
+        "files": 5,
+        "path": "/tmp/bnb-tpu-m4-20261011-5oy7bI/controls-original"
+      },
+      {
+        "bytes": 61878,
+        "files": 12,
+        "path": "/tmp/bnb-tpu-m4-20261011-5oy7bI/original-owned-003"
+      },
+      {
+        "bytes": 64262,
+        "files": 12,
+        "path": "/tmp/bnb-tpu-m4-20261011-5oy7bI/original-owned-002"
+      },
+      {
+        "bytes": 61880,
+        "files": 12,
+        "path": "/tmp/bnb-tpu-m4-20261011-5oy7bI/original-owned-final"
+      },
+      {
+        "bytes": 286700,
+        "files": 30,
+        "path": "/tmp/bnb-tpu-m4-20261011-5oy7bI/new-owned-003"
+      },
+      {
+        "bytes": 277863,
+        "files": 26,
+        "path": "/tmp/bnb-tpu-m4-20261011-5oy7bI/new-owned-002"
+      },
+      {
+        "bytes": 288712,
+        "files": 33,
+        "path": "/tmp/bnb-tpu-m4-20261011-5oy7bI/new-owned-final"
+      },
+      {
+        "bytes": 288538,
+        "files": 31,
+        "path": "/tmp/bnb-tpu-m4-20261011-5oy7bI/new-owned-final2"
+      },
+      {
+        "bytes": 276594,
+        "files": 23,
+        "path": "/tmp/bnb-tpu-m4-20261011-5oy7bI/new-owned-001"
+      }
+    ],
+    "restored_prerequisites": "ROOT_OWNS_DISPOSAL_AFTER_ITS_REPLAY",
+    "status": "DISPOSABLE_OUTPUTS_DELETED"
+  },
+  "cloud_dispatch_ready": false,
+  "failures_retained": [
+    "Initial original replay:13PASS/3ERROR from relocated lock lookup,new manifest fixture,missing archived failed79 receipt; corrected local fixture paths only.",
+    "Initial new replay:3PASS/1ERROR from missing isolated quota-test directory; repaired fixture.",
+    "Extended quota replay:6PASS/1FAIL from isolated quota profile reload mismatch; persisted the scaled fixture profile; production limits unchanged."
+  ],
+  "frozen_manifests_match_prior_review": {
+    ".work/r4-nested-exact-integration/adoption-map.json": "cc237461aa97a4b33ebca3d794cba0b158139c137ce2323cbb9b2ebda0cd50b6",
+    ".work/r4-nested-exact-science-preparation/science-manifest.json": "3ce9c0e522ddda00bd82bb87d9b25dbb96f8093b086f533c4a6abee7fb805017",
+    ".work/r4-nested-exact-science-v2/science-manifest.json": "fa2cf112fdd016fe15b4890177f6bd9f7484f849d14080131e2d6e5ca341a12f"
+  },
+  "integration_admission_sha256": "75790f1d4613e20daa06d99111288463ef24b05aaa29922a7580512078f9912f",
+  "kind": "PRIVATE_M4_EXACT79_STATE8_LOSSLESS_PREPARATION_REVIEW",
+  "limitations": [
+    "No complete cloud packet or root source review has been created.",
+    "Actual HLO dimensions,lowered parameters,total runtime,and full archive feasibility remain unobserved.",
+    "Full state executor and recovered TPU record path have not executed on qualified Linux/TPU.",
+    "Typed proof remains selected pre-optimization composites;no executable identity,memory,or performance claim."
+  ],
+  "network_or_provider_calls": 0,
+  "numeric_domain_first_scales": [
+    1,
+    513
+  ],
+  "original79_cases": 79,
+  "original_gates": 540,
+  "original_inputs_sha256": "b7490f4c622aef793d14bd9a7a38727754cb1fb8e6e1dec7ff91ef8c45fbafbc",
+  "outer_archive_limit_bytes": 104857600,
+  "outer_members": 2000,
+  "patch_sha256": "b4852ef946733f78faaa930b2f9834b07cdc66f2e46bfdd5f75e6c5e584bfac1",
+  "primary_source_basis": "source/SOURCE_BASIS.json",
+  "qualified_Linux_CPU": "NOT_RUN",
+  "required_root_checks": [
+    "Review the new19member science map and source patch.",
+    "Prepare and independently recover fresh qualified Linux nested79 and state8 CPU records.",
+    "Use cpu_gate.audit for nested79 and validate_cpu_launch for the separate state CPU oracle.",
+    "Obtain accepted exact79 device records under the unchanged accepted79 schema before state device execution.",
+    "For same allocation, prove allocation birth,accepted79 completion,remaining original budget,and closure reserve in the actual root driver.",
+    "Package and verify the whole physical envelope under100MiB/2000members.",
+    "Verify actual TPU traces,original numerical gates,all checkpoint pairs,and provider closure."
+  ],
+  "review_date": "2026-10-11",
+  "science_manifest_sha256": "9e71efc73b0f2b3a210f8131c10972569a5e2d04cf298fcf5a8da59772cf4f5a",
+  "science_members": 19,
+  "source_freeze_sha256": "bd2cb1572946670eaac1d257d11e0a8544a4a42c0ce7fa721e8bb2aaf5e5f861",
+  "source_freeze_unchanged_after_final_tests": true,
+  "state_cases": 8,
+  "status": "LOCAL_CONTROLS_PASS_NOT_ADOPTED",
+  "tests": {
+    "new_controls": {
+      "TPU": "NOT_RUN",
+      "controls": [
+        {
+          "archive": {
+            "bytes": 1978,
+            "members": 6,
+            "sha256": "64381f0a3d446abc2018366fe7636bbec5e06d95ea7918769503005002c232f2"
+          },
+          "control": "LOSSLESS_REAL_PACK_SELECTED_RECOVERY_AND_EXACT_DUPLICATE",
+          "logical": 6,
+          "status": "PASS",
+          "unique": 5
+        },
+        {
+          "control": "WRONG_CONTENT_PATH_TRUNCATION_EXTRA_OBJECT_QUOTA_AND_FAILURE_HASH",
+          "status": "PASS"
+        },
+        {
+          "children": [
+            {
+              "argv": [
+                "/Users/topamini/code/Post2TPU/.venv/bin/python",
+                "-B",
+                "/tmp/bnb-tpu-m4-20261011-5oy7bI/state_fixture_child.py",
+                "--source",
+                "/tmp/bnb-tpu-m4-20261011-5oy7bI/source",
+                "--repo",
+                "/Users/topamini/code/bitsandbytes-TPU",
+                "--generation",
+                "/Users/topamini/code/bitsandbytes-TPU/.work/r4-nested-exact-integration",
+                "--oracle",
+                "/tmp/bnb-tpu-m4-restore-20261011/Users/topamini/code/bitsandbytes-TPU/.work/cloud-20261008-nested-browser-adopted/recovered/cpu-oracle",
+                "--phase",
+                "save",
+                "--output",
+                "/tmp/bnb-tpu-m4-20261011-5oy7bI/new-owned-final2/controls/save",
+                "--saved",
+                "/tmp/bnb-tpu-m4-20261011-5oy7bI/new-owned-final2/controls/save",
+                "--token",
+                "8e61d457456c1e3b30cad47ccf62e47a"
+              ],
+              "child_absent": true,
+              "cleanup_errors": [],
+              "deadline_epoch": 1791694364.0015922,
+              "exit_code": 0,
+              "finished_epoch": 1791694277.583287,
+              "finished_monotonic": 11711.430672875,
+              "launched_pid": 44096,
+              "parent_pid": 44095,
+              "parent_process_token": "173474f33253ddd1ec6008ae0c96af1a",
+              "pgid": 44095,
+              "phase": "save",
+              "pid": 44096,
+              "process_token": "8e61d457456c1e3b30cad47ccf62e47a",
+              "reaped": true,
+              "started_epoch": 1791694274.001951,
+              "started_monotonic": 11707.849332916,
+              "timeout": false
+            },
+            {
+              "argv": [
+                "/Users/topamini/code/Post2TPU/.venv/bin/python",
+                "-B",
+                "/tmp/bnb-tpu-m4-20261011-5oy7bI/state_fixture_child.py",
+                "--source",
+                "/tmp/bnb-tpu-m4-20261011-5oy7bI/source",
+                "--repo",
+                "/Users/topamini/code/bitsandbytes-TPU",
+                "--generation",
+                "/Users/topamini/code/bitsandbytes-TPU/.work/r4-nested-exact-integration",
+                "--oracle",
+                "/tmp/bnb-tpu-m4-restore-20261011/Users/topamini/code/bitsandbytes-TPU/.work/cloud-20261008-nested-browser-adopted/recovered/cpu-oracle",
+                "--phase",
+                "restore",
+                "--output",
+                "/tmp/bnb-tpu-m4-20261011-5oy7bI/new-owned-final2/controls/restore",
+                "--saved",
+                "/tmp/bnb-tpu-m4-20261011-5oy7bI/new-owned-final2/controls/save",
+                "--token",
+                "8901314202fb1fdded333c66051b1360"
+              ],
+              "child_absent": true,
+              "cleanup_errors": [],
+              "deadline_epoch": 1791694364.0015922,
+              "exit_code": 0,
+              "finished_epoch": 1791694280.3650079,
+              "finished_monotonic": 11714.212398541,
+              "launched_pid": 44104,
+              "parent_pid": 44095,
+              "parent_process_token": "173474f33253ddd1ec6008ae0c96af1a",
+              "pgid": 44095,
+              "phase": "restore",
+              "pid": 44104,
+              "process_token": "8901314202fb1fdded333c66051b1360",
+              "reaped": true,
+              "started_epoch": 1791694277.5847309,
+              "started_monotonic": 11711.432117458,
+              "timeout": false
+            }
+          ],
+          "control": "EIGHT_REAL_CPU_PUBLIC_SAVE_FRESH_RESTORE_AND_EIGHT_WRONG_CHECKPOINTS",
+          "scope": "UNQUALIFIED_CPU_FIXTURE_NOT_ORACLE",
+          "status": "PASS"
+        },
+        {
+          "control": "EXPLICIT_AVX2_SINGLE_THREAD_BEFORE_CPU_ARITHMETIC_CORRECT_WRONG",
+          "scope": "SYNTHETIC_METADATA_NO_ORACLE",
+          "status": "PASS"
+        },
+        {
+          "TPU": "NOT_RUN",
+          "control": "SYNTHETIC_AFTER_RETURN_OBSERVER_FAILURE_RETAINS_ORIGINAL_RESULT",
+          "status": "PASS"
+        },
+        {
+          "control": "SYNTHETIC_RETURNED_NUMERIC_ROW_PASS_WRONG_CODE_FAIL_OBSERVATION_NEVER_QUALIFIES",
+          "scope": "MOCK_CPU_DEPENDENCY_NO_ACCEPTED_RECORD",
+          "status": "PASS"
+        },
+        {
+          "control": "REAL_ENTRYPOINTS_EXACT_INPUTS_ORIGINAL_RESTORE_AND_NO_FAKE_ACCEPTANCE",
+          "status": "PASS"
+        }
+      ],
+      "errors": 0,
+      "failures": 0,
+      "qualified_CPU": "NOT_RUN",
+      "status": "PASS",
+      "tests": 7
+    },
+    "original_controls": {
+      "TPU": "NOT_RUN",
+      "attempts": {
+        "credentials": 0,
+        "network": 0
+      },
+      "controls": [
+        {
+          "control": "EXACT48_SOURCE_47PY_PLUS_TYPED_11PY_OLD_WRONG_REJECTION",
+          "status": "PASS"
+        },
+        {
+          "TPU": "NOT_RUN",
+          "cases": 79,
+          "control": "ALL79_READONLY_RATIONAL_QUANTIZATION_AND_SCALAR_DENSE",
+          "new_source_oracle": "NOT_CREATED",
+          "quantized_arrays": 519,
+          "status": "PASS"
+        },
+        {
+          "control": "RNE_ZERO_SUBNORMAL_SOURCE_ORDER_RECIPROCAL_NOT_DIRECT_AND_WRONG_CODE",
+          "status": "PASS"
+        },
+        {
+          "control": "SYNTHETIC_PROTO_HLO_BITCAST_FLOAT_INT64_EXTRA_PARAMETER_NEGATIVES",
+          "status": "PASS"
+        },
+        {
+          "actual_HLO_depth": "NOT_OBSERVED",
+          "control": "1503_DEPTH_ITERATIVE_CHAIN_DIAMOND_CYCLE_AND_DEBUG_METADATA",
+          "status": "PASS"
+        },
+        {
+          "control": "COMPLETE_TUPLE_SERIALIZATION_ORIGINAL_METRIC_FALLBACK_GUARDS",
+          "status": "PASS"
+        },
+        {
+          "control": "ACTUAL_ARGUMENT_WORD_FAIL_RETAINED_AND_AUXILIARY_DOMAIN_REJECTION",
+          "status": "PASS"
+        },
+        {
+          "control": "SYNTHETIC_OUTER_CPU_LAUNCH_PID_PGID_ARGV_EPERM_REJECTION",
+          "status": "PASS"
+        },
+        {
+          "XLA": "NOT_RUN",
+          "control": "ACTUAL_CPU_NATIVE_PROFILE_SINGLE_WRAP_FP32_BF16_TLS_AND_DOUBLE_WRAP_REJECTION",
+          "status": "PASS"
+        },
+        {
+          "control": "SYNTHETIC_RECOVERED_SOURCE_FRAME_NEGATIVES_AND_NONFINITE_ERROR_RETENTION",
+          "status": "PASS"
+        },
+        {
+          "control": "STATIC_ORIGINAL_PUBLIC_CALLS_EXPLICIT_RESTORE_OLD_ORACLE_REJECTS",
+          "status": "PASS"
+        },
+        {
+          "control": "REAL_SOURCE_LOADER_AND_CLI_OLD_ORACLE_WRONG_SOURCE_REJECTION",
+          "qualified_runtime_started": false,
+          "status": "PASS"
+        },
+        {
+          "control": "POST_VALIDATION_ERROR_PASS_REJECTION_AND_FAIL_ERROR_RETENTION",
+          "status": "PASS"
+        },
+        {
+          "control": "EXACT_RETAINED_CPU_RUNTIME_CORRECT_WRONG_OMITTED_EXTRA",
+          "fixture": "SYNTHETIC_METADATA_NO_CPU_ORACLE_CREATED",
+          "status": "PASS"
+        },
+        {
+          "control": "PROPOSED_LOSSLESS_OBJECT_FULL_BYTES_DEDUP_WRONG_SHA_TRUNCATED_MULTIGZIP_BOMB_QUOTA",
+          "production_bridge": "NOT_IMPLEMENTED_NOT_ADOPTED",
+          "status": "PASS"
+        },
+        {
+          "control": "FIXED8_STATE_CASES_OLD_FAILED79_AND_MISSING_CASE_REJECTION",
+          "state_execution": "NOT_RUN",
+          "status": "PASS"
+        }
+      ],
+      "errors": 0,
+      "failures": 0,
+      "new_cpu_oracle": "NOT_CREATED",
+      "scope": "Local macOS unqualified controls; historical records read only; synthetic graph/launch fixtures",
+      "status": "PASS",
+      "tests_run": 16
+    },
+    "qualified_runtime": "NOT_RUN",
+    "source_AST": "PASS",
+    "state_execute_CLI_help": "PASS",
+    "state_pairs": {
+      "cases": 8,
+      "exact_checkpoint_and_state_pairs": true,
+      "separate_PIDs": true,
+      "separate_tokens": true
+    }
+  }
+}

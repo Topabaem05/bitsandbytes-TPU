@@ -1,0 +1,9 @@
+{
+  "quantize_blockwise": "bitsandbytes::quantize_blockwise(Tensor A, Tensor code, int blocksize) -> (Tensor, Tensor)",
+  "dequantize_blockwise": "bitsandbytes::dequantize_blockwise(Tensor A, Tensor absmax, Tensor code, int blocksize, ScalarType dtype) -> Tensor",
+  "dequantize_blockwise.out": "bitsandbytes::dequantize_blockwise.out(Tensor A, Tensor absmax, Tensor code, int blocksize, ScalarType dtype, Tensor($0! -> ) out) -> ()",
+  "quantize_4bit": "bitsandbytes::quantize_4bit(Tensor A, int blocksize, str quant_type, ScalarType quant_storage) -> (Tensor, Tensor)",
+  "dequantize_4bit": "bitsandbytes::dequantize_4bit(Tensor A, Tensor absmax, int blocksize, str quant_type, int[] shape, ScalarType dtype) -> Tensor",
+  "dequantize_4bit.out": "bitsandbytes::dequantize_4bit.out(Tensor A, Tensor absmax, int blocksize, str quant_type, int[] shape, ScalarType dtype, Tensor($0! -> ) out) -> ()",
+  "gemm_4bit": "bitsandbytes::gemm_4bit(Tensor A, Tensor B, int[] shapeB, Tensor absmax, int blocksize, str quant_type, Tensor? bias=None, Tensor? absmax_8bit=None, Tensor? absmax_code=None, Tensor? absmax_offset=None) -> Tensor"
+}
