@@ -22,7 +22,9 @@ The reviewer must examine the change and its test records.
 Then commit and push each accepted logical change.
 
 Keep local environments, wheel bodies, credentials, and raw provider logs outside Git.
-Use `.work` for local test output.
+Use fresh directories under `/tmp` for local test output.
+Test each disposable artifact, then remove it after required evidence is preserved.
+Do not add test output to `.work`.
 Use small, selected fixtures for tests in Git.
 
 ## Claims

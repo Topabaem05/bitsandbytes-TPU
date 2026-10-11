@@ -1,5 +1,15 @@
 # Change log
 
+## 2026-10-11 — M5 superseded preparation disposal
+
+- Preserve the reader v3 review findings and focused root checks.
+- Verify all 500 private archive members and delete three superseded preparation roots.
+- Require disposable test output under `/tmp` and prevent new output in `.work`.
+
+Validation: Independent full download verification passed before deletion.
+Reader v4 remains under review; M5 remains unqualified.
+Refer to [the review record](docs/changes/m5-superseded-preparations-20261011.md).
+
 ## 2026-10-11 — Functional output preparation disposal
 
 - Verify all 168 source archive members through an independent private download.

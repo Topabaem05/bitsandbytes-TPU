@@ -1,0 +1,226 @@
+{
+  "actual_m4_acceptance": "NOT_SUPPLIED",
+  "count": 13,
+  "fixtures_deleted": true,
+  "independent_reader_controls": 39,
+  "m5_status": "NOT_QUALIFIED",
+  "provider_calls": 0,
+  "scenarios": [
+    {
+      "disposable_bytes": 15901805,
+      "driver_status": "TRAINING20_RESUME10_RECOVERED_ROOT_REVIEW_REQUIRED",
+      "error": null,
+      "exact_runtime_stop_observed": true,
+      "fixtures_deleted": true,
+      "kernel_proofs": 10,
+      "name": "correct",
+      "original_clock_preserved": true,
+      "science_fixture_phases": [
+        "cpu",
+        "device"
+      ],
+      "status": "PASS",
+      "usage_zero_observed": true
+    },
+    {
+      "disposable_bytes": 16023896,
+      "driver_status": "TRAINING20_RESUME10_RECOVERED_ROOT_REVIEW_REQUIRED",
+      "error": null,
+      "exact_runtime_stop_observed": true,
+      "fixtures_deleted": true,
+      "kernel_proofs": 11,
+      "name": "correct_cache",
+      "original_clock_preserved": true,
+      "science_fixture_phases": [
+        "cpu",
+        "device"
+      ],
+      "status": "PASS",
+      "usage_zero_observed": true
+    },
+    {
+      "disposable_bytes": 15773412,
+      "driver_status": "BLOCKED",
+      "error": {
+        "message": "KERNEL_COMPLETION_LINE",
+        "type": "ValueError"
+      },
+      "exact_runtime_stop_observed": true,
+      "fixtures_deleted": true,
+      "kernel_proofs": 5,
+      "name": "cli_zero_kernel_error",
+      "original_clock_preserved": true,
+      "science_fixture_phases": [],
+      "status": "PASS",
+      "usage_zero_observed": true
+    },
+    {
+      "disposable_bytes": 15773932,
+      "driver_status": "BLOCKED",
+      "error": {
+        "message": "KERNEL_COMPLETION_LINE",
+        "type": "ValueError"
+      },
+      "exact_runtime_stop_observed": true,
+      "fixtures_deleted": true,
+      "kernel_proofs": 5,
+      "name": "duplicate_marker",
+      "original_clock_preserved": true,
+      "science_fixture_phases": [],
+      "status": "PASS",
+      "usage_zero_observed": true
+    },
+    {
+      "disposable_bytes": 15773685,
+      "driver_status": "BLOCKED",
+      "error": {
+        "message": "KERNEL_COMPLETION_LINE",
+        "type": "ValueError"
+      },
+      "exact_runtime_stop_observed": true,
+      "fixtures_deleted": true,
+      "kernel_proofs": 5,
+      "name": "post_marker_error",
+      "original_clock_preserved": true,
+      "science_fixture_phases": [],
+      "status": "PASS",
+      "usage_zero_observed": true
+    },
+    {
+      "disposable_bytes": 15773633,
+      "driver_status": "BLOCKED",
+      "error": {
+        "message": "KERNEL_COMPLETION_BINDING",
+        "type": "ValueError"
+      },
+      "exact_runtime_stop_observed": true,
+      "fixtures_deleted": true,
+      "kernel_proofs": 5,
+      "name": "wrong_nonce",
+      "original_clock_preserved": true,
+      "science_fixture_phases": [],
+      "status": "PASS",
+      "usage_zero_observed": true
+    },
+    {
+      "disposable_bytes": 15773721,
+      "driver_status": "BLOCKED",
+      "error": {
+        "message": "KERNEL_COMPLETION_BINDING",
+        "type": "ValueError"
+      },
+      "exact_runtime_stop_observed": true,
+      "fixtures_deleted": true,
+      "kernel_proofs": 5,
+      "name": "wrong_phase",
+      "original_clock_preserved": true,
+      "science_fixture_phases": [],
+      "status": "PASS",
+      "usage_zero_observed": true
+    },
+    {
+      "disposable_bytes": 15773659,
+      "driver_status": "BLOCKED",
+      "error": {
+        "message": "KERNEL_COMPLETION_BINDING",
+        "type": "ValueError"
+      },
+      "exact_runtime_stop_observed": true,
+      "fixtures_deleted": true,
+      "kernel_proofs": 5,
+      "name": "wrong_source",
+      "original_clock_preserved": true,
+      "science_fixture_phases": [],
+      "status": "PASS",
+      "usage_zero_observed": true
+    },
+    {
+      "disposable_bytes": 15779876,
+      "driver_status": "BLOCKED",
+      "error": {
+        "message": "KERNEL_ARTIFACT_READBACK_SHA",
+        "type": "ValueError"
+      },
+      "exact_runtime_stop_observed": true,
+      "fixtures_deleted": true,
+      "kernel_proofs": 5,
+      "name": "wrong_artifact",
+      "original_clock_preserved": true,
+      "science_fixture_phases": [],
+      "status": "PASS",
+      "usage_zero_observed": true
+    },
+    {
+      "disposable_bytes": 15773632,
+      "driver_status": "BLOCKED",
+      "error": {
+        "message": "synthetic missing independent completion",
+        "type": "FileNotFoundError"
+      },
+      "exact_runtime_stop_observed": true,
+      "fixtures_deleted": true,
+      "kernel_proofs": 5,
+      "name": "missing_completion_download",
+      "original_clock_preserved": true,
+      "science_fixture_phases": [],
+      "status": "PASS",
+      "usage_zero_observed": true
+    },
+    {
+      "disposable_bytes": 21178260,
+      "driver_status": "BLOCKED",
+      "error": {
+        "message": "CLI_FAILED:remote-device",
+        "type": "ValueError"
+      },
+      "exact_runtime_stop_observed": true,
+      "fixtures_deleted": true,
+      "kernel_proofs": 9,
+      "name": "science_cli_failure",
+      "original_clock_preserved": true,
+      "science_fixture_phases": [
+        "cpu",
+        "device"
+      ],
+      "status": "PASS",
+      "usage_zero_observed": true
+    },
+    {
+      "disposable_bytes": 11264052,
+      "driver_status": "BLOCKED",
+      "error": {
+        "message": "KERNEL_COMPLETION_LINE",
+        "type": "ValueError"
+      },
+      "exact_runtime_stop_observed": true,
+      "fixtures_deleted": true,
+      "kernel_proofs": 5,
+      "name": "export_cli_zero_no_marker",
+      "original_clock_preserved": true,
+      "science_fixture_phases": [
+        "cpu"
+      ],
+      "status": "PASS",
+      "usage_zero_observed": true
+    },
+    {
+      "disposable_bytes": 15897471,
+      "driver_status": "BLOCKED_CLEANUP",
+      "error": null,
+      "exact_runtime_stop_observed": true,
+      "fixtures_deleted": true,
+      "kernel_proofs": 10,
+      "name": "wrong_usage_closure",
+      "original_clock_preserved": true,
+      "science_fixture_phases": [
+        "cpu",
+        "device"
+      ],
+      "status": "PASS",
+      "usage_zero_observed": false
+    }
+  ],
+  "shared_bytes_deleted": 5261935,
+  "status": "PASS",
+  "synthetic_transport_and_audits_only": true
+}

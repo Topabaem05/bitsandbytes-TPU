@@ -1,0 +1,79 @@
+{
+  "baseline": {
+    "all_source_scripts_regenerated": true,
+    "cli_commands": 64,
+    "count": 10,
+    "runtime_wheels_enabled": false,
+    "status": "COMPLETE_CANONICAL_KERNEL_AND_CLI_READBACK_VERIFIED"
+  },
+  "candidate_writes": 0,
+  "fixtures_deleted": true,
+  "mutations": [
+    {
+      "accepted": true,
+      "name": "contradictory_physical_resource_closure_raw",
+      "verdict": {
+        "all_source_scripts_regenerated": true,
+        "cli_commands": 64,
+        "count": 10,
+        "runtime_wheels_enabled": false,
+        "status": "COMPLETE_CANONICAL_KERNEL_AND_CLI_READBACK_VERIFIED"
+      }
+    },
+    {
+      "accepted": true,
+      "name": "unlisted_lifecycle_child_started",
+      "verdict": {
+        "all_source_scripts_regenerated": true,
+        "cli_commands": 64,
+        "count": 10,
+        "runtime_wheels_enabled": false,
+        "status": "COMPLETE_CANONICAL_KERNEL_AND_CLI_READBACK_VERIFIED"
+      }
+    },
+    {
+      "accepted": false,
+      "error": "KERNEL_COMPLETION_LINE",
+      "name": "invalid_kernel_raw_control"
+    }
+  ],
+  "prior_archive": {
+    "archive_bytes": 388592,
+    "archive_sha256": "42598d2212ac80d080bf5418731932220a8dd5c2b8cf8141fa22f5da8a684f5c",
+    "every_member_sha256_verified": true,
+    "members": 166,
+    "provider_calls": 0,
+    "source_bytes": 5108223,
+    "source_closure_sha256": "32577ff5398e5dc9fe53809e2fe95bcf80d9cc390e56e492585071e5ba349fb3",
+    "status": "PASS"
+  },
+  "provider_calls": 0,
+  "source_archive": {
+    "archive_bytes": 407128,
+    "archive_sha256": "faee769327eb29d839142936c4a1f73745421be331676753d45f1467ce210d23",
+    "every_member_sha256_verified": true,
+    "members": 174,
+    "provider_calls": 0,
+    "source_bytes": 5192284,
+    "source_closure_sha256": "278370f50307a9255974b9cc639c6cf20a87119f2ba6f0e389ee09918e8d8034",
+    "status": "PASS"
+  },
+  "source_delta": {
+    "added": [
+      "control/kernel_entries.py",
+      "control/kernel_reader.py"
+    ],
+    "changed": [
+      "control/driver.py",
+      "control/inspect_actual.py",
+      "integration/source-admission.json",
+      "source/admission.py"
+    ],
+    "current_science_members": 122,
+    "frozen_science_bytes_match": true,
+    "full_archives_read": true,
+    "prior_science_members": 120,
+    "status": "PASS"
+  },
+  "status": "REVIEW_FINDINGS_REPRODUCED"
+}

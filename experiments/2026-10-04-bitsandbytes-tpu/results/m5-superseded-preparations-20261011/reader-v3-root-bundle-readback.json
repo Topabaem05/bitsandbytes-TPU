@@ -1,0 +1,10 @@
+{
+  "archive_bytes": 407128,
+  "archive_sha256": "faee769327eb29d839142936c4a1f73745421be331676753d45f1467ce210d23",
+  "every_member_sha256_verified": true,
+  "members": 174,
+  "provider_calls": 0,
+  "source_bytes": 5192284,
+  "source_closure_sha256": "278370f50307a9255974b9cc639c6cf20a87119f2ba6f0e389ee09918e8d8034",
+  "status": "PASS"
+}

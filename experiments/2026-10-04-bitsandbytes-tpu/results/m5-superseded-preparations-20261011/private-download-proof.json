@@ -1,0 +1,20 @@
+{
+  "archive_bytes": 2574232,
+  "archive_sha256": "7d5b8dcaa09a5dd28b92b969e196e7b286579406652c8950289901c41dcc2d78",
+  "created_epoch": 1791705633.011235,
+  "download_verified_epoch": 1791705711.783485,
+  "every_member_sha256_verified": true,
+  "input_entries": 499,
+  "inventory_sha256": "848302efbb22b5b19cb3daf8ceaffbfd760cb63f0ae879e53ae40f279ce0f0f0",
+  "logical_bytes": 16479781,
+  "members": 500,
+  "remote_id": "1uyAGUMP0Hnb3VJTmI4SG5Ztf2O4qOpDF",
+  "roots": [
+    "/tmp/bnb-tpu-m5-preparation-20261011-RLTaMA",
+    "/tmp/bnb-tpu-m5-v2-20261011-jcc5zoqq",
+    "/tmp/bnb-tpu-m5-reader-v3-20261011-0k41zyv4"
+  ],
+  "status": "INDEPENDENT_DOWNLOAD_FULL_READBACK_PASS",
+  "symlinks": 0,
+  "zip_crc_verified": true
+}
