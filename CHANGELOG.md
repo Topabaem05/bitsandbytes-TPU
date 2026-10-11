@@ -1,5 +1,16 @@
 # Change log
 
+## 2026-10-11 — Public source upload failure and disposal
+
+- Record the missing remote source directory before numerical execution.
+- Preserve the original runtime deadline and exact session closure.
+- Verify all 320 private archive members through an independent download.
+- Delete nine completed local roots and temporary archive copies.
+
+Validation: All 31 owned process groups were absent, and active assignments and usage were zero.
+No fresh CPU15, dyadic, or TPU case ran; the previous public result remains unchanged.
+Refer to [the failure record](docs/changes/r6-public-transport-failure-20261011.md).
+
 ## 2026-10-11 — Compiler debug trace preparation
 
 - Bind compilation and execution counts to their separate complete module records.

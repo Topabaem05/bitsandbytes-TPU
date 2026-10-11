@@ -1,0 +1,50 @@
+{
+  "all_groups_freshly_absent": true,
+  "allocation_epoch": 1791700832.5195541,
+  "base_kernel_python": "3.13.16",
+  "browser_tab6_closed": true,
+  "cli_commands": 21,
+  "closed_process_groups": 31,
+  "cpu15_cases_evaluated": 0,
+  "deadline_utc": "2026-10-11T07:40:32.519554+00:00",
+  "device_cases_evaluated": 0,
+  "diagnosis": "Fresh readiness created control/ownership only; recursive admitted source upload required missing control/exact-nested parent. First nested upload returned HTTP500.",
+  "dyadic_cases_evaluated": 0,
+  "elapsed_lifecycle_seconds": 563.1753778457642,
+  "exact_stop_observed": true,
+  "fresh_active_assignments": 0,
+  "fresh_sessions_empty": true,
+  "fresh_usage_rate_per_hour": 0,
+  "host_frontend_status": "PINNED_CPU_ONLY_PASS",
+  "kind": "PUBLIC_V3_TRANSPORT_FAILURE_CLOSURE",
+  "locked_python_install": "NOT_RUN",
+  "original_error": {
+    "message": "CLI_STEP_BLOCKED:06-cloud-exact-nested-allocation_transport.py",
+    "type": "RuntimeError"
+  },
+  "owned_browser_tabs_after_cleanup": [],
+  "packet_sha256": "73fd9351ce9c072a599fea6d2fbc2b6533cdd7b42f4a035f8182aa6e9d7821dc",
+  "public_generation": "public-pallas-device-mosaic7-gather-bf16-fp32-dyadic-observer-v3",
+  "public_status": "NOT_QUALIFIED",
+  "screenshots": [
+    {
+      "bytes": 107233,
+      "delete_original": false,
+      "path": "/Users/topamini/.codex/visualizations/2026/10/11/bnb-tpu-public-v3-connected-marker.jpg",
+      "sha256": "c48323c2a0e957d69347bba7ddacd660e0db00835a7eb53888783c22ce3623fd"
+    },
+    {
+      "bytes": 87072,
+      "delete_original": false,
+      "path": "/Users/topamini/.codex/visualizations/2026/10/11/bnb-tpu-public-v3-disconnected.jpg",
+      "sha256": "3b1c456c31280719bf5f6ebc5bf46c7962c2af2ef9822f0bad63cb281b7a7db0"
+    }
+  ],
+  "secondary_retrieval_error": {
+    "message": "CLI_STEP_BLOCKED:20-critical-receipt",
+    "type": "RuntimeError"
+  },
+  "source_head": "73d55e1ddb2bec6446e96306fa1683d5d070558e",
+  "status": "CLOSED_FAILED_BEFORE_SCIENCE",
+  "verified_epoch": 1791701898.928116
+}
