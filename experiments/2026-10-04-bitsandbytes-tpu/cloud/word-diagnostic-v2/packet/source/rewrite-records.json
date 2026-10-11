@@ -1,0 +1,720 @@
+{
+  "original": {
+    "_integer_addsub.py": {
+      "postimage_sha256": "0294486d6cad96d0ceb88ecd492bd0aeaa106788e289735167cd8ef3d3b9fe66",
+      "preimage_sha256": "0294486d6cad96d0ceb88ecd492bd0aeaa106788e289735167cd8ef3d3b9fe66",
+      "rewrites": []
+    },
+    "_integer_clamp.py": {
+      "postimage_sha256": "77edb6a7dc30caa49cd6a4260a5663f4c5a0fa146b6f084e207a6aaae9804b59",
+      "preimage_sha256": "77edb6a7dc30caa49cd6a4260a5663f4c5a0fa146b6f084e207a6aaae9804b59",
+      "rewrites": []
+    },
+    "_integer_muldiv.py": {
+      "postimage_sha256": "89cc079e3dee6a2ff3b79cf8b176ea62c5bd2183a14427bbc0c235de02a27187",
+      "preimage_sha256": "89cc079e3dee6a2ff3b79cf8b176ea62c5bd2183a14427bbc0c235de02a27187",
+      "rewrites": []
+    },
+    "_source_order.py": {
+      "postimage_sha256": "700bac513eb69eb22c5d11391b488367b4f56fbeedd741a58e841c6a5fe911a0",
+      "preimage_sha256": "700bac513eb69eb22c5d11391b488367b4f56fbeedd741a58e841c6a5fe911a0",
+      "rewrites": []
+    },
+    "exact.py": {
+      "postimage_sha256": "0b9965a0c98a8e62ea4119e48e4bfb0f69a4b92c0efa5a9ba58ba02a3b960846",
+      "preimage_sha256": "0b9965a0c98a8e62ea4119e48e4bfb0f69a4b92c0efa5a9ba58ba02a3b960846",
+      "rewrites": []
+    },
+    "functionalization.py": {
+      "postimage_sha256": "0b31b2d86e7dd4aa10629e236fa1c0c18518eb5a3fb565714a9e40f432c2c93e",
+      "preimage_sha256": "0b31b2d86e7dd4aa10629e236fa1c0c18518eb5a3fb565714a9e40f432c2c93e",
+      "rewrites": []
+    }
+  },
+  "true_shift": {
+    "_integer_addsub.py": {
+      "postimage_sha256": "6dd81cb28bb4d37ecbaf044c4a2e93b7a13cc95f7fd566a2a622b1dfbe3cfcbd",
+      "preimage_sha256": "0294486d6cad96d0ceb88ecd492bd0aeaa106788e289735167cd8ef3d3b9fe66",
+      "rewrites": [
+        {
+          "expression": "torch.ones_like(value) << bounded",
+          "kind": "runtime_tensor_left_shift",
+          "line": 21
+        },
+        {
+          "expression": "value >> bounded",
+          "kind": "runtime_tensor_right_shift",
+          "line": 22
+        },
+        {
+          "expression": "large_mag >> 23",
+          "kind": "runtime_tensor_right_shift",
+          "line": 41
+        },
+        {
+          "expression": "small_mag >> 23",
+          "kind": "runtime_tensor_right_shift",
+          "line": 42
+        },
+        {
+          "expression": "(le != 0).to(torch.int32) << 23",
+          "kind": "runtime_tensor_left_shift",
+          "line": 43
+        },
+        {
+          "expression": "(se != 0).to(torch.int32) << 23",
+          "kind": "runtime_tensor_left_shift",
+          "line": 44
+        },
+        {
+          "expression": "small_sig << 3",
+          "kind": "runtime_tensor_left_shift",
+          "line": 47
+        },
+        {
+          "expression": "large_sig << 3",
+          "kind": "runtime_tensor_left_shift",
+          "line": 49
+        },
+        {
+          "expression": "large_sig << 3",
+          "kind": "runtime_tensor_left_shift",
+          "line": 50
+        },
+        {
+          "expression": "1 << 27",
+          "kind": "runtime_tensor_left_shift",
+          "line": 51
+        },
+        {
+          "expression": "1 << 26",
+          "kind": "runtime_tensor_left_shift",
+          "line": 55
+        },
+        {
+          "expression": "extended << 1",
+          "kind": "runtime_tensor_left_shift",
+          "line": 56
+        },
+        {
+          "expression": "extended >> 3",
+          "kind": "runtime_tensor_right_shift",
+          "line": 58
+        },
+        {
+          "expression": "1 << 24",
+          "kind": "runtime_tensor_left_shift",
+          "line": 62
+        },
+        {
+          "expression": "rounded >> 1",
+          "kind": "runtime_tensor_right_shift",
+          "line": 63
+        },
+        {
+          "expression": "1 << 23",
+          "kind": "runtime_tensor_left_shift",
+          "line": 65
+        },
+        {
+          "expression": "exponent << 23",
+          "kind": "runtime_tensor_left_shift",
+          "line": 66
+        }
+      ]
+    },
+    "_integer_clamp.py": {
+      "postimage_sha256": "2d9150bbdf81cb9bfb2fa9beb8a82f329e79c560f403c97fdcee652acfdc71f3",
+      "preimage_sha256": "77edb6a7dc30caa49cd6a4260a5663f4c5a0fa146b6f084e207a6aaae9804b59",
+      "rewrites": [
+        {
+          "expression": "1 << 31",
+          "kind": "runtime_tensor_left_shift",
+          "line": 16
+        },
+        {
+          "expression": "1 << 31",
+          "kind": "runtime_tensor_left_shift",
+          "line": 16
+        },
+        {
+          "expression": "(word & 2147483647) >> 23",
+          "kind": "runtime_tensor_right_shift",
+          "line": 17
+        },
+        {
+          "expression": "1 << 24",
+          "kind": "runtime_tensor_left_shift",
+          "line": 40
+        },
+        {
+          "expression": "magnitude >> 23",
+          "kind": "runtime_tensor_right_shift",
+          "line": 42
+        },
+        {
+          "expression": "1 << 23",
+          "kind": "runtime_tensor_left_shift",
+          "line": 43
+        },
+        {
+          "expression": "1 << 23",
+          "kind": "runtime_tensor_left_shift",
+          "line": 46
+        },
+        {
+          "expression": "mantissa << 1",
+          "kind": "runtime_tensor_left_shift",
+          "line": 47
+        },
+        {
+          "expression": "count << 23 - log_count",
+          "kind": "runtime_tensor_left_shift",
+          "line": 50
+        },
+        {
+          "expression": "count >> 1",
+          "kind": "runtime_tensor_right_shift",
+          "line": 50
+        },
+        {
+          "expression": "remainder << 1",
+          "kind": "runtime_tensor_left_shift",
+          "line": 57
+        },
+        {
+          "expression": "mantissa >> bit",
+          "kind": "runtime_tensor_right_shift",
+          "line": 57
+        },
+        {
+          "expression": "quotient << 1",
+          "kind": "runtime_tensor_left_shift",
+          "line": 60
+        },
+        {
+          "expression": "remainder << 1",
+          "kind": "runtime_tensor_left_shift",
+          "line": 63
+        },
+        {
+          "expression": "quotient << 1",
+          "kind": "runtime_tensor_left_shift",
+          "line": 65
+        },
+        {
+          "expression": "remainder << 1",
+          "kind": "runtime_tensor_left_shift",
+          "line": 66
+        },
+        {
+          "expression": "one << half_shift",
+          "kind": "runtime_tensor_left_shift",
+          "line": 70
+        },
+        {
+          "expression": "quotient >> right",
+          "kind": "runtime_tensor_right_shift",
+          "line": 71
+        },
+        {
+          "expression": "1 << 24",
+          "kind": "runtime_tensor_left_shift",
+          "line": 76
+        },
+        {
+          "expression": "rounded >> 1",
+          "kind": "runtime_tensor_right_shift",
+          "line": 77
+        },
+        {
+          "expression": "normal_power + 127 << 23",
+          "kind": "runtime_tensor_left_shift",
+          "line": 79
+        }
+      ]
+    },
+    "_integer_muldiv.py": {
+      "postimage_sha256": "b653abfc8c7d5536aeaad73ec64573dd7289e6c9406067980853f29920dba996",
+      "preimage_sha256": "89cc079e3dee6a2ff3b79cf8b176ea62c5bd2183a14427bbc0c235de02a27187",
+      "rewrites": [
+        {
+          "expression": "magnitude >> 23",
+          "kind": "runtime_tensor_right_shift",
+          "line": 16
+        },
+        {
+          "expression": "(exponent != 0).to(torch.int32) << 23",
+          "kind": "runtime_tensor_left_shift",
+          "line": 17
+        },
+        {
+          "expression": "1 << 23",
+          "kind": "runtime_tensor_left_shift",
+          "line": 20
+        },
+        {
+          "expression": "mantissa << 1",
+          "kind": "runtime_tensor_left_shift",
+          "line": 21
+        },
+        {
+          "expression": "1 << 24",
+          "kind": "runtime_tensor_left_shift",
+          "line": 26
+        },
+        {
+          "expression": "rounded >> 1",
+          "kind": "runtime_tensor_right_shift",
+          "line": 27
+        },
+        {
+          "expression": "exponent << 23",
+          "kind": "runtime_tensor_left_shift",
+          "line": 31
+        },
+        {
+          "expression": "right >> bit",
+          "kind": "runtime_tensor_right_shift",
+          "line": 39
+        },
+        {
+          "expression": "1 << 24 - bit",
+          "kind": "runtime_tensor_left_shift",
+          "line": 40
+        },
+        {
+          "expression": "(left & _diagnostic_tensor_shift(1, 24 - bit, 'left') - 1) << bit",
+          "kind": "runtime_tensor_left_shift",
+          "line": 40
+        },
+        {
+          "expression": "left >> 24 - bit",
+          "kind": "runtime_tensor_right_shift",
+          "line": 41
+        },
+        {
+          "expression": "trial >> 24",
+          "kind": "runtime_tensor_right_shift",
+          "line": 43
+        },
+        {
+          "expression": "high << 24 - low_shift",
+          "kind": "runtime_tensor_left_shift",
+          "line": 50
+        },
+        {
+          "expression": "low >> low_shift",
+          "kind": "runtime_tensor_right_shift",
+          "line": 50
+        },
+        {
+          "expression": "high >> high_shift",
+          "kind": "runtime_tensor_right_shift",
+          "line": 52
+        },
+        {
+          "expression": "torch.ones_like(low) << low_shift - 1",
+          "kind": "runtime_tensor_left_shift",
+          "line": 53
+        },
+        {
+          "expression": "torch.ones_like(high) << torch.where(high_shift > 0, high_shift - 1, 0)",
+          "kind": "runtime_tensor_left_shift",
+          "line": 54
+        },
+        {
+          "expression": "1 << 23",
+          "kind": "runtime_tensor_left_shift",
+          "line": 71
+        },
+        {
+          "expression": "remainder << 1",
+          "kind": "runtime_tensor_left_shift",
+          "line": 89
+        },
+        {
+          "expression": "quotient << 1",
+          "kind": "runtime_tensor_left_shift",
+          "line": 91
+        },
+        {
+          "expression": "remainder << 1",
+          "kind": "runtime_tensor_left_shift",
+          "line": 94
+        },
+        {
+          "expression": "torch.ones_like(quotient) << torch.where(bounded > 0, bounded - 1, 0)",
+          "kind": "runtime_tensor_left_shift",
+          "line": 98
+        },
+        {
+          "expression": "quotient >> bounded",
+          "kind": "runtime_tensor_right_shift",
+          "line": 99
+        }
+      ]
+    },
+    "_source_order.py": {
+      "postimage_sha256": "700bac513eb69eb22c5d11391b488367b4f56fbeedd741a58e841c6a5fe911a0",
+      "preimage_sha256": "700bac513eb69eb22c5d11391b488367b4f56fbeedd741a58e841c6a5fe911a0",
+      "rewrites": []
+    },
+    "exact.py": {
+      "postimage_sha256": "0b9965a0c98a8e62ea4119e48e4bfb0f69a4b92c0efa5a9ba58ba02a3b960846",
+      "preimage_sha256": "0b9965a0c98a8e62ea4119e48e4bfb0f69a4b92c0efa5a9ba58ba02a3b960846",
+      "rewrites": []
+    },
+    "functionalization.py": {
+      "postimage_sha256": "0b31b2d86e7dd4aa10629e236fa1c0c18518eb5a3fb565714a9e40f432c2c93e",
+      "preimage_sha256": "0b31b2d86e7dd4aa10629e236fa1c0c18518eb5a3fb565714a9e40f432c2c93e",
+      "rewrites": []
+    }
+  },
+  "true_shift_amax": {
+    "_integer_addsub.py": {
+      "postimage_sha256": "6dd81cb28bb4d37ecbaf044c4a2e93b7a13cc95f7fd566a2a622b1dfbe3cfcbd",
+      "preimage_sha256": "0294486d6cad96d0ceb88ecd492bd0aeaa106788e289735167cd8ef3d3b9fe66",
+      "rewrites": [
+        {
+          "expression": "torch.ones_like(value) << bounded",
+          "kind": "runtime_tensor_left_shift",
+          "line": 21
+        },
+        {
+          "expression": "value >> bounded",
+          "kind": "runtime_tensor_right_shift",
+          "line": 22
+        },
+        {
+          "expression": "large_mag >> 23",
+          "kind": "runtime_tensor_right_shift",
+          "line": 41
+        },
+        {
+          "expression": "small_mag >> 23",
+          "kind": "runtime_tensor_right_shift",
+          "line": 42
+        },
+        {
+          "expression": "(le != 0).to(torch.int32) << 23",
+          "kind": "runtime_tensor_left_shift",
+          "line": 43
+        },
+        {
+          "expression": "(se != 0).to(torch.int32) << 23",
+          "kind": "runtime_tensor_left_shift",
+          "line": 44
+        },
+        {
+          "expression": "small_sig << 3",
+          "kind": "runtime_tensor_left_shift",
+          "line": 47
+        },
+        {
+          "expression": "large_sig << 3",
+          "kind": "runtime_tensor_left_shift",
+          "line": 49
+        },
+        {
+          "expression": "large_sig << 3",
+          "kind": "runtime_tensor_left_shift",
+          "line": 50
+        },
+        {
+          "expression": "1 << 27",
+          "kind": "runtime_tensor_left_shift",
+          "line": 51
+        },
+        {
+          "expression": "1 << 26",
+          "kind": "runtime_tensor_left_shift",
+          "line": 55
+        },
+        {
+          "expression": "extended << 1",
+          "kind": "runtime_tensor_left_shift",
+          "line": 56
+        },
+        {
+          "expression": "extended >> 3",
+          "kind": "runtime_tensor_right_shift",
+          "line": 58
+        },
+        {
+          "expression": "1 << 24",
+          "kind": "runtime_tensor_left_shift",
+          "line": 62
+        },
+        {
+          "expression": "rounded >> 1",
+          "kind": "runtime_tensor_right_shift",
+          "line": 63
+        },
+        {
+          "expression": "1 << 23",
+          "kind": "runtime_tensor_left_shift",
+          "line": 65
+        },
+        {
+          "expression": "exponent << 23",
+          "kind": "runtime_tensor_left_shift",
+          "line": 66
+        }
+      ]
+    },
+    "_integer_clamp.py": {
+      "postimage_sha256": "2d9150bbdf81cb9bfb2fa9beb8a82f329e79c560f403c97fdcee652acfdc71f3",
+      "preimage_sha256": "77edb6a7dc30caa49cd6a4260a5663f4c5a0fa146b6f084e207a6aaae9804b59",
+      "rewrites": [
+        {
+          "expression": "1 << 31",
+          "kind": "runtime_tensor_left_shift",
+          "line": 16
+        },
+        {
+          "expression": "1 << 31",
+          "kind": "runtime_tensor_left_shift",
+          "line": 16
+        },
+        {
+          "expression": "(word & 2147483647) >> 23",
+          "kind": "runtime_tensor_right_shift",
+          "line": 17
+        },
+        {
+          "expression": "1 << 24",
+          "kind": "runtime_tensor_left_shift",
+          "line": 40
+        },
+        {
+          "expression": "magnitude >> 23",
+          "kind": "runtime_tensor_right_shift",
+          "line": 42
+        },
+        {
+          "expression": "1 << 23",
+          "kind": "runtime_tensor_left_shift",
+          "line": 43
+        },
+        {
+          "expression": "1 << 23",
+          "kind": "runtime_tensor_left_shift",
+          "line": 46
+        },
+        {
+          "expression": "mantissa << 1",
+          "kind": "runtime_tensor_left_shift",
+          "line": 47
+        },
+        {
+          "expression": "count << 23 - log_count",
+          "kind": "runtime_tensor_left_shift",
+          "line": 50
+        },
+        {
+          "expression": "count >> 1",
+          "kind": "runtime_tensor_right_shift",
+          "line": 50
+        },
+        {
+          "expression": "remainder << 1",
+          "kind": "runtime_tensor_left_shift",
+          "line": 57
+        },
+        {
+          "expression": "mantissa >> bit",
+          "kind": "runtime_tensor_right_shift",
+          "line": 57
+        },
+        {
+          "expression": "quotient << 1",
+          "kind": "runtime_tensor_left_shift",
+          "line": 60
+        },
+        {
+          "expression": "remainder << 1",
+          "kind": "runtime_tensor_left_shift",
+          "line": 63
+        },
+        {
+          "expression": "quotient << 1",
+          "kind": "runtime_tensor_left_shift",
+          "line": 65
+        },
+        {
+          "expression": "remainder << 1",
+          "kind": "runtime_tensor_left_shift",
+          "line": 66
+        },
+        {
+          "expression": "one << half_shift",
+          "kind": "runtime_tensor_left_shift",
+          "line": 70
+        },
+        {
+          "expression": "quotient >> right",
+          "kind": "runtime_tensor_right_shift",
+          "line": 71
+        },
+        {
+          "expression": "1 << 24",
+          "kind": "runtime_tensor_left_shift",
+          "line": 76
+        },
+        {
+          "expression": "rounded >> 1",
+          "kind": "runtime_tensor_right_shift",
+          "line": 77
+        },
+        {
+          "expression": "normal_power + 127 << 23",
+          "kind": "runtime_tensor_left_shift",
+          "line": 79
+        }
+      ]
+    },
+    "_integer_muldiv.py": {
+      "postimage_sha256": "b653abfc8c7d5536aeaad73ec64573dd7289e6c9406067980853f29920dba996",
+      "preimage_sha256": "89cc079e3dee6a2ff3b79cf8b176ea62c5bd2183a14427bbc0c235de02a27187",
+      "rewrites": [
+        {
+          "expression": "magnitude >> 23",
+          "kind": "runtime_tensor_right_shift",
+          "line": 16
+        },
+        {
+          "expression": "(exponent != 0).to(torch.int32) << 23",
+          "kind": "runtime_tensor_left_shift",
+          "line": 17
+        },
+        {
+          "expression": "1 << 23",
+          "kind": "runtime_tensor_left_shift",
+          "line": 20
+        },
+        {
+          "expression": "mantissa << 1",
+          "kind": "runtime_tensor_left_shift",
+          "line": 21
+        },
+        {
+          "expression": "1 << 24",
+          "kind": "runtime_tensor_left_shift",
+          "line": 26
+        },
+        {
+          "expression": "rounded >> 1",
+          "kind": "runtime_tensor_right_shift",
+          "line": 27
+        },
+        {
+          "expression": "exponent << 23",
+          "kind": "runtime_tensor_left_shift",
+          "line": 31
+        },
+        {
+          "expression": "right >> bit",
+          "kind": "runtime_tensor_right_shift",
+          "line": 39
+        },
+        {
+          "expression": "1 << 24 - bit",
+          "kind": "runtime_tensor_left_shift",
+          "line": 40
+        },
+        {
+          "expression": "(left & _diagnostic_tensor_shift(1, 24 - bit, 'left') - 1) << bit",
+          "kind": "runtime_tensor_left_shift",
+          "line": 40
+        },
+        {
+          "expression": "left >> 24 - bit",
+          "kind": "runtime_tensor_right_shift",
+          "line": 41
+        },
+        {
+          "expression": "trial >> 24",
+          "kind": "runtime_tensor_right_shift",
+          "line": 43
+        },
+        {
+          "expression": "high << 24 - low_shift",
+          "kind": "runtime_tensor_left_shift",
+          "line": 50
+        },
+        {
+          "expression": "low >> low_shift",
+          "kind": "runtime_tensor_right_shift",
+          "line": 50
+        },
+        {
+          "expression": "high >> high_shift",
+          "kind": "runtime_tensor_right_shift",
+          "line": 52
+        },
+        {
+          "expression": "torch.ones_like(low) << low_shift - 1",
+          "kind": "runtime_tensor_left_shift",
+          "line": 53
+        },
+        {
+          "expression": "torch.ones_like(high) << torch.where(high_shift > 0, high_shift - 1, 0)",
+          "kind": "runtime_tensor_left_shift",
+          "line": 54
+        },
+        {
+          "expression": "1 << 23",
+          "kind": "runtime_tensor_left_shift",
+          "line": 71
+        },
+        {
+          "expression": "remainder << 1",
+          "kind": "runtime_tensor_left_shift",
+          "line": 89
+        },
+        {
+          "expression": "quotient << 1",
+          "kind": "runtime_tensor_left_shift",
+          "line": 91
+        },
+        {
+          "expression": "remainder << 1",
+          "kind": "runtime_tensor_left_shift",
+          "line": 94
+        },
+        {
+          "expression": "torch.ones_like(quotient) << torch.where(bounded > 0, bounded - 1, 0)",
+          "kind": "runtime_tensor_left_shift",
+          "line": 98
+        },
+        {
+          "expression": "quotient >> bounded",
+          "kind": "runtime_tensor_right_shift",
+          "line": 99
+        }
+      ]
+    },
+    "_source_order.py": {
+      "postimage_sha256": "700bac513eb69eb22c5d11391b488367b4f56fbeedd741a58e841c6a5fe911a0",
+      "preimage_sha256": "700bac513eb69eb22c5d11391b488367b4f56fbeedd741a58e841c6a5fe911a0",
+      "rewrites": []
+    },
+    "exact.py": {
+      "postimage_sha256": "03ad767bdfd09242fb231f3c85614a5fa26079e2ffe8f9ba451aacdc4187d122",
+      "preimage_sha256": "0b9965a0c98a8e62ea4119e48e4bfb0f69a4b92c0efa5a9ba58ba02a3b960846",
+      "rewrites": [
+        {
+          "expression": "torch.amax(remaining & 2147483647)",
+          "kind": "explicit_flat_amax_dim0",
+          "line": 86
+        }
+      ]
+    },
+    "functionalization.py": {
+      "postimage_sha256": "0b31b2d86e7dd4aa10629e236fa1c0c18518eb5a3fb565714a9e40f432c2c93e",
+      "preimage_sha256": "0b31b2d86e7dd4aa10629e236fa1c0c18518eb5a3fb565714a9e40f432c2c93e",
+      "rewrites": []
+    }
+  }
+}

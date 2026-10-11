@@ -1,0 +1,8 @@
+{
+  "driver_sha256": "c197ed214cd0d3fc8974bd570261c55ba4864a0adc0f7477e6340d599e15ed04",
+  "m4_status": "NOT_QUALIFIED",
+  "manifest_sha256": "f4e8c6153f4c866405cb812bbe1ef803590326d7646b9be38abcce67f781939c",
+  "members": 58,
+  "packet_bytes": 123483,
+  "packet_sha256": "35a40419449c274d782c75a38fdcdb1669653b97d921451065614ecc51b348fc"
+}

@@ -1,0 +1,36 @@
+{
+  "TLS_unchanged": true,
+  "actual_tpu": false,
+  "all24_returned": true,
+  "control_count": 5,
+  "controls": [
+    {
+      "name": "raw_identity_pending_update_metadata_bits_and_repeated_alias",
+      "status": "PASS"
+    },
+    {
+      "name": "unchanged_backend_guard_rejects_functional_input_before_body",
+      "status": "PASS"
+    },
+    {
+      "name": "actual_torch_double_wrap_rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "normalized_inputs_wrapped_once_inside_frozen_backend",
+      "status": "PASS"
+    },
+    {
+      "name": "all24_simulated_native_functional_inputs_equal_raw_cpu_oracle",
+      "status": "PASS"
+    }
+  ],
+  "fixed_input_arrays_preserved": true,
+  "fixtures": "DELETED_AFTER_TEST",
+  "kind": "M4_DIAGNOSTIC_V2_NATIVE_FUNCTIONAL_INPUT_CONTROLS",
+  "m4_status": "NOT_QUALIFIED",
+  "provider_calls": 0,
+  "qualification": "UNQUALIFIED_HOST_CPU_CONTROL",
+  "status": "PASS",
+  "torch_version": "2.14.1"
+}

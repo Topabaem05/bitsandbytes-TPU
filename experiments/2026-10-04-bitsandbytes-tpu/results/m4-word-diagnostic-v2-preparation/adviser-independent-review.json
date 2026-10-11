@@ -1,0 +1,111 @@
+{
+  "M4": "NOT_QUALIFIED",
+  "TPU": "NOT_RUN",
+  "actual_v1": {
+    "all_48_rows_equal_reports": true,
+    "all_8_gzip_hlo_objects_lossless_sha_size_single_member_checked": true,
+    "cpu_report_sha256": "5e14bdfcb08b557332fec16ea0be9dd3d3af6934622724861d1280ac3f1b2b6d",
+    "cpu_rows_returned": 24,
+    "tpu_bitcast_exact_matches": 4,
+    "tpu_prebody_functional_input_errors": 20,
+    "tpu_report_sha256": "d71aee020f778aaeab0cba3cc62e2525ff730fb7bd57c14ad40939bdd37e7ad8"
+  },
+  "candidate_mutations_by_adviser": 0,
+  "checks": [
+    {
+      "case": "raw_identity_alias_and_tls_preserved",
+      "status": "PASS"
+    },
+    {
+      "case": "pending_view_mutation_mixed_inputs_alias_and_tls_preserved",
+      "status": "PASS"
+    },
+    {
+      "case": "valid_noncontiguous_functional_input_preserved",
+      "status": "PASS"
+    },
+    {
+      "case": "scalar_float_storage_and_bool_preserved",
+      "status": "PASS"
+    },
+    {
+      "case": "frozen_F_still_rejects_functional_input_before_body",
+      "status": "PASS"
+    },
+    {
+      "case": "normalized_input_enters_F_once_native_alias_preserved",
+      "status": "PASS"
+    },
+    {
+      "case": "wrong_unnormalized_functional_rejected",
+      "status": "PASS"
+    },
+    {
+      "case": "wrong_shape_rejected",
+      "status": "PASS"
+    },
+    {
+      "case": "wrong_dtype_rejected",
+      "status": "PASS"
+    },
+    {
+      "case": "wrong_stride_rejected",
+      "status": "PASS"
+    },
+    {
+      "case": "wrong_device_rejected",
+      "status": "PASS"
+    },
+    {
+      "case": "24_all_functional_input_probes_pass_independent_cpu_oracles",
+      "status": "PASS"
+    },
+    {
+      "case": "bypassing_normalization_does_not_pass_CPU24",
+      "status": "PASS"
+    },
+    {
+      "case": "coherent_zero_normalization_does_not_pass_CPU_oracles",
+      "status": "PASS"
+    }
+  ],
+  "checks_count": 14,
+  "full_probe_count": 24,
+  "manifest_sha256": "f4e8c6153f4c866405cb812bbe1ef803590326d7646b9be38abcce67f781939c",
+  "ownership": {
+    "cleanup_status": "NO_CLEANUP_ERRORS",
+    "errors": [],
+    "exit_code": 0,
+    "group_statuses": [
+      "CLEANUP_VERIFIED"
+    ],
+    "status": "PASS"
+  },
+  "provider_calls": 0,
+  "qualified_Linux_CPU": "NOT_RUN",
+  "scope": "UNQUALIFIED_LOCAL_CPU_NATIVE_FUNCTIONAL_WRAPPER_CONTROLS",
+  "scratch_cleanup": "Only this summary remains; fixture, runner outputs, control arrays, and ownership bulk deleted after reading.",
+  "source_deltas_from_canonical_v1": [
+    "control/contract.py",
+    "control/driver.py",
+    "control/inspect_diagnostic.py",
+    "control/root_records.py",
+    "manifest.json",
+    "source/run_diagnostic.py"
+  ],
+  "source_sha256": "aa586885f0132182873579d8979425e6ac70f37ba92d29100595c07dc2bddfa1",
+  "status": "PASS",
+  "torch": "2.14.1",
+  "upstream_basis": [
+    {
+      "claim": "sync updates the wrapper; from_functional_tensor returns its inner value",
+      "lines": "517-575",
+      "url": "https://github.com/pytorch/pytorch/blob/0fabc3ba44823f257e70ce397d989c8de5e362c1/aten/src/ATen/FunctionalTensorWrapper.cpp"
+    },
+    {
+      "claim": "XLA tensor conversion may return a native functional wrapper unless skipped or excluded",
+      "lines": "427-442",
+      "url": "https://github.com/pytorch/xla/blob/5fab7053df86c8d503b98d9e7202ca8b8d4978c7/torch_xla/csrc/aten_xla_bridge.cpp"
+    }
+  ]
+}

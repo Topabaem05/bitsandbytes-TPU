@@ -1,0 +1,80 @@
+{
+  "driver_sha256": "c197ed214cd0d3fc8974bd570261c55ba4864a0adc0f7477e6340d599e15ed04",
+  "finished_epoch": 1791710011.0849652,
+  "kind": "ROOT_M4_WORD_DIAGNOSTIC_PREPARATION_REVIEW",
+  "m4_status": "NOT_QUALIFIED",
+  "manifest_sha256": "f4e8c6153f4c866405cb812bbe1ef803590326d7646b9be38abcce67f781939c",
+  "packet_sha256": "35a40419449c274d782c75a38fdcdb1669653b97d921451065614ecc51b348fc",
+  "provider_calls": 0,
+  "status": "PASS",
+  "tests": [
+    {
+      "files": 58,
+      "label": "complete_sealed_packet",
+      "status": "ACCEPTED"
+    },
+    {
+      "error_type": "ValueError",
+      "label": "wrong_packet_sha",
+      "message": "WHOLE_ARCHIVE_SHA_SIZE",
+      "status": "REJECTED"
+    },
+    {
+      "error_type": "ValueError",
+      "label": "loose_source_differs_from_packet",
+      "message": "LOOSE_PACKET_DIFFERS_FROM_ADMITTED_ARCHIVE",
+      "status": "REJECTED"
+    },
+    {
+      "label": "remaining_original_budget",
+      "status": "ACCEPTED"
+    },
+    {
+      "error_type": "ValueError",
+      "label": "future_birth_renews_budget",
+      "message": "FINITE_ORIGINAL_DIAGNOSTIC_BUDGET",
+      "status": "REJECTED"
+    },
+    {
+      "error_type": "TimeoutError",
+      "label": "closure_reserve_exhausted",
+      "message": "ORIGINAL_600_SECOND_DIAGNOSTIC_DEADLINE",
+      "status": "REJECTED"
+    },
+    {
+      "label": "local_cpu24",
+      "qualification": "UNQUALIFIED_LOCAL_CPU_CONTROL",
+      "status": "ACCEPTED"
+    },
+    {
+      "error_type": "ValueError",
+      "label": "mutually_agreeing_wrong_bitcast",
+      "message": "CPU_BITCAST_INDEPENDENT_STORAGE_ORACLE",
+      "status": "REJECTED"
+    },
+    {
+      "error_type": "ValueError",
+      "label": "mutually_agreeing_wrong_scalar_select",
+      "message": "CPU_TYPED_SCALAR_INDEPENDENT_ORACLE:gt_python",
+      "status": "REJECTED"
+    },
+    {
+      "error_type": "ValueError",
+      "label": "mutually_agreeing_wrong_shift-left",
+      "message": "CPU_INDEPENDENT_INTEGER_SHIFT_ORACLE",
+      "status": "REJECTED"
+    },
+    {
+      "error_type": "ValueError",
+      "label": "mutually_agreeing_wrong_shift-right",
+      "message": "CPU_INDEPENDENT_INTEGER_SHIFT_ORACLE",
+      "status": "REJECTED"
+    },
+    {
+      "error_type": "ValueError",
+      "label": "mutually_agreeing_wrong_amax",
+      "message": "CPU_AMAX_SCALAR",
+      "status": "REJECTED"
+    }
+  ]
+}

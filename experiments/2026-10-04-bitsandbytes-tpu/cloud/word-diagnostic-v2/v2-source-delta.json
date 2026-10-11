@@ -1,0 +1,32 @@
+{
+  "clock_seconds": 600,
+  "files": {
+    "control/contract.py": {
+      "after_sha256": "15554101822de53e22e274eb5014a5051cce4c5d5a663fc7948f6b87f5f5776e",
+      "before_sha256": "58bb8f6af20800cecbc51a699a071de5263ced34e9e93293da2d2494747a009f"
+    },
+    "control/driver.py": {
+      "after_sha256": "c197ed214cd0d3fc8974bd570261c55ba4864a0adc0f7477e6340d599e15ed04",
+      "before_sha256": "0887e7bfbd83cf7b9b2540f05289a99af8cae04f36189ee807120174c3576400"
+    },
+    "control/inspect_diagnostic.py": {
+      "after_sha256": "aec9269a7d192f204a45f66e8e5ff952e6d86984fc06b7f6a1b8fb3fe79ae236",
+      "before_sha256": "3e73a4b1e36b44095bc685b7a6b0e8b8b992c70d55ef7349d4211080e240e6cc"
+    },
+    "control/root_records.py": {
+      "after_sha256": "efaac9fea354dfec0da01e1c7378b700df2d3cd71dd56dfdb31d297d082f18c4",
+      "before_sha256": "1da3fe60f5f94713550e46cd73a5e36a060bfccdc0a34cf66d3bf6d1a70a5f99"
+    },
+    "source/run_diagnostic.py": {
+      "after_sha256": "aa586885f0132182873579d8979425e6ac70f37ba92d29100595c07dc2bddfa1",
+      "before_sha256": "a8ccfecf06b433044198b75bb0b77b8839f4c84bedfedad0b7346dd36299844b"
+    }
+  },
+  "fixed_probes": 24,
+  "generation": "m4-word-lowering-diagnostic-v2-raw-input-boundary",
+  "kind": "M4_DIAGNOSTIC_V2_CLOSED_DELTA",
+  "m4_status": "NOT_QUALIFIED",
+  "parent_generation": "m4-word-lowering-diagnostic-v1",
+  "provider_calls": 0,
+  "unchanged_plugin_variants": true
+}

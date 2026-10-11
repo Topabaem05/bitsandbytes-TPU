@@ -1,5 +1,16 @@
 # Change log
 
+## 2026-10-11 — Diagnostic raw input boundary
+
+- Normalize synchronized diagnostic inputs before the frozen backend call.
+- Preserve tensor references, metadata, arithmetic, and the original experiment limits.
+- Adopt the reviewed packet and delete completed temporary preparation output.
+
+Validation: Root CPU24 and five native functional controls passed; nine incorrect controls were rejected.
+Independent adviser review passed 14 controls; all 88 source archive members passed readback.
+Local tests do not qualify M4.
+Refer to [the preparation record](docs/changes/m4-word-diagnostic-v2-preparation.md).
+
 ## 2026-10-11 — Word diagnostic input boundary failure
 
 - Record 24 Linux CPU passes and four exact TPU bitcast results.

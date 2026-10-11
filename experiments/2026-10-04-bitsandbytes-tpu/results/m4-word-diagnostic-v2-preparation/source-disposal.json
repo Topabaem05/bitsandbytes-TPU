@@ -1,0 +1,18 @@
+{
+  "active_process_conflicts": 0,
+  "deleted_epoch": 1791710132.520843,
+  "files_deleted": 134,
+  "no_new_work_output": true,
+  "raw_local_cpu_outputs": "DISCARDED_REPRODUCIBLE_UNQUALIFIED_FIXTURES",
+  "roots": [
+    "/tmp/bnb-tpu-m4-word-diagnostic-v2-20261011-iRBJN7",
+    "/tmp/bnb-tpu-root-m4-word-diag-v2-owner-20261011",
+    "/tmp/bnb-tpu-root-m4-word-diag-v2-review-20261011",
+    "/tmp/bnb-tpu-root-m4-word-diag-v2-native-owner-20261011",
+    "/tmp/bnb-tpu-root-m4-word-diag-v2-native-review-20261011",
+    "/tmp/m4-word-v2-advisor-o4ylw0cc"
+  ],
+  "roots_absent": true,
+  "source_selected_files_retained": 67,
+  "status": "SOURCE_ADOPTED_AND_DISPOSABLE_OUTPUTS_DELETED"
+}

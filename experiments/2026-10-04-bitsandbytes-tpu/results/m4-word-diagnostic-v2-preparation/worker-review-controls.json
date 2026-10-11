@@ -1,0 +1,68 @@
+{
+  "actual_tpu": false,
+  "checks": [
+    {
+      "name": "actual_host_torch_24_unqualified_cpu",
+      "status": "PASS"
+    },
+    {
+      "name": "reject_coherently_wrong_bitcast-raw-vector",
+      "status": "PASS"
+    },
+    {
+      "name": "reject_coherently_wrong_scalar-compare-select",
+      "status": "PASS"
+    },
+    {
+      "name": "reject_coherently_wrong_shift-left",
+      "status": "PASS"
+    },
+    {
+      "name": "reject_coherently_wrong_shift-right",
+      "status": "PASS"
+    },
+    {
+      "name": "correct_packet_preflight",
+      "status": "PASS"
+    },
+    {
+      "name": "wrong_archive_sha_rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "wrong_loose_source_rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "synthetic_graph_error_keeps_exact_rows",
+      "status": "PASS"
+    },
+    {
+      "name": "contradictory_physical_row_rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "wrong_runtime_machine_rejected",
+      "status": "PASS"
+    },
+    {
+      "name": "exact_assignment_valid_marker_stops_once",
+      "status": "PASS"
+    },
+    {
+      "name": "exact_assignment_bad_marker_stops_once",
+      "status": "PASS"
+    },
+    {
+      "name": "host_601_second_deadline_rejected",
+      "status": "PASS"
+    }
+  ],
+  "count": 14,
+  "fixtures": "DELETED_AFTER_TEST",
+  "m4_status": "NOT_QUALIFIED",
+  "packet_sha256": "35a40419449c274d782c75a38fdcdb1669653b97d921451065614ecc51b348fc",
+  "provider_calls": 0,
+  "scope": "HOST_TORCH_UNQUALIFIED_AND_SYNTHETIC_CONTROL_ONLY",
+  "status": "PASS"
+}
