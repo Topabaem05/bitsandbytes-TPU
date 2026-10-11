@@ -1,0 +1,18 @@
+{
+  "active_process_conflicts": 0,
+  "all542_members_independently_verified": true,
+  "all_roots_absent": true,
+  "archive_file_id": "1DeyVMa8qkuDSnVJ47ktKIk4amSKasq1f",
+  "archive_sha256": "8a253a8d05616474985235d8a59a9a8cf27a7a1e3c81008a5f4ff2d7a1a695ff",
+  "deleted_bytes": 17973042,
+  "deleted_files": 552,
+  "new_work_output": false,
+  "roots": [
+    "/tmp/bnb-tpu-m6-passive-integration-v1-20261011-rflzi29x",
+    "/tmp/bnb-tpu-m6-source-seal-20261011-b",
+    "/tmp/bnb-tpu-m6-source-seal-owner-20261011-b"
+  ],
+  "source_adoption": "REJECTED_BROWSER_MARKER_OWNERSHIP",
+  "status": "SUPERSEDED_SOURCE_PRIVATE_VERIFIED_LOCAL_ROOTS_DELETED",
+  "verified_epoch": 1791713215.40725
+}

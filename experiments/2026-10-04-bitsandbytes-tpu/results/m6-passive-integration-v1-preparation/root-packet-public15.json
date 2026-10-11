@@ -1,0 +1,37 @@
+{
+  "TPU": "NOT_RUN",
+  "bulk_cleanup": "All archive fixtures deleted",
+  "controls": [
+    {
+      "name": "actual_owner_preflight_full_source_packet",
+      "status": "PASS"
+    },
+    {
+      "name": "correct_original_archive_full_member_consumer",
+      "status": "PASS"
+    },
+    {
+      "expected": "REJECT",
+      "name": "self_rehashed_altered_physical_archive",
+      "status": "PASS"
+    },
+    {
+      "expected": "REJECT",
+      "name": "self_rehashed_missing_physical_archive",
+      "status": "PASS"
+    },
+    {
+      "expected": "REJECT",
+      "name": "self_rehashed_extra_physical_archive",
+      "status": "PASS"
+    },
+    {
+      "expected": "REJECT",
+      "name": "self_rehashed_duplicate_physical_archive",
+      "status": "PASS"
+    }
+  ],
+  "count": 6,
+  "provider_calls": 0,
+  "status": "PASS"
+}

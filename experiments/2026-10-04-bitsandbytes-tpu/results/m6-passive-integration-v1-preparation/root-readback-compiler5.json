@@ -1,0 +1,135 @@
+{
+  "M6": "NOT_QUALIFIED",
+  "TPU": "NOT_RUN",
+  "actual_Linux": "NOT_RUN",
+  "bulk_cleanup": "All synthetic retained records deleted",
+  "controls": [
+    {
+      "claim": "SYNTHETIC_UNEXECUTED_RECORDS_ONLY",
+      "name": "compiler5_correct_full_bootstrap_readback",
+      "status": "PASS"
+    },
+    {
+      "name": "compiler5_actual_owner_preflight_source_only",
+      "status": "PASS"
+    },
+    {
+      "name": "compiler5_actual_owned_independent_reader",
+      "provider_calls": 0,
+      "status": "PASS"
+    },
+    {
+      "expected": "REJECT",
+      "name": "compiler5_smoke_case_missing_even_resealed",
+      "status": "PASS"
+    },
+    {
+      "expected": "REJECT",
+      "name": "compiler5_smoke_case_failed_even_resealed",
+      "status": "PASS"
+    },
+    {
+      "expected": "REJECT",
+      "name": "compiler5_smoke_sanitizer_duplicate_even_resealed",
+      "status": "PASS"
+    },
+    {
+      "expected": "REJECT",
+      "name": "compiler5_smoke_wrong_platform_even_resealed",
+      "status": "PASS"
+    },
+    {
+      "expected": "REJECT",
+      "name": "compiler5_smoke_dirty_owner",
+      "status": "PASS"
+    },
+    {
+      "expected": "REJECT",
+      "name": "compiler5_smoke_duplicate_cleanup",
+      "status": "PASS"
+    },
+    {
+      "expected": "REJECT",
+      "name": "compiler5_smoke_failed_status",
+      "status": "PASS"
+    },
+    {
+      "expected": "REJECT",
+      "name": "compiler5_smoke_missing_owner",
+      "status": "PASS"
+    },
+    {
+      "expected": "REJECT",
+      "name": "compiler5_smoke_wrong_argv",
+      "status": "PASS"
+    },
+    {
+      "expected": "REJECT",
+      "name": "compiler5_smoke_nonzero_child",
+      "status": "PASS"
+    },
+    {
+      "expected": "REJECT",
+      "name": "compiler5_smoke_terminal_late",
+      "status": "PASS"
+    },
+    {
+      "expected": "REJECT",
+      "name": "compiler5_smoke_extra_child_ledger",
+      "status": "PASS"
+    },
+    {
+      "expected": "REJECT",
+      "name": "compiler5_smoke_wrong_source_map",
+      "status": "PASS"
+    },
+    {
+      "expected": "REJECT",
+      "name": "compiler5_smoke_missing_control_body",
+      "status": "PASS"
+    },
+    {
+      "expected": "REJECT",
+      "name": "compiler5_bootstrap_wrong_ppid",
+      "status": "PASS"
+    },
+    {
+      "expected": "REJECT",
+      "name": "compiler5_bootstrap_wrong_logical_argv",
+      "status": "PASS"
+    },
+    {
+      "expected": "REJECT",
+      "name": "compiler5_bootstrap_missing_configured",
+      "status": "PASS"
+    },
+    {
+      "expected": "REJECT",
+      "name": "compiler5_bootstrap_late_monotonic",
+      "status": "PASS"
+    },
+    {
+      "expected": "REJECT",
+      "name": "compiler5_bootstrap_wrong_shim_body",
+      "status": "PASS"
+    },
+    {
+      "expected": "REJECT",
+      "name": "compiler5_capture_extra_member",
+      "status": "PASS"
+    },
+    {
+      "expected": "REJECT",
+      "name": "compiler5_capture_missing_footer",
+      "status": "PASS"
+    },
+    {
+      "expected": "REJECT",
+      "name": "compiler5_capture_tamper_journal",
+      "status": "PASS"
+    }
+  ],
+  "count": 25,
+  "provider_calls": 0,
+  "status": "PASS"
+}

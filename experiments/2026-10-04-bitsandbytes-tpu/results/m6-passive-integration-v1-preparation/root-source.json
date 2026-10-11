@@ -1,0 +1,247 @@
+{
+  "M6": "NOT_QUALIFIED",
+  "TPU": "NOT_RUN",
+  "actual_Linux": "NOT_RUN",
+  "bulk_cleanup": "Temporary source and output fixtures deleted before summary",
+  "claims": "LOCAL_SOURCE_PARTITION_MOCKED_BOOTSTRAP_AND_REAL_HARMLESS_OWNER_ONLY",
+  "controls": [
+    {
+      "expected": "ACCEPT",
+      "name": "closed_current_426_sources",
+      "status": "PASS"
+    },
+    {
+      "expected": "ACCEPT",
+      "name": "embedded_admission_and_public_fixed_files",
+      "status": "PASS"
+    },
+    {
+      "expected": "REJECT",
+      "name": "source_changed",
+      "status": "PASS"
+    },
+    {
+      "expected": "REJECT",
+      "name": "source_missing",
+      "status": "PASS"
+    },
+    {
+      "expected": "REJECT",
+      "name": "source_extra",
+      "status": "PASS"
+    },
+    {
+      "expected": "ACCEPT",
+      "name": "compiler_empty_observation_within_caps",
+      "status": "PASS"
+    },
+    {
+      "expected": "ACCEPT",
+      "name": "compiler_all_exact_byte_entry_caps_inclusive",
+      "status": "PASS"
+    },
+    {
+      "expected": "REJECT",
+      "name": "passive_bytes_over_cap",
+      "status": "PASS"
+    },
+    {
+      "expected": "REJECT",
+      "name": "passive_entries_over_cap",
+      "status": "PASS"
+    },
+    {
+      "expected": "REJECT",
+      "name": "raw_bytes_over_cap",
+      "status": "PASS"
+    },
+    {
+      "expected": "REJECT",
+      "name": "raw_entries_over_cap",
+      "status": "PASS"
+    },
+    {
+      "expected": "REJECT",
+      "name": "science_metadata_bytes_over_cap",
+      "status": "PASS"
+    },
+    {
+      "expected": "REJECT",
+      "name": "science_metadata_entries_over_cap",
+      "status": "PASS"
+    },
+    {
+      "expected": "REJECT",
+      "name": "passive_journal_per_file_bound",
+      "status": "PASS"
+    },
+    {
+      "expected": "REJECT",
+      "name": "metadata_counted_footer.json",
+      "status": "PASS"
+    },
+    {
+      "expected": "REJECT",
+      "name": "metadata_counted_closed.json",
+      "status": "PASS"
+    },
+    {
+      "expected": "ACCEPT",
+      "name": "public_combined_exact_256MiB_2000",
+      "status": "PASS"
+    },
+    {
+      "expected": "ACCEPT",
+      "name": "public_original_member_limit_not_replaced_by16MiB",
+      "status": "PASS"
+    },
+    {
+      "expected": "REJECT",
+      "name": "public_passive_bytes_over",
+      "status": "PASS"
+    },
+    {
+      "expected": "REJECT",
+      "name": "public_passive_entries_over",
+      "status": "PASS"
+    },
+    {
+      "expected": "REJECT",
+      "name": "public_public_bytes_over",
+      "status": "PASS"
+    },
+    {
+      "expected": "REJECT",
+      "name": "public_public_entries_over",
+      "status": "PASS"
+    },
+    {
+      "expected": "REJECT",
+      "name": "unknown_capture_partition",
+      "status": "PASS"
+    },
+    {
+      "expected": "ACCEPT",
+      "name": "original_deadline_and660_reserve",
+      "status": "PASS"
+    },
+    {
+      "expected": "REJECT",
+      "name": "expired_original_allocation",
+      "status": "PASS"
+    },
+    {
+      "expected": "REJECT",
+      "name": "phase_beyond_original_science",
+      "status": "PASS"
+    },
+    {
+      "expected": "REJECT",
+      "name": "nonfinite_clock",
+      "status": "PASS"
+    },
+    {
+      "expected": "PRESERVE_ORIGINAL_EXIT",
+      "name": "bootstrap_normal",
+      "status": "PASS"
+    },
+    {
+      "expected": "PRESERVE_ORIGINAL_EXIT",
+      "name": "bootstrap_system_exit2",
+      "status": "PASS"
+    },
+    {
+      "expected": "REJECT",
+      "name": "bootstrap_original_exception_preserved",
+      "status": "PASS"
+    },
+    {
+      "expected": "PRESERVE_ORIGINAL_EXIT",
+      "name": "bootstrap_observer_exception",
+      "status": "PASS"
+    },
+    {
+      "expected": "PRESERVE_ORIGINAL_EXIT",
+      "name": "bootstrap_inflight",
+      "status": "PASS"
+    },
+    {
+      "expected": "CLEANUP",
+      "name": "actual_generated_owner_harmless_child",
+      "status": "PASS"
+    },
+    {
+      "expected": "BLOCK_AND_CLEANUP",
+      "name": "actual_generated_owner_observed_overflow_stops_group",
+      "status": "PASS"
+    },
+    {
+      "name": "real_owner_original_monotonic_normal",
+      "status": "PASS"
+    },
+    {
+      "name": "real_owner_wall_rollback_cannot_renew_monotonic",
+      "status": "PASS"
+    },
+    {
+      "name": "real_owner_expired_monotonic_no_launch",
+      "status": "PASS"
+    },
+    {
+      "expected": "ACCEPT",
+      "name": "ordinary_exact100MiB_2000files",
+      "status": "PASS"
+    },
+    {
+      "expected": "REJECT",
+      "name": "ordinary_byte_over",
+      "status": "PASS"
+    },
+    {
+      "expected": "REJECT",
+      "name": "ordinary_entry_over",
+      "status": "PASS"
+    },
+    {
+      "name": "actual_producer_receipt_inclusive2000_valid",
+      "status": "PASS"
+    },
+    {
+      "expected": "REJECT",
+      "name": "actual_producer_final_receipt_causes2001_reject",
+      "status": "PASS"
+    },
+    {
+      "name": "actual_live_raw_empty_directory_counted",
+      "status": "PASS"
+    },
+    {
+      "expected": "EXACT_BYTES",
+      "name": "unchanged_device_diagnostic.py",
+      "status": "PASS"
+    },
+    {
+      "expected": "EXACT_BYTES",
+      "name": "unchanged_compiler_flags.py",
+      "status": "PASS"
+    },
+    {
+      "expected": "EXACT_BYTES",
+      "name": "unchanged_proto_contract.py",
+      "status": "PASS"
+    },
+    {
+      "expected": "EXACT_BYTES",
+      "name": "unchanged_compiler_exec.py",
+      "status": "PASS"
+    },
+    {
+      "expected": "EXACT_BYTES",
+      "name": "unchanged_public15_body",
+      "status": "PASS"
+    }
+  ],
+  "count": 48,
+  "provider_calls": 0,
+  "status": "PASS"
+}

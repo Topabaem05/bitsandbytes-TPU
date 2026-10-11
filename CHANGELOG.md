@@ -1,5 +1,17 @@
 # Change log
 
+## 2026-10-11 — Compiler integration review blockers
+
+- Repeat 130 local integration controls without a provider call.
+- Reject source dispatch after independent review found a browser ownership gap.
+- Preserve the complete superseded source in private Drive and delete completed local output.
+- Record the later reader contradiction found in the repaired preparation.
+
+Validation: All 542 superseded source members passed independent download checks.
+Three source roots and 28,956,307 bytes of root test output were deleted after proof preservation.
+No actual Linux, qualified CPU, TPU, memory, or performance result is established.
+Refer to [the review record](docs/changes/m6-passive-integration-review-blockers.md).
+
 ## 2026-10-11 — Explicit S32 lowering preparation
 
 - Use explicit Tensor shifts, checked S32 comparison constants, and a flat tail reduction axis.

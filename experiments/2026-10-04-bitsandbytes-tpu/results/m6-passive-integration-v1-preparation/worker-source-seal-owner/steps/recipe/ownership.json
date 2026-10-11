@@ -1,0 +1,39 @@
+{
+  "argv": [
+    "/Users/topamini/code/Post2TPU/.venv/bin/python",
+    "-B",
+    "/tmp/bnb-tpu-m6-passive-integration-v1-20261011-rflzi29x/recipe/seal_source.py",
+    "--root",
+    "/tmp/bnb-tpu-m6-passive-integration-v1-20261011-rflzi29x",
+    "--output",
+    "/tmp/bnb-tpu-m6-source-seal-20261011-b"
+  ],
+  "cleanup": {
+    "ended_at": "2026-10-11T09:38:20.651742+00:00",
+    "errors": [],
+    "exit_status": 0,
+    "group_absence": "OBSERVED_NO_SUCH_GROUP",
+    "leader_reaped": true,
+    "pgid": 50704,
+    "pid": 50704,
+    "signals": [
+      {
+        "result": "NO_SUCH_GROUP",
+        "signal": 15
+      },
+      {
+        "result": "NO_SUCH_GROUP",
+        "signal": 9
+      }
+    ],
+    "started_at": "2026-10-11T09:38:20.651682+00:00",
+    "status": "CLEANUP_VERIFIED"
+  },
+  "ended_at": "2026-10-11T09:38:20.651742+00:00",
+  "exit_status": 0,
+  "owner_pid": 50702,
+  "ownership": "Popen child in dedicated start_new_session group",
+  "pgid": 50704,
+  "pid": 50704,
+  "started_at": "2026-10-11T09:38:19.764308+00:00"
+}

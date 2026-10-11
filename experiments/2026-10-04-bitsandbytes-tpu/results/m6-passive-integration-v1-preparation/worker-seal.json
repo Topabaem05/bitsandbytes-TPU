@@ -1,0 +1,36 @@
+{
+  "M6": "NOT_QUALIFIED",
+  "TPU": "NOT_RUN",
+  "actual_Linux": "NOT_RUN",
+  "bulk_cleanup": "All source mutation archives deleted",
+  "negative_controls": [
+    {
+      "name": "changed",
+      "status": "PASS_EXPECTED_REJECTION"
+    },
+    {
+      "name": "missing",
+      "status": "PASS_EXPECTED_REJECTION"
+    },
+    {
+      "name": "extra",
+      "status": "PASS_EXPECTED_REJECTION"
+    }
+  ],
+  "provider_calls": 0,
+  "readback": {
+    "members": 542,
+    "status": "PASS_FULL_MEMBER_SIZE_SHA256_AND_CRC",
+    "uncompressed_preimage_bytes": 10874785
+  },
+  "source_archive": {
+    "bytes": 6988689,
+    "sha256": "8a253a8d05616474985235d8a59a9a8cf27a7a1e3c81008a5f4ff2d7a1a695ff"
+  },
+  "source_manifest": {
+    "bytes": 101320,
+    "sha256": "6554f43dc6c265dafec2b5a7d9a49f151065debbc27e5b2c004cde9196108fb9"
+  },
+  "source_root": "/private/tmp/bnb-tpu-m6-passive-integration-v1-20261011-rflzi29x",
+  "status": "PASS"
+}

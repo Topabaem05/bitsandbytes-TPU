@@ -1,0 +1,93 @@
+{
+  "M6": "NOT_QUALIFIED",
+  "TPU": "NOT_RUN",
+  "actual_CLI": "NOT_RUN",
+  "actual_Linux": "NOT_RUN",
+  "actual_frontend": "NOT_RUN",
+  "bulk_cleanup": "All root-gate fixtures deleted",
+  "controls": [
+    {
+      "name": "actual_preconnect_branch_synthetic_cli_and_frontend",
+      "status": "PASS"
+    },
+    {
+      "name": "actual_request_branch",
+      "status": "PASS"
+    },
+    {
+      "name": "request_exclusive_preserves_original_clock",
+      "status": "PASS"
+    },
+    {
+      "name": "actual_dispatch_branch_source_bound_fields",
+      "status": "PASS"
+    },
+    {
+      "expected": "REJECT",
+      "name": "stale_ui",
+      "status": "PASS"
+    },
+    {
+      "expected": "REJECT",
+      "name": "ui_before_original_request",
+      "status": "PASS"
+    },
+    {
+      "expected": "REJECT",
+      "name": "wrong_ui_request",
+      "status": "PASS"
+    },
+    {
+      "expected": "REJECT",
+      "name": "wrong_ui_hardware",
+      "status": "PASS"
+    },
+    {
+      "expected": "REJECT",
+      "name": "wrong_ui_endpoint",
+      "status": "PASS"
+    },
+    {
+      "expected": "REJECT",
+      "name": "wrong_ui_output",
+      "status": "PASS"
+    },
+    {
+      "expected": "REJECT",
+      "name": "wrong_marker_body",
+      "status": "PASS"
+    },
+    {
+      "expected": "REJECT",
+      "name": "wrong_adoption_birth",
+      "status": "PASS"
+    },
+    {
+      "expected": "REJECT",
+      "name": "original_preconnect_raw_changed",
+      "status": "PASS"
+    },
+    {
+      "expected": "REJECT",
+      "name": "active_sessions_contradiction",
+      "status": "PASS"
+    },
+    {
+      "expected": "REJECT",
+      "name": "positive_usage",
+      "status": "PASS"
+    },
+    {
+      "name": "pruned_empty_valid",
+      "status": "PASS"
+    },
+    {
+      "name": "official_usage_valid",
+      "status": "PASS"
+    }
+  ],
+  "count": 17,
+  "provider_calls": 0,
+  "scope": "Real root branches with isolated synthetic CLI/UI/frontend only",
+  "status": "PASS"
+}

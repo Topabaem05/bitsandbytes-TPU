@@ -1,0 +1,2 @@
+{"kind": "child_started", "pgid": 50704, "pid": 50704, "recorded_at": "2026-10-11T09:38:19.765218+00:00"}
+{"errors": [], "kind": "child_cleanup_checks", "pid": 50704, "recorded_at": "2026-10-11T09:38:20.651860+00:00"}

@@ -1,0 +1,45 @@
+{
+  "archive": {
+    "bytes": 6988689,
+    "sha256": "8a253a8d05616474985235d8a59a9a8cf27a7a1e3c81008a5f4ff2d7a1a695ff"
+  },
+  "blocker": "Matched browser assignment is not owned for cleanup until marker succeeds. Separate assignment_owned flag required.",
+  "canonical_inputs": 426,
+  "independent_build_byte_identical": true,
+  "members": 542,
+  "packets": {
+    "compiler5": {
+      "manifest": {
+        "bytes": 110217,
+        "sha256": "df082302f8bf2778c180c0f2703dc164d9b9d221074d6a8d59c2987af107e51c"
+      },
+      "members": 547,
+      "payload": {
+        "bytes": 2705792,
+        "sha256": "a2cbc21f51b1c28e1a54c91cce8fd055292476f3d75054dc2357d98233fd15f6"
+      },
+      "uncompressed_bytes": 10242804
+    },
+    "public15": {
+      "manifest": {
+        "bytes": 117116,
+        "sha256": "626c387661d15aff0fa278eb1296ad97ca78cf9669e5392e8a0801b7d9ff43e6"
+      },
+      "members": 581,
+      "payload": {
+        "bytes": 2810487,
+        "sha256": "695d1650575aff17d40c8671d871c788a05419be4d04d19179c1af49cb8c9a04"
+      },
+      "uncompressed_bytes": 10660152
+    }
+  },
+  "prepatch_archive_current_root_and_canonical_preimages": "PASS before root summary path error; no deletion occurred on that error",
+  "reviewer_repair": "Corrected root aggregation path build/packets/summary.json to actual build/packet-summary.json; no source or test result changed.",
+  "scope": "Local preparation only; actual Linux,qualifiedCPU,TPU and memory evidence NOT_RUN",
+  "source_manifest": {
+    "bytes": 101320,
+    "sha256": "6554f43dc6c265dafec2b5a7d9a49f151065debbc27e5b2c004cde9196108fb9"
+  },
+  "status": "BLOCKED_BROWSER_MARKER_OWNERSHIP_REQUIRES_FRESH_SOURCE",
+  "verified_epoch": 1791712131.383865
+}

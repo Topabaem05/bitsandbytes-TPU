@@ -1,0 +1,24 @@
+{
+  "active_process_references": [],
+  "bytes": 28891176,
+  "files": 1370,
+  "frozen_source_readback": "PASS",
+  "inventory_sha256": "95ebd195a5fd629f421cc266bbf88b6246bb8d3cfe6fa3070770840c70d36328",
+  "packet_readbacks": {
+    "compiler5": {
+      "bytes": 2705792,
+      "members": 547,
+      "sha256": "a2cbc21f51b1c28e1a54c91cce8fd055292476f3d75054dc2357d98233fd15f6",
+      "status": "PASS_FULL_MEMBER_READBACK_AND_COMPLETED_BUILD_BYTECOPY"
+    },
+    "public15": {
+      "bytes": 2810487,
+      "members": 581,
+      "sha256": "695d1650575aff17d40c8671d871c788a05419be4d04d19179c1af49cb8c9a04",
+      "status": "PASS_FULL_MEMBER_READBACK_AND_COMPLETED_BUILD_BYTECOPY"
+    }
+  },
+  "provider_calls": 0,
+  "root": "/tmp/bnb-tpu-m6-build-20261011-j",
+  "status": "VERIFIED_EXACT_COMPLETED_BUILD_DELETED"
+}

@@ -1,0 +1,10 @@
+{
+  "all_owned_groups_fresh_absent": true,
+  "deleted_bytes": 28956307,
+  "deleted_files": 1433,
+  "new_work_output": false,
+  "root": "/tmp/bnb-tpu-root-m6-integration-review-20261011",
+  "root_absent": true,
+  "status": "REPRODUCIBLE_TEST_OUTPUT_DELETED_AFTER_SELECTED_PROOF",
+  "verified_epoch": 1791712131.5337641
+}

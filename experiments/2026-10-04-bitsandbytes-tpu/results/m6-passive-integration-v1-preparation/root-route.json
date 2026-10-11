@@ -1,0 +1,27 @@
+{
+  "ML_imports": 0,
+  "TPU": "NOT_RUN",
+  "actual_Linux": "NOT_RUN",
+  "bulk_cleanup": "All prelaunch source/layout fixtures deleted",
+  "controls": [
+    {
+      "name": "actual_seal_then_bootstrap_then_expected_slice",
+      "science_launch": "NOT_RUN",
+      "status": "PASS"
+    },
+    {
+      "expected": "REJECT",
+      "name": "missing_assignment",
+      "status": "PASS"
+    },
+    {
+      "expected": "REJECT",
+      "name": "wrong_metadata_root",
+      "status": "PASS"
+    }
+  ],
+  "count": 3,
+  "provider_calls": 0,
+  "scope": "Actual source-bound prelaunch slice; admission/oracle already-established preconditions are synthetic",
+  "status": "PASS"
+}

@@ -1,0 +1,18 @@
+{
+  "archive_bytes": 6988689,
+  "archive_sha256": "8a253a8d05616474985235d8a59a9a8cf27a7a1e3c81008a5f4ff2d7a1a695ff",
+  "every_member_size_sha256_crc_pass": true,
+  "file_id": "1DeyVMa8qkuDSnVJ47ktKIk4amSKasq1f",
+  "members": 542,
+  "parent_id": "1Wj_aNLgxquksWtyHthccE7bpTnT5Z4Vz",
+  "permissions": [
+    {
+      "role": "owner",
+      "type": "user"
+    }
+  ],
+  "shared": false,
+  "source_adoption": "BLOCKED_BROWSER_MARKER_OWNERSHIP",
+  "status": "INDEPENDENT_DRIVE_DOWNLOAD_FULL_READBACK_PASS",
+  "verified_epoch": 1791712171.9296541
+}

@@ -1,0 +1,651 @@
+{
+  "M6": "NOT_QUALIFIED",
+  "TPU": "NOT_RUN",
+  "actual_Linux": "NOT_RUN",
+  "controls": 130,
+  "limitation": "These controls did not cover the later adviser finding at the browser marker ownership boundary. Source dispatch remains blocked.",
+  "owner_records": {
+    "build-owner": {
+      "argv": [
+        "/Users/topamini/code/Post2TPU/.venv/bin/python",
+        "-B",
+        "/tmp/bnb-tpu-m6-passive-integration-v1-20261011-rflzi29x/control/build_packets.py",
+        "--output",
+        "/tmp/bnb-tpu-root-m6-integration-review-20261011/build",
+        "--upstream",
+        "/Users/topamini/code/Post2TPU/.cache/bitsandbytes-repo"
+      ],
+      "cleanup": {
+        "errors": [],
+        "groups": [
+          {
+            "ended_at": "2026-10-11T09:43:00.515599+00:00",
+            "errors": [],
+            "exit_status": 0,
+            "group_absence": "OBSERVED_NO_SUCH_GROUP",
+            "leader_reaped": true,
+            "pgid": 51857,
+            "pid": 51857,
+            "signals": [
+              {
+                "result": "NO_SUCH_GROUP",
+                "signal": 15
+              },
+              {
+                "result": "NO_SUCH_GROUP",
+                "signal": 9
+              }
+            ],
+            "started_at": "2026-10-11T09:43:00.515558+00:00",
+            "status": "CLEANUP_VERIFIED"
+          }
+        ],
+        "guard_original_outcome": {
+          "error": null,
+          "status": "COMPLETED"
+        },
+        "restoration": {
+          "handlers_restored": true,
+          "previous_timer": [
+            0.0,
+            0.0
+          ],
+          "state": "RESTORATION_ATTEMPTED",
+          "timer_policy": "PAUSE_AND_RESTORE_CAPTURED_TIMER",
+          "timer_restored": true
+        },
+        "status": "NO_CLEANUP_ERRORS"
+      },
+      "environment": {
+        "HOME_and_CODEX_HOME": "INHERITED_WITHOUT_CHANGE",
+        "names_unset": [
+          "PYTHONPATH",
+          "PYTHONHOME",
+          "TPU_LIBRARY_PATH",
+          "PTXLA_TPU_LIBRARY_PATH",
+          "PJRT_DEVICE"
+        ],
+        "set": {
+          "PYTHONDONTWRITEBYTECODE": "1",
+          "PYTHONNOUSERSITE": "1",
+          "TPU_LOG_DIR": "disabled"
+        }
+      },
+      "exit_code": 0,
+      "original_outcome": {
+        "error": null,
+        "exit_code": 0,
+        "status": "PASS"
+      },
+      "status": "PASS",
+      "timeout_seconds": 175.0
+    },
+    "packet-compiler5-owner": {
+      "argv": [
+        "/Users/topamini/code/Post2TPU/.venv/bin/python",
+        "-B",
+        "/tmp/bnb-tpu-m6-passive-integration-v1-20261011-rflzi29x/tests/packet_controls.py",
+        "--output",
+        "/tmp/bnb-tpu-root-m6-integration-review-20261011/packet-compiler5",
+        "--packet",
+        "/tmp/bnb-tpu-root-m6-integration-review-20261011/build/packets/compiler5"
+      ],
+      "cleanup": {
+        "errors": [],
+        "groups": [
+          {
+            "ended_at": "2026-10-11T09:43:48.849607+00:00",
+            "errors": [],
+            "exit_status": 0,
+            "group_absence": "OBSERVED_NO_SUCH_GROUP",
+            "leader_reaped": true,
+            "pgid": 52010,
+            "pid": 52010,
+            "signals": [
+              {
+                "result": "NO_SUCH_GROUP",
+                "signal": 15
+              },
+              {
+                "result": "NO_SUCH_GROUP",
+                "signal": 9
+              }
+            ],
+            "started_at": "2026-10-11T09:43:48.849528+00:00",
+            "status": "CLEANUP_VERIFIED"
+          }
+        ],
+        "guard_original_outcome": {
+          "error": null,
+          "status": "COMPLETED"
+        },
+        "restoration": {
+          "handlers_restored": true,
+          "previous_timer": [
+            0.0,
+            0.0
+          ],
+          "state": "RESTORATION_ATTEMPTED",
+          "timer_policy": "PAUSE_AND_RESTORE_CAPTURED_TIMER",
+          "timer_restored": true
+        },
+        "status": "NO_CLEANUP_ERRORS"
+      },
+      "environment": {
+        "HOME_and_CODEX_HOME": "INHERITED_WITHOUT_CHANGE",
+        "names_unset": [
+          "PYTHONPATH",
+          "PYTHONHOME",
+          "TPU_LIBRARY_PATH",
+          "PTXLA_TPU_LIBRARY_PATH",
+          "PJRT_DEVICE"
+        ],
+        "set": {
+          "PYTHONDONTWRITEBYTECODE": "1",
+          "PYTHONNOUSERSITE": "1",
+          "TPU_LOG_DIR": "disabled"
+        }
+      },
+      "exit_code": 0,
+      "original_outcome": {
+        "error": null,
+        "exit_code": 0,
+        "status": "PASS"
+      },
+      "status": "PASS",
+      "timeout_seconds": 115.0
+    },
+    "packet-public15-owner": {
+      "argv": [
+        "/Users/topamini/code/Post2TPU/.venv/bin/python",
+        "-B",
+        "/tmp/bnb-tpu-m6-passive-integration-v1-20261011-rflzi29x/tests/packet_controls.py",
+        "--output",
+        "/tmp/bnb-tpu-root-m6-integration-review-20261011/packet-public15",
+        "--packet",
+        "/tmp/bnb-tpu-root-m6-integration-review-20261011/build/packets/public15"
+      ],
+      "cleanup": {
+        "errors": [],
+        "groups": [
+          {
+            "ended_at": "2026-10-11T09:43:48.995082+00:00",
+            "errors": [],
+            "exit_status": 0,
+            "group_absence": "OBSERVED_NO_SUCH_GROUP",
+            "leader_reaped": true,
+            "pgid": 52013,
+            "pid": 52013,
+            "signals": [
+              {
+                "result": "NO_SUCH_GROUP",
+                "signal": 15
+              },
+              {
+                "result": "NO_SUCH_GROUP",
+                "signal": 9
+              }
+            ],
+            "started_at": "2026-10-11T09:43:48.994987+00:00",
+            "status": "CLEANUP_VERIFIED"
+          }
+        ],
+        "guard_original_outcome": {
+          "error": null,
+          "status": "COMPLETED"
+        },
+        "restoration": {
+          "handlers_restored": true,
+          "previous_timer": [
+            0.0,
+            0.0
+          ],
+          "state": "RESTORATION_ATTEMPTED",
+          "timer_policy": "PAUSE_AND_RESTORE_CAPTURED_TIMER",
+          "timer_restored": true
+        },
+        "status": "NO_CLEANUP_ERRORS"
+      },
+      "environment": {
+        "HOME_and_CODEX_HOME": "INHERITED_WITHOUT_CHANGE",
+        "names_unset": [
+          "PYTHONPATH",
+          "PYTHONHOME",
+          "TPU_LIBRARY_PATH",
+          "PTXLA_TPU_LIBRARY_PATH",
+          "PJRT_DEVICE"
+        ],
+        "set": {
+          "PYTHONDONTWRITEBYTECODE": "1",
+          "PYTHONNOUSERSITE": "1",
+          "TPU_LOG_DIR": "disabled"
+        }
+      },
+      "exit_code": 0,
+      "original_outcome": {
+        "error": null,
+        "exit_code": 0,
+        "status": "PASS"
+      },
+      "status": "PASS",
+      "timeout_seconds": 115.0
+    },
+    "readback-compiler5-owner": {
+      "argv": [
+        "/Users/topamini/code/Post2TPU/.venv/bin/python",
+        "-B",
+        "/tmp/bnb-tpu-m6-passive-integration-v1-20261011-rflzi29x/tests/readback_controls.py",
+        "--output",
+        "/tmp/bnb-tpu-root-m6-integration-review-20261011/readback-compiler5",
+        "--packets",
+        "/tmp/bnb-tpu-root-m6-integration-review-20261011/build/packets",
+        "--phase",
+        "compiler5"
+      ],
+      "cleanup": {
+        "errors": [],
+        "groups": [
+          {
+            "ended_at": "2026-10-11T09:43:51.544281+00:00",
+            "errors": [],
+            "exit_status": 0,
+            "group_absence": "OBSERVED_NO_SUCH_GROUP",
+            "leader_reaped": true,
+            "pgid": 52011,
+            "pid": 52011,
+            "signals": [
+              {
+                "result": "NO_SUCH_GROUP",
+                "signal": 15
+              },
+              {
+                "result": "NO_SUCH_GROUP",
+                "signal": 9
+              }
+            ],
+            "started_at": "2026-10-11T09:43:51.544205+00:00",
+            "status": "CLEANUP_VERIFIED"
+          }
+        ],
+        "guard_original_outcome": {
+          "error": null,
+          "status": "COMPLETED"
+        },
+        "restoration": {
+          "handlers_restored": true,
+          "previous_timer": [
+            0.0,
+            0.0
+          ],
+          "state": "RESTORATION_ATTEMPTED",
+          "timer_policy": "PAUSE_AND_RESTORE_CAPTURED_TIMER",
+          "timer_restored": true
+        },
+        "status": "NO_CLEANUP_ERRORS"
+      },
+      "environment": {
+        "HOME_and_CODEX_HOME": "INHERITED_WITHOUT_CHANGE",
+        "names_unset": [
+          "PYTHONPATH",
+          "PYTHONHOME",
+          "TPU_LIBRARY_PATH",
+          "PTXLA_TPU_LIBRARY_PATH",
+          "PJRT_DEVICE"
+        ],
+        "set": {
+          "PYTHONDONTWRITEBYTECODE": "1",
+          "PYTHONNOUSERSITE": "1",
+          "TPU_LOG_DIR": "disabled"
+        }
+      },
+      "exit_code": 0,
+      "original_outcome": {
+        "error": null,
+        "exit_code": 0,
+        "status": "PASS"
+      },
+      "status": "PASS",
+      "timeout_seconds": 115.0
+    },
+    "readback-public15-owner": {
+      "argv": [
+        "/Users/topamini/code/Post2TPU/.venv/bin/python",
+        "-B",
+        "/tmp/bnb-tpu-m6-passive-integration-v1-20261011-rflzi29x/tests/readback_controls.py",
+        "--output",
+        "/tmp/bnb-tpu-root-m6-integration-review-20261011/readback-public15",
+        "--packets",
+        "/tmp/bnb-tpu-root-m6-integration-review-20261011/build/packets",
+        "--phase",
+        "public15"
+      ],
+      "cleanup": {
+        "errors": [],
+        "groups": [
+          {
+            "ended_at": "2026-10-11T09:43:51.186400+00:00",
+            "errors": [],
+            "exit_status": 0,
+            "group_absence": "OBSERVED_NO_SUCH_GROUP",
+            "leader_reaped": true,
+            "pgid": 52009,
+            "pid": 52009,
+            "signals": [
+              {
+                "result": "NO_SUCH_GROUP",
+                "signal": 15
+              },
+              {
+                "result": "NO_SUCH_GROUP",
+                "signal": 9
+              }
+            ],
+            "started_at": "2026-10-11T09:43:51.186320+00:00",
+            "status": "CLEANUP_VERIFIED"
+          }
+        ],
+        "guard_original_outcome": {
+          "error": null,
+          "status": "COMPLETED"
+        },
+        "restoration": {
+          "handlers_restored": true,
+          "previous_timer": [
+            0.0,
+            0.0
+          ],
+          "state": "RESTORATION_ATTEMPTED",
+          "timer_policy": "PAUSE_AND_RESTORE_CAPTURED_TIMER",
+          "timer_restored": true
+        },
+        "status": "NO_CLEANUP_ERRORS"
+      },
+      "environment": {
+        "HOME_and_CODEX_HOME": "INHERITED_WITHOUT_CHANGE",
+        "names_unset": [
+          "PYTHONPATH",
+          "PYTHONHOME",
+          "TPU_LIBRARY_PATH",
+          "PTXLA_TPU_LIBRARY_PATH",
+          "PJRT_DEVICE"
+        ],
+        "set": {
+          "PYTHONDONTWRITEBYTECODE": "1",
+          "PYTHONNOUSERSITE": "1",
+          "TPU_LOG_DIR": "disabled"
+        }
+      },
+      "exit_code": 0,
+      "original_outcome": {
+        "error": null,
+        "exit_code": 0,
+        "status": "PASS"
+      },
+      "status": "PASS",
+      "timeout_seconds": 115.0
+    },
+    "recipe-owner": {
+      "argv": [
+        "/Users/topamini/code/Post2TPU/.venv/bin/python",
+        "-B",
+        "/tmp/bnb-tpu-m6-passive-integration-v1-20261011-rflzi29x/tests/root_recipe_controls.py",
+        "--output",
+        "/tmp/bnb-tpu-root-m6-integration-review-20261011/recipe",
+        "--packet",
+        "/tmp/bnb-tpu-root-m6-integration-review-20261011/build/packets/compiler5"
+      ],
+      "cleanup": {
+        "errors": [],
+        "groups": [
+          {
+            "ended_at": "2026-10-11T09:43:53.673430+00:00",
+            "errors": [],
+            "exit_status": 0,
+            "group_absence": "OBSERVED_NO_SUCH_GROUP",
+            "leader_reaped": true,
+            "pgid": 52014,
+            "pid": 52014,
+            "signals": [
+              {
+                "result": "NO_SUCH_GROUP",
+                "signal": 15
+              },
+              {
+                "result": "NO_SUCH_GROUP",
+                "signal": 9
+              }
+            ],
+            "started_at": "2026-10-11T09:43:53.673355+00:00",
+            "status": "CLEANUP_VERIFIED"
+          }
+        ],
+        "guard_original_outcome": {
+          "error": null,
+          "status": "COMPLETED"
+        },
+        "restoration": {
+          "handlers_restored": true,
+          "previous_timer": [
+            0.0,
+            0.0
+          ],
+          "state": "RESTORATION_ATTEMPTED",
+          "timer_policy": "PAUSE_AND_RESTORE_CAPTURED_TIMER",
+          "timer_restored": true
+        },
+        "status": "NO_CLEANUP_ERRORS"
+      },
+      "environment": {
+        "HOME_and_CODEX_HOME": "INHERITED_WITHOUT_CHANGE",
+        "names_unset": [
+          "PYTHONPATH",
+          "PYTHONHOME",
+          "TPU_LIBRARY_PATH",
+          "PTXLA_TPU_LIBRARY_PATH",
+          "PJRT_DEVICE"
+        ],
+        "set": {
+          "PYTHONDONTWRITEBYTECODE": "1",
+          "PYTHONNOUSERSITE": "1",
+          "TPU_LOG_DIR": "disabled"
+        }
+      },
+      "exit_code": 0,
+      "original_outcome": {
+        "error": null,
+        "exit_code": 0,
+        "status": "PASS"
+      },
+      "status": "PASS",
+      "timeout_seconds": 115.0
+    },
+    "route-owner": {
+      "argv": [
+        "/Users/topamini/code/Post2TPU/.venv/bin/python",
+        "-B",
+        "/tmp/bnb-tpu-m6-passive-integration-v1-20261011-rflzi29x/tests/compiler_route_controls.py",
+        "--output",
+        "/tmp/bnb-tpu-root-m6-integration-review-20261011/route",
+        "--packet",
+        "/tmp/bnb-tpu-root-m6-integration-review-20261011/build/packets/compiler5"
+      ],
+      "cleanup": {
+        "errors": [],
+        "groups": [
+          {
+            "ended_at": "2026-10-11T09:43:48.730884+00:00",
+            "errors": [],
+            "exit_status": 0,
+            "group_absence": "OBSERVED_NO_SUCH_GROUP",
+            "leader_reaped": true,
+            "pgid": 52012,
+            "pid": 52012,
+            "signals": [
+              {
+                "result": "NO_SUCH_GROUP",
+                "signal": 15
+              },
+              {
+                "result": "NO_SUCH_GROUP",
+                "signal": 9
+              }
+            ],
+            "started_at": "2026-10-11T09:43:48.730808+00:00",
+            "status": "CLEANUP_VERIFIED"
+          }
+        ],
+        "guard_original_outcome": {
+          "error": null,
+          "status": "COMPLETED"
+        },
+        "restoration": {
+          "handlers_restored": true,
+          "previous_timer": [
+            0.0,
+            0.0
+          ],
+          "state": "RESTORATION_ATTEMPTED",
+          "timer_policy": "PAUSE_AND_RESTORE_CAPTURED_TIMER",
+          "timer_restored": true
+        },
+        "status": "NO_CLEANUP_ERRORS"
+      },
+      "environment": {
+        "HOME_and_CODEX_HOME": "INHERITED_WITHOUT_CHANGE",
+        "names_unset": [
+          "PYTHONPATH",
+          "PYTHONHOME",
+          "TPU_LIBRARY_PATH",
+          "PTXLA_TPU_LIBRARY_PATH",
+          "PJRT_DEVICE"
+        ],
+        "set": {
+          "PYTHONDONTWRITEBYTECODE": "1",
+          "PYTHONNOUSERSITE": "1",
+          "TPU_LOG_DIR": "disabled"
+        }
+      },
+      "exit_code": 0,
+      "original_outcome": {
+        "error": null,
+        "exit_code": 0,
+        "status": "PASS"
+      },
+      "status": "PASS",
+      "timeout_seconds": 55.0
+    },
+    "source-owner": {
+      "argv": [
+        "/Users/topamini/code/Post2TPU/.venv/bin/python",
+        "-B",
+        "/tmp/bnb-tpu-m6-passive-integration-v1-20261011-rflzi29x/tests/run_controls.py",
+        "--output",
+        "/tmp/bnb-tpu-root-m6-integration-review-20261011/source",
+        "--packet-root",
+        "/tmp/bnb-tpu-root-m6-integration-review-20261011/build/packets"
+      ],
+      "cleanup": {
+        "errors": [],
+        "groups": [
+          {
+            "ended_at": "2026-10-11T09:43:50.152679+00:00",
+            "errors": [],
+            "exit_status": 0,
+            "group_absence": "OBSERVED_NO_SUCH_GROUP",
+            "leader_reaped": true,
+            "pgid": 52015,
+            "pid": 52015,
+            "signals": [
+              {
+                "result": "NO_SUCH_GROUP",
+                "signal": 15
+              },
+              {
+                "result": "NO_SUCH_GROUP",
+                "signal": 9
+              }
+            ],
+            "started_at": "2026-10-11T09:43:50.152598+00:00",
+            "status": "CLEANUP_VERIFIED"
+          }
+        ],
+        "guard_original_outcome": {
+          "error": null,
+          "status": "COMPLETED"
+        },
+        "restoration": {
+          "handlers_restored": true,
+          "previous_timer": [
+            0.0,
+            0.0
+          ],
+          "state": "RESTORATION_ATTEMPTED",
+          "timer_policy": "PAUSE_AND_RESTORE_CAPTURED_TIMER",
+          "timer_restored": true
+        },
+        "status": "NO_CLEANUP_ERRORS"
+      },
+      "environment": {
+        "HOME_and_CODEX_HOME": "INHERITED_WITHOUT_CHANGE",
+        "names_unset": [
+          "PYTHONPATH",
+          "PYTHONHOME",
+          "TPU_LIBRARY_PATH",
+          "PTXLA_TPU_LIBRARY_PATH",
+          "PJRT_DEVICE"
+        ],
+        "set": {
+          "PYTHONDONTWRITEBYTECODE": "1",
+          "PYTHONNOUSERSITE": "1",
+          "TPU_LOG_DIR": "disabled"
+        }
+      },
+      "exit_code": 0,
+      "original_outcome": {
+        "error": null,
+        "exit_code": 0,
+        "status": "PASS"
+      },
+      "status": "PASS",
+      "timeout_seconds": 115.0
+    }
+  },
+  "runs": [
+    {
+      "count": 48,
+      "name": "source",
+      "summary_sha256": "0a19cec58ff2dbcad061efd26d020770473c233824f04cb57646813eac002535"
+    },
+    {
+      "count": 25,
+      "name": "readback-compiler5",
+      "summary_sha256": "f47fafe1022f39c8ad494e22b4ff99db1c85d0ad12b85de0146d6a5dfb78f703"
+    },
+    {
+      "count": 25,
+      "name": "readback-public15",
+      "summary_sha256": "85b26ca918637a712a9eed2ec17b1c7ede304f74195e3304600445e2318b81c4"
+    },
+    {
+      "count": 6,
+      "name": "packet-compiler5",
+      "summary_sha256": "1ab3b13c98d47a216b677a9dd20a7753464f0d23a3ba0e160e2aab3eec51921d"
+    },
+    {
+      "count": 6,
+      "name": "packet-public15",
+      "summary_sha256": "1ab3b13c98d47a216b677a9dd20a7753464f0d23a3ba0e160e2aab3eec51921d"
+    },
+    {
+      "count": 3,
+      "name": "route",
+      "summary_sha256": "f19e996d0ea112d3c311b306759a979aec1ea5fca4593f1819cc602cea724598"
+    },
+    {
+      "count": 17,
+      "name": "recipe",
+      "summary_sha256": "e4956ad507eb60b7e37e49401c4ea3a0b847bc1704d8437fd139e5ba15def9a2"
+    }
+  ],
+  "status": "PASS"
+}

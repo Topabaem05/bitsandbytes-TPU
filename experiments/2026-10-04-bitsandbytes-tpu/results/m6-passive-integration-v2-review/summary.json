@@ -1,0 +1,937 @@
+{
+  "blocking_finding": {
+    "file": "control/verify_bootstrap.py",
+    "minimal_repair": "Require final original_error key with None for admitted0/2. Preserve source-consistent exit2 and original science status; add correct0/correct2/nonempty/missing controls. New source generation/seal; never alter actual or frozen records.",
+    "observed": "Both phases accept nonempty original_error with exit0 and missing original_error field",
+    "source_basis": "control/passive_entry.py sets original_error only in branches assigning code1; verifier admits only code0/2"
+  },
+  "disposable_fixtures": "DELETED_AFTER_ALL_SEVEN_LOCAL_CHILDREN_REAPED_AND_GROUPS_ABSENT",
+  "focused_control_count": 74,
+  "focused_controls": {
+    "adoption": {
+      "controls": [
+        {
+          "adoption_verified": true,
+          "assignment_owned": true,
+          "command_labels": [
+            "01-sessions-before",
+            "02-usage-before",
+            "03-browser-registration",
+            "04-sessions-after",
+            "04b-browser-marker",
+            "05-readiness",
+            "20-critical-receipt",
+            "90-before-stop",
+            "91-stop-exact",
+            "92-after-stop",
+            "93-usage-after"
+          ],
+          "counterexample": false,
+          "exact_stop_calls": 1,
+          "name": "good_marker",
+          "owner_status": "BLOCKED",
+          "provisional_remove_calls": 0,
+          "status": "PASS"
+        },
+        {
+          "adoption_verified": false,
+          "assignment_owned": true,
+          "command_labels": [
+            "01-sessions-before",
+            "02-usage-before",
+            "03-browser-registration",
+            "04-sessions-after",
+            "04b-browser-marker",
+            "90-before-stop",
+            "91-stop-exact",
+            "92-after-stop",
+            "93-usage-after"
+          ],
+          "counterexample": false,
+          "exact_stop_calls": 1,
+          "name": "wrong_marker",
+          "owner_status": "BLOCKED",
+          "provisional_remove_calls": 0,
+          "status": "PASS"
+        },
+        {
+          "adoption_verified": false,
+          "assignment_owned": true,
+          "command_labels": [
+            "01-sessions-before",
+            "02-usage-before",
+            "03-browser-registration",
+            "04-sessions-after",
+            "04b-browser-marker",
+            "90-before-stop",
+            "91-stop-exact",
+            "92-after-stop",
+            "93-usage-after"
+          ],
+          "counterexample": false,
+          "exact_stop_calls": 1,
+          "name": "missing_marker_cli_zero",
+          "owner_status": "BLOCKED",
+          "provisional_remove_calls": 0,
+          "status": "PASS"
+        },
+        {
+          "adoption_verified": false,
+          "assignment_owned": true,
+          "command_labels": [
+            "01-sessions-before",
+            "02-usage-before",
+            "03-browser-registration",
+            "04-sessions-after",
+            "04b-browser-marker",
+            "90-before-stop",
+            "91-stop-exact",
+            "92-after-stop",
+            "93-usage-after"
+          ],
+          "counterexample": false,
+          "exact_stop_calls": 1,
+          "name": "marker_cli_exception",
+          "owner_status": "BLOCKED",
+          "provisional_remove_calls": 0,
+          "status": "PASS"
+        },
+        {
+          "adoption_verified": false,
+          "assignment_owned": true,
+          "command_labels": [
+            "01-sessions-before",
+            "02-usage-before",
+            "03-browser-registration",
+            "04-sessions-after",
+            "04b-browser-marker",
+            "90-before-stop",
+            "91-stop-exact",
+            "92-after-stop",
+            "93-usage-after"
+          ],
+          "counterexample": false,
+          "exact_stop_calls": 1,
+          "name": "marker_cli_nonzero",
+          "owner_status": "BLOCKED",
+          "provisional_remove_calls": 0,
+          "status": "PASS"
+        },
+        {
+          "adoption_verified": false,
+          "assignment_owned": false,
+          "command_labels": [
+            "01-sessions-before",
+            "02-usage-before",
+            "03-browser-registration",
+            "04-sessions-after",
+            "89-remove-provisional"
+          ],
+          "counterexample": false,
+          "exact_stop_calls": 0,
+          "name": "wrong_endpoint",
+          "owner_status": "BLOCKED",
+          "provisional_remove_calls": 1,
+          "status": "PASS"
+        },
+        {
+          "adoption_verified": false,
+          "assignment_owned": false,
+          "command_labels": [
+            "01-sessions-before",
+            "02-usage-before",
+            "03-browser-registration",
+            "04-sessions-after",
+            "89-remove-provisional"
+          ],
+          "counterexample": false,
+          "exact_stop_calls": 0,
+          "name": "wrong_session",
+          "owner_status": "BLOCKED",
+          "provisional_remove_calls": 1,
+          "status": "PASS"
+        },
+        {
+          "adoption_verified": false,
+          "assignment_owned": false,
+          "command_labels": [
+            "01-sessions-before",
+            "02-usage-before",
+            "03-browser-registration",
+            "04-sessions-after",
+            "89-remove-provisional"
+          ],
+          "counterexample": false,
+          "exact_stop_calls": 0,
+          "name": "wrong_hardware",
+          "owner_status": "BLOCKED",
+          "provisional_remove_calls": 1,
+          "status": "PASS"
+        },
+        {
+          "adoption_verified": false,
+          "assignment_owned": false,
+          "command_labels": [
+            "01-sessions-before",
+            "02-usage-before",
+            "03-browser-registration",
+            "04-sessions-after",
+            "89-remove-provisional"
+          ],
+          "counterexample": false,
+          "exact_stop_calls": 0,
+          "name": "wrong_variant",
+          "owner_status": "BLOCKED",
+          "provisional_remove_calls": 1,
+          "status": "PASS"
+        },
+        {
+          "adoption_verified": false,
+          "assignment_owned": false,
+          "command_labels": [
+            "01-sessions-before",
+            "02-usage-before",
+            "03-browser-registration",
+            "04-sessions-after",
+            "89-remove-provisional"
+          ],
+          "counterexample": false,
+          "exact_stop_calls": 0,
+          "name": "multiple_assignments",
+          "owner_status": "BLOCKED",
+          "provisional_remove_calls": 1,
+          "status": "PASS"
+        },
+        {
+          "adoption_verified": false,
+          "assignment_owned": false,
+          "command_labels": [
+            "01-sessions-before",
+            "02-usage-before",
+            "03-browser-registration",
+            "04-sessions-after",
+            "89-remove-provisional"
+          ],
+          "counterexample": false,
+          "exact_stop_calls": 0,
+          "name": "sessions_cli_exception",
+          "owner_status": "BLOCKED",
+          "provisional_remove_calls": 1,
+          "status": "PASS"
+        },
+        {
+          "adoption_verified": true,
+          "assignment_owned": true,
+          "command_labels": [
+            "01-sessions-before",
+            "02-usage-before",
+            "03-browser-registration",
+            "04-sessions-after",
+            "04b-browser-marker",
+            "05-readiness",
+            "20-critical-receipt",
+            "90-before-stop",
+            "91-stop-exact",
+            "92-after-stop",
+            "93-usage-after"
+          ],
+          "counterexample": false,
+          "exact_stop_calls": 1,
+          "name": "stop_failure",
+          "owner_status": "BLOCKED_CLEANUP",
+          "provisional_remove_calls": 0,
+          "status": "PASS"
+        },
+        {
+          "adoption_verified": false,
+          "assignment_owned": true,
+          "command_labels": [
+            "01-sessions-before",
+            "02-usage-before",
+            "03-browser-registration",
+            "04-sessions-after",
+            "04b-browser-marker",
+            "89-remove-provisional"
+          ],
+          "counterexample": true,
+          "exact_stop_calls": 0,
+          "name": "old_marker_dependent_cleanup_counterexample",
+          "owner_status": "BLOCKED",
+          "provisional_remove_calls": 1,
+          "status": "PASS"
+        },
+        {
+          "adoption_verified": false,
+          "assignment_owned": true,
+          "command_labels": [
+            "01-sessions-before",
+            "02-usage-before",
+            "03-browser-registration",
+            "04-sessions-after",
+            "04b-browser-marker",
+            "90-before-stop",
+            "91-stop-exact",
+            "92-after-stop",
+            "93-usage-after"
+          ],
+          "counterexample": false,
+          "exact_stop_calls": 1,
+          "name": "unverified_marker_stop_failure",
+          "owner_status": "BLOCKED_CLEANUP",
+          "provisional_remove_calls": 0,
+          "status": "PASS"
+        },
+        {
+          "adoption_verified": false,
+          "assignment_owned": false,
+          "command_labels": [
+            "01-sessions-before",
+            "02-usage-before",
+            "03-browser-registration",
+            "04-sessions-after",
+            "89-remove-provisional"
+          ],
+          "counterexample": false,
+          "exact_stop_calls": 0,
+          "name": "duplicate_hardware_conflict",
+          "owner_status": "BLOCKED",
+          "provisional_remove_calls": 1,
+          "status": "PASS"
+        },
+        {
+          "adoption_verified": false,
+          "assignment_owned": false,
+          "command_labels": [
+            "01-sessions-before",
+            "02-usage-before",
+            "03-browser-registration",
+            "04-sessions-after",
+            "89-remove-provisional"
+          ],
+          "counterexample": false,
+          "exact_stop_calls": 0,
+          "name": "duplicate_hardware_identical",
+          "owner_status": "BLOCKED",
+          "provisional_remove_calls": 1,
+          "status": "PASS"
+        },
+        {
+          "adoption_verified": false,
+          "assignment_owned": false,
+          "command_labels": [
+            "01-sessions-before",
+            "02-usage-before",
+            "03-browser-registration",
+            "04-sessions-after",
+            "89-remove-provisional"
+          ],
+          "counterexample": false,
+          "exact_stop_calls": 0,
+          "name": "duplicate_variant_conflict",
+          "owner_status": "BLOCKED",
+          "provisional_remove_calls": 1,
+          "status": "PASS"
+        },
+        {
+          "adoption_verified": false,
+          "assignment_owned": false,
+          "command_labels": [
+            "01-sessions-before",
+            "02-usage-before",
+            "03-browser-registration",
+            "04-sessions-after",
+            "89-remove-provisional"
+          ],
+          "counterexample": false,
+          "exact_stop_calls": 0,
+          "name": "duplicate_variant_identical",
+          "owner_status": "BLOCKED",
+          "provisional_remove_calls": 1,
+          "status": "PASS"
+        },
+        {
+          "adoption_verified": false,
+          "assignment_owned": false,
+          "command_labels": [
+            "01-sessions-before",
+            "02-usage-before",
+            "03-browser-registration",
+            "04-sessions-after",
+            "89-remove-provisional"
+          ],
+          "counterexample": false,
+          "exact_stop_calls": 0,
+          "name": "hardware_prefix",
+          "owner_status": "BLOCKED",
+          "provisional_remove_calls": 1,
+          "status": "PASS"
+        },
+        {
+          "adoption_verified": false,
+          "assignment_owned": false,
+          "command_labels": [
+            "01-sessions-before",
+            "02-usage-before",
+            "03-browser-registration",
+            "04-sessions-after",
+            "89-remove-provisional"
+          ],
+          "counterexample": false,
+          "exact_stop_calls": 0,
+          "name": "variant_prefix",
+          "owner_status": "BLOCKED",
+          "provisional_remove_calls": 1,
+          "status": "PASS"
+        },
+        {
+          "adoption_verified": true,
+          "assignment_owned": true,
+          "command_labels": [
+            "01-sessions-before",
+            "02-usage-before",
+            "03-browser-registration",
+            "04-sessions-after",
+            "04b-browser-marker",
+            "05-readiness",
+            "20-critical-receipt",
+            "90-before-stop",
+            "91-stop-exact",
+            "92-after-stop",
+            "93-usage-after"
+          ],
+          "counterexample": false,
+          "exact_stop_calls": 1,
+          "name": "valid_status_shape",
+          "owner_status": "BLOCKED",
+          "provisional_remove_calls": 0,
+          "status": "PASS"
+        }
+      ],
+      "count": 21,
+      "status": "PASS"
+    },
+    "readback-compiler": {
+      "controls": [
+        {
+          "name": "compiler5_correct_full_bootstrap_readback",
+          "status": "PASS"
+        },
+        {
+          "name": "compiler5_actual_owner_preflight_source_only",
+          "status": "PASS"
+        },
+        {
+          "name": "compiler5_actual_owned_independent_reader",
+          "status": "PASS"
+        },
+        {
+          "expected": "REJECT",
+          "name": "compiler5_smoke_case_missing_even_resealed",
+          "status": "PASS"
+        },
+        {
+          "expected": "REJECT",
+          "name": "compiler5_smoke_case_failed_even_resealed",
+          "status": "PASS"
+        },
+        {
+          "expected": "REJECT",
+          "name": "compiler5_smoke_sanitizer_duplicate_even_resealed",
+          "status": "PASS"
+        },
+        {
+          "expected": "REJECT",
+          "name": "compiler5_smoke_wrong_platform_even_resealed",
+          "status": "PASS"
+        },
+        {
+          "expected": "REJECT",
+          "name": "compiler5_smoke_dirty_owner",
+          "status": "PASS"
+        },
+        {
+          "expected": "REJECT",
+          "name": "compiler5_smoke_duplicate_cleanup",
+          "status": "PASS"
+        },
+        {
+          "expected": "REJECT",
+          "name": "compiler5_smoke_failed_status",
+          "status": "PASS"
+        },
+        {
+          "expected": "REJECT",
+          "name": "compiler5_smoke_missing_owner",
+          "status": "PASS"
+        },
+        {
+          "expected": "REJECT",
+          "name": "compiler5_smoke_wrong_argv",
+          "status": "PASS"
+        },
+        {
+          "expected": "REJECT",
+          "name": "compiler5_smoke_nonzero_child",
+          "status": "PASS"
+        },
+        {
+          "expected": "REJECT",
+          "name": "compiler5_smoke_terminal_late",
+          "status": "PASS"
+        },
+        {
+          "expected": "REJECT",
+          "name": "compiler5_smoke_extra_child_ledger",
+          "status": "PASS"
+        },
+        {
+          "expected": "REJECT",
+          "name": "compiler5_smoke_wrong_source_map",
+          "status": "PASS"
+        },
+        {
+          "expected": "REJECT",
+          "name": "compiler5_smoke_missing_control_body",
+          "status": "PASS"
+        },
+        {
+          "expected": "REJECT",
+          "name": "compiler5_bootstrap_wrong_ppid",
+          "status": "PASS"
+        },
+        {
+          "expected": "REJECT",
+          "name": "compiler5_bootstrap_wrong_logical_argv",
+          "status": "PASS"
+        },
+        {
+          "expected": "REJECT",
+          "name": "compiler5_bootstrap_missing_configured",
+          "status": "PASS"
+        },
+        {
+          "expected": "REJECT",
+          "name": "compiler5_bootstrap_late_monotonic",
+          "status": "PASS"
+        },
+        {
+          "expected": "REJECT",
+          "name": "compiler5_bootstrap_wrong_shim_body",
+          "status": "PASS"
+        },
+        {
+          "expected": "REJECT",
+          "name": "compiler5_capture_extra_member",
+          "status": "PASS"
+        },
+        {
+          "expected": "REJECT",
+          "name": "compiler5_capture_missing_footer",
+          "status": "PASS"
+        },
+        {
+          "expected": "REJECT",
+          "name": "compiler5_capture_tamper_journal",
+          "status": "PASS"
+        }
+      ],
+      "count": 25,
+      "status": "PASS"
+    },
+    "readback-public": {
+      "controls": [
+        {
+          "name": "public15_correct_full_bootstrap_readback",
+          "status": "PASS"
+        },
+        {
+          "name": "public15_actual_owner_preflight_source_only",
+          "status": "PASS"
+        },
+        {
+          "name": "public15_actual_owned_independent_reader",
+          "status": "PASS"
+        },
+        {
+          "expected": "REJECT",
+          "name": "public15_smoke_case_missing_even_resealed",
+          "status": "PASS"
+        },
+        {
+          "expected": "REJECT",
+          "name": "public15_smoke_case_failed_even_resealed",
+          "status": "PASS"
+        },
+        {
+          "expected": "REJECT",
+          "name": "public15_smoke_sanitizer_duplicate_even_resealed",
+          "status": "PASS"
+        },
+        {
+          "expected": "REJECT",
+          "name": "public15_smoke_wrong_platform_even_resealed",
+          "status": "PASS"
+        },
+        {
+          "expected": "REJECT",
+          "name": "public15_smoke_dirty_owner",
+          "status": "PASS"
+        },
+        {
+          "expected": "REJECT",
+          "name": "public15_smoke_duplicate_cleanup",
+          "status": "PASS"
+        },
+        {
+          "expected": "REJECT",
+          "name": "public15_smoke_failed_status",
+          "status": "PASS"
+        },
+        {
+          "expected": "REJECT",
+          "name": "public15_smoke_missing_owner",
+          "status": "PASS"
+        },
+        {
+          "expected": "REJECT",
+          "name": "public15_smoke_wrong_argv",
+          "status": "PASS"
+        },
+        {
+          "expected": "REJECT",
+          "name": "public15_smoke_nonzero_child",
+          "status": "PASS"
+        },
+        {
+          "expected": "REJECT",
+          "name": "public15_smoke_terminal_late",
+          "status": "PASS"
+        },
+        {
+          "expected": "REJECT",
+          "name": "public15_smoke_extra_child_ledger",
+          "status": "PASS"
+        },
+        {
+          "expected": "REJECT",
+          "name": "public15_smoke_wrong_source_map",
+          "status": "PASS"
+        },
+        {
+          "expected": "REJECT",
+          "name": "public15_smoke_missing_control_body",
+          "status": "PASS"
+        },
+        {
+          "expected": "REJECT",
+          "name": "public15_bootstrap_wrong_ppid",
+          "status": "PASS"
+        },
+        {
+          "expected": "REJECT",
+          "name": "public15_bootstrap_wrong_logical_argv",
+          "status": "PASS"
+        },
+        {
+          "expected": "REJECT",
+          "name": "public15_bootstrap_missing_configured",
+          "status": "PASS"
+        },
+        {
+          "expected": "REJECT",
+          "name": "public15_bootstrap_late_monotonic",
+          "status": "PASS"
+        },
+        {
+          "expected": "REJECT",
+          "name": "public15_bootstrap_wrong_shim_body",
+          "status": "PASS"
+        },
+        {
+          "expected": "REJECT",
+          "name": "public15_capture_extra_member",
+          "status": "PASS"
+        },
+        {
+          "expected": "REJECT",
+          "name": "public15_capture_missing_footer",
+          "status": "PASS"
+        },
+        {
+          "expected": "REJECT",
+          "name": "public15_capture_tamper_journal",
+          "status": "PASS"
+        }
+      ],
+      "count": 25,
+      "status": "PASS"
+    },
+    "route": {
+      "controls": [
+        {
+          "name": "actual_seal_then_bootstrap_then_expected_slice",
+          "status": "PASS"
+        },
+        {
+          "expected": "REJECT",
+          "name": "missing_assignment",
+          "status": "PASS"
+        },
+        {
+          "expected": "REJECT",
+          "name": "wrong_metadata_root",
+          "status": "PASS"
+        }
+      ],
+      "count": 3,
+      "status": "PASS"
+    }
+  },
+  "independent_record_probes": {
+    "compiler5": {
+      "M6": "NOT_QUALIFIED",
+      "TPU": "NOT_RUN",
+      "actual_linux": "NOT_RUN",
+      "controls": [
+        {
+          "case": "baseline",
+          "status": "PASS_EXPLICIT_BOOTSTRAP_AND_CLOSED_RECORDS"
+        },
+        {
+          "case": "nonempty_original_error_with_zero_exit",
+          "observed": "ACCEPT",
+          "verifier_status": "PASS_EXPLICIT_BOOTSTRAP_AND_CLOSED_RECORDS"
+        },
+        {
+          "case": "missing_original_error_field",
+          "observed": "ACCEPT",
+          "verifier_status": "PASS_EXPLICIT_BOOTSTRAP_AND_CLOSED_RECORDS"
+        },
+        {
+          "case": "cross_archive_unlisted_science",
+          "error": "FULL_CROSS_ARCHIVE_SCIENCE_READBACK",
+          "observed": "REJECT"
+        }
+      ],
+      "fixture_bulk": "DELETED",
+      "phase": "compiler5",
+      "provider_calls": 0
+    },
+    "public15": {
+      "M6": "NOT_QUALIFIED",
+      "TPU": "NOT_RUN",
+      "actual_linux": "NOT_RUN",
+      "controls": [
+        {
+          "case": "baseline",
+          "status": "PASS_EXPLICIT_BOOTSTRAP_AND_CLOSED_RECORDS"
+        },
+        {
+          "case": "nonempty_original_error_with_zero_exit",
+          "observed": "ACCEPT",
+          "verifier_status": "PASS_EXPLICIT_BOOTSTRAP_AND_CLOSED_RECORDS"
+        },
+        {
+          "case": "missing_original_error_field",
+          "observed": "ACCEPT",
+          "verifier_status": "PASS_EXPLICIT_BOOTSTRAP_AND_CLOSED_RECORDS"
+        },
+        {
+          "case": "public_extra_live_child",
+          "error": "OWNED_STEP_COMPLETE_LEDGER:12-public",
+          "observed": "REJECT"
+        }
+      ],
+      "fixture_bulk": "DELETED",
+      "phase": "public15",
+      "provider_calls": 0
+    }
+  },
+  "kind": "INDEPENDENT_M6_PASSIVE_INTEGRATION_V2_REVIEW",
+  "owners": {
+    "adoption": {
+      "cleanup_status": "NO_CLEANUP_ERRORS",
+      "errors": [],
+      "exit_code": 0,
+      "groups": [
+        {
+          "errors": [],
+          "exit_status": 0,
+          "group_absence": "OBSERVED_NO_SUCH_GROUP",
+          "leader_reaped": true,
+          "pgid": 56098,
+          "pid": 56098,
+          "status": "CLEANUP_VERIFIED"
+        }
+      ],
+      "status": "PASS"
+    },
+    "independent-compiler5": {
+      "cleanup_status": "NO_CLEANUP_ERRORS",
+      "errors": [],
+      "exit_code": 0,
+      "groups": [
+        {
+          "errors": [],
+          "exit_status": 0,
+          "group_absence": "OBSERVED_NO_SUCH_GROUP",
+          "leader_reaped": true,
+          "pgid": 56387,
+          "pid": 56387,
+          "status": "CLEANUP_VERIFIED"
+        }
+      ],
+      "status": "PASS"
+    },
+    "independent-public15": {
+      "cleanup_status": "NO_CLEANUP_ERRORS",
+      "errors": [],
+      "exit_code": 0,
+      "groups": [
+        {
+          "errors": [],
+          "exit_status": 0,
+          "group_absence": "OBSERVED_NO_SUCH_GROUP",
+          "leader_reaped": true,
+          "pgid": 56386,
+          "pid": 56386,
+          "status": "CLEANUP_VERIFIED"
+        }
+      ],
+      "status": "PASS"
+    },
+    "prepare": {
+      "cleanup_status": "NO_CLEANUP_ERRORS",
+      "errors": [],
+      "exit_code": 0,
+      "groups": [
+        {
+          "errors": [],
+          "exit_status": 0,
+          "group_absence": "OBSERVED_NO_SUCH_GROUP",
+          "leader_reaped": true,
+          "pgid": 56063,
+          "pid": 56063,
+          "status": "CLEANUP_VERIFIED"
+        }
+      ],
+      "status": "PASS"
+    },
+    "readback-compiler": {
+      "cleanup_status": "NO_CLEANUP_ERRORS",
+      "errors": [],
+      "exit_code": 0,
+      "groups": [
+        {
+          "errors": [],
+          "exit_status": 0,
+          "group_absence": "OBSERVED_NO_SUCH_GROUP",
+          "leader_reaped": true,
+          "pgid": 56097,
+          "pid": 56097,
+          "status": "CLEANUP_VERIFIED"
+        }
+      ],
+      "status": "PASS"
+    },
+    "readback-public": {
+      "cleanup_status": "NO_CLEANUP_ERRORS",
+      "errors": [],
+      "exit_code": 0,
+      "groups": [
+        {
+          "errors": [],
+          "exit_status": 0,
+          "group_absence": "OBSERVED_NO_SUCH_GROUP",
+          "leader_reaped": true,
+          "pgid": 56096,
+          "pid": 56096,
+          "status": "CLEANUP_VERIFIED"
+        }
+      ],
+      "status": "PASS"
+    },
+    "route": {
+      "cleanup_status": "NO_CLEANUP_ERRORS",
+      "errors": [],
+      "exit_code": 0,
+      "groups": [
+        {
+          "errors": [],
+          "exit_status": 0,
+          "group_absence": "OBSERVED_NO_SUCH_GROUP",
+          "leader_reaped": true,
+          "pgid": 56095,
+          "pid": 56095,
+          "status": "CLEANUP_VERIFIED"
+        }
+      ],
+      "status": "PASS"
+    }
+  },
+  "qualifications": {
+    "TPU": "NOT_RUN",
+    "actual_Linux": "NOT_RUN",
+    "device_completion": "NOT_OBSERVED",
+    "hard_write_cap": "UNAVAILABLE",
+    "memory_peak": "UNKNOWN",
+    "provider_calls": 0,
+    "scientific_acceptance": "NOT_CLAIMED",
+    "selected_executable": "UNKNOWN"
+  },
+  "source_archive": {
+    "M6": "NOT_QUALIFIED",
+    "input_members": 426,
+    "packets": {
+      "compiler5": {
+        "archive": {
+          "bytes": 2706489,
+          "sha256": "3ab0652f05940aaa9281aa99f7f053720cbf180e1d52a3c88b52c1ce0802c647"
+        },
+        "integration_admission": {
+          "bytes": 47818,
+          "sha256": "ca1538621b186e7bd6460b4d40b64caedf23d1ec53b0b714874081530880b9c5"
+        },
+        "members": 547
+      },
+      "public15": {
+        "archive": {
+          "bytes": 2811180,
+          "sha256": "5c228b46c3e6d3f43e374b5dca59fed557182b17fd1f34822cb2aee4cc800821"
+        },
+        "integration_admission": {
+          "bytes": 47818,
+          "sha256": "ca1538621b186e7bd6460b4d40b64caedf23d1ec53b0b714874081530880b9c5"
+        },
+        "members": 581
+      }
+    },
+    "provider_calls": 0,
+    "source_archive": {
+      "bytes": 6989737,
+      "sha256": "c3e6cf22462e9fdcd259e990aacffce81c04272fd5151fea53047f0d7f4f283e"
+    },
+    "source_manifest": {
+      "bytes": 101007,
+      "sha256": "b358d66083f231f8a13ec57861f57e7b39ce37024349e5c02a1d2d88efc80c2b"
+    },
+    "source_members": 540,
+    "source_root": "/private/tmp/bnb-tpu-m6-passive-integration-v2-20261011-_1x9k4yb",
+    "status": "PASS_INDEPENDENT_FULL_SOURCE_AND_PACKET_READBACK"
+  },
+  "static_findings": {
+    "actual_compiler_route": "C.seal then compiler_launch then exact expected seal; unchanged compiler_exec os.execv then bootstrap then runpy unchanged scientific body in same PID",
+    "assignment_ownership": "FIXED after unique exact session endpoint Hardware Variant match; marker admission separate; unverified marker skips recovery but exact stop and readbacks retained",
+    "budgets": "ordinary100MiB/2000 plus supplement128MiB/1024(raw104/688,metadata8/80,passive16/256), combined228MiB/3024 inner payload; public256MiB/2000 split240/1744+16/256; original containers excluded with readback binding",
+    "physical_argv": "exact wrapper chain independently checked; original compiler/public scientific readers remain compatible",
+    "source_map": "426 closed captured preimages; historical194 is provenance, current-generation binding required",
+    "vendor_loading": "source-reviewed bootstrap before Torch-XLA; accepted recorder defers vendor until legitimate GetPjrtApi; no additional observer provider calls"
+  },
+  "status": "BLOCKED_NARROW_BOOTSTRAP_ERROR_FIELD_FALSE_ACCEPTANCE",
+  "tested_source_hashes": {
+    "control/compose_generation.py": "9d61515280eea561360aa25e7136f0ab19b990a26ce82c9f271062ef6e6fddea",
+    "control/passive_entry.py": "7b1a6964366e1ae470644fe475296ba0d716d7277f16517bec2e1cc0eb8f87e2",
+    "control/verify_bootstrap.py": "4c90227b9f0d208587f665e5b3edb8bbd15d7165505ac9b5f512c01bed8d6bbc",
+    "tests/adoption_cleanup_controls.py": "dc08e8fe95f05ee3f2b8074e44cce39ca2c8189b520bf2506d4aa15306e9ee78"
+  }
+}
