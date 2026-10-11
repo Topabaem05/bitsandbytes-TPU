@@ -4,9 +4,11 @@ GitHub contains the reviewed source, project documents, and selected result reco
 The private Google Drive archive contains raw experiments, failed controls, and unfinished research preparations.
 Archival does not change the acceptance status of a result.
 
-Local `.work` directories contain temporary output and active research files.
-Keep runtime environments and the files necessary for the next experiment locally.
-Archive completed historical directories before their local removal.
+Use fresh directories under `/tmp` for new experiment and test output.
+Test disposable artifacts, preserve required records, then remove the local output.
+Do not add test output to `.work`.
+Keep required runtime environments, installation wheels, and CLI identity files locally.
+Archive completed historical directories before their local removal when they contain required evidence.
 Keep authentication credentials outside Git and research archives.
 
 ## Archive requirements
@@ -22,7 +24,7 @@ Keep authentication credentials outside Git and research archives.
 9. Remove only the recorded historical paths.
 10. Record the snapshot identifier and measured storage reduction.
 
-The archive uses restic with its rclone Google Drive backend.
+The 2026-10-09 archive uses restic with its rclone Google Drive backend.
 The private folder contains restoration instructions and a completion receipt.
 The receipt identifies the exact snapshot and verification results.
 Google Drive authentication remains necessary for restoration.
@@ -37,7 +39,15 @@ Restore historical dependencies before executing a preparation that refers to ar
 Use a new destination and compare the original source maps before execution.
 Refer to the [official restoration instructions](https://restic.readthedocs.io/en/stable/050_restore.html).
 
+Later ZIP archives contain an exact source inventory.
+Verify private permissions, the full archive hash, and every member through an independent download before local removal.
+Do not remove a Google Drive desktop copy as a local cleanup step.
+Its removal can delete the cloud file.
+
 ## Completed archives
 
 The [2026-10-09 storage record](changes/artifact-storage-20261009.md) reports the verified archive and local removal.
 The record includes exact byte counts, restoration results, and the recovered permission failure.
+
+The [2026-10-11 cleanup record](changes/completed-work-disposal-20261011.md) reports removal of 24 completed local roots.
+Required environments, installation wheels, and CLI identity files remain available.

@@ -1,0 +1,61 @@
+{
+  "active_process_conflicts": 0,
+  "archive_bytes": 42262201,
+  "archive_sha256": "730d5f2d734a838fadd2e65ce6ecd2537d01b8a5a3352a6368f3f7c5359829ea",
+  "created_epoch": 1791707521.503082,
+  "deleted_epoch": 1791707915.4009511,
+  "deletion_recovery": {
+    "already_deleted_roots": [
+      "/Users/topamini/code/bitsandbytes-TPU/.work/artifact-storage-20261009",
+      "/Users/topamini/code/bitsandbytes-TPU/.work/cloud-20261009-public15-bf16-v5-browser",
+      "/Users/topamini/code/bitsandbytes-TPU/.work/root-public15-bf16-colab-review",
+      "/Users/topamini/code/bitsandbytes-TPU/.work/r4-nested-exact-integration"
+    ],
+    "initial_error": "PermissionError: sealed source directory had no owner write permission",
+    "owner_write_restored_to_directory_count": 7,
+    "remaining_inventory_reverified": true,
+    "source_file_bytes_unchanged_before_deletion": true
+  },
+  "download_verified_epoch": 1791707588.643866,
+  "every_member_sha256_verified": true,
+  "input_entries": 4468,
+  "inventory_sha256": "5b640cc699f7b4fac0a52f20b532f9fc0f028a67607763a0ec68cf8aac971ced",
+  "local_inputs_absent": true,
+  "logical_bytes": 167529817,
+  "members": 4469,
+  "remote_id": "1n7MgdpD821UUyEo3wF3Kzjg_qgtNwwlD",
+  "roots": [
+    "/Users/topamini/code/bitsandbytes-TPU/.work/artifact-storage-20261009",
+    "/Users/topamini/code/bitsandbytes-TPU/.work/cloud-20261009-public15-bf16-v5-browser",
+    "/Users/topamini/code/bitsandbytes-TPU/.work/root-public15-bf16-colab-review",
+    "/Users/topamini/code/bitsandbytes-TPU/.work/r4-nested-exact-integration",
+    "/Users/topamini/code/bitsandbytes-TPU/.work/r6-compiler-libtpu021-dispatch-recipe-v3",
+    "/Users/topamini/code/bitsandbytes-TPU/.work/r4-nested-exact-science-preparation",
+    "/Users/topamini/code/bitsandbytes-TPU/.work/r4-nested-exact-science-v2",
+    "/Users/topamini/code/bitsandbytes-TPU/.work/r5-exact-scope-preparation",
+    "/Users/topamini/code/bitsandbytes-TPU/.work/r5-qlora-preparation",
+    "/Users/topamini/code/bitsandbytes-TPU/.work/root-r5-exact-scope-review",
+    "/Users/topamini/code/bitsandbytes-TPU/.work/r6-public-cpu-replay-diagnosis",
+    "/tmp/bnb-tpu-root-m5-cloud_controls-owner-20261011",
+    "/tmp/bnb-tpu-root-m5-frozen_science-owner-20261011",
+    "/tmp/bnb-tpu-root-m5-local_controls-owner-20261011",
+    "/tmp/bnb-tpu-root-m5-scope-owner-20261011",
+    "/tmp/bnb-tpu-root-m6-arity-owner-20261011",
+    "/tmp/bnb-tpu-root-m6-arity-review-20261011",
+    "/tmp/bnb-tpu-root-m6-trace-v2-controls-owner-20261011",
+    "/tmp/bnb-tpu-root-m6-trace-v2-review-20261011",
+    "/tmp/bnb-tpu-root-public-observer-v3-final-owner-20261011",
+    "/tmp/bnb-tpu-root-public-observer-v3-owner-20261011",
+    "/tmp/m6-debug-hash-v2-7cc9e89g",
+    "/tmp/m6-debug-hash-v2-arity-0oehytgf",
+    "/tmp/bnb-tpu-root-old-completed-receipts-20261011"
+  ],
+  "status": "PRIVATE_ARCHIVE_VERIFIED_AND_LOCAL_ROOTS_DELETED",
+  "symlinks": 0,
+  "work_storage_kib": {
+    "after": 1104224,
+    "before": 1467140,
+    "reduction": 362916
+  },
+  "zip_crc_verified": true
+}

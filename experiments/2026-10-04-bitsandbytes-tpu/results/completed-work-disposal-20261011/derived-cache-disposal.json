@@ -1,0 +1,12 @@
+{
+  "active_process_conflicts": 0,
+  "cache_purpose": "RESTIC_DERIVED_LOCAL_DOWNLOAD_CACHE",
+  "deleted_epoch": 1791707476.906216,
+  "files": 15,
+  "inventory_sha256": "ffe6cbf1849053a117f8f815d0f949300cf12ccd0e0f252e4ff0c702d96919d4",
+  "kind": "COMPLETED_ARCHIVE_DOWNLOAD_CACHE_DISPOSAL",
+  "logical_bytes": 194359942,
+  "original_remote_archive": "PRESERVED_UNCHANGED",
+  "path": "/Users/topamini/code/bitsandbytes-TPU/.work/artifact-storage-20261009/cache",
+  "status": "DISPOSABLE_CACHE_DELETED"
+}

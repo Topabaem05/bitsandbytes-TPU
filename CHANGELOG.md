@@ -1,5 +1,16 @@
 # Change log
 
+## 2026-10-11 — Completed work cleanup
+
+- Verify all 4,469 private archive members through an independent download.
+- Delete 24 completed local roots and a completed derived download cache.
+- Require fresh test output under `/tmp` and remove it after evidence preservation.
+
+Validation: The remaining source inventory matched after recovery from a directory permission failure.
+All recorded roots are absent, and `.work` storage fell by 362,916 KiB.
+Required runtime environments and installation files remain available.
+Refer to [the cleanup record](docs/changes/completed-work-disposal-20261011.md).
+
 ## 2026-10-11 — M5 reviewed preparation disposal
 
 - Verify all 352 private archive members through an independent download.
