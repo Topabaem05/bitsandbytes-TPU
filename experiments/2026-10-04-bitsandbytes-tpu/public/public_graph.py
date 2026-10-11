@@ -95,42 +95,4 @@ def verify_boundary(row,payload,expected):
     return row
 
 
-def general_graph(proto):
-    """Bind the ENTRY and each reachable reduction computation without native calls."""
-    f=PC.fields(proto);entry=PC.one(f,6,0);comps={}
-    for w,raw in f.get(3,[]):
-        C.require(w==2,'REFERENCE_COMPUTATION_WIRE');comp=PC.fields(raw);cid=PC.one(comp,5,0);C.require(cid not in comps,'REFERENCE_COMPUTATION_ID');nodes={}
-        for iw,b in comp.get(2,[]):
-            n=PC.fields(b);i=PC.one(n,35,0);C.require(iw==2 and i not in nodes,'REFERENCE_NODE_ID');nodes[i]=n
-        root=PC.one(comp,6,0);C.require(root in nodes,'REFERENCE_ROOT');comps[cid]=(nodes,root)
-    C.require(entry in comps,'REFERENCE_ENTRY');active=set();reached=set();called=set();ops=[]
-    def project(cid,i):
-        key=(cid,i);nodes,_=comps[cid];C.require(key not in active and i in nodes,'REFERENCE_GRAPH_CYCLE_OR_ID');active.add(key);reached.add(key);n=nodes[i]
-        C.require(not PC.ints(n,37),'REFERENCE_CONTROL_DEPENDENCIES_NOT_ADMITTED')
-        op=PC.one(n,2,b'').decode();C.require(op!='custom-call','REFERENCE_NO_CUSTOM_CALL');ops.append(op)
-        keep={str(k):[(w,v.hex() if isinstance(v,bytes) else v) for w,v in values] for k,values in n.items() if k not in (1,7,35,36,38)}
-        keep['operands']=[project(cid,d) for d in PC.ints(n,36)]
-        callees=PC.ints(n,38);C.require(not callees or op=='reduce','REFERENCE_CALLEE_OPCODE_SCOPE')
-        keep['callees']=[]
-        for callee in callees:
-            C.require(callee in comps and callee!=cid,'REFERENCE_CALLEE_ID');called.add(callee);keep['callees'].append(project(callee,comps[callee][1]))
-        active.remove(key);return keep
-    nodes,root=comps[entry];canonical=project(entry,root)
-    C.require(set(comps)=={entry}|called,'REFERENCE_UNREACHABLE_COMPUTATION')
-    for cid,(cnodes,croot) in comps.items():C.require(all((cid,i) in reached for i in cnodes),'REFERENCE_DISCONNECTED_NODE')
-    visible=root
-    if PC.one(nodes[root],2,b'')==b'tuple':
-        deps=PC.ints(nodes[root],36);C.require(len(deps)==1,'REFERENCE_SINGLE_OUTPUT_TUPLE');visible=deps[0]
-    return {'canonical':canonical,'opcodes':ops,'shape':PC.shape(PC.one(nodes[visible],3,b'')),'parameters':{str(PC.one(n,9,0)):PC.shape(PC.one(n,3,b'')) for i,n in nodes.items() if (entry,i) in reached and PC.one(n,2,b'')==b'parameter'}}
-
-
-def verify_reference(context_proto,printer_proto,expected_shape,dtype,*,bias_gradient=False,parameters=None,allowed_parameters=None):
-    a,b=general_graph(context_proto),general_graph(printer_proto);C.require(a['canonical']==b['canonical'],'REFERENCE_CONTEXT_PRINTER_CONTENT')
-    C.require(isinstance(parameters,dict) and set(parameters)==set(a['parameters']),'REFERENCE_PARAMETER_NUMBERS')
-    C.require(isinstance(allowed_parameters,list) and allowed_parameters,'REFERENCE_FIXED_INPUT_EXPECTATIONS')
-    for key,value in parameters.items():
-        V.array(value);meta=a['parameters'][key];C.require(value['dtype']==meta['dtype'] and value['shape']==meta['shape'],'REFERENCE_PARAMETER_SHAPE_DTYPE')
-        C.require(any(value['dtype']==v['dtype'] and value['values']==v['values'] for v in allowed_parameters),'REFERENCE_FIXED_PARAMETER_CONTENT')
-    shape=a['shape'];C.require('tuple' not in shape and shape['shape']==expected_shape and shape['dtype']==dtype,'REFERENCE_ACTUAL_OUTPUT_SHAPE')
-    C.require(('reduce' if bias_gradient else 'dot') in a['opcodes'],'REFERENCE_REDUCTION_REQUIRED' if bias_gradient else 'REFERENCE_DENSE_DOT_REQUIRED')
-    return {'record_validation':'PASS','graph_scope':'ACTUAL_REFERENCE_OR_GRADIENT_OUTPUT','context_proto_sha256':C.sha_bytes(context_proto),'printer_proto_sha256':C.sha_bytes(printer_proto),'opcode_counts':{op:a['opcodes'].count(op) for op in sorted(set(a['opcodes']))},'executed_executable_link':'UNKNOWN'}
+from reference_observer_v3 import general_graph, verify_reference, allowed_reference_values

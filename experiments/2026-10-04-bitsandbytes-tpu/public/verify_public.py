@@ -27,7 +27,7 @@ def graph_record(root,rec,expected,B,P,*,native,bias_gradient=False):
         boundary=G.verify_boundary(rec.get('native_boundary'),payload,expected)
         C.require(prefix.with_suffix('.original-native-config.json').read_text()==boundary['original_payload'] and prefix.with_suffix('.original-mosaic-body.bin').read_bytes()==__import__('base64').b64decode(json.loads(boundary['original_payload'])['custom_call_config']['body'],validate=True),'ORIGINAL_PUBLIC_PAYLOAD_ARTIFACT')
         C.require(C.read(prefix.with_suffix('.conversion-audit.json'))==boundary['payload_conversion'] and C.read(prefix.with_suffix('.native-call.json'))==boundary,'PUBLIC_NATIVE_BOUNDARY_ARTIFACT')
-    else:proof=G.verify_reference(context,printer,rec['output']['shape'],rec['output']['dtype'],bias_gradient=bias_gradient,parameters=parameters,allowed_parameters=expected['allowed_parameters'])
+    else:proof=G.verify_reference(context,printer,rec['output']['shape'],rec['output']['dtype'],bias_gradient=bias_gradient,parameters=parameters,allowed_parameters=expected['allowed_parameters'],reference_case=expected.get('reference_case'),fixed_inputs=expected['inputs'])
     C.require(rec.get('graph')==proof,'RECOMPUTED_OUTPUT_GRAPH_PROOF');G.V.array(rec['output']);execution(rec,B,P)
 
 
@@ -63,7 +63,7 @@ def verify(args,*,synthetic=False):
         if raw['status']=='ERROR':
             C.require(isinstance(raw.get('error_type'),str) and raw['error_type'] and isinstance(raw.get('error_message'),str) and (root/'errors'/(name+'.log')).is_file(),'RETAINED_CASE_ERROR');rows.append({'case':name,'status':'ERROR'});first_failure=name;continue
         C.require(raw.get('status') in ('PASS','FAIL') and not any(k in raw for k in ('error','error_type','error_message')),'ERROR_CANNOT_BECOME_PASS')
-        expected={**oracle[name],'inputs':M.input_record(case),'allowed_parameters':M.allowed_reference_values(case,decode,code,oracle[name]['outputs'])};C.require(raw.get('inputs_sha256')==expected['inputs_sha256'],'ROW_FIXED_RECIPE_INPUTS')
+        expected={**oracle[name],'inputs':M.input_record(case),'allowed_parameters':G.allowed_reference_values(M.allowed_reference_values(case,decode,code,oracle[name]['outputs']),case),'reference_case':case};C.require(raw.get('inputs_sha256')==expected['inputs_sha256'],'ROW_FIXED_RECIPE_INPUTS')
         selected=raw.get('selected_events');C.require(isinstance(selected,list) and len(selected)==1 and selected[0].get('path')==case['expected_path'] and selected[0].get('reason')==case['expected_reason'],'ROW_EXPLICIT_OBSERVED_SELECTION')
         C.require(set(raw['outputs'])==set(expected['outputs']),'ROW_OUTPUT_GRADIENT_INVENTORY')
         graph_record(root,raw['forward'],expected,B,P,native=case['expected_path']=='PALLAS_CANDIDATE');C.require(raw['forward']['output']==raw['outputs']['y'],'PUBLIC_ACTUAL_Y_RECORD')

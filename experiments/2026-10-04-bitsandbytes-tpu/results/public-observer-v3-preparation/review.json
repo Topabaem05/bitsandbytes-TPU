@@ -1,0 +1,45 @@
+{
+  "actual_dX_sync": "NOT_RUN",
+  "actual_repaired_device": "NOT_RUN",
+  "adoption_map": {
+    "bytes": 10615,
+    "sha256": "5c8b7a10caab9c7943291f4395f27966f56ef97843fa8d876ce105d6a7db43d4"
+  },
+  "canonical_writes": 0,
+  "cloud_contract": {
+    "bytes": 17802,
+    "sha256": "05e4e50dcb79084f1dd53b9d63c2c116e7abf5b9b09d80285e3efed712251fcf"
+  },
+  "controls": {
+    "observer": {
+      "count": 77,
+      "record": "evidence/observer-controls-final-v3-closed.json",
+      "status": "PASS"
+    },
+    "source": {
+      "count": 12,
+      "record": "evidence/source-controls-final-v3.json",
+      "status": "PASS"
+    },
+    "total": 89
+  },
+  "fixture_cleanup": "ACTIVE_ROOT_SOURCE_REVIEW_DEPENDENCY_PENDING",
+  "fresh_cpu15": "NOT_RUN",
+  "fresh_packet_build": "NOT_RUN",
+  "historical_actual": "4PASS_1ERROR_10NOT_RUN_UNCHANGED",
+  "m6": "NOT_QUALIFIED",
+  "manifest": {
+    "bytes": 4645,
+    "sha256": "e116a06406cd926b79d8be242a843ebc11366bb3474523e6f0a8a0c9c1cffcbb"
+  },
+  "memory": "UNKNOWN",
+  "observer": {
+    "bytes": 15518,
+    "sha256": "180522cfaddaf88df7be55dd76f1862e0dde2c6424473654c81245d0c1b52f7e"
+  },
+  "optimized_executable_link": "UNKNOWN",
+  "performance": "NOT_MEASURED",
+  "provider_calls": 0,
+  "scientific_generation": "public-pallas-device-mosaic7-gather-bf16-fp32-dyadic-observer-v3",
+  "status": "ISOLATED_SOURCE_CANDIDATE_REVIEW_REQUIRED"
+}

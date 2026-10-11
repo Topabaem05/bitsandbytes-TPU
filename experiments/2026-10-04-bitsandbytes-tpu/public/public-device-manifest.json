@@ -17,15 +17,15 @@
     "supplement": "EXACT_INTEGER_DYADIC",
     "version": "PUBLIC15_QUALIFIED_CPU_PLUS_EXACT_DYADIC_V1"
   },
-  "scientific_variant": "public-pallas-device-mosaic7-gather-bf16-fp32-dyadic-v2",
+  "scientific_variant": "public-pallas-device-mosaic7-gather-bf16-fp32-dyadic-observer-v3",
   "source_files": {
     "audit.py": {
       "bytes": 1704,
       "sha256": "2ac5b0eee29465a9417f57e667e14f377e6c52f5638c150a5eb8a8f53bca3c74"
     },
     "contract.py": {
-      "bytes": 12161,
-      "sha256": "b159dfbdf25d5b26112ed4cae40ce55e89e4776b92491a14fdf828df75c7fa96"
+      "bytes": 12197,
+      "sha256": "b1e96ae646aac83b881151fc155a0be46ad76be3fd8993f20af0a13203d43019"
     },
     "dyadic.py": {
       "bytes": 7126,
@@ -88,24 +88,28 @@
       "sha256": "4dbbad78e29b072c230d574f7d49eda250d7d7dae2e16cc11a6cdff8c2b0910b"
     },
     "probe_public.py": {
-      "bytes": 16402,
-      "sha256": "70dd9623942ba51f37321324a3c8fad83b79997c230805bef98b7db50fc205e0"
+      "bytes": 16487,
+      "sha256": "327b8337985e53eb07ee4f436e75c63eb630c5f8707ab6572f9dfee83c9741d6"
     },
     "public-protocol.json": {
       "bytes": 8368,
       "sha256": "2e27f6c1d1476d65a7f18e5c9a135dd3e83552fab2ba2f0512ff39141c488e76"
     },
     "public_graph.py": {
-      "bytes": 11651,
-      "sha256": "c9b43070fbcbb8ea078c4cb5239caa89002a3e9c6b24121af1bc35a55b2d8d0d"
+      "bytes": 7995,
+      "sha256": "46000f2d76a28becaeedf59c014d70bcb89f4ad2bb63af3430d56ff2197754b9"
     },
     "reference_math.py": {
       "bytes": 1806,
       "sha256": "6aa02901c35e243340088db1659de191fd7f8312b14682890e04741c2c89aac9"
     },
+    "reference_observer_v3.py": {
+      "bytes": 15518,
+      "sha256": "180522cfaddaf88df7be55dd76f1862e0dde2c6424473654c81245d0c1b52f7e"
+    },
     "verify_public.py": {
-      "bytes": 13286,
-      "sha256": "9cd70c6b4d439f85515d16bf5bdaaa483c04e2ec22634192964b04c884d28e5e"
+      "bytes": 13419,
+      "sha256": "ec0a79a5f749cfe435e52dd4fe174776e77438a5931edd5761eb776c415beb48"
     },
     "verify_public_oracle.py": {
       "bytes": 4387,

@@ -1,0 +1,66 @@
+{
+  "baseline_revision": "6f4927665eaf194848a19a31fb03909e877ced12",
+  "candidate_archive_members": 51,
+  "candidate_archive_sha256": "1f00f58a586cc8ebf8edcdab6021e27af0d1dceca0b91b181324753351d147ab",
+  "changed_files": {
+    "experiments/2026-10-04-bitsandbytes-tpu/cloud/public_contract.py": {
+      "bytes": 17802,
+      "sha256": "05e4e50dcb79084f1dd53b9d63c2c116e7abf5b9b09d80285e3efed712251fcf"
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/cloud/tests/public-observer-v3/observer_controls.py": {
+      "bytes": 15616,
+      "sha256": "b8a30e1effc162670258ea263ee67c9698f7f73fc5e3de76f90f4a96d05503c9"
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/cloud/tests/public-observer-v3/source_controls.py": {
+      "bytes": 4647,
+      "sha256": "8fe968ec1b5ae9b2cf03815db11f6f6807b6f562437e79aeb6e7810ce0868e74"
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/public/PUBLIC_OBSERVER_V3.md": {
+      "bytes": 702,
+      "sha256": "2e5a1e42657701965a33738057d08fff44922e199c308613a3f8c019f4593b77"
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/public/contract.py": {
+      "bytes": 12197,
+      "sha256": "b1e96ae646aac83b881151fc155a0be46ad76be3fd8993f20af0a13203d43019"
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/public/probe_public.py": {
+      "bytes": 16487,
+      "sha256": "327b8337985e53eb07ee4f436e75c63eb630c5f8707ab6572f9dfee83c9741d6"
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/public/public-device-manifest.json": {
+      "bytes": 4645,
+      "sha256": "e116a06406cd926b79d8be242a843ebc11366bb3474523e6f0a8a0c9c1cffcbb"
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/public/public_graph.py": {
+      "bytes": 7995,
+      "sha256": "46000f2d76a28becaeedf59c014d70bcb89f4ad2bb63af3430d56ff2197754b9"
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/public/reference_observer_v3.py": {
+      "bytes": 15518,
+      "sha256": "180522cfaddaf88df7be55dd76f1862e0dde2c6424473654c81245d0c1b52f7e"
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/public/verify_public.py": {
+      "bytes": 13419,
+      "sha256": "ec0a79a5f749cfe435e52dd4fe174776e77438a5931edd5761eb776c415beb48"
+    }
+  },
+  "frozen_original_files": 19,
+  "historical_actual": "4PASS_1ERROR_10NOT_RUN_UNCHANGED",
+  "independent_controls": {
+    "observer": 77,
+    "source": 12,
+    "status": "PASS",
+    "total": 89
+  },
+  "kind": "ROOT_PUBLIC_OBSERVER_V3_SOURCE_REVIEW",
+  "m6": "NOT_QUALIFIED",
+  "memory": "UNKNOWN",
+  "new_actual_device": "NOT_RUN",
+  "new_cpu15": "NOT_RUN",
+  "preparer_documentation_sha256": "4723370cec53c03f21189eafbc674cdbfe21f5fec1f0b4dc3227b6bfe04869d4",
+  "provider_calls": 0,
+  "reviewed_epoch": 1791700422.672941,
+  "reviewer_documentation_edit": "SENTENCE_LENGTH_AND_SCOPE_CLARITY",
+  "selected_executable": "UNKNOWN",
+  "status": "ACCEPT_SOURCE_PREPARATION_ONLY"
+}

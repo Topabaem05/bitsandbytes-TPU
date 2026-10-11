@@ -1,0 +1,514 @@
+{
+  "actual_dX_synchronization": "NOT_RUN",
+  "actual_input_hashes": {
+    "public-train-rank2-dX.context.pb": "0583b33591bf4d68df2cc8efaae232b192ba17b68f9df80a2e8e342b84203a0e",
+    "public-train-rank2-dX.hlo.txt": "2e20af06f8d6df337a94ebf59cd383b4a97d51cabc75f2c7dc521a6ba184d9d4",
+    "public-train-rank2-dX.parameters.json": "0cf62974931f0a65c0e9dd88bbfc3c4ac609ac84a345c722fdbcf4f2e39d1c9c",
+    "public-train-rank2-dX.printer.pb": "d858a24559108793ca53cbf99deb641355922558d59edd6fcf3f6f74f141c028"
+  },
+  "actual_input_hashes_unchanged": true,
+  "actual_original_result": "4PASS_1ERROR_10NOT_RUN_UNCHANGED",
+  "actual_repaired_device": "NOT_RUN",
+  "controls": [
+    {
+      "case": "actual-dX-pre-sync-observer-replay-not-execution",
+      "scalar_roles": [
+        "blocksize",
+        "scales_bound",
+        "nibble_mask",
+        "codebook_bound"
+      ],
+      "status": "PASS"
+    },
+    {
+      "case": "frozen-native-scalar-rejection-0",
+      "status": "PASS"
+    },
+    {
+      "case": "frozen-native-scalar-rejection-1",
+      "status": "PASS"
+    },
+    {
+      "case": "frozen-native-scalar-rejection-3",
+      "status": "PASS"
+    },
+    {
+      "case": "frozen-native-scalar-rejection-5",
+      "status": "PASS"
+    },
+    {
+      "case": "wrong-scalar-value-0",
+      "rejected": "REFERENCE_FIXED_PARAMETER_CONTENT",
+      "status": "PASS"
+    },
+    {
+      "case": "float-integer-scalar-0",
+      "rejected": "REFERENCE_SCALAR_EXACT_INTEGER",
+      "status": "PASS"
+    },
+    {
+      "case": "wrong-record-scalar-shape-0",
+      "rejected": "REFERENCE_ARRAY_DTYPE",
+      "status": "PASS"
+    },
+    {
+      "case": "coherent-wrong-scalar-dtype-0",
+      "rejected": "REFERENCE_FIXED_PARAMETER_CONTENT",
+      "status": "PASS"
+    },
+    {
+      "case": "coherent-wrong-scalar-vector-0",
+      "rejected": "SHAPE_SCOPE",
+      "status": "PASS"
+    },
+    {
+      "case": "wrong-scalar-value-1",
+      "rejected": "REFERENCE_FIXED_PARAMETER_CONTENT",
+      "status": "PASS"
+    },
+    {
+      "case": "float-integer-scalar-1",
+      "rejected": "REFERENCE_SCALAR_EXACT_INTEGER",
+      "status": "PASS"
+    },
+    {
+      "case": "wrong-record-scalar-shape-1",
+      "rejected": "REFERENCE_ARRAY_DTYPE",
+      "status": "PASS"
+    },
+    {
+      "case": "coherent-wrong-scalar-dtype-1",
+      "rejected": "REFERENCE_SCALAR_EXACT_INTEGER",
+      "status": "PASS"
+    },
+    {
+      "case": "coherent-wrong-scalar-vector-1",
+      "rejected": "SHAPE_SCOPE",
+      "status": "PASS"
+    },
+    {
+      "case": "wrong-scalar-value-3",
+      "rejected": "REFERENCE_FIXED_PARAMETER_CONTENT",
+      "status": "PASS"
+    },
+    {
+      "case": "float-integer-scalar-3",
+      "rejected": "REFERENCE_SCALAR_EXACT_INTEGER",
+      "status": "PASS"
+    },
+    {
+      "case": "wrong-record-scalar-shape-3",
+      "rejected": "REFERENCE_PARAMETER_SHAPE_DTYPE",
+      "status": "PASS"
+    },
+    {
+      "case": "coherent-wrong-scalar-dtype-3",
+      "rejected": "REFERENCE_FIXED_PARAMETER_CONTENT",
+      "status": "PASS"
+    },
+    {
+      "case": "coherent-wrong-scalar-vector-3",
+      "rejected": "REFERENCE_FIXED_PARAMETER_CONTENT",
+      "status": "PASS"
+    },
+    {
+      "case": "wrong-scalar-value-5",
+      "rejected": "REFERENCE_FIXED_PARAMETER_CONTENT",
+      "status": "PASS"
+    },
+    {
+      "case": "float-integer-scalar-5",
+      "rejected": "REFERENCE_SCALAR_EXACT_INTEGER",
+      "status": "PASS"
+    },
+    {
+      "case": "wrong-record-scalar-shape-5",
+      "rejected": "REFERENCE_ARRAY_DTYPE",
+      "status": "PASS"
+    },
+    {
+      "case": "coherent-wrong-scalar-dtype-5",
+      "rejected": "REFERENCE_FIXED_PARAMETER_CONTENT",
+      "status": "PASS"
+    },
+    {
+      "case": "coherent-wrong-scalar-vector-5",
+      "rejected": "SHAPE_SCOPE",
+      "status": "PASS"
+    },
+    {
+      "case": "same-allowed-scalar-multiset-wrong-role-0-1",
+      "rejected": "REFERENCE_SCALAR_ROLE_USE:scales_bound",
+      "status": "PASS"
+    },
+    {
+      "case": "same-allowed-scalar-multiset-wrong-role-1-5",
+      "rejected": "REFERENCE_SCALAR_ROLE_USE:codebook_bound",
+      "status": "PASS"
+    },
+    {
+      "case": "same-allowed-scalar-multiset-wrong-role-0-5",
+      "rejected": "REFERENCE_SCALAR_ROLE_USE:codebook_bound",
+      "status": "PASS"
+    },
+    {
+      "case": "unsupported-scalar-consumer-remainder",
+      "rejected": "REFERENCE_SCALAR_ROLE_USE:blocksize",
+      "status": "PASS"
+    },
+    {
+      "case": "unsupported-scalar-consumer-or",
+      "rejected": "REFERENCE_SCALAR_ROLE_USE:nibble_mask",
+      "status": "PASS"
+    },
+    {
+      "case": "unsupported-scalar-consumer-subtract",
+      "rejected": "REFERENCE_SCALAR_INDEX_LINEAGE_SCOPE",
+      "status": "PASS"
+    },
+    {
+      "case": "outside-scalar-index-lineage-opcode",
+      "rejected": "REFERENCE_SCALAR_INDEX_LINEAGE_SCOPE",
+      "status": "PASS"
+    },
+    {
+      "case": "duplicate-parameter-number",
+      "rejected": "REFERENCE_PARAMETER_NUMBER_UNIQUE",
+      "status": "PASS"
+    },
+    {
+      "case": "missing-required-parameter",
+      "rejected": "REFERENCE_PARAMETER_NUMBERS",
+      "status": "PASS"
+    },
+    {
+      "case": "extra-unbound-parameter",
+      "rejected": "REFERENCE_PARAMETER_NUMBERS",
+      "status": "PASS"
+    },
+    {
+      "case": "int64-out-of-range",
+      "rejected": "REFERENCE_SCALAR_EXACT_INTEGER",
+      "status": "PASS"
+    },
+    {
+      "case": "uint8-out-of-range",
+      "rejected": "REFERENCE_SCALAR_EXACT_INTEGER",
+      "status": "PASS"
+    },
+    {
+      "case": "context-printer-parameter-mismatch",
+      "rejected": "REFERENCE_CONTEXT_PRINTER_CONTENT",
+      "status": "PASS"
+    },
+    {
+      "case": "incorrect-dX-expected-shape",
+      "rejected": "REFERENCE_ACTUAL_OUTPUT_SHAPE",
+      "status": "PASS"
+    },
+    {
+      "case": "incorrect-dX-expected-dtype",
+      "rejected": "REFERENCE_ACTUAL_OUTPUT_SHAPE",
+      "status": "PASS"
+    },
+    {
+      "case": "required-dense-dot-not-removed",
+      "rejected": "REFERENCE_DENSE_DOT_REQUIRED",
+      "status": "PASS"
+    },
+    {
+      "case": "custom-call-in-reference-rejected",
+      "rejected": "REFERENCE_NO_CUSTOM_CALL",
+      "status": "PASS"
+    },
+    {
+      "case": "incorrect-fixed-scales-payload",
+      "rejected": "REFERENCE_SCALAR_ROLE_USE:blocksize",
+      "status": "PASS"
+    },
+    {
+      "case": "alternative-parameter-numbering",
+      "scalar_roles": [
+        "blocksize",
+        "scales_bound",
+        "nibble_mask",
+        "codebook_bound"
+      ],
+      "status": "PASS"
+    },
+    {
+      "case": "alternative-commutative-consumer-operand-order",
+      "scalar_roles": [
+        "blocksize",
+        "scales_bound",
+        "nibble_mask",
+        "codebook_bound"
+      ],
+      "status": "PASS"
+    },
+    {
+      "case": "alternative-benign-scalar-copy",
+      "scalar_roles": [
+        "blocksize",
+        "scales_bound",
+        "nibble_mask",
+        "codebook_bound"
+      ],
+      "status": "PASS"
+    },
+    {
+      "case": "bound-wrong-direction-0-GT",
+      "rejected": "REFERENCE_SCALAR_ROLE_USE:scales_bound",
+      "status": "PASS"
+    },
+    {
+      "case": "bound-wrong-direction-0-LE",
+      "rejected": "REFERENCE_SCALAR_ROLE_USE:scales_bound",
+      "status": "PASS"
+    },
+    {
+      "case": "bound-nonzero-predicate-0",
+      "rejected": "REFERENCE_SCALAR_ROLE_USE:scales_bound",
+      "status": "PASS"
+    },
+    {
+      "case": "bound-wrong-typed-zero-0",
+      "rejected": "REFERENCE_SCALAR_ROLE_USE:scales_bound",
+      "status": "PASS"
+    },
+    {
+      "case": "bound-unrelated-other-predicate-operand-0",
+      "rejected": "REFERENCE_SCALAR_ROLE_USE:scales_bound",
+      "status": "PASS"
+    },
+    {
+      "case": "bound-swapped-select-branches-0",
+      "rejected": "REFERENCE_SCALAR_ROLE_USE:scales_bound",
+      "status": "PASS"
+    },
+    {
+      "case": "bound-unsigned-predicate-0",
+      "rejected": "REFERENCE_SCALAR_ROLE_USE:scales_bound",
+      "status": "PASS"
+    },
+    {
+      "case": "equivalent-zero-greater-than-index-0",
+      "scalar_roles": [
+        "blocksize",
+        "scales_bound",
+        "nibble_mask",
+        "codebook_bound"
+      ],
+      "status": "PASS"
+    },
+    {
+      "case": "equivalent-materialized-typed-zero-0",
+      "scalar_roles": [
+        "blocksize",
+        "scales_bound",
+        "nibble_mask",
+        "codebook_bound"
+      ],
+      "status": "PASS"
+    },
+    {
+      "case": "bound-wrong-direction-1-GT",
+      "rejected": "REFERENCE_SCALAR_ROLE_USE:codebook_bound",
+      "status": "PASS"
+    },
+    {
+      "case": "bound-wrong-direction-1-LE",
+      "rejected": "REFERENCE_SCALAR_ROLE_USE:codebook_bound",
+      "status": "PASS"
+    },
+    {
+      "case": "bound-nonzero-predicate-1",
+      "rejected": "REFERENCE_SCALAR_ROLE_USE:codebook_bound",
+      "status": "PASS"
+    },
+    {
+      "case": "bound-wrong-typed-zero-1",
+      "rejected": "REFERENCE_SCALAR_ROLE_USE:codebook_bound",
+      "status": "PASS"
+    },
+    {
+      "case": "bound-unrelated-other-predicate-operand-1",
+      "rejected": "REFERENCE_SCALAR_ROLE_USE:codebook_bound",
+      "status": "PASS"
+    },
+    {
+      "case": "bound-swapped-select-branches-1",
+      "rejected": "REFERENCE_SCALAR_ROLE_USE:codebook_bound",
+      "status": "PASS"
+    },
+    {
+      "case": "bound-unsigned-predicate-1",
+      "rejected": "REFERENCE_SCALAR_ROLE_USE:codebook_bound",
+      "status": "PASS"
+    },
+    {
+      "case": "equivalent-zero-greater-than-index-1",
+      "scalar_roles": [
+        "blocksize",
+        "scales_bound",
+        "nibble_mask",
+        "codebook_bound"
+      ],
+      "status": "PASS"
+    },
+    {
+      "case": "equivalent-materialized-typed-zero-1",
+      "scalar_roles": [
+        "blocksize",
+        "scales_bound",
+        "nibble_mask",
+        "codebook_bound"
+      ],
+      "status": "PASS"
+    },
+    {
+      "case": "valid-distinct-handles-duplicate-bound-role",
+      "scalar_roles": [
+        "blocksize",
+        "scales_bound",
+        "nibble_mask",
+        "codebook_bound",
+        "scales_bound"
+      ],
+      "status": "PASS"
+    },
+    {
+      "case": "duplicate-handle-wrong-role-rejected",
+      "rejected": "REFERENCE_SCALAR_ROLE_USE:codebook_bound",
+      "status": "PASS"
+    },
+    {
+      "case": "duplicate-handle-correct-role-with-extra-consumer-rejected",
+      "rejected": "REFERENCE_SCALAR_ROLE_USE:scales_bound",
+      "status": "PASS"
+    },
+    {
+      "case": "bound-doubled-after-valid-wrap-0",
+      "rejected": "REFERENCE_SCALAR_ROLE_USE:scales_bound",
+      "status": "PASS"
+    },
+    {
+      "case": "bound-doubled-after-valid-wrap-1",
+      "rejected": "REFERENCE_SCALAR_ROLE_USE:codebook_bound",
+      "status": "PASS"
+    },
+    {
+      "case": "existing-reference-dx-rank2",
+      "status": "PASS"
+    },
+    {
+      "case": "existing-reference-dx2-rank2",
+      "status": "PASS"
+    },
+    {
+      "case": "existing-reference-db-rank2",
+      "status": "PASS"
+    },
+    {
+      "case": "existing-reference-db2-rank2",
+      "status": "PASS"
+    },
+    {
+      "case": "existing-reference-dx-rank3",
+      "status": "PASS"
+    },
+    {
+      "case": "existing-reference-dx2-rank3",
+      "status": "PASS"
+    },
+    {
+      "case": "existing-reference-db-rank3",
+      "status": "PASS"
+    },
+    {
+      "case": "existing-reference-db2-rank3",
+      "status": "PASS"
+    }
+  ],
+  "controls_count": 77,
+  "fixture_files_written": 0,
+  "numerical_result": "NOT_EVALUATED",
+  "observer_sha256": "180522cfaddaf88df7be55dd76f1862e0dde2c6424473654c81245d0c1b52f7e",
+  "proof": {
+    "context_proto_sha256": "0583b33591bf4d68df2cc8efaae232b192ba17b68f9df80a2e8e342b84203a0e",
+    "executed_executable_link": "UNKNOWN",
+    "graph_scope": "ACTUAL_REFERENCE_OR_GRADIENT_OUTPUT",
+    "opcode_counts": {
+      "add": 2,
+      "and": 3,
+      "broadcast": 15,
+      "compare": 2,
+      "concatenate": 5,
+      "constant": 8,
+      "convert": 12,
+      "divide": 6,
+      "dot": 1,
+      "floor": 3,
+      "gather": 2,
+      "multiply": 1,
+      "parameter": 17,
+      "reshape": 22,
+      "select": 2,
+      "slice": 3,
+      "tuple": 1
+    },
+    "printer_proto_sha256": "d858a24559108793ca53cbf99deb641355922558d59edd6fcf3f6f74f141c028",
+    "record_validation": "PASS",
+    "reference_observer_contract": "PUBLIC15_REFERENCE_TYPED_SCALAR_ROLE_BINDING_V3",
+    "reference_observer_version": 3,
+    "scalar_role_bindings": [
+      {
+        "consumers": [
+          {
+            "opcode": "divide",
+            "operand_index": 1
+          }
+        ],
+        "parameter_number": "0",
+        "role": "blocksize",
+        "typed_literal_sha256": "461076e07b7b7d5dde6b44585700415dd8c72d7d43c8a98546620c10d7dad0b9"
+      },
+      {
+        "consumers": [
+          {
+            "opcode": "add",
+            "operand_index": 1
+          }
+        ],
+        "parameter_number": "1",
+        "role": "scales_bound",
+        "typed_literal_sha256": "fe997884363f3ff81948c1fd3055d89d66d957d19f35fdc7c8d99b3d11c47bea"
+      },
+      {
+        "consumers": [
+          {
+            "opcode": "and",
+            "operand_index": 1
+          }
+        ],
+        "parameter_number": "3",
+        "role": "nibble_mask",
+        "typed_literal_sha256": "2642d19caba245cf5308c4217bd6ca25725deb68916d48b6647a68e4ed105717"
+      },
+      {
+        "consumers": [
+          {
+            "opcode": "add",
+            "operand_index": 1
+          }
+        ],
+        "parameter_number": "5",
+        "role": "codebook_bound",
+        "typed_literal_sha256": "e8692755813534266197b26b8c2d894a50742c5b04e2b5b0cd6ec56c9f6f932b"
+      }
+    ]
+  },
+  "provider_calls": 0,
+  "scope": "OFFLINE_PRE_SYNC_OBSERVER_AND_ISOLATED_MEMORY_MUTATIONS",
+  "status": "PASS"
+}

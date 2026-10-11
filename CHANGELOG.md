@@ -1,5 +1,17 @@
 # Change log
 
+## 2026-10-11 — Public reference scalar observer
+
+- Bind fixed scalar values to their type and consumer role.
+- Verify signed index correction and value preservation before gather.
+- Preserve the native reader, numerical functions, protocol, and tolerances.
+- Keep the previous partial device result unchanged.
+
+Validation: Independent reviewer replay passed 77 observer controls and 12 source controls.
+All 51 source archive members matched the reviewed bytes.
+Fresh Linux CPU and TPU execution remain required; M6 remains unqualified.
+Refer to [the source preparation record](docs/changes/r6-public-observer-v3.md).
+
 ## 2026-10-11 — Exact source formatting inspection
 
 - Retain the reviewed final blank lines in two exact nested source files.

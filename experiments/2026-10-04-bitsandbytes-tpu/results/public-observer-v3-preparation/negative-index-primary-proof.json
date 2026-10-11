@@ -1,0 +1,40 @@
+{
+  "scope": "PINNED_SOURCE_AND_ACTUAL_GRAPH_SEMANTICS_NO_DEVICE_REEXECUTION",
+  "sources": [
+    {
+      "bytes": 45029,
+      "name": "xla_data.proto",
+      "retained_body": false,
+      "sha256": "82102e89f24ca875f83a9e88422e3cd992949a439864a1f720ee1942948406ee",
+      "url": "https://raw.githubusercontent.com/openxla/xla/31eb6029e8973337ef6c99810c27e1d807791c11/xla/xla_data.proto",
+      "verified_date": "2026-10-11"
+    },
+    {
+      "bytes": 28638,
+      "name": "hlo.proto",
+      "retained_body": false,
+      "sha256": "94d3344bbf5151af79d9729a0ae6840013ef19c02831f8495b7bc1676a87539b",
+      "url": "https://raw.githubusercontent.com/openxla/xla/31eb6029e8973337ef6c99810c27e1d807791c11/xla/service/hlo.proto",
+      "verified_date": "2026-10-11"
+    },
+    {
+      "bytes": 18069,
+      "first_line": 143,
+      "function": "WrapIndicesOnce",
+      "function_sha256": "477e5c6df3766ebcec8db19fc0dff4a2e9deeb3db1dd1400c52e183952d3f229",
+      "last_line": 176,
+      "name": "index_ops.cpp",
+      "retained_body": false,
+      "semantics": "signed index < int64 zero; true index + dimension size; false unchanged index",
+      "sha256": "d740dc6b77d4036228fec55c3ec5e707d931b37d504d207db3c92484225c1478",
+      "url": "https://raw.githubusercontent.com/pytorch/xla/5fab7053df86c8d503b98d9e7202ca8b8d4978c7/torch_xla/csrc/ops/index_ops.cpp",
+      "verified_date": "2026-10-11"
+    }
+  ],
+  "wire_fields": {
+    "HloInstructionProto.comparison_direction": 63,
+    "HloInstructionProto.comparison_type": 72,
+    "LiteralProto.s64s": 5,
+    "LiteralProto.shape": 1
+  }
+}

@@ -43,7 +43,7 @@ def capture(value,root,name,case,expected,xla,xm,metrics,B,P,*,native,bias_gradi
         proof=G.verify_native(hlo,proto,printer,parameters,expected);_,_,_,payload,_=G.payload(hlo)
         G.verify_boundary(native_record,payload,expected)
         retain_conversion(prefix,native_record)
-    else:proof=G.verify_reference(proto,printer,list(value.shape),str(value.dtype).removeprefix('torch.'),bias_gradient=bias_gradient,parameters=parameters,allowed_parameters=expected['allowed_parameters'])
+    else:proof=G.verify_reference(proto,printer,list(value.shape),str(value.dtype).removeprefix('torch.'),bias_gradient=bias_gradient,parameters=parameters,allowed_parameters=expected['allowed_parameters'],reference_case=case,fixed_inputs=expected['inputs'])
     graph_hash=xla._XLAC._get_graph_hash([value]).hex();metrics.clear_all();started=time.monotonic();xla._XLAC._xla_sync_multi([value],devices=[],wait=True,sync_xla_data=True);xm.wait_device_ops();finished=time.monotonic()
     evidence=G.E.execution_evidence(metrics,B,P)
     return {'graph':proof,'graph_files_prefix':'graphs/'+name,'parameters_sha256':C.digest(parameters),'output':B.tensor_record(value),'native_boundary':native_record if native else None,'execution':{'api':'_xla_sync_multi','targets':['actual'],'wait':True,'wait_device_ops':True,'metrics_after_sync_before_output':True,'other_execution_in_interval':False,'graph_hash':graph_hash,'graph_hash_binding':'PRE_SYNC_IDENTIFIER_NOT_EXECUTABLE_LINK','started_monotonic':started,'finished_monotonic':finished},**evidence}
@@ -132,7 +132,7 @@ def execute(args):
                 if out is not None:C.require(y is out,'ORIGINAL_PUBLIC_OUT_IDENTITY')
                 if name=='public-functionalized-fp32':C.require(flags.get('caller_activation_functional') is True and not torch._is_functional_tensor(y),'NORMAL_FUNCTIONALIZED_CALLER_EVIDENCE')
                 selected=list(L.gemm_4bit.events)[before_event:];C.require(len(selected)==1 and selected[0].get('path')==case['expected_path'] and selected[0].get('reason')==case['expected_reason'],'ACTUAL_PUBLIC_SELECTION_REASON')
-                expected={**rows[name],'inputs':M.input_record(case),'allowed_parameters':M.allowed_reference_values(case,decode,code,rows[name]['outputs'])};raw.update(inputs_sha256=expected['inputs_sha256'],selected_events=selected,functionalization=flags,out_same_object=y is out if out is not None else None,forward=capture(y,root,name+'-y',case,expected,torch_xla,xm,metrics,B,P,native=case['expected_path']=='PALLAS_CANDIDATE',native_record=native_record))
+                expected={**rows[name],'inputs':M.input_record(case),'allowed_parameters':G.allowed_reference_values(M.allowed_reference_values(case,decode,code,rows[name]['outputs']),case)};raw.update(inputs_sha256=expected['inputs_sha256'],selected_events=selected,functionalization=flags,out_same_object=y is out if out is not None else None,forward=capture(y,root,name+'-y',case,expected,torch_xla,xm,metrics,B,P,native=case['expected_path']=='PALLAS_CANDIDATE',native_record=native_record))
                 raw['outputs']={'y':raw['forward']['output']};raw['gradients']={}
                 if train:
                     y.backward(dy,retain_graph=True);g1=id(act.grad);raw['gradients']['dX']=capture(act.grad,root,name+'-dX',case,expected,torch_xla,xm,metrics,B,P,native=False);raw['outputs']['dX']=raw['gradients']['dX']['output']

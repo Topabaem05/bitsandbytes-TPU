@@ -1,0 +1,312 @@
+{
+  "baseline_revision": "6f4927665eaf194848a19a31fb03909e877ced12",
+  "files": {
+    "experiments/2026-10-04-bitsandbytes-tpu/cloud/public_contract.py": {
+      "after": {
+        "bytes": 17802,
+        "sha256": "05e4e50dcb79084f1dd53b9d63c2c116e7abf5b9b09d80285e3efed712251fcf"
+      },
+      "before": {
+        "bytes": 17793,
+        "sha256": "161f67c80bc7fd036fce62ebf520760588c2ab65ec6c8d642e30f987f099b956"
+      },
+      "changed": true
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/cloud/tests/public-observer-v3/observer_controls.py": {
+      "after": {
+        "bytes": 15616,
+        "sha256": "b8a30e1effc162670258ea263ee67c9698f7f73fc5e3de76f90f4a96d05503c9"
+      },
+      "before": null,
+      "changed": true
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/cloud/tests/public-observer-v3/source_controls.py": {
+      "after": {
+        "bytes": 4647,
+        "sha256": "8fe968ec1b5ae9b2cf03815db11f6f6807b6f562437e79aeb6e7810ce0868e74"
+      },
+      "before": null,
+      "changed": true
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/public/PUBLIC_OBSERVER_V3.md": {
+      "after": {
+        "bytes": 3229,
+        "sha256": "4723370cec53c03f21189eafbc674cdbfe21f5fec1f0b4dc3227b6bfe04869d4"
+      },
+      "before": null,
+      "changed": true
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/public/audit.py": {
+      "after": {
+        "bytes": 1704,
+        "sha256": "2ac5b0eee29465a9417f57e667e14f377e6c52f5638c150a5eb8a8f53bca3c74"
+      },
+      "before": {
+        "bytes": 1704,
+        "sha256": "2ac5b0eee29465a9417f57e667e14f377e6c52f5638c150a5eb8a8f53bca3c74"
+      },
+      "changed": false
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/public/contract.py": {
+      "after": {
+        "bytes": 12197,
+        "sha256": "b1e96ae646aac83b881151fc155a0be46ad76be3fd8993f20af0a13203d43019"
+      },
+      "before": {
+        "bytes": 12161,
+        "sha256": "b159dfbdf25d5b26112ed4cae40ce55e89e4776b92491a14fdf828df75c7fa96"
+      },
+      "changed": true
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/public/dyadic.py": {
+      "after": {
+        "bytes": 7126,
+        "sha256": "e36234073cbddde82386b3beaf20606e7ef676a2ff423c7221fb5aff285b6fc4"
+      },
+      "before": {
+        "bytes": 7126,
+        "sha256": "e36234073cbddde82386b3beaf20606e7ef676a2ff423c7221fb5aff285b6fc4"
+      },
+      "changed": false
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/public/helpers/conversion_recovery.py": {
+      "after": {
+        "bytes": 3698,
+        "sha256": "6a6ce33279a48ed22f525c04d1e995066e7b39e2516233288c673463b8ec63ff"
+      },
+      "before": {
+        "bytes": 3698,
+        "sha256": "6a6ce33279a48ed22f525c04d1e995066e7b39e2516233288c673463b8ec63ff"
+      },
+      "changed": false
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/public/helpers/graph_binding.py": {
+      "after": {
+        "bytes": 4207,
+        "sha256": "e269e00acc77060db8325c8e1a3ee134d1996a8ef3b8c7bb64e783279a37ab26"
+      },
+      "before": {
+        "bytes": 4207,
+        "sha256": "e269e00acc77060db8325c8e1a3ee134d1996a8ef3b8c7bb64e783279a37ab26"
+      },
+      "changed": false
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/public/helpers/mosaic_audit.py": {
+      "after": {
+        "bytes": 7067,
+        "sha256": "baf3afd93f5fd7d069cd863699ba2aeefb47de72b23c1659a3e50eb7e86357bc"
+      },
+      "before": {
+        "bytes": 7067,
+        "sha256": "baf3afd93f5fd7d069cd863699ba2aeefb47de72b23c1659a3e50eb7e86357bc"
+      },
+      "changed": false
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/public/helpers/mosaic_compatibility.py": {
+      "after": {
+        "bytes": 4015,
+        "sha256": "cce7a54521b3ccb51a35b4e26332c52b6e0e2dfbcb44db5c2cd290d016120542"
+      },
+      "before": {
+        "bytes": 4015,
+        "sha256": "cce7a54521b3ccb51a35b4e26332c52b6e0e2dfbcb44db5c2cd290d016120542"
+      },
+      "changed": false
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/public/helpers/probe-inputs.json": {
+      "after": {
+        "bytes": 132064,
+        "sha256": "d0c9cdf6a82449a56923499698f19bfd3cc8d13c042f1f5ad2bdf587701f5e54"
+      },
+      "before": {
+        "bytes": 132064,
+        "sha256": "d0c9cdf6a82449a56923499698f19bfd3cc8d13c042f1f5ad2bdf587701f5e54"
+      },
+      "changed": false
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/public/helpers/probe-profile.json": {
+      "after": {
+        "bytes": 3695,
+        "sha256": "ad53f6416bdabf6440f08b313963c947a468cd39afd413bfe41bb381c4a7a166"
+      },
+      "before": {
+        "bytes": 3695,
+        "sha256": "ad53f6416bdabf6440f08b313963c947a468cd39afd413bfe41bb381c4a7a166"
+      },
+      "changed": false
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/public/helpers/probe_backend.py": {
+      "after": {
+        "bytes": 24512,
+        "sha256": "e8743e33e6a0454d5d05b77075d47a5c9f983cf32f3956c38f2b544f86f5ef6d"
+      },
+      "before": {
+        "bytes": 24512,
+        "sha256": "e8743e33e6a0454d5d05b77075d47a5c9f983cf32f3956c38f2b544f86f5ef6d"
+      },
+      "changed": false
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/public/helpers/probe_precision.py": {
+      "after": {
+        "bytes": 35743,
+        "sha256": "e0534955507e5f91e67ecddfffc738a367ad752e69a4eea7ae8052c6d76a8852"
+      },
+      "before": {
+        "bytes": 35743,
+        "sha256": "e0534955507e5f91e67ecddfffc738a367ad752e69a4eea7ae8052c6d76a8852"
+      },
+      "changed": false
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/public/helpers/proto_contract.py": {
+      "after": {
+        "bytes": 11007,
+        "sha256": "4341ecdaa273f449f42e6ffadad345c4abe7259d6a666067918528a70fc6aa8a"
+      },
+      "before": {
+        "bytes": 11007,
+        "sha256": "4341ecdaa273f449f42e6ffadad345c4abe7259d6a666067918528a70fc6aa8a"
+      },
+      "changed": false
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/public/helpers/recorder.py": {
+      "after": {
+        "bytes": 5122,
+        "sha256": "f70c5fcb3f9cb325af03258e1b27d97d3a66934d4c34f1a4a6997af1f80fe79a"
+      },
+      "before": {
+        "bytes": 5122,
+        "sha256": "f70c5fcb3f9cb325af03258e1b27d97d3a66934d4c34f1a4a6997af1f80fe79a"
+      },
+      "changed": false
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/public/helpers/verifier.py": {
+      "after": {
+        "bytes": 15447,
+        "sha256": "4c0e60e602f84c6d54bec02d08f71f61c5171e68e485dde0d6ef2cb9673a8bb3"
+      },
+      "before": {
+        "bytes": 15447,
+        "sha256": "4c0e60e602f84c6d54bec02d08f71f61c5171e68e485dde0d6ef2cb9673a8bb3"
+      },
+      "changed": false
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/public/oracle_math.py": {
+      "after": {
+        "bytes": 3696,
+        "sha256": "ddc0959a6963ede7dfa30a324fc7eba449cb6c287be6a4cd6e59dcb40fa8c217"
+      },
+      "before": {
+        "bytes": 3696,
+        "sha256": "ddc0959a6963ede7dfa30a324fc7eba449cb6c287be6a4cd6e59dcb40fa8c217"
+      },
+      "changed": false
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/public/package-admission.json": {
+      "after": {
+        "bytes": 16205,
+        "sha256": "b552fd2f9b3bf66b7b13cbf10c7904a7a958926e076347f91ad344997b9a703a"
+      },
+      "before": {
+        "bytes": 16205,
+        "sha256": "b552fd2f9b3bf66b7b13cbf10c7904a7a958926e076347f91ad344997b9a703a"
+      },
+      "changed": false
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/public/prepare_public_oracle.py": {
+      "after": {
+        "bytes": 3958,
+        "sha256": "4dbbad78e29b072c230d574f7d49eda250d7d7dae2e16cc11a6cdff8c2b0910b"
+      },
+      "before": {
+        "bytes": 3958,
+        "sha256": "4dbbad78e29b072c230d574f7d49eda250d7d7dae2e16cc11a6cdff8c2b0910b"
+      },
+      "changed": false
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/public/probe_public.py": {
+      "after": {
+        "bytes": 16487,
+        "sha256": "327b8337985e53eb07ee4f436e75c63eb630c5f8707ab6572f9dfee83c9741d6"
+      },
+      "before": {
+        "bytes": 16402,
+        "sha256": "70dd9623942ba51f37321324a3c8fad83b79997c230805bef98b7db50fc205e0"
+      },
+      "changed": true
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/public/public-device-manifest.json": {
+      "after": {
+        "bytes": 4645,
+        "sha256": "e116a06406cd926b79d8be242a843ebc11366bb3474523e6f0a8a0c9c1cffcbb"
+      },
+      "before": {
+        "bytes": 4491,
+        "sha256": "72e0f202ae8c274853b0a2e1e29c4dd21aeaf5b5b9464839025926b641563b5d"
+      },
+      "changed": true
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/public/public-protocol.json": {
+      "after": {
+        "bytes": 8368,
+        "sha256": "2e27f6c1d1476d65a7f18e5c9a135dd3e83552fab2ba2f0512ff39141c488e76"
+      },
+      "before": {
+        "bytes": 8368,
+        "sha256": "2e27f6c1d1476d65a7f18e5c9a135dd3e83552fab2ba2f0512ff39141c488e76"
+      },
+      "changed": false
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/public/public_graph.py": {
+      "after": {
+        "bytes": 7995,
+        "sha256": "46000f2d76a28becaeedf59c014d70bcb89f4ad2bb63af3430d56ff2197754b9"
+      },
+      "before": {
+        "bytes": 11651,
+        "sha256": "c9b43070fbcbb8ea078c4cb5239caa89002a3e9c6b24121af1bc35a55b2d8d0d"
+      },
+      "changed": true
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/public/reference_math.py": {
+      "after": {
+        "bytes": 1806,
+        "sha256": "6aa02901c35e243340088db1659de191fd7f8312b14682890e04741c2c89aac9"
+      },
+      "before": {
+        "bytes": 1806,
+        "sha256": "6aa02901c35e243340088db1659de191fd7f8312b14682890e04741c2c89aac9"
+      },
+      "changed": false
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/public/reference_observer_v3.py": {
+      "after": {
+        "bytes": 15518,
+        "sha256": "180522cfaddaf88df7be55dd76f1862e0dde2c6424473654c81245d0c1b52f7e"
+      },
+      "before": null,
+      "changed": true
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/public/verify_public.py": {
+      "after": {
+        "bytes": 13419,
+        "sha256": "ec0a79a5f749cfe435e52dd4fe174776e77438a5931edd5761eb776c415beb48"
+      },
+      "before": {
+        "bytes": 13286,
+        "sha256": "9cd70c6b4d439f85515d16bf5bdaaa483c04e2ec22634192964b04c884d28e5e"
+      },
+      "changed": true
+    },
+    "experiments/2026-10-04-bitsandbytes-tpu/public/verify_public_oracle.py": {
+      "after": {
+        "bytes": 4387,
+        "sha256": "f2d18069787ed507c0457b16c20de5233138184363fba1315e1356e1ae8c1b36"
+      },
+      "before": {
+        "bytes": 4387,
+        "sha256": "f2d18069787ed507c0457b16c20de5233138184363fba1315e1356e1ae8c1b36"
+      },
+      "changed": false
+    }
+  }
+}

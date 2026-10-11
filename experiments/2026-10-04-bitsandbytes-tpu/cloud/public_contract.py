@@ -2,10 +2,10 @@
 import hashlib,importlib.util,json,math,os,re,stat,sys,zipfile
 from pathlib import Path
 MODE='m6-public-pallas-15'
-GENERATION='public-pallas-device-mosaic7-gather-bf16-fp32-dyadic-v2'
+GENERATION='public-pallas-device-mosaic7-gather-bf16-fp32-dyadic-observer-v3'
 VARIANT='pallas-forward-mosaic7-gather-bf16-fp32-v1'
 SCOPE='PUBLIC15_NON_NESTED_FP32_GRAD_BF16_FORWARD'
-MANIFEST_SHA='72e0f202ae8c274853b0a2e1e29c4dd21aeaf5b5b9464839025926b641563b5d'
+MANIFEST_SHA='e116a06406cd926b79d8be242a843ebc11366bb3474523e6f0a8a0c9c1cffcbb'
 ADMISSION_SHA='b552fd2f9b3bf66b7b13cbf10c7904a7a958926e076347f91ad344997b9a703a'
 PROTOCOL_SHA='2e27f6c1d1476d65a7f18e5c9a135dd3e83552fab2ba2f0512ff39141c488e76'
 NATIVE_ACCEPTANCE_SHA='c64fca47f57374fab691d9870005cf614fc6eebbc8a02706ed70781f9dd1042a'

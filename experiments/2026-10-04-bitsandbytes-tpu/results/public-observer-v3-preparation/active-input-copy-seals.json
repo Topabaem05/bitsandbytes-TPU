@@ -1,0 +1,40 @@
+[
+  {
+    "original_path": "/tmp/bnb-tpu-public-actual-20261011-6yxswy1o/actual/recovered/public/device/graphs/public-train-rank2-dX.context.pb",
+    "copy_path": "actual-disposable/public-train-rank2-dX.context.pb",
+    "bytes": 380257,
+    "sha256": "0583b33591bf4d68df2cc8efaae232b192ba17b68f9df80a2e8e342b84203a0e"
+  },
+  {
+    "original_path": "/tmp/bnb-tpu-public-actual-20261011-6yxswy1o/actual/recovered/public/device/graphs/public-train-rank2-dX.printer.pb",
+    "copy_path": "actual-disposable/public-train-rank2-dX.printer.pb",
+    "bytes": 380194,
+    "sha256": "d858a24559108793ca53cbf99deb641355922558d59edd6fcf3f6f74f141c028"
+  },
+  {
+    "original_path": "/tmp/bnb-tpu-public-actual-20261011-6yxswy1o/actual/recovered/public/device/graphs/public-train-rank2-dX.parameters.json",
+    "copy_path": "actual-disposable/public-train-rank2-dX.parameters.json",
+    "bytes": 1192878,
+    "sha256": "0cf62974931f0a65c0e9dd88bbfc3c4ac609ac84a345c722fdbcf4f2e39d1c9c"
+  },
+  {
+    "original_path": "/tmp/bnb-tpu-public-actual-20261011-6yxswy1o/actual/recovered/public/device/graphs/public-train-rank2-dX.hlo.txt",
+    "copy_path": "actual-disposable/public-train-rank2-dX.hlo.txt",
+    "bytes": 4460,
+    "sha256": "2e20af06f8d6df337a94ebf59cd383b4a97d51cabc75f2c7dc521a6ba184d9d4"
+  },
+  {
+    "original_archive": "/tmp/bnb-tpu-public-actual-20261011-6yxswy1o/recipe/packet/upstream.tar",
+    "member": "bitsandbytes/backends/default/ops.py",
+    "copy_path": "upstream-disposable/bitsandbytes/backends/default/ops.py",
+    "bytes": 19802,
+    "sha256": "e39afd16dca6e6f34a14305ade0ba4acbb49dc2c7a9baf937341d7e33b682819"
+  },
+  {
+    "original_archive": "/tmp/bnb-tpu-public-actual-20261011-6yxswy1o/recipe/packet/upstream.tar",
+    "member": "bitsandbytes/backends/utils.py",
+    "copy_path": "upstream-disposable/bitsandbytes/backends/utils.py",
+    "bytes": 2322,
+    "sha256": "dc564f2fbf13dba81388a23d4c87167dd54da04af8f17b0db52685fe42b11c84"
+  }
+]

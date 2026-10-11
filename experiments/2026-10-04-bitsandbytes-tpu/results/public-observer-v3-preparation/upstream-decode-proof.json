@@ -1,0 +1,9 @@
+{
+  "archive": "/tmp/bnb-tpu-public-actual-20261011-6yxswy1o/recipe/packet/upstream.tar",
+  "member": "bitsandbytes/backends/default/ops.py",
+  "member_sha256": "e39afd16dca6e6f34a14305ade0ba4acbb49dc2c7a9baf937341d7e33b682819",
+  "function": "_dequantize_4bit_compute",
+  "function_source_sha256": "bb5a3ffa9ae4b65cfeb63e61fcce6a1486434af3726ff105f2cad9dc180cecca",
+  "first_line": 263,
+  "last_line": 285
+}

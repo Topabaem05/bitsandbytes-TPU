@@ -9,7 +9,7 @@ import re
 HERE=Path(__file__).resolve().parent
 ADMISSION_SHA='b552fd2f9b3bf66b7b13cbf10c7904a7a958926e076347f91ad344997b9a703a'
 PROTOCOL_SHA='2e27f6c1d1476d65a7f18e5c9a135dd3e83552fab2ba2f0512ff39141c488e76'
-VARIANT='public-pallas-device-mosaic7-gather-bf16-fp32-dyadic-v2'
+VARIANT='public-pallas-device-mosaic7-gather-bf16-fp32-dyadic-observer-v3'
 
 def require(value,message):
     if not value:raise ValueError(message)
@@ -76,7 +76,7 @@ def native_sources(a,repo_root):
     require(a['fixed_files'][prefix+'results/native-bf16-acceptance.json']['sha256']=='c64fca47f57374fab691d9870005cf614fc6eebbc8a02706ed70781f9dd1042a' and a['fixed_files'][prefix+'results/native-bf16-colab.json']['sha256']=='fd15cb724a398b9079b0b97c19f66bd858fe3f7027e9ae9e1a0ff8983eb1a291','EXACT_NATIVE_ACCEPTANCE_PINS')
 
 def scientific_sources():
-    names=['dyadic.py','audit.py','reference_math.py','contract.py','oracle_math.py','prepare_public_oracle.py','verify_public_oracle.py','public_graph.py','probe_public.py','verify_public.py','public-protocol.json','package-admission.json']
+    names=['dyadic.py','audit.py','reference_math.py','contract.py','oracle_math.py','prepare_public_oracle.py','verify_public_oracle.py','public_graph.py','reference_observer_v3.py','probe_public.py','verify_public.py','public-protocol.json','package-admission.json']
     names+=['helpers/'+n for n in ('verifier.py','graph_binding.py','proto_contract.py','recorder.py','probe_backend.py','probe_precision.py','probe-profile.json','probe-inputs.json','mosaic_compatibility.py','mosaic_audit.py','conversion_recovery.py')]
     return {n:{'sha256':sha(HERE/n),'bytes':(HERE/n).stat().st_size} for n in names}
 
