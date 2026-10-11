@@ -1,0 +1,130 @@
+{
+  "archive_members": {
+    "compiler": 3,
+    "cpu": 11,
+    "science": 139
+  },
+  "compiler_allocation_audit": "NOT_RUN_NO_RAW_COMPILER_DUMPS",
+  "failure": "DUMP_ENTRY_LIMIT",
+  "groups": {
+    "cli": 59,
+    "host": 1,
+    "remote_steps": 16
+  },
+  "host_finalization_sha256": "f0207227796fda806372493a7d347dc7eb28e46b8dd75d81f5a37b8470c66e88",
+  "isolated_controls": 8,
+  "limits": {
+    "entries": 1024,
+    "file_bytes": 16777216,
+    "total_bytes": 134217728
+  },
+  "m6": "NOT_QUALIFIED",
+  "monitor": {
+    "entries": 1025,
+    "largest_file_bytes": 530344,
+    "status": "DUMP_ENTRY_LIMIT",
+    "total_bytes": 15559534
+  },
+  "monitor_observation_scope": "EARLY_RETURN_DIRECTORY_PREFIX_NOT_COMPLETE_TOTAL",
+  "native_cases": [
+    {
+      "boundary_proof": {
+        "actual_hardware_runtime": "REQUIRES_PARENT_ADMISSION",
+        "allocator_peak": "NOT_QUALIFIED",
+        "body_bytes": 8426,
+        "body_sha256": "62a0622924b2be3e43f5f8b8b8a75639287c8fe99a427d3ce9cd963dce38214a",
+        "compiler_body": "NOT_QUALIFIED",
+        "compiler_memory": "NOT_QUALIFIED",
+        "m6": "NOT_QUALIFIED",
+        "native_boundary": "PASS",
+        "numerical_gate": {
+          "max_abs": 2.384185791015625e-06,
+          "nrmse": 3.852349241688872e-07,
+          "rmse": 5.43413236348456e-07,
+          "status": "PASS"
+        },
+        "operand_values_order_layout": "PASS",
+        "optimized_executable_link": "NOT_QUALIFIED",
+        "payload_bytes": 11322,
+        "payload_sha256": "caf273a6a163981d6d0dd40dabd38566ce3173bed9f4615c3ab8fbf11c8d33ef",
+        "public_api": "NOT_QUALIFIED",
+        "root_reachable_graph": "PASS",
+        "scope": "ACTUAL_NATIVE_BOUNDARY",
+        "status": "BINDING_PASS",
+        "synchronized_execution": "PASS"
+      },
+      "case": "direct-fp32",
+      "raw_sha256": "e2e9e57e62a0d28f9915f22ac4f0b8da0ebb2c2a0f0b4b476f4e754d2070331d",
+      "same_device_reference_gate": {
+        "max_abs": 2.384185791015625e-06,
+        "nrmse": 3.809516768387768e-07,
+        "rmse": 5.373712781881004e-07,
+        "status": "PASS"
+      },
+      "status": "PASS"
+    },
+    {
+      "boundary_proof": {
+        "actual_hardware_runtime": "REQUIRES_PARENT_ADMISSION",
+        "allocator_peak": "NOT_QUALIFIED",
+        "body_bytes": 8426,
+        "body_sha256": "62a0622924b2be3e43f5f8b8b8a75639287c8fe99a427d3ce9cd963dce38214a",
+        "compiler_body": "NOT_QUALIFIED",
+        "compiler_memory": "NOT_QUALIFIED",
+        "m6": "NOT_QUALIFIED",
+        "native_boundary": "PASS",
+        "numerical_gate": {
+          "max_abs": 2.384185791015625e-06,
+          "nrmse": 3.852349241688872e-07,
+          "rmse": 5.43413236348456e-07,
+          "status": "PASS"
+        },
+        "operand_values_order_layout": "PASS",
+        "optimized_executable_link": "NOT_QUALIFIED",
+        "payload_bytes": 11322,
+        "payload_sha256": "caf273a6a163981d6d0dd40dabd38566ce3173bed9f4615c3ab8fbf11c8d33ef",
+        "public_api": "NOT_QUALIFIED",
+        "root_reachable_graph": "PASS",
+        "scope": "ACTUAL_NATIVE_BOUNDARY",
+        "status": "BINDING_PASS",
+        "synchronized_execution": "PASS"
+      },
+      "case": "functional-fp32",
+      "raw_sha256": "36a014c4df97f9cd3b7bb380936bb3f021533cd7affdd44a108330ef1ed05f00",
+      "same_device_reference_gate": {
+        "max_abs": 2.384185791015625e-06,
+        "nrmse": 3.809516768387768e-07,
+        "rmse": 5.373712781881004e-07,
+        "status": "PASS"
+      },
+      "status": "PASS"
+    }
+  ],
+  "native_pass_cases": 2,
+  "negative_native_controls": [
+    "direct-fp32:wrong_output",
+    "direct-fp32:wrong_operand",
+    "direct-fp32:false_execution_scope",
+    "functional-fp32:wrong_output",
+    "functional-fp32:wrong_operand",
+    "functional-fp32:false_execution_scope"
+  ],
+  "owner_sha256": "112420f21335d4f9c4ff0c1599b7cc8b8858469ba18b557f44dc3231a996dd90",
+  "packet_sha256": "5992724099a519a82a265ff823b09a8d2e1524789f17b3ee69b10be977b32884",
+  "private_evidence": {
+    "archive_members": 1186,
+    "bytes": 7385014,
+    "permissions": "ONE_OWNER_ONLY",
+    "remote_origin_download_sha256": "MATCH",
+    "sha256": "cf4749cd46129169d072f0bb4725fd5aad2459cbc4528e8c0045cfc61b30d072",
+    "shared": false,
+    "url": "https://drive.google.com/file/d/10YuXuAw7Kc47BNEHf7hekrnU6OIbz1v3/view"
+  },
+  "qualified_linux_cpu_cases": 5,
+  "reader_sha256": "6929544d17ab091be644b9d49ea964628ed16198af0282dfd6dd443f525520d9",
+  "receipt_sha256": "9d8488618491ce8de51ca1f1b50ba43da2c9628fc15d4ec1c8c729c50db5c0e4",
+  "remaining_not_run_cases": 3,
+  "resource_closure": "PASS",
+  "source_revision": "5dbfd05128fe741ba19c513d43a87c09b7cca017",
+  "status": "INCOMPLETE_ACTUAL_CAPTURE_INDEPENDENTLY_REVIEWED"
+}

@@ -8,13 +8,22 @@
   "generation": "public-pallas-device-mosaic7-gather-bf16-fp32-dyadic-v2",
   "m6": "NOT_QUALIFIED",
   "primary_linux_calculations": "UNCHANGED",
-  "private_records": "OWNER_ONLY_DRIVE_ARCHIVE_PENDING_FINAL_REVIEW",
+  "private_records": {
+    "archive_members": 1186,
+    "bytes": 7385014,
+    "permissions": "ONE_OWNER_ONLY",
+    "remote_origin_download_sha256": "MATCH",
+    "sha256": "cf4749cd46129169d072f0bb4725fd5aad2459cbc4528e8c0045cfc61b30d072",
+    "shared": false,
+    "url": "https://drive.google.com/file/d/10YuXuAw7Kc47BNEHf7hekrnU6OIbz1v3/view"
+  },
   "reviewed_at": "2026-10-11",
   "root_control_counts": {
     "cpu_archive": 6,
     "saved_device_consumer": 5,
     "science": 33
   },
+  "root_fixture_logical_bytes_deleted": 380533783,
   "root_independent_controls": 44,
   "source_map_sha256": "ccab0ad894659291dc4f8dc5d749d7b45c84481ab7c34d20051a2ee314ac34eb",
   "status": "ROOT_ACCEPTED_SOURCE_PREPARATION_ONLY",

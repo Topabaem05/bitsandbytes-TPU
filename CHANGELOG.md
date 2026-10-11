@@ -1,5 +1,16 @@
 # Change log
 
+## 2026-10-11 — Actual compiler failure and immediate artifact removal
+
+- Preserve two passed native FP32 cases and three unexecuted cases.
+- Record the original dump count limit and complete resource closure.
+- Archive reviewed records in private Drive storage and verify a separate download.
+- Remove completed test outputs and temporary archive copies.
+
+Validation: Independent archive, native boundary, numerical, conversion, and closure inspection passed.
+The compiler capture failed at 1,025 entries, and M6 remains unqualified.
+Refer to [the failure record](docs/changes/r6-compiler-dump-limit-colab.md).
+
 ## 2026-10-11 — Versioned public CPU reference preparation
 
 - Preserve the original Linux primary calculations and public device tolerances.

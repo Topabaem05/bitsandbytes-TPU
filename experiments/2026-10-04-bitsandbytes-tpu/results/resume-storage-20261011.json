@@ -1,0 +1,67 @@
+{
+  "active_worker_scratch": "RETAINED_UNTIL_REVIEW",
+  "archive": {
+    "archive_members": 1186,
+    "bytes": 7385014,
+    "permissions": "ONE_OWNER_ONLY",
+    "remote_origin_download_sha256": "MATCH",
+    "sha256": "cf4749cd46129169d072f0bb4725fd5aad2459cbc4528e8c0045cfc61b30d072",
+    "shared": false,
+    "url": "https://drive.google.com/file/d/10YuXuAw7Kc47BNEHf7hekrnU6OIbz1v3/view"
+  },
+  "date": "2026-10-11",
+  "epoch": 1791694882.612818,
+  "historical_restore_scope": "MINIMAL_ARCHIVED_READONLY_TEST_DEPENDENCIES_REMOVED_AFTER_REPLAY",
+  "new_work_entries": 0,
+  "prior_public_disposable_logical_bytes_removed": 380533783,
+  "removed_after_remote_readback_logical_bytes": 95670398,
+  "removed_roots": [
+    {
+      "files": 651,
+      "logical_bytes": 62930106,
+      "path": "/var/folders/5g/bhl5x7q93yvcfj2zngh_jg680000gn/T/bnb-tpu-root-20261011-nh6hsqgt"
+    },
+    {
+      "files": 118,
+      "logical_bytes": 604917,
+      "path": "/tmp/bnb-tpu-public15-20261011-xt4mrji8"
+    },
+    {
+      "files": 303,
+      "logical_bytes": 3119607,
+      "path": "/tmp/bnb-tpu-root-public-review-20261011"
+    },
+    {
+      "files": 70,
+      "logical_bytes": 4259956,
+      "path": "/tmp/bnb-tpu-m4-20261011-5oy7bI"
+    },
+    {
+      "files": 12,
+      "logical_bytes": 61864,
+      "path": "/tmp/bnb-tpu-m4-root-original-replay"
+    },
+    {
+      "files": 31,
+      "logical_bytes": 288389,
+      "path": "/tmp/bnb-tpu-m4-root-new-replay"
+    },
+    {
+      "files": 82,
+      "logical_bytes": 16977281,
+      "path": "/tmp/bnb-tpu-m4-restore-20261011"
+    },
+    {
+      "files": 1,
+      "logical_bytes": 43264,
+      "path": "/tmp/bnb-tpu-m4-receipt-restore-20261011"
+    },
+    {
+      "files": 1,
+      "logical_bytes": 7385014,
+      "path": "/tmp/bnb-tpu-resume-20261011-reviewed-evidence.zip"
+    }
+  ],
+  "status": "ARCHIVED_VERIFIED_AND_TEMPORARY_COPIES_REMOVED",
+  "worker_disposable_logical_bytes_removed": 3195950085
+}

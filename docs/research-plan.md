@@ -148,6 +148,10 @@ Inspect runtime flag support before a new compiler generation executes.
 The [libtpu flag correction](changes/r6-compiler-libtpu021-flags.md) passed 250 local controls before and after adoption.
 It requires a separate backend initialization process before native numerical execution.
 The corrected request still requires fresh qualified Linux CPU records and actual TPU observation.
+The [corrected actual capture](changes/r6-compiler-dump-limit-colab.md) passed its fresh CPU gate and actual flag preflight.
+Two native FP32 cases passed before the dump count exceeded the original 1,024-entry limit.
+Three cases remain unexecuted, and no raw compiler dump was retained.
+Reduce additional dump requests in a new generation before another actual capture.
 The [public API preparation](changes/r6-public-cloud-preparation.md) passed all 118 controls before and after adoption.
 Its 15 cases require a fresh qualified Linux CPU oracle before device execution.
 The packet covers FP32 gradients and BF16 outputs without compiler dump flags.
