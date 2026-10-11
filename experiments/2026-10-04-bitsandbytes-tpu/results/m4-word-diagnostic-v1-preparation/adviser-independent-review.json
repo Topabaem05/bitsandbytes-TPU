@@ -1,0 +1,60 @@
+{
+  "actual_TPU": "NOT_RUN",
+  "actual_pinned_linux_cpu": "NOT_RUN",
+  "candidate_source": "/tmp/bnb-tpu-m4-word-diagnostic-v1-20261011-sroPrk/packet/source",
+  "candidate_writes": 0,
+  "cpu_correct": {
+    "probes": 24,
+    "qualification": "UNQUALIFIED_LOCAL_CPU",
+    "status": "PASS",
+    "torch": "2.14.1"
+  },
+  "cpu_qualification_import_control": {
+    "forbidden_torch_xla_or_libtpu_imports": 0,
+    "scope": "FAKE_METADATA_AND_PLATFORM_FIXTURE_ONLY",
+    "status": "PASS"
+  },
+  "cpu_wrong_controls": {
+    "coherent_zero_amax1_triplet": "REJECTED_CPU_AMAX_SCALAR",
+    "coherent_zero_amax255_triplet": "REJECTED_CPU_AMAX_SCALAR",
+    "coherent_zero_bitcast_pair": "REJECTED_CPU_BITCAST_INDEPENDENT_STORAGE_ORACLE",
+    "coherent_zero_left_shift_pair": "REJECTED_CPU_INDEPENDENT_INTEGER_SHIFT_ORACLE",
+    "coherent_zero_right_shift_pair": "REJECTED_CPU_INDEPENDENT_INTEGER_SHIFT_ORACLE",
+    "coherent_zero_scalar_select": "REJECTED_CPU_TYPED_SCALAR_INDEPENDENT_ORACLE"
+  },
+  "fake_xla_observation_controls": {
+    "mapping_error": {
+      "exact_matches": 2,
+      "observation_errors": 2,
+      "returned": 2
+    },
+    "oversized_hlo": {
+      "exact_matches": 2,
+      "observation_errors": 2,
+      "returned": 2
+    },
+    "raw_budget_rejection_followed_by_valid_capture": {
+      "exact_matches": 2,
+      "observation_statuses": [
+        "ERROR",
+        "COMPLETE"
+      ],
+      "returned": 2
+    },
+    "scope": "CPU_ONLY_FAKE_MODULES_NO_PJRT"
+  },
+  "fixtures_removed": true,
+  "m4_status": "NOT_QUALIFIED",
+  "provider_calls": 0,
+  "remaining": "Final source seal and host reader must preserve numerical RETURNED plus observation ERROR as valid diagnostic evidence; actual runtime behavior remains unmeasured.",
+  "retained": "THIS_SUMMARY_ONLY",
+  "scope": "READ_ONLY_FOCUSED_PREPARATION_REVIEW",
+  "source_sha256": {
+    "diagnostic_ops.py": "f6a72e8d050955804323e2ffd7f588a5b6dd3fa79a450cfe9ed9046a17582d0d",
+    "probes.py": "74315f7594fc80f5ac0f89b93b261ec615b5253ef25daf64aebbcf53decfa767",
+    "rewrite.py": "d67f7eef87579108b6e15f1d1ce9bd34517eb73d2d2f6faa2efdfadd1faaf977",
+    "run_diagnostic.py": "a8ccfecf06b433044198b75bb0b77b8839f4c84bedfedad0b7346dd36299844b"
+  },
+  "status": "PASS_AFTER_FIXES",
+  "verified_utc": "2026-10-11T08:50:47.446829+00:00"
+}

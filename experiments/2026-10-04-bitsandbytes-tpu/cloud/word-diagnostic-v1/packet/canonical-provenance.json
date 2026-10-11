@@ -1,0 +1,146 @@
+{
+  "control/allocation_transport.py": {
+    "bytes": 6923,
+    "canonical_path": "/Users/topamini/code/bitsandbytes-TPU/experiments/2026-10-04-bitsandbytes-tpu/cloud/exact-nested/allocation_transport.py",
+    "sha256": "f51014526d399c93c95c5c00c6855a949aaeda2af74fc24609da6bb9068d1696"
+  },
+  "control/browser_adoption.py": {
+    "bytes": 4359,
+    "canonical_path": "/Users/topamini/code/bitsandbytes-TPU/experiments/2026-10-04-bitsandbytes-tpu/cloud/exact-nested/browser_adoption.py",
+    "sha256": "13a75920d19a760796b4f610b8d497e1011d4690f890d015fba281bb40ebe93d"
+  },
+  "control/browser_record.py": {
+    "bytes": 2792,
+    "canonical_path": "/Users/topamini/code/bitsandbytes-TPU/experiments/2026-10-04-bitsandbytes-tpu/cloud/exact-nested/browser_record.py",
+    "sha256": "59c0cee37fc3aac525bae4c665d788cfae8f3443e0ac635b8894a61f9be6bd45"
+  },
+  "control/canonical_contract.py": {
+    "bytes": 7943,
+    "canonical_path": "/Users/topamini/code/bitsandbytes-TPU/experiments/2026-10-04-bitsandbytes-tpu/cloud/exact-nested/contract.py",
+    "sha256": "dc086838bfa662d76071229f98c1a654ed20436d0fe301cf28b398bf475685d5"
+  },
+  "control/canonical_host_run.py": {
+    "bytes": 1566,
+    "canonical_path": "/Users/topamini/code/bitsandbytes-TPU/experiments/2026-10-04-bitsandbytes-tpu/training-m5/control/host_run.py",
+    "sha256": "cad765edec9ad1fb5722444752cffffa6ee0b99ec8d96281b9ec173e721e9a30"
+  },
+  "control/canonical_remote.py": {
+    "bytes": 10227,
+    "canonical_path": "/Users/topamini/code/bitsandbytes-TPU/experiments/2026-10-04-bitsandbytes-tpu/cloud/exact-nested/remote.py",
+    "sha256": "2bd1e53601159e45200c0e3bf80d2886a48ba56c67d5d6bc9c4ea33a5d040cad"
+  },
+  "control/cli_display.py": {
+    "bytes": 1989,
+    "canonical_path": "/Users/topamini/code/bitsandbytes-TPU/experiments/2026-10-04-bitsandbytes-tpu/training-m5/control/kernel_reader.py",
+    "canonical_sha256": "689a0e7edf97938d353587cc08e138ab7fdea7dc7c7a3820d05fdb33952e1ba0",
+    "copied_function_names": [
+      "output_lines",
+      "sessions_output",
+      "usage_output",
+      "resource_empty"
+    ],
+    "sha256": "f076082df3a46399c9fdeb1573b8ef9c6c65edc2e7cfe04ec3953f668cbb36e4"
+  },
+  "control/cli_transport.py": {
+    "bytes": 4521,
+    "canonical_path": "/Users/topamini/code/bitsandbytes-TPU/experiments/2026-10-04-bitsandbytes-tpu/cloud/exact-nested/cli_transport.py",
+    "sha256": "56f173f3a65dddcf68c548982b8f879173fceff65a1ddcf82a6791d8c578eb2a"
+  },
+  "control/host_run.py": {
+    "bytes": 1827,
+    "diagnostic_delta": "Require exact original browser allocation epoch plus600seconds before launch.",
+    "preimage_path": "control/canonical_host_run.py",
+    "preimage_sha256": "cad765edec9ad1fb5722444752cffffa6ee0b99ec8d96281b9ec173e721e9a30",
+    "sha256": "ed93dbe30f63ac793a4ba08f95a53bb3117f817c5b25168c004b14a7bfed03db"
+  },
+  "control/kernel_protocol.py": {
+    "bytes": 8477,
+    "canonical_path": "/Users/topamini/code/bitsandbytes-TPU/experiments/2026-10-04-bitsandbytes-tpu/cloud/exact-nested/kernel_protocol.py",
+    "sha256": "e9c7a5b7b943cea08dfb8986205e47e008ceac37553a2f8576687527a58f9d5f"
+  },
+  "control/official_cli_no_oauth.py": {
+    "bytes": 1501,
+    "canonical_path": "/Users/topamini/code/bitsandbytes-TPU/experiments/2026-10-04-bitsandbytes-tpu/cloud/exact-nested/official_cli_no_oauth.py",
+    "sha256": "a6c8713d8be39e7185a3f759ee6bdbd64a0d6b8c47eca0ba08526f9bc1bc4d7e"
+  },
+  "control/ownership/bootstrap.py": {
+    "bytes": 244,
+    "canonical_path": "/Users/topamini/code/bitsandbytes-TPU/experiments/2026-10-04-bitsandbytes-tpu/cloud/exact-nested/ownership/bootstrap.py",
+    "sha256": "7ed51ad613dbd6c0cbaa76575ae1da5d68b205e8b88c9e702cf206c09bb2150d"
+  },
+  "control/ownership/cleanup_lifecycle.py": {
+    "bytes": 9410,
+    "canonical_path": "/Users/topamini/code/bitsandbytes-TPU/experiments/2026-10-04-bitsandbytes-tpu/cloud/exact-nested/ownership/cleanup_lifecycle.py",
+    "sha256": "6557b3522ec68ddcd9106027d08e89e872eb90587eae8cbff2859ac5668cbf76"
+  },
+  "control/ownership/lifecycle.py": {
+    "bytes": 4558,
+    "canonical_path": "/Users/topamini/code/bitsandbytes-TPU/experiments/2026-10-04-bitsandbytes-tpu/cloud/exact-nested/ownership/lifecycle.py",
+    "sha256": "4ef29a2c673ab7dadce5a965bff18e51f4850134af2dfb5f44b3d3153949f986"
+  },
+  "control/python_bootstrap.py": {
+    "bytes": 7601,
+    "canonical_path": "/Users/topamini/code/bitsandbytes-TPU/experiments/2026-10-04-bitsandbytes-tpu/cloud/exact-nested/python_bootstrap.py",
+    "sha256": "11f7b025a4e7dd28315eb862e2e0b1697cf8d3f7a7e3c6e7d5b07c0adc918603"
+  },
+  "control/transport.py": {
+    "bytes": 6690,
+    "canonical_path": "/Users/topamini/code/bitsandbytes-TPU/experiments/2026-10-04-bitsandbytes-tpu/cloud/exact-nested/transport.py",
+    "sha256": "09f9394f6285bb477b382e800fe3ea66378ce99f462531da48b66a61cbbfa202"
+  },
+  "original/_integer_addsub.py": {
+    "bytes": 3350,
+    "canonical_path": "/Users/topamini/code/bitsandbytes-TPU/experiments/2026-10-04-bitsandbytes-tpu/nested-exact/integration/plugin/src/bitsandbytes_tpu/_integer_addsub.py",
+    "sha256": "0294486d6cad96d0ceb88ecd492bd0aeaa106788e289735167cd8ef3d3b9fe66"
+  },
+  "original/_integer_clamp.py": {
+    "bytes": 3930,
+    "canonical_path": "/Users/topamini/code/bitsandbytes-TPU/experiments/2026-10-04-bitsandbytes-tpu/nested-exact/integration/plugin/src/bitsandbytes_tpu/_integer_clamp.py",
+    "sha256": "77edb6a7dc30caa49cd6a4260a5663f4c5a0fa146b6f084e207a6aaae9804b59"
+  },
+  "original/_integer_muldiv.py": {
+    "bytes": 4780,
+    "canonical_path": "/Users/topamini/code/bitsandbytes-TPU/experiments/2026-10-04-bitsandbytes-tpu/nested-exact/integration/plugin/src/bitsandbytes_tpu/_integer_muldiv.py",
+    "sha256": "89cc079e3dee6a2ff3b79cf8b176ea62c5bd2183a14427bbc0c235de02a27187"
+  },
+  "original/_source_order.py": {
+    "bytes": 2183,
+    "canonical_path": "/Users/topamini/code/bitsandbytes-TPU/experiments/2026-10-04-bitsandbytes-tpu/nested-exact/integration/plugin/src/bitsandbytes_tpu/_source_order.py",
+    "sha256": "700bac513eb69eb22c5d11391b488367b4f56fbeedd741a58e841c6a5fe911a0"
+  },
+  "original/exact.py": {
+    "bytes": 5826,
+    "canonical_path": "/Users/topamini/code/bitsandbytes-TPU/experiments/2026-10-04-bitsandbytes-tpu/nested-exact/integration/plugin/src/bitsandbytes_tpu/exact.py",
+    "sha256": "0b9965a0c98a8e62ea4119e48e4bfb0f69a4b92c0efa5a9ba58ba02a3b960846"
+  },
+  "original/functionalization.py": {
+    "bytes": 3292,
+    "canonical_path": "/Users/topamini/code/bitsandbytes-TPU/experiments/2026-10-04-bitsandbytes-tpu/nested-exact/integration/plugin/src/bitsandbytes_tpu/functionalization.py",
+    "sha256": "0b31b2d86e7dd4aa10629e236fa1c0c18518eb5a3fb565714a9e40f432c2c93e"
+  },
+  "original/parent-adoption-map.json": {
+    "bytes": 7142,
+    "canonical_path": "/Users/topamini/code/bitsandbytes-TPU/experiments/2026-10-04-bitsandbytes-tpu/nested-exact/integration/adoption-map.json",
+    "sha256": "bfd7ce45a900fee3bc5ecfed54524c17931e2964ef5b7295fca6e6038883729a"
+  },
+  "original/parent-science-manifest.json": {
+    "bytes": 3045,
+    "canonical_path": "/Users/topamini/code/bitsandbytes-TPU/experiments/2026-10-04-bitsandbytes-tpu/nested-exact/source/science-manifest.json",
+    "sha256": "29beb28f4320acc5e07ce6822f2120eaff846809bfc54bd123ac37f501700c06"
+  },
+  "original/parent-source-admission.json": {
+    "bytes": 13857,
+    "canonical_path": "/Users/topamini/code/bitsandbytes-TPU/experiments/2026-10-04-bitsandbytes-tpu/nested-exact/integration/source-admission.json",
+    "sha256": "8b5aa5f0c86346db982664cfad3b1e242dc8a67a4e49865584ccc01c8620f4bf"
+  },
+  "runtime/requirements.lock.json": {
+    "bytes": 39667,
+    "canonical_path": "/Users/topamini/code/bitsandbytes-TPU/experiments/2026-10-04-bitsandbytes-tpu/nested-exact/runtime/requirements.lock.json",
+    "sha256": "323371ff61c5fbcc4f79fd6a358cf2ba17cb72b907382a5ceaac07f91dc66ed6"
+  },
+  "runtime/resolve.py": {
+    "bytes": 14974,
+    "canonical_path": "/Users/topamini/code/bitsandbytes-TPU/experiments/2026-10-04-bitsandbytes-tpu/nested-exact/runtime/resolve.py",
+    "sha256": "21cc9342ae664f881bb07f900e47236bc6917b3b461df656b758507584471bf9"
+  }
+}

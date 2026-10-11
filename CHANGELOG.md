@@ -1,5 +1,16 @@
 # Change log
 
+## 2026-10-11 — Exact word diagnostic preparation
+
+- Compare explicit Tensor shifts and flat tail reduction dimensions in isolated variants.
+- Preserve numerical results when graph observation fails.
+- Bind one focused Colab diagnostic to its original 600-second deadline and exact runtime closure.
+
+Validation: Root replay passed 24 CPU probes and rejected nine incorrect controls.
+All 75 preparation archive members passed full readback.
+Local CPU and simulated provider checks do not qualify M4.
+Refer to [the preparation record](docs/changes/m4-word-diagnostic-v1-preparation.md).
+
 ## 2026-10-11 — Completed work cleanup
 
 - Verify all 4,469 private archive members through an independent download.

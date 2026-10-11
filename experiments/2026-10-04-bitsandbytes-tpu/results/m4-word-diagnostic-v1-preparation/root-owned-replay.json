@@ -1,0 +1,77 @@
+{
+  "argv": [
+    "/Users/topamini/code/Post2TPU/.venv/bin/python",
+    "-B",
+    "/tmp/bnb-tpu-root-continuation-20261011/review_word_diagnostic.py",
+    "--candidate",
+    "/tmp/bnb-tpu-m4-word-diagnostic-v1-20261011-sroPrk",
+    "--packet-sha256",
+    "a73c5b044ae981752e04a0a8b67706d1d21b8d9e94ac6044610bc1dc0ef984fc",
+    "--output",
+    "/tmp/bnb-tpu-root-m4-word-diag-review-20261011/review"
+  ],
+  "cleanup": {
+    "errors": [],
+    "groups": [
+      {
+        "ended_at": "2026-10-11T08:52:24.224868+00:00",
+        "errors": [],
+        "exit_status": 0,
+        "group_absence": "OBSERVED_NO_SUCH_GROUP",
+        "leader_reaped": true,
+        "pgid": 31870,
+        "pid": 31870,
+        "signals": [
+          {
+            "result": "NO_SUCH_GROUP",
+            "signal": 15
+          },
+          {
+            "result": "NO_SUCH_GROUP",
+            "signal": 9
+          }
+        ],
+        "started_at": "2026-10-11T08:52:24.224802+00:00",
+        "status": "CLEANUP_VERIFIED"
+      }
+    ],
+    "guard_original_outcome": {
+      "error": null,
+      "status": "COMPLETED"
+    },
+    "restoration": {
+      "handlers_restored": true,
+      "previous_timer": [
+        0.0,
+        0.0
+      ],
+      "state": "RESTORATION_ATTEMPTED",
+      "timer_policy": "PAUSE_AND_RESTORE_CAPTURED_TIMER",
+      "timer_restored": true
+    },
+    "status": "NO_CLEANUP_ERRORS"
+  },
+  "environment": {
+    "HOME_and_CODEX_HOME": "INHERITED_WITHOUT_CHANGE",
+    "names_unset": [
+      "PYTHONPATH",
+      "PYTHONHOME",
+      "TPU_LIBRARY_PATH",
+      "PTXLA_TPU_LIBRARY_PATH",
+      "PJRT_DEVICE"
+    ],
+    "set": {
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "PYTHONNOUSERSITE": "1",
+      "TPU_LOG_DIR": "disabled"
+    }
+  },
+  "exit_code": 0,
+  "original_outcome": {
+    "error": null,
+    "exit_code": 0,
+    "status": "PASS"
+  },
+  "status": "PASS",
+  "timeout_seconds": 55.0
+}
