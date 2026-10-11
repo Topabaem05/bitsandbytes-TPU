@@ -21,7 +21,8 @@ A later documentation correction preserved all 110 Python files.
 The 19 scientific members and numerical criteria remain unchanged.
 
 These checks establish local preparation only.
-No new CPU79, TPU79, or state8 scientific result exists.
+No new scientific result existed at preparation review.
+The later [actual run](r4-functionalization-failure-20261011.md) passed CPU79 and failed before TPU numerical comparison.
 M4 remains unqualified.
 The original allocation deadline, limits, external acceptance, and resource closure remain required.
 

@@ -1,0 +1,484 @@
+{
+  "case_count": 79,
+  "m4_status": "NOT_QUALIFIED",
+  "numerical_status": "ERROR",
+  "record_validation": "PASS",
+  "rows": [
+    {
+      "case_id": "block-0001-zero",
+      "gates": {},
+      "status": "ERROR",
+      "trace_status": "INCOMPLETE_RETAINED"
+    },
+    {
+      "case_id": "block-0001-constant",
+      "gates": {},
+      "status": "ERROR",
+      "trace_status": "INCOMPLETE_RETAINED"
+    },
+    {
+      "case_id": "block-0001-signed_ramp",
+      "gates": {},
+      "status": "ERROR",
+      "trace_status": "INCOMPLETE_RETAINED"
+    },
+    {
+      "case_id": "block-0001-ties",
+      "gates": {},
+      "status": "ERROR",
+      "trace_status": "INCOMPLETE_RETAINED"
+    },
+    {
+      "case_id": "block-0001-neighbors_lo",
+      "gates": {},
+      "status": "ERROR",
+      "trace_status": "INCOMPLETE_RETAINED"
+    },
+    {
+      "case_id": "block-0001-neighbors_hi",
+      "gates": {},
+      "status": "ERROR",
+      "trace_status": "INCOMPLETE_RETAINED"
+    },
+    {
+      "case_id": "block-0255-zero",
+      "gates": {},
+      "status": "ERROR",
+      "trace_status": "INCOMPLETE_RETAINED"
+    },
+    {
+      "case_id": "block-0255-constant",
+      "gates": {},
+      "status": "ERROR",
+      "trace_status": "INCOMPLETE_RETAINED"
+    },
+    {
+      "case_id": "block-0255-signed_ramp",
+      "gates": {},
+      "status": "ERROR",
+      "trace_status": "INCOMPLETE_RETAINED"
+    },
+    {
+      "case_id": "block-0255-ties",
+      "gates": {},
+      "status": "ERROR",
+      "trace_status": "INCOMPLETE_RETAINED"
+    },
+    {
+      "case_id": "block-0255-neighbors_lo",
+      "gates": {},
+      "status": "ERROR",
+      "trace_status": "INCOMPLETE_RETAINED"
+    },
+    {
+      "case_id": "block-0255-neighbors_hi",
+      "gates": {},
+      "status": "ERROR",
+      "trace_status": "INCOMPLETE_RETAINED"
+    },
+    {
+      "case_id": "block-0256-zero",
+      "gates": {},
+      "status": "ERROR",
+      "trace_status": "INCOMPLETE_RETAINED"
+    },
+    {
+      "case_id": "block-0256-constant",
+      "gates": {},
+      "status": "ERROR",
+      "trace_status": "INCOMPLETE_RETAINED"
+    },
+    {
+      "case_id": "block-0256-signed_ramp",
+      "gates": {},
+      "status": "ERROR",
+      "trace_status": "INCOMPLETE_RETAINED"
+    },
+    {
+      "case_id": "block-0256-ties",
+      "gates": {},
+      "status": "ERROR",
+      "trace_status": "INCOMPLETE_RETAINED"
+    },
+    {
+      "case_id": "block-0256-neighbors_lo",
+      "gates": {},
+      "status": "ERROR",
+      "trace_status": "INCOMPLETE_RETAINED"
+    },
+    {
+      "case_id": "block-0256-neighbors_hi",
+      "gates": {},
+      "status": "ERROR",
+      "trace_status": "INCOMPLETE_RETAINED"
+    },
+    {
+      "case_id": "block-0257-zero",
+      "gates": {},
+      "status": "ERROR",
+      "trace_status": "INCOMPLETE_RETAINED"
+    },
+    {
+      "case_id": "block-0257-constant",
+      "gates": {},
+      "status": "ERROR",
+      "trace_status": "INCOMPLETE_RETAINED"
+    },
+    {
+      "case_id": "block-0257-signed_ramp",
+      "gates": {},
+      "status": "ERROR",
+      "trace_status": "INCOMPLETE_RETAINED"
+    },
+    {
+      "case_id": "block-0257-ties",
+      "gates": {},
+      "status": "ERROR",
+      "trace_status": "INCOMPLETE_RETAINED"
+    },
+    {
+      "case_id": "block-0257-neighbors_lo",
+      "gates": {},
+      "status": "ERROR",
+      "trace_status": "INCOMPLETE_RETAINED"
+    },
+    {
+      "case_id": "block-0257-neighbors_hi",
+      "gates": {},
+      "status": "ERROR",
+      "trace_status": "INCOMPLETE_RETAINED"
+    },
+    {
+      "case_id": "block-0511-zero",
+      "gates": {},
+      "status": "ERROR",
+      "trace_status": "INCOMPLETE_RETAINED"
+    },
+    {
+      "case_id": "block-0511-constant",
+      "gates": {},
+      "status": "ERROR",
+      "trace_status": "INCOMPLETE_RETAINED"
+    },
+    {
+      "case_id": "block-0511-signed_ramp",
+      "gates": {},
+      "status": "ERROR",
+      "trace_status": "INCOMPLETE_RETAINED"
+    },
+    {
+      "case_id": "block-0511-ties",
+      "gates": {},
+      "status": "ERROR",
+      "trace_status": "INCOMPLETE_RETAINED"
+    },
+    {
+      "case_id": "block-0511-neighbors_lo",
+      "gates": {},
+      "status": "ERROR",
+      "trace_status": "INCOMPLETE_RETAINED"
+    },
+    {
+      "case_id": "block-0511-neighbors_hi",
+      "gates": {},
+      "status": "ERROR",
+      "trace_status": "INCOMPLETE_RETAINED"
+    },
+    {
+      "case_id": "block-0512-zero",
+      "gates": {},
+      "status": "ERROR",
+      "trace_status": "INCOMPLETE_RETAINED"
+    },
+    {
+      "case_id": "block-0512-constant",
+      "gates": {},
+      "status": "ERROR",
+      "trace_status": "INCOMPLETE_RETAINED"
+    },
+    {
+      "case_id": "block-0512-signed_ramp",
+      "gates": {},
+      "status": "ERROR",
+      "trace_status": "INCOMPLETE_RETAINED"
+    },
+    {
+      "case_id": "block-0512-ties",
+      "gates": {},
+      "status": "ERROR",
+      "trace_status": "INCOMPLETE_RETAINED"
+    },
+    {
+      "case_id": "block-0512-neighbors_lo",
+      "gates": {},
+      "status": "ERROR",
+      "trace_status": "INCOMPLETE_RETAINED"
+    },
+    {
+      "case_id": "block-0512-neighbors_hi",
+      "gates": {},
+      "status": "ERROR",
+      "trace_status": "INCOMPLETE_RETAINED"
+    },
+    {
+      "case_id": "block-0513-zero",
+      "gates": {},
+      "status": "ERROR",
+      "trace_status": "INCOMPLETE_RETAINED"
+    },
+    {
+      "case_id": "block-0513-constant",
+      "gates": {},
+      "status": "ERROR",
+      "trace_status": "INCOMPLETE_RETAINED"
+    },
+    {
+      "case_id": "block-0513-signed_ramp",
+      "gates": {},
+      "status": "ERROR",
+      "trace_status": "INCOMPLETE_RETAINED"
+    },
+    {
+      "case_id": "block-0513-ties",
+      "gates": {},
+      "status": "ERROR",
+      "trace_status": "INCOMPLETE_RETAINED"
+    },
+    {
+      "case_id": "block-0513-neighbors_lo",
+      "gates": {},
+      "status": "ERROR",
+      "trace_status": "INCOMPLETE_RETAINED"
+    },
+    {
+      "case_id": "block-0513-neighbors_hi",
+      "gates": {},
+      "status": "ERROR",
+      "trace_status": "INCOMPLETE_RETAINED"
+    },
+    {
+      "case_id": "nested-00001-float32",
+      "gates": {},
+      "status": "ERROR",
+      "trace_status": "INCOMPLETE_RETAINED"
+    },
+    {
+      "case_id": "nested-00064-float32",
+      "gates": {},
+      "status": "ERROR",
+      "trace_status": "INCOMPLETE_RETAINED"
+    },
+    {
+      "case_id": "nested-00065-float32",
+      "gates": {},
+      "status": "ERROR",
+      "trace_status": "INCOMPLETE_RETAINED"
+    },
+    {
+      "case_id": "nested-16320-float32",
+      "gates": {},
+      "status": "ERROR",
+      "trace_status": "INCOMPLETE_RETAINED"
+    },
+    {
+      "case_id": "nested-16384-float32",
+      "gates": {},
+      "status": "ERROR",
+      "trace_status": "INCOMPLETE_RETAINED"
+    },
+    {
+      "case_id": "nested-16385-float32",
+      "gates": {},
+      "status": "ERROR",
+      "trace_status": "INCOMPLETE_RETAINED"
+    },
+    {
+      "case_id": "nested-32768-float32",
+      "gates": {},
+      "status": "ERROR",
+      "trace_status": "INCOMPLETE_RETAINED"
+    },
+    {
+      "case_id": "nested-32769-float32",
+      "gates": {},
+      "status": "ERROR",
+      "trace_status": "INCOMPLETE_RETAINED"
+    },
+    {
+      "case_id": "nested-00001-bfloat16",
+      "gates": {},
+      "status": "ERROR",
+      "trace_status": "INCOMPLETE_RETAINED"
+    },
+    {
+      "case_id": "nested-00064-bfloat16",
+      "gates": {},
+      "status": "ERROR",
+      "trace_status": "INCOMPLETE_RETAINED"
+    },
+    {
+      "case_id": "nested-00065-bfloat16",
+      "gates": {},
+      "status": "ERROR",
+      "trace_status": "INCOMPLETE_RETAINED"
+    },
+    {
+      "case_id": "nested-16320-bfloat16",
+      "gates": {},
+      "status": "ERROR",
+      "trace_status": "INCOMPLETE_RETAINED"
+    },
+    {
+      "case_id": "nested-16384-bfloat16",
+      "gates": {},
+      "status": "ERROR",
+      "trace_status": "INCOMPLETE_RETAINED"
+    },
+    {
+      "case_id": "nested-16385-bfloat16",
+      "gates": {},
+      "status": "ERROR",
+      "trace_status": "INCOMPLETE_RETAINED"
+    },
+    {
+      "case_id": "nested-32768-bfloat16",
+      "gates": {},
+      "status": "ERROR",
+      "trace_status": "INCOMPLETE_RETAINED"
+    },
+    {
+      "case_id": "nested-32769-bfloat16",
+      "gates": {},
+      "status": "ERROR",
+      "trace_status": "INCOMPLETE_RETAINED"
+    },
+    {
+      "case_id": "known-code-0003",
+      "gates": {},
+      "status": "ERROR",
+      "trace_status": "INCOMPLETE_RETAINED"
+    },
+    {
+      "case_id": "known-code-0257",
+      "gates": {},
+      "status": "ERROR",
+      "trace_status": "INCOMPLETE_RETAINED"
+    },
+    {
+      "case_id": "known-code-0513",
+      "gates": {},
+      "status": "ERROR",
+      "trace_status": "INCOMPLETE_RETAINED"
+    },
+    {
+      "case_id": "positive-known-3",
+      "gates": {},
+      "status": "ERROR",
+      "trace_status": "INCOMPLETE_RETAINED"
+    },
+    {
+      "case_id": "positive-known-257",
+      "gates": {},
+      "status": "ERROR",
+      "trace_status": "INCOMPLETE_RETAINED"
+    },
+    {
+      "case_id": "positive-known-513",
+      "gates": {},
+      "status": "ERROR",
+      "trace_status": "INCOMPLETE_RETAINED"
+    },
+    {
+      "case_id": "module-float32-rank2-bias0",
+      "gates": {},
+      "status": "ERROR",
+      "trace_status": "INCOMPLETE_RETAINED"
+    },
+    {
+      "case_id": "module-float32-rank2-bias1",
+      "gates": {},
+      "status": "ERROR",
+      "trace_status": "INCOMPLETE_RETAINED"
+    },
+    {
+      "case_id": "module-float32-rank3-bias0",
+      "gates": {},
+      "status": "ERROR",
+      "trace_status": "INCOMPLETE_RETAINED"
+    },
+    {
+      "case_id": "module-float32-rank3-bias1",
+      "gates": {},
+      "status": "ERROR",
+      "trace_status": "INCOMPLETE_RETAINED"
+    },
+    {
+      "case_id": "nested-zero-65-float32",
+      "gates": {},
+      "status": "ERROR",
+      "trace_status": "INCOMPLETE_RETAINED"
+    },
+    {
+      "case_id": "nested-zero-16385-float32",
+      "gates": {},
+      "status": "ERROR",
+      "trace_status": "INCOMPLETE_RETAINED"
+    },
+    {
+      "case_id": "module-bfloat16-rank2-bias0",
+      "gates": {},
+      "status": "ERROR",
+      "trace_status": "INCOMPLETE_RETAINED"
+    },
+    {
+      "case_id": "module-bfloat16-rank2-bias1",
+      "gates": {},
+      "status": "ERROR",
+      "trace_status": "INCOMPLETE_RETAINED"
+    },
+    {
+      "case_id": "module-bfloat16-rank3-bias0",
+      "gates": {},
+      "status": "ERROR",
+      "trace_status": "INCOMPLETE_RETAINED"
+    },
+    {
+      "case_id": "module-bfloat16-rank3-bias1",
+      "gates": {},
+      "status": "ERROR",
+      "trace_status": "INCOMPLETE_RETAINED"
+    },
+    {
+      "case_id": "nested-zero-65-bfloat16",
+      "gates": {},
+      "status": "ERROR",
+      "trace_status": "INCOMPLETE_RETAINED"
+    },
+    {
+      "case_id": "nested-zero-16385-bfloat16",
+      "gates": {},
+      "status": "ERROR",
+      "trace_status": "INCOMPLETE_RETAINED"
+    },
+    {
+      "case_id": "block-subnormal-255",
+      "gates": {},
+      "status": "ERROR",
+      "trace_status": "INCOMPLETE_RETAINED"
+    },
+    {
+      "case_id": "block-subnormal-256",
+      "gates": {},
+      "status": "ERROR",
+      "trace_status": "INCOMPLETE_RETAINED"
+    },
+    {
+      "case_id": "block-subnormal-257",
+      "gates": {},
+      "status": "ERROR",
+      "trace_status": "INCOMPLETE_RETAINED"
+    }
+  ],
+  "saved_state_status": "NOT_RUN",
+  "source_variant": "nested-exact-v1"
+}

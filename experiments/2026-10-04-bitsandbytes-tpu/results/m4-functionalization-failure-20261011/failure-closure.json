@@ -1,0 +1,74 @@
+{
+  "allocation_attempts": 0,
+  "allocation_epoch": 1791702956.6418009,
+  "browser_tab": {
+    "closed": true,
+    "disconnected_screenshot": "bnb-tpu-m4-exact-v3-disconnected.jpg",
+    "owned_tab_id": "7",
+    "remaining_owned_tabs": 0
+  },
+  "closure_reserve_seconds": 120,
+  "cpu79": {
+    "array_count": 540,
+    "case_count": 79,
+    "oracle_sha256": "650c5530ad102447a8358ac9aae51e08cf6f0e9f3042631ac787fcc556d59570",
+    "status": "QUALIFIED_LINUX_CPU_ORACLE_VERIFIED"
+  },
+  "device79": {
+    "case_count": 79,
+    "error_message": "!at::functionalization::impl::isFunctionalTensor(base_) INTERNAL ASSERT FAILED at \"/pytorch/aten/src/ATen/FunctionalStorageImpl.cpp\":105, please report a bug to PyTorch. ",
+    "error_type": "RuntimeError",
+    "errors": 79,
+    "numerical_comparisons_completed": 0,
+    "numerical_status": "ERROR",
+    "record_validation": "PASS"
+  },
+  "elapsed_lifecycle_seconds": 389.978511095047,
+  "error": {
+    "message": "SCIENTIFIC_GATES:device79",
+    "type": "ValueError"
+  },
+  "finished_epoch": 1791703346.620312,
+  "host_launch_preflight_error": {
+    "before_provider_calls": true,
+    "error_record_preserved_in_private_archive": true,
+    "same_original_allocation_epoch_preserved": true
+  },
+  "kind": "ROOT_ACTUAL_M4_FUNCTIONALIZATION_FAILURE_REVIEW",
+  "last_recovered_envelope": {
+    "bytes": 717708,
+    "members": 239,
+    "physical_bytes": 21049827,
+    "sha256": "303990196fa9afc1fb5557d987613c72df65f498a8d8ec85a51dd554abe4fc33"
+  },
+  "local_process_absence_epoch": 1791704070.717797,
+  "local_process_groups_absent": 66,
+  "m4_status": "NOT_QUALIFIED",
+  "original_deadline_epoch": 1791706556.6418009,
+  "packet_sha256": "aefa41e24637b9302155cbc4c343a26456cf484d422f2d0790866c9031bf0ef9",
+  "private_archive": {
+    "bytes": 2626510,
+    "every_member_sha256_verified": true,
+    "file_id": "1xeITj2QKG2BoqVOkGpUkG53LArCyCB3w",
+    "members": 920,
+    "owner_only_permissions_verified": true,
+    "sha256": "0fd01b7b0b5e2f2fc44faa1ddb294690e57597bf71ec3be74274ee4d4520b677",
+    "zip_crc_verified": true
+  },
+  "provider_calls": 58,
+  "scientific_manifest_sha256": "9e71efc73b0f2b3a210f8131c10972569a5e2d04cf298fcf5a8da59772cf4f5a",
+  "server_empty_observed": true,
+  "source_generation": "nested-exact-v1",
+  "state8": "NOT_RUN",
+  "status": "BLOCKED",
+  "usage_readback": {
+    "active_assignments": [
+      0
+    ],
+    "usage_rates_per_hour": [
+      0.0
+    ],
+    "zero_observed": true
+  },
+  "usage_zero_observed": true
+}

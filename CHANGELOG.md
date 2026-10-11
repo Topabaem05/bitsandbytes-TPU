@@ -1,5 +1,18 @@
 # Change log
 
+## 2026-10-11 — Exact nested functional tensor failure
+
+- Record the qualified Linux CPU result: 79 cases and 540 array checks passed.
+- Record 79 TPU errors before numerical comparison; state save and restore did not run.
+- Preserve the original deadline and verify exact runtime closure.
+- Verify all 920 private archive members and delete six local evidence roots.
+
+Validation: A fresh readback showed no active session, assignment, or usage.
+All 66 local process groups were absent, and the owned browser tab was closed.
+Astra Max reviewed the source boundary; a new admitted generation still requires implementation and fresh experiments.
+M4 remains unqualified.
+Refer to [the failure record](docs/changes/r4-functionalization-failure-20261011.md).
+
 ## 2026-10-11 — Complete remote control source parents
 
 - Derive remote parent directories and uploads from the same admitted source map.
@@ -22,7 +35,8 @@ Refer to [the preparation record](docs/changes/cloud-control-parents.md).
 Validation: The reviewer passed 29 kernel controls, 11 integration controls, and 24 CLI controls.
 Driver tests covered the original nine and 14 additional scenarios.
 Nine isolated adoption controls passed; all 146 source files matched after seven reviewed changes.
-The 19 scientific members remain unchanged; actual CPU79 and TPU79/state8 still require execution.
+The 19 scientific members remained unchanged during preparation review.
+The later actual result is recorded in the functional tensor failure entry.
 Refer to [the preparation record](docs/changes/r4-kernel-completion-v3.md).
 
 ## 2026-10-11 — Public source upload failure and disposal
