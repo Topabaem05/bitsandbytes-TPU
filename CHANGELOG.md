@@ -1,5 +1,15 @@
 # Change log
 
+## 2026-10-11 — Completed preparation disposal
+
+- Verify 685 private archive members through an independent download.
+- Preserve complete M4 kernel and source upload preparation records.
+- Delete 17 completed local roots and the temporary archive copy.
+
+Validation: Input inventories remained unchanged, and owned review process groups were absent.
+No new files were added to `.work`.
+Refer to [the disposal record](docs/changes/completed-review-disposal-20261011.md).
+
 ## 2026-10-11 — Exact nested functional tensor failure
 
 - Record the qualified Linux CPU result: 79 cases and 540 array checks passed.
