@@ -155,6 +155,10 @@ Reduce additional dump requests in a new generation before another actual captur
 The [offline allocation auditor](../experiments/2026-10-04-bitsandbytes-tpu/compiler-analysis/README.md) passed 65 independent reviewer controls.
 It adds array and slice bounds while preserving valid compiler storage alternatives.
 Actual compiler dump analysis, internal Mosaic memory, and measured peak memory remain unverified.
+The [default dump preparation](changes/r6-compiler-default-dumps-preparation.md) removes one additional pipeline dump request.
+It preserves the original five cases and all storage limits.
+The worker passed 185 controls, and the reviewer independently passed 157 relevant controls.
+A fresh qualified CPU gate and actual TPU capture remain required.
 The [public API preparation](changes/r6-public-cloud-preparation.md) passed all 118 controls before and after adoption.
 Its 15 cases require a fresh qualified Linux CPU oracle before device execution.
 The packet covers FP32 gradients and BF16 outputs without compiler dump flags.

@@ -3,7 +3,7 @@ import hashlib,math,os,re
 from pathlib import Path
 LIBTPU_VERSION='0.0.21'
 LIBTPU_SHA='cdb7980d4332097b8e16576568e138ef54cf9fb8ed5aae2aeefbd0c5a425e94a'
-FLAGS=['--xla_dump_hlo_as_text=true','--xla_dump_hlo_as_proto=true','--xla_dump_module_metadata=true','--xla_dump_hlo_pass_re=pipeline-start|pipeline-end','--xla_dump_include_timestamp=true','--xla_dump_max_hlo_modules=32','--xla_dump_compress_protos=false','--xla_dump_hlo_snapshots=false','--xla_dump_full_hlo_config=false','--xla_dump_large_constants=false','--xla_dump_hlo_as_dot=false','--xla_dump_hlo_as_html=false','--xla_dump_hlo_as_url=false']
+FLAGS=['--xla_dump_hlo_as_text=true', '--xla_dump_hlo_as_proto=true', '--xla_dump_module_metadata=true', '--xla_dump_include_timestamp=true', '--xla_dump_max_hlo_modules=32', '--xla_dump_compress_protos=false', '--xla_dump_hlo_snapshots=false', '--xla_dump_full_hlo_config=false', '--xla_dump_large_constants=false', '--xla_dump_hlo_as_dot=false', '--xla_dump_hlo_as_html=false', '--xla_dump_hlo_as_url=false']
 TORCH_XLA_INIT_SHA='c3e11a63b8ebe9dcf9ca94d4f7ceebba4983d49e98f57ceddeb79880063eb29c'
 LIBTPU_INIT_FLAGS=['--xla_tpu_use_enhanced_launch_barrier=false','--xla_latency_hiding_scheduler_rerun=1','--xla_tpu_prefer_async_allgather_to_allreduce=true','--xla_tpu_enable_flash_attention=false','--xla_enable_async_all_gather=true','--xla_enable_async_collective_permute=true']
 VERSIONS={'torch':'2.9.0+cpu','torch-xla':'2.9.0','libtpu':'0.0.21','jax':'0.7.1','jaxlib':'0.7.1'}

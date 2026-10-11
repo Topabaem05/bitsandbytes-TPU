@@ -1,0 +1,182 @@
+{
+  "M6": "NOT_QUALIFIED",
+  "actual_TPU_new_generation": "NOT_RUN",
+  "base_revision": "bf7c84340cf6a6ecdac55178322200059d1ffff8",
+  "canonical_mutations": 0,
+  "complete_source_map_files": 194,
+  "control_suites": [
+    {
+      "count": 67,
+      "status": "PASS",
+      "suite": "final-affected",
+      "summary": {
+        "bytes": 7006,
+        "sha256": "1c2a6505fb030c7190cae51b10b4c78c065575778f0525265e50ee1bc46755c4"
+      }
+    },
+    {
+      "count": 41,
+      "status": "PASS",
+      "suite": "final-accepted",
+      "summary": {
+        "bytes": 6267,
+        "sha256": "f0819ae6f813534eb2ffb0204b5f0bd11340541b4cf2dbb8fb2cce834a9817c4"
+      }
+    },
+    {
+      "count": 35,
+      "status": "PASS",
+      "suite": "final-flags",
+      "summary": {
+        "bytes": 5347,
+        "sha256": "b35e7c6c6b925cc02523feb7c58718207f51399ef29fbefe3a571c19244624a3"
+      }
+    },
+    {
+      "count": 23,
+      "status": "PASS",
+      "suite": "final-plain",
+      "summary": {
+        "bytes": 3703,
+        "sha256": "a7af65fd0dd8a85427550886140e78e0c631b9fe0b7fbafd3032630bb1083c26"
+      }
+    },
+    {
+      "count": 3,
+      "status": "PASS",
+      "suite": "final-public",
+      "summary": {
+        "bytes": 750,
+        "sha256": "53a9515ad8e3a546e193bd3137a927f8a47a2a546b9975e45c9a3e654e604d87"
+      }
+    },
+    {
+      "count": 14,
+      "status": "PASS",
+      "suite": "final-boundary",
+      "summary": {
+        "bytes": 1437,
+        "sha256": "c4ca2e8c00ae514d6727e35ca7300b71859de39ae22cc7fab4127778e60def6d"
+      }
+    },
+    {
+      "count": 2,
+      "status": "PASS",
+      "suite": "portable-final",
+      "summary": {
+        "bytes": 643,
+        "sha256": "f9b45afa91c3e71cdea003e04a189a777f43020fc50a4c18a632acdbcfb5828f"
+      }
+    }
+  ],
+  "current_canonical_checked_revision": "32f16d29d794401cc23203937a2016516f14cfa2",
+  "current_canonical_clean": true,
+  "distinct_controls": 185,
+  "documentation_review": "Plain English reviewed; full STE dictionary check NOT_RUN",
+  "exact_current_prerequisites": 173,
+  "fixed_libtpu_backend_parser": "NOT_RUN",
+  "format": "bnb-tpu.compiler-default-dumps-preparation.v1",
+  "fresh_packet_builds": {
+    "packet1": {
+      "M6": "NOT_QUALIFIED",
+      "actual_TPU": "NOT_RUN",
+      "compiler_manifest_sha256": "b1383b3112eebf9ed77c1edca60fa0985a41192f7304a35c6861a860c0bca0c8",
+      "fresh_qualified_linux_cpu_oracle": "REQUIRED_NOT_RUN",
+      "generation": "compiler-mosaic-serde7-gather-bf16-fp32-libtpu021-default-dumps-v2",
+      "m6": "NOT_QUALIFIED",
+      "manifest_sha256": "19148d0d02162f60310f64dbcb874a5b9fea8f91404ff02b7aa19fb003494bf5",
+      "members": 93,
+      "payload_bytes": 1114250,
+      "payload_sha256": "78797717b385dae4151f866f5918600e1c1023c7433e0fc4f4828fcf0e361540",
+      "provider_calls": 0,
+      "scope": "PRIVATE_NO_DISPATCH",
+      "source_admission_sha256": "8b2b3e26e2e7c98c0fde52f51663bed84999ac733dcbc39573ef8b3aeca4f9a1",
+      "status": "GENUINE_PACKET_PREFLIGHT_READBACK_PASS",
+      "upstream_method": "ACTUAL_GIT_ARCHIVE_FIXED_833649043474794b8fe7a4136e0c40faf077b2e0"
+    },
+    "packet2": {
+      "M6": "NOT_QUALIFIED",
+      "actual_TPU": "NOT_RUN",
+      "compiler_manifest_sha256": "b1383b3112eebf9ed77c1edca60fa0985a41192f7304a35c6861a860c0bca0c8",
+      "fresh_qualified_linux_cpu_oracle": "REQUIRED_NOT_RUN",
+      "generation": "compiler-mosaic-serde7-gather-bf16-fp32-libtpu021-default-dumps-v2",
+      "m6": "NOT_QUALIFIED",
+      "manifest_sha256": "19148d0d02162f60310f64dbcb874a5b9fea8f91404ff02b7aa19fb003494bf5",
+      "members": 93,
+      "payload_bytes": 1114250,
+      "payload_sha256": "78797717b385dae4151f866f5918600e1c1023c7433e0fc4f4828fcf0e361540",
+      "provider_calls": 0,
+      "scope": "PRIVATE_NO_DISPATCH",
+      "source_admission_sha256": "8b2b3e26e2e7c98c0fde52f51663bed84999ac733dcbc39573ef8b3aeca4f9a1",
+      "status": "GENUINE_PACKET_PREFLIGHT_READBACK_PASS",
+      "upstream_method": "ACTUAL_GIT_ARCHIVE_FIXED_833649043474794b8fe7a4136e0c40faf077b2e0"
+    },
+    "packet3": {
+      "M6": "NOT_QUALIFIED",
+      "actual_TPU": "NOT_RUN",
+      "compiler_manifest_sha256": "b1383b3112eebf9ed77c1edca60fa0985a41192f7304a35c6861a860c0bca0c8",
+      "fresh_qualified_linux_cpu_oracle": "REQUIRED_NOT_RUN",
+      "generation": "compiler-mosaic-serde7-gather-bf16-fp32-libtpu021-default-dumps-v2",
+      "m6": "NOT_QUALIFIED",
+      "manifest_sha256": "19148d0d02162f60310f64dbcb874a5b9fea8f91404ff02b7aa19fb003494bf5",
+      "members": 93,
+      "payload_bytes": 1114250,
+      "payload_sha256": "78797717b385dae4151f866f5918600e1c1023c7433e0fc4f4828fcf0e361540",
+      "provider_calls": 0,
+      "scope": "PRIVATE_NO_DISPATCH",
+      "source_admission_sha256": "8b2b3e26e2e7c98c0fde52f51663bed84999ac733dcbc39573ef8b3aeca4f9a1",
+      "status": "GENUINE_PACKET_PREFLIGHT_READBACK_PASS",
+      "upstream_method": "ACTUAL_GIT_ARCHIVE_FIXED_833649043474794b8fe7a4136e0c40faf077b2e0"
+    },
+    "plain-packet": {
+      "actual_TPU": "NOT_RUN",
+      "generation": "mosaic-serde7-gather-bf16-fp32-v1",
+      "m6": "NOT_QUALIFIED",
+      "manifest_sha256": "3913a7678be851e24d2efa8689477df7506111cd72e4ebf7813b104db50c242b",
+      "members": 82,
+      "native_manifest_sha256": "30b820b90a4404a89da6e6c7b6fc91dbec47afbe06ae322eb5835b9eb0e70901",
+      "payload_bytes": 1085788,
+      "payload_sha256": "a9a8fbb63b5477e269264b4d127e099aa6abdd984da33874d4224a2c5d62c5ae",
+      "provider_calls": 0,
+      "scope": "PRIVATE_NO_DISPATCH",
+      "status": "ORDINARY_NATIVE_GENUINE_PACKET_PREFLIGHT_PASS"
+    },
+    "plain-packet-final": {
+      "actual_TPU": "NOT_RUN",
+      "generation": "mosaic-serde7-gather-bf16-fp32-v1",
+      "m6": "NOT_QUALIFIED",
+      "manifest_sha256": "3913a7678be851e24d2efa8689477df7506111cd72e4ebf7813b104db50c242b",
+      "members": 82,
+      "native_manifest_sha256": "30b820b90a4404a89da6e6c7b6fc91dbec47afbe06ae322eb5835b9eb0e70901",
+      "payload_bytes": 1085788,
+      "payload_sha256": "a9a8fbb63b5477e269264b4d127e099aa6abdd984da33874d4224a2c5d62c5ae",
+      "provider_calls": 0,
+      "scope": "PRIVATE_NO_DISPATCH",
+      "status": "ORDINARY_NATIVE_GENUINE_PACKET_PREFLIGHT_PASS"
+    }
+  },
+  "generation": "compiler-mosaic-serde7-gather-bf16-fp32-libtpu021-default-dumps-v2",
+  "limitations": [
+    "JAX CPU parse is not libtpu parser acceptance",
+    "Pinned public XLA source does not establish loaded libtpu internal revision",
+    "No claim of compiler content acceptance, selected executable identity, allocation sizes, or allocator peak",
+    "Prior failed monitor byte counts are early-return directory-prefix observations"
+  ],
+  "process_cleanup_errors": [],
+  "process_groups_observed_closed": 65,
+  "production_files": 5,
+  "provider_calls": 0,
+  "public_cloud_preservation": {
+    "build_public_packet.py": {
+      "bytes": 3853,
+      "sha256": "c4997e5e4e567e83dad10aeadb95c4864602368c75ab8b76cd6efeee5fa8ef79"
+    },
+    "public_contract.py": {
+      "bytes": 17793,
+      "sha256": "161f67c80bc7fd036fce62ebf520760588c2ab65ec6c8d642e30f987f099b956"
+    }
+  },
+  "qualified_linux_CPU_new_generation": "NOT_RUN",
+  "status": "PREPARED_ROOT_REVIEW_REQUIRED",
+  "superseded_historical_map_files": 187
+}

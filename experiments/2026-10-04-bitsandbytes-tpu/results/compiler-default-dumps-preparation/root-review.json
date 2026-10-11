@@ -1,0 +1,311 @@
+{
+  "M6": "NOT_QUALIFIED",
+  "actual_new_generation_TPU": "NOT_RUN",
+  "actual_owned_groups_independently_observed_absent": 11,
+  "base_revision": "32f16d29d794401cc23203937a2016516f14cfa2",
+  "candidate_files_verified": 25,
+  "cleanup": {
+    "files_hashed": 4638,
+    "inventory_sha256": "350d7b2a1bcc11e72fab1881225f42c26a2c25bda7aaedc42178a0e413f6cbe6",
+    "logical_bytes": 355922165,
+    "policy": "DELETE_COMPLETED_FIXTURES_AFTER_COMPACT_EVIDENCE",
+    "status": "DELETED_AND_ABSENCE_VERIFIED",
+    "temporary_root": "/tmp/bnb-tpu-root-compiler-review-j617mm7m"
+  },
+  "documentation": "Plain English and focused checks; full STE dictionary review NOT_COMPLETE",
+  "format": "bnb-tpu.root-compiler-default-dumps-review.v1",
+  "groups": [
+    {
+      "ended_at": "2026-10-11T05:13:30.310056+00:00",
+      "errors": [],
+      "exit_status": 0,
+      "group_absence": "OBSERVED_NO_SUCH_GROUP",
+      "leader_reaped": true,
+      "pgid": 51737,
+      "pid": 51737,
+      "signals": [
+        {
+          "result": "NO_SUCH_GROUP",
+          "signal": 15
+        },
+        {
+          "result": "NO_SUCH_GROUP",
+          "signal": 9
+        }
+      ],
+      "started_at": "2026-10-11T05:13:30.309984+00:00",
+      "status": "CLEANUP_VERIFIED"
+    },
+    {
+      "ended_at": "2026-10-11T05:13:31.193199+00:00",
+      "errors": [],
+      "exit_status": 0,
+      "group_absence": "OBSERVED_NO_SUCH_GROUP",
+      "leader_reaped": true,
+      "pgid": 51743,
+      "pid": 51743,
+      "signals": [
+        {
+          "result": "NO_SUCH_GROUP",
+          "signal": 15
+        },
+        {
+          "result": "NO_SUCH_GROUP",
+          "signal": 9
+        }
+      ],
+      "started_at": "2026-10-11T05:13:31.193134+00:00",
+      "status": "CLEANUP_VERIFIED"
+    },
+    {
+      "ended_at": "2026-10-11T05:13:31.494984+00:00",
+      "errors": [],
+      "exit_status": 0,
+      "group_absence": "OBSERVED_NO_SUCH_GROUP",
+      "leader_reaped": true,
+      "pgid": 51753,
+      "pid": 51753,
+      "signals": [
+        {
+          "result": "NO_SUCH_GROUP",
+          "signal": 15
+        },
+        {
+          "result": "NO_SUCH_GROUP",
+          "signal": 9
+        }
+      ],
+      "started_at": "2026-10-11T05:13:31.494902+00:00",
+      "status": "CLEANUP_VERIFIED"
+    },
+    {
+      "ended_at": "2026-10-11T05:13:33.826472+00:00",
+      "errors": [],
+      "exit_status": 0,
+      "group_absence": "OBSERVED_NO_SUCH_GROUP",
+      "leader_reaped": true,
+      "pgid": 51755,
+      "pid": 51755,
+      "signals": [
+        {
+          "result": "NO_SUCH_GROUP",
+          "signal": 15
+        },
+        {
+          "result": "NO_SUCH_GROUP",
+          "signal": 9
+        }
+      ],
+      "started_at": "2026-10-11T05:13:33.826361+00:00",
+      "status": "CLEANUP_VERIFIED"
+    },
+    {
+      "ended_at": "2026-10-11T05:13:44.477751+00:00",
+      "errors": [],
+      "exit_status": 0,
+      "group_absence": "OBSERVED_NO_SUCH_GROUP",
+      "leader_reaped": true,
+      "pgid": 51767,
+      "pid": 51767,
+      "signals": [
+        {
+          "result": "NO_SUCH_GROUP",
+          "signal": 15
+        },
+        {
+          "result": "NO_SUCH_GROUP",
+          "signal": 9
+        }
+      ],
+      "started_at": "2026-10-11T05:13:44.477536+00:00",
+      "status": "CLEANUP_VERIFIED"
+    },
+    {
+      "ended_at": "2026-10-11T05:13:45.326574+00:00",
+      "errors": [],
+      "exit_status": 0,
+      "group_absence": "OBSERVED_NO_SUCH_GROUP",
+      "leader_reaped": true,
+      "pgid": 51851,
+      "pid": 51851,
+      "signals": [
+        {
+          "result": "NO_SUCH_GROUP",
+          "signal": 15
+        },
+        {
+          "result": "NO_SUCH_GROUP",
+          "signal": 9
+        }
+      ],
+      "started_at": "2026-10-11T05:13:45.326480+00:00",
+      "status": "CLEANUP_VERIFIED"
+    },
+    {
+      "ended_at": "2026-10-11T05:13:35.709931+00:00",
+      "errors": [],
+      "exit_status": 0,
+      "group_absence": "OBSERVED_NO_SUCH_GROUP",
+      "leader_reaped": true,
+      "pgid": 51768,
+      "pid": 51768,
+      "signals": [
+        {
+          "result": "NO_SUCH_GROUP",
+          "signal": 15
+        },
+        {
+          "result": "NO_SUCH_GROUP",
+          "signal": 9
+        }
+      ],
+      "started_at": "2026-10-11T05:13:35.709859+00:00",
+      "status": "CLEANUP_VERIFIED"
+    },
+    {
+      "ended_at": "2026-10-11T05:13:37.779091+00:00",
+      "errors": [],
+      "exit_status": 0,
+      "group_absence": "OBSERVED_NO_SUCH_GROUP",
+      "leader_reaped": true,
+      "pgid": 51779,
+      "pid": 51779,
+      "signals": [
+        {
+          "result": "NO_SUCH_GROUP",
+          "signal": 15
+        },
+        {
+          "result": "NO_SUCH_GROUP",
+          "signal": 9
+        }
+      ],
+      "started_at": "2026-10-11T05:13:37.779041+00:00",
+      "status": "CLEANUP_VERIFIED"
+    },
+    {
+      "ended_at": "2026-10-11T05:13:39.468850+00:00",
+      "errors": [],
+      "exit_status": 0,
+      "group_absence": "OBSERVED_NO_SUCH_GROUP",
+      "leader_reaped": true,
+      "pgid": 51798,
+      "pid": 51798,
+      "signals": [
+        {
+          "result": "NO_SUCH_GROUP",
+          "signal": 15
+        },
+        {
+          "result": "NO_SUCH_GROUP",
+          "signal": 9
+        }
+      ],
+      "started_at": "2026-10-11T05:13:39.468802+00:00",
+      "status": "CLEANUP_VERIFIED"
+    },
+    {
+      "ended_at": "2026-10-11T05:13:44.389783+00:00",
+      "errors": [],
+      "exit_status": 0,
+      "group_absence": "OBSERVED_NO_SUCH_GROUP",
+      "leader_reaped": true,
+      "pgid": 51811,
+      "pid": 51811,
+      "signals": [
+        {
+          "result": "NO_SUCH_GROUP",
+          "signal": 15
+        },
+        {
+          "result": "NO_SUCH_GROUP",
+          "signal": 9
+        }
+      ],
+      "started_at": "2026-10-11T05:13:44.389700+00:00",
+      "status": "CLEANUP_VERIFIED"
+    },
+    {
+      "ended_at": "2026-10-11T05:13:44.468626+00:00",
+      "errors": [],
+      "exit_status": 0,
+      "group_absence": "OBSERVED_NO_SUCH_GROUP",
+      "leader_reaped": true,
+      "pgid": 51847,
+      "pid": 51847,
+      "signals": [
+        {
+          "result": "NO_SUCH_GROUP",
+          "signal": 15
+        },
+        {
+          "result": "NO_SUCH_GROUP",
+          "signal": 9
+        }
+      ],
+      "started_at": "2026-10-11T05:13:44.468578+00:00",
+      "status": "CLEANUP_VERIFIED"
+    }
+  ],
+  "independent_controls": 157,
+  "independent_matching_packet_builds": 2,
+  "packet": {
+    "M6": "NOT_QUALIFIED",
+    "actual_TPU": "NOT_RUN",
+    "compiler_manifest_sha256": "b1383b3112eebf9ed77c1edca60fa0985a41192f7304a35c6861a860c0bca0c8",
+    "fresh_qualified_linux_cpu_oracle": "REQUIRED_NOT_RUN",
+    "generation": "compiler-mosaic-serde7-gather-bf16-fp32-libtpu021-default-dumps-v2",
+    "m6": "NOT_QUALIFIED",
+    "manifest_sha256": "19148d0d02162f60310f64dbcb874a5b9fea8f91404ff02b7aa19fb003494bf5",
+    "members": 93,
+    "payload_bytes": 1114250,
+    "payload_sha256": "78797717b385dae4151f866f5918600e1c1023c7433e0fc4f4828fcf0e361540",
+    "provider_calls": 0,
+    "scope": "PRIVATE_NO_DISPATCH",
+    "source_admission_sha256": "8b2b3e26e2e7c98c0fde52f51663bed84999ac733dcbc39573ef8b3aeca4f9a1",
+    "status": "GENUINE_PACKET_PREFLIGHT_READBACK_PASS",
+    "upstream_method": "ACTUAL_GIT_ARCHIVE_FIXED_833649043474794b8fe7a4136e0c40faf077b2e0"
+  },
+  "reconstructed_source_files": 194,
+  "status": "ROOT_SOURCE_REVIEW_PASS",
+  "suites": [
+    {
+      "count": 14,
+      "status": "PASS",
+      "suite": "boundary",
+      "summary": {
+        "bytes": 1437,
+        "sha256": "c4ca2e8c00ae514d6727e35ca7300b71859de39ae22cc7fab4127778e60def6d"
+      }
+    },
+    {
+      "count": 35,
+      "status": "PASS",
+      "suite": "flags",
+      "summary": {
+        "bytes": 5347,
+        "sha256": "b35e7c6c6b925cc02523feb7c58718207f51399ef29fbefe3a571c19244624a3"
+      }
+    },
+    {
+      "count": 67,
+      "status": "PASS",
+      "suite": "affected",
+      "summary": {
+        "bytes": 7006,
+        "sha256": "4316d6d89b7e65671dea8d08954cac12fe38124e936077dd3be0cb4b226e7fe1"
+      }
+    },
+    {
+      "count": 41,
+      "status": "PASS",
+      "suite": "accepted",
+      "summary": {
+        "bytes": 6267,
+        "sha256": "f0819ae6f813534eb2ffb0204b5f0bd11340541b4cf2dbb8fb2cce834a9817c4"
+      }
+    }
+  ],
+  "verified_at": "2026-10-11T05:14:44.592101+00:00",
+  "worker_controls": 185
+}

@@ -5,7 +5,7 @@ HERE=Path(__file__).resolve().parent;ROOT=HERE.parents[2];CLOUD=HERE;sys.path.in
 import build_packet as B
 import compiler_cloud_contract as NC
 FROZEN=HERE.parent/'compiler-native'
-APPROVED_COMMIT='5ada90eeef3f8a9ec3913a2a1a83d877be709f65'
+APPROVED_COMMIT='bf7c84340cf6a6ecdac55178322200059d1ffff8'
 def build(upstream,out,*,candidate,candidate_sha,m2_dependency,m2_dependency_sha):
     NC.require(candidate_sha==NC.MANIFEST_SHA and NC.sha(Path(candidate)/'manifest.json')==candidate_sha,'REVIEWED_COMPILER36_HASH')
     NC.require(NC.sha(m2_dependency)==m2_dependency_sha,'M2_DEPENDENCY_HASH')

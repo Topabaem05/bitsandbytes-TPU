@@ -1,0 +1,19 @@
+{
+  "inference": "Removing explicit per-pass matching avoids extra internal pipeline boundary requests; actual bounded capture remains required.",
+  "inspected": "2026-10-11",
+  "internal_libtpu_revision": "UNKNOWN",
+  "loaded_executable": "UNKNOWN",
+  "scope": "PINNED_FRONTEND_CONTEXT_ONLY",
+  "sources": {
+    "xla/hlo/pass/hlo_pass_pipeline.cc": {
+      "bytes": 14251,
+      "sha256": "21b4d16bf1edfc2f41de3be47df01fa3f53b9c9e7a14fc00b690abaed3930c99",
+      "url": "https://raw.githubusercontent.com/openxla/xla/31eb6029e8973337ef6c99810c27e1d807791c11/xla/hlo/pass/hlo_pass_pipeline.cc"
+    },
+    "xla/service/dump.cc": {
+      "bytes": 46087,
+      "sha256": "338f877559cef6fdf5205b533b1c240a35e6e6dee15612572fdc3f5475f5d552",
+      "url": "https://raw.githubusercontent.com/openxla/xla/31eb6029e8973337ef6c99810c27e1d807791c11/xla/service/dump.cc"
+    }
+  }
+}

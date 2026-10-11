@@ -29,8 +29,8 @@
       "sha256": "1377eeebb6e6724a483e0e07e1453b43eff3fd0b49ed4e75c1d434994290e5e0"
     },
     "compiler_flags.py": {
-      "bytes": 6065,
-      "sha256": "67210fbadd872b9a4c9309ed467103e1d16322871c5d0900a92589fbfb7c0ca5"
+      "bytes": 6023,
+      "sha256": "15137c5e0830bbbfeb8e04d5dc274fa78d9180bd4aa17742cb3dba74d3a93872"
     },
     "compiler_verify.py": {
       "bytes": 18261,

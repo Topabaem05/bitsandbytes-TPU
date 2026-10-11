@@ -1,0 +1,37 @@
+{
+  "base_revision": "bf7c84340cf6a6ecdac55178322200059d1ffff8",
+  "minimum_free_bytes": 268435456,
+  "old_flags": [
+    "--xla_dump_hlo_as_text=true",
+    "--xla_dump_hlo_as_proto=true",
+    "--xla_dump_module_metadata=true",
+    "--xla_dump_hlo_pass_re=pipeline-start|pipeline-end",
+    "--xla_dump_include_timestamp=true",
+    "--xla_dump_max_hlo_modules=32",
+    "--xla_dump_compress_protos=false",
+    "--xla_dump_hlo_snapshots=false",
+    "--xla_dump_full_hlo_config=false",
+    "--xla_dump_large_constants=false",
+    "--xla_dump_hlo_as_dot=false",
+    "--xla_dump_hlo_as_html=false",
+    "--xla_dump_hlo_as_url=false"
+  ],
+  "old_generation": "compiler-mosaic-serde7-gather-bf16-fp32-libtpu021-flags-v1",
+  "old_manifest_sha256": "f2a3e62f3a8fc7790fdeff12973af71a2be831f2a057199812b8f2f4c6676a88",
+  "policy_limits": {
+    "entries": 1024,
+    "file_bytes": 16777216,
+    "total_bytes": 134217728
+  },
+  "poll_seconds": 0.01,
+  "profile": {
+    "bytes": 3695,
+    "sha256": "ad53f6416bdabf6440f08b313963c947a468cd39afd413bfe41bb381c4a7a166"
+  },
+  "protocol": {
+    "bytes": 2123,
+    "sha256": "048d4a4a745ba953cfc505df2ca41047e5e39cdbda492992e6e42b1423b6383c"
+  },
+  "scientific_record_budget_bytes": 8388608,
+  "shutdown_grace": 0.15
+}

@@ -4,8 +4,8 @@
   "base_native_manifest_sha256": "30b820b90a4404a89da6e6c7b6fc91dbec47afbe06ae322eb5835b9eb0e70901",
   "compiler_executable_link": "UNKNOWN",
   "compiler_mode": "R6_EXPLICIT_COMPILER_CONTENT_DIAGNOSTIC_V1",
-  "compiler_policy_sha256": "131637cedccf2ed86c4d800a42782bb082329c64a62e06ef4f1c8c713709b932",
-  "generation": "compiler-mosaic-serde7-gather-bf16-fp32-libtpu021-flags-v1",
+  "compiler_policy_sha256": "87043f9a4f34110f47a9794ed613503bd4a50774ef4f19861bd218d46c60b19b",
+  "generation": "compiler-mosaic-serde7-gather-bf16-fp32-libtpu021-default-dumps-v2",
   "kind": "R6_DEVICE_CANDIDATE",
   "m6": "NOT_QUALIFIED",
   "mosaic_frontend_scope": "SUPPORTED_SERDE_8_TO_7_EXACT_IR_ROUNDTRIP",
@@ -30,7 +30,7 @@
     },
     "compiler-policy.json": {
       "bytes": 1780,
-      "sha256": "131637cedccf2ed86c4d800a42782bb082329c64a62e06ef4f1c8c713709b932"
+      "sha256": "87043f9a4f34110f47a9794ed613503bd4a50774ef4f19861bd218d46c60b19b"
     },
     "compiler_contract.py": {
       "bytes": 5491,
@@ -45,8 +45,8 @@
       "sha256": "1377eeebb6e6724a483e0e07e1453b43eff3fd0b49ed4e75c1d434994290e5e0"
     },
     "compiler_flags.py": {
-      "bytes": 6065,
-      "sha256": "67210fbadd872b9a4c9309ed467103e1d16322871c5d0900a92589fbfb7c0ca5"
+      "bytes": 6023,
+      "sha256": "15137c5e0830bbbfeb8e04d5dc274fa78d9180bd4aa17742cb3dba74d3a93872"
     },
     "compiler_verify.py": {
       "bytes": 18261,

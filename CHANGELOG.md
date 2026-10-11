@@ -1,5 +1,16 @@
 # Change log
 
+## 2026-10-11 — Bounded default compiler dumps
+
+- Remove the additional pipeline dump request and require the new 13-token request.
+- Preserve all five cases, numerical criteria, storage limits, and resource deadlines.
+- Reconstruct the complete 194-file control tree from canonical sources.
+- Remove completed reviewer fixtures after compact evidence capture.
+
+Validation: The worker passed 185 controls. The reviewer independently passed 157 relevant controls and two exact packet builds.
+All 11 observed reviewer process groups closed. The new actual TPU run remains required.
+Refer to [the preparation record](docs/changes/r6-compiler-default-dumps-preparation.md).
+
 ## 2026-10-11 — Independent compiler allocation bounds
 
 - Reject logical arrays and assigned slices that cannot contain their declared data.
