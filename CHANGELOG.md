@@ -1,5 +1,16 @@
 # Change log
 
+## 2026-10-11 — Functional output preparation disposal
+
+- Verify all 168 source archive members through an independent private download.
+- Read back all 160 adopted source files and remove six completed local roots.
+- Preserve compact review and disposal records in Git.
+
+Validation: All five owned review process groups were absent.
+No new files were added to `.work`.
+Fresh Colab verification remains in progress.
+Refer to [the preparation record](docs/changes/r4-functional-output-preparation.md).
+
 ## 2026-10-11: M4 functional output source preparation
 
 - Add one functional wrapper only when the bitcast input requires it and the XLA output has none.

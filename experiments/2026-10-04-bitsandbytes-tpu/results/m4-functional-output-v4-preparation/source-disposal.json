@@ -1,0 +1,22 @@
+{
+  "archive_members": 168,
+  "archive_sha256": "62ba070abc30f6154af73cf556437e36f0fded2bb567b2d5e884eae0d4354531",
+  "canonical_source_readback": 160,
+  "completed_roots_deleted": [
+    "/tmp/bnb-tpu-m4-functional-v4-20261011-bbbxlf36",
+    "/tmp/bnb-tpu-root-m4-v4-functional-owner-20261011",
+    "/tmp/bnb-tpu-root-m4-v4-generation-owner-20261011",
+    "/tmp/bnb-tpu-root-m4-v4-source-review-owner-20261011",
+    "/tmp/bnb-tpu-root-m4-v4-source-review-owner-fixed-20261011",
+    "/tmp/bnb-tpu-root-m4-v4-source-review-owner-final-20261011"
+  ],
+  "deleted_epoch": 1791705439.171081,
+  "local_inputs_absent": true,
+  "logical_bytes_removed": 9569447,
+  "production_source_changes_for_harness_repairs": 0,
+  "remote_id": "1Czpo_dOBykqhWLDMRUiEJJIiKrLqPBbg",
+  "review_groups_absent": 5,
+  "root_harness_normalization_repairs": 2,
+  "status": "PRIVATE_SOURCE_ARCHIVE_VERIFIED_AND_COMPLETED_ROOTS_DELETED",
+  "work_new_entries": 0
+}
