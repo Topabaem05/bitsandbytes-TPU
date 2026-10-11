@@ -1,0 +1,66 @@
+{
+  "README.md": {
+    "bytes": 5876,
+    "sha256": "9a5f95e077b044623257a7ce3739dc59f70676b3573da302d9f1d4c151d33ee6"
+  },
+  "admission-delta.json": {
+    "bytes": 2025,
+    "sha256": "cd7891b60dd42c9aaae2750c1c53041f0bcc3686e56b2d135edffdebebbf176c"
+  },
+  "candidate/__init__.py": {
+    "bytes": 296,
+    "sha256": "0d23c43ef09e8b3aafee1a81fece97091c0b2cbb3ca14c680ff61f9866e9a7a0"
+  },
+  "candidate/_integer_addsub.py": {
+    "bytes": 3350,
+    "sha256": "0294486d6cad96d0ceb88ecd492bd0aeaa106788e289735167cd8ef3d3b9fe66"
+  },
+  "candidate/_integer_clamp.py": {
+    "bytes": 3930,
+    "sha256": "77edb6a7dc30caa49cd6a4260a5663f4c5a0fa146b6f084e207a6aaae9804b59"
+  },
+  "candidate/_integer_muldiv.py": {
+    "bytes": 4780,
+    "sha256": "89cc079e3dee6a2ff3b79cf8b176ea62c5bd2183a14427bbc0c235de02a27187"
+  },
+  "candidate/_source_order.py": {
+    "bytes": 2226,
+    "sha256": "54728c36190c64334ffceb2b12d1cabcfff87ca35a8387a24766ae4dba191b75"
+  },
+  "candidate/exact.py": {
+    "bytes": 5702,
+    "sha256": "49511fbc22e93ca9ca765da9930c8975e44ae389b605fe85747ddf7c73486830"
+  },
+  "controls.py": {
+    "bytes": 5366,
+    "sha256": "1074aa2082de0f8a388075b8701c101e7ce4b1008e2404140070b3b02ed4056a"
+  },
+  "dependency-pins.json": {
+    "bytes": 3097,
+    "sha256": "af0675644fd3930896e1956027b845284f66713916cc56dad1b985c180fcd043"
+  },
+  "fraction_add.py": {
+    "bytes": 1724,
+    "sha256": "400f2b909702571440480b13d2df2333c9373726b40f6d5de2078a9bc22dc32b"
+  },
+  "fraction_mul.py": {
+    "bytes": 1451,
+    "sha256": "535fc0d060b13c40952e4aec18011c96d0a0337976a5aa02e121dd97f4ef7c38"
+  },
+  "m5-1024-scale-scope.patch": {
+    "bytes": 2382,
+    "sha256": "b40d738c900e5130c727a283dd494606dba507958481b1b7fa12677553de1557"
+  },
+  "m5-source-contract.json": {
+    "bytes": 1910,
+    "sha256": "a416759fbc19296da7b49ffaa76982a2208ff12f6244a0c33d2d2b42d89147d0"
+  },
+  "rational_reference.py": {
+    "bytes": 2224,
+    "sha256": "766e6a4a2bfa9a4f7be4e2a351e197528774c6c90b76c33f89a2c46dd31113c7"
+  },
+  "run_owned.py": {
+    "bytes": 1274,
+    "sha256": "ec7063ac994586a6e4c069601b8f84192b1336ce5b16a7d6a06f42cde176bd56"
+  }
+}

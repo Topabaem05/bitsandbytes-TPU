@@ -1,0 +1,287 @@
+{
+  "actual_m4_acceptance": "NOT_SUPPLIED",
+  "controls": [
+    {
+      "name": "actual_readonly_cli_identity_symlink",
+      "status": "PASS"
+    },
+    {
+      "name": "fixed_allocation_budget",
+      "status": "PASS"
+    },
+    {
+      "name": "expired_original_budget_rejected",
+      "rejected": "ORIGINAL_ALLOCATION_DEADLINE_RESERVE",
+      "status": "PASS"
+    },
+    {
+      "name": "future_allocation_rejected",
+      "rejected": "FINITE_ORIGINAL_ALLOCATION_BUDGET",
+      "status": "PASS"
+    },
+    {
+      "name": "synthetic_m4_consumer_shape_only",
+      "status": "PASS"
+    },
+    {
+      "name": "missing_state8",
+      "rejected": "M4_COMPLETE79_AND_SAVED8",
+      "status": "PASS"
+    },
+    {
+      "name": "wrong_nested_count",
+      "rejected": "M4_COMPLETE79_AND_SAVED8",
+      "status": "PASS"
+    },
+    {
+      "name": "wrong_m4_source",
+      "rejected": "M4_BASE_SOURCE_RUNTIME_BINDINGS",
+      "status": "PASS"
+    },
+    {
+      "name": "unclosed_m4",
+      "rejected": "M4_ACCEPTED_RESOURCE_CLOSURE",
+      "status": "PASS"
+    },
+    {
+      "name": "missing_actual_provenance",
+      "rejected": "M4_ACTUAL_PROVENANCE",
+      "status": "PASS"
+    },
+    {
+      "name": "future_m4_acceptance",
+      "rejected": "M4_ACCEPTANCE_TIME",
+      "status": "PASS"
+    },
+    {
+      "name": "failed_m4",
+      "rejected": "GENUINE_FUTURE_ACCEPTED_M4_REQUIRED",
+      "status": "PASS"
+    },
+    {
+      "name": "wrong_external_m4_hash",
+      "rejected": "EXTERNAL_ACCEPTED_M4_SHA",
+      "status": "PASS"
+    },
+    {
+      "name": "actual_packet_build_source_and_dependency",
+      "status": "PASS"
+    },
+    {
+      "name": "missing_real_dependency_blocks_build",
+      "rejected": "[Errno 2] No such file or directory: '/var/folders/5g/bhl5x7q93yvcfj2zngh_jg680000gn/T/bnb-m5-cloud-controls-c5fxgth4/missing-acceptance.json'",
+      "status": "PASS"
+    },
+    {
+      "name": "wrong_source_review_decision",
+      "rejected": "EXPLICIT_ROOT_SOURCE_REVIEW",
+      "status": "PASS"
+    },
+    {
+      "name": "actual_archive_export_and_recovery",
+      "status": "PASS"
+    },
+    {
+      "name": "wrong_archive_whole_sha",
+      "rejected": "WHOLE_ARCHIVE_SHA_SIZE",
+      "status": "PASS"
+    },
+    {
+      "name": "traversal_archive_rejected",
+      "rejected": "CONFINED_NAME",
+      "status": "PASS"
+    },
+    {
+      "name": "duplicate_archive_rejected",
+      "rejected": "ARCHIVE_MEMBER_COUNT",
+      "status": "PASS"
+    },
+    {
+      "name": "duplicate_json_rejected",
+      "rejected": "DUPLICATE_JSON_KEY",
+      "status": "PASS"
+    },
+    {
+      "name": "real_prepare_preconnect_branch_synthetic_transport",
+      "status": "PASS"
+    },
+    {
+      "name": "real_prepare_exclusive_request_branch",
+      "status": "PASS"
+    },
+    {
+      "name": "real_prepare_repeat_request_no_clock_reset",
+      "rejected": "FRESH_ROOT_RECORD_NO_CLOCK_RESET",
+      "status": "PASS"
+    },
+    {
+      "name": "real_prepare_wrong_observed_marker",
+      "rejected": "OBSERVED_EXACT_ORIGINAL_MARKER",
+      "status": "PASS"
+    },
+    {
+      "name": "real_prepare_observe_branch_synthetic_ui",
+      "status": "PASS"
+    },
+    {
+      "name": "stale_ui_observation",
+      "rejected": "FRESH_ROOT_UI_MARKER",
+      "status": "PASS"
+    },
+    {
+      "name": "future_ui_observation",
+      "rejected": "FRESH_ROOT_UI_MARKER",
+      "status": "PASS"
+    },
+    {
+      "name": "wrong_ui_hardware",
+      "rejected": "FRESH_ROOT_UI_MARKER",
+      "status": "PASS"
+    },
+    {
+      "name": "wrong_ui_marker_hash",
+      "rejected": "FRESH_ROOT_UI_MARKER",
+      "status": "PASS"
+    },
+    {
+      "name": "wrong_ui_request_binding",
+      "rejected": "FRESH_ROOT_UI_MARKER",
+      "status": "PASS"
+    },
+    {
+      "name": "reset_original_deadline",
+      "rejected": "ORIGINAL_REQUEST_BINDING_DEADLINE",
+      "status": "PASS"
+    },
+    {
+      "name": "real_prepare_dispatch_branch_synthetic_transport",
+      "status": "PASS"
+    },
+    {
+      "name": "browser_adoption_profile_and_original_epoch",
+      "status": "PASS"
+    },
+    {
+      "name": "actual_driver_gate_bindings",
+      "status": "PASS"
+    },
+    {
+      "name": "wrong_driver_sha_rejected",
+      "rejected": "ROOT_DISPATCH_GATE",
+      "status": "PASS"
+    },
+    {
+      "name": "wrong_actual_output_rejected",
+      "rejected": "EXACT_DISPATCH_OUTPUT",
+      "status": "PASS"
+    },
+    {
+      "name": "cpu_outer_archive64mib_enforced",
+      "rejected": "CPU_ARCHIVE_64MIB_BOUND",
+      "status": "PASS"
+    },
+    {
+      "name": "typed1024_parameter_roles",
+      "status": "PASS"
+    },
+    {
+      "name": "typed_changed_parameter_value_detected",
+      "status": "PASS"
+    },
+    {
+      "name": "unsupported_composite_count514",
+      "rejected": "FIXED_COMPOSITE_COUNT",
+      "status": "PASS"
+    },
+    {
+      "name": "complete_built_plugin_wheel",
+      "status": "PASS"
+    },
+    {
+      "name": "missing_built_plugin_module",
+      "rejected": "BUILT_COMPLETE_WHEEL_SOURCE:bitsandbytes_tpu",
+      "status": "PASS"
+    },
+    {
+      "name": "qualified_cpu_contract_shape_only",
+      "status": "PASS"
+    },
+    {
+      "name": "wrong_cpu_capability",
+      "rejected": "QUALIFIED_CPU_SOURCE_CAPABILITY",
+      "status": "PASS"
+    },
+    {
+      "name": "wrong_cpu_threads",
+      "rejected": "QUALIFIED_CPU_SOURCE_CAPABILITY",
+      "status": "PASS"
+    },
+    {
+      "name": "cpu_imported_xla",
+      "rejected": "QUALIFIED_CPU_SOURCE_CAPABILITY",
+      "status": "PASS"
+    },
+    {
+      "name": "wrong_cpu_torch",
+      "rejected": "QUALIFIED_CPU_SOURCE_CAPABILITY",
+      "status": "PASS"
+    },
+    {
+      "name": "wrong_cpu_platform",
+      "rejected": "QUALIFIED_CPU_SOURCE_CAPABILITY",
+      "status": "PASS"
+    },
+    {
+      "name": "training_highest_reachable_hlo",
+      "status": "PASS"
+    },
+    {
+      "name": "training_default_precision_rejected",
+      "rejected": "TRAINING_FP32_HIGHEST",
+      "status": "PASS"
+    },
+    {
+      "name": "training_wrong_contraction_rejected",
+      "rejected": "HLO_DOT_CONTRACTION",
+      "status": "PASS"
+    },
+    {
+      "name": "unadmitted_source_file_rejected",
+      "rejected": "EXACT_SCIENCE_CLOSURE",
+      "status": "PASS"
+    },
+    {
+      "name": "actual_outer_launch_helper_correct_synthetic",
+      "status": "PASS"
+    },
+    {
+      "name": "wrong_outer_launch_pid",
+      "rejected": "ACTUAL_OWNED_TRAINING_LAUNCH",
+      "status": "PASS"
+    },
+    {
+      "name": "wrong_outer_launch_argv",
+      "rejected": "ACTUAL_OWNED_TRAINING_LAUNCH",
+      "status": "PASS"
+    },
+    {
+      "name": "wrong_outer_group_closure",
+      "rejected": "ACTUAL_TRAINING_OUTER_CLOSURE",
+      "status": "PASS"
+    },
+    {
+      "name": "wrong_outer_cpu_environment",
+      "rejected": "ACTUAL_TRAINING_ENVIRONMENT",
+      "status": "PASS"
+    }
+  ],
+  "count": 58,
+  "fixtures_deleted": true,
+  "m5_status": "NOT_QUALIFIED",
+  "provider_calls": 0,
+  "science_manifest_sha256": "e8c0f879f7840788677f2efd937a2e6e72de683c5d007139f69ae69f178de7dd",
+  "source_bundle_sha256": "bbd3845ba193e3ac7ae26320ad9c94ab26d12895b866c72d72f0fde36102cf19",
+  "status": "PASS",
+  "synthetic_contract_fixtures_only": true,
+  "synthetic_transport_calls": 3
+}

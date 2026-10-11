@@ -1,0 +1,26 @@
+{
+  "TPU": "NOT_RUN",
+  "actual_m4_acceptance": "NOT_SUPPLIED",
+  "canonical_writes": 0,
+  "checks": {
+    "driver_scenarios": 13,
+    "frozen_reference_functions": 20,
+    "independent_reader_controls": 97,
+    "scope_controls": 17,
+    "shared_kernel_controls": 29,
+    "source_archive_controls": 6,
+    "source_cloud_controls": 58
+  },
+  "disposable_fixtures_deleted": true,
+  "generation": "nested-exact-m5-1024-scope-v4",
+  "git_writes": 0,
+  "known_inherited_plugin_error": "RETAINED_NO_SILENT_M4_REBASE",
+  "local20_repeat": "NOT_RUN_UNCHANGED_SCIENCE_PRIOR_V2_UNQUALIFIED_EVIDENCE_RETAINED",
+  "m5_status": "NOT_QUALIFIED",
+  "numerical_audit_in_full_record_fixtures": "EXPLICIT_SYNTHETIC_STUB_NOT_MILESTONE",
+  "owner_cleanup": "NO_CLEANUP_ERRORS",
+  "provider_calls": 0,
+  "qualified_linux": "NOT_RUN",
+  "status": "PASS",
+  "wiki_writes": 0
+}

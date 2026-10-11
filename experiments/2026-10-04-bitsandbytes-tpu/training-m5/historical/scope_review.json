@@ -1,0 +1,28 @@
+{
+  "actual_m4_or_m5_acceptance": null,
+  "actual_tpu": "NOT_RUN",
+  "admission_delta_sha256": "cd7891b60dd42c9aaae2750c1c53041f0bcc3686e56b2d135edffdebebbf176c",
+  "control_results_sha256": "d9b6579d8d33d2edeb52bc75aac3d9cae03a4f050a74b2d607aabdcccd63705c",
+  "controls": 17,
+  "dispatchable": false,
+  "installation": false,
+  "original77_base_files_byte_exact": true,
+  "owned_groups": [
+    {
+      "group_absent": true,
+      "leader_reaped": true,
+      "pgid": 20870,
+      "pid": 20870
+    }
+  ],
+  "provider_calls": 0,
+  "qualified_linux_cpu": "NOT_RUN",
+  "runtime": {
+    "platform": "darwin",
+    "python": "3.12.14 (main, Sep 24 2026, 17:46:32) [Clang 22.1.3 ]",
+    "qualified_linux": false,
+    "torch": "2.14.1"
+  },
+  "source_map_sha256": "1414f78a0ed3c2f8f562fd6b3131dcc290aa5a193a563c17392e791b160804d6",
+  "status": "M5_EXACT1024_PRIVATE_PREPARATION_PASS"
+}

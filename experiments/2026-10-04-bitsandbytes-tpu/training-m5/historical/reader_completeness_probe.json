@@ -1,0 +1,28 @@
+{
+  "controls": [
+    {
+      "actual_outcome": "INCORRECTLY_ACCEPTED",
+      "case": "remove-all-kernel-proofs-and-command-rows",
+      "remaining_script_files": 10,
+      "result": {
+        "count": 0,
+        "status": "ALL_KERNEL_COMPLETIONS_AND_INDEPENDENT_ARTIFACTS_VERIFIED"
+      }
+    },
+    {
+      "actual_outcome": "INCORRECTLY_ACCEPTED",
+      "case": "remove-install-proof-and-matching-command-row",
+      "remaining_script_files": 10,
+      "result": {
+        "count": 9,
+        "status": "ALL_KERNEL_COMPLETIONS_AND_INDEPENDENT_ARTIFACTS_VERIFIED"
+      }
+    }
+  ],
+  "fixture_only": true,
+  "provider_calls": 0,
+  "scientific_acceptance": "NOT_EVALUATED",
+  "source_file": "/tmp/bnb-tpu-m5-v2-20261011-jcc5zoqq/control/inspect_actual.py",
+  "source_sha256": "82eb9d6dad1ce956376365264b4b8dfc3e090d4da2739fcaef6e8b212c314443",
+  "status": "REVIEW_FINDING"
+}

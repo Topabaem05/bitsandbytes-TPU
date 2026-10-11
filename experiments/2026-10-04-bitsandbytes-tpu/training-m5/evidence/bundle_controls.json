@@ -1,0 +1,47 @@
+{
+  "cases": [
+    {
+      "evidence": {
+        "archive_bytes": 226,
+        "archive_sha256": "c6ceff0e6fcf4c900841dc0c03bac111e36a72e629f675fac89a4cef0fa144e3",
+        "every_member_sha256_verified": true,
+        "members": 2,
+        "provider_calls": 0,
+        "source_bytes": 115,
+        "source_closure_sha256": "62e8a9fc9fc3609d4f0e4fc3a44c70cf30f0c1b4cfd57af221998fddcb353a5c",
+        "status": "PASS"
+      },
+      "name": "correct",
+      "status": "PASS"
+    },
+    {
+      "name": "wrong",
+      "rejected": "SOURCE_MEMBER_BYTES:a",
+      "status": "PASS"
+    },
+    {
+      "name": "missing",
+      "rejected": "SOURCE_MEMBER_SET",
+      "status": "PASS"
+    },
+    {
+      "name": "extra",
+      "rejected": "SOURCE_MEMBER_SET",
+      "status": "PASS"
+    },
+    {
+      "name": "duplicate",
+      "rejected": "SOURCE_MEMBER_SET",
+      "status": "PASS"
+    },
+    {
+      "name": "symlink",
+      "rejected": "SOURCE_MEMBER_REGULAR_CONFINED",
+      "status": "PASS"
+    }
+  ],
+  "controls": 6,
+  "fixtures_deleted": true,
+  "provider_calls": 0,
+  "status": "PASS"
+}

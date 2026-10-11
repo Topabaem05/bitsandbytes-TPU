@@ -1,0 +1,43 @@
+{
+  "actual_linux_cpu_acceptance": null,
+  "actual_tpu_acceptance": null,
+  "body_changes": [
+    {
+      "base_bytes": 2183,
+      "base_path": ".work/r4-nested-exact-integration/plugin/src/bitsandbytes_tpu/_source_order.py",
+      "base_sha256": "700bac513eb69eb22c5d11391b488367b4f56fbeedd741a58e841c6a5fe911a0",
+      "candidate_bytes": 2226,
+      "candidate_path": ".work/r5-exact-scope-preparation/candidate/_source_order.py",
+      "candidate_sha256": "54728c36190c64334ffceb2b12d1cabcfff87ca35a8387a24766ae4dba191b75",
+      "path": "plugin/src/bitsandbytes_tpu/_source_order.py"
+    },
+    {
+      "base_bytes": 5621,
+      "base_path": ".work/r4-nested-exact-integration/plugin/src/bitsandbytes_tpu/exact.py",
+      "base_sha256": "e5064072609753d3a5f1e1920b46db48ccce5751402fe7a5ba5c5b7c0ddf2831",
+      "candidate_bytes": 5702,
+      "candidate_path": ".work/r5-exact-scope-preparation/candidate/exact.py",
+      "candidate_sha256": "49511fbc22e93ca9ca765da9930c8975e44ae389b605fe85747ddf7c73486830",
+      "path": "plugin/src/bitsandbytes_tpu/exact.py"
+    }
+  ],
+  "dispatchable": false,
+  "format": "M5_1024_SCOPE_BODY_DELTA_V1",
+  "frozen_base_adoption_map_sha256": "cc237461aa97a4b33ebca3d794cba0b158139c137ce2323cbb9b2ebda0cd50b6",
+  "frozen_base_file_count": 77,
+  "frozen_base_source_admission_sha256": "75790f1d4613e20daa06d99111288463ef24b05aaa29922a7580512078f9912f",
+  "numeric_gates_changed": false,
+  "old_generation_must_not_admit_candidate": true,
+  "patch": {
+    "path": "m5-1024-scale-scope.patch",
+    "sha256": "b40d738c900e5130c727a283dd494606dba507958481b1b7fa12677553de1557"
+  },
+  "proposed_generation": "nested-exact-m5-1024-scope-v1",
+  "remaining_metadata_required": [
+    "new plugin complete inventory/compatibility/admission generation",
+    "new upstream+plugin source admission/wheel maps",
+    "new scientific protocol/1024input+qualifiedLinuxCPU seal",
+    "new typed graph/parameter/owned device proof and complete M5 state/optimizer checks"
+  ],
+  "runtime_changed": false
+}

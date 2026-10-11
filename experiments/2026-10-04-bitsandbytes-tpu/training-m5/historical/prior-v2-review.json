@@ -1,0 +1,99 @@
+{
+  "TPU": "NOT_RUN",
+  "actual_m4_acceptance": "EXTERNAL_NOT_SUPPLIED_STRICT_PROPOSED_CONSUMER_REQUIRES_ROOT_RECONCILIATION",
+  "archive": {
+    "archive_bytes": 388592,
+    "archive_sha256": "42598d2212ac80d080bf5418731932220a8dd5c2b8cf8141fa22f5da8a684f5c",
+    "every_member_sha256_verified": true,
+    "members": 166,
+    "name": "m5-v2-preparation-source.tar.gz",
+    "provider_calls": 0,
+    "source_bytes": 5108223,
+    "source_closure_sha256": "32577ff5398e5dc9fe53809e2fe95bcf80d9cc390e56e492585071e5ba349fb3",
+    "status": "PASS"
+  },
+  "canonical_target_proposal": "experiments/2026-10-04-bitsandbytes-tpu/training-m5/",
+  "canonical_writes": 0,
+  "controls": {
+    "closed_generation_delta": "PASS",
+    "driver_scenarios": 12,
+    "existing_total": 93,
+    "frozen_reference_functions": 20,
+    "independent_kernel_reader_checks": 3,
+    "kernel": 29,
+    "prior_cloud": 58,
+    "prior_local": 18,
+    "prior_scope": 17,
+    "source_bundle_checks": 2
+  },
+  "generation": "nested-exact-m5-1024-scope-v2",
+  "installs": 0,
+  "kind": "M5_V2_PORTABLE_PREPARATION_REVIEW",
+  "limitations": [
+    "Actual accepted M4 exact79+state8 remains mandatory and external.",
+    "Shared kernel helper is locally root accepted; whole M4 source adoption is separately reviewed.",
+    "Qualified Linux CPU training, 1024-scale TPU numerics, actual graph/envelope fit and final owned cloud closure remain unmeasured."
+  ],
+  "local_unqualified": {
+    "bulk_deleted": true,
+    "checkpoint_bytes": 99765,
+    "checkpoint_sha256": "78c752fa8cc9f1d5bd3291f8283e3c66aa0ddba1dd5c243cbe3f3b6f94b2fb4b",
+    "continuation_comparisons": 200,
+    "deleted_bytes": 26450507,
+    "full_checkpoint_optimizer_frozen_base": "PASS",
+    "full_final_model": "EXACT",
+    "independent_dense_comparisons": 400,
+    "runtime": {
+      "machine": "arm64",
+      "platform": "Darwin",
+      "python": "3.12.14",
+      "torch": "2.14.1"
+    },
+    "status": "PASS"
+  },
+  "m5_status": "NOT_QUALIFIED",
+  "new_behavior": [
+    "Bytecode writing suppressed before every sealed import and inherited by child processes.",
+    "Cached source functions/classes/literals/defaults checked against compiled admitted bytes.",
+    "Fresh last-line phase/source/nonce completion plus independent completion and artifact downloads.",
+    "Completion store outside fresh remote base.",
+    "Initialization and scientific failures attempt partial record recovery before exact original-clock closure.",
+    "Final reader recomputes all kernel proofs from raw CLI and independent artifacts."
+  ],
+  "prior_v1_archive_sha256": "ae4804930d674aee0fe3eb6999fc81ab68f4f9bfcb47a49246b892e29e891921",
+  "prior_v1_candidate_unchanged": true,
+  "provider_calls": 0,
+  "qualified_linux_cpu": "NOT_RUN",
+  "science_manifest_sha256": "eaa46938407334a53bbdda4d7ea6bd48ae8837e93b7e33788bd2850e78ed2e88",
+  "seals": {
+    "bundle-controls-summary.json": "2cca8c9eaa10c391094bebd42be796494d904dd2328de626f100372820742d0a",
+    "cloud-controls-summary.json": "625f14c41f318d1eaf6cfda53d79fab6faf96964abbb70245f38dc89a7d2b2cb",
+    "driver-final-controls-summary.json": "12d7452e04a79e21526b3f3860c7c5f38e24f8dd99806c9cfca365e908d5286e",
+    "frozen-science-summary.json": "c71543f1bafd54c60c1ae6443734cfdeecd269932fe372d3609f2a59a3a2c1cc",
+    "generation-delta-summary.json": "11bc88fcb953ef4042009731eeb80c480f0f349914f99f2fb463742c149d933c",
+    "kernel-final-controls-summary.json": "5a70757e3d3c04f1d9408a12f11900d838a5a2ea3c4fae7eb7e67cdb5f360c20",
+    "local-smoke-summary.json": "1945b7d97ee3b248a3c92d6cf497afed19b391ffb7649ac3c50bc405eb4e8193",
+    "runtime-cache-summary.json": "408afc5648a5d7c2ff68d70c36a4b60d7074c1ef2bd70b07d5f3d32784afdd0f",
+    "scope-controls-summary.json": "c20f3bf80fd4108de3b72f5b00966bff948e7b2c93e867ee1de350c386152c24",
+    "shared-kernel-admission.json": "bee31cf34db58b72d82624fa1530feb2fc7c0309cf6533d5a6b09fcf7d9b72dd",
+    "validation-summary.json": "e7a95eb857682aa4359e36f3671d4368faee94799c38fadf4f89cbf1766a25c1"
+  },
+  "shared_kernel_protocol_sha256": "e9c7a5b7b943cea08dfb8986205e47e008ceac37553a2f8576687527a58f9d5f",
+  "source_admission_sha256": "763dce53c156f3a658481ef0fad452e4bcb0857cbae7b8aec795a608e5ea6298",
+  "source_bundle_sha256": "ded59cd239a581c2a02efae69b4228028f96f6a090a02d387925240c9a9beba9",
+  "source_closure_sha256": "32577ff5398e5dc9fe53809e2fe95bcf80d9cc390e56e492585071e5ba349fb3",
+  "status": "PREPARATION_READY_ACTUAL_BLOCKED_M4",
+  "unchanged_science": {
+    "checkpoint_step": 10,
+    "first_scales": 1024,
+    "inputs_sha256": "f16b79f90556d3d2eb01c4340af03be5c561e5b70591d6754ffdd990fb14002e",
+    "protocol_sha256": "bd221d5dcd8a06a3080ff30345f80b8b99d8ca609fadcb813ea8da09964d007f",
+    "resume_steps": [
+      11,
+      20
+    ],
+    "steps": 20,
+    "training_math_reader_reference_plugin_bytes": true
+  },
+  "verified_utc": "2026-10-11T07:01:07.741341+00:00"
+}

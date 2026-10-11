@@ -1,5 +1,17 @@
 # Change log
 
+## 2026-10-11 — M5 physical record reader preparation
+
+- Check physical resource closure and reconcile every lifecycle event.
+- Permit valid pruning notices, displayed zero usage, and known child generations.
+- Adopt the reviewed source preparation with unchanged training and checkpoint criteria.
+
+Validation: Root replay passed 13 driver scenarios and 97 reader controls.
+Independent review accepted three valid alternatives and rejected nine incorrect records.
+All 192 archive members passed full readback.
+M4 acceptance and a separate plugin rebase remain required; M5 remains unqualified.
+Refer to [the preparation record](docs/changes/m5-reader-v4-preparation.md).
+
 ## 2026-10-11 — M4 functional output experiment failure
 
 - Record the new qualified Linux CPU pass for 79 cases and 540 arrays.

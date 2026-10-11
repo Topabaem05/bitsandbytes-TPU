@@ -1,0 +1,22 @@
+{
+  "added": [],
+  "admission_only_generation_constant_changed": true,
+  "changed": [
+    "control/inspect_actual.py",
+    "control/kernel_reader.py",
+    "integration/source-admission.json",
+    "source/admission.py"
+  ],
+  "frozen20_steps_save10_resume10_and_1024_guards_unchanged": true,
+  "integration_admission_only_generation_changed": true,
+  "local20_repeat": "NOT_RUN_NO_SCIENTIFIC_BYTE_CHANGE_PRIOR_V2_EVIDENCE_RETAINED",
+  "m5_status": "NOT_QUALIFIED",
+  "new_science_manifest_sha256": "e8c0f879f7840788677f2efd937a2e6e72de683c5d007139f69ae69f178de7dd",
+  "preimage_members": 174,
+  "prior_complete_source_archive_sha256": "faee769327eb29d839142936c4a1f73745421be331676753d45f1467ce210d23",
+  "prior_science_manifest_sha256": "a57140a9f8c731bd60c431382ef182cc4a6d45e7c9d911a5d70b86ce883ba914",
+  "provider_calls": 0,
+  "shared_kernel_helper_exact_unchanged": true,
+  "status": "PASS",
+  "training_math_reader_reference_and_plugin_bytes_unchanged": true
+}

@@ -1,0 +1,763 @@
+{
+  "actual_m4_acceptance": "NOT_SUPPLIED",
+  "count": 13,
+  "fixtures_deleted": true,
+  "independent_reader_controls": 97,
+  "m5_status": "NOT_QUALIFIED",
+  "provider_calls": 0,
+  "scenarios": [
+    {
+      "disposable_bytes": 15989368,
+      "driver_status": "TRAINING20_RESUME10_RECOVERED_ROOT_REVIEW_REQUIRED",
+      "error": null,
+      "exact_runtime_stop_observed": true,
+      "fixtures_deleted": true,
+      "kernel_proofs": 10,
+      "name": "correct",
+      "original_clock_preserved": true,
+      "reader_controls": [
+        {
+          "evidence": {
+            "all_source_scripts_regenerated": true,
+            "cli_commands": 64,
+            "count": 10,
+            "resource_closure": {
+              "sessions": {
+                "empty": true,
+                "pruned_local_sessions": 0,
+                "sessions": []
+              },
+              "usage": {
+                "active_assignments": 0,
+                "displayed_balance": "100.00",
+                "displayed_rate_per_hour": "0.00",
+                "displayed_zero": true
+              }
+            },
+            "runtime_wheels_enabled": false,
+            "status": "COMPLETE_CANONICAL_KERNEL_AND_CLI_READBACK_VERIFIED"
+          },
+          "name": "correct_complete_10",
+          "status": "PASS"
+        },
+        {
+          "name": "correct_complete_full_record_inspect_10",
+          "numerical_audit": "EXPLICIT_SYNTHETIC_STUB_NOT_MILESTONE",
+          "status": "PASS"
+        },
+        {
+          "name": "all_rows_and_all_physical_removed",
+          "rejected": "COMPLETE_KERNEL_READBACK_SET",
+          "status": "PASS"
+        },
+        {
+          "name": "all_mutable_rows_removed_keep_physical",
+          "rejected": "COMPLETE_KERNEL_READBACK_SET",
+          "status": "PASS"
+        },
+        {
+          "name": "install_pair_and_physical_removed",
+          "rejected": "COMPLETE_KERNEL_READBACK_SET",
+          "status": "PASS"
+        },
+        {
+          "name": "missing_export_and_dispose",
+          "rejected": "COMPLETE_KERNEL_READBACK_SET",
+          "status": "PASS"
+        },
+        {
+          "name": "empty_physical_cli_inventory",
+          "rejected": "[Errno 2] No such file or directory: '/private/tmp/bnb-m5-v2-driver-rzf8e9y5/scenario-kuxvtn8v/host/cli'",
+          "status": "PASS"
+        },
+        {
+          "name": "missing_submitted_install_script",
+          "rejected": "EXACT_PHYSICAL_SUBMITTED_SCRIPTS",
+          "status": "PASS"
+        },
+        {
+          "name": "extra_submitted_exec_script",
+          "rejected": "EXACT_PHYSICAL_SUBMITTED_SCRIPTS",
+          "status": "PASS"
+        },
+        {
+          "name": "duplicate_phase",
+          "rejected": "COMPLETE_KERNEL_READBACK_SET",
+          "status": "PASS"
+        },
+        {
+          "name": "duplicate_nonce",
+          "rejected": "UNIQUE_KERNEL_NONCE",
+          "status": "PASS"
+        },
+        {
+          "name": "weakened_artifact_path_none",
+          "rejected": "CANONICAL_KERNEL_REQUEST",
+          "status": "PASS"
+        },
+        {
+          "name": "weakened_artifact_path_wrong_path",
+          "rejected": "CANONICAL_KERNEL_REQUEST",
+          "status": "PASS"
+        },
+        {
+          "name": "weakened_artifact_expected_dropped",
+          "rejected": "CANONICAL_KERNEL_REQUEST",
+          "status": "PASS"
+        },
+        {
+          "name": "wrong_request_source_sha",
+          "rejected": "CANONICAL_KERNEL_REQUEST",
+          "status": "PASS"
+        },
+        {
+          "name": "completion_path_inside_base",
+          "rejected": "CANONICAL_KERNEL_REQUEST",
+          "status": "PASS"
+        },
+        {
+          "name": "resealed_wrong_submitted_source",
+          "rejected": "CANONICAL_SUBMITTED_KERNEL_SOURCE",
+          "status": "PASS"
+        },
+        {
+          "name": "wrong_exec_session",
+          "rejected": "EXACT_SUBMITTED_CLI_EXEC",
+          "status": "PASS"
+        },
+        {
+          "name": "wrong_exec_file",
+          "rejected": "EXACT_SUBMITTED_CLI_EXEC",
+          "status": "PASS"
+        },
+        {
+          "name": "bare_cli_prefix",
+          "rejected": "ADMITTED_CLI_PREFIX_AND_ARGV",
+          "status": "PASS"
+        },
+        {
+          "name": "module_cli_prefix",
+          "rejected": "ADMITTED_CLI_PREFIX_AND_ARGV",
+          "status": "PASS"
+        },
+        {
+          "name": "different_cli_python",
+          "rejected": "ADMITTED_CLI_PREFIX_AND_ARGV",
+          "status": "PASS"
+        },
+        {
+          "name": "completion_download_wrong_source",
+          "rejected": "CANONICAL_CLI_OPERATION",
+          "status": "PASS"
+        },
+        {
+          "name": "artifact_download_wrong_destination",
+          "rejected": "CANONICAL_CLI_OPERATION",
+          "status": "PASS"
+        },
+        {
+          "name": "completion_download_absent",
+          "rejected": "COMPLETE_CANONICAL_CLI_COMMAND_SEQUENCE",
+          "status": "PASS"
+        },
+        {
+          "name": "extra_exec_command",
+          "rejected": "COMPLETE_CANONICAL_CLI_COMMAND_SEQUENCE",
+          "status": "PASS"
+        },
+        {
+          "name": "cli_zero_failed_owned_child",
+          "rejected": "OWNED_CLI_PROCESS_OUTCOME",
+          "status": "PASS"
+        },
+        {
+          "name": "resealed_dirty_cli_closure",
+          "rejected": "OWNED_CLEANUP_ERRORS",
+          "status": "PASS"
+        },
+        {
+          "name": "physical_result_absent",
+          "rejected": "COMPLETE_PHYSICAL_CLI_RECORDS",
+          "status": "PASS"
+        },
+        {
+          "name": "physical_raw_error_after_marker",
+          "rejected": "KERNEL_COMPLETION_LINE",
+          "status": "PASS"
+        },
+        {
+          "name": "extra_physical_exec_directory",
+          "rejected": "EXACT_PHYSICAL_CLI_DIRECTORIES",
+          "status": "PASS"
+        },
+        {
+          "name": "result_ownership_argv_disagree",
+          "rejected": "ADMITTED_CLI_PREFIX_AND_ARGV",
+          "status": "PASS"
+        },
+        {
+          "name": "independent_export_summary_bytes_changed",
+          "rejected": "EXPORT_SUMMARY_INDEPENDENT_BYTES",
+          "status": "PASS"
+        },
+        {
+          "name": "wrong_physical_lifecycle",
+          "rejected": "LIFECYCLE_UNOWNED_OR_AMBIGUOUS_CHILD",
+          "status": "PASS"
+        },
+        {
+          "name": "partial_execution_not_complete",
+          "rejected": "PARTIAL_EXECUTION_NOT_COMPLETE",
+          "status": "PASS"
+        },
+        {
+          "name": "wrong_host_owner_argv",
+          "rejected": "OWNED_CLI_PROCESS_OUTCOME",
+          "status": "PASS"
+        },
+        {
+          "name": "wrong_host_config_source",
+          "rejected": "ADMITTED_HOST_DRIVER_PREFIX",
+          "status": "PASS"
+        },
+        {
+          "name": "required_cache_config_with_no_cache",
+          "rejected": "COMPLETE_KERNEL_READBACK_SET",
+          "status": "PASS"
+        },
+        {
+          "name": "physical_sessions_empty_raw",
+          "rejected": "SESSIONS_RAW_REQUIRED",
+          "status": "PASS"
+        },
+        {
+          "name": "physical_sessions_active",
+          "rejected": "PHYSICAL_EMPTY_SERVER_ZERO_DISPLAYED_USAGE",
+          "status": "PASS"
+        },
+        {
+          "name": "physical_sessions_empty_active",
+          "rejected": "OFFICIAL_SESSIONS_RAW",
+          "status": "PASS"
+        },
+        {
+          "name": "physical_sessions_empty_twice",
+          "rejected": "OFFICIAL_SESSIONS_RAW",
+          "status": "PASS"
+        },
+        {
+          "name": "physical_sessions_auth_warning",
+          "rejected": "OFFICIAL_SESSIONS_RAW",
+          "status": "PASS"
+        },
+        {
+          "name": "physical_sessions_unrecognized",
+          "rejected": "OFFICIAL_SESSIONS_RAW",
+          "status": "PASS"
+        },
+        {
+          "name": "physical_usage_empty_raw",
+          "rejected": "OFFICIAL_USAGE_LABELS",
+          "status": "PASS"
+        },
+        {
+          "name": "physical_usage_nonzero_assignments",
+          "rejected": "PHYSICAL_EMPTY_SERVER_ZERO_DISPLAYED_USAGE",
+          "status": "PASS"
+        },
+        {
+          "name": "physical_usage_nonzero_rate",
+          "rejected": "PHYSICAL_EMPTY_SERVER_ZERO_DISPLAYED_USAGE",
+          "status": "PASS"
+        },
+        {
+          "name": "physical_usage_duplicate_rate",
+          "rejected": "OFFICIAL_USAGE_LABELS",
+          "status": "PASS"
+        },
+        {
+          "name": "physical_usage_missing_rate",
+          "rejected": "OFFICIAL_USAGE_LABELS",
+          "status": "PASS"
+        },
+        {
+          "name": "physical_usage_ambiguous_rate",
+          "rejected": "OFFICIAL_USAGE_LABELS",
+          "status": "PASS"
+        },
+        {
+          "name": "physical_usage_wrong_order",
+          "rejected": "OFFICIAL_USAGE_LABELS",
+          "status": "PASS"
+        },
+        {
+          "name": "driver_raw_closure_text_disagrees",
+          "rejected": "DRIVER_PHYSICAL_CLOSURE_TEXT",
+          "status": "PASS"
+        },
+        {
+          "name": "driver_closure_flag_disagrees",
+          "rejected": "DRIVER_PHYSICAL_CLOSURE_OBSERVATIONS",
+          "status": "PASS"
+        },
+        {
+          "name": "physical_sessions-before_wrong_endpoint",
+          "rejected": "PHYSICAL_ADOPTED_SESSION_IDENTITY",
+          "status": "PASS"
+        },
+        {
+          "name": "physical_sessions-before_wrong_session",
+          "rejected": "PHYSICAL_ADOPTED_SESSION_IDENTITY",
+          "status": "PASS"
+        },
+        {
+          "name": "physical_sessions-after_wrong_endpoint",
+          "rejected": "PHYSICAL_ADOPTED_SESSION_IDENTITY",
+          "status": "PASS"
+        },
+        {
+          "name": "physical_sessions-after_wrong_session",
+          "rejected": "PHYSICAL_ADOPTED_SESSION_IDENTITY",
+          "status": "PASS"
+        },
+        {
+          "name": "physical_sessions-before-stop_wrong_endpoint",
+          "rejected": "PHYSICAL_ADOPTED_SESSION_IDENTITY",
+          "status": "PASS"
+        },
+        {
+          "name": "physical_sessions-before-stop_wrong_session",
+          "rejected": "PHYSICAL_ADOPTED_SESSION_IDENTITY",
+          "status": "PASS"
+        },
+        {
+          "name": "physical_multiple_sessions",
+          "rejected": "PHYSICAL_ADOPTED_SESSION_IDENTITY",
+          "status": "PASS"
+        },
+        {
+          "name": "fresh_only_bad_sessions_89",
+          "rejected": "PHYSICAL_EMPTY_SERVER_ZERO_DISPLAYED_USAGE",
+          "status": "PASS"
+        },
+        {
+          "name": "fresh_only_bad_usage_80",
+          "rejected": "PHYSICAL_EMPTY_SERVER_ZERO_DISPLAYED_USAGE",
+          "status": "PASS"
+        },
+        {
+          "name": "fresh_only_bad_usage_102",
+          "rejected": "OFFICIAL_USAGE_LABELS",
+          "status": "PASS"
+        },
+        {
+          "name": "fresh_extra_child_started",
+          "rejected": "LIFECYCLE_UNOWNED_OR_AMBIGUOUS_CHILD",
+          "status": "PASS"
+        },
+        {
+          "name": "fresh_command_physical_disagreement",
+          "rejected": "FRESH_PHYSICAL_CLI_SET",
+          "status": "PASS"
+        },
+        {
+          "name": "cli_extra_unclosed_child",
+          "rejected": "LIFECYCLE_UNOWNED_OR_AMBIGUOUS_CHILD",
+          "status": "PASS"
+        },
+        {
+          "name": "cli_extra_fully_closed_unowned_child",
+          "rejected": "LIFECYCLE_UNOWNED_OR_AMBIGUOUS_CHILD",
+          "status": "PASS"
+        },
+        {
+          "name": "cli_orphan_cleanup",
+          "rejected": "LIFECYCLE_ORPHAN_DUPLICATE_OR_FAILED_CLEANUP",
+          "status": "PASS"
+        },
+        {
+          "name": "cli_duplicate_cleanup",
+          "rejected": "LIFECYCLE_ORPHAN_DUPLICATE_OR_FAILED_CLEANUP",
+          "status": "PASS"
+        },
+        {
+          "name": "cli_missing_cleanup",
+          "rejected": "LIFECYCLE_COMPLETE_LAUNCH_AND_CLEANUP_SET",
+          "status": "PASS"
+        },
+        {
+          "name": "cli_missing_start",
+          "rejected": "LIFECYCLE_ORPHAN_DUPLICATE_OR_FAILED_CLEANUP",
+          "status": "PASS"
+        },
+        {
+          "name": "cli_cleanup_before_start",
+          "rejected": "LIFECYCLE_ORPHAN_DUPLICATE_OR_FAILED_CLEANUP",
+          "status": "PASS"
+        },
+        {
+          "name": "cli_wrong_pgid",
+          "rejected": "LIFECYCLE_START_FIELDS_OR_DUPLICATE",
+          "status": "PASS"
+        },
+        {
+          "name": "cli_duplicate_start",
+          "rejected": "LIFECYCLE_START_FIELDS_OR_DUPLICATE",
+          "status": "PASS"
+        },
+        {
+          "name": "cli_ignored_signal",
+          "rejected": "LIFECYCLE_UNEXPECTED_EVENT",
+          "status": "PASS"
+        },
+        {
+          "name": "cli_unknown_event",
+          "rejected": "LIFECYCLE_UNEXPECTED_EVENT",
+          "status": "PASS"
+        },
+        {
+          "name": "cli_cleanup_errors",
+          "rejected": "LIFECYCLE_ORPHAN_DUPLICATE_OR_FAILED_CLEANUP",
+          "status": "PASS"
+        },
+        {
+          "name": "host_extra_unclosed_child",
+          "rejected": "LIFECYCLE_UNOWNED_OR_AMBIGUOUS_CHILD",
+          "status": "PASS"
+        },
+        {
+          "name": "host_extra_fully_closed_unowned_child",
+          "rejected": "LIFECYCLE_UNOWNED_OR_AMBIGUOUS_CHILD",
+          "status": "PASS"
+        },
+        {
+          "name": "host_orphan_cleanup",
+          "rejected": "LIFECYCLE_ORPHAN_DUPLICATE_OR_FAILED_CLEANUP",
+          "status": "PASS"
+        },
+        {
+          "name": "host_duplicate_cleanup",
+          "rejected": "LIFECYCLE_ORPHAN_DUPLICATE_OR_FAILED_CLEANUP",
+          "status": "PASS"
+        },
+        {
+          "name": "host_missing_cleanup",
+          "rejected": "LIFECYCLE_COMPLETE_LAUNCH_AND_CLEANUP_SET",
+          "status": "PASS"
+        },
+        {
+          "name": "host_missing_start",
+          "rejected": "LIFECYCLE_ORPHAN_DUPLICATE_OR_FAILED_CLEANUP",
+          "status": "PASS"
+        },
+        {
+          "name": "host_cleanup_before_start",
+          "rejected": "LIFECYCLE_ORPHAN_DUPLICATE_OR_FAILED_CLEANUP",
+          "status": "PASS"
+        },
+        {
+          "name": "host_wrong_pgid",
+          "rejected": "LIFECYCLE_START_FIELDS_OR_DUPLICATE",
+          "status": "PASS"
+        },
+        {
+          "name": "host_duplicate_start",
+          "rejected": "LIFECYCLE_START_FIELDS_OR_DUPLICATE",
+          "status": "PASS"
+        },
+        {
+          "name": "host_ignored_signal",
+          "rejected": "LIFECYCLE_UNEXPECTED_EVENT",
+          "status": "PASS"
+        },
+        {
+          "name": "host_unknown_event",
+          "rejected": "LIFECYCLE_UNEXPECTED_EVENT",
+          "status": "PASS"
+        },
+        {
+          "name": "host_cleanup_errors",
+          "rejected": "LIFECYCLE_ORPHAN_DUPLICATE_OR_FAILED_CLEANUP",
+          "status": "PASS"
+        },
+        {
+          "name": "correct_prune_then_empty",
+          "numerical_audit": "EXPLICIT_SYNTHETIC_STUB_NOT_MILESTONE",
+          "status": "PASS"
+        },
+        {
+          "name": "correct_displayed_zero_with_negative_balance",
+          "numerical_audit": "EXPLICIT_SYNTHETIC_STUB_NOT_MILESTONE",
+          "status": "PASS"
+        },
+        {
+          "name": "correct_reused_pid_distinct_generation",
+          "numerical_audit": "EXPLICIT_SYNTHETIC_STUB_NOT_MILESTONE",
+          "status": "PASS"
+        },
+        {
+          "name": "correct_wall_clock_adjustment_in_ledger",
+          "numerical_audit": "EXPLICIT_SYNTHETIC_STUB_NOT_MILESTONE",
+          "status": "PASS"
+        },
+        {
+          "name": "correct_generic_multiple_owned_children",
+          "status": "PASS"
+        }
+      ],
+      "science_fixture_phases": [
+        "cpu",
+        "device"
+      ],
+      "status": "PASS",
+      "usage_zero_observed": true
+    },
+    {
+      "disposable_bytes": 16135744,
+      "driver_status": "TRAINING20_RESUME10_RECOVERED_ROOT_REVIEW_REQUIRED",
+      "error": null,
+      "exact_runtime_stop_observed": true,
+      "fixtures_deleted": true,
+      "kernel_proofs": 11,
+      "name": "correct_cache",
+      "original_clock_preserved": true,
+      "reader_controls": [
+        {
+          "evidence": {
+            "all_source_scripts_regenerated": true,
+            "cli_commands": 101,
+            "count": 11,
+            "resource_closure": {
+              "sessions": {
+                "empty": true,
+                "pruned_local_sessions": 0,
+                "sessions": []
+              },
+              "usage": {
+                "active_assignments": 0,
+                "displayed_balance": "100.00",
+                "displayed_rate_per_hour": "0.00",
+                "displayed_zero": true
+              }
+            },
+            "runtime_wheels_enabled": true,
+            "status": "COMPLETE_CANONICAL_KERNEL_AND_CLI_READBACK_VERIFIED"
+          },
+          "name": "correct_complete_11",
+          "status": "PASS"
+        },
+        {
+          "name": "correct_complete_full_record_inspect_11",
+          "numerical_audit": "EXPLICIT_SYNTHETIC_STUB_NOT_MILESTONE",
+          "status": "PASS"
+        },
+        {
+          "name": "required_cache_missing",
+          "rejected": "COMPLETE_KERNEL_READBACK_SET",
+          "status": "PASS"
+        }
+      ],
+      "science_fixture_phases": [
+        "cpu",
+        "device"
+      ],
+      "status": "PASS",
+      "usage_zero_observed": true
+    },
+    {
+      "disposable_bytes": 15841795,
+      "driver_status": "BLOCKED",
+      "error": {
+        "message": "KERNEL_COMPLETION_LINE",
+        "type": "ValueError"
+      },
+      "exact_runtime_stop_observed": true,
+      "fixtures_deleted": true,
+      "kernel_proofs": 5,
+      "name": "cli_zero_kernel_error",
+      "original_clock_preserved": true,
+      "reader_controls": [],
+      "science_fixture_phases": [],
+      "status": "PASS",
+      "usage_zero_observed": true
+    },
+    {
+      "disposable_bytes": 15842239,
+      "driver_status": "BLOCKED",
+      "error": {
+        "message": "KERNEL_COMPLETION_LINE",
+        "type": "ValueError"
+      },
+      "exact_runtime_stop_observed": true,
+      "fixtures_deleted": true,
+      "kernel_proofs": 5,
+      "name": "duplicate_marker",
+      "original_clock_preserved": true,
+      "reader_controls": [],
+      "science_fixture_phases": [],
+      "status": "PASS",
+      "usage_zero_observed": true
+    },
+    {
+      "disposable_bytes": 15841996,
+      "driver_status": "BLOCKED",
+      "error": {
+        "message": "KERNEL_COMPLETION_LINE",
+        "type": "ValueError"
+      },
+      "exact_runtime_stop_observed": true,
+      "fixtures_deleted": true,
+      "kernel_proofs": 5,
+      "name": "post_marker_error",
+      "original_clock_preserved": true,
+      "reader_controls": [],
+      "science_fixture_phases": [],
+      "status": "PASS",
+      "usage_zero_observed": true
+    },
+    {
+      "disposable_bytes": 15841871,
+      "driver_status": "BLOCKED",
+      "error": {
+        "message": "KERNEL_COMPLETION_BINDING",
+        "type": "ValueError"
+      },
+      "exact_runtime_stop_observed": true,
+      "fixtures_deleted": true,
+      "kernel_proofs": 5,
+      "name": "wrong_nonce",
+      "original_clock_preserved": true,
+      "reader_controls": [],
+      "science_fixture_phases": [],
+      "status": "PASS",
+      "usage_zero_observed": true
+    },
+    {
+      "disposable_bytes": 15842032,
+      "driver_status": "BLOCKED",
+      "error": {
+        "message": "KERNEL_COMPLETION_BINDING",
+        "type": "ValueError"
+      },
+      "exact_runtime_stop_observed": true,
+      "fixtures_deleted": true,
+      "kernel_proofs": 5,
+      "name": "wrong_phase",
+      "original_clock_preserved": true,
+      "reader_controls": [],
+      "science_fixture_phases": [],
+      "status": "PASS",
+      "usage_zero_observed": true
+    },
+    {
+      "disposable_bytes": 15841970,
+      "driver_status": "BLOCKED",
+      "error": {
+        "message": "KERNEL_COMPLETION_BINDING",
+        "type": "ValueError"
+      },
+      "exact_runtime_stop_observed": true,
+      "fixtures_deleted": true,
+      "kernel_proofs": 5,
+      "name": "wrong_source",
+      "original_clock_preserved": true,
+      "reader_controls": [],
+      "science_fixture_phases": [],
+      "status": "PASS",
+      "usage_zero_observed": true
+    },
+    {
+      "disposable_bytes": 15849418,
+      "driver_status": "BLOCKED",
+      "error": {
+        "message": "KERNEL_ARTIFACT_READBACK_SHA",
+        "type": "ValueError"
+      },
+      "exact_runtime_stop_observed": true,
+      "fixtures_deleted": true,
+      "kernel_proofs": 5,
+      "name": "wrong_artifact",
+      "original_clock_preserved": true,
+      "reader_controls": [],
+      "science_fixture_phases": [],
+      "status": "PASS",
+      "usage_zero_observed": true
+    },
+    {
+      "disposable_bytes": 15842082,
+      "driver_status": "BLOCKED",
+      "error": {
+        "message": "synthetic missing independent completion",
+        "type": "FileNotFoundError"
+      },
+      "exact_runtime_stop_observed": true,
+      "fixtures_deleted": true,
+      "kernel_proofs": 5,
+      "name": "missing_completion_download",
+      "original_clock_preserved": true,
+      "reader_controls": [],
+      "science_fixture_phases": [],
+      "status": "PASS",
+      "usage_zero_observed": true
+    },
+    {
+      "disposable_bytes": 21267020,
+      "driver_status": "BLOCKED",
+      "error": {
+        "message": "CLI_FAILED:remote-device",
+        "type": "ValueError"
+      },
+      "exact_runtime_stop_observed": true,
+      "fixtures_deleted": true,
+      "kernel_proofs": 9,
+      "name": "science_cli_failure",
+      "original_clock_preserved": true,
+      "reader_controls": [],
+      "science_fixture_phases": [
+        "cpu",
+        "device"
+      ],
+      "status": "PASS",
+      "usage_zero_observed": true
+    },
+    {
+      "disposable_bytes": 11325529,
+      "driver_status": "BLOCKED",
+      "error": {
+        "message": "KERNEL_COMPLETION_LINE",
+        "type": "ValueError"
+      },
+      "exact_runtime_stop_observed": true,
+      "fixtures_deleted": true,
+      "kernel_proofs": 5,
+      "name": "export_cli_zero_no_marker",
+      "original_clock_preserved": true,
+      "reader_controls": [],
+      "science_fixture_phases": [
+        "cpu"
+      ],
+      "status": "PASS",
+      "usage_zero_observed": true
+    },
+    {
+      "disposable_bytes": 15977068,
+      "driver_status": "BLOCKED_CLEANUP",
+      "error": null,
+      "exact_runtime_stop_observed": true,
+      "fixtures_deleted": true,
+      "kernel_proofs": 10,
+      "name": "wrong_usage_closure",
+      "original_clock_preserved": true,
+      "reader_controls": [],
+      "science_fixture_phases": [
+        "cpu",
+        "device"
+      ],
+      "status": "PASS",
+      "usage_zero_observed": false
+    }
+  ],
+  "shared_bytes_deleted": 5272559,
+  "status": "PASS",
+  "synthetic_transport_and_audits_only": true
+}

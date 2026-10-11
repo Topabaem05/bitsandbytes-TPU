@@ -1,0 +1,19 @@
+{
+  "profile": "official-colab-cli-0.7.4",
+  "provider_calls": 0,
+  "rate_scope": "TWO_DECIMAL_DISPLAYED_ZERO_ONLY_NOT_UNROUNDED_BILLING",
+  "source_ranges": {
+    "colab_cli/commands/session.py": "254-280",
+    "colab_cli/common.py": "114-148",
+    "colab_cli/consumption.py": "47-56",
+    "control/ownership/cleanup_lifecycle.py": "115-139",
+    "control/ownership/lifecycle.py": "77-95"
+  },
+  "sources": {
+    "colab_cli/commands/session.py": "91aeef7b4936c8462a969347096611301ef3c11737f220a9cbb774771c3cbb43",
+    "colab_cli/common.py": "56cc48f56a8dbe223b04728d075b8c8382c801925ad6a508e8eaa2870b887276",
+    "colab_cli/consumption.py": "b6e936db0ddd6e4c31ef7b516c456be7549c34394a70a3d1356b679ec168a594"
+  },
+  "status": "LOCAL_SOURCE_READ_AND_HASH_VERIFIED",
+  "utc_scope": "WALL_CLOCK_NOT_MONOTONIC_EVENT_LIST_ORDER_IS_CHECKED"
+}

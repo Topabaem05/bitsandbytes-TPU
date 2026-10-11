@@ -1,0 +1,107 @@
+{
+  "controls": [
+    {
+      "first_count": 1024,
+      "name": "fixed_layer0",
+      "reference_sha256": "4c4c3d73d71b8ae85dde30960e40fda9ca38a8f4828aede47ba9bceb9af04055",
+      "second_count": 4,
+      "status": "PASS"
+    },
+    {
+      "first_count": 1024,
+      "name": "fixed_layer1",
+      "reference_sha256": "3eb879325b7b0bc425efc7c7ea9ae23701b2fc1b355780e3936351a6c4e37845",
+      "second_count": 4,
+      "status": "PASS"
+    },
+    {
+      "first_count": 1024,
+      "name": "zeros",
+      "reference_sha256": "9270053dc8c49015aa419c35799875071da50d02bed258d28662de1533ba8644",
+      "second_count": 4,
+      "status": "PASS"
+    },
+    {
+      "first_count": 1024,
+      "name": "positive_ramp",
+      "reference_sha256": "9a5c5eee479a148f6305891027de51d7ee71af474e9e573735459a867523f04c",
+      "second_count": 4,
+      "status": "PASS"
+    },
+    {
+      "first_count": 1024,
+      "name": "block_boundaries",
+      "reference_sha256": "8a621ac678fe91c0b58c8ae767be7fbc2921528b16bb090deabc750821f2b95d",
+      "second_count": 4,
+      "status": "PASS"
+    },
+    {
+      "first_count": 1024,
+      "name": "subnormal_first",
+      "reference_sha256": "7f7c72e7c8076e2fc546355b59fdde829064ff73007fcd28f986ffb62be01c53",
+      "second_count": 4,
+      "status": "PASS"
+    },
+    {
+      "first_count": 1024,
+      "name": "order_sensitive",
+      "reference_sha256": "1fdc5bb13397e1c8ad0209ba0b9941bf6236bfe2f66cf1b78b9678e05d629835",
+      "second_count": 4,
+      "status": "PASS"
+    },
+    {
+      "name": "incorrect_serial_reduction_detected",
+      "status": "PASS"
+    },
+    {
+      "name": "incorrect_nested_code_detected",
+      "status": "PASS"
+    },
+    {
+      "name": "frozen_m4_still_rejects1024",
+      "rejected": "FIXED_FIRST_SCALE_DOMAIN",
+      "status": "PASS"
+    },
+    {
+      "name": "unsupported_count0",
+      "rejected": "FIXED_FIRST_SCALE_DOMAIN",
+      "status": "PASS"
+    },
+    {
+      "name": "unsupported_count514",
+      "rejected": "FIXED_FIRST_SCALE_DOMAIN",
+      "status": "PASS"
+    },
+    {
+      "name": "unsupported_count1023",
+      "rejected": "FIXED_FIRST_SCALE_DOMAIN",
+      "status": "PASS"
+    },
+    {
+      "name": "unsupported_count1025",
+      "rejected": "FIXED_FIRST_SCALE_DOMAIN",
+      "status": "PASS"
+    },
+    {
+      "name": "rank2_rejected",
+      "rejected": "FIXED_FIRST_SCALE_DOMAIN",
+      "status": "PASS"
+    },
+    {
+      "name": "wrong_dtype_rejected",
+      "rejected": "FIXED_FIRST_SCALE_DOMAIN",
+      "status": "PASS"
+    },
+    {
+      "name": "existing513_unchanged",
+      "status": "PASS"
+    }
+  ],
+  "count": 17,
+  "fresh_primary_reference": true,
+  "historical_checkpoint_used": false,
+  "m5_status": "NOT_QUALIFIED",
+  "provider_calls": 0,
+  "scope": "LOCAL_UNQUALIFIED_ONLY",
+  "status": "PASS"
+}

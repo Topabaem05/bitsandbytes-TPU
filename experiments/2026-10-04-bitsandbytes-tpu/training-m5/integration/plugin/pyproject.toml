@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bitsandbytes-tpu-nested-exact"
+version = "0.1.0.dev1"
+description = "An experimental XLA backend for the bitsandbytes NF4 API."
+requires-python = ">=3.12,<3.13"
+license = "Apache-2.0 AND MIT"
+license-files = ["LICENSE", "THIRD_PARTY_NOTICES.md"]
+readme = "README.md"
+dependencies = [
+  "torch==2.9.0",
+  "bitsandbytes==0.50.3.dev0",
+]
+
+[project.entry-points."bitsandbytes.backends"]
+tpu_exact = "bitsandbytes_tpu:register"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-ra"

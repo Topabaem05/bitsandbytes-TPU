@@ -1,0 +1,13 @@
+{
+  "cli_display_source_hashes": {
+    "colab_cli/commands/session.py": "91aeef7b4936c8462a969347096611301ef3c11737f220a9cbb774771c3cbb43",
+    "colab_cli/common.py": "56cc48f56a8dbe223b04728d075b8c8382c801925ad6a508e8eaa2870b887276",
+    "colab_cli/consumption.py": "b6e936db0ddd6e4c31ef7b516c456be7549c34394a70a3d1356b679ec168a594"
+  },
+  "full_STE_dictionary": "UNAVAILABLE_NOT_CERTIFIED",
+  "maximum_sentence_words": 21,
+  "prose_sentences": 111,
+  "python_files": 128,
+  "shell_fences": 7,
+  "status": "PASS"
+}

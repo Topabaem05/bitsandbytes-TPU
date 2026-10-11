@@ -1,0 +1,48 @@
+--- a/plugin/src/bitsandbytes_tpu/_source_order.py
++++ b/plugin/src/bitsandbytes_tpu/_source_order.py
+@@ -1,6 +1,6 @@
+ """Private PyTorch2.9 CPU AVX2 source-order sum, with exact word addition.
+ 
+-Restricted rank1 arrays contain 1..513 admitted finite FP32 words. This is
++Restricted rank1 arrays contain 1..513 or exactly1024 admitted finite FP32 words. This is
+ the reviewed four-level ILP4 order, not an arbitrary mathematical reduction.
+ No sum/mean tensor reduction or floating-point arithmetic occurs here.
+ """
+@@ -37,7 +37,7 @@
+     return acc[0][0]
+ 
+ def cpu_sum8_bits(words, add_bits):
+-    if words.dtype != torch.int32 or words.ndim != 1 or not 1 <= words.shape[0] <= 513:
++    if words.dtype != torch.int32 or words.ndim != 1 or not (1 <= words.shape[0] <= 513 or words.shape[0] == 1024):
+         raise ValueError('FIXED_RANK1_FINITE_WORDS_REQUIRED')
+     count = words.shape[0]
+     if count < 8:
+--- a/plugin/src/bitsandbytes_tpu/exact.py
++++ b/plugin/src/bitsandbytes_tpu/exact.py
+@@ -95,7 +95,7 @@
+ 
+ 
+ def compress_words(first, dynamic):
+-    if first.dtype != torch.int32 or first.ndim != 1 or not 1 <= first.numel() <= 513:
++    if first.dtype != torch.int32 or first.ndim != 1 or not (1 <= first.numel() <= 513 or first.numel() == 1024):
+         raise ValueError('FIXED_FIRST_SCALE_DOMAIN')
+     total = S.cpu_sum8_bits(first, A.add_bits)
+     offset = C.divide_count_bits(total, first.numel())
+@@ -109,7 +109,7 @@
+ 
+ 
+ def compress_statistics(first, dynamic):
+-    if first.dtype != torch.float32 or first.ndim != 1 or not 1 <= first.numel() <= 513:
++    if first.dtype != torch.float32 or first.ndim != 1 or not (1 <= first.numel() <= 513 or first.numel() == 1024):
+         raise ValueError('FIXED_FIRST_SCALE_DOMAIN')
+     if dynamic.dtype != torch.float32 or tuple(dynamic.shape) != (256,) or dynamic.device != first.device:
+         raise ValueError('DYNAMIC_MAP_REQUIRED')
+@@ -118,7 +118,7 @@
+ 
+ 
+ def restore_scales(codes, second, dynamic, offset):
+-    if codes.dtype != torch.uint8 or codes.ndim != 1 or not 1 <= codes.numel() <= 513:
++    if codes.dtype != torch.uint8 or codes.ndim != 1 or not (1 <= codes.numel() <= 513 or codes.numel() == 1024):
+         raise ValueError('FIXED_SCALE_CODE_DOMAIN')
+     if second.dtype != torch.float32 or tuple(second.shape) != ((codes.numel()+255)//256,):
+         raise ValueError('SECOND_SCALES_REQUIRED')

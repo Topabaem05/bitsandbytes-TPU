@@ -1,0 +1,180 @@
+{
+  "actual_m4_acceptance": "NOT_SUPPLIED",
+  "bulk_deleted": true,
+  "checkpoint_bytes": 99765,
+  "checkpoint_sha256": "78c752fa8cc9f1d5bd3291f8283e3c66aa0ddba1dd5c243cbe3f3b6f94b2fb4b",
+  "child_pids": [
+    99995,
+    117,
+    132
+  ],
+  "closure": {
+    "errors": [],
+    "groups": [
+      {
+        "ended_at": "2026-10-11T06:58:17.916567+00:00",
+        "errors": [],
+        "exit_status": 0,
+        "group_absence": "OBSERVED_NO_SUCH_GROUP",
+        "leader_reaped": true,
+        "pgid": 99994,
+        "pid": 99994,
+        "signals": [
+          {
+            "result": "NO_SUCH_GROUP",
+            "signal": 15
+          },
+          {
+            "result": "NO_SUCH_GROUP",
+            "signal": 9
+          }
+        ],
+        "started_at": "2026-10-11T06:58:17.916519+00:00",
+        "status": "CLEANUP_VERIFIED"
+      }
+    ],
+    "guard_original_outcome": {
+      "error": null,
+      "status": "COMPLETED"
+    },
+    "restoration": {
+      "handlers_restored": true,
+      "previous_timer": [
+        0.0,
+        0.0
+      ],
+      "state": "RESTORATION_ATTEMPTED",
+      "timer_policy": "PAUSE_AND_RESTORE_CAPTURED_TIMER",
+      "timer_restored": true
+    },
+    "status": "NO_CLEANUP_ERRORS"
+  },
+  "control_count": 18,
+  "controls": [
+    {
+      "name": "complete20_save10_freshresume10",
+      "reason": null,
+      "result": "PASS"
+    },
+    {
+      "name": "wrong_optimizer_lr",
+      "reason": "CHECKPOINT_FULL_OPTIMIZER",
+      "result": "REJECT"
+    },
+    {
+      "name": "wrong_optimizer_mapping",
+      "reason": "CHECKPOINT_FULL_OPTIMIZER",
+      "result": "REJECT"
+    },
+    {
+      "name": "wrong_adapter_names",
+      "reason": "CHECKPOINT_STEP_MAPPING",
+      "result": "REJECT"
+    },
+    {
+      "name": "wrong_checkpoint_step",
+      "reason": "CHECKPOINT_STEP_MAPPING",
+      "result": "REJECT"
+    },
+    {
+      "name": "wrong_generation_binding",
+      "reason": "CHECKPOINT_BINDINGS",
+      "result": "REJECT"
+    },
+    {
+      "name": "missing_model_tensor",
+      "reason": "CHECKPOINT_COMPLETE_TENSOR_SET",
+      "result": "REJECT"
+    },
+    {
+      "name": "wrong_adapter_shape",
+      "reason": "CHECKPOINT_TENSOR_STRUCTURE",
+      "result": "REJECT"
+    },
+    {
+      "name": "nonfinite_adapter",
+      "reason": "CHECKPOINT_FINITE_VALUES",
+      "result": "REJECT"
+    },
+    {
+      "name": "changed_frozen_weight_rehashed",
+      "reason": "CHECKPOINT_FULL_FROZEN_BASE",
+      "result": "REJECT"
+    },
+    {
+      "name": "changed_gradient_with_updated_envelope",
+      "reason": null,
+      "result": "NUMERICAL_FAIL"
+    },
+    {
+      "name": "wrong_checkpoint_lr_full_reader_resealed",
+      "reason": "CHECKPOINT_FULL_OPTIMIZER",
+      "result": "REJECT"
+    },
+    {
+      "name": "false_qualified_claim",
+      "reason": "QUALIFICATION_LABEL",
+      "result": "REJECT"
+    },
+    {
+      "name": "wrong_resume_pid",
+      "reason": "ACTUAL_CHILD_BINDING",
+      "result": "REJECT"
+    },
+    {
+      "name": "removed_final_update",
+      "reason": "STEP_SEQUENCE",
+      "result": "REJECT"
+    },
+    {
+      "name": "error_bearing_complete_parent",
+      "reason": "PARENT_SOURCE_TERMINAL",
+      "result": "REJECT"
+    },
+    {
+      "name": "error_bearing_complete_phase",
+      "reason": "CHILD_SOURCE_INPUTS",
+      "result": "REJECT"
+    },
+    {
+      "name": "wrong_owned_group_closure",
+      "reason": "OUTER_ACTUAL_PARENT",
+      "result": "REJECT"
+    }
+  ],
+  "inputs_sha256": "f16b79f90556d3d2eb01c4340af03be5c561e5b70591d6754ffdd990fb14002e",
+  "m5_status": "NOT_QUALIFIED",
+  "parent_pid": 99994,
+  "physical_bytes": 26450507,
+  "protocol_sha256": "bd221d5dcd8a06a3080ff30345f80b8b99d8ca609fadcb813ea8da09964d007f",
+  "provider_calls": 0,
+  "reader": {
+    "checkpoint_step": 10,
+    "exact_final_model": true,
+    "gate_counts": {
+      "continuation": 200,
+      "fresh_cpu_device": 0,
+      "independent_dense": 400
+    },
+    "inputs_sha256": "f16b79f90556d3d2eb01c4340af03be5c561e5b70591d6754ffdd990fb14002e",
+    "m5_status": "NOT_QUALIFIED",
+    "numerical_status": "PASS",
+    "qualified_runtime": false,
+    "record_validation": "PASS",
+    "resumed_steps": 10,
+    "source_bundle_sha256": "ded59cd239a581c2a02efae69b4228028f96f6a090a02d387925240c9a9beba9",
+    "steps": 20,
+    "tpu_cuda_performance": "NOT_RUN"
+  },
+  "runtime": {
+    "machine": "arm64",
+    "platform": "Darwin",
+    "python": "3.12.14",
+    "torch": "2.14.1"
+  },
+  "science_manifest_sha256": "eaa46938407334a53bbdda4d7ea6bd48ae8837e93b7e33788bd2850e78ed2e88",
+  "scope": "LOCAL_UNQUALIFIED_ONLY",
+  "smoke_receipt_sha256": "064951cc6c4635223dc793c0d6eb27190bc9f325812d73051d5769da707f91c6",
+  "source_bundle_sha256": "ded59cd239a581c2a02efae69b4228028f96f6a090a02d387925240c9a9beba9",
+  "status": "PASS"
+}

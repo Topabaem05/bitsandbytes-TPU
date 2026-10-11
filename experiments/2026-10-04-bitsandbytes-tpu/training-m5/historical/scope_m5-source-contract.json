@@ -1,0 +1,73 @@
+{
+  "base_weight_shape": [
+    256,
+    256
+  ],
+  "default_compress_statistics": true,
+  "device_acceptance": null,
+  "first_stage_shape": [
+    1024
+  ],
+  "format": "M5_EXACT1024_SCOPE_PREPARATION",
+  "nested_codes_shape": [
+    1024
+  ],
+  "nested_second_scales_shape": [
+    4
+  ],
+  "new_arithmetic_domain": "existing1..513 OR exactly1024, no intermediate514..1023 extension",
+  "old_generator": {
+    "adapter_A": "((i*7+layer*3)%17-8)/256",
+    "adapter_B": "zero",
+    "base_bias": "((i+layer*3)%17-8)/128",
+    "base_weight": "((i*17+layer*31)%257-128)/4096",
+    "rng": "NONE",
+    "step_target": "((i*11+step*5)%31-15)/64",
+    "step_x": "((i*13+step*7)%41-20)/32"
+  },
+  "old_probe_sha256": "ebb4d60840ec2a29c33561f42f325ffbef888a47646f203702175215b468891b",
+  "old_protocol": {
+    "adapter_scale": 1,
+    "alpha": 4,
+    "base": "weights,bias,and_all_nested_state_frozen",
+    "batch": 8,
+    "checkpoint_after_update": 10,
+    "composition": "base0(x)+B0(A0(x)), then base1(h)+B1(A1(h)); no activation/dropout",
+    "dtype": "float32",
+    "format": "PRIVATE_QLORA_CPU_V1",
+    "layers": 2,
+    "loss": "mean_squared_error",
+    "optimizer": {
+      "dampening": 0,
+      "differentiable": false,
+      "foreach": null,
+      "fused": null,
+      "lr": 0.01,
+      "maximize": false,
+      "momentum": 0,
+      "name": "SGD",
+      "nesterov": false,
+      "weight_decay": 0
+    },
+    "qualified": false,
+    "quantization": {
+      "blocksize": 64,
+      "compress_statistics": true,
+      "quant_storage": "uint8",
+      "quant_type": "nf4"
+    },
+    "rank": 4,
+    "reference": "PINNED_DEFAULT_PYTHON_BYTE_BODY_PLUS_INDEPENDENT_DENSE_FP32_AUTOGRAD",
+    "resume_steps": [
+      11,
+      20
+    ],
+    "steps": 20,
+    "width": 256
+  },
+  "old_reference_scope": "Unqualified macOS Torch2.14.1 default Python bytes; not new qualification",
+  "packed_weight_shape": [
+    32768,
+    1
+  ]
+}

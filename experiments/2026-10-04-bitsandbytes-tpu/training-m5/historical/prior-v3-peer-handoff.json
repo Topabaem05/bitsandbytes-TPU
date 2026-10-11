@@ -1,0 +1,37 @@
+{
+  "status": "CHANGES_REQUIRED",
+  "candidate_archive_sha256": "faee769327eb29d839142936c4a1f73745421be331676753d45f1467ce210d23",
+  "findings": [
+    {
+      "priority": "P2",
+      "file": "/tmp/bnb-tpu-m5-reader-v3-20261011-0k41zyv4/control/kernel_reader.py",
+      "line": 71,
+      "title": "Reconcile physical closure raw with reported observations",
+      "evidence": "Changing sessions-after-stop raw to an active session and usage-after raw to assignments=1/rate=.10 still returned COMPLETE_CANONICAL_KERNEL_AND_CLI_READBACK_VERIFIED, count10, cli_commands64.",
+      "related_file": "/tmp/bnb-tpu-m5-reader-v3-20261011-0k41zyv4/control/inspect_actual.py",
+      "related_line": 17,
+      "limit": "The focused test exercised kernel_readbacks. inspect_actual still relies on driver closure flags; no full science audit was replayed."
+    },
+    {
+      "priority": "P2",
+      "file": "/tmp/bnb-tpu-m5-reader-v3-20261011-0k41zyv4/control/kernel_reader.py",
+      "line": 68,
+      "title": "Reconcile all launched child identities with ownership and cleanup",
+      "evidence": "An appended child_started PID/PGID99999 with unadmitted argv, absent from ownership/cleanup, still returned complete verification.",
+      "contract_limit": "Allow legitimate multiple lifecycle events. Do not impose a generic one-event rule; reconcile relevant launched identities and closure evidence."
+    }
+  ],
+  "checks": {
+    "full_v3_archive_members": 174,
+    "full_v2_archive_members": 166,
+    "closed_science_delta": "Exactly four changed existing files and two additions; all other scientific bodies matched full prior preimages.",
+    "shared_K_helper": "e9c7a5b7b943cea08dfb8986205e47e008ceac37553a2f8576687527a58f9d5f",
+    "correct_case": "PASS count10/64CLI",
+    "invalid_kernel_raw": "REJECTED KERNEL_COMPLETION_LINE",
+    "owned_runner": "PASS exit0 NO_CLEANUP_ERRORS",
+    "fixtures_deleted": true,
+    "provider_calls": 0,
+    "candidate_edits": 0
+  },
+  "frozen_science": "NOT_QUALIFIED; no actual M4 accepted79+8 dependency supplied; no math/training replay performed."
+}

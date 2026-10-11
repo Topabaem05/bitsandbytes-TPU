@@ -1,0 +1,75 @@
+{
+  "TPU": "NOT_RUN",
+  "actual_m4_acceptance": "EXTERNAL_REQUIRED_NOT_AVAILABLE",
+  "archive": {
+    "archive_bytes": 407128,
+    "archive_sha256": "faee769327eb29d839142936c4a1f73745421be331676753d45f1467ce210d23",
+    "every_member_sha256_verified": true,
+    "members": 174,
+    "provider_calls": 0,
+    "source_bytes": 5192284,
+    "source_closure_sha256": "278370f50307a9255974b9cc639c6cf20a87119f2ba6f0e389ee09918e8d8034",
+    "status": "PASS"
+  },
+  "canonical_target_proposal": "experiments/2026-10-04-bitsandbytes-tpu/training-m5/",
+  "canonical_writes": 0,
+  "controls": {
+    "closed_generation_delta": "PASS",
+    "cloud_source_replayed": 58,
+    "driver_scenarios": 13,
+    "frozen_reference_functions_replayed": 20,
+    "kernel_replayed": 29,
+    "prior_local_inherited_not_rerun": 18,
+    "reader_controls": 39,
+    "scope_replayed": 17,
+    "source_bundle_controls": 2
+  },
+  "generation": "nested-exact-m5-1024-scope-v3",
+  "inherited_plugin_basis": "ROOT_REPORTED_ACTUAL_M4_FUNCTIONAL_TENSOR_ERROR_SEPARATE_REVIEWED_REBASE_REQUIRED",
+  "installs": 0,
+  "kind": "M5_READER_V3_PORTABLE_PREPARATION_REVIEW",
+  "limitations": [
+    "No actual M4 accepted79+state8 record exists; proposed consumer schema still requires final root reconciliation.",
+    "Current inherited plugin is not repaired by this reader-only generation.",
+    "No current-generation local20 repeat, qualified Linux training or TPU qualification is claimed."
+  ],
+  "local20_training": "NOT_REPEATED_SCIENTIFIC_BYTES_UNCHANGED_PRIOR_V2_HISTORICAL_EVIDENCE_RETAINED",
+  "m5_status": "NOT_QUALIFIED",
+  "new_behavior": [
+    "Fixed required complete-run set: ten phases or eleven only with admitted --runtime-wheels.",
+    "Canonical phase body/artifact contracts shared by producer and reader; entire scripts regenerated with unique observed nonce.",
+    "Admitted dispatch/config/host-owned outcome validated first.",
+    "Exact CLI serial directory/command/prefix/result/ownership/cleanup/lifecycle/raw inventory and completion/artifact download source/destination binding.",
+    "Independent export summaries must have identical bytes.",
+    "Partial or invalid executions cannot establish completion."
+  ],
+  "prior_v2_archive_sha256": "42598d2212ac80d080bf5418731932220a8dd5c2b8cf8141fa22f5da8a684f5c",
+  "prior_v2_frozen_untouched": true,
+  "provider_calls": 0,
+  "qualified_linux_cpu": "NOT_RUN",
+  "science_manifest_sha256": "a57140a9f8c731bd60c431382ef182cc4a6d45e7c9d911a5d70b86ce883ba914",
+  "seals": {
+    "bundle-controls-summary.json": "2cca8c9eaa10c391094bebd42be796494d904dd2328de626f100372820742d0a",
+    "cloud-controls-summary.json": "ef541abef0c88f7d54d8102fcd902e720a5e5cba8002f5beb320275dd1f13de5",
+    "driver-controls-summary.json": "a48f5e4fde2c49e9556a539b75e530705e5d45576250e12e052fadf095157cfd",
+    "frozen-science-summary.json": "c71543f1bafd54c60c1ae6443734cfdeecd269932fe372d3609f2a59a3a2c1cc",
+    "generation-delta-summary.json": "8757301e39668a18f25a72ebea4749ff86c74f3f8c75c530a0f7605fc278207a",
+    "inherited-local-evidence.json": "fd46664705300fc279f85298348ca98f75ba9b43e068ba8d5cfdb90c23f147f2",
+    "kernel-controls-summary.json": "cefd68846d2bcd34fc154ee8259bc1b250faa0f0fa8599c0866472e43112129c",
+    "scope-controls-summary.json": "c20f3bf80fd4108de3b72f5b00966bff948e7b2c93e867ee1de350c386152c24",
+    "validation-summary.json": "67170d0d60a9fe946d56186947dfc48a4d69bab021ca35a14e65849f11aba134"
+  },
+  "source_admission_sha256": "f651553615d560604742abe34336803dc34a443ed0699fe57c591219415a354a",
+  "source_bundle_sha256": "eb7b2c3f26ae761d6dc2e607e3fc0109d849cab2a950abee679de491174b92c5",
+  "source_closure_sha256": "278370f50307a9255974b9cc639c6cf20a87119f2ba6f0e389ee09918e8d8034",
+  "source_map": {
+    "control/driver.py": "c53fab012332bb6720817858ba560005bf9a070bbf4605ab8507d251b8afa32d",
+    "control/inspect_actual.py": "186e1c6b2193e2a33507fe10563efb4458f969aa1d32c61e07c91e4a2d0456dc",
+    "control/kernel_entries.py": "e26310821e8b25d378d0e0513c2f59144944b143ac485569aeaac9a08404a140",
+    "control/kernel_protocol.py": "e9c7a5b7b943cea08dfb8986205e47e008ceac37553a2f8576687527a58f9d5f",
+    "control/kernel_reader.py": "3b93ae6ad0f0d445d5d38dfe48cc8896b19e734432abdc7e89f34e860644faa9"
+  },
+  "status": "READER_CORRECTION_READY_ACTUAL_BLOCKED_M4",
+  "training_math_reader_reference_plugin_protocol_inputs_unchanged": true,
+  "verified_utc": "2026-10-11T07:30:23.614190+00:00"
+}

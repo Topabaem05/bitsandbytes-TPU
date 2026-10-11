@@ -1,0 +1,36 @@
+{
+  "argv": [
+    "/Users/topamini/code/Post2TPU/.venv/bin/python",
+    "-B",
+    "/tmp/bnb-tpu-m5-reader-v4-20261011-pccc37y3/tests/replay_offline.py",
+    "/tmp/m5-reader-v4-final-results"
+  ],
+  "cleanup": {
+    "ended_at": "2026-10-11T08:07:01.444383+00:00",
+    "errors": [],
+    "exit_status": 0,
+    "group_absence": "OBSERVED_NO_SUCH_GROUP",
+    "leader_reaped": true,
+    "pgid": 19438,
+    "pid": 19438,
+    "signals": [
+      {
+        "result": "NO_SUCH_GROUP",
+        "signal": 15
+      },
+      {
+        "result": "NO_SUCH_GROUP",
+        "signal": 9
+      }
+    ],
+    "started_at": "2026-10-11T08:07:01.444321+00:00",
+    "status": "CLEANUP_VERIFIED"
+  },
+  "ended_at": "2026-10-11T08:07:01.444383+00:00",
+  "exit_status": 0,
+  "owner_pid": 19435,
+  "ownership": "Popen child in dedicated start_new_session group",
+  "pgid": 19438,
+  "pid": 19438,
+  "started_at": "2026-10-11T08:06:29.436166+00:00"
+}

@@ -1,0 +1,163 @@
+{
+  "TPU": "NOT_RUN",
+  "baseline_full": {
+    "fixture_only_numerical_audit_stub": true,
+    "independent_whole_archive_sha256": "e5e3817dfdbdfc7c7a6189c4d084107708d6e340861041e2137154880d3f5ecf",
+    "kernel_evidence": {
+      "all_source_scripts_regenerated": true,
+      "cli_commands": 64,
+      "count": 10,
+      "resource_closure": {
+        "sessions": {
+          "empty": true,
+          "pruned_local_sessions": 0,
+          "sessions": []
+        },
+        "usage": {
+          "active_assignments": 0,
+          "displayed_balance": "100.00",
+          "displayed_rate_per_hour": "0.00",
+          "displayed_zero": true
+        }
+      },
+      "runtime_wheels_enabled": false,
+      "status": "COMPLETE_CANONICAL_KERNEL_AND_CLI_READBACK_VERIFIED"
+    },
+    "m5_status": "NOT_QUALIFIED",
+    "numerical_status": "PASS",
+    "physical_fresh_closure": {
+      "raw_sha256": {
+        "sessions": "dec807c11992d9001acb723d969c49727402fe62c5e6cbd3899944bfdd03c140",
+        "usage": "7d791327010fa7632da339c930c41749a3e28b6030f8242e034c59fb3c3240cf"
+      },
+      "sessions": {
+        "empty": true,
+        "pruned_local_sessions": 0,
+        "sessions": []
+      },
+      "status": "FRESH_PHYSICAL_EMPTY_SERVER_ZERO_DISPLAYED_USAGE",
+      "usage": {
+        "active_assignments": 0,
+        "displayed_balance": "42.00",
+        "displayed_rate_per_hour": "0.00",
+        "displayed_zero": true
+      }
+    },
+    "record_validation": "PASS",
+    "resource_closure": "FRESH_READBACK_PASS",
+    "root_milestone_review": "REQUIRED"
+  },
+  "baseline_kernel": {
+    "all_source_scripts_regenerated": true,
+    "cli_commands": 64,
+    "count": 10,
+    "resource_closure": {
+      "sessions": {
+        "empty": true,
+        "pruned_local_sessions": 0,
+        "sessions": []
+      },
+      "usage": {
+        "active_assignments": 0,
+        "displayed_balance": "100.00",
+        "displayed_rate_per_hour": "0.00",
+        "displayed_zero": true
+      }
+    },
+    "runtime_wheels_enabled": false,
+    "status": "COMPLETE_CANONICAL_KERNEL_AND_CLI_READBACK_VERIFIED"
+  },
+  "candidate_writes": 0,
+  "cases": [
+    {
+      "accepted": true,
+      "m5_status": "NOT_QUALIFIED",
+      "name": "valid_ansi_pruned_then_empty"
+    },
+    {
+      "accepted": true,
+      "m5_status": "NOT_QUALIFIED",
+      "name": "valid_zero_two_decimals_negative_balance"
+    },
+    {
+      "accepted": false,
+      "name": "invalid_active_raw_with_success_flags",
+      "rejection": "PHYSICAL_EMPTY_SERVER_ZERO_DISPLAYED_USAGE"
+    },
+    {
+      "accepted": false,
+      "name": "invalid_nonzero_raw_rate",
+      "rejection": "PHYSICAL_EMPTY_SERVER_ZERO_DISPLAYED_USAGE"
+    },
+    {
+      "accepted": false,
+      "name": "invalid_nonzero_raw_assignments",
+      "rejection": "PHYSICAL_EMPTY_SERVER_ZERO_DISPLAYED_USAGE"
+    },
+    {
+      "accepted": false,
+      "name": "invalid_extra_fully_closed_child",
+      "rejection": "LIFECYCLE_UNOWNED_OR_AMBIGUOUS_CHILD"
+    },
+    {
+      "accepted": false,
+      "name": "invalid_orphan_cleanup",
+      "rejection": "LIFECYCLE_ORPHAN_DUPLICATE_OR_FAILED_CLEANUP"
+    },
+    {
+      "accepted": false,
+      "name": "invalid_duplicate_cleanup",
+      "rejection": "LIFECYCLE_ORPHAN_DUPLICATE_OR_FAILED_CLEANUP"
+    },
+    {
+      "accepted": false,
+      "name": "invalid_cleanup_before_start",
+      "rejection": "LIFECYCLE_ORPHAN_DUPLICATE_OR_FAILED_CLEANUP"
+    },
+    {
+      "accepted": false,
+      "name": "invalid_signal_before_cleanup",
+      "rejection": "LIFECYCLE_UNEXPECTED_EVENT"
+    },
+    {
+      "accepted": false,
+      "name": "invalid_fresh_extra_child",
+      "rejection": "LIFECYCLE_UNOWNED_OR_AMBIGUOUS_CHILD"
+    },
+    {
+      "accepted": true,
+      "name": "valid_multiple_children_reverse_cleanup_order"
+    }
+  ],
+  "fixtures_deleted": true,
+  "m5_status": "NOT_QUALIFIED",
+  "numerical_audit": "EXPLICIT_SYNTHETIC_STUB_NOT_MILESTONE",
+  "provider_calls": 0,
+  "qualified_linux": "NOT_RUN",
+  "source_archive": {
+    "archive_bytes": 830796,
+    "archive_sha256": "d6b526abeed22ac8f95bc8a8298eb4124f7892558a41e7bf78ed7d9ac136c6b8",
+    "every_member_sha256_verified": true,
+    "members": 192,
+    "provider_calls": 0,
+    "source_bytes": 5711541,
+    "source_closure_sha256": "71c8ed3826e3708fc6f10fdf3f613bb7642d059271f9cbd523acefade0f49c29",
+    "status": "PASS"
+  },
+  "source_delta": {
+    "admitted_members": 122,
+    "changed": [
+      "control/inspect_actual.py",
+      "control/kernel_reader.py",
+      "integration/source-admission.json",
+      "source/admission.py"
+    ],
+    "full_current_members": 192,
+    "full_prior_members": 174,
+    "kernel_helper_unchanged": true,
+    "status": "PASS",
+    "unchanged_admitted_members": 118
+  },
+  "source_unchanged_after_tests": "PASS",
+  "status": "PASS_NO_REPRODUCED_REVIEW_FINDINGS"
+}

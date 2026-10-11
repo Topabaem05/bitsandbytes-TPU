@@ -1,0 +1,254 @@
+{
+  "M2_overlay": {
+    "overlay": "reviewed params4bit-xla-v1",
+    "path": "/Users/topamini/code/bitsandbytes-TPU/.work/r4-primitive-preparation/cpu-rehearsal-20261009-001422/child/source/bitsandbytes/nn/modules.py",
+    "ranges": [
+      {
+        "lines": [
+          356,
+          379
+        ],
+        "name": "Params4bit.from_prequantized"
+      },
+      {
+        "lines": [
+          381,
+          430
+        ],
+        "name": "Params4bit._quantize"
+      },
+      {
+        "lines": [
+          628,
+          642
+        ],
+        "name": "Linear4bit._save_to_state_dict"
+      }
+    ],
+    "retention": "Byte-exact in proposed nested-exact generation",
+    "sha256": "690987fda1219e91b8b72930402c424ea1875b66b853a9b5472e00de18314e4a",
+    "source_kind": "ACCEPTED_M2_PATCHED_SOURCE",
+    "upstream_revision": "833649043474794b8fe7a4136e0c40faf077b2e0"
+  },
+  "claims": {
+    "proposals": [
+      "Use new XLA-only composites for the public arithmetic boundary.",
+      "Use admitted integer word arithmetic in all seven backend bodies.",
+      "Use native functional wrapping around backend bodies and an explicitly unwrapped builder bitcast boundary."
+    ],
+    "source_supported": [
+      "Default full blocks use reciprocal then multiplication; partial blocks use direct division.",
+      "Public quantize_4bit computes mean/centering outside the original quantize kernels.",
+      "Public dequantize_4bit adds nested offset outside the original dequantize kernels.",
+      "Original QuantState serialization and accepted nn/modules.py define the unchanged public state boundary.",
+      "CPU source-order helper is tied to the inspected Torch2.9 AVX2 reduction and 1..513 rank1 domain."
+    ]
+  },
+  "framework": [
+    {
+      "cache_path": "/Users/topamini/code/bitsandbytes-TPU/.work/r4-numerical-repair/cache/xla_builder-2.9.0.py",
+      "cache_sha256": "ee315ac0cfa9f052a5a437d693bc1d65aae7ea7bf7c3d0b661384bc6723a8772",
+      "id": "EXACT-01",
+      "limitations": [
+        "Read from existing pinned primary-source cache; no new network request.",
+        "No new TPU execution."
+      ],
+      "reviewed_date": "2026-10-09",
+      "revision": "5fab7053df86c8d503b98d9e7202ca8b8d4978c7",
+      "supports": [
+        "Op.bitcast emits BitcastConvert.",
+        "The private adapter uses the unchanged builder computation API."
+      ],
+      "title": "Torch/XLA2.9 builder bitcast",
+      "url": "https://github.com/pytorch/xla/blob/5fab7053df86c8d503b98d9e7202ca8b8d4978c7/torch_xla/core/xla_builder.py#L434"
+    },
+    {
+      "cache_path": "/Users/topamini/code/bitsandbytes-TPU/.work/r4-numerical-repair/cache/aten_xla_type-2.9.0.cpp",
+      "cache_sha256": "07fa25deab7bc0afc7823edfc12293bdba178fea004f2dc5fe596fd6ef24ef57",
+      "id": "EXACT-02",
+      "limitations": [
+        "Read from existing pinned primary-source cache; no new network request.",
+        "No new TPU execution."
+      ],
+      "reviewed_date": "2026-10-09",
+      "revision": "5fab7053df86c8d503b98d9e7202ca8b8d4978c7",
+      "supports": [
+        "The source supplies shift, bitwise, and where bindings.",
+        "Bindings alone do not prove execution without fallback."
+      ],
+      "title": "Torch/XLA2.9 integer and selection operations",
+      "url": "https://github.com/pytorch/xla/blob/5fab7053df86c8d503b98d9e7202ca8b8d4978c7/torch_xla/csrc/aten_xla_type.cpp#L486"
+    },
+    {
+      "cache_path": "/Users/topamini/code/bitsandbytes-TPU/.work/r4-numerical-repair/cache/ReduceOps-2.9.0.cpp",
+      "cache_sha256": "3ba2de1c28bb1ddd7c9374b22879f8353170b7291bd98f2ccdd06cc671aa209c",
+      "id": "EXACT-03",
+      "limitations": [
+        "Read from existing pinned primary-source cache; no new network request.",
+        "No new TPU execution."
+      ],
+      "reviewed_date": "2026-10-09",
+      "revision": "0fabc3ba44823f257e70ce397d989c8de5e362c1",
+      "supports": [
+        "CPU mean uses sum_out and div_.",
+        "Exact integer count up to2^24 has an exact FP32 conversion."
+      ],
+      "title": "PyTorch2.9 CPU mean order",
+      "url": "https://github.com/pytorch/pytorch/blob/0fabc3ba44823f257e70ce397d989c8de5e362c1/aten/src/ATen/native/ReduceOps.cpp#L1374"
+    },
+    {
+      "line_ranges": [
+        [
+          346,
+          463
+        ]
+      ],
+      "new_network_calls": 0,
+      "path": "/Users/topamini/code/bitsandbytes-TPU/.work/r4-numerical-repair/cache/SumKernel-2.9.0.cpp",
+      "sha256": "ed0af1f8d99378801ec0ff5b66c4ebff8c9ca37dd33187b6f15a9c909de5637c",
+      "source_kind": "PINNED_PRIMARY_SOURCE_CACHE",
+      "url": "https://github.com/pytorch/pytorch/blob/0fabc3ba44823f257e70ce397d989c8de5e362c1/aten/src/ATen/native/cpu/SumKernel.cpp"
+    },
+    {
+      "line_ranges": [
+        [
+          481,
+          491
+        ]
+      ],
+      "new_network_calls": 0,
+      "path": "/Users/topamini/code/bitsandbytes-TPU/.work/r4-numerical-repair/cache/DispatchStub-2.9.0.h",
+      "sha256": "8ccd731ed22d6078012986b168501cf822464ef504ad50a496a9c54034723553",
+      "source_kind": "PINNED_PRIMARY_SOURCE_CACHE",
+      "url": "https://github.com/pytorch/pytorch/blob/0fabc3ba44823f257e70ce397d989c8de5e362c1/aten/src/ATen/native/DispatchStub.h"
+    }
+  ],
+  "frozen_helpers": [
+    {
+      "path": "/Users/topamini/code/bitsandbytes-TPU/.work/r4-nested-exact-scope-review/review-map.json",
+      "sha256": "6d7cd8383dede7d7d500ac3b85ff4130fb9843e0a94c1cd7b0ae62aafe1b23d5"
+    },
+    {
+      "path": "/Users/topamini/code/bitsandbytes-TPU/.work/r4-exact-arithmetic-preparation/adoption-map.json",
+      "sha256": "c19255b16953855fa499aa7004a5e276ff4861b908752cfdac979ca5c6fbceb9"
+    },
+    {
+      "path": "/Users/topamini/code/bitsandbytes-TPU/.work/r4-exact-addsub-preparation/adoption-map.json",
+      "sha256": "c7956e17bb5a418a525e331390afa8a7c48ac10a629802baae89541ad4e7bd17"
+    },
+    {
+      "path": "/Users/topamini/code/bitsandbytes-TPU/.work/r4-exact-muldiv-preparation/adoption-map.json",
+      "sha256": "d4e58ce3648e3095a5dd0ceb8888ac12414be6124e4f8d7a81404bc0777de462"
+    }
+  ],
+  "kind": "PINNED_PRIMARY_SOURCE_BASIS",
+  "limitations": [
+    "Local CPU export is not an XLA or whole GEMM graph.",
+    "The pinned source documents bindings; it does not prove actual TPU lowering or absence of fallback.",
+    "No latest-version compatibility or hardware performance claim is made."
+  ],
+  "network_calls": 0,
+  "reviewed_date": "2026-10-09",
+  "upstream": [
+    {
+      "path": "/Users/topamini/code/bitsandbytes-TPU/.work/r4-primitive-preparation/cpu-rehearsal-20261009-001422/child/source/bitsandbytes/functional.py",
+      "ranges": [
+        {
+          "lines": [
+            420,
+            610
+          ],
+          "name": "QuantState"
+        },
+        {
+          "lines": [
+            613,
+            686
+          ],
+          "name": "quantize_blockwise"
+        },
+        {
+          "lines": [
+            689,
+            769
+          ],
+          "name": "dequantize_blockwise"
+        },
+        {
+          "lines": [
+            884,
+            969
+          ],
+          "name": "quantize_4bit"
+        },
+        {
+          "lines": [
+            992,
+            1077
+          ],
+          "name": "dequantize_4bit"
+        },
+        {
+          "lines": [
+            494,
+            543
+          ],
+          "name": "from_dict"
+        },
+        {
+          "lines": [
+            545,
+            578
+          ],
+          "name": "as_dict"
+        }
+      ],
+      "revision": "833649043474794b8fe7a4136e0c40faf077b2e0",
+      "sha256": "520a9e9d3afba11124734df60e48a27e38b6389305df888834405b435e285817",
+      "url": "https://github.com/bitsandbytes-foundation/bitsandbytes/blob/833649043474794b8fe7a4136e0c40faf077b2e0/bitsandbytes/functional.py"
+    },
+    {
+      "path": "/Users/topamini/code/bitsandbytes-TPU/.work/r4-primitive-preparation/cpu-rehearsal-20261009-001422/child/source/bitsandbytes/backends/default/ops.py",
+      "ranges": [
+        {
+          "lines": [
+            200,
+            217
+          ],
+          "name": "_dequantize_blockwise_compute"
+        },
+        {
+          "lines": [
+            226,
+            230
+          ],
+          "name": "_get_4bit_quantize_bounds"
+        },
+        {
+          "lines": [
+            263,
+            285
+          ],
+          "name": "_dequantize_4bit_compute"
+        },
+        {
+          "lines": [
+            181,
+            196
+          ],
+          "name": "registered-default:bitsandbytes::quantize_blockwise"
+        },
+        {
+          "lines": [
+            234,
+            259
+          ],
+          "name": "registered-default:bitsandbytes::quantize_4bit"
+        }
+      ],
+      "revision": "833649043474794b8fe7a4136e0c40faf077b2e0",
+      "sha256": "e39afd16dca6e6f34a14305ade0ba4acbb49dc2c7a9baf937341d7e33b682819",
+      "url": "https://github.com/bitsandbytes-foundation/bitsandbytes/blob/833649043474794b8fe7a4136e0c40faf077b2e0/bitsandbytes/backends/default/ops.py"
+    }
+  ]
+}

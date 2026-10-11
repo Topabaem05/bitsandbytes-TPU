@@ -1,0 +1,191 @@
+{
+  "checks": {
+    "actual_cpu": {
+      "checkpoint_step": 10,
+      "exact_final_model": true,
+      "fresh_resume_steps": 10,
+      "independent_dense_gates": 400,
+      "numerical_status": "PASS",
+      "record_validation": "PASS",
+      "roundtrip_gates": 200,
+      "steps": 20
+    },
+    "actual_launches": [
+      {
+        "child_absent": true,
+        "launched_pid": 38588,
+        "pgid": 38587,
+        "phase": "baseline",
+        "reaped": true
+      },
+      {
+        "child_absent": true,
+        "launched_pid": 38589,
+        "pgid": 38587,
+        "phase": "save",
+        "reaped": true
+      },
+      {
+        "child_absent": true,
+        "launched_pid": 38599,
+        "pgid": 38587,
+        "phase": "resume",
+        "reaped": true
+      }
+    ],
+    "actual_outer_timeout": {
+      "group_cleanup": {
+        "ended_at": "2026-10-08T10:37:58.657680+00:00",
+        "errors": [],
+        "exit_status": -9,
+        "group_absence": "OBSERVED_NO_SUCH_GROUP",
+        "leader_reaped": true,
+        "pgid": 38909,
+        "pid": 38909,
+        "signals": [
+          {
+            "result": "SENT",
+            "signal": 15
+          },
+          {
+            "result": "SENT",
+            "signal": 9
+          }
+        ],
+        "started_at": "2026-10-08T10:37:58.646646+00:00",
+        "status": "CLEANUP_VERIFIED"
+      },
+      "inherited_child_absent": true,
+      "outer_deadline_observed": true,
+      "parent_sigkill_bypassed_finally": true,
+      "scope": "LOCAL_OWNERSHIP_FIXTURE",
+      "service_calls": 0,
+      "status": "PASS",
+      "tpu": "NOT_RUN"
+    },
+    "controls": {
+      "count": 10,
+      "status": "PASS"
+    },
+    "initial_harness_failure_followup": {
+      "cause": "control fixture omitted owner log directory",
+      "group_absence_checked": true,
+      "original_record": "owned-controls/correct_verify.ownership.json",
+      "original_status": "CLEANUP_UNVERIFIED",
+      "pgid": 38850,
+      "status": "OBSERVED_GROUP_ABSENT"
+    },
+    "outer_closure": {
+      "errors": [],
+      "groups": [
+        {
+          "ended_at": "2026-10-08T10:36:27.441245+00:00",
+          "errors": [],
+          "exit_status": 0,
+          "group_absence": "OBSERVED_NO_SUCH_GROUP",
+          "leader_reaped": true,
+          "pgid": 38587,
+          "pid": 38587,
+          "signals": [
+            {
+              "result": "NO_SUCH_GROUP",
+              "signal": 15
+            },
+            {
+              "result": "NO_SUCH_GROUP",
+              "signal": 9
+            }
+          ],
+          "started_at": "2026-10-08T10:36:27.441179+00:00",
+          "status": "CLEANUP_VERIFIED"
+        }
+      ],
+      "guard_original_outcome": {
+        "error": null,
+        "status": "COMPLETED"
+      },
+      "restoration": {
+        "handlers_restored": true,
+        "previous_timer": [
+          0.0,
+          0.0
+        ],
+        "state": "RESTORATION_ATTEMPTED",
+        "timer_policy": "PAUSE_AND_RESTORE_CAPTURED_TIMER",
+        "timer_restored": true
+      },
+      "status": "NO_CLEANUP_ERRORS"
+    }
+  },
+  "date": "2026-10-08",
+  "generation": {
+    "adapter_A": "((i*7+layer*3)%17-8)/256",
+    "adapter_B": "zero",
+    "base_bias": "((i+layer*3)%17-8)/128",
+    "base_weight": "((i*17+layer*31)%257-128)/4096",
+    "rng": "NONE",
+    "step_target": "((i*11+step*5)%31-15)/64",
+    "step_x": "((i*13+step*7)%41-20)/32"
+  },
+  "inputs_sha256": "f16b79f90556d3d2eb01c4340af03be5c561e5b70591d6754ffdd990fb14002e",
+  "limitations": [
+    "Local macOS torch2.14.1 only; fixed Linux torch/XLA2.9 not executed.",
+    "No TPU, CUDA, performance, convergence or milestone acceptance.",
+    "Native CPU byte reference was not used; selected default Python body is distinct.",
+    "No installed source or public class/method replacement. Backend discovery suppression and CPU kernel registration are isolated fixture actions.",
+    "Device transport/admission/HLO/fallback/placement/checkpoint synchronization remain to be prepared and reviewed.",
+    "M5 adoption depends on M3 and M4 acceptance."
+  ],
+  "m5_status": "UNADOPTED_PENDING_M3_AND_M4",
+  "protocol": {
+    "adapter_scale": 1,
+    "alpha": 4,
+    "base": "weights,bias,and_all_nested_state_frozen",
+    "batch": 8,
+    "checkpoint_after_update": 10,
+    "composition": "base0(x)+B0(A0(x)), then base1(h)+B1(A1(h)); no activation/dropout",
+    "dtype": "float32",
+    "format": "PRIVATE_QLORA_CPU_V1",
+    "layers": 2,
+    "loss": "mean_squared_error",
+    "optimizer": {
+      "dampening": 0,
+      "differentiable": false,
+      "foreach": null,
+      "fused": null,
+      "lr": 0.01,
+      "maximize": false,
+      "momentum": 0,
+      "name": "SGD",
+      "nesterov": false,
+      "weight_decay": 0
+    },
+    "qualified": false,
+    "quantization": {
+      "blocksize": 64,
+      "compress_statistics": true,
+      "quant_storage": "uint8",
+      "quant_type": "nf4"
+    },
+    "rank": 4,
+    "reference": "PINNED_DEFAULT_PYTHON_BYTE_BODY_PLUS_INDEPENDENT_DENSE_FP32_AUTOGRAD",
+    "resume_steps": [
+      11,
+      20
+    ],
+    "steps": 20,
+    "width": 256
+  },
+  "runtime_qualified": false,
+  "source": {
+    "byte_reference": "PINNED_DEFAULT_PYTHON_BODY",
+    "control_driver_sha256": "9cda77cfd1b7479aca5440a6300c80ce5523e1a9dc776660e3da4d464feff094",
+    "dependency_pins_sha256": "fbd5dc67fe3778087c322616b502f471d94b7234a379317345f3de8be2776d1b",
+    "protocol_sha256": "bd221d5dcd8a06a3080ff30345f80b8b99d8ca609fadcb813ea8da09964d007f",
+    "prototype_sha256": "ebb4d60840ec2a29c33561f42f325ffbef888a47646f203702175215b468891b",
+    "source_bundle_sha256": "0531e0f8b872b050795f4126304f4d407572b8c213949b9cc2fc4334f43dd91d",
+    "upstream_revision": "833649043474794b8fe7a4136e0c40faf077b2e0"
+  },
+  "status": "PRIVATE_PREPARATION_COMPLETE",
+  "tracked_files_changed": false
+}

@@ -1,0 +1,70 @@
+{
+  ".work/r4-nested-exact-integration/composition/manifest.json": {
+    "bytes": 978,
+    "sha256": "cb938b472fc32dab72c9b6ac8cd4971621ab733617f5c408107a2e9dd8b24a7d"
+  },
+  ".work/r4-nested-exact-integration/plugin/src/bitsandbytes_tpu/__init__.py": {
+    "bytes": 296,
+    "sha256": "0d23c43ef09e8b3aafee1a81fece97091c0b2cbb3ca14c680ff61f9866e9a7a0"
+  },
+  ".work/r4-nested-exact-integration/plugin/src/bitsandbytes_tpu/_integer_addsub.py": {
+    "bytes": 3350,
+    "sha256": "0294486d6cad96d0ceb88ecd492bd0aeaa106788e289735167cd8ef3d3b9fe66"
+  },
+  ".work/r4-nested-exact-integration/plugin/src/bitsandbytes_tpu/_integer_clamp.py": {
+    "bytes": 3930,
+    "sha256": "77edb6a7dc30caa49cd6a4260a5663f4c5a0fa146b6f084e207a6aaae9804b59"
+  },
+  ".work/r4-nested-exact-integration/plugin/src/bitsandbytes_tpu/_integer_muldiv.py": {
+    "bytes": 4780,
+    "sha256": "89cc079e3dee6a2ff3b79cf8b176ea62c5bd2183a14427bbc0c235de02a27187"
+  },
+  ".work/r4-nested-exact-integration/plugin/src/bitsandbytes_tpu/_source_order.py": {
+    "bytes": 2183,
+    "sha256": "700bac513eb69eb22c5d11391b488367b4f56fbeedd741a58e841c6a5fe911a0"
+  },
+  ".work/r4-nested-exact-integration/plugin/src/bitsandbytes_tpu/blockwise.py": {
+    "bytes": 2913,
+    "sha256": "6d4c2d9af7bb1b7c72c8743839fabbc92e2218978974314f7322b43edc912e47"
+  },
+  ".work/r4-nested-exact-integration/plugin/src/bitsandbytes_tpu/compatibility.py": {
+    "bytes": 9480,
+    "sha256": "5b4a2125b4d90c7c81a0eb44156322dcb893b6cbec9c03728711db18ae93c633"
+  },
+  ".work/r4-nested-exact-integration/plugin/src/bitsandbytes_tpu/exact.py": {
+    "bytes": 5621,
+    "sha256": "e5064072609753d3a5f1e1920b46db48ccce5751402fe7a5ba5c5b7c0ddf2831"
+  },
+  ".work/r4-nested-exact-integration/plugin/src/bitsandbytes_tpu/functionalization.py": {
+    "bytes": 3292,
+    "sha256": "0b31b2d86e7dd4aa10629e236fa1c0c18518eb5a3fb565714a9e40f432c2c93e"
+  },
+  ".work/r4-nested-exact-integration/plugin/src/bitsandbytes_tpu/reference.py": {
+    "bytes": 3502,
+    "sha256": "a901df09a9cdb4b655a1f61a491466e1a4db1006eb38f0a89a2c2eb8df656907"
+  },
+  ".work/r4-nested-exact-integration/plugin/src/bitsandbytes_tpu/registration.py": {
+    "bytes": 4330,
+    "sha256": "7b261e5f6e5409ecf9abf735679e14746cbed8c0fbebb55d47ccc66e2ab4fd0b"
+  },
+  ".work/r4-nested-exact-integration/source-admission.json": {
+    "bytes": 13839,
+    "sha256": "75790f1d4613e20daa06d99111288463ef24b05aaa29922a7580512078f9912f"
+  },
+  ".work/r4-numerical-repair/cache/ReduceOps-2.9.0.cpp": {
+    "bytes": 90967,
+    "sha256": "3ba2de1c28bb1ddd7c9374b22879f8353170b7291bd98f2ccdd06cc671aa209c"
+  },
+  ".work/r4-numerical-repair/cache/SumKernel-2.9.0.cpp": {
+    "bytes": 22865,
+    "sha256": "ed0af1f8d99378801ec0ff5b66c4ebff8c9ca37dd33187b6f15a9c909de5637c"
+  },
+  ".work/r5-qlora-preparation/prototype.py": {
+    "bytes": 30245,
+    "sha256": "ebb4d60840ec2a29c33561f42f325ffbef888a47646f203702175215b468891b"
+  },
+  ".work/r5-qlora-preparation/smoke-dense-final/actual/save/checkpoint.pt": {
+    "bytes": 99765,
+    "sha256": "a426bdb66aeeeae4cad667163b1f1e1327411fb8457a5fc9f2c785dac70a7ce1"
+  }
+}

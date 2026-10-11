@@ -1,0 +1,72 @@
+{
+  "argv": [
+    "/Users/topamini/code/Post2TPU/.venv/bin/python",
+    "-B",
+    "/tmp/bnb-tpu-m5-reader-v4-20261011-pccc37y3/tests/replay_offline.py",
+    "/tmp/m5-reader-v4-final-results"
+  ],
+  "cleanup": {
+    "errors": [],
+    "groups": [
+      {
+        "ended_at": "2026-10-11T08:07:01.444383+00:00",
+        "errors": [],
+        "exit_status": 0,
+        "group_absence": "OBSERVED_NO_SUCH_GROUP",
+        "leader_reaped": true,
+        "pgid": 19438,
+        "pid": 19438,
+        "signals": [
+          {
+            "result": "NO_SUCH_GROUP",
+            "signal": 15
+          },
+          {
+            "result": "NO_SUCH_GROUP",
+            "signal": 9
+          }
+        ],
+        "started_at": "2026-10-11T08:07:01.444321+00:00",
+        "status": "CLEANUP_VERIFIED"
+      }
+    ],
+    "guard_original_outcome": {
+      "error": null,
+      "status": "COMPLETED"
+    },
+    "restoration": {
+      "handlers_restored": true,
+      "previous_timer": [
+        0.0,
+        0.0
+      ],
+      "state": "RESTORATION_ATTEMPTED",
+      "timer_policy": "PAUSE_AND_RESTORE_CAPTURED_TIMER",
+      "timer_restored": true
+    },
+    "status": "NO_CLEANUP_ERRORS"
+  },
+  "environment": {
+    "HOME_and_CODEX_HOME": "INHERITED_WITHOUT_CHANGE",
+    "names_unset": [
+      "PYTHONPATH",
+      "PYTHONHOME",
+      "TPU_LIBRARY_PATH",
+      "PTXLA_TPU_LIBRARY_PATH",
+      "PJRT_DEVICE"
+    ],
+    "set": {
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "PYTHONNOUSERSITE": "1",
+      "TPU_LOG_DIR": "disabled"
+    }
+  },
+  "exit_code": 0,
+  "original_outcome": {
+    "error": null,
+    "exit_code": 0,
+    "status": "PASS"
+  },
+  "status": "PASS",
+  "timeout_seconds": 295.0
+}

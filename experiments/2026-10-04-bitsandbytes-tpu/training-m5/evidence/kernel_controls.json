@@ -1,0 +1,291 @@
+{
+  "controls": [
+    {
+      "initial_dont_write_bytecode": false,
+      "name": "old-unprefixed-interactive-bytecode-regression",
+      "observed_error": {
+        "message": "EXACT_SCIENCE_CLOSURE",
+        "type": "ValueError"
+      },
+      "owned_closure": {
+        "errors": [],
+        "groups": [
+          {
+            "ended_at": "2026-10-11T08:06:36.782090+00:00",
+            "errors": [],
+            "exit_status": 0,
+            "group_absence": "OBSERVED_NO_SUCH_GROUP",
+            "leader_reaped": true,
+            "pgid": 19464,
+            "pid": 19464,
+            "signals": [
+              {
+                "result": "NO_SUCH_GROUP",
+                "signal": 15
+              },
+              {
+                "result": "NO_SUCH_GROUP",
+                "signal": 9
+              }
+            ],
+            "started_at": "2026-10-11T08:06:36.782028+00:00",
+            "status": "CLEANUP_VERIFIED"
+          }
+        ],
+        "guard_original_outcome": {
+          "error": null,
+          "status": "COMPLETED"
+        },
+        "restoration": {
+          "handlers_restored": true,
+          "previous_timer": [
+            0.0,
+            0.0
+          ],
+          "state": "RESTORATION_ATTEMPTED",
+          "timer_policy": "PAUSE_AND_RESTORE_CAPTURED_TIMER",
+          "timer_restored": true
+        },
+        "status": "NO_CLEANUP_ERRORS"
+      },
+      "pyc_count": 4,
+      "status": "PASS"
+    },
+    {
+      "initial_dont_write_bytecode": false,
+      "name": "correct-interactive-unpack-readmit-child-inheritance",
+      "observed_error": null,
+      "owned_closure": {
+        "errors": [],
+        "groups": [
+          {
+            "ended_at": "2026-10-11T08:06:37.037088+00:00",
+            "errors": [],
+            "exit_status": 0,
+            "group_absence": "OBSERVED_NO_SUCH_GROUP",
+            "leader_reaped": true,
+            "pgid": 19465,
+            "pid": 19465,
+            "signals": [
+              {
+                "result": "NO_SUCH_GROUP",
+                "signal": 15
+              },
+              {
+                "result": "NO_SUCH_GROUP",
+                "signal": 9
+              }
+            ],
+            "started_at": "2026-10-11T08:06:37.037025+00:00",
+            "status": "CLEANUP_VERIFIED"
+          }
+        ],
+        "guard_original_outcome": {
+          "error": null,
+          "status": "COMPLETED"
+        },
+        "restoration": {
+          "handlers_restored": true,
+          "previous_timer": [
+            0.0,
+            0.0
+          ],
+          "state": "RESTORATION_ATTEMPTED",
+          "timer_policy": "PAUSE_AND_RESTORE_CAPTURED_TIMER",
+          "timer_restored": true
+        },
+        "status": "NO_CLEANUP_ERRORS"
+      },
+      "pyc_count": 0,
+      "status": "PASS"
+    },
+    {
+      "initial_dont_write_bytecode": false,
+      "name": "foreign-cached-module",
+      "observed_error": {
+        "message": "KERNEL_STALE_MODULE:contract",
+        "type": "ValueError"
+      },
+      "owned_closure": {
+        "errors": [],
+        "groups": [
+          {
+            "ended_at": "2026-10-11T08:06:37.078318+00:00",
+            "errors": [],
+            "exit_status": 0,
+            "group_absence": "OBSERVED_NO_SUCH_GROUP",
+            "leader_reaped": true,
+            "pgid": 19467,
+            "pid": 19467,
+            "signals": [
+              {
+                "result": "NO_SUCH_GROUP",
+                "signal": 15
+              },
+              {
+                "result": "NO_SUCH_GROUP",
+                "signal": 9
+              }
+            ],
+            "started_at": "2026-10-11T08:06:37.078276+00:00",
+            "status": "CLEANUP_VERIFIED"
+          }
+        ],
+        "guard_original_outcome": {
+          "error": null,
+          "status": "COMPLETED"
+        },
+        "restoration": {
+          "handlers_restored": true,
+          "previous_timer": [
+            0.0,
+            0.0
+          ],
+          "state": "RESTORATION_ATTEMPTED",
+          "timer_policy": "PAUSE_AND_RESTORE_CAPTURED_TIMER",
+          "timer_restored": true
+        },
+        "status": "NO_CLEANUP_ERRORS"
+      },
+      "pyc_count": 0,
+      "status": "PASS"
+    },
+    {
+      "name": "correct-independent-completion-and-artifact",
+      "status": "PASS"
+    },
+    {
+      "name": "missing-marker-cli-zero",
+      "rejected": "KERNEL_COMPLETION_LINE",
+      "status": "PASS"
+    },
+    {
+      "name": "duplicate-marker",
+      "rejected": "KERNEL_COMPLETION_LINE",
+      "status": "PASS"
+    },
+    {
+      "name": "post-marker-error",
+      "rejected": "KERNEL_COMPLETION_LINE",
+      "status": "PASS"
+    },
+    {
+      "name": "post-marker-output",
+      "rejected": "KERNEL_COMPLETION_LINE",
+      "status": "PASS"
+    },
+    {
+      "name": "malformed-marker",
+      "rejected": "KERNEL_MARKER_JSON",
+      "status": "PASS"
+    },
+    {
+      "name": "wrong-nonce",
+      "rejected": "KERNEL_COMPLETION_BINDING",
+      "status": "PASS"
+    },
+    {
+      "name": "wrong-phase",
+      "rejected": "KERNEL_COMPLETION_BINDING",
+      "status": "PASS"
+    },
+    {
+      "name": "wrong-admitted_source_sha256",
+      "rejected": "KERNEL_COMPLETION_BINDING",
+      "status": "PASS"
+    },
+    {
+      "name": "missing-independent-completion",
+      "rejected": "KERNEL_READBACK_REGULAR",
+      "status": "PASS"
+    },
+    {
+      "name": "wrong-independent-completion-sha",
+      "rejected": "KERNEL_COMPLETION_READBACK_SHA",
+      "status": "PASS"
+    },
+    {
+      "name": "wrong-independent-artifact-sha",
+      "rejected": "KERNEL_ARTIFACT_READBACK_SHA",
+      "status": "PASS"
+    },
+    {
+      "name": "missing-independent-artifact",
+      "rejected": "KERNEL_ARTIFACT_READBACK_SHA",
+      "status": "PASS"
+    },
+    {
+      "name": "wrong-submitted-body-sha",
+      "rejected": "KERNEL_BODY_BINDING",
+      "status": "PASS"
+    },
+    {
+      "name": "correct-cached-function-class-and-descriptor-code",
+      "status": "PASS"
+    },
+    {
+      "name": "same-path-stale-function-after-admitted-bytes-replaced",
+      "rejected": "KERNEL_STALE_MODULE_CODE:sealed_cache_fixture",
+      "status": "PASS"
+    },
+    {
+      "name": "same-path-stale-class-method-after-admitted-bytes-replaced",
+      "rejected": "KERNEL_STALE_MODULE_CODE:sealed_cache_fixture",
+      "status": "PASS"
+    },
+    {
+      "name": "same-path-stale-literal-global-after-admitted-bytes-replaced",
+      "rejected": "KERNEL_STALE_MODULE_CODE:sealed_cache_fixture",
+      "status": "PASS"
+    },
+    {
+      "name": "same-path-stale-positional-default-after-admitted-bytes-replaced",
+      "rejected": "KERNEL_STALE_MODULE_CODE:sealed_cache_fixture",
+      "status": "PASS"
+    },
+    {
+      "name": "same-path-stale-keyword-default-after-admitted-bytes-replaced",
+      "rejected": "KERNEL_STALE_MODULE_CODE:sealed_cache_fixture",
+      "status": "PASS"
+    },
+    {
+      "name": "correct-hash-wrong-completion-phase",
+      "rejected": "KERNEL_COMPLETION_READBACK_BINDING",
+      "status": "PASS"
+    },
+    {
+      "name": "correct-hash-noncompleted-status",
+      "rejected": "KERNEL_COMPLETION_READBACK_BINDING",
+      "status": "PASS"
+    },
+    {
+      "name": "duplicate-readback-json-field",
+      "rejected": "KERNEL_READBACK_DUPLICATE_JSON",
+      "status": "PASS"
+    },
+    {
+      "name": "stale-prior-request-marker",
+      "rejected": "KERNEL_COMPLETION_BINDING",
+      "status": "PASS"
+    },
+    {
+      "name": "legacy-completion-store-creates-base-before-readiness",
+      "observed": "CORRECT_MARKER_THEN_READINESS_FAILS",
+      "status": "PASS"
+    },
+    {
+      "name": "actual-browser-marker-then-fresh-readiness-success",
+      "status": "PASS"
+    }
+  ],
+  "count": 29,
+  "disposed_bytes": 16789415,
+  "disposed_files": 491,
+  "fixtures_deleted": true,
+  "kernel_protocol_sha256": "e9c7a5b7b943cea08dfb8986205e47e008ceac37553a2f8576687527a58f9d5f",
+  "m5_status": "NOT_QUALIFIED",
+  "provider_calls": 0,
+  "science_manifest_sha256": "e8c0f879f7840788677f2efd937a2e6e72de683c5d007139f69ae69f178de7dd",
+  "status": "PASS",
+  "synthetic_dependency_fixture_only": true
+}
