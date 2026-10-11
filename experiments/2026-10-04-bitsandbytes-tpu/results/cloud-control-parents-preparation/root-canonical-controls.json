@@ -1,0 +1,218 @@
+{
+  "scope": "LOCAL_NO_PROVIDER_NO_SCIENCE",
+  "tests_run": 21,
+  "failures": 0,
+  "errors": 0,
+  "candidate_owner_sha256": "48e70ba117419d1bdf4dda39f171f6e4d8e98d8220bd86d948351fbecc7c8aa9",
+  "observations": [
+    {
+      "fault": "missing-marker",
+      "status": "BLOCKED",
+      "original_error": {
+        "type": "RuntimeError",
+        "message": "CONTROL_PARENTS_NOT_PROVED"
+      },
+      "allocation_epoch": 1000.0,
+      "allocation_attempts": 1,
+      "command_labels": [
+        "01-sessions-before",
+        "02-usage-before",
+        "03-one-allocation",
+        "04-sessions-after",
+        "05-readiness",
+        "20-critical-receipt",
+        "90-before-stop",
+        "91-stop-exact",
+        "92-after-stop",
+        "93-usage-after"
+      ],
+      "exact_stop": true,
+      "server_empty_observed": true,
+      "usage_zero_observed": true,
+      "real_failed_child_cleanup": null
+    },
+    {
+      "fault": "trailing-error",
+      "status": "BLOCKED",
+      "original_error": {
+        "type": "RuntimeError",
+        "message": "CONTROL_PARENTS_NOT_PROVED"
+      },
+      "allocation_epoch": 1000.0,
+      "allocation_attempts": 1,
+      "command_labels": [
+        "01-sessions-before",
+        "02-usage-before",
+        "03-one-allocation",
+        "04-sessions-after",
+        "05-readiness",
+        "20-critical-receipt",
+        "90-before-stop",
+        "91-stop-exact",
+        "92-after-stop",
+        "93-usage-after"
+      ],
+      "exact_stop": true,
+      "server_empty_observed": true,
+      "usage_zero_observed": true,
+      "real_failed_child_cleanup": null
+    },
+    {
+      "fault": "complete",
+      "status": "BLOCKED",
+      "original_error": {
+        "type": "RuntimeError",
+        "message": "CLI_STEP_BLOCKED:07-payload"
+      },
+      "allocation_epoch": 1000.0,
+      "allocation_attempts": 1,
+      "command_labels": [
+        "01-sessions-before",
+        "02-usage-before",
+        "03-one-allocation",
+        "04-sessions-after",
+        "05-readiness",
+        "06-cloud-deep-other-three.py",
+        "06-cloud-deep-shared-one.py",
+        "06-cloud-deep-shared-two.py",
+        "06-cloud-exact-nested-allocation_transport.py",
+        "06-cloud-exact-nested-ownership-cleanup_lifecycle.py",
+        "06-cloud-exact-nested-ownership-lifecycle.py",
+        "06-cloud-owner.py",
+        "06-cloud-ownership-lifecycle.py",
+        "07-payload",
+        "20-critical-receipt",
+        "90-before-stop",
+        "91-stop-exact",
+        "92-after-stop",
+        "93-usage-after"
+      ],
+      "exact_stop": true,
+      "server_empty_observed": true,
+      "usage_zero_observed": true,
+      "real_failed_child_cleanup": null
+    },
+    {
+      "fault": "upload-child-failure",
+      "status": "BLOCKED",
+      "original_error": {
+        "type": "RuntimeError",
+        "message": "CLI_STEP_BLOCKED:06-cloud-exact-nested-allocation_transport.py"
+      },
+      "allocation_epoch": 1000.0,
+      "allocation_attempts": 1,
+      "command_labels": [
+        "01-sessions-before",
+        "02-usage-before",
+        "03-one-allocation",
+        "04-sessions-after",
+        "05-readiness",
+        "06-cloud-deep-other-three.py",
+        "06-cloud-deep-shared-one.py",
+        "06-cloud-deep-shared-two.py",
+        "06-cloud-exact-nested-allocation_transport.py",
+        "20-critical-receipt",
+        "90-before-stop",
+        "91-stop-exact",
+        "92-after-stop",
+        "93-usage-after"
+      ],
+      "exact_stop": true,
+      "server_empty_observed": true,
+      "usage_zero_observed": true,
+      "real_failed_child_cleanup": {
+        "status": "NO_CLEANUP_ERRORS",
+        "groups": [
+          {
+            "pid": 6823,
+            "pgid": 6823,
+            "started_at": "2026-10-11T07:20:21.897259+00:00",
+            "status": "CLEANUP_VERIFIED",
+            "errors": [],
+            "signals": [
+              {
+                "signal": 15,
+                "result": "NO_SUCH_GROUP"
+              },
+              {
+                "signal": 9,
+                "result": "NO_SUCH_GROUP"
+              }
+            ],
+            "group_absence": "OBSERVED_NO_SUCH_GROUP",
+            "leader_reaped": true,
+            "ended_at": "2026-10-11T07:20:21.897298+00:00",
+            "exit_status": 17
+          }
+        ],
+        "errors": [],
+        "restoration": {
+          "handlers_restored": true,
+          "timer_restored": true,
+          "state": "RESTORATION_ATTEMPTED",
+          "previous_timer": [
+            0.0,
+            0.0
+          ],
+          "timer_policy": "PAUSE_AND_RESTORE_CAPTURED_TIMER"
+        },
+        "guard_original_outcome": {
+          "status": "COMPLETED",
+          "error": null
+        }
+      }
+    },
+    {
+      "fault": "expired-before-readiness",
+      "status": "BLOCKED",
+      "original_error": {
+        "type": "TimeoutError",
+        "message": "TOTAL_LIFECYCLE_RESERVE"
+      },
+      "allocation_epoch": 1000.0,
+      "allocation_attempts": 1,
+      "command_labels": [
+        "01-sessions-before",
+        "02-usage-before",
+        "03-one-allocation",
+        "04-sessions-after",
+        "20-critical-receipt",
+        "90-before-stop",
+        "91-stop-exact",
+        "92-after-stop",
+        "93-usage-after"
+      ],
+      "exact_stop": true,
+      "server_empty_observed": true,
+      "usage_zero_observed": true,
+      "real_failed_child_cleanup": null
+    },
+    {
+      "fault": "expired-after-readiness",
+      "status": "BLOCKED",
+      "original_error": {
+        "type": "TimeoutError",
+        "message": "TOTAL_LIFECYCLE_RESERVE"
+      },
+      "allocation_epoch": 1000.0,
+      "allocation_attempts": 1,
+      "command_labels": [
+        "01-sessions-before",
+        "02-usage-before",
+        "03-one-allocation",
+        "04-sessions-after",
+        "05-readiness",
+        "20-critical-receipt",
+        "90-before-stop",
+        "91-stop-exact",
+        "92-after-stop",
+        "93-usage-after"
+      ],
+      "exact_stop": true,
+      "server_empty_observed": true,
+      "usage_zero_observed": true,
+      "real_failed_child_cleanup": null
+    }
+  ],
+  "fixtures_deleted_by_teardown": true
+}

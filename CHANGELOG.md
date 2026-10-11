@@ -1,5 +1,17 @@
 # Change log
 
+## 2026-10-11 — Complete remote control source parents
+
+- Derive remote parent directories and uploads from the same admitted source map.
+- Reject invalid paths, files, and symbolic links before source upload.
+- Require one exact final completion record with its nonce and directory list.
+- Add durable parent controls and repair the existing CLI test callback.
+
+Validation: Independent candidate replay passed 42 tests.
+Another 21 controls passed against the current 42-source canonical inventory.
+Scientific criteria, original deadlines, and cleanup requirements remain unchanged.
+Refer to [the preparation record](docs/changes/cloud-control-parents.md).
+
 ## 2026-10-11 — Exact nested kernel completion
 
 - Suppress bytecode before interactive imports and in inherited child processes.

@@ -1,0 +1,9 @@
+{
+  "exit_code": 0,
+  "expected_controls": 42,
+  "baseline_stale_callback": false,
+  "fixtures_deleted": true,
+  "cloud_source_tree_unchanged": true,
+  "provider_calls": 0,
+  "science": "NOT_RUN"
+}

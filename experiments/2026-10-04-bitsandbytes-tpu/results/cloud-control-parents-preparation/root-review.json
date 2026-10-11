@@ -1,0 +1,22 @@
+{
+  "STE_dictionary_review": "INCOMPLETE",
+  "actual_PUBLIC_replay": "NOT_RUN",
+  "additional_current_canonical_parent_controls": 21,
+  "candidate_admitted_source_inventory": 41,
+  "changed_production_files": [
+    "cloud/owner.py"
+  ],
+  "changed_tests": [
+    "cloud/tests/test_control_parents.py",
+    "cloud/tests/test_owner_cli.py"
+  ],
+  "criteria_changes": 0,
+  "current_admitted_source_inventory": 42,
+  "fixtures_deleted": true,
+  "independent_candidate_tests": 42,
+  "inventory_difference": "M4 kernel helper was adopted after the transport candidate was copied. Current-source generated readiness also passed.",
+  "owner_sha256": "48e70ba117419d1bdf4dda39f171f6e4d8e98d8220bd86d948351fbecc7c8aa9",
+  "provider_calls": 0,
+  "source_commit_before_adoption": "ea539a9",
+  "status": "ROOT_REVIEW_AND_SOURCE_ADOPTION_PASS"
+}

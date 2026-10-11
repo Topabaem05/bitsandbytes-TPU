@@ -6,7 +6,8 @@ import importlib.util
 import json
 import math
 import os
-from pathlib import Path
+from pathlib import Path, PurePosixPath
+import secrets
 import signal
 import stat
 import sys
@@ -68,6 +69,78 @@ def clamp(started, limit, reserve, clock=None):
     if not math.isfinite(value) or value <= 0:
         raise TimeoutError('TOTAL_LIFECYCLE_RESERVE')
     return value
+
+
+def control_uploads(manifest, base):
+    """Use one admitted source map for both directory preparation and uploads."""
+    if (not isinstance(base, str) or not base.startswith('/') or
+            '\\' in base or str(PurePosixPath(base)) != base or
+            any(part in {'', '.', '..'} for part in base.split('/')[1:])):
+        raise ValueError('CONTROL_REMOTE_BASE_PATH')
+    uploads = []
+    for name in sorted(manifest['files']):
+        if ('\\' in name or PurePosixPath(name).is_absolute() or
+                str(PurePosixPath(name)) != name or
+                any(part in {'', '.', '..'} for part in name.split('/'))):
+            raise ValueError('CONTROL_SOURCE_PATH')
+        if not name.startswith('cloud/') or not name.endswith('.py'):
+            continue
+        uploads.append((name, base + '/control/' + name.removeprefix('cloud/')))
+    return uploads
+
+
+def control_readiness(base, uploads, nonce):
+    """Create and read back each required directory before any source upload."""
+    parents = {'control', 'control/ownership'}
+    for _, destination in uploads:
+        relative = PurePosixPath(destination).relative_to(base)
+        parents.update(str(parent) for parent in relative.parents if str(parent) != '.')
+    parents = sorted(parents, key=lambda name: (len(PurePosixPath(name).parts), name))
+    proof = {'status': 'CONTROL_PARENTS_READY', 'nonce': nonce, 'parents': parents}
+    code = ('from pathlib import Path\nimport json,platform,sys,os,stat\n'
+            f'b=Path({base!r}); parents={parents!r}\n'
+            'def directory(p):\n'
+            ' for ancestor in reversed((p,*p.parents)):\n'
+            '  mode=ancestor.lstat().st_mode\n'
+            '  if not stat.S_ISDIR(mode): raise ValueError("CONTROL_PARENT_NOT_DIRECTORY")\n'
+            'directory(b.parent)\n'
+            'try: b.lstat()\n'
+            'except FileNotFoundError: pass\n'
+            'else: raise ValueError("FRESH_REMOTE_ROOT_REQUIRED")\n'
+            'b.mkdir(mode=0o700)\n'
+            'for name in parents:\n'
+            ' p=b/name\n'
+            ' directory(p.parent)\n'
+            ' try: p.lstat()\n'
+            ' except FileNotFoundError: p.mkdir(mode=0o700)\n'
+            ' directory(p)\n'
+            'for name in parents: directory(b/name)\n'
+            'print(json.dumps({"python":platform.python_version(),"libc":platform.libc_ver(),"executable":sys.executable,"uid":os.getuid(),"gid":os.getgid(),"system":platform.system(),"machine":platform.machine(),"parents":parents}))\n'
+            f'print(json.dumps({proof!r},sort_keys=True))\n')
+    return code, proof
+
+
+def verify_control_readiness(text, expected):
+    def unique_fields(pairs):
+        result = {}
+        for key, value in pairs:
+            if key in result:
+                raise RuntimeError('CONTROL_PARENTS_NOT_PROVED')
+            result[key] = value
+        return result
+
+    records = []
+    for line in text.splitlines():
+        if not line.strip():
+            continue
+        try:
+            records.append(json.loads(line, object_pairs_hook=unique_fields))
+        except json.JSONDecodeError:
+            records.append(None)
+    completions = [r for r in records if isinstance(r, dict) and r.get('status') == 'CONTROL_PARENTS_READY']
+    if len(completions) == 1 and records[-1] == expected:
+        return records[-1]
+    raise RuntimeError('CONTROL_PARENTS_NOT_PROVED')
 
 
 def preflight(packet, expected):
@@ -201,6 +274,8 @@ def verify_result(out, receipt):
 
 def drive(packet, output, expected, acceptance, acceptance_sha, cli_python, cli_identity, *, api=None, simulated=False, browser_adoption=None, browser_adoption_sha256=None,mosaic_audit_python=None,public_runtime_wheels=None):
     manifest = preflight(packet, expected)
+    base = '/content/bnb-tpu-first'
+    admitted_uploads = control_uploads(manifest, base)
     if sha(acceptance) != acceptance_sha:
         raise PermissionError('ROOT_ACCEPTANCE_SHA')
     gate = json.loads(acceptance.read_text())
@@ -280,7 +355,6 @@ def drive(packet, output, expected, acceptance, acceptance_sha, cli_python, cli_
     if public:frontend=host_frontend_preflight(packet,mosaic_audit_python,output,native_source=packet/'public-baseline/experiments/2026-10-04-bitsandbytes-tpu/native')
     api = api or OfficialCLI(cli_python, output)
     session = adoption['session'] if adopting else 'bnb-tpu-first-' + datetime.now(timezone.utc).strftime('%Y%m%d-%H%M%S')
-    base = '/content/bnb-tpu-first'
     owner = {'status': 'RUNNING', 'mode': 'SIMULATED_NO_CLOUD' if simulated else 'ACTUAL_COLAB',
              'session': session, 'allocation_attempts': 0, 'commands': [], 'cleanup_errors': [],
              'packet_sha256': expected, 'budget': manifest['budget'], 'remote_base': base,
@@ -403,15 +477,12 @@ def drive(packet, output, expected, acceptance, acceptance_sha, cli_python, cli_
             durable_json(output/'owner.json',owner)
         elif '['+session+']' not in text or 'Hardware: V6E1' not in text:
             raise RuntimeError('OWNED_V6E1_NOT_OBSERVED')
-        readiness = ('from pathlib import Path\nimport json,platform,sys,os\n'
-                     f'b=Path({base!r})\n'
-                     'if b.exists() or b.is_symlink(): raise ValueError("FRESH_REMOTE_ROOT_REQUIRED")\n'
-                     'b.mkdir(mode=0o700); (b/"control/ownership").mkdir(parents=True)\n'
-                     'print(json.dumps({"python":platform.python_version(),"libc":platform.libc_ver(),"executable":sys.executable,"uid":os.getuid(),"gid":os.getgid(),"system":platform.system(),"machine":platform.machine(),"parents":["control","control/ownership"]}))\n')
+        readiness, readiness_proof = control_readiness(base, admitted_uploads, secrets.token_hex(32))
         owner['kernel_readiness_stdout'] = kernel('05-readiness', readiness, 30)
-        for name in sorted(manifest['files']):
-            if name.startswith('cloud/') and name.endswith('.py'):
-                upload('06-' + name.replace('/', '-'), packet / name, base + '/control/' + name.removeprefix('cloud/'))
+        owner['control_parents_readback'] = verify_control_readiness(owner['kernel_readiness_stdout'], readiness_proof)
+        durable_json(output / 'owner.json', owner)
+        for name, destination in admitted_uploads:
+            upload('06-' + name.replace('/', '-'), packet / name, destination)
         upload('07-payload', packet / 'payload.zip', base + '/payload.zip')
         operation('08-unpack', 'unpack', 60)
         operation('09-install', 'install', 1200)

@@ -21,7 +21,8 @@ def run_cli(path, status, tmp_path, monkeypatch, capsys):
     monkeypatch.setattr(sys,'argv',[str(path),'--packet',str(tmp_path/'packet'),'--packet-sha256','a'*64,
         '--output',str(tmp_path/'output'),'--root-acceptance',str(tmp_path/'acceptance'),
         '--root-acceptance-sha256','b'*64,'--cli-python',str(tmp_path/'python'),'--cli-identity',str(tmp_path/'identity')])
-    def drive(*args):
+    def drive(*args, **kwargs):
+        assert kwargs == {'mosaic_audit_python': None, 'public_runtime_wheels': None}
         calls.append(args)
         return {'status':status,'mode':'SYNTHETIC_CLI_RESULT_NO_SERVICE'}
     def trace(frame,event,arg):
