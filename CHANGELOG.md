@@ -1,5 +1,18 @@
 # Change log
 
+## 2026-10-11 — Exact nested kernel completion
+
+- Suppress bytecode before interactive imports and in inherited child processes.
+- Bind each completed phase to its source, packet, nonce, and independent artifact readback.
+- Preserve the fresh experiment directory during browser marker verification.
+- Recover initialization diagnostics before exact runtime closure.
+
+Validation: The reviewer passed 29 kernel controls, 11 integration controls, and 24 CLI controls.
+Driver tests covered the original nine and 14 additional scenarios.
+Nine isolated adoption controls passed; all 146 source files matched after seven reviewed changes.
+The 19 scientific members remain unchanged; actual CPU79 and TPU79/state8 still require execution.
+Refer to [the preparation record](docs/changes/r4-kernel-completion-v3.md).
+
 ## 2026-10-11 — Public source upload failure and disposal
 
 - Record the missing remote source directory before numerical execution.

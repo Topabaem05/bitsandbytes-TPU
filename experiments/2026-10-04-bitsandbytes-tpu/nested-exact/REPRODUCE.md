@@ -212,3 +212,27 @@ After complete host byte readback, the driver deletes transfer parts and remote 
 Closure requires an exact-session stop, an empty server listing, one parsed `Active assignments: 0` row, one parsed zero `Usage rate` row, no cleanup errors, and elapsed allocation time no greater than 3,600 seconds. CLI exit zero alone is insufficient. A failed closure is `BLOCKED_CLEANUP`. Signals trigger bounded exact-session cleanup. Keep the actual owner and child closure records with the private result.
 
 After local reviews, keep only the compact review JSON, source hashes, required diagnostic evidence, and the reviewed source bundle. Remove generated packets, restored historical data, checkpoints, graph fixtures, and transfer parts. The supplied controls already remove their disposable fixture bodies.
+
+## Interactive-kernel correction v3
+
+Read `KERNEL_COMPLETION_V3.md`.
+The adopted v2 source and failed allocation remain historical.
+The original `materialize.py` copies the complete closure into a fresh checkout.
+For an adopted v2 tree, use the reviewed bundle's `adopt_source_v3.py` and pinned preimage adoption manifest.
+Run `--check-only` before applying changes.
+The adopter rejects unreviewed old bytes.
+
+Build a fresh packet with `cloud/exact-nested/build_packet.py` and a genuine root source review record.
+The complete physical envelope must include `control/kernel_protocol.py`.
+Never delete bytecode from the failed payload to requalify it.
+
+Run `cloud/exact-nested/tests/kernel_controls.py --output <fresh-directory>` with the existing Python and `-B`.
+Run `cloud/exact-nested/tests/driver_controls.py --output <fresh-directory> --kernel-v3-extra` the same way.
+Kernel fixtures deliberately start with bytecode writing enabled.
+The submitted prefix must suppress bytecode before sealed imports.
+Run the original integration11 and installed CLI24 commands above.
+These fixtures delete their generated bodies after compact results are recorded.
+
+Rebuild all packet, driver, dispatch, and browser adoption bindings after source review.
+Preserve the original allocation birth, deadline, and reserves.
+Science19 and actual79/state8 root acceptance schemas remain unchanged.

@@ -9,13 +9,17 @@
       "bytes": 1395,
       "sha256": "bab26a562eb73412b13492bcb13dab5b2f1e88168522d59cfc391479af34336a"
     },
+    "KERNEL_COMPLETION_V3.md": {
+      "bytes": 3665,
+      "sha256": "3ca3eaf1200f86afcd540327511ee33c9cd63c9b58b79e352c7ee25fe7daf419"
+    },
     "README.md": {
       "bytes": 1905,
       "sha256": "2bb11d959a412d1137ea4058bbda5cf05c0964c5e9ed1902fdde0dc0e92563e1"
     },
     "REPRODUCE.md": {
-      "bytes": 15876,
-      "sha256": "f37157f7f63bb66cc38c6a9366affca0c8f4ff768ce8ff0d1e241dd17e63e448"
+      "bytes": 17257,
+      "sha256": "66b15c7f17b9d8840b9cfa75b8485bf4cc323795db232acb10c24e648881fab6"
     },
     "integration/SOURCE_BASIS.json": {
       "bytes": 8998,
@@ -486,6 +490,6 @@
       "sha256": "dbebb2306db9e2e25c6a76c28d13c898e060006ec67254842e70732985dd8846"
     }
   },
-  "kind": "M4_PORTABLE_SOURCE_CLOSURE_V2_CLI_ADMISSION",
+  "kind": "M4_PORTABLE_SOURCE_CLOSURE_V3_KERNEL_COMPLETION",
   "science_manifest_sha256": "9e71efc73b0f2b3a210f8131c10972569a5e2d04cf298fcf5a8da59772cf4f5a"
 }

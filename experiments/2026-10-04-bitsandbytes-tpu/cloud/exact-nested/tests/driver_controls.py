@@ -3,12 +3,12 @@
 All receipts, source reviews, acceptances and audit results here are synthetic protocol
 fixtures. No science verifier is replaced in a real run. No provider call is made.
 """
-import argparse,copy,json,shutil,sys,tempfile,time,types,unittest
+import argparse,ast,copy,json,shutil,sys,tempfile,time,types,unittest
 from pathlib import Path
 from unittest.mock import patch
 HERE=Path(__file__).resolve().parents[1];sys.path.insert(0,str(HERE))
-import contract as C,driver as D,remote as R,build_packet as B,transport
-p=argparse.ArgumentParser();p.add_argument('--output',type=Path,required=True);a=p.parse_args();a.output.mkdir(parents=True,exist_ok=False);reports=[]
+import contract as C,driver as D,remote as R,build_packet as B,transport,kernel_protocol as K
+p=argparse.ArgumentParser();p.add_argument('--output',type=Path,required=True);p.add_argument('--kernel-v3-extra',action='store_true');a=p.parse_args();a.output.mkdir(parents=True,exist_ok=False);reports=[]
 
 def acceptance(packet_sha,records):
  return {'kind':'ROOT_NESTED_EXACT79_DEVICE_ACCEPTANCE','status':'ACCEPTED_NESTED_EXACT79_DEVICE_RECORDS','record_validation':'PASS','numerical_status':'PASS','case_count':79,'source_variant':'nested-exact-v1','source_admission_sha256':C.ADMISSION_SHA,'integration_map_sha256':C.MAP_SHA,'science_map_sha256':C.SCIENCE_SHA,'inputs_sha256':'b7490f4c622aef793d14bd9a7a38727754cb1fb8e6e1dec7ff91ef8c45fbafbc','profile_sha256':'ad53f6416bdabf6440f08b313963c947a468cd39afd413bfe41bb381c4a7a166','runtime_lock_sha256':'323371ff61c5fbcc4f79fd6a358cf2ba17cb72b907382a5ceaac07f91dc66ed6','saved_state_status':'NOT_RUN','m4_status':'NOT_QUALIFIED','packet_sha256':packet_sha,'actual_receipt_sha256':C.sha(records/'device79/receipt.json'),'fresh_cpu_oracle_sha256':C.sha(records/'cpu79/oracle-seal.json'),'fixture_only':True}
@@ -41,13 +41,13 @@ def run_case(scenario,packet,packet_zip,packet_sha):
      if not(scenario=='missing_state_audit'and relative=='records/state-cpu-launch-audit.json'):shutil.copyfile(src,dest)
      else:events.append('fixture-dropped-state-cpu-audit')
     elif argv[0]=='download':
-     relative=argv[-2].split('content/m4-exact-fixture-session/',1)[1];shutil.copyfile(server/relative,argv[-1])
+     remote=argv[-2];relative=remote.split('content/m4-exact-fixture-session/',1)[1]if'content/m4-exact-fixture-session/'in remote else'kernel-completions/'+remote.split('content/m4-exact-fixture-session-kernel-completions/',1)[1];shutil.copyfile(server/relative,argv[-1])
     elif argv[0]=='exec':
      source=Path(argv[-1]);stem=source.stem
      if stem=='readiness':(server/'control/ownership').mkdir(parents=True)
      elif stem.startswith('remote-'):
       phase=stem.removeprefix('remote-');events.append('remote:'+phase)
-      if phase=='install':pass
+      if phase=='install':C.write(server/'records/phase.json',{'phase':'install','packet_sha256':packet_sha,'allocation_epoch':C.read(out/'driver.json')['allocation_epoch'],'status':'TERMINAL_LOCAL_REVIEW_REQUIRED'})
       else:
        args=types.SimpleNamespace(command=phase,base=server,allocation_epoch=C.read(out/'driver.json')['allocation_epoch'],packet_sha256=packet_sha)
        with patch.object(R,'run_step',science_step):R.operation(args)
@@ -57,6 +57,19 @@ def run_case(scenario,packet,packet_zip,packet_sha):
      elif stem.startswith('dispose-'):
       label2='recovery-'+stem.removeprefix('dispose-');(server/(label2+'.zip')).unlink();shutil.rmtree(server/(label2+'-parts'));(server/(label2+'-export.json')).unlink()
      else:raise ValueError('UNEXPECTED_FAKE_KERNEL:'+stem)
+     if rec['status']=='PASS':
+      request=next(ast.literal_eval(n.value)for n in ast.parse(source.read_text()).body if isinstance(n,ast.Assign)and any(isinstance(t,ast.Name)and t.id=='_m4kv3_request'for t in n.targets))
+      receipt={**request,'status':'COMPLETED','artifact':None}
+      if request['artifact_path']is not None:
+       relative=request['artifact_path'].split('/content/m4-exact-fixture-session/',1)[1];receipt['artifact']=K.row(server/relative)
+      relative='kernel-completions/'+request['completion_path'].split('/content/m4-exact-fixture-session-kernel-completions/',1)[1];path=server/relative;C.write(path,receipt)
+      text=K.VERSION+' '+json.dumps({'nonce':request['nonce'],'phase':request['phase'],'admitted_source_sha256':request['admitted_source_sha256'],'readback_sha256':C.sha(path)},sort_keys=True)+'\n'
+      if stem=='remote-install':
+       if scenario=='kernel_error_cli_zero':text='ValueError: synthetic interactive kernel failure\n'
+       elif scenario=='marker_followed_error':text+='ValueError: synthetic error after marker\n'
+       elif scenario=='duplicate_marker':text+=text
+       elif scenario=='wrong_nonce_marker':text=text.replace(request['nonce'],'f'*32 if request['nonce']!='f'*32 else'e'*32)
+       elif scenario=='wrong_kernel_artifact':C.write(server/'records/phase.json',{'fixture_only':'changed after completion'})
     else:raise ValueError('UNEXPECTED_FAKE_CLI:'+str(argv))
     if scenario=='usage_not_zero'and self.stopped and argv[0]=='usage':text='Active assignments: 0\nUsage rate: 0.10/hr\n'
     return rec,text
@@ -101,4 +114,10 @@ class Controls(unittest.TestCase):
   r=self.case('usage_not_zero');self.assertIsNone(r['error']);self.assertFalse(r['usage_zero_observed']);self.assertEqual(r['driver_status'],'BLOCKED_CLEANUP')
   for text in('Active assignments: 01\nUsage rate: 0.00/hr','Active assignments: 0\nUsage rate: 0.10/hr','Active assignments: 0\nUsage rate: 0.00/hr\nUsage rate: 2.00/hr','command exit: 0'):
    self.assertFalse(D.usage_zero(text)['zero_observed'])
+if a.kernel_v3_extra:
+ def kernel_errors_stop_before_science_and_recover_before_closure(self):
+  for name in ('kernel_error_cli_zero','marker_followed_error','duplicate_marker','wrong_nonce_marker','wrong_kernel_artifact'):
+   with self.subTest(name=name):
+    r=self.case(name);self.assertIsNotNone(r['error']);self.assertEqual(r['science'],[]);self.assertIn('recover:install',r['events']);self.assertLess(r['events'].index('recover:install'),r['events'].index('cli:stop'));self.assertTrue(r['usage_zero_observed'])
+ Controls.test_06_cli_zero_kernel_errors_stop_before_science_and_attempt_diagnostic_recovery=kernel_errors_stop_before_science_and_recover_before_closure
 result=unittest.TextTestRunner(verbosity=2).run(unittest.defaultTestLoader.loadTestsFromTestCase(Controls));C.write(a.output/'review.json',{'status':'PASS'if result.wasSuccessful()else'FAIL','tests_run':result.testsRun,'scenario_count':len(reports),'shared_packet_disposed':Controls.shared_disposed,'disposable_bytes_before':sum(r['disposable_bytes_before']for r in reports)+Controls.shared_disposed['bytes'],'disposable_files_before':sum(r['disposable_files_before']for r in reports)+Controls.shared_disposed['files'],'failures':len(result.failures),'errors':len(result.errors),'controls':reports,'disposable_fixture_roots_absent':not any(p.is_dir()for p in a.output.iterdir()),'TPU':'NOT_RUN','provider_calls':0,'m4_status':'NOT_QUALIFIED'});raise SystemExit(0 if result.wasSuccessful()else 1)

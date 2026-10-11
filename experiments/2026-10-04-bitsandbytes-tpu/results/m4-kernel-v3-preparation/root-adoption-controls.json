@@ -1,0 +1,104 @@
+{
+  "TPU": "NOT_RUN",
+  "cleanup": {
+    "bytes": 17404544,
+    "bytes_after": 0,
+    "files": 292,
+    "inventory_sha256": "745a314a26ce964b42be142eccd1a98b9c5685513b8ee2412b398e0dde825d1c",
+    "root": "/private/tmp/bnb-tpu-root-m4-v3-adoption-review-20261011/m4-adoption-v3-etii3zyk",
+    "root_absent": true
+  },
+  "control_count": 9,
+  "controls": [
+    {
+      "case": "original-materializer-complete146-fresh-check",
+      "result": {
+        "TPU": "NOT_RUN",
+        "canonical_replacements": 0,
+        "created_files": 0,
+        "kind": "M4_ADDITIVE_MATERIALIZATION",
+        "members": 146,
+        "provider_calls": 0,
+        "science_manifest_sha256": "9e71efc73b0f2b3a210f8131c10972569a5e2d04cf298fcf5a8da59772cf4f5a",
+        "status": "CHECK_PASS"
+      },
+      "status": "PASS"
+    },
+    {
+      "case": "original-materializer-complete146-fresh-readback",
+      "result": {
+        "TPU": "NOT_RUN",
+        "canonical_replacements": 0,
+        "created_files": 146,
+        "kind": "M4_ADDITIVE_MATERIALIZATION",
+        "members": 146,
+        "provider_calls": 0,
+        "science_manifest_sha256": "9e71efc73b0f2b3a210f8131c10972569a5e2d04cf298fcf5a8da59772cf4f5a",
+        "status": "ADOPTION_READBACK_PASS"
+      },
+      "status": "PASS"
+    },
+    {
+      "case": "v3-full-closure-idempotent",
+      "result": {
+        "TPU": "NOT_RUN",
+        "changed_or_added_files": 0,
+        "kind": "M4_KERNEL_V3_EXACT_PREIMAGE_ADOPTION_RESULT",
+        "members": 146,
+        "provider_calls": 0,
+        "science_manifest_sha256": "9e71efc73b0f2b3a210f8131c10972569a5e2d04cf298fcf5a8da59772cf4f5a",
+        "status": "ADOPTION_READBACK_PASS"
+      },
+      "status": "PASS"
+    },
+    {
+      "case": "wrong-manifest-hash",
+      "rejected": "MANIFEST_SHA",
+      "status": "PASS"
+    },
+    {
+      "case": "wrong-preimage-rejected-before-any-copy",
+      "rejected": "PREIMAGE_BYTES",
+      "status": "PASS"
+    },
+    {
+      "case": "missing-pinned-preimage",
+      "rejected": "PREIMAGE_MISSING",
+      "status": "PASS"
+    },
+    {
+      "case": "destination-symlink",
+      "rejected": "DESTINATION_SYMLINK",
+      "status": "PASS"
+    },
+    {
+      "case": "pinned-baseline146-check7-changes",
+      "result": {
+        "TPU": "NOT_RUN",
+        "changed_or_added_files": 7,
+        "kind": "M4_KERNEL_V3_EXACT_PREIMAGE_ADOPTION_RESULT",
+        "members": 146,
+        "provider_calls": 0,
+        "science_manifest_sha256": "9e71efc73b0f2b3a210f8131c10972569a5e2d04cf298fcf5a8da59772cf4f5a",
+        "status": "CHECK_PASS"
+      },
+      "status": "PASS"
+    },
+    {
+      "case": "pinned-baseline146-apply-readback",
+      "result": {
+        "TPU": "NOT_RUN",
+        "changed_or_added_files": 7,
+        "kind": "M4_KERNEL_V3_EXACT_PREIMAGE_ADOPTION_RESULT",
+        "members": 146,
+        "provider_calls": 0,
+        "science_manifest_sha256": "9e71efc73b0f2b3a210f8131c10972569a5e2d04cf298fcf5a8da59772cf4f5a",
+        "status": "ADOPTION_READBACK_PASS"
+      },
+      "status": "PASS"
+    }
+  ],
+  "manifest_sha256": "0a08456b4e826778795ae8cf986149bba92647ae102f70e84c794324649d0ebe",
+  "provider_calls": 0,
+  "status": "PASS"
+}

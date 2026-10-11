@@ -1,0 +1,139 @@
+{
+  "CLI_commands_executed": 0,
+  "actual_identity": {
+    "identity_sha256": "d4134c308a86024c78262a402aea4fb0fb2ebf8ecbf99dd16d45305f170aaaf9",
+    "identity_unchanged": true,
+    "python": "/Users/topamini/code/Post2TPU/.runtime/cloud-cli/bin/python",
+    "resolved_python": "/Users/topamini/code/dense_to_diffuision/.runtime/python/cpython-3.12.14-macos-aarch64-none/bin/python3.12",
+    "resolved_python_sha256": "042454a41d6c32f2be126c4bbae2a4b8a54488c66f4b07379cd24dee75f93abb"
+  },
+  "cli_transport_sha256": "56f173f3a65dddcf68c548982b8f879173fceff65a1ddcf82a6791d8c578eb2a",
+  "controls": [
+    {
+      "case": "correct-symlink-interpreter-original-environment",
+      "status": "PASS"
+    },
+    {
+      "case": "alternative-correct-regular-interpreter",
+      "status": "PASS"
+    },
+    {
+      "case": "invocation-keeps-original-venv-path",
+      "status": "PASS"
+    },
+    {
+      "case": "wrong-resolved-interpreter",
+      "rejected": "CLI_INTERPRETER_OR_DISTRIBUTION_SHA",
+      "status": "PASS"
+    },
+    {
+      "case": "wrong-interpreter-identity-pin",
+      "rejected": "CLI_INTERPRETER_OR_DISTRIBUTION_SHA",
+      "status": "PASS"
+    },
+    {
+      "case": "wrong-venv-config",
+      "rejected": "CLI_INTERPRETER_OR_DISTRIBUTION_SHA",
+      "status": "PASS"
+    },
+    {
+      "case": "wrong-metadata",
+      "rejected": "CLI_INTERPRETER_OR_DISTRIBUTION_SHA",
+      "status": "PASS"
+    },
+    {
+      "case": "wrong-wheel-record",
+      "rejected": "CLI_INTERPRETER_OR_DISTRIBUTION_SHA",
+      "status": "PASS"
+    },
+    {
+      "case": "wrong-source-file",
+      "rejected": "CLI_SOURCE_SHA",
+      "status": "PASS"
+    },
+    {
+      "case": "extra-cli-source",
+      "rejected": "CLI_SOURCE_INVENTORY",
+      "status": "PASS"
+    },
+    {
+      "case": "missing-cli-source",
+      "rejected": "CLI_SOURCE_INVENTORY",
+      "status": "PASS"
+    },
+    {
+      "case": "foreign-environment-even-same-interpreter-bytes",
+      "rejected": "CLI_INTERPRETER_OR_DISTRIBUTION_SHA",
+      "status": "PASS"
+    },
+    {
+      "case": "symlink-escape-source-file",
+      "rejected": "CLI_ENVIRONMENT_SYMLINK",
+      "status": "PASS"
+    },
+    {
+      "case": "symlink-escape-source-parent",
+      "rejected": "CLI_SOURCE_INVENTORY",
+      "status": "PASS"
+    },
+    {
+      "case": "symlink-escape-package-root",
+      "rejected": "CLI_ENVIRONMENT_SYMLINK",
+      "status": "PASS"
+    },
+    {
+      "case": "symlink-escape-metadata-parent",
+      "rejected": "CLI_ENVIRONMENT_SYMLINK",
+      "status": "PASS"
+    },
+    {
+      "case": "symlink-escape-site-parent",
+      "rejected": "CLI_ENVIRONMENT_SYMLINK",
+      "status": "PASS"
+    },
+    {
+      "case": "symlink-escape-bin-parent",
+      "rejected": "CLI_ENVIRONMENT_SYMLINK",
+      "status": "PASS"
+    },
+    {
+      "case": "symlink-environment-root",
+      "rejected": "CLI_ENVIRONMENT_SYMLINK",
+      "status": "PASS"
+    },
+    {
+      "case": "broken-interpreter-link",
+      "rejected": "[Errno 2] No such file or directory: '/private/var/folders/5g/bhl5x7q93yvcfj2zngh_jg680000gn/T/bnb-m4-cli-identity-diq83jnt/absent'",
+      "status": "PASS"
+    },
+    {
+      "case": "interpreter-resolves-directory",
+      "rejected": "REGULAR_FILE",
+      "status": "PASS"
+    },
+    {
+      "case": "correct-fixture-restored",
+      "status": "PASS"
+    },
+    {
+      "case": "actual-installed-read-only-symlink-cli-identity",
+      "status": "PASS"
+    },
+    {
+      "case": "actual-installed-wrong-interpreter-pin-rejected",
+      "rejected": "CLI_INTERPRETER_OR_DISTRIBUTION_SHA",
+      "status": "PASS"
+    }
+  ],
+  "controls_count": 24,
+  "disposal": {
+    "bytes_before": 457,
+    "directory_exists_after": false,
+    "fixture_bytes_after": 0,
+    "regular_files_before": 14,
+    "temporary_directory": "/var/folders/5g/bhl5x7q93yvcfj2zngh_jg680000gn/T/bnb-m4-cli-identity-diq83jnt"
+  },
+  "m4_status": "NOT_QUALIFIED",
+  "provider_calls": 0,
+  "status": "PASS"
+}

@@ -1,0 +1,47 @@
+{
+  "STE_dictionary_review": "INCOMPLETE",
+  "actual_science": "NOT_RUN",
+  "adoption_manifest_sha256": "1b4dec522c9784d87244d68b359a5b04ef61e247969b7356a15af54b3802b6c8",
+  "adoption_result": {
+    "TPU": "NOT_RUN",
+    "changed_or_added_files": 7,
+    "kind": "M4_KERNEL_V3_EXACT_PREIMAGE_ADOPTION_RESULT",
+    "members": 146,
+    "provider_calls": 0,
+    "science_manifest_sha256": "9e71efc73b0f2b3a210f8131c10972569a5e2d04cf298fcf5a8da59772cf4f5a",
+    "status": "ADOPTION_READBACK_PASS"
+  },
+  "archive_members": 166,
+  "archive_sha256": "eeed09913a79b340b1fbd851edf7cfaac4ed7f6ea2c170bf23b6f2dbaf4e8519",
+  "changed_canonical_files": [
+    "experiments/2026-10-04-bitsandbytes-tpu/cloud/exact-nested/driver.py",
+    "experiments/2026-10-04-bitsandbytes-tpu/cloud/exact-nested/kernel_protocol.py",
+    "experiments/2026-10-04-bitsandbytes-tpu/cloud/exact-nested/tests/driver_controls.py",
+    "experiments/2026-10-04-bitsandbytes-tpu/cloud/exact-nested/tests/kernel_controls.py",
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/KERNEL_COMPLETION_V3.md",
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/REPRODUCE.md",
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/portable-source-map.json"
+  ],
+  "doc_only_refresh_vs_prior_candidate": [
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/KERNEL_COMPLETION_V3.md",
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/REPRODUCE.md",
+    "experiments/2026-10-04-bitsandbytes-tpu/nested-exact/portable-source-map.json"
+  ],
+  "m4_status": "NOT_QUALIFIED",
+  "portable_members": 146,
+  "provider_calls": 0,
+  "root_independent_checks": {
+    "CLI": 24,
+    "driver_scenarios": 9,
+    "driver_tests": 5,
+    "extra_driver_scenarios": 14,
+    "extra_driver_tests": 6,
+    "integration": 11,
+    "isolated_adoption": 9,
+    "kernel": 29
+  },
+  "science_manifest_sha256": "9e71efc73b0f2b3a210f8131c10972569a5e2d04cf298fcf5a8da59772cf4f5a",
+  "seal_sha256": "4121080f8c96b56b9ffa778ef39f8a9b9dca3c1209a5e4fc76a3483f25ae15a6",
+  "status": "ROOT_SOURCE_AND_ADOPTION_PASS",
+  "unchanged_python_files_vs_tested_candidate": 110
+}

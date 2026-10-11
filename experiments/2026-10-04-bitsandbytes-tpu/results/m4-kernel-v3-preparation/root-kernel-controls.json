@@ -1,0 +1,304 @@
+{
+  "TPU": "NOT_RUN",
+  "control_count": 29,
+  "controls": [
+    {
+      "case": "old-kernel-reproduces-bytecode",
+      "fixture_only": true,
+      "initial_bytecode_disabled": false,
+      "observed_error": {
+        "message": "BYTECODE",
+        "type": "ValueError"
+      },
+      "owned_closure": {
+        "errors": [],
+        "groups": [
+          {
+            "ended_at": "2026-10-11T06:57:21.850293+00:00",
+            "errors": [],
+            "exit_status": 0,
+            "group_absence": "OBSERVED_NO_SUCH_GROUP",
+            "leader_reaped": true,
+            "pgid": 99772,
+            "pid": 99772,
+            "signals": [
+              {
+                "result": "NO_SUCH_GROUP",
+                "signal": 15
+              },
+              {
+                "result": "NO_SUCH_GROUP",
+                "signal": 9
+              }
+            ],
+            "started_at": "2026-10-11T06:57:21.850246+00:00",
+            "status": "CLEANUP_VERIFIED"
+          }
+        ],
+        "guard_original_outcome": {
+          "error": null,
+          "status": "COMPLETED"
+        },
+        "restoration": {
+          "handlers_restored": true,
+          "previous_timer": [
+            0.0,
+            0.0
+          ],
+          "state": "RESTORATION_ATTEMPTED",
+          "timer_policy": "PAUSE_AND_RESTORE_CAPTURED_TIMER",
+          "timer_restored": true
+        },
+        "status": "NO_CLEANUP_ERRORS"
+      },
+      "phase_count": 2,
+      "sealed_pyc_count": 6,
+      "status": "PASS"
+    },
+    {
+      "case": "v3-unpack-readmit-childinherit-no-bytecode",
+      "fixture_only": true,
+      "initial_bytecode_disabled": false,
+      "observed_error": null,
+      "owned_closure": {
+        "errors": [],
+        "groups": [
+          {
+            "ended_at": "2026-10-11T06:57:22.032794+00:00",
+            "errors": [],
+            "exit_status": 0,
+            "group_absence": "OBSERVED_NO_SUCH_GROUP",
+            "leader_reaped": true,
+            "pgid": 99773,
+            "pid": 99773,
+            "signals": [
+              {
+                "result": "NO_SUCH_GROUP",
+                "signal": 15
+              },
+              {
+                "result": "NO_SUCH_GROUP",
+                "signal": 9
+              }
+            ],
+            "started_at": "2026-10-11T06:57:22.032755+00:00",
+            "status": "CLEANUP_VERIFIED"
+          }
+        ],
+        "guard_original_outcome": {
+          "error": null,
+          "status": "COMPLETED"
+        },
+        "restoration": {
+          "handlers_restored": true,
+          "previous_timer": [
+            0.0,
+            0.0
+          ],
+          "state": "RESTORATION_ATTEMPTED",
+          "timer_policy": "PAUSE_AND_RESTORE_CAPTURED_TIMER",
+          "timer_restored": true
+        },
+        "status": "NO_CLEANUP_ERRORS"
+      },
+      "phase_count": 3,
+      "sealed_pyc_count": 0,
+      "status": "PASS"
+    },
+    {
+      "case": "v3-stale-module-rejected",
+      "fixture_only": true,
+      "initial_bytecode_disabled": false,
+      "observed_error": {
+        "message": "KERNEL_STALE_MODULE:contract",
+        "type": "ValueError"
+      },
+      "owned_closure": {
+        "errors": [],
+        "groups": [
+          {
+            "ended_at": "2026-10-11T06:57:22.061712+00:00",
+            "errors": [],
+            "exit_status": 0,
+            "group_absence": "OBSERVED_NO_SUCH_GROUP",
+            "leader_reaped": true,
+            "pgid": 99777,
+            "pid": 99777,
+            "signals": [
+              {
+                "result": "NO_SUCH_GROUP",
+                "signal": 15
+              },
+              {
+                "result": "NO_SUCH_GROUP",
+                "signal": 9
+              }
+            ],
+            "started_at": "2026-10-11T06:57:22.061678+00:00",
+            "status": "CLEANUP_VERIFIED"
+          }
+        ],
+        "guard_original_outcome": {
+          "error": null,
+          "status": "COMPLETED"
+        },
+        "restoration": {
+          "handlers_restored": true,
+          "previous_timer": [
+            0.0,
+            0.0
+          ],
+          "state": "RESTORATION_ATTEMPTED",
+          "timer_policy": "PAUSE_AND_RESTORE_CAPTURED_TIMER",
+          "timer_restored": true
+        },
+        "status": "NO_CLEANUP_ERRORS"
+      },
+      "phase_count": 1,
+      "sealed_pyc_count": 0,
+      "status": "PASS"
+    },
+    {
+      "case": "browser-marker-completion-preserves-fresh-readiness-base",
+      "fixture_only": true,
+      "status": "PASS"
+    },
+    {
+      "case": "readiness-rejects-preexisting-experiment-base-without-success-marker",
+      "fixture_only": true,
+      "status": "PASS"
+    },
+    {
+      "case": "correct-marker-and-independent-artifact-readback",
+      "status": "PASS"
+    },
+    {
+      "case": "cli-zero-traceback-without-marker",
+      "rejected": "KERNEL_COMPLETION_LINE",
+      "status": "PASS"
+    },
+    {
+      "case": "duplicate-marker",
+      "rejected": "KERNEL_COMPLETION_LINE",
+      "status": "PASS"
+    },
+    {
+      "case": "marker-followed-error",
+      "rejected": "KERNEL_COMPLETION_LINE",
+      "status": "PASS"
+    },
+    {
+      "case": "marker-followed-output",
+      "rejected": "KERNEL_COMPLETION_LINE",
+      "status": "PASS"
+    },
+    {
+      "case": "malformed-marker-json",
+      "rejected": "KERNEL_MARKER_JSON",
+      "status": "PASS"
+    },
+    {
+      "case": "wrong-marker-nonce",
+      "rejected": "KERNEL_COMPLETION_BINDING",
+      "status": "PASS"
+    },
+    {
+      "case": "wrong-marker-phase",
+      "rejected": "KERNEL_COMPLETION_BINDING",
+      "status": "PASS"
+    },
+    {
+      "case": "wrong-marker-admitted_source_sha256",
+      "rejected": "KERNEL_COMPLETION_BINDING",
+      "status": "PASS"
+    },
+    {
+      "case": "stale-prior-request-marker",
+      "rejected": "KERNEL_COMPLETION_BINDING",
+      "status": "PASS"
+    },
+    {
+      "case": "missing-independent-completion-readback",
+      "rejected": "KERNEL_READBACK_REGULAR",
+      "status": "PASS"
+    },
+    {
+      "case": "altered-completion-readback",
+      "rejected": "KERNEL_COMPLETION_READBACK_SHA",
+      "status": "PASS"
+    },
+    {
+      "case": "altered-independent-artifact",
+      "rejected": "KERNEL_ARTIFACT_READBACK_SHA",
+      "status": "PASS"
+    },
+    {
+      "case": "missing-independent-artifact",
+      "rejected": "KERNEL_ARTIFACT_READBACK_SHA",
+      "status": "PASS"
+    },
+    {
+      "case": "wrong-body-source-before-submission",
+      "status": "PASS"
+    },
+    {
+      "case": "correct-cached-function-class-and-descriptor-code",
+      "status": "PASS"
+    },
+    {
+      "case": "same-path-stale-function-after-admitted-bytes-replaced",
+      "rejected": "KERNEL_STALE_MODULE_CODE:sealed_cache_fixture",
+      "status": "PASS"
+    },
+    {
+      "case": "same-path-stale-class-method-after-admitted-bytes-replaced",
+      "rejected": "KERNEL_STALE_MODULE_CODE:sealed_cache_fixture",
+      "status": "PASS"
+    },
+    {
+      "case": "same-path-stale-literal-global-after-admitted-bytes-replaced",
+      "rejected": "KERNEL_STALE_MODULE_CODE:sealed_cache_fixture",
+      "status": "PASS"
+    },
+    {
+      "case": "same-path-stale-positional-default-after-admitted-bytes-replaced",
+      "rejected": "KERNEL_STALE_MODULE_CODE:sealed_cache_fixture",
+      "status": "PASS"
+    },
+    {
+      "case": "same-path-stale-keyword-default-after-admitted-bytes-replaced",
+      "rejected": "KERNEL_STALE_MODULE_CODE:sealed_cache_fixture",
+      "status": "PASS"
+    },
+    {
+      "case": "correct-hash-wrong-completion-phase",
+      "rejected": "KERNEL_COMPLETION_READBACK_BINDING",
+      "status": "PASS"
+    },
+    {
+      "case": "correct-hash-noncompleted-status",
+      "rejected": "KERNEL_COMPLETION_READBACK_BINDING",
+      "status": "PASS"
+    },
+    {
+      "case": "duplicate-readback-json-field",
+      "rejected": "KERNEL_READBACK_DUPLICATE_JSON",
+      "status": "PASS"
+    }
+  ],
+  "disposable_fixture_inventory": [
+    {
+      "bytes": 28529603,
+      "files": 535,
+      "inventory_sha256": "24f934b5f27f4859cc066492af6f7c8aac2279b66da2d9b3b631c1e584a09256",
+      "root": "/private/tmp/bnb-tpu-root-m4-kernel-v3-controls-20261011/kernel-v3-fixtures-qryle36a"
+    }
+  ],
+  "disposable_roots_absent": true,
+  "driver_sha256": "30dbe9d3756825381fe6f1e9af34ec3f9bb944ab081a2fdd910bcd844a3f0b14",
+  "kernel_protocol_sha256": "e9c7a5b7b943cea08dfb8986205e47e008ceac37553a2f8576687527a58f9d5f",
+  "m4_status": "NOT_QUALIFIED",
+  "provider_calls": 0,
+  "science_manifest_sha256": "9e71efc73b0f2b3a210f8131c10972569a5e2d04cf298fcf5a8da59772cf4f5a",
+  "status": "PASS"
+}

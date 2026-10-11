@@ -1,0 +1,76 @@
+{
+  "TPU": "NOT_RUN",
+  "cleanup_verified": true,
+  "controls": [
+    {
+      "control": "COMPLETE_PACKET_FROZEN_19_SOURCES_PLUS48_AND11_CORRECT_WRONG",
+      "packet_bytes": 491705,
+      "packet_sha256": "448002d648a1fcc694baeed70dc636f4a0cf4e86825c175d554fc9fa1691b97b",
+      "scope": "OFFLINE_SOURCE_ONLY",
+      "status": "PASS"
+    },
+    {
+      "control": "ORIGINAL_BIRTH_DEADLINE_CLOSURE_STATE_RESERVE_FINITE_CORRECT_WRONG",
+      "status": "PASS"
+    },
+    {
+      "bytes": 1904,
+      "control": "WHOLE_ENVELOPE_SHA_MEMBERS_RECOVERY_HASH_PATH_FAILURE_DISPOSAL",
+      "members": 3,
+      "physical_bytes": 256355,
+      "sha256": "7deae92ebd6f462aeb280671bcc079e22c12c21523501eb73f8dc3e15c11a4cf",
+      "status": "PASS"
+    },
+    {
+      "control": "EXACT_96MIB_INNER_100MIB_OUTER_2000_MEMBERS_CORRECT_WRONG",
+      "status": "PASS"
+    },
+    {
+      "control": "OWNED_REAL_CHILD_CORRECT_WRONG_EXIT_REAP_GROUP_ABSENCE_AVX2_SINGLETHREAD_ENV",
+      "ownership_sha256": "1efa18fbca6e7bdbe19f781af23174099f4fb6c3b3f677749a2e5a9ab6838a74",
+      "status": "PASS"
+    },
+    {
+      "control": "ROOT_DISPATCH_GATE_CORRECT_WRONG_NO_PROVIDER_CALLS",
+      "status": "PASS"
+    },
+    {
+      "control": "FROZEN79_ACCEPTANCE_SCHEMA_PROVENANCE_COMPLETION_STATE_RESERVE_CORRECT_WRONG",
+      "scope": "SYNTHETIC_SCHEMA_FIXTURE_NOT_SCIENCE_OR_AUTHORIZATION",
+      "status": "PASS"
+    },
+    {
+      "control": "COMPLETE_ENVELOPE_METADATA_COUNTS_AND_FAILED_EXPORT_CLEANS",
+      "scope": "ISOLATED_REDUCED_MEMBER_CAP_FIXTURE",
+      "status": "PASS"
+    },
+    {
+      "canonical_replacements": 0,
+      "control": "ADDITIVE_MATERIALIZER_READBACK_IDEMPOTENCE_DIFFERENT_BYTES_REJECT",
+      "members": 146,
+      "status": "PASS"
+    },
+    {
+      "control": "BROWSER_INTENT_MARKER_BINDINGS_FROZEN_ADOPTION_SCHEMA_OLD_BIRTH_REJECT",
+      "scope": "SYNTHETIC_LOCAL_SCHEMA_FIXTURE_NO_RUNTIME_CREATED",
+      "status": "PASS"
+    },
+    {
+      "control": "HOST_FAILED_OBSERVER_OR_CLOSURE_PRESERVES_CORRECT_WRONG_NUMERICS_NEVER_ACCEPTS",
+      "scope": "SYNTHETIC_ROW_DIAGNOSTICS_NOT_SCIENCE",
+      "status": "PASS"
+    }
+  ],
+  "disposable_bytes_before": 27111086,
+  "disposable_files_after": 0,
+  "disposable_files_before": 465,
+  "errors": 0,
+  "failures": 0,
+  "hashes": {
+    "packet_zip": "448002d648a1fcc694baeed70dc636f4a0cf4e86825c175d554fc9fa1691b97b"
+  },
+  "m4_status": "NOT_QUALIFIED",
+  "provider_calls": 0,
+  "status": "PASS",
+  "tests_run": 11
+}
