@@ -155,6 +155,10 @@ Reduce additional dump requests in a new generation before another actual captur
 The [offline allocation auditor](../experiments/2026-10-04-bitsandbytes-tpu/compiler-analysis/README.md) passed 65 independent reviewer controls.
 It adds array and slice bounds while preserving valid compiler storage alternatives.
 Actual compiler dump analysis, internal Mosaic memory, and measured peak memory remain unverified.
+The [version 2 auditor](changes/r6-allocation-v2.md) adds four natural storage types with the original bounds.
+Independent replay passed 65 original controls and 93 new controls.
+All 11 actual compiler allocation plans passed static bounds, with all 55 input hashes unchanged.
+This result does not measure runtime peak or internal Mosaic storage.
 The [default dump preparation](changes/r6-compiler-default-dumps-preparation.md) removes one additional pipeline dump request.
 It preserves the original five cases and all storage limits.
 The worker passed 185 controls, and the reviewer independently passed 157 relevant controls.

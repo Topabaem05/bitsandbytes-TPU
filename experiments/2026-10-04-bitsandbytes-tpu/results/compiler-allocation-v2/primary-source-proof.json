@@ -1,0 +1,83 @@
+{
+  "Auditor_class_sha256": "dd075aebe41b254c09aaa00d1cee44cbb7a14e1271d7142f667584333ce5e976",
+  "basis": "Native type mapping; signed widths include sign; ByteWidth rounds bit width up to bytes; ShapeUtil uses natural bytes absent packing.",
+  "complete_Auditor_class_byte_equal_to_frozen_v1": true,
+  "derived_natural_width_bytes": {
+    "PRED_enum1": 1,
+    "S32_enum4": 4,
+    "S64_enum5": 8,
+    "U32_enum8": 4
+  },
+  "inspection_date": "2026-10-11",
+  "proof_ranges": [
+    {
+      "first_line": 27,
+      "last_line": 50,
+      "sha256": "e8e3b55f4db8ed7eee1e38a95e37ec99362bfab96ca4fccb9e6ed71c5d5c64c6",
+      "source": "xla/xla_data.proto"
+    },
+    {
+      "first_line": 267,
+      "last_line": 270,
+      "sha256": "3e7aeddaf0b69848c885d134e504f921d4b482d9c5e2ea19b88d408c6aa23ae9",
+      "source": "xla/xla_data.proto"
+    },
+    {
+      "first_line": 240,
+      "last_line": 243,
+      "sha256": "722ea84044263a4054c645bda59f7dea0207d4bad0a514d35afa605f888c4e27",
+      "source": "xla/primitive_util.h"
+    },
+    {
+      "first_line": 270,
+      "last_line": 273,
+      "sha256": "9b3adc0a7d568a3f825734fa94b15c1ec3fb3de09b2eef13880b94bd214d0b1b",
+      "source": "xla/primitive_util.h"
+    },
+    {
+      "first_line": 304,
+      "last_line": 312,
+      "sha256": "1458be9504ff905423f3012acb5c5363b71fd75286ac29da805e86c0f232eab1",
+      "source": "xla/primitive_util.h"
+    },
+    {
+      "first_line": 686,
+      "last_line": 712,
+      "sha256": "6560b39d12cb20811d7a149740ccaaaeaca4dcd2f49d42806b55a72985d7c1b2",
+      "source": "xla/primitive_util.h"
+    },
+    {
+      "first_line": 730,
+      "last_line": 771,
+      "sha256": "df57cfa2481e18dfc962a228156c3f75d3f6411eb01168dd2efa254a9d772323",
+      "source": "xla/primitive_util.h"
+    },
+    {
+      "first_line": 934,
+      "last_line": 983,
+      "sha256": "28fd41653a1df2c613535241bbd1f1c24f6853b5278231bf0ac503920c0bfced",
+      "source": "xla/shape_util.cc"
+    }
+  ],
+  "revision": "31eb6029e8973337ef6c99810c27e1d807791c11",
+  "sources": [
+    {
+      "bytes": 45029,
+      "path": "xla/xla_data.proto",
+      "sha256": "82102e89f24ca875f83a9e88422e3cd992949a439864a1f720ee1942948406ee",
+      "url": "https://raw.githubusercontent.com/openxla/xla/31eb6029e8973337ef6c99810c27e1d807791c11/xla/xla_data.proto"
+    },
+    {
+      "bytes": 30434,
+      "path": "xla/primitive_util.h",
+      "sha256": "8f734c4c4988ed00c26e2b13f1c51a2a2392af107a3f6ccd966f7904722c90b1",
+      "url": "https://raw.githubusercontent.com/openxla/xla/31eb6029e8973337ef6c99810c27e1d807791c11/xla/primitive_util.h"
+    },
+    {
+      "bytes": 86280,
+      "path": "xla/shape_util.cc",
+      "sha256": "b4c0ea1bd64697747e3bc24c4bb6f677c7bce666111bd585b84461d8830c61c0",
+      "url": "https://raw.githubusercontent.com/openxla/xla/31eb6029e8973337ef6c99810c27e1d807791c11/xla/shape_util.cc"
+    }
+  ]
+}

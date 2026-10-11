@@ -1,0 +1,55 @@
+{
+  "actual_buffer_assignments": 11,
+  "actual_hlo_protos": 55,
+  "actual_static_audit_sha256": "89df61c6bfd11dbb3139d48fd12a92b1d94a66808b587d5a1a6d4ebb63abc811",
+  "actual_v1_statuses": {
+    "PASS": 4,
+    "UNSUPPORTED": 7
+  },
+  "actual_v2_static_bounds_pass": 11,
+  "all_input_hashes_unchanged": true,
+  "allocator_peak": "UNKNOWN",
+  "candidate_bundle_sha256": "e5d4170010c0581a9a39d43402526129ae19e882674b1f5afccfcfb0e1ef6115",
+  "epoch": 1791698441.752248,
+  "fixture_disposal": "PASS",
+  "frozen_Auditor_class_ast_equal": true,
+  "internal_Mosaic_storage": "UNKNOWN",
+  "m6": "NOT_QUALIFIED",
+  "new_controls": 93,
+  "new_controls_status": "PASS",
+  "original65_against_v1": "PASS",
+  "original65_against_v2": "PASS",
+  "primary_source_proof_sha256": "c9349c9374034e33d749bc9dfa77e46181ed6a11904d3d2bdd0c42f73755ad0d",
+  "reviewed_base": "6553e22ca52bee23f2378eac14998c19e857219f",
+  "root_control_reports": {
+    "original65.json": {
+      "bytes": 18950,
+      "sha256": "e5fd5ba328ee35631f4c6e0804fe2238b3a5af7bfdeb3b1233ada38ab4777162"
+    },
+    "static-audit.json": {
+      "bytes": 9879,
+      "sha256": "89df61c6bfd11dbb3139d48fd12a92b1d94a66808b587d5a1a6d4ebb63abc811"
+    },
+    "v2-controls.json": {
+      "bytes": 46315,
+      "sha256": "63bab5ccdacd0ea052faae73bcacfa32efb9a1295aced2298cf21d21aa3c1f89"
+    }
+  },
+  "root_owned_wrapper_closed": true,
+  "selected_executable_link": "UNKNOWN",
+  "source": {
+    "allocation_audit_v2.py": {
+      "bytes": 16617,
+      "sha256": "94e205fbb8826d3b042b45c8efd595a40f7be4b5187ebd2dbccab4dc2d3d62fb"
+    },
+    "allocation_directory_v2.py": {
+      "bytes": 5666,
+      "sha256": "b3be904f5041a89aab95d37601fd33000c83ea49ae8944fbb5c4814c86518c5e"
+    },
+    "allocation_v2_controls.py": {
+      "bytes": 12998,
+      "sha256": "8c0b46d4b5ab2000bbe504b3487c1f4ab6f0c18f6f473538baa713c4ae25fb31"
+    }
+  },
+  "status": "ROOT_REVIEWED_ADDITIVE_STATIC_ALLOCATION_V2"
+}

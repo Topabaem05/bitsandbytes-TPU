@@ -1,5 +1,16 @@
 # Change log
 
+## 2026-10-11 — Version 2 static allocation bounds
+
+- Add natural storage widths for PRED, S32, S64, and U32 in a separate auditor.
+- Preserve the original auditor, parser, and representation limits.
+- Select actual buffer assignments through protobuf content.
+
+Validation: Independent reviewer replay passed the original 65 controls and 93 new controls.
+All 11 actual allocation plans passed static bounds; all 55 input hashes remained unchanged.
+Runtime peak memory, internal Mosaic storage, and selected executable identity remain unknown.
+M6 remains unqualified. Refer to [the change record](docs/changes/r6-allocation-v2.md).
+
 ## 2026-10-11 — Bounded default compiler dumps
 
 - Remove the additional pipeline dump request and require the new 13-token request.

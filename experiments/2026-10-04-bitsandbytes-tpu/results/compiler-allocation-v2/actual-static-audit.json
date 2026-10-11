@@ -1,0 +1,270 @@
+{
+  "actual_selected_executable_link": "UNKNOWN",
+  "all_proto_inventory_sha256": "86a7170ca963a5a8dd6d6a620c9810917dbedac349ca4527ed9d9b4daa9075f5",
+  "allocator_peak": "UNKNOWN",
+  "analysis_source_sha256": "94e205fbb8826d3b042b45c8efd595a40f7be4b5187ebd2dbccab4dc2d3d62fb",
+  "audit_contract": "STATIC_DENSE_NATURAL_WIDTH_ALLOCATION_BOUNDS_V2",
+  "audit_contract_version": 2,
+  "baseline_analyzer_sha256": "c44ecb15696031f326a7abe64ea3d8407b9bc21f527cb94f8b5f149c456fcd8d",
+  "capture_packet_binding": "CALLER_SUPPLIED_REQUIRES_INDEPENDENT_ARCHIVE_REVIEW",
+  "capture_packet_sha256": "78797717b385dae4151f866f5918600e1c1023c7433e0fc4f4828fcf0e361540",
+  "directory_reader_sha256": "b3be904f5041a89aab95d37601fd33000c83ea49ae8944fbb5c4814c86518c5e",
+  "frozen_v1_analysis_source_sha256": "a3b3400891acff6d3ef438e4d718c3cfd6ae7f5ee35667471280983058f82267",
+  "input_directory": "/private/tmp/bnb-tpu-compiler-actual-20261011-7bf4kkzb/actual/compiler-recovery/recovered/raw-private",
+  "input_inventory_unchanged": true,
+  "m6": "NOT_QUALIFIED",
+  "native_body_internal_memory": "UNKNOWN",
+  "numerical_result": "NOT_EVALUATED",
+  "proto_bytes": 1794045,
+  "proto_count": 55,
+  "results": [
+    {
+      "alias_count": 0,
+      "allocation_count": 12,
+      "allocation_size_sum_bytes": 1470980,
+      "bytes": 15613,
+      "compiler_module_id": 0,
+      "logical_buffer_count": 20,
+      "logical_storage_types": {
+        "float32": 6,
+        "tuple_descriptor": 3,
+        "uint32": 2,
+        "uint8": 9
+      },
+      "outer_field3_present": true,
+      "path": "1791696684230011.module_0000.r6-boundary-a4bc27e1bd10-direct-fp32.10.cl_795515814.after_optimizations.hlo.pb",
+      "sha256": "a5a436bf3f1089f65bf95cd86f2f0726bd4d88af10eb7550e0737b4b03c0f09d",
+      "v1_reason": "UNSUPPORTED_ARRAY_DTYPE",
+      "v1_status": "UNSUPPORTED_REPRESENTATION",
+      "v2_reason": null,
+      "v2_status": "ALLOCATION_PLAN_BOUNDS_PASS"
+    },
+    {
+      "alias_count": 0,
+      "allocation_count": 4,
+      "allocation_size_sum_bytes": 524800,
+      "bytes": 592,
+      "compiler_module_id": 8,
+      "logical_buffer_count": 3,
+      "logical_storage_types": {
+        "float32": 2,
+        "tuple_descriptor": 1
+      },
+      "outer_field3_present": true,
+      "path": "1791696684587013.module_0008.r6-boundary-a4bc27e1bd10-direct-fp32.3.cl_795515814.after_optimizations.hlo.pb",
+      "sha256": "7c609b6aba3dba361e93809b1b8088069b4b2d1334f45e3a512599067614c62c",
+      "v1_reason": null,
+      "v1_status": "ALLOCATION_PLAN_BOUNDS_PASS",
+      "v2_reason": null,
+      "v2_status": "ALLOCATION_PLAN_BOUNDS_PASS"
+    },
+    {
+      "alias_count": 0,
+      "allocation_count": 8,
+      "allocation_size_sum_bytes": 528384,
+      "bytes": 1526,
+      "compiler_module_id": 11,
+      "logical_buffer_count": 9,
+      "logical_storage_types": {
+        "tuple_descriptor": 1,
+        "uint8": 8
+      },
+      "outer_field3_present": true,
+      "path": "1791696684608560.module_0011.r6-boundary-a4bc27e1bd10-direct-fp32.5.cl_795515814.after_optimizations.hlo.pb",
+      "sha256": "55f439a09bfcad2d1668475bab38d2ba24c0726ce7cb45a2985ed1cb70025b0c",
+      "v1_reason": null,
+      "v1_status": "ALLOCATION_PLAN_BOUNDS_PASS",
+      "v2_reason": null,
+      "v2_status": "ALLOCATION_PLAN_BOUNDS_PASS"
+    },
+    {
+      "alias_count": 0,
+      "allocation_count": 4,
+      "allocation_size_sum_bytes": 279040,
+      "bytes": 858,
+      "compiler_module_id": 16,
+      "logical_buffer_count": 4,
+      "logical_storage_types": {
+        "float32": 3,
+        "tuple_descriptor": 1
+      },
+      "outer_field3_present": true,
+      "path": "1791696684750457.module_0016.r6-boundary-a4bc27e1bd10-direct-fp32.5.cl_795515814.after_optimizations.hlo.pb",
+      "sha256": "7ae5508f93fd69b85b0abc608edf08fe71988352cb1e49dd129197fc9dab6bad",
+      "v1_reason": null,
+      "v1_status": "ALLOCATION_PLAN_BOUNDS_PASS",
+      "v2_reason": null,
+      "v2_status": "ALLOCATION_PLAN_BOUNDS_PASS"
+    },
+    {
+      "alias_count": 0,
+      "allocation_count": 22,
+      "allocation_size_sum_bytes": 35320840,
+      "bytes": 36109,
+      "compiler_module_id": 22,
+      "logical_buffer_count": 93,
+      "logical_storage_types": {
+        "float32": 34,
+        "int32": 4,
+        "int64": 3,
+        "pred": 5,
+        "tuple_descriptor": 5,
+        "uint32": 37,
+        "uint8": 5
+      },
+      "outer_field3_present": true,
+      "path": "1791696684905199.module_0022.r6-reference-a4bc27e1bd10-direct-fp32.57.cl_795515814.after_optimizations.hlo.pb",
+      "sha256": "af1931524cebe71c94a5ae3451e0950f91d3ccb0226c4440e16212aaa1ab4354",
+      "v1_reason": "UNSUPPORTED_ARRAY_DTYPE",
+      "v1_status": "UNSUPPORTED_REPRESENTATION",
+      "v2_reason": null,
+      "v2_status": "ALLOCATION_PLAN_BOUNDS_PASS"
+    },
+    {
+      "alias_count": 0,
+      "allocation_count": 12,
+      "allocation_size_sum_bytes": 1470980,
+      "bytes": 15762,
+      "compiler_module_id": 36,
+      "logical_buffer_count": 20,
+      "logical_storage_types": {
+        "float32": 6,
+        "tuple_descriptor": 3,
+        "uint32": 2,
+        "uint8": 9
+      },
+      "outer_field3_present": true,
+      "path": "1791696695945869.module_0036.r6-preparation-a4bc27e1bd10-functional-fp32.10.cl_795515814.after_optimizations.hlo.pb",
+      "sha256": "d48ed0096258a42ca9d2dbda4a8c83ecb9d2a61fdaa23c88e8200a3c0a83422d",
+      "v1_reason": "UNSUPPORTED_ARRAY_DTYPE",
+      "v1_status": "UNSUPPORTED_REPRESENTATION",
+      "v2_reason": null,
+      "v2_status": "ALLOCATION_PLAN_BOUNDS_PASS"
+    },
+    {
+      "alias_count": 0,
+      "allocation_count": 12,
+      "allocation_size_sum_bytes": 1274372,
+      "bytes": 15936,
+      "compiler_module_id": 44,
+      "logical_buffer_count": 20,
+      "logical_storage_types": {
+        "bfloat16": 3,
+        "float32": 3,
+        "tuple_descriptor": 3,
+        "uint32": 2,
+        "uint8": 9
+      },
+      "outer_field3_present": true,
+      "path": "1791696696684006.module_0044.r6-boundary-a4bc27e1bd10-direct-bf16.10.cl_795515814.after_optimizations.hlo.pb",
+      "sha256": "d23cd6bf8fc885daf015dfea3945904ffbaff75367f4f0a934024249bfdcf459",
+      "v1_reason": "UNSUPPORTED_ARRAY_DTYPE",
+      "v1_status": "UNSUPPORTED_REPRESENTATION",
+      "v2_reason": null,
+      "v2_status": "ALLOCATION_PLAN_BOUNDS_PASS"
+    },
+    {
+      "alias_count": 0,
+      "allocation_count": 4,
+      "allocation_size_sum_bytes": 262656,
+      "bytes": 634,
+      "compiler_module_id": 52,
+      "logical_buffer_count": 3,
+      "logical_storage_types": {
+        "bfloat16": 2,
+        "tuple_descriptor": 1
+      },
+      "outer_field3_present": true,
+      "path": "1791696696848466.module_0052.r6-boundary-a4bc27e1bd10-direct-bf16.3.cl_795515814.after_optimizations.hlo.pb",
+      "sha256": "1435f31a933b35cbbe230f8b3e229e2506c23606f659b6ff6179b6f6f89a4ba0",
+      "v1_reason": null,
+      "v1_status": "ALLOCATION_PLAN_BOUNDS_PASS",
+      "v2_reason": null,
+      "v2_status": "ALLOCATION_PLAN_BOUNDS_PASS"
+    },
+    {
+      "alias_count": 0,
+      "allocation_count": 22,
+      "allocation_size_sum_bytes": 34993160,
+      "bytes": 36770,
+      "compiler_module_id": 57,
+      "logical_buffer_count": 93,
+      "logical_storage_types": {
+        "bfloat16": 5,
+        "float32": 29,
+        "int32": 4,
+        "int64": 3,
+        "pred": 5,
+        "tuple_descriptor": 5,
+        "uint32": 37,
+        "uint8": 5
+      },
+      "outer_field3_present": true,
+      "path": "1791696696987006.module_0057.r6-reference-a4bc27e1bd10-direct-bf16.58.cl_795515814.after_optimizations.hlo.pb",
+      "sha256": "666044080b9906504f75d3190f4763a0da7b4bb095a89a97fdf592ad09b7a236",
+      "v1_reason": "UNSUPPORTED_ARRAY_DTYPE",
+      "v1_status": "UNSUPPORTED_REPRESENTATION",
+      "v2_reason": null,
+      "v2_status": "ALLOCATION_PLAN_BOUNDS_PASS"
+    },
+    {
+      "alias_count": 0,
+      "allocation_count": 12,
+      "allocation_size_sum_bytes": 1274372,
+      "bytes": 16083,
+      "compiler_module_id": 71,
+      "logical_buffer_count": 20,
+      "logical_storage_types": {
+        "bfloat16": 3,
+        "float32": 3,
+        "tuple_descriptor": 3,
+        "uint32": 2,
+        "uint8": 9
+      },
+      "outer_field3_present": true,
+      "path": "1791696708018734.module_0071.r6-preparation-a4bc27e1bd10-functional-bf16.10.cl_795515814.after_optimizations.hlo.pb",
+      "sha256": "ade9610cf1d9bf268dce91a47672ec92a5f133ac408d85300b0588a8aa863c12",
+      "v1_reason": "UNSUPPORTED_ARRAY_DTYPE",
+      "v1_status": "UNSUPPORTED_REPRESENTATION",
+      "v2_reason": null,
+      "v2_status": "ALLOCATION_PLAN_BOUNDS_PASS"
+    },
+    {
+      "alias_count": 0,
+      "allocation_count": 22,
+      "allocation_size_sum_bytes": 35361800,
+      "bytes": 37082,
+      "compiler_module_id": 81,
+      "logical_buffer_count": 93,
+      "logical_storage_types": {
+        "float32": 34,
+        "int32": 4,
+        "int64": 3,
+        "pred": 5,
+        "tuple_descriptor": 5,
+        "uint32": 37,
+        "uint8": 5
+      },
+      "outer_field3_present": true,
+      "path": "1791696708726612.module_0081.r6-boundary-a4bc27e1bd10-tail-reference-fp32.57.cl_795515814.after_optimizations.hlo.pb",
+      "sha256": "84bbf863b6b4db9c65f095d69891bfadfb3439ad30163fc3ddeaaab37983f806",
+      "v1_reason": "UNSUPPORTED_ARRAY_DTYPE",
+      "v1_status": "UNSUPPORTED_REPRESENTATION",
+      "v2_reason": null,
+      "v2_status": "ALLOCATION_PLAN_BOUNDS_PASS"
+    }
+  ],
+  "schema_reference_revision": "31eb6029e8973337ef6c99810c27e1d807791c11",
+  "schema_version": 2,
+  "scope": "STATIC_ALLOCATION_BOUNDS_ONLY",
+  "selected_assignment_count": 11,
+  "selection": "PARSED_OUTER_FIELD_3_NOT_FILENAME",
+  "v1_status_counts": {
+    "ALLOCATION_PLAN_BOUNDS_PASS": 4,
+    "UNSUPPORTED_REPRESENTATION": 7
+  },
+  "v2_status_counts": {
+    "ALLOCATION_PLAN_BOUNDS_PASS": 11
+  },
+  "without_outer_field3_count": 44
+}
