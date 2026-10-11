@@ -35,9 +35,9 @@ Update this count only after inspection of the test records.
 
 ## Current execution sequence
 
-1. Run a focused Colab diagnostic for tail reduction axes, integer shifts, typed scalars, and exact word intermediates.
-2. Review its CPU references, actual TPU arrays, source identity, and complete resource closure.
-3. Implement the supported M4 repair as a new source generation, then repeat the 79 cases under unchanged criteria.
+1. Review the new M4 source generation with explicit Tensor shifts, a flat tail reduction axis, and S32 comparison constants.
+2. Preserve the original graph witness, parameter roles, inputs, and numerical criteria during source adoption.
+3. Repeat the qualified Linux CPU79 and TPU79 experiments with the reviewed generation.
 4. Accept all 79 cases before the separate saved-state experiment.
 5. Rebase the M5 plugin only after review, then run 20 training steps and the fixed checkpoint restoration.
 6. Verify the fresh M6 integration source, compile its passive recorder on Linux, and run the fixed numerical and public cases.
@@ -52,7 +52,10 @@ No new test output belongs in `.work`.
 
 The latest [M4 experiment](changes/r4-functional-v4-failure-20261011.md) passed its new qualified Linux CPU gate.
 Its TPU run stopped on the unchanged 32 MiB evidence object limit after 49 retained case records.
-The tail reduction error is confirmed; the integer arithmetic mismatch remains under diagnosis.
+The [focused integer diagnostic](changes/m4-word-diagnostic-v2-actual.md) returned all 24 TPU probes without execution errors.
+Explicit Tensor shifts and the flat tail reduction axis made all five selected mathematical families match the CPU oracle.
+Python scalar comparisons still produce S64 graph operands.
+The fresh source revision must remove these operands and pass the unchanged graph witness.
 The [M5 reader preparation](changes/m5-reader-v4-preparation.md) is adopted with training science unchanged.
 The [passive PJRT preparation](changes/pjrt-passive-v4-preparation.md) is adopted for a separately reviewed actual integration.
 These preparations do not change the accepted milestone count.

@@ -1,0 +1,291 @@
+{
+  "cpu_exact_comparison": {
+    "eq_python": true,
+    "eq_s32": true,
+    "gt_python": true,
+    "gt_s32": true,
+    "select_negative_python": true,
+    "select_negative_s32": true,
+    "select_python": true,
+    "select_s32": true
+  },
+  "cpu_exact_match": true,
+  "finished_epoch": 1791710391.1647038,
+  "label": "scalar-compare-select",
+  "metadata": {},
+  "observation_status": "COMPLETE",
+  "outputs": {
+    "eq_python": {
+      "dtype": "bool",
+      "hex_words": [
+        "01",
+        "00",
+        "00",
+        "00",
+        "00",
+        "00",
+        "00",
+        "00"
+      ],
+      "int_values": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "shape": [
+        8
+      ],
+      "storage_sha256": "7c9fa136d4413fa6173637e883b6998d32e1d675f88cddff9dcbcf331820f4b8"
+    },
+    "eq_s32": {
+      "dtype": "bool",
+      "hex_words": [
+        "01",
+        "00",
+        "00",
+        "00",
+        "00",
+        "00",
+        "00",
+        "00"
+      ],
+      "int_values": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "shape": [
+        8
+      ],
+      "storage_sha256": "7c9fa136d4413fa6173637e883b6998d32e1d675f88cddff9dcbcf331820f4b8"
+    },
+    "gt_python": {
+      "dtype": "bool",
+      "hex_words": [
+        "00",
+        "01",
+        "01",
+        "01",
+        "01",
+        "01",
+        "00",
+        "00"
+      ],
+      "int_values": [
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0
+      ],
+      "shape": [
+        8
+      ],
+      "storage_sha256": "8dc5f5d40e3315a27c93ec186a0d44b408035ea0a1ae55bc8ea03368b8d0fc26"
+    },
+    "gt_s32": {
+      "dtype": "bool",
+      "hex_words": [
+        "00",
+        "01",
+        "01",
+        "01",
+        "01",
+        "01",
+        "00",
+        "00"
+      ],
+      "int_values": [
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0
+      ],
+      "shape": [
+        8
+      ],
+      "storage_sha256": "8dc5f5d40e3315a27c93ec186a0d44b408035ea0a1ae55bc8ea03368b8d0fc26"
+    },
+    "select_negative_python": {
+      "dtype": "int32",
+      "hex_words": [
+        "ffffff6b",
+        "00000001",
+        "007fffff",
+        "00800000",
+        "00ffffff",
+        "7fffffff",
+        "ffffffff",
+        "80000000"
+      ],
+      "int_values": [
+        -149,
+        1,
+        8388607,
+        8388608,
+        16777215,
+        2147483647,
+        -1,
+        -2147483648
+      ],
+      "shape": [
+        8
+      ],
+      "storage_sha256": "b31528d7d11f79d4faadb1b01ef9787024d183a250ddc0e69fffcf98cbbd04ef"
+    },
+    "select_negative_s32": {
+      "dtype": "int32",
+      "hex_words": [
+        "ffffff6b",
+        "00000001",
+        "007fffff",
+        "00800000",
+        "00ffffff",
+        "7fffffff",
+        "ffffffff",
+        "80000000"
+      ],
+      "int_values": [
+        -149,
+        1,
+        8388607,
+        8388608,
+        16777215,
+        2147483647,
+        -1,
+        -2147483648
+      ],
+      "shape": [
+        8
+      ],
+      "storage_sha256": "b31528d7d11f79d4faadb1b01ef9787024d183a250ddc0e69fffcf98cbbd04ef"
+    },
+    "select_python": {
+      "dtype": "int32",
+      "hex_words": [
+        "00000000",
+        "00000001",
+        "00000001",
+        "00000001",
+        "00000001",
+        "00000001",
+        "ffffffff",
+        "80000000"
+      ],
+      "int_values": [
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        -1,
+        -2147483648
+      ],
+      "shape": [
+        8
+      ],
+      "storage_sha256": "777f5502b077ee90aaa2bb9aa8b47dd405effd04b9df10148243458d85e05616"
+    },
+    "select_s32": {
+      "dtype": "int32",
+      "hex_words": [
+        "00000000",
+        "00000001",
+        "00000001",
+        "00000001",
+        "00000001",
+        "00000001",
+        "ffffffff",
+        "80000000"
+      ],
+      "int_values": [
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        -1,
+        -2147483648
+      ],
+      "shape": [
+        8
+      ],
+      "storage_sha256": "777f5502b077ee90aaa2bb9aa8b47dd405effd04b9df10148243458d85e05616"
+    }
+  },
+  "parameter_metadata": {
+    "0": {
+      "device": "xla:0",
+      "dtype": "torch.int32",
+      "shape": [
+        8
+      ]
+    },
+    "1": {
+      "device": "xla:0",
+      "dtype": "torch.int32",
+      "shape": []
+    }
+  },
+  "parameters": {
+    "0": {
+      "dtype": "int32",
+      "hex_words": [
+        "00000000",
+        "00000001",
+        "007fffff",
+        "00800000",
+        "00ffffff",
+        "7fffffff",
+        "ffffffff",
+        "80000000"
+      ],
+      "int_values": [
+        0,
+        1,
+        8388607,
+        8388608,
+        16777215,
+        2147483647,
+        -1,
+        -2147483648
+      ],
+      "shape": [
+        8
+      ],
+      "storage_sha256": "86f9e1704e6932eb52b4532eb789e5a599f50cbe9eef7769314ebd37de7547ab"
+    },
+    "1": {
+      "dtype": "int32",
+      "hex_words": [
+        "ffffff6b"
+      ],
+      "int_values": [
+        -149
+      ],
+      "shape": [],
+      "storage_sha256": "1b34d920b79d6d0f6cf239824415f6aca8b58475e64d7f1a8ffac453e2f8cd34"
+    }
+  },
+  "started_epoch": 1791710391.1395807,
+  "status": "RETURNED"
+}

@@ -1,5 +1,18 @@
 # Change log
 
+## 2026-10-11 — Actual integer diagnostic and source direction
+
+- Record 24 qualified CPU probes and 24 returned TPU probes without execution errors.
+- Confirm explicit Tensor shifts and the flat tail reduction axis for five selected mathematical families.
+- Keep the original graph criteria after finding S64 scalar comparison operands.
+- Verify the private archive and delete seven completed local roots.
+
+Validation: All 48 row files and 48 compressed graph objects passed independent readback.
+All 62 owned local groups were absent; fresh sessions and active assignments were empty.
+All 507 private archive members passed independent download checks.
+M4 remains unqualified; accepted milestones remain three of eight.
+Refer to [the diagnostic result](docs/changes/m4-word-diagnostic-v2-actual.md).
+
 ## 2026-10-11 — Diagnostic raw input boundary
 
 - Normalize synchronized diagnostic inputs before the frozen backend call.

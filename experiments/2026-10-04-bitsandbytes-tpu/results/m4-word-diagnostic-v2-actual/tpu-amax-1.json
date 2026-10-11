@@ -1,0 +1,75 @@
+{
+  "cpu_exact_comparison": {
+    "dim0": true,
+    "dim_negative1": true,
+    "omitted": false
+  },
+  "cpu_exact_match": false,
+  "finished_epoch": 1791710391.0743413,
+  "label": "amax-1",
+  "metadata": {},
+  "observation_status": "COMPLETE",
+  "outputs": {
+    "dim0": {
+      "dtype": "int32",
+      "hex_words": [
+        "3f800000"
+      ],
+      "int_values": [
+        1065353216
+      ],
+      "shape": [],
+      "storage_sha256": "e00e5eb9444182f352323374ef4e08ebcb784725fdd4fd612d7730540b3e0c8c"
+    },
+    "dim_negative1": {
+      "dtype": "int32",
+      "hex_words": [
+        "3f800000"
+      ],
+      "int_values": [
+        1065353216
+      ],
+      "shape": [],
+      "storage_sha256": "e00e5eb9444182f352323374ef4e08ebcb784725fdd4fd612d7730540b3e0c8c"
+    },
+    "omitted": {
+      "dtype": "int32",
+      "hex_words": [
+        "3f800000"
+      ],
+      "int_values": [
+        1065353216
+      ],
+      "shape": [
+        1
+      ],
+      "storage_sha256": "e00e5eb9444182f352323374ef4e08ebcb784725fdd4fd612d7730540b3e0c8c"
+    }
+  },
+  "parameter_metadata": {
+    "0": {
+      "device": "xla:0",
+      "dtype": "torch.int32",
+      "shape": [
+        1
+      ]
+    }
+  },
+  "parameters": {
+    "0": {
+      "dtype": "int32",
+      "hex_words": [
+        "3f800000"
+      ],
+      "int_values": [
+        1065353216
+      ],
+      "shape": [
+        1
+      ],
+      "storage_sha256": "e00e5eb9444182f352323374ef4e08ebcb784725fdd4fd612d7730540b3e0c8c"
+    }
+  },
+  "started_epoch": 1791710391.057683,
+  "status": "RETURNED"
+}

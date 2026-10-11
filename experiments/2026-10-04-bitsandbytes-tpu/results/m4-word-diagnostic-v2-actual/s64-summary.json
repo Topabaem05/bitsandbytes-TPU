@@ -1,0 +1,294 @@
+{
+  "scope": "All 24 paired text HLO files; raw graph integrity independently verified. Counts include nodes with S64 results or operands. Examples are observational evidence, not acceptance.",
+  "graphs": {
+    "amax-1.hlo.txt.gz": {
+      "s64_involving_node_counts": {},
+      "examples": {}
+    },
+    "amax-255.hlo.txt.gz": {
+      "s64_involving_node_counts": {},
+      "examples": {}
+    },
+    "bitcast-functional-scalar.hlo.txt.gz": {
+      "s64_involving_node_counts": {},
+      "examples": {}
+    },
+    "bitcast-functional-vector.hlo.txt.gz": {
+      "s64_involving_node_counts": {},
+      "examples": {}
+    },
+    "bitcast-raw-scalar.hlo.txt.gz": {
+      "s64_involving_node_counts": {},
+      "examples": {}
+    },
+    "bitcast-raw-vector.hlo.txt.gz": {
+      "s64_involving_node_counts": {},
+      "examples": {}
+    },
+    "original-addsub.hlo.txt.gz": {
+      "s64_involving_node_counts": {
+        "s64:convert": 2811,
+        "s64:constant": 1739,
+        "s64:broadcast": 1885,
+        "pred:compare": 2811,
+        "s64:parameter": 29
+      },
+      "examples": {
+        "s64:convert": "  %convert.152 = s64[12]{0} convert(s32[12]{0} %and.151)",
+        "s64:constant": "  %constant.147 = s64[] constant(0)",
+        "s64:broadcast": "  %broadcast.153 = s64[12]{0} broadcast(s64[] %constant.147), dimensions={}",
+        "pred:compare": "  %compare.154 = pred[12]{0} compare(s64[12]{0} %convert.152, s64[12]{0} %broadcast.153), direction=EQ",
+        "s64:parameter": "  %p4.65 = s64[] parameter(4)"
+      }
+    },
+    "original-midpoints.hlo.txt.gz": {
+      "s64_involving_node_counts": {
+        "s64:convert": 334,
+        "s64:constant": 164,
+        "s64:broadcast": 334,
+        "pred:compare": 334,
+        "s64:parameter": 29
+      },
+      "examples": {
+        "s64:convert": "  %convert.153 = s64[255]{0} convert(s32[255]{0} %and.152)",
+        "s64:constant": "  %constant.148 = s64[] constant(0)",
+        "s64:broadcast": "  %broadcast.154 = s64[255]{0} broadcast(s64[] %constant.148), dimensions={}",
+        "pred:compare": "  %compare.155 = pred[255]{0} compare(s64[255]{0} %convert.153, s64[255]{0} %broadcast.154), direction=EQ",
+        "s64:parameter": "  %p3.66 = s64[] parameter(3)"
+      }
+    },
+    "original-muldiv.hlo.txt.gz": {
+      "s64_involving_node_counts": {
+        "s64:convert": 530,
+        "s64:constant": 255,
+        "s64:broadcast": 530,
+        "pred:compare": 530,
+        "s64:parameter": 31
+      },
+      "examples": {
+        "s64:convert": "  %convert.11 = s64[12]{0} convert(s32[12]{0} %divide.10)",
+        "s64:constant": "  %constant.3 = s64[] constant(0)",
+        "s64:broadcast": "  %broadcast.12 = s64[12]{0} broadcast(s64[] %constant.3), dimensions={}",
+        "pred:compare": "  %compare.13 = pred[12]{0} compare(s64[12]{0} %convert.11, s64[12]{0} %broadcast.12), direction=NE",
+        "s64:parameter": "  %p3.23 = s64[] parameter(3)"
+      }
+    },
+    "original-tail-1-255.hlo.txt.gz": {
+      "s64_involving_node_counts": {
+        "s64:convert": 756,
+        "s64:constant": 328,
+        "s64:broadcast": 756,
+        "pred:compare": 756,
+        "s64:parameter": 36
+      },
+      "examples": {
+        "s64:convert": "  %convert.2866 = s64[1]{0} convert(s32[1]{0} %reduce.2857)",
+        "s64:constant": "  %constant.2865 = s64[] constant(0)",
+        "s64:broadcast": "  %broadcast.2867 = s64[1]{0} broadcast(s64[] %constant.2865), dimensions={}",
+        "pred:compare": "  %compare.2868 = pred[1]{0} compare(s64[1]{0} %convert.2866, s64[1]{0} %broadcast.2867), direction=LT",
+        "s64:parameter": "  %p47.2877 = s64[] parameter(47)"
+      }
+    },
+    "original-zero-normalize.hlo.txt.gz": {
+      "s64_involving_node_counts": {
+        "s64:convert": 651,
+        "s64:constant": 308,
+        "s64:broadcast": 651,
+        "pred:compare": 651,
+        "s64:parameter": 37
+      },
+      "examples": {
+        "s64:convert": "  %convert.11 = s64[1]{0} convert(s32[1]{0} %p0.1)",
+        "s64:constant": "  %constant.10 = s64[] constant(0)",
+        "s64:broadcast": "  %broadcast.12 = s64[1]{0} broadcast(s64[] %constant.10), dimensions={}",
+        "pred:compare": "  %compare.13 = pred[1]{0} compare(s64[1]{0} %convert.11, s64[1]{0} %broadcast.12), direction=LT",
+        "s64:parameter": "  %p5.22 = s64[] parameter(5)"
+      }
+    },
+    "scalar-compare-select.hlo.txt.gz": {
+      "s64_involving_node_counts": {
+        "s64:convert": 4,
+        "s64:constant": 4,
+        "s64:broadcast": 4,
+        "pred:compare": 4
+      },
+      "examples": {
+        "s64:convert": "  %convert.3 = s64[8]{0} convert(s32[8]{0} %p0.2)",
+        "s64:constant": "  %constant.1 = s64[] constant(0)",
+        "s64:broadcast": "  %broadcast.4 = s64[8]{0} broadcast(s64[] %constant.1), dimensions={}",
+        "pred:compare": "  %compare.5 = pred[8]{0} compare(s64[8]{0} %convert.3, s64[8]{0} %broadcast.4), direction=GT"
+      }
+    },
+    "shift-left.hlo.txt.gz": {
+      "s64_involving_node_counts": {},
+      "examples": {}
+    },
+    "shift-right.hlo.txt.gz": {
+      "s64_involving_node_counts": {},
+      "examples": {}
+    },
+    "true_shift-addsub.hlo.txt.gz": {
+      "s64_involving_node_counts": {
+        "s64:convert": 2811,
+        "s64:constant": 1739,
+        "s64:broadcast": 1885,
+        "pred:compare": 2811,
+        "s64:parameter": 29
+      },
+      "examples": {
+        "s64:convert": "  %convert.139 = s64[12]{0} convert(s32[12]{0} %and.138)",
+        "s64:constant": "  %constant.134 = s64[] constant(0)",
+        "s64:broadcast": "  %broadcast.140 = s64[12]{0} broadcast(s64[] %constant.134), dimensions={}",
+        "pred:compare": "  %compare.141 = pred[12]{0} compare(s64[12]{0} %convert.139, s64[12]{0} %broadcast.140), direction=EQ",
+        "s64:parameter": "  %p6.63 = s64[] parameter(6)"
+      }
+    },
+    "true_shift-midpoints.hlo.txt.gz": {
+      "s64_involving_node_counts": {
+        "s64:convert": 334,
+        "s64:constant": 164,
+        "s64:broadcast": 334,
+        "pred:compare": 334,
+        "s64:parameter": 29
+      },
+      "examples": {
+        "s64:convert": "  %convert.140 = s64[255]{0} convert(s32[255]{0} %and.139)",
+        "s64:constant": "  %constant.135 = s64[] constant(0)",
+        "s64:broadcast": "  %broadcast.141 = s64[255]{0} broadcast(s64[] %constant.135), dimensions={}",
+        "pred:compare": "  %compare.142 = pred[255]{0} compare(s64[255]{0} %convert.140, s64[255]{0} %broadcast.141), direction=EQ",
+        "s64:parameter": "  %p5.64 = s64[] parameter(5)"
+      }
+    },
+    "true_shift-muldiv.hlo.txt.gz": {
+      "s64_involving_node_counts": {
+        "s64:convert": 530,
+        "s64:constant": 255,
+        "s64:broadcast": 530,
+        "pred:compare": 530,
+        "s64:parameter": 31
+      },
+      "examples": {
+        "s64:convert": "  %convert.9 = s64[12]{0} convert(s32[12]{0} %shift-right-arithmetic.8)",
+        "s64:constant": "  %constant.2 = s64[] constant(0)",
+        "s64:broadcast": "  %broadcast.10 = s64[12]{0} broadcast(s64[] %constant.2), dimensions={}",
+        "pred:compare": "  %compare.11 = pred[12]{0} compare(s64[12]{0} %convert.9, s64[12]{0} %broadcast.10), direction=NE",
+        "s64:parameter": "  %p4.22 = s64[] parameter(4)"
+      }
+    },
+    "true_shift-tail-1-255.hlo.txt.gz": {
+      "s64_involving_node_counts": {
+        "s64:convert": 756,
+        "s64:constant": 328,
+        "s64:broadcast": 756,
+        "pred:compare": 756,
+        "s64:parameter": 36
+      },
+      "examples": {
+        "s64:convert": "  %convert.2832 = s64[1]{0} convert(s32[1]{0} %reduce.2823)",
+        "s64:constant": "  %constant.2831 = s64[] constant(0)",
+        "s64:broadcast": "  %broadcast.2833 = s64[1]{0} broadcast(s64[] %constant.2831), dimensions={}",
+        "pred:compare": "  %compare.2834 = pred[1]{0} compare(s64[1]{0} %convert.2832, s64[1]{0} %broadcast.2833), direction=LT",
+        "s64:parameter": "  %p66.2843 = s64[] parameter(66)"
+      }
+    },
+    "true_shift-zero-normalize.hlo.txt.gz": {
+      "s64_involving_node_counts": {
+        "s64:convert": 651,
+        "s64:constant": 308,
+        "s64:broadcast": 651,
+        "pred:compare": 651,
+        "s64:parameter": 37
+      },
+      "examples": {
+        "s64:convert": "  %convert.11 = s64[1]{0} convert(s32[1]{0} %p0.1)",
+        "s64:constant": "  %constant.10 = s64[] constant(0)",
+        "s64:broadcast": "  %broadcast.12 = s64[1]{0} broadcast(s64[] %constant.10), dimensions={}",
+        "pred:compare": "  %compare.13 = pred[1]{0} compare(s64[1]{0} %convert.11, s64[1]{0} %broadcast.12), direction=LT",
+        "s64:parameter": "  %p5.22 = s64[] parameter(5)"
+      }
+    },
+    "true_shift_amax-addsub.hlo.txt.gz": {
+      "s64_involving_node_counts": {
+        "s64:convert": 2811,
+        "s64:constant": 1739,
+        "s64:broadcast": 1885,
+        "pred:compare": 2811,
+        "s64:parameter": 29
+      },
+      "examples": {
+        "s64:convert": "  %convert.139 = s64[12]{0} convert(s32[12]{0} %and.138)",
+        "s64:constant": "  %constant.134 = s64[] constant(0)",
+        "s64:broadcast": "  %broadcast.140 = s64[12]{0} broadcast(s64[] %constant.134), dimensions={}",
+        "pred:compare": "  %compare.141 = pred[12]{0} compare(s64[12]{0} %convert.139, s64[12]{0} %broadcast.140), direction=EQ",
+        "s64:parameter": "  %p6.63 = s64[] parameter(6)"
+      }
+    },
+    "true_shift_amax-midpoints.hlo.txt.gz": {
+      "s64_involving_node_counts": {
+        "s64:convert": 334,
+        "s64:constant": 164,
+        "s64:broadcast": 334,
+        "pred:compare": 334,
+        "s64:parameter": 29
+      },
+      "examples": {
+        "s64:convert": "  %convert.140 = s64[255]{0} convert(s32[255]{0} %and.139)",
+        "s64:constant": "  %constant.135 = s64[] constant(0)",
+        "s64:broadcast": "  %broadcast.141 = s64[255]{0} broadcast(s64[] %constant.135), dimensions={}",
+        "pred:compare": "  %compare.142 = pred[255]{0} compare(s64[255]{0} %convert.140, s64[255]{0} %broadcast.141), direction=EQ",
+        "s64:parameter": "  %p5.64 = s64[] parameter(5)"
+      }
+    },
+    "true_shift_amax-muldiv.hlo.txt.gz": {
+      "s64_involving_node_counts": {
+        "s64:convert": 530,
+        "s64:constant": 255,
+        "s64:broadcast": 530,
+        "pred:compare": 530,
+        "s64:parameter": 31
+      },
+      "examples": {
+        "s64:convert": "  %convert.9 = s64[12]{0} convert(s32[12]{0} %shift-right-arithmetic.8)",
+        "s64:constant": "  %constant.2 = s64[] constant(0)",
+        "s64:broadcast": "  %broadcast.10 = s64[12]{0} broadcast(s64[] %constant.2), dimensions={}",
+        "pred:compare": "  %compare.11 = pred[12]{0} compare(s64[12]{0} %convert.9, s64[12]{0} %broadcast.10), direction=NE",
+        "s64:parameter": "  %p4.22 = s64[] parameter(4)"
+      }
+    },
+    "true_shift_amax-tail-1-255.hlo.txt.gz": {
+      "s64_involving_node_counts": {
+        "s64:convert": 756,
+        "s64:constant": 328,
+        "pred:compare": 756,
+        "s64:parameter": 36,
+        "s64:broadcast": 648
+      },
+      "examples": {
+        "s64:convert": "  %convert.2830 = s64[] convert(s32[] %reduce.2823)",
+        "s64:constant": "  %constant.2829 = s64[] constant(0)",
+        "pred:compare": "  %compare.2831 = pred[] compare(s64[] %convert.2830, s64[] %constant.2829), direction=LT",
+        "s64:parameter": "  %p66.2838 = s64[] parameter(66)",
+        "s64:broadcast": "  %broadcast.4465 = s64[1]{0} broadcast(s64[] %constant.4463), dimensions={}"
+      }
+    },
+    "true_shift_amax-zero-normalize.hlo.txt.gz": {
+      "s64_involving_node_counts": {
+        "s64:convert": 651,
+        "s64:constant": 308,
+        "s64:broadcast": 651,
+        "pred:compare": 651,
+        "s64:parameter": 37
+      },
+      "examples": {
+        "s64:convert": "  %convert.11 = s64[1]{0} convert(s32[1]{0} %p0.1)",
+        "s64:constant": "  %constant.10 = s64[] constant(0)",
+        "s64:broadcast": "  %broadcast.12 = s64[1]{0} broadcast(s64[] %constant.10), dimensions={}",
+        "pred:compare": "  %compare.13 = pred[1]{0} compare(s64[1]{0} %convert.11, s64[1]{0} %broadcast.12), direction=LT",
+        "s64:parameter": "  %p5.22 = s64[] parameter(5)"
+      }
+    }
+  },
+  "existing_gate": "UNCHANGED; no S64 comparison or arithmetic permitted",
+  "required_source_fix": "same-device explicitly typed S32 tensor comparison scalars",
+  "bulk_deleted": true
+}

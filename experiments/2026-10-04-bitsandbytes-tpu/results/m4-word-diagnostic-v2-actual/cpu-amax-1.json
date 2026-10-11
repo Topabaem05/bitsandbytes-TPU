@@ -1,0 +1,42 @@
+{
+  "finished_epoch": 1791710375.9942641,
+  "label": "amax-1",
+  "metadata": {},
+  "outputs": {
+    "dim0": {
+      "dtype": "int32",
+      "hex_words": [
+        "3f800000"
+      ],
+      "int_values": [
+        1065353216
+      ],
+      "shape": [],
+      "storage_sha256": "e00e5eb9444182f352323374ef4e08ebcb784725fdd4fd612d7730540b3e0c8c"
+    },
+    "dim_negative1": {
+      "dtype": "int32",
+      "hex_words": [
+        "3f800000"
+      ],
+      "int_values": [
+        1065353216
+      ],
+      "shape": [],
+      "storage_sha256": "e00e5eb9444182f352323374ef4e08ebcb784725fdd4fd612d7730540b3e0c8c"
+    },
+    "omitted": {
+      "dtype": "int32",
+      "hex_words": [
+        "3f800000"
+      ],
+      "int_values": [
+        1065353216
+      ],
+      "shape": [],
+      "storage_sha256": "e00e5eb9444182f352323374ef4e08ebcb784725fdd4fd612d7730540b3e0c8c"
+    }
+  },
+  "started_epoch": 1791710375.9939244,
+  "status": "RETURNED"
+}

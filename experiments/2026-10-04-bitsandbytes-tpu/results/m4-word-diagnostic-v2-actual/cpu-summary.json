@@ -1,0 +1,269 @@
+{
+  "cpu_controls": {
+    "checks": "shape, storage bits, variant equality, native float32 arithmetic identities, midpoint negative count127, zero code127",
+    "status": "PASS",
+    "tolerance": 0
+  },
+  "deadline_epoch": 1791710726.301284,
+  "finished_epoch": 1791710376.353696,
+  "generation": "m4-word-lowering-diagnostic-v2-raw-input-boundary",
+  "input_boundary": {
+    "counts": {
+      "backend_native_functional": false,
+      "device": "cpu",
+      "dtype": "torch.int32",
+      "shape": [
+        4
+      ],
+      "source_native_functional": false,
+      "stride": [
+        1
+      ]
+    },
+    "dynamic": {
+      "backend_native_functional": false,
+      "device": "cpu",
+      "dtype": "torch.int32",
+      "shape": [
+        256
+      ],
+      "source_native_functional": false,
+      "stride": [
+        1
+      ]
+    },
+    "first8": {
+      "backend_native_functional": false,
+      "device": "cpu",
+      "dtype": "torch.int32",
+      "shape": [
+        8
+      ],
+      "source_native_functional": false,
+      "stride": [
+        1
+      ]
+    },
+    "maxzero": {
+      "backend_native_functional": false,
+      "device": "cpu",
+      "dtype": "torch.int32",
+      "shape": [
+        1
+      ],
+      "source_native_functional": false,
+      "stride": [
+        1
+      ]
+    },
+    "ones": {
+      "backend_native_functional": false,
+      "device": "cpu",
+      "dtype": "torch.int32",
+      "shape": [
+        12
+      ],
+      "source_native_functional": false,
+      "stride": [
+        1
+      ]
+    },
+    "significands": {
+      "backend_native_functional": false,
+      "device": "cpu",
+      "dtype": "torch.int32",
+      "shape": [
+        8
+      ],
+      "source_native_functional": false,
+      "stride": [
+        1
+      ]
+    },
+    "tail1": {
+      "backend_native_functional": false,
+      "device": "cpu",
+      "dtype": "torch.int32",
+      "shape": [
+        1
+      ],
+      "source_native_functional": false,
+      "stride": [
+        1
+      ]
+    },
+    "tail255": {
+      "backend_native_functional": false,
+      "device": "cpu",
+      "dtype": "torch.int32",
+      "shape": [
+        255
+      ],
+      "source_native_functional": false,
+      "stride": [
+        1
+      ]
+    },
+    "words": {
+      "backend_native_functional": false,
+      "device": "cpu",
+      "dtype": "torch.int32",
+      "shape": [
+        12
+      ],
+      "source_native_functional": false,
+      "stride": [
+        1
+      ]
+    },
+    "zero4": {
+      "backend_native_functional": false,
+      "device": "cpu",
+      "dtype": "torch.int32",
+      "shape": [
+        1,
+        4
+      ],
+      "source_native_functional": false,
+      "stride": [
+        4,
+        1
+      ]
+    },
+    "zeros": {
+      "backend_native_functional": false,
+      "device": "cpu",
+      "dtype": "torch.int32",
+      "shape": [
+        12
+      ],
+      "source_native_functional": false,
+      "stride": [
+        1
+      ]
+    }
+  },
+  "kind": "M4_WORD_DIAGNOSTIC_V2",
+  "m4_status": "NOT_QUALIFIED",
+  "mode": "cpu",
+  "physical_graphs": [],
+  "row_outcomes": [
+    {
+      "label": "bitcast-raw-scalar",
+      "status": "RETURNED"
+    },
+    {
+      "label": "bitcast-raw-vector",
+      "status": "RETURNED"
+    },
+    {
+      "label": "bitcast-functional-scalar",
+      "status": "RETURNED"
+    },
+    {
+      "label": "bitcast-functional-vector",
+      "status": "RETURNED"
+    },
+    {
+      "label": "amax-1",
+      "status": "RETURNED"
+    },
+    {
+      "label": "amax-255",
+      "status": "RETURNED"
+    },
+    {
+      "label": "shift-left",
+      "status": "RETURNED"
+    },
+    {
+      "label": "shift-right",
+      "status": "RETURNED"
+    },
+    {
+      "label": "scalar-compare-select",
+      "status": "RETURNED"
+    },
+    {
+      "label": "original-addsub",
+      "status": "RETURNED"
+    },
+    {
+      "label": "original-muldiv",
+      "status": "RETURNED"
+    },
+    {
+      "label": "original-midpoints",
+      "status": "RETURNED"
+    },
+    {
+      "label": "original-zero-normalize",
+      "status": "RETURNED"
+    },
+    {
+      "label": "original-tail-1-255",
+      "status": "RETURNED"
+    },
+    {
+      "label": "true_shift-addsub",
+      "status": "RETURNED"
+    },
+    {
+      "label": "true_shift-muldiv",
+      "status": "RETURNED"
+    },
+    {
+      "label": "true_shift-midpoints",
+      "status": "RETURNED"
+    },
+    {
+      "label": "true_shift-zero-normalize",
+      "status": "RETURNED"
+    },
+    {
+      "label": "true_shift-tail-1-255",
+      "status": "RETURNED"
+    },
+    {
+      "label": "true_shift_amax-addsub",
+      "status": "RETURNED"
+    },
+    {
+      "label": "true_shift_amax-muldiv",
+      "status": "RETURNED"
+    },
+    {
+      "label": "true_shift_amax-midpoints",
+      "status": "RETURNED"
+    },
+    {
+      "label": "true_shift_amax-zero-normalize",
+      "status": "RETURNED"
+    },
+    {
+      "label": "true_shift_amax-tail-1-255",
+      "status": "RETURNED"
+    }
+  ],
+  "runtime": {
+    "builder_sha256": "ee315ac0cfa9f052a5a437d693bc1d65aae7ea7bf7c3d0b661384bc6723a8772",
+    "m4_status": "NOT_QUALIFIED",
+    "machine": "x86_64",
+    "python": "3.12.14",
+    "requested_backend": null,
+    "scope": "EXACT_WORD_DIAGNOSTIC_ONLY",
+    "status": "PINNED_LINUX_CPU_DIAGNOSTIC_ORACLE",
+    "system": "Linux",
+    "torch_git_version": "0fabc3ba44823f257e70ce397d989c8de5e362c1",
+    "versions": {
+      "jax": "0.7.1",
+      "jaxlib": "0.7.1",
+      "libtpu": "0.0.21",
+      "torch": "2.9.0+cpu",
+      "torch-xla": "2.9.0"
+    }
+  },
+  "source_manifest_sha256": "f4e8c6153f4c866405cb812bbe1ef803590326d7646b9be38abcce67f781939c",
+  "started_epoch": 1791710375.9796803,
+  "status": "CPU_ORACLE_COMPLETE"
+}

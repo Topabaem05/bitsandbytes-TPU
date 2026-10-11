@@ -21,8 +21,12 @@ The latest M4 Linux CPU run passed 79 cases and 540 array checks.
 Its TPU audit reported two passes, 12 failures, and 65 errors across the 79 required cases.
 Thirty cases have no returned record after the evidence limit stopped execution.
 Saved nested state did not run.
-Astra Max reviewed the tail dimension error and advised focused integer-operation comparisons before another complete experiment.
 Refer to [the latest M4 result](docs/changes/r4-functional-v4-failure-20261011.md).
+The focused [integer diagnostic](docs/changes/m4-word-diagnostic-v2-actual.md) returned all 24 TPU probes without execution errors.
+Explicit Tensor shifts and the flat tail reduction axis made all five selected mathematical families match the CPU oracle.
+Their graphs still contain S64 comparison operands from Python integer scalars.
+A reviewed source revision must remove these operands before the complete experiment repeats.
+The original graph criteria remain unchanged.
 
 The [M5 record reader](docs/changes/m5-reader-v4-preparation.md) passed independent resource and lifecycle checks.
 Its training math and checkpoint criteria remain unchanged.

@@ -1,0 +1,925 @@
+{
+  "kind": "adviser_actual_diagnostic_v2_readback",
+  "source_manifest_sha256": "f4e8c6153f4c866405cb812bbe1ef803590326d7646b9be38abcce67f781939c",
+  "cpu_report_sha256": "fbf3b0a343079b47778b29b991b550af0b00598529b6cb47947ad7c11899f239",
+  "tpu_report_sha256": "ec30d331f3fbe3e68e636e6a634db5105583ba0c6dcbc51a3c7bba2d664f2777",
+  "cpu_runtime": {
+    "builder_sha256": "ee315ac0cfa9f052a5a437d693bc1d65aae7ea7bf7c3d0b661384bc6723a8772",
+    "m4_status": "NOT_QUALIFIED",
+    "machine": "x86_64",
+    "python": "3.12.14",
+    "requested_backend": null,
+    "scope": "EXACT_WORD_DIAGNOSTIC_ONLY",
+    "status": "PINNED_LINUX_CPU_DIAGNOSTIC_ORACLE",
+    "system": "Linux",
+    "torch_git_version": "0fabc3ba44823f257e70ce397d989c8de5e362c1",
+    "versions": {
+      "jax": "0.7.1",
+      "jaxlib": "0.7.1",
+      "libtpu": "0.0.21",
+      "torch": "2.9.0+cpu",
+      "torch-xla": "2.9.0"
+    }
+  },
+  "tpu_runtime": {
+    "builder_sha256": "ee315ac0cfa9f052a5a437d693bc1d65aae7ea7bf7c3d0b661384bc6723a8772",
+    "devices": [
+      "TPU:0"
+    ],
+    "libtpu_sha256": "cdb7980d4332097b8e16576568e138ef54cf9fb8ed5aae2aeefbd0c5a425e94a",
+    "m4_status": "NOT_QUALIFIED",
+    "machine": "x86_64",
+    "observed_backend": "TPU",
+    "python": "3.12.14",
+    "requested_backend": "TPU",
+    "scope": "EXACT_WORD_DIAGNOSTIC_ONLY",
+    "status": "PINNED_TPU_DIAGNOSTIC_RUNTIME",
+    "system": "Linux",
+    "torch_git_version": "0fabc3ba44823f257e70ce397d989c8de5e362c1",
+    "versions": {
+      "jax": "0.7.1",
+      "jaxlib": "0.7.1",
+      "libtpu": "0.0.21",
+      "torch": "2.9.0+cpu",
+      "torch-xla": "2.9.0"
+    }
+  },
+  "input_boundary": {
+    "counts": {
+      "backend_native_functional": false,
+      "device": "xla:0",
+      "dtype": "torch.int32",
+      "shape": [
+        4
+      ],
+      "source_native_functional": true,
+      "stride": [
+        1
+      ]
+    },
+    "dynamic": {
+      "backend_native_functional": false,
+      "device": "xla:0",
+      "dtype": "torch.int32",
+      "shape": [
+        256
+      ],
+      "source_native_functional": true,
+      "stride": [
+        1
+      ]
+    },
+    "first8": {
+      "backend_native_functional": false,
+      "device": "xla:0",
+      "dtype": "torch.int32",
+      "shape": [
+        8
+      ],
+      "source_native_functional": true,
+      "stride": [
+        1
+      ]
+    },
+    "maxzero": {
+      "backend_native_functional": false,
+      "device": "xla:0",
+      "dtype": "torch.int32",
+      "shape": [
+        1
+      ],
+      "source_native_functional": true,
+      "stride": [
+        1
+      ]
+    },
+    "ones": {
+      "backend_native_functional": false,
+      "device": "xla:0",
+      "dtype": "torch.int32",
+      "shape": [
+        12
+      ],
+      "source_native_functional": true,
+      "stride": [
+        1
+      ]
+    },
+    "significands": {
+      "backend_native_functional": false,
+      "device": "xla:0",
+      "dtype": "torch.int32",
+      "shape": [
+        8
+      ],
+      "source_native_functional": true,
+      "stride": [
+        1
+      ]
+    },
+    "tail1": {
+      "backend_native_functional": false,
+      "device": "xla:0",
+      "dtype": "torch.int32",
+      "shape": [
+        1
+      ],
+      "source_native_functional": true,
+      "stride": [
+        1
+      ]
+    },
+    "tail255": {
+      "backend_native_functional": false,
+      "device": "xla:0",
+      "dtype": "torch.int32",
+      "shape": [
+        255
+      ],
+      "source_native_functional": true,
+      "stride": [
+        1
+      ]
+    },
+    "words": {
+      "backend_native_functional": false,
+      "device": "xla:0",
+      "dtype": "torch.int32",
+      "shape": [
+        12
+      ],
+      "source_native_functional": true,
+      "stride": [
+        1
+      ]
+    },
+    "zero4": {
+      "backend_native_functional": false,
+      "device": "xla:0",
+      "dtype": "torch.int32",
+      "shape": [
+        1,
+        4
+      ],
+      "source_native_functional": true,
+      "stride": [
+        4,
+        1
+      ]
+    },
+    "zeros": {
+      "backend_native_functional": false,
+      "device": "xla:0",
+      "dtype": "torch.int32",
+      "shape": [
+        12
+      ],
+      "source_native_functional": true,
+      "stride": [
+        1
+      ]
+    }
+  },
+  "counts": {
+    "cpu_rows": 24,
+    "tpu_rows": 24,
+    "tpu_returned": 24,
+    "tpu_errors": 0,
+    "tpu_row_exact": 15,
+    "verified_graphs": 48,
+    "verified_graph_raw_bytes": 22903304,
+    "verified_graph_gzip_bytes": 3157672,
+    "verified_array_records": 248,
+    "verified_per_row_json": 48
+  },
+  "rows": [
+    {
+      "label": "bitcast-raw-scalar",
+      "cpu_exact_match": true,
+      "comparison": {
+        "roundtrip": true,
+        "words": true
+      },
+      "s64_parameters": 0,
+      "s64_shapes": {}
+    },
+    {
+      "label": "bitcast-raw-vector",
+      "cpu_exact_match": true,
+      "comparison": {
+        "roundtrip": true,
+        "words": true
+      },
+      "s64_parameters": 0,
+      "s64_shapes": {}
+    },
+    {
+      "label": "bitcast-functional-scalar",
+      "cpu_exact_match": true,
+      "comparison": {
+        "roundtrip": true,
+        "words": true
+      },
+      "s64_parameters": 0,
+      "s64_shapes": {}
+    },
+    {
+      "label": "bitcast-functional-vector",
+      "cpu_exact_match": true,
+      "comparison": {
+        "roundtrip": true,
+        "words": true
+      },
+      "s64_parameters": 0,
+      "s64_shapes": {}
+    },
+    {
+      "label": "amax-1",
+      "cpu_exact_match": false,
+      "comparison": {
+        "dim0": true,
+        "dim_negative1": true,
+        "omitted": false
+      },
+      "s64_parameters": 0,
+      "s64_shapes": {}
+    },
+    {
+      "label": "amax-255",
+      "cpu_exact_match": false,
+      "comparison": {
+        "dim0": true,
+        "dim_negative1": true,
+        "omitted": false
+      },
+      "s64_parameters": 0,
+      "s64_shapes": {}
+    },
+    {
+      "label": "shift-left",
+      "cpu_exact_match": true,
+      "comparison": {
+        "legacy": true,
+        "tensor": true
+      },
+      "s64_parameters": 0,
+      "s64_shapes": {}
+    },
+    {
+      "label": "shift-right",
+      "cpu_exact_match": false,
+      "comparison": {
+        "legacy": false,
+        "tensor": true
+      },
+      "s64_parameters": 0,
+      "s64_shapes": {},
+      "cpu_outputs": {
+        "legacy": {
+          "dtype": "int32",
+          "hex_words": [
+            "00000000",
+            "00000000",
+            "00000000",
+            "00000000",
+            "00000001",
+            "00000000",
+            "00000000",
+            "00000000",
+            "007fffff",
+            "003fffff",
+            "00000000",
+            "00000000",
+            "00800000",
+            "00400000",
+            "00000001",
+            "00000000",
+            "00ffffff",
+            "007fffff",
+            "00000001",
+            "00000000",
+            "7fffffff",
+            "3fffffff",
+            "000000ff",
+            "00000001",
+            "ffffffff",
+            "ffffffff",
+            "ffffffff",
+            "ffffffff",
+            "80000000",
+            "c0000000",
+            "ffffff00",
+            "fffffffe"
+          ],
+          "int_values": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            8388607,
+            4194303,
+            0,
+            0,
+            8388608,
+            4194304,
+            1,
+            0,
+            16777215,
+            8388607,
+            1,
+            0,
+            2147483647,
+            1073741823,
+            255,
+            1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -2147483648,
+            -1073741824,
+            -256,
+            -2
+          ],
+          "shape": [
+            8,
+            4
+          ],
+          "storage_sha256": "c0803a865846a1cd58023de90a9d059df14d022d37b14b218f0048711859d9a0"
+        },
+        "tensor": {
+          "dtype": "int32",
+          "hex_words": [
+            "00000000",
+            "00000000",
+            "00000000",
+            "00000000",
+            "00000001",
+            "00000000",
+            "00000000",
+            "00000000",
+            "007fffff",
+            "003fffff",
+            "00000000",
+            "00000000",
+            "00800000",
+            "00400000",
+            "00000001",
+            "00000000",
+            "00ffffff",
+            "007fffff",
+            "00000001",
+            "00000000",
+            "7fffffff",
+            "3fffffff",
+            "000000ff",
+            "00000001",
+            "ffffffff",
+            "ffffffff",
+            "ffffffff",
+            "ffffffff",
+            "80000000",
+            "c0000000",
+            "ffffff00",
+            "fffffffe"
+          ],
+          "int_values": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            8388607,
+            4194303,
+            0,
+            0,
+            8388608,
+            4194304,
+            1,
+            0,
+            16777215,
+            8388607,
+            1,
+            0,
+            2147483647,
+            1073741823,
+            255,
+            1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -2147483648,
+            -1073741824,
+            -256,
+            -2
+          ],
+          "shape": [
+            8,
+            4
+          ],
+          "storage_sha256": "c0803a865846a1cd58023de90a9d059df14d022d37b14b218f0048711859d9a0"
+        }
+      },
+      "tpu_outputs": {
+        "legacy": {
+          "dtype": "int32",
+          "hex_words": [
+            "00000000",
+            "00000000",
+            "00000000",
+            "00000000",
+            "00000001",
+            "00000000",
+            "00000000",
+            "00000000",
+            "007fffff",
+            "003fffff",
+            "00000000",
+            "00000000",
+            "00800000",
+            "00400000",
+            "00000001",
+            "00000000",
+            "00ffffff",
+            "007fffff",
+            "00000001",
+            "00000000",
+            "7fffffff",
+            "3fffffff",
+            "000000ff",
+            "00000001",
+            "ffffffff",
+            "00000000",
+            "00000000",
+            "00000000",
+            "80000000",
+            "c0000000",
+            "ffffff00",
+            "fffffffe"
+          ],
+          "int_values": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            8388607,
+            4194303,
+            0,
+            0,
+            8388608,
+            4194304,
+            1,
+            0,
+            16777215,
+            8388607,
+            1,
+            0,
+            2147483647,
+            1073741823,
+            255,
+            1,
+            -1,
+            0,
+            0,
+            0,
+            -2147483648,
+            -1073741824,
+            -256,
+            -2
+          ],
+          "shape": [
+            8,
+            4
+          ],
+          "storage_sha256": "a0df510531cde0765aab7362e001f056a7c95235ecfd143a626d51cdb19a1f69"
+        },
+        "tensor": {
+          "dtype": "int32",
+          "hex_words": [
+            "00000000",
+            "00000000",
+            "00000000",
+            "00000000",
+            "00000001",
+            "00000000",
+            "00000000",
+            "00000000",
+            "007fffff",
+            "003fffff",
+            "00000000",
+            "00000000",
+            "00800000",
+            "00400000",
+            "00000001",
+            "00000000",
+            "00ffffff",
+            "007fffff",
+            "00000001",
+            "00000000",
+            "7fffffff",
+            "3fffffff",
+            "000000ff",
+            "00000001",
+            "ffffffff",
+            "ffffffff",
+            "ffffffff",
+            "ffffffff",
+            "80000000",
+            "c0000000",
+            "ffffff00",
+            "fffffffe"
+          ],
+          "int_values": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            8388607,
+            4194303,
+            0,
+            0,
+            8388608,
+            4194304,
+            1,
+            0,
+            16777215,
+            8388607,
+            1,
+            0,
+            2147483647,
+            1073741823,
+            255,
+            1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -2147483648,
+            -1073741824,
+            -256,
+            -2
+          ],
+          "shape": [
+            8,
+            4
+          ],
+          "storage_sha256": "c0803a865846a1cd58023de90a9d059df14d022d37b14b218f0048711859d9a0"
+        }
+      }
+    },
+    {
+      "label": "scalar-compare-select",
+      "cpu_exact_match": true,
+      "comparison": {
+        "eq_python": true,
+        "eq_s32": true,
+        "gt_python": true,
+        "gt_s32": true,
+        "select_negative_python": true,
+        "select_negative_s32": true,
+        "select_python": true,
+        "select_s32": true
+      },
+      "s64_parameters": 0,
+      "s64_shapes": {}
+    },
+    {
+      "label": "original-addsub",
+      "cpu_exact_match": false,
+      "comparison": {
+        "add_zero": true,
+        "cancellation": true,
+        "mean_first8": false,
+        "shift_jam": false,
+        "subtract_zero": true,
+        "sum_first8": false
+      },
+      "s64_parameters": 29,
+      "s64_shapes": {
+        "[]": 29
+      }
+    },
+    {
+      "label": "original-muldiv",
+      "cpu_exact_match": false,
+      "comparison": {
+        "clamped": true,
+        "divide_count2": false,
+        "divide_one": false,
+        "iszero": true,
+        "mantissa": true,
+        "multiply_one": false,
+        "power": true,
+        "product_high": true,
+        "product_low": true
+      },
+      "s64_parameters": 31,
+      "s64_shapes": {
+        "[]": 31
+      }
+    },
+    {
+      "label": "original-midpoints",
+      "cpu_exact_match": false,
+      "comparison": {
+        "finite_keys": false,
+        "midpoint_words": false,
+        "negative_count": false,
+        "pair_added": false
+      },
+      "s64_parameters": 29,
+      "s64_shapes": {
+        "[]": 29
+      }
+    },
+    {
+      "label": "original-zero-normalize",
+      "cpu_exact_match": false,
+      "comparison": {
+        "bounds": false,
+        "codes": false,
+        "denominator": true,
+        "normalized_words": true,
+        "predicate": false,
+        "reciprocal": true
+      },
+      "s64_parameters": 37,
+      "s64_shapes": {
+        "[]": 37
+      },
+      "code_values": {
+        "dtype": "uint8",
+        "hex_words": [
+          "13",
+          "13",
+          "13",
+          "13"
+        ],
+        "int_values": [
+          19,
+          19,
+          19,
+          19
+        ],
+        "shape": [
+          4
+        ],
+        "storage_sha256": "2c57adac3e6fef3288cb0ea84fdedd00c316b5be212efb28da0ae81598da6a1c"
+      }
+    },
+    {
+      "label": "original-tail-1-255",
+      "cpu_exact_match": false,
+      "comparison": {
+        "tail1_codes": true,
+        "tail1_scales": false,
+        "tail255_codes": false,
+        "tail255_scales": false
+      },
+      "s64_parameters": 36,
+      "s64_shapes": {
+        "[]": 36
+      }
+    },
+    {
+      "label": "true_shift-addsub",
+      "cpu_exact_match": true,
+      "comparison": {
+        "add_zero": true,
+        "cancellation": true,
+        "mean_first8": true,
+        "shift_jam": true,
+        "subtract_zero": true,
+        "sum_first8": true
+      },
+      "s64_parameters": 29,
+      "s64_shapes": {
+        "[]": 29
+      }
+    },
+    {
+      "label": "true_shift-muldiv",
+      "cpu_exact_match": true,
+      "comparison": {
+        "clamped": true,
+        "divide_count2": true,
+        "divide_one": true,
+        "iszero": true,
+        "mantissa": true,
+        "multiply_one": true,
+        "power": true,
+        "product_high": true,
+        "product_low": true
+      },
+      "s64_parameters": 31,
+      "s64_shapes": {
+        "[]": 31
+      }
+    },
+    {
+      "label": "true_shift-midpoints",
+      "cpu_exact_match": true,
+      "comparison": {
+        "finite_keys": true,
+        "midpoint_words": true,
+        "negative_count": true,
+        "pair_added": true
+      },
+      "s64_parameters": 29,
+      "s64_shapes": {
+        "[]": 29
+      }
+    },
+    {
+      "label": "true_shift-zero-normalize",
+      "cpu_exact_match": true,
+      "comparison": {
+        "bounds": true,
+        "codes": true,
+        "denominator": true,
+        "normalized_words": true,
+        "predicate": true,
+        "reciprocal": true
+      },
+      "s64_parameters": 37,
+      "s64_shapes": {
+        "[]": 37
+      },
+      "code_values": {
+        "dtype": "uint8",
+        "hex_words": [
+          "7f",
+          "7f",
+          "7f",
+          "7f"
+        ],
+        "int_values": [
+          127,
+          127,
+          127,
+          127
+        ],
+        "shape": [
+          4
+        ],
+        "storage_sha256": "365475d471c68745e3881c3743e1669911103607f18d88d9db7292e29177c0bf"
+      }
+    },
+    {
+      "label": "true_shift-tail-1-255",
+      "cpu_exact_match": false,
+      "comparison": {
+        "tail1_codes": true,
+        "tail1_scales": false,
+        "tail255_codes": true,
+        "tail255_scales": false
+      },
+      "s64_parameters": 36,
+      "s64_shapes": {
+        "[]": 36
+      }
+    },
+    {
+      "label": "true_shift_amax-addsub",
+      "cpu_exact_match": true,
+      "comparison": {
+        "add_zero": true,
+        "cancellation": true,
+        "mean_first8": true,
+        "shift_jam": true,
+        "subtract_zero": true,
+        "sum_first8": true
+      },
+      "s64_parameters": 29,
+      "s64_shapes": {
+        "[]": 29
+      }
+    },
+    {
+      "label": "true_shift_amax-muldiv",
+      "cpu_exact_match": true,
+      "comparison": {
+        "clamped": true,
+        "divide_count2": true,
+        "divide_one": true,
+        "iszero": true,
+        "mantissa": true,
+        "multiply_one": true,
+        "power": true,
+        "product_high": true,
+        "product_low": true
+      },
+      "s64_parameters": 31,
+      "s64_shapes": {
+        "[]": 31
+      }
+    },
+    {
+      "label": "true_shift_amax-midpoints",
+      "cpu_exact_match": true,
+      "comparison": {
+        "finite_keys": true,
+        "midpoint_words": true,
+        "negative_count": true,
+        "pair_added": true
+      },
+      "s64_parameters": 29,
+      "s64_shapes": {
+        "[]": 29
+      }
+    },
+    {
+      "label": "true_shift_amax-zero-normalize",
+      "cpu_exact_match": true,
+      "comparison": {
+        "bounds": true,
+        "codes": true,
+        "denominator": true,
+        "normalized_words": true,
+        "predicate": true,
+        "reciprocal": true
+      },
+      "s64_parameters": 37,
+      "s64_shapes": {
+        "[]": 37
+      },
+      "code_values": {
+        "dtype": "uint8",
+        "hex_words": [
+          "7f",
+          "7f",
+          "7f",
+          "7f"
+        ],
+        "int_values": [
+          127,
+          127,
+          127,
+          127
+        ],
+        "shape": [
+          4
+        ],
+        "storage_sha256": "365475d471c68745e3881c3743e1669911103607f18d88d9db7292e29177c0bf"
+      }
+    },
+    {
+      "label": "true_shift_amax-tail-1-255",
+      "cpu_exact_match": true,
+      "comparison": {
+        "tail1_codes": true,
+        "tail1_scales": true,
+        "tail255_codes": true,
+        "tail255_scales": true
+      },
+      "s64_parameters": 36,
+      "s64_shapes": {
+        "[]": 36
+      }
+    }
+  ],
+  "hlo_excerpts": {
+    "shift-right": {
+      "raw_sha256": "6006cb6a5a3a57973cf77b01d955b141a2e47cacf21da2add83c9d232c62779b",
+      "selected_lines": [
+        "  %broadcast.4 = s32[8,1]{1,0} broadcast(s32[] %constant.3), dimensions={}",
+        "  %divide.14 = s32[8,4]{1,0} divide(s32[8,4]{1,0} %broadcast.13, s32[8,4]{1,0} %power.9)",
+        "  %shift-right-arithmetic.19 = s32[8,4]{1,0} shift-right-arithmetic(s32[8,4]{1,0} %broadcast.16, s32[8,4]{1,0} %broadcast.18)",
+        "  ROOT %tuple.20 = (s32[8,4]{1,0}, s32[8,4]{1,0}) tuple(s32[8,4]{1,0} %divide.14, s32[8,4]{1,0} %shift-right-arithmetic.19)"
+      ]
+    },
+    "amax-1": {
+      "raw_sha256": "4d953699de12c0ca75040d6562e713b304df6462e407d262966299ebe5e87873",
+      "selected_lines": [
+        "  %reduce.8 = s32[1]{0} reduce(s32[1]{0} %p0.1, s32[] %constant.2), dimensions={}, to_apply=%MaxComputation.4",
+        "  %reduce.15 = s32[] reduce(s32[1]{0} %p0.1, s32[] %constant.9), dimensions={0}, to_apply=%MaxComputation.11",
+        "  %reduce.22 = s32[] reduce(s32[1]{0} %p0.1, s32[] %constant.16), dimensions={0}, to_apply=%MaxComputation.18"
+      ]
+    },
+    "amax-255": {
+      "raw_sha256": "e4f1ab3d80234b41228b7abca000a32c6984222da9cc16e4e366775fcba5b232",
+      "selected_lines": [
+        "  %reduce.8 = s32[255]{0} reduce(s32[255]{0} %p0.1, s32[] %constant.2), dimensions={}, to_apply=%MaxComputation.4",
+        "  %reduce.15 = s32[] reduce(s32[255]{0} %p0.1, s32[] %constant.9), dimensions={0}, to_apply=%MaxComputation.11",
+        "  %reduce.22 = s32[] reduce(s32[255]{0} %p0.1, s32[] %constant.16), dimensions={0}, to_apply=%MaxComputation.18"
+      ]
+    }
+  },
+  "claims_limit": "Focused probes only; no full 79 or state8 qualification."
+}

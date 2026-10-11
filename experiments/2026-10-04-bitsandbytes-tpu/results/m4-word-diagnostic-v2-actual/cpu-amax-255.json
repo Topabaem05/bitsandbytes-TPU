@@ -1,0 +1,42 @@
+{
+  "finished_epoch": 1791710375.9947639,
+  "label": "amax-255",
+  "metadata": {},
+  "outputs": {
+    "dim0": {
+      "dtype": "int32",
+      "hex_words": [
+        "000000fe"
+      ],
+      "int_values": [
+        254
+      ],
+      "shape": [],
+      "storage_sha256": "afbf07b0be4592ae583232113e2ef631ca37b9e6b608cfa6d511e4ec3c372383"
+    },
+    "dim_negative1": {
+      "dtype": "int32",
+      "hex_words": [
+        "000000fe"
+      ],
+      "int_values": [
+        254
+      ],
+      "shape": [],
+      "storage_sha256": "afbf07b0be4592ae583232113e2ef631ca37b9e6b608cfa6d511e4ec3c372383"
+    },
+    "omitted": {
+      "dtype": "int32",
+      "hex_words": [
+        "000000fe"
+      ],
+      "int_values": [
+        254
+      ],
+      "shape": [],
+      "storage_sha256": "afbf07b0be4592ae583232113e2ef631ca37b9e6b608cfa6d511e4ec3c372383"
+    }
+  },
+  "started_epoch": 1791710375.9945776,
+  "status": "RETURNED"
+}
