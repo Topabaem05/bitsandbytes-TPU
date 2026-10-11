@@ -1,5 +1,15 @@
 # Change log
 
+## 2026-10-11 — Passive PJRT preparation disposal
+
+- Verify all 184 private archive members through an independent download.
+- Delete five completed local preparation and review roots.
+- Preserve compact source adoption and disposal records in Git.
+
+Validation: Every archive member matched its full hash, and no active process referenced the deleted roots.
+No new output was added to `.work`.
+M6 remains unqualified.
+
 ## 2026-10-11 — Passive PJRT source preparation
 
 - Invalidate superseded optimized payloads and verify the executable parent generation.

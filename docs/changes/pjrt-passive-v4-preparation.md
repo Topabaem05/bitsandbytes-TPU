@@ -18,3 +18,8 @@ Linux compilation and actual TPU observations remain required.
 M6 remains unqualified.
 
 The full ASD-STE100 dictionary was unavailable; no certified conformity is claimed.
+
+Five completed preparation and review roots were later archived in private Google Drive.
+An independent download verified the archive hash and all 184 members.
+The five roots and the temporary archive copy were then deleted.
+The [private archive](https://drive.google.com/file/d/13JvwVP-Y4cS-_O0Bvy8SMe3hSr3S6Kr6/view) preserves the complete local preparation evidence.

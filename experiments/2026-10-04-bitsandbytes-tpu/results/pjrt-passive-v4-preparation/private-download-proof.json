@@ -1,0 +1,22 @@
+{
+  "archive_bytes": 299054,
+  "archive_sha256": "6b5ec53708074bc6765dea32d54b1f4dd37816046d6823c3651939d2ef82db65",
+  "created_epoch": 1791706579.755759,
+  "download_verified_epoch": 1791706632.7550411,
+  "every_member_sha256_verified": true,
+  "input_entries": 183,
+  "inventory_sha256": "510109c7af1deea29683349e955e9f8c975f3e3d7bde8d008ae3b8447a6c2f83",
+  "logical_bytes": 869063,
+  "members": 184,
+  "remote_id": "13JvwVP-Y4cS-_O0Bvy8SMe3hSr3S6Kr6",
+  "roots": [
+    "/tmp/m6-pjrt-passive-v3.P85JqE",
+    "/tmp/m6-pjrt-passive-v4.3i_v806e",
+    "/tmp/m6-pjrt-peer-review-20261011-zsjbeqqc",
+    "/tmp/m6-pjrt-v4-independent-peer-20261011-31osv4lo",
+    "/tmp/bnb-tpu-root-pjrt-v4-peer-owner-20261011"
+  ],
+  "status": "INDEPENDENT_DOWNLOAD_FULL_READBACK_PASS",
+  "symlinks": 0,
+  "zip_crc_verified": true
+}
