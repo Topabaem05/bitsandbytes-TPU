@@ -1,0 +1,18 @@
+{
+  "candidate_sha256": "4801d887e9ad249058d919fc47de872ad85b3786944c43bc9b3f90ba3521a96b",
+  "cause": "macOS /var ancestor is symlink; use resolved temporary path before immutable source verification",
+  "change": "one Path(directory).resolve() insertion; source guards unchanged",
+  "checks": [
+    "alias_parent_rejected",
+    "resolved_same_bytes_accepted",
+    "resolved_wrong_bytes_rejected"
+  ],
+  "epoch": 1791698114.826813,
+  "fixture_removed": true,
+  "initial_actual_reader_error": "SOURCE_PATH",
+  "initial_error_not_science_rejection": true,
+  "original_sha256": "b3036ca282111b26cd343fdd0581ab9fe8a583d5d264896460cbc9b18c840ca6",
+  "provider_calls": 0,
+  "scientific_records_modified": false,
+  "status": "ROOT_READER_PATH_FIX_3_CONTROLS_PASS"
+}

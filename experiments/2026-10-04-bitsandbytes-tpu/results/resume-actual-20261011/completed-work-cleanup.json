@@ -1,0 +1,24 @@
+{
+  "absence_verified": true,
+  "active_old_root_processes": [],
+  "all_members_independently_downloaded_and_hashed": true,
+  "current_task_new_work_entries": 0,
+  "deleted_entries": 8661,
+  "deleted_logical_bytes": 2969679047,
+  "deleted_roots": [
+    "root-compiler-libtpu021-canonical",
+    "r6-public-dyadic-integration",
+    "r6-public-dyadic-reference-preparation",
+    "root-public-dyadic-reference-review",
+    "root-public-dyadic-fraction-review"
+  ],
+  "epoch": 1791698315.146847,
+  "input_inventory_unchanged_before_deletion": true,
+  "private_archive_bytes": 344408536,
+  "private_archive_members": 8662,
+  "private_archive_sha256": "eac586bd08258441aa813097f3fe7f574772cbc100bb44e726932b52b4f504e0",
+  "private_file_id": "1xW9k0LzO_Jag5GeLegkZtBV8YwALvpkw",
+  "private_owner_only": true,
+  "status": "PRIVATE_ARCHIVE_READBACK_THEN_COMPLETED_WORK_FIXTURE_DELETION",
+  "symlinks_preserved_as_text_not_dereferenced": 44
+}

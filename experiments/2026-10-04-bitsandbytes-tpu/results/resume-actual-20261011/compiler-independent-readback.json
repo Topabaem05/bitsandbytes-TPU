@@ -1,0 +1,267 @@
+{
+  "active_usage_zero": true,
+  "actual_device_attempted": true,
+  "archive_bytes": 1372080,
+  "archive_members": 162,
+  "archive_sha256": "900addaea2d00f90dc0959d7c00588a09bdae1f0a886fa961d0c050d821e26e1",
+  "browser_tab_closed": true,
+  "cases": [
+    {
+      "boundary_proof": {
+        "actual_hardware_runtime": "REQUIRES_PARENT_ADMISSION",
+        "allocator_peak": "NOT_QUALIFIED",
+        "body_bytes": 8426,
+        "body_sha256": "62a0622924b2be3e43f5f8b8b8a75639287c8fe99a427d3ce9cd963dce38214a",
+        "compiler_body": "NOT_QUALIFIED",
+        "compiler_memory": "NOT_QUALIFIED",
+        "m6": "NOT_QUALIFIED",
+        "native_boundary": "PASS",
+        "numerical_gate": {
+          "max_abs": 2.384185791015625e-06,
+          "nrmse": 3.852349241688872e-07,
+          "rmse": 5.43413236348456e-07,
+          "status": "PASS"
+        },
+        "operand_values_order_layout": "PASS",
+        "optimized_executable_link": "NOT_QUALIFIED",
+        "payload_bytes": 11322,
+        "payload_sha256": "caf273a6a163981d6d0dd40dabd38566ce3173bed9f4615c3ab8fbf11c8d33ef",
+        "public_api": "NOT_QUALIFIED",
+        "root_reachable_graph": "PASS",
+        "scope": "ACTUAL_NATIVE_BOUNDARY",
+        "status": "BINDING_PASS",
+        "synchronized_execution": "PASS"
+      },
+      "case": "direct-fp32",
+      "output_sha256": "ad6745448c5aa37ab93f2d788ff3314ee0cc5f822e48e6f71bb3014c9aaafae3",
+      "output_values": 32768,
+      "raw_sha256": "36d6ce411ff982e8cd1d99fb0d8d1be8defd393484e63fd44f3b2f455a7623b3",
+      "same_device_reference_gate": {
+        "max_abs": 2.384185791015625e-06,
+        "nrmse": 3.809516768387768e-07,
+        "rmse": 5.373712781881004e-07,
+        "status": "PASS"
+      },
+      "status": "PASS"
+    },
+    {
+      "boundary_proof": {
+        "actual_hardware_runtime": "REQUIRES_PARENT_ADMISSION",
+        "allocator_peak": "NOT_QUALIFIED",
+        "body_bytes": 8426,
+        "body_sha256": "62a0622924b2be3e43f5f8b8b8a75639287c8fe99a427d3ce9cd963dce38214a",
+        "compiler_body": "NOT_QUALIFIED",
+        "compiler_memory": "NOT_QUALIFIED",
+        "m6": "NOT_QUALIFIED",
+        "native_boundary": "PASS",
+        "numerical_gate": {
+          "max_abs": 2.384185791015625e-06,
+          "nrmse": 3.852349241688872e-07,
+          "rmse": 5.43413236348456e-07,
+          "status": "PASS"
+        },
+        "operand_values_order_layout": "PASS",
+        "optimized_executable_link": "NOT_QUALIFIED",
+        "payload_bytes": 11322,
+        "payload_sha256": "caf273a6a163981d6d0dd40dabd38566ce3173bed9f4615c3ab8fbf11c8d33ef",
+        "public_api": "NOT_QUALIFIED",
+        "root_reachable_graph": "PASS",
+        "scope": "ACTUAL_NATIVE_BOUNDARY",
+        "status": "BINDING_PASS",
+        "synchronized_execution": "PASS"
+      },
+      "case": "functional-fp32",
+      "output_sha256": "ad6745448c5aa37ab93f2d788ff3314ee0cc5f822e48e6f71bb3014c9aaafae3",
+      "output_values": 32768,
+      "raw_sha256": "06e54b6337bf0e63e44ccf2bf66fe69b8a3a93a9099b53d64a3038340e35883d",
+      "same_device_reference_gate": {
+        "max_abs": 2.384185791015625e-06,
+        "nrmse": 3.809516768387768e-07,
+        "rmse": 5.373712781881004e-07,
+        "status": "PASS"
+      },
+      "status": "PASS"
+    },
+    {
+      "boundary_proof": {
+        "actual_hardware_runtime": "REQUIRES_PARENT_ADMISSION",
+        "allocator_peak": "NOT_QUALIFIED",
+        "body_bytes": 8621,
+        "body_sha256": "4048573e131a571b16f4bd6d018f5c2652a546b2580f673bd8fbdb2cc83d34b4",
+        "compiler_body": "NOT_QUALIFIED",
+        "compiler_memory": "NOT_QUALIFIED",
+        "m6": "NOT_QUALIFIED",
+        "native_boundary": "PASS",
+        "numerical_gate": {
+          "max_abs": 0.0,
+          "nrmse": 0.0,
+          "rmse": 0.0,
+          "status": "PASS"
+        },
+        "operand_values_order_layout": "PASS",
+        "optimized_executable_link": "NOT_QUALIFIED",
+        "payload_bytes": 11582,
+        "payload_sha256": "d855b640035e2322d6083d9fd80983aee1ad19b5abb64098545d61584897eee4",
+        "public_api": "NOT_QUALIFIED",
+        "root_reachable_graph": "PASS",
+        "scope": "ACTUAL_NATIVE_BOUNDARY",
+        "status": "BINDING_PASS",
+        "synchronized_execution": "PASS"
+      },
+      "case": "direct-bf16",
+      "output_sha256": "2a94386dd24b1a9b6701e1172488ef46ed25248e57c1de74a9af15e595e812e2",
+      "output_values": 32768,
+      "raw_sha256": "ed52b93cb68e4605ed23917788571335f79441e67fb267fab69482c910c68e07",
+      "same_device_reference_gate": {
+        "max_abs": 0.0,
+        "nrmse": 0.0,
+        "rmse": 0.0,
+        "status": "PASS"
+      },
+      "status": "PASS"
+    },
+    {
+      "boundary_proof": {
+        "actual_hardware_runtime": "REQUIRES_PARENT_ADMISSION",
+        "allocator_peak": "NOT_QUALIFIED",
+        "body_bytes": 8621,
+        "body_sha256": "4048573e131a571b16f4bd6d018f5c2652a546b2580f673bd8fbdb2cc83d34b4",
+        "compiler_body": "NOT_QUALIFIED",
+        "compiler_memory": "NOT_QUALIFIED",
+        "m6": "NOT_QUALIFIED",
+        "native_boundary": "PASS",
+        "numerical_gate": {
+          "max_abs": 0.0,
+          "nrmse": 0.0,
+          "rmse": 0.0,
+          "status": "PASS"
+        },
+        "operand_values_order_layout": "PASS",
+        "optimized_executable_link": "NOT_QUALIFIED",
+        "payload_bytes": 11582,
+        "payload_sha256": "d855b640035e2322d6083d9fd80983aee1ad19b5abb64098545d61584897eee4",
+        "public_api": "NOT_QUALIFIED",
+        "root_reachable_graph": "PASS",
+        "scope": "ACTUAL_NATIVE_BOUNDARY",
+        "status": "BINDING_PASS",
+        "synchronized_execution": "PASS"
+      },
+      "case": "functional-bf16",
+      "output_sha256": "2a94386dd24b1a9b6701e1172488ef46ed25248e57c1de74a9af15e595e812e2",
+      "output_values": 32768,
+      "raw_sha256": "327026afbbd30dddb7b5fc59d0c0adfac1342301eeada23024bf491275ddc39c",
+      "same_device_reference_gate": {
+        "max_abs": 0.0,
+        "nrmse": 0.0,
+        "rmse": 0.0,
+        "status": "PASS"
+      },
+      "status": "PASS"
+    },
+    {
+      "case": "tail-reference-fp32",
+      "output_sha256": "e8d0c80e79badd449ec9321c18408890a28eebffd53b770047ed5cafdf9dbdfa",
+      "output_values": 33024,
+      "raw_sha256": "081548dc3947862eb150ce30a6f178fae9607038364e3a9d29e07e7c0126b40d",
+      "status": "PASS",
+      "tail_gate": {
+        "max_abs": 2.384185791015625e-06,
+        "nrmse": 3.8041993418120866e-07,
+        "rmse": 5.359284111578595e-07,
+        "status": "PASS"
+      }
+    }
+  ],
+  "cli_groups_closed": 59,
+  "compiler_acceptance": "ROOT_DECISION_REQUIRED",
+  "compiler_archive_members": 238,
+  "compiler_capture_proof": {
+    "allocator_peak": "UNKNOWN",
+    "backend_alias_dataflow": "UNKNOWN",
+    "compiler_content_chain": "NOT_EVALUATED",
+    "m6": "NOT_QUALIFIED",
+    "physical_memory": "UNKNOWN",
+    "raw_bytes": 5047693,
+    "raw_files": 234,
+    "selected_executable_link": "UNKNOWN",
+    "status": "OWNED_BOUNDED_DUMP_CAPTURE_ONLY"
+  },
+  "conversion_audit_sha256": "ec643b54ee9e4746ee3e1b6b8fecc3a45602ee16a3af6e3ce3ecad50531cabfe",
+  "cpu_archive_bytes": 168892,
+  "cpu_archive_members": 11,
+  "cpu_archive_sha256": "a7b1fde880212b085c9ba09b764157216ca645a5c6da13f15610a3b9fd582505",
+  "cpu_gate_status": "QUALIFIED_LINUX_CPU_ORACLE_VERIFIED",
+  "cpu_output_values": 164096,
+  "cpu_outputs": [
+    {
+      "array_sha256": "1d6e99a8d6e00c37ef7db3fb565077f01bb86d744eef1c33201b5bcf904be9a2",
+      "case": "direct-fp32",
+      "values": 32768
+    },
+    {
+      "array_sha256": "1d6e99a8d6e00c37ef7db3fb565077f01bb86d744eef1c33201b5bcf904be9a2",
+      "case": "functional-fp32",
+      "values": 32768
+    },
+    {
+      "array_sha256": "2a94386dd24b1a9b6701e1172488ef46ed25248e57c1de74a9af15e595e812e2",
+      "case": "direct-bf16",
+      "values": 32768
+    },
+    {
+      "array_sha256": "2a94386dd24b1a9b6701e1172488ef46ed25248e57c1de74a9af15e595e812e2",
+      "case": "functional-bf16",
+      "values": 32768
+    },
+    {
+      "array_sha256": "34da6cd3792f4055741109182e47945870f683fe9683fd0a685955ece1b5053f",
+      "case": "tail-reference-fp32",
+      "values": 33024
+    }
+  ],
+  "device_error_cases": 0,
+  "epoch": 1791696870.409135,
+  "flag_preflight_native_cases": 0,
+  "flag_preflight_scope": "PARSER_AND_BACKEND_INITIALIZATION_ONLY_NOT_NATIVE_SCIENCE",
+  "flag_preflight_sha256": "73fb54883e2238a67310aa9b44336b456432823901a4fb590c4cafa9ff387d99",
+  "host_execution_seconds": 379.10806004200094,
+  "host_finalization_sha256": "21f85f944bc961fc3f5eb23dea7e9d961312e4613c8ee879f5fdc6a61ed19bc3",
+  "independent_isolated_controls": 6,
+  "independent_negative_controls": [
+    "direct-fp32:wrong_output",
+    "direct-fp32:wrong_operand",
+    "direct-fp32:false_execution_scope",
+    "functional-fp32:wrong_output",
+    "functional-fp32:wrong_operand",
+    "functional-fp32:false_execution_scope",
+    "direct-bf16:wrong_output",
+    "direct-bf16:wrong_operand",
+    "direct-bf16:false_execution_scope",
+    "functional-bf16:wrong_output",
+    "functional-bf16:wrong_operand",
+    "functional-bf16:false_execution_scope",
+    "tail-reference-fp32:wrong_output",
+    "compiler:wrong_prelaunch_hash",
+    "compiler:wrong_postclosure_hash"
+  ],
+  "lifecycle_seconds": 631.1892499923706,
+  "m6": "NOT_QUALIFIED",
+  "manifest_sha256": "19148d0d02162f60310f64dbcb874a5b9fea8f91404ff02b7aa19fb003494bf5",
+  "native_dependency_acceptance": "c64fca47f57374fab691d9870005cf614fc6eebbc8a02706ed70781f9dd1042a",
+  "native_pass_cases": 4,
+  "not_run_cases": 0,
+  "original_deadline_unchanged": true,
+  "owner_sha256": "a25966e2db3f00a568e91b266766e70ea381c398eb4ef8b7b78986976184b742",
+  "packet_sha256": "78797717b385dae4151f866f5918600e1c1023c7433e0fc4f4828fcf0e361540",
+  "qualified_native_numerical_comparisons": 4,
+  "receipt_sha256": "6d138f14651a17fea15b46c79b831a108a35d9adbf0abcce85c0b0495622f56c",
+  "reference_pass_cases": 1,
+  "remote_steps_closed": 16,
+  "resource_closure": "PASS",
+  "review_source_sha256": "defceaf4e37b5c26946670c0e9c89daa839b70701ccf8988f5f7a458995edb11",
+  "same_allocation_connection_retry": 0,
+  "server_empty": true,
+  "status": "ACTUAL_COMPILER_CAPTURE_FIVE_NATIVE_CASES_AND_CLOSURE_READBACK_ONLY",
+  "total_output_values": 164096,
+  "verifier_result_sha256": "91af9afe8bf6da87f9f191b24877d671f977c5ebe4eda6641851676a99ad919b"
+}

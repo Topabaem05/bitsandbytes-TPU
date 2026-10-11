@@ -1,0 +1,14 @@
+{
+  "archive_bytes": 388998,
+  "archive_sha256": "6d9534a9baf954b49e07917f7c38bebe01075be395af378951f7daf139488e2c",
+  "deleted_files": 379,
+  "deleted_logical_bytes": 1418919,
+  "deleted_root": "/tmp/bnb-tpu-compiler-boundary-20261011-vhj82iig",
+  "independent_Drive_Desktop_download": "EXACT_BYTES_PASS",
+  "private_archive_id": "1GROJg2DlwVYsMHKscOsTex6qKHYUkNrE",
+  "sharing": "OWNER_ONLY",
+  "source_canonical_revision": "6553e22ca52bee23f2378eac14998c19e857219f",
+  "status": "COMPLETED_SCRATCH_DELETED",
+  "verified_at": "2026-10-11T05:16:35.611984+00:00",
+  "worker_live_dependencies": false
+}

@@ -163,6 +163,10 @@ The [default dump preparation](changes/r6-compiler-default-dumps-preparation.md)
 It preserves the original five cases and all storage limits.
 The worker passed 185 controls, and the reviewer independently passed 157 relevant controls.
 A fresh qualified CPU gate and actual TPU capture remain required.
+The [actual default dump experiment](changes/r6-resume-actual-20261011.md) then passed all five diagnostic cases.
+The reviewer verified all 234 raw files and complete resource closure.
+Exact native payload and body matches do not supply the missing executable link.
+The original content verifier found no valid complete chain; M6 remains unqualified.
 The [public API preparation](changes/r6-public-cloud-preparation.md) passed all 118 controls before and after adoption.
 Its 15 cases require a fresh qualified Linux CPU oracle before device execution.
 The packet covers FP32 gradients and BF16 outputs without compiler dump flags.
@@ -174,6 +178,10 @@ Inspect a separate reference revision without changing the original device crite
 The [versioned CPU reference preparation](changes/r6-public-dyadic-reference.md) preserves the primary Linux calculations and original device criteria.
 It adds exact integer supplements and rejects old CPU seals.
 A fresh qualified Linux CPU seal and actual public TPU records remain required.
+The [actual public retry](changes/r6-resume-actual-20261011.md) passed both fresh 15-case CPU reference gates.
+Device execution retained four forward passes, one input-gradient observer error, and ten unexecuted cases.
+The scalar integer graph parameters require a separate observer correction.
+All returned records and resource closure passed independent inspection.
 The [measurement preparation](changes/r7-measurement-preparation.md) passed 64 local controls and nine independent retained-record checks.
 Actual M7 collection requires accepted M6 results.
 BF16 gradients remain outside the fixed diagnostic scope.

@@ -1,5 +1,17 @@
 # Change log
 
+## 2026-10-11 — Actual default dumps and partial public results
+
+- Retain five passed compiler diagnostic cases and all 234 raw compiler files.
+- Record four public forward passes, one training observer error, and ten unexecuted cases.
+- Preserve unknown executable and memory results, original criteria, and closed resource records.
+- Verify private archives through independent downloads, then remove completed local outputs.
+
+Validation: Independent scientific, source, conversion, archive, and closure readback passed.
+The original compiler content chain failed, and M6 remains unqualified.
+Completed `.work` fixtures contained 2,969,679,047 logical bytes; this task added no `.work` entries.
+Refer to [the actual result and disposal record](docs/changes/r6-resume-actual-20261011.md).
+
 ## 2026-10-11 — Version 2 static allocation bounds
 
 - Add natural storage widths for PRED, S32, S64, and U32 in a separate auditor.

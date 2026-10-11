@@ -1,0 +1,29 @@
+{
+  "allocator_peak": "UNKNOWN",
+  "epoch": 1791697659.1311622,
+  "exact_payload_body_matches": "PASS",
+  "frozen_content_chain": "NO_VALID_COMBINATION",
+  "frozen_parser_sha256": "c44ecb15696031f326a7abe64ea3d8407b9bc21f527cb94f8b5f149c456fcd8d",
+  "full_private_report_relative": "bnb-tpu-compiler-actual-20261011-7bf4kkzb/review/root-content-diagnosis.json",
+  "full_private_report_sha256": "422f0dfba0c8a617224e31da1fd2f4b1e99300ce72d8ca6ce9212de5efb77c48",
+  "m6": "NOT_QUALIFIED",
+  "native_module_ids": [
+    0,
+    36,
+    44,
+    71
+  ],
+  "native_payload_is_unique_case_identity": false,
+  "postclosure_sha256": "b103c484afef7e5f9e73af8941029b92772a710f98492bef3df6f5f647bca547",
+  "raw_bytes": 5047693,
+  "raw_files": 234,
+  "reason": [
+    "no_metadata_stage_dump_references",
+    "no_frozen_canonical_boundary_match",
+    "native_allocation_modules_outside_single_entry_scope"
+  ],
+  "scientific_records_modified": false,
+  "script_sha256": "ef2b5ceb1fedb5c1ad55c86e8c062e716913aac82969ae9c7536b7b078457bc8",
+  "selected_executable_link": "UNKNOWN",
+  "status": "CLOSED_COMPILER_CONTENT_DIAGNOSIS_NOT_ACCEPTANCE"
+}

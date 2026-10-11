@@ -1,0 +1,15 @@
+{
+  "absence_verified": true,
+  "archive_bytes": 114387,
+  "archive_id": "1tvjV0wRB8Lr_Ad_pWFjoXVkd0sLOK7EV",
+  "archive_sha256": "008ac48de8050f7a75ed659f299f5246bd6b9f3edf05c0a0a7c78fecc1f4bbbd",
+  "deleted_root": "/private/tmp/bnb-tpu-compiler-dispatch-20261011-z97lxomq",
+  "epoch": 1791697486.264947,
+  "local_bytes": 352371,
+  "local_files": 131,
+  "local_inventory_sha256": "3ed0782806d0cdb5b4604f7d18b87d93621107e4d1ad47aca574a86c2ae80020",
+  "owner_only": true,
+  "root_recipe_copied_and_frozen": true,
+  "status": "PRIVATE_ARCHIVE_INDEPENDENT_READBACK_THEN_LOCAL_DELETION",
+  "worker_confirmed_no_remaining_dependency": true
+}

@@ -1,0 +1,159 @@
+{
+  "actual_acceptance": "ROOT_DECISION_REQUIRED",
+  "actual_dx_qualification": "NOT_QUALIFIED",
+  "archive_members": 207,
+  "cases": [
+    {
+      "error": null,
+      "file": "direct-bfloat16.json",
+      "sha256": "3542bb1dcc600f27837cc24d15cf2f558ae82cc1af2d38f5ba702e6682dccfaa",
+      "status": "PASS"
+    },
+    {
+      "error": null,
+      "file": "direct-float32.json",
+      "sha256": "64cce61512b1c9a254d43fd29881c5be7bc0ddc4668d93999462c5486d5eef8d",
+      "status": "PASS"
+    },
+    {
+      "error": null,
+      "file": "module-bf16-rank3.json",
+      "sha256": "5d6614b4bed0b513c9cd228727a96de5d533eee188eab414b2776cf297b3a3de",
+      "status": "NOT_RUN"
+    },
+    {
+      "error": null,
+      "file": "module-bias-rank2.json",
+      "sha256": "a51a90cd26916c20a2a3e7a5a21327b20d31bcfa6c1395388b74d8480b6bf3e4",
+      "status": "NOT_RUN"
+    },
+    {
+      "error": null,
+      "file": "module-bias-rank3.json",
+      "sha256": "f28c9fd6e9976e8ec217470ca9f649432b9a44ed3161519ea25e65cefab7ca3d",
+      "status": "NOT_RUN"
+    },
+    {
+      "error": null,
+      "file": "module-train-rank2.json",
+      "sha256": "2733f66596af5005599202dca261fb848efb52d7befeb9bd4344fa3f65b14ebe",
+      "status": "NOT_RUN"
+    },
+    {
+      "error": null,
+      "file": "module-train-rank3.json",
+      "sha256": "9a48cdbc53727473c8e2425cf6f9c8ac999443a8d90b17d8d5b69d667f06cd0f",
+      "status": "NOT_RUN"
+    },
+    {
+      "error": null,
+      "file": "public-functionalized-fp32.json",
+      "sha256": "fc869c72357134032e5a64a140474440f895ad9a550cf2e52913b04447133f9f",
+      "status": "NOT_RUN"
+    },
+    {
+      "error": null,
+      "file": "public-infer-bfloat16.json",
+      "sha256": "1a673b43a3251eab26ab38b1e7e5f6c19ffabf1993b394f184b3a5a7f4436b66",
+      "status": "PASS"
+    },
+    {
+      "error": null,
+      "file": "public-infer-float32.json",
+      "sha256": "fdc630fb6957fa54d9fa6dce4dc21fb858e094703bccfd52307e0b545c42dd1c",
+      "status": "PASS"
+    },
+    {
+      "error": null,
+      "file": "public-noncontiguous-fp32.json",
+      "sha256": "6b2ab923a8cad2d5ca9eb02466d5963ea4e8725e92843e23bdc388edcf352f75",
+      "status": "NOT_RUN"
+    },
+    {
+      "error": null,
+      "file": "public-out-fp32.json",
+      "sha256": "fe13bfcf7684e78d3ae1f31b8cb8682874ca4b8071f68fea53f5b11fcd2190e7",
+      "status": "NOT_RUN"
+    },
+    {
+      "error": null,
+      "file": "public-tail-fp32.json",
+      "sha256": "229dd923d2597b841909d7c30f511a42690c0f3a80ec292319b140b6e13057bd",
+      "status": "NOT_RUN"
+    },
+    {
+      "error": null,
+      "file": "public-train-rank2.json",
+      "sha256": "b9a8104905081eaad932844032ea3aaabfdd7659eea80341d436821504185435",
+      "status": "ERROR"
+    },
+    {
+      "error": null,
+      "file": "public-train-rank3.json",
+      "sha256": "6c325e89a548a70154918fcc2f486ccf9f8de313d9b46b449314f365cb74d85b",
+      "status": "NOT_RUN"
+    }
+  ],
+  "cpu_archive_integrity": "PASS_RETAINED_BYTES_ONLY",
+  "cpu_archive_members": 39,
+  "cpu_gate": "QUALIFIED_LINUX_PRIMARY_AND_DYADIC_15_VERIFIED",
+  "cpu_observations": {
+    "case_count": 15,
+    "primary_comparison": "UNCHANGED_ORIGINAL_DEVICE_TOLERANCE",
+    "qualified_record_runtime": {
+      "machine": "x86_64",
+      "platform": "Linux",
+      "python": "3.12.14",
+      "torch": "2.9.0+cpu"
+    },
+    "record_validation": "PASS",
+    "reference_semantics": {
+      "accumulated_gradient": "TWICE_FIRST_ROUNDED_FP32_GRADIENT",
+      "decode": "ORIGINAL_NF4_HIGH_FIRST_FP32_MULTIPLY_THEN_CASE_DTYPE",
+      "device_comparison": "UNCHANGED_QUALIFIED_LINUX_PRIMARY_ROWS",
+      "host_cpu_gemm_bit_equality": "NOT_REQUIRED",
+      "primary": "ORIGINAL_DEFAULT_DECODE_F_LINEAR_AUTOGRAD_QUALIFIED_LINUX",
+      "primary_comparison": "UNCHANGED_ORIGINAL_DEVICE_TOLERANCE",
+      "supplement": "EXACT_INTEGER_DYADIC_DOT_THEN_ONCE_RNE_OUTPUT_DTYPE",
+      "version": "PUBLIC15_QUALIFIED_CPU_PLUS_EXACT_DYADIC_V1"
+    },
+    "scope": "QUALIFIED_PRIMARY_AND_EXACT_MATH_REPLAY_ON_HOST_CPU",
+    "source_generation": "public-pallas-device-mosaic7-gather-bf16-fp32-dyadic-v2"
+  },
+  "device_cases": {
+    "ERROR": 1,
+    "FAIL": 0,
+    "NOT_RUN": 10,
+    "PASS": 4
+  },
+  "epoch": 1791698117.224363,
+  "host_execution_seconds": 481.985028916,
+  "independent_device_verifier_sha256": "5a2dde71d1d348c1fbe082ff7604c9dfb8f8fc1efcedcd9dec0a775f3ffcf3b9",
+  "kind": "ROOT_PUBLIC15_CLOSED_PARTIAL_RESULT",
+  "lifecycle_seconds": 597.2487540245,
+  "local_group_count": 70,
+  "local_groups_absent": true,
+  "m6": "NOT_QUALIFIED",
+  "manifest_sha256": "7051c06f76b94fb5a94c13ebd66b989572fc6b2b1527fb025243ed43a4c377a8",
+  "numerical_status": "ERROR",
+  "observer_error": "SHAPE_SCOPE",
+  "observer_failure_scope": "PRE_SYNC_DX_GRAPH_PARAMETER_OBSERVATION",
+  "original_deadline_unchanged": true,
+  "original_full_readback_sha256": "c4660d74792f6a1ee237c956d9702b05bc8074c0bd03db29ad9d19eb4a9a1b02",
+  "packet_sha256": "ae91225f875c30885dd2ad03ff44af9fc1a5dea362aded8392604280f70dbbec",
+  "performance": "NOT_MEASURED",
+  "primary_and_dyadic_cpu_cases": 15,
+  "public_generation": "public-pallas-device-mosaic7-gather-bf16-fp32-dyadic-v2",
+  "public_manifest_sha256": "72e0f202ae8c274853b0a2e1e29c4dd21aeaf5b5b9464839025926b641563b5d",
+  "public_protocol_sha256": "2e27f6c1d1476d65a7f18e5c9a135dd3e83552fab2ba2f0512ff39141c488e76",
+  "reader_sha256": "4801d887e9ad249058d919fc47de872ad85b3786944c43bc9b3f90ba3521a96b",
+  "remote_steps_closed": 14,
+  "resource_closure": "PASS",
+  "reviewed_commit": "6553e22ca52bee23f2378eac14998c19e857219f",
+  "root_decision": "RETAIN_PARTIAL_RESULT_NOT_M6_ACCEPTANCE",
+  "run_outcome": "TERMINAL_PUBLIC_RECORDS",
+  "scope": "INDEPENDENT_READBACK_ONLY_ROOT_DECISION_REQUIRED",
+  "status": "PUBLIC15_RECORDS_AND_CLOSURE_VERIFIED",
+  "subsequent_cases": "NOT_RUN",
+  "temporary_archives_deleted": true
+}
