@@ -152,6 +152,9 @@ The [corrected actual capture](changes/r6-compiler-dump-limit-colab.md) passed i
 Two native FP32 cases passed before the dump count exceeded the original 1,024-entry limit.
 Three cases remain unexecuted, and no raw compiler dump was retained.
 Reduce additional dump requests in a new generation before another actual capture.
+The [offline allocation auditor](../experiments/2026-10-04-bitsandbytes-tpu/compiler-analysis/README.md) passed 65 independent reviewer controls.
+It adds array and slice bounds while preserving valid compiler storage alternatives.
+Actual compiler dump analysis, internal Mosaic memory, and measured peak memory remain unverified.
 The [public API preparation](changes/r6-public-cloud-preparation.md) passed all 118 controls before and after adoption.
 Its 15 cases require a fresh qualified Linux CPU oracle before device execution.
 The packet covers FP32 gradients and BF16 outputs without compiler dump flags.

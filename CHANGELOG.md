@@ -1,5 +1,16 @@
 # Change log
 
+## 2026-10-11 — Independent compiler allocation bounds
+
+- Reject logical arrays and assigned slices that cannot contain their declared data.
+- Preserve padding, larger slices, aliases, overlapping slices, and the compiler temporary allocation color exception.
+- Classify unsupported combine-dimension tiles separately from invalid integers.
+- Keep compiler plan bounds separate from numerical results and measured memory.
+
+Validation: The worker and reviewer each passed all 65 offline controls.
+Actual dump analysis remains unexecuted after the dump count failure.
+Refer to [the tool scope](experiments/2026-10-04-bitsandbytes-tpu/compiler-analysis/README.md).
+
 ## 2026-10-11 — Actual compiler failure and immediate artifact removal
 
 - Preserve two passed native FP32 cases and three unexecuted cases.

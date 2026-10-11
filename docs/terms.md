@@ -12,6 +12,7 @@ They are not additions to the official ASD-STE100 dictionary.
 | accumulator | Storage for intermediate sums in matrix multiplication. |
 | alias | A tensor reference that shares storage or mutation behavior with another reference. |
 | allocator | Runtime software that assigns memory to computation data. |
+| allocation plan | The compiler record that assigns logical buffers to storage ranges. |
 | application | A computer program that uses the backend. |
 | API | The public interface that application code uses. |
 | API42 | The fixed project matrix of 42 public API test cases. |
@@ -59,6 +60,7 @@ They are not additions to the official ASD-STE100 dictionary.
 | fixture | Fixed data that a software test uses. |
 | kernel | A function that executes a device computation. |
 | libtpu | The TPU runtime library. |
+| logical buffer | The compiler representation of stored values at an instruction and shape index. |
 | dump flag | A program option that controls compiler record output. |
 | parser | A software component that reads a defined input format. |
 | preflight | A preliminary admission procedure before an experiment starts. |
