@@ -1,0 +1,62 @@
+{
+  "all37_groups_freshly_absent": true,
+  "allocation_epoch": 1791699467.615273,
+  "allocation_seconds": 3600,
+  "archive_bytes": 2266801,
+  "archive_members": 686,
+  "archive_sha256": "5ae138099f2a41e8db8def810ea2c6086f1c3b48ad2a91c32b79444927645b43",
+  "browser_evidence": {
+    "connected_marker_screenshot_visual_readback": "Connected check and marker output visible",
+    "disconnected_screenshot_visual_readback": "Connect control visible; RAM/disk connected indicator absent",
+    "tab5_absence_evidence_source": "Root directly reported tab5 closure and empty tab list; worker made no browser calls",
+    "tab5_absent_list": []
+  },
+  "cli_exit_zero_is_kernel_success": false,
+  "cpu79_cases_evaluated": 0,
+  "detailed_closure_sha256": "6fee1f4ad967c9e04349453565f41ebd9d66f445a6aa9ce8584bdb58da0990be",
+  "driver_error": {
+    "message": "HOST_AUDIT:cpu79",
+    "type": "ValueError"
+  },
+  "fresh_postclosure_active_assignments_zero": true,
+  "fresh_postclosure_cli_groups_absent": true,
+  "fresh_postclosure_server_empty": true,
+  "fresh_postclosure_usage_rate_zero": true,
+  "full_inventory_sha256": "2ca10cb0ae5f148edbadec5e22822a6cf1e5d0325601ace8b5c8b1ff1768f959",
+  "inputs_deleted": false,
+  "kind": "M4_V2_INTERACTIVE_FAILURE_AND_CLOSURE",
+  "original_deadline_epoch": 1791703067.615273,
+  "owned_cli_groups": 36,
+  "owned_host_audit_groups": 1,
+  "packet_sha256": "c457affb0070a4578ca4ce4a010ddd4cf81de49f4f3a772e9bd1546a8c5e5fa5",
+  "preserved_visualizations": [
+    {
+      "bytes": 97192,
+      "delete_original": false,
+      "path": "/Users/topamini/.codex/visualizations/2026/10/11/bnb-tpu-m4-exact-connected-marker.jpg",
+      "sha256": "5ca9952f967b9e2d55a73b235fdae8c99be52d2fa57b21b0d635a6400ef6d8e6"
+    },
+    {
+      "bytes": 83307,
+      "delete_original": false,
+      "path": "/Users/topamini/.codex/visualizations/2026/10/11/bnb-tpu-m4-exact-disconnected.jpg",
+      "sha256": "0571d1e73fba24d8fbc5eb217ea7bae854e9a4e8a33ad33a44eacee6eac1cd54"
+    }
+  ],
+  "provider_calls_by_archive_worker": 0,
+  "provider_exact_session_stop": "OBSERVED",
+  "remote_cpu79": {
+    "cli_exit_code": 0,
+    "kernel_error": "BYTECODE"
+  },
+  "remote_install": {
+    "also_observed_error": "BYTECODE",
+    "cli_exit_code": 0,
+    "kernel_error": "EXACT_PHYSICAL_INVENTORY"
+  },
+  "science_manifest_sha256": "9e71efc73b0f2b3a210f8131c10972569a5e2d04cf298fcf5a8da59772cf4f5a",
+  "state8_cases_evaluated": 0,
+  "status": "CLOSED_FAILED_NOT_QUALIFIED",
+  "tpu79_cases_evaluated": 0,
+  "verified_epoch": 1791700591.471483
+}

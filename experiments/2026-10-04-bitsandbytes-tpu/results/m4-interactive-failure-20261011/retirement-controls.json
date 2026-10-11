@@ -1,0 +1,65 @@
+{
+  "controls": [
+    {
+      "name": "correct_file_empty_directory_symlink_preserved_file",
+      "status": "PASS"
+    },
+    {
+      "name": "symlink_stored_not_dereferenced",
+      "status": "PASS"
+    },
+    {
+      "incorrect_case": "REJECTED",
+      "name": "crc_valid_wrong_member_hash",
+      "status": "PASS"
+    },
+    {
+      "incorrect_case": "REJECTED",
+      "name": "missing_member",
+      "status": "PASS"
+    },
+    {
+      "incorrect_case": "REJECTED",
+      "name": "extra_member",
+      "status": "PASS"
+    },
+    {
+      "incorrect_case": "REJECTED",
+      "name": "symlink_type_changed",
+      "status": "PASS"
+    },
+    {
+      "incorrect_case": "REJECTED",
+      "name": "inventory_hash_changed",
+      "status": "PASS"
+    },
+    {
+      "name": "source_drift_detected",
+      "status": "PASS"
+    },
+    {
+      "name": "inactive_root_process_check",
+      "status": "PASS"
+    },
+    {
+      "incorrect_case": "REJECTED",
+      "name": "active_cwd_reference_rejected",
+      "status": "PASS"
+    },
+    {
+      "incorrect_case": "REJECTED",
+      "name": "active_command_reference_rejected",
+      "status": "PASS"
+    },
+    {
+      "incorrect_case": "REJECTED",
+      "name": "delete_requires_explicit_authorization_before_any_mutation",
+      "status": "PASS"
+    }
+  ],
+  "count": 12,
+  "fixtures_deleted": true,
+  "kind": "M4_RETIREMENT_HELPER_ISOLATED_CONTROLS",
+  "production_mutations": 0,
+  "status": "PASS"
+}

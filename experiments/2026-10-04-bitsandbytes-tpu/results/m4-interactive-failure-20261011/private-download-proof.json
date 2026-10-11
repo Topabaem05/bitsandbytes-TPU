@@ -1,0 +1,47 @@
+{
+  "actual_failure_closure_sha256": "6fee1f4ad967c9e04349453565f41ebd9d66f445a6aa9ce8584bdb58da0990be",
+  "archive": "/tmp/bnb-tpu-m4-retirement-20261011-worker/archive/m4-interactive-failure-20261011.zip",
+  "archive_bytes": 2266801,
+  "archive_sha256": "5ae138099f2a41e8db8def810ea2c6086f1c3b48ad2a91c32b79444927645b43",
+  "created_epoch": 1791700592.338774,
+  "directories": 124,
+  "download": "/Users/topamini/Library/CloudStorage/GoogleDrive-choijjs83@gmail.com/\u1102\u1162 \u1103\u1173\u1105\u1161\u110b\u1175\u1107\u1173/bitsandbytes-TPU-private-evidence/m4-interactive-failure-20261011.zip",
+  "every_member_sha256_verified": true,
+  "exact_member_set_verified": true,
+  "files": 560,
+  "input_entries": 684,
+  "inputs_deleted": false,
+  "inventory_sha256": "2ca10cb0ae5f148edbadec5e22822a6cf1e5d0325601ace8b5c8b1ff1768f959",
+  "logical_bytes": 18837043,
+  "members": 686,
+  "preserve_original_files": [
+    "/Users/topamini/.codex/visualizations/2026/10/11/bnb-tpu-m4-exact-connected-marker.jpg",
+    "/Users/topamini/.codex/visualizations/2026/10/11/bnb-tpu-m4-exact-disconnected.jpg"
+  ],
+  "process_check": {
+    "epoch": 1791700591.32929,
+    "lsof_open_files_and_cwd_checked": true,
+    "matched_references": 0,
+    "ps_commands_checked": true,
+    "status": "NO_OBSERVED_PROCESS_REFERENCES"
+  },
+  "remote_id": "11rMOmeDPE5hu1DosF4MCvfzmGTjo8Etq",
+  "retire_roots": [
+    "/tmp/bnb-tpu-root-m4-actual-20261011",
+    "/tmp/bnb-tpu-root-m4-preconnect-20261011",
+    "/tmp/bnb-tpu-root-m4-postclosure-20261011",
+    "/tmp/bnb-tpu-m4-cli-admission-v2-20261011-3_fpudng",
+    "/tmp/bnb-tpu-root-m4-cli-v2-controls-20261011.json",
+    "/tmp/bnb-tpu-root-m4-cli-v2-review-20261011.json",
+    "/tmp/bnb-tpu-root-m4-cli-v2-owner-20261011",
+    "/tmp/bnb-tpu-root-m4-cli-v2-integration-20261011",
+    "/tmp/bnb-tpu-root-m4-cli-v2-integration-owner-20261011",
+    "/tmp/bnb-tpu-root-m4-cli-v2-driver-20261011",
+    "/tmp/bnb-tpu-root-m4-cli-v2-driver-owner-20261011"
+  ],
+  "status": "INDEPENDENT_DOWNLOAD_FULL_READBACK_PASS",
+  "symlinks": 0,
+  "symlinks_stored_not_dereferenced": true,
+  "verified_epoch": 1791700788.996018,
+  "zip_crc_verified": true
+}

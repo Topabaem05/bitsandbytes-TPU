@@ -1,5 +1,17 @@
 # Change log
 
+## 2026-10-11 — Exact nested interactive failure and disposal
+
+- Record the source inventory and bytecode failures before numerical execution.
+- Distinguish CLI process success from notebook operation success.
+- Preserve the original deadline and verified resource closure.
+- Verify the private archive download and delete eleven completed local paths.
+
+Validation: All 686 archive members passed independent hash inspection.
+The server was empty, usage was zero, and all 37 owned groups were absent.
+No new CPU79, TPU79, or state8 result exists; M4 remains unqualified.
+Refer to [the failure record](docs/changes/r4-interactive-failure-20261011.md).
+
 ## 2026-10-11 — Public reference scalar observer
 
 - Bind fixed scalar values to their type and consumer role.
