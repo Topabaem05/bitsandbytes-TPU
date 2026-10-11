@@ -1,0 +1,203 @@
+{
+  "Git_writes": 0,
+  "Linux": "NOT_RUN",
+  "M6": "NOTQUALIFIED",
+  "TPU": "NOT_RUN",
+  "bulk_fixtures_deleted": true,
+  "candidate_archive_sha256": "5b36209b86b0a763711fc78b35742e307888dd7f1a3b0236f99d1dfe1b121e09",
+  "candidate_final_seal_sha256": "776a9fffa0c4436a4201d97cb6d540ccd0903fee8e058349f045edb39fed03d9",
+  "candidate_root": "/tmp/m6-pjrt-passive-v4.3i_v806e",
+  "candidate_unchanged_after_review": true,
+  "canonical_writes": 0,
+  "claim_scope": "DIRECT_LOADED_HANDLE_EXECUTE_CALL_ONLY",
+  "device_completion": "NOT_OBSERVED",
+  "issues": [],
+  "kind": "M6_PJRT_PASSIVE_V4_INDEPENDENT_PEER_REVIEW",
+  "knowledge_lookup": "Common wiki status/mirror/search and Hindsight recall performed. No directly applicable PJRT record found; no recalled material reused. No project root was identified for bitsandbytes-TPU.",
+  "not_established": [
+    "scientific_graph_identity",
+    "selected_binary_identity",
+    "asynchronous_device_completion",
+    "runtime_peak_memory",
+    "Mosaic_internals"
+  ],
+  "owned_runs": {
+    "owned-compiled-peer": {
+      "cleanup": "NO_CLEANUP_ERRORS",
+      "exit_code": 0,
+      "groups": [
+        {
+          "ended_at": "2026-10-11T07:58:32.605892+00:00",
+          "errors": [],
+          "exit_status": 0,
+          "group_absence": "OBSERVED_NO_SUCH_GROUP",
+          "leader_reaped": true,
+          "pgid": 17097,
+          "pid": 17097,
+          "signals": [
+            {
+              "result": "NO_SUCH_GROUP",
+              "signal": 15
+            },
+            {
+              "result": "NO_SUCH_GROUP",
+              "signal": 9
+            }
+          ],
+          "started_at": "2026-10-11T07:58:32.605807+00:00",
+          "status": "CLEANUP_VERIFIED"
+        }
+      ],
+      "status": "PASS"
+    },
+    "owned-controls": {
+      "cleanup": "NO_CLEANUP_ERRORS",
+      "exit_code": 0,
+      "groups": [
+        {
+          "ended_at": "2026-10-11T07:58:35.926449+00:00",
+          "errors": [],
+          "exit_status": 0,
+          "group_absence": "OBSERVED_NO_SUCH_GROUP",
+          "leader_reaped": true,
+          "pgid": 17098,
+          "pid": 17098,
+          "signals": [
+            {
+              "result": "NO_SUCH_GROUP",
+              "signal": 15
+            },
+            {
+              "result": "NO_SUCH_GROUP",
+              "signal": 9
+            }
+          ],
+          "started_at": "2026-10-11T07:58:35.926401+00:00",
+          "status": "CLEANUP_VERIFIED"
+        }
+      ],
+      "status": "PASS"
+    },
+    "owned-parent": {
+      "cleanup": "NO_CLEANUP_ERRORS",
+      "exit_code": 0,
+      "groups": [
+        {
+          "ended_at": "2026-10-11T08:00:15.712182+00:00",
+          "errors": [],
+          "exit_status": 0,
+          "group_absence": "OBSERVED_NO_SUCH_GROUP",
+          "leader_reaped": true,
+          "pgid": 17690,
+          "pid": 17690,
+          "signals": [
+            {
+              "result": "NO_SUCH_GROUP",
+              "signal": 15
+            },
+            {
+              "result": "NO_SUCH_GROUP",
+              "signal": 9
+            }
+          ],
+          "started_at": "2026-10-11T08:00:15.712127+00:00",
+          "status": "CLEANUP_VERIFIED"
+        }
+      ],
+      "status": "PASS"
+    },
+    "owned-primary-source-check": {
+      "cleanup": "NO_CLEANUP_ERRORS",
+      "exit_code": 0,
+      "groups": [
+        {
+          "ended_at": "2026-10-11T08:00:15.231334+00:00",
+          "errors": [],
+          "exit_status": 0,
+          "group_absence": "OBSERVED_NO_SUCH_GROUP",
+          "leader_reaped": true,
+          "pgid": 17691,
+          "pid": 17691,
+          "signals": [
+            {
+              "result": "NO_SUCH_GROUP",
+              "signal": 15
+            },
+            {
+              "result": "NO_SUCH_GROUP",
+              "signal": 9
+            }
+          ],
+          "started_at": "2026-10-11T08:00:15.231226+00:00",
+          "status": "CLEANUP_VERIFIED"
+        }
+      ],
+      "status": "PASS"
+    }
+  },
+  "packet_readback": {
+    "archive_members_fully_read": 68,
+    "archive_sha256": "5b36209b86b0a763711fc78b35742e307888dd7f1a3b0236f99d1dfe1b121e09",
+    "candidate_writes": 0,
+    "final_seal_sha256": "776a9fffa0c4436a4201d97cb6d540ccd0903fee8e058349f045edb39fed03d9",
+    "frozen_peer_input_sources_equal_v3": true,
+    "physical_regular_files": 71,
+    "sealed_files_fully_read": 70,
+    "source_delta_verified_against_actual_v3_files": [
+      "source/fake_provider.cpp",
+      "source/harness.cpp",
+      "source/recorder.cpp",
+      "source/reproduce_peer.py",
+      "source/run_controls.py",
+      "source/verify.py"
+    ],
+    "status": "PASS"
+  },
+  "passed": {
+    "ASan_UBSan_scenarios": 9,
+    "compiled_provider_scenarios": 46,
+    "exact_compiled_peer_cold": "PASS",
+    "exact_compiled_peer_replacement_error_inflight": "UNKNOWN",
+    "exact_original_peer_private_harness_sha256": "994f27c726e0d324d1d84ff129d3c4e11057b7eae850f75abfd600ce625410c0",
+    "exact_original_peer_private_provider_sha256": "4a00b5a8e5a8b66b4c20e1d587137bb23242545801b049d370ffeffc4ceb60b3",
+    "existing_parent_L1_input_L2_parent": "REJECTED",
+    "existing_parent_input_matches": "PASS",
+    "full_pinned_primary_source_bodies": 5,
+    "independent_mutation_and_lineage_controls": 12,
+    "independent_parent_and_closed_inventory_cases": 6,
+    "malformed_envelopes_rejected": 5,
+    "positive_and_negative_scope_cases": {
+      "destroy_executable_before": "PASS",
+      "destroy_executable_reuse": "PASS",
+      "destroy_reuse": "PASS",
+      "error_after_execute": "PASS",
+      "execute_then_fill": "UNKNOWN",
+      "execute_then_query": "UNKNOWN",
+      "multiple_executables": "PASS",
+      "optimized_query_error_inflight": "UNKNOWN",
+      "optimized_query_success_inflight": "UNKNOWN",
+      "query_after_execute": "PASS",
+      "stale_short_program": "UNKNOWN",
+      "unrelated_query_inflight": "PASS"
+    }
+  },
+  "provider_calls": 0,
+  "source_delta": {
+    "actual_v3_preimages_verified": true,
+    "all11_source_files_accounted": true,
+    "production_changes": [
+      "recorder.cpp optimized epoch/query snapshot and schema",
+      "verify.py BEGIN invalidation/Execute snapshot/parent identity and schema"
+    ],
+    "source_inspection": "Original vendor calls use the same argument pointer exactly once and return the same error pointer. API copy/hooks, provider identity, deadline, quota reservation and host capture budget code are unchanged by the v4 delta.",
+    "unchanged_source_files": [
+      "build_recorder.py",
+      "recorder.h",
+      "recorder_host.py",
+      "sha256.h",
+      "verify_sources.py"
+    ]
+  },
+  "status": "LOCAL_REPAIR_VERIFIED_NO_FINDINGS_PENDING_ROOT_REVIEW",
+  "wiki_writes": 0
+}

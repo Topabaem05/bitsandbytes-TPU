@@ -1,0 +1,69 @@
+{
+  "Linux_build": "NOT_RUN",
+  "actual_TPU": "NOT_RUN",
+  "canonical_base": {
+    "path": "/Users/topamini/code/bitsandbytes-TPU/experiments/2026-10-04-bitsandbytes-tpu/compiler-analysis/debug-trace-v2/adoption-manifest.json",
+    "sha256": "de6960aa70390065d9e1f611017a81646d43e188f4a09dcb549a0e98bef5945f"
+  },
+  "contract": {
+    "completed_claim": "NOT_RETROACTIVELY_INVALIDATED_BY_LATER_OPTIMIZED_CALL",
+    "execute_begin": "SNAPSHOT_ALREADY_COMPLETED_FILLS",
+    "execute_end": "KEEP_ONLY_CANDIDATES_WITH_NO_OPTIMIZED_BEGIN_DURING_INTERVAL",
+    "get_executable_parent": "MUST_EQUAL_INPUT_GENERATION_KNOWN_BEFORE_BEGIN_VALID_THROUGH_END",
+    "historical_executable_destroy": "PRESERVES_PAYLOAD_LINK_TO_VALID_LOADED_GENERATION",
+    "optimized_begin": "SUPERSEDE_PAYLOAD_AND_SNAPSHOT_CONSUME_PRECEDING_QUERY",
+    "optimized_end": "PUBLISH_ONLY_CURRENT_EPOCH_VALID_LINEAGE",
+    "unrelated_concurrency": "DOES_NOT_INVALIDATE_OTHER_LOADED_GENERATION"
+  },
+  "controls": {
+    "asan_ubsan_scenarios": 9,
+    "existing_parent_matches_input": "PASS",
+    "existing_parent_mismatch": "REJECTED",
+    "host_build_and_setup_finalize_smoke": "PASS",
+    "independent_mutations": 12,
+    "malformed_envelopes": 5,
+    "peer_exact_compiled_counterexample": "UNKNOWN",
+    "peer_same_compiled_cold": "PASS",
+    "provider_scenarios": 46,
+    "uninitialized_read_sanitizer": {
+      "reason": "clang++: error: unsupported option '-fsanitize=memory' for target 'arm64-apple-darwin27.0.0'\n",
+      "status": "UNAVAILABLE"
+    }
+  },
+  "frozen_predecessor": {
+    "packet_seal_sha256": "ea6adabdaaa53189408bb5c497e624ff530142d5f4c6ef19add355bce0fbcbc2",
+    "path": "/tmp/m6-pjrt-passive-v3.P85JqE",
+    "unchanged_full_readback": "PASS"
+  },
+  "hard_limits": {
+    "entries": 1024,
+    "file_bytes": 16777216,
+    "metadata_reservation_bytes": 3145728,
+    "total_bytes": 134217728
+  },
+  "integration_requirements": [
+    "Build on the target host from the exact hash-checked header.",
+    "Configure the shim before importing Torch/XLA.",
+    "Supply the unchanged original CLOCK_MONOTONIC deadline.",
+    "Reserve a separate recorder budget inside the original aggregate experiment capture budget.",
+    "Finalize with zero in-flight calls, then read back all files before CLOSED.",
+    "Keep asynchronous device completion and graph/binary/memory/Mosaic claims separate."
+  ],
+  "local_host": "macOS-27.0-arm64-arm-64bit",
+  "milestone_status": "M6_NOTQUALIFIED",
+  "proposal": "Review this isolated packet. No adoption or actual provider execution is authorized by these local results.",
+  "retention": "Minimal source, selected primary ranges, control summaries, and complete packet inventory only. All temporary bodies and binaries deleted.",
+  "schema": "M6_DIRECT_PJRT_TRACE_V4_LOCAL_ADOPTION",
+  "source_pins": {
+    "OpenXLA": "92f7b5952dd585c5be17c9a5caad27407005b513",
+    "TorchXLA": "5fab7053df86c8d503b98d9e7202ca8b8d4978c7"
+  },
+  "state": "PREPARED_PENDING_PARENT_REVIEW",
+  "target_claim": "DIRECT_LOADED_HANDLE_EXECUTE_CALL",
+  "writes": {
+    "Git": "NONE",
+    "actual_provider": "NONE",
+    "canonical_repository": "NONE",
+    "wiki": "NONE"
+  }
+}

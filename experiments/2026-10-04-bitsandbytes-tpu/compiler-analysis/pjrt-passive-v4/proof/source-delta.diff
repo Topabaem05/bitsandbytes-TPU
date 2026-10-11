@@ -1,0 +1,493 @@
+--- v3/source/fake_provider.cpp
++++ v4/source/fake_provider.cpp
+@@ -61,6 +61,16 @@
+   if (!a ||
+       a->struct_size < PJRT_Executable_OptimizedProgram_Args_STRUCT_SIZE ||
+       !a->program || a->program->struct_size < PJRT_Program_STRUCT_SIZE)
++    return &error;
++  const int optimized_mode = mode;
++  if (optimized_mode == 9 || optimized_mode == 10) {
++    blocked = 1;
++    while (!release_flag.load())
++      std::this_thread::sleep_for(std::chrono::milliseconds(1));
++    if (optimized_mode == 9)
++      return &error;
++  }
++  if (optimized_mode == 11)
+     return &error;
+   static const char bytes[] = {'\x0a', '\x03', 'a', 'b', 'c',
+                                '\x12', '\x02', 'x', 'y'};
+--- v3/source/harness.cpp
++++ v4/source/harness.cpp
+@@ -181,8 +181,23 @@
+             PJRT_Executable_OptimizedProgram_Args_STRUCT_SIZE, nullptr,
+             executable, &out};
+         assert(invoke(api->PJRT_Executable_OptimizedProgram, &oa) == nullptr);
+-      } else
++      } else if (scenario != "execute_then_fill")
+         optimized(executable);
++      if (scenario == "stale_short_program") {
++        size_t tiny = sizeof(size_t);
++        PJRT_Executable_OptimizedProgram_Args oa = {
++            PJRT_Executable_OptimizedProgram_Args_STRUCT_SIZE, nullptr,
++            executable, reinterpret_cast<PJRT_Program *>(&tiny)};
++        assert(invoke(api->PJRT_Executable_OptimizedProgram, &oa) == error());
++      }
++      if (scenario == "destroy_executable_before" ||
++          scenario == "destroy_executable_reuse") {
++        PJRT_Executable_Destroy_Args da = {
++            PJRT_Executable_Destroy_Args_STRUCT_SIZE, nullptr, executable};
++        assert(invoke(api->PJRT_Executable_Destroy, &da) == nullptr);
++        if (scenario == "destroy_executable_reuse")
++          optimized(getexe(loaded));
++      }
+       if (scenario == "stale_optimized") {
+         mode(4);
+         optimized(executable);
+@@ -251,7 +266,77 @@
+         assert(event == reinterpret_cast<PJRT_Event *>(0x1234));
+         assert(buffer == reinterpret_cast<PJRT_Buffer *>(0x5678));
+       };
+-      if (scenario == "overlap") {
++      auto query_only = [&](PJRT_Executable *exe) {
++        PJRT_Program out; // Output size and format stay uninitialized.
++        out.struct_size = PJRT_Program_STRUCT_SIZE;
++        out.extension_start = nullptr;
++        out.code = nullptr;
++        PJRT_Executable_OptimizedProgram_Args oa = {
++            PJRT_Executable_OptimizedProgram_Args_STRUCT_SIZE, nullptr, exe, &out};
++        return invoke(api->PJRT_Executable_OptimizedProgram, &oa);
++      };
++      if (scenario == "optimized_query_error_inflight" ||
++          scenario == "optimized_query_success_inflight" ||
++          scenario == "unrelated_query_inflight") {
++        PJRT_Executable *query_exe = executable;
++        if (scenario == "unrelated_query_inflight") {
++          select(1, 1);
++          assert(invoke(api->PJRT_Client_Compile, &ca) == nullptr);
++          query_exe = getexe(ca.executable);
++        }
++        auto blocked = symbol<int (*)()>(vendor, "FakeBlocked");
++        auto release = symbol<void (*)()>(vendor, "FakeRelease");
++        PJRT_Program out;
++        out.struct_size = PJRT_Program_STRUCT_SIZE;
++        out.extension_start = nullptr;
++        out.code = nullptr;
++        PJRT_Executable_OptimizedProgram_Args oa = {
++            PJRT_Executable_OptimizedProgram_Args_STRUCT_SIZE, nullptr, query_exe, &out};
++        bool fail_query = scenario == "optimized_query_error_inflight";
++        mode(fail_query ? 9 : 10);
++        expect(&oa, sizeof oa);
++        ++expected_calls;
++        std::thread t([&] {
++          assert(api->PJRT_Executable_OptimizedProgram(&oa) ==
++                 (fail_query ? error() : nullptr));
++        });
++        while (!blocked())
++          std::this_thread::sleep_for(std::chrono::milliseconds(1));
++        exec();
++        assert(finalize() == 1);
++        release();
++        t.join();
++      } else if (scenario == "execute_then_query" ||
++                 scenario == "execute_then_fill") {
++        PJRT_Program out;
++        out.struct_size = PJRT_Program_STRUCT_SIZE;
++        out.extension_start = nullptr;
++        out.code = nullptr;
++        PJRT_Executable_OptimizedProgram_Args oa = {
++            PJRT_Executable_OptimizedProgram_Args_STRUCT_SIZE, nullptr, executable, &out};
++        std::vector<char> bytes;
++        if (scenario == "execute_then_fill") {
++          assert(invoke(api->PJRT_Executable_OptimizedProgram, &oa) == nullptr);
++          bytes.resize(out.code_size);
++          out.code = bytes.data();
++        }
++        mode(6);
++        auto blocked = symbol<int (*)()>(vendor, "FakeBlocked");
++        auto release = symbol<void (*)()>(vendor, "FakeRelease");
++        std::thread t(exec);
++        while (!blocked())
++          std::this_thread::sleep_for(std::chrono::milliseconds(1));
++        assert(invoke(api->PJRT_Executable_OptimizedProgram, &oa) == nullptr);
++        assert(finalize() == 1);
++        release();
++        t.join();
++      } else if (scenario == "query_after_execute" ||
++                 scenario == "error_after_execute") {
++        exec();
++        bool fail_query = scenario == "error_after_execute";
++        mode(fail_query ? 11 : 0);
++        assert(query_only(executable) == (fail_query ? error() : nullptr));
++      } else if (scenario == "overlap") {
+         auto blocked = symbol<int (*)()>(vendor, "FakeBlocked");
+         auto release = symbol<void (*)()>(vendor, "FakeRelease");
+         ea.output_lists = nullptr;
+--- v3/source/recorder.cpp
++++ v4/source/recorder.cpp
+@@ -60,7 +60,7 @@
+   std::shared_ptr<Handle> parent;
+   size_t query_size = 0;
+   std::string query_format;
+-  uint64_t query_seq = 0;
++  uint64_t query_seq = 0, optimized_epoch = 0;
+   bool query_valid = false;
+ };
+ struct Ref {
+@@ -226,6 +226,9 @@
+   std::string phase;
+   std::shared_ptr<Handle> h;
+   std::string extra;
++  uint64_t saved_query_seq = 0;
++  size_t saved_query_size = 0;
++  std::string saved_query_format;
+   Call(const char *o, void *p = nullptr, bool l = true) : op(o) {
+     s().inflight.fetch_add(1);
+     try {
+@@ -244,6 +247,17 @@
+             h->ambiguous = true;
+           ++h->busy;
+           pre_valid = h->alive && !h->deleted && !h->ambiguous;
++          if (strcmp(op, "optimized") == 0) {
++            // BEGIN supersedes prior evidence even if arguments or the API fail.
++            // Snapshot and consume the preceding completed query atomically.
++            if (h->query_valid) {
++              saved_query_seq = h->query_seq;
++              saved_query_size = h->query_size;
++              saved_query_format = h->query_format;
++            }
++            h->query_valid = false;
++            h->optimized_epoch = pre;
++          }
+         }
+       }
+     } catch (...) {
+@@ -388,17 +402,12 @@
+     program = a->program;
+     input_code = program->code;
+     query = input_code == nullptr;
+-    if (query && c.h)
+-      c.h->query_valid = false;
+     // Never read code_size or format fields before the first size query.
+     if (!query) {
+       capacity = program->code_size;
+-      if (c.h && c.h->query_valid) {
+-        query_seq = c.h->query_seq;
+-        query_size = c.h->query_size;
+-        query_format = c.h->query_format;
+-        c.h->query_valid = false;
+-      }
++      query_seq = c.saved_query_seq;
++      query_size = c.saved_query_size;
++      query_format = c.saved_query_format;
+     }
+   });
+   PJRT_Error *e = s().original->PJRT_Executable_OptimizedProgram(a);
+@@ -413,7 +422,7 @@
+       format = fmt(program);
+       if (query) {
+         if (c.h && c.pre_valid && c.h->alive && !c.h->ambiguous &&
+-            format.size() && returned <= s().max_file) {
++            c.h->optimized_epoch == c.pre && format.size() && returned <= s().max_file) {
+           c.h->query_valid = true;
+           c.h->query_size = returned;
+           c.h->query_format = format;
+@@ -422,13 +431,15 @@
+           failure = "INVALID_QUERY";
+       } else if (!query_seq || query_size > capacity || returned != capacity ||
+                  format != query_format || program->code != input_code ||
+-                 !c.h || !c.pre_valid || !c.h->alive || c.h->ambiguous)
++                 !c.h || !c.pre_valid || !c.h->alive || c.h->ambiguous ||
++                 c.h->optimized_epoch != c.pre)
+         failure = "UNKNOWN_FILL_LENGTH_OR_LINEAGE";
+       else
+         code = payload(input_code, query_size, "optimized", c.pre);
+     } else if (!e)
+       failure = "PROGRAM_POINTER_CHANGED";
+-    c.extra += ",\"mode\":" + q(query ? "query" : "fill") +
++    c.extra += ",\"optimized_epoch\":" + std::to_string(c.pre) +
++               ",\"mode\":" + q(query ? "query" : "fill") +
+                ",\"query_seq\":" + std::to_string(query_seq) +
+                ",\"query_size\":" + std::to_string(query_size) +
+                ",\"capacity\":" + std::to_string(capacity) +
+@@ -631,7 +642,7 @@
+           "{\"major\":" + std::to_string(api->pjrt_api_version.major_version) +
+           ",\"minor\":" + std::to_string(api->pjrt_api_version.minor_version) +
+           "}";
+-    journal("{\"type\":\"header\",\"schema\":\"M6_DIRECT_PJRT_TRACE_V3\","
++    journal("{\"type\":\"header\",\"schema\":\"M6_DIRECT_PJRT_TRACE_V4\","
+             "\"nonce\":" +
+             q(a.nonce) + ",\"recorder_id\":" + q(a.recorder_id) +
+             ",\"provider_sha256\":" + q(a.provider_sha) +
+--- v3/source/reproduce_peer.py
++++ v4/source/reproduce_peer.py
+@@ -0,0 +1,44 @@
++"""Repeat the peer counterexample with exact frozen v3 fake inputs and v4 code."""
++import hashlib,json,os,shutil,sys,tempfile,urllib.request
++from pathlib import Path
++sys.dont_write_bytecode=True;os.environ['PYTHONDONTWRITEBYTECODE']='1';ROOT=Path(__file__).resolve().parents[1];FIXTURE=ROOT/'proof/repro-inputs';sys.path.insert(0,str(ROOT/'source'))
++import run_controls as R,verify as V
++out=Path(sys.argv[1])
++with tempfile.TemporaryDirectory(prefix='m6-pjrt-interleaving-',dir='/tmp')as td:
++ b=Path(td);body=urllib.request.urlopen(R.HEADER_URL,timeout=30).read();assert hashlib.sha256(body).hexdigest()==R.HEADER_SHA;(b/'pjrt_c_api.h').write_bytes(body)
++ provider=(FIXTURE/'fake_provider.cpp').read_text();needle='  static const char bytes[] =';injection='''  if (mode == 9) {
++    blocked = 1;
++    while (!release_flag.load())
++      std::this_thread::sleep_for(std::chrono::milliseconds(1));
++    return &error;
++  }
++''';assert provider.count(needle)==1;provider=provider.replace(needle,injection+needle);(b/'private_fake_provider.cpp').write_text(provider)
++ harness=(FIXTURE/'harness.cpp').read_text();needle='      if (scenario == "overlap") {';injection='''      if (scenario == "optimized_interleaving") {
++        auto blocked = symbol<int (*)()>(vendor, "FakeBlocked");
++        auto release = symbol<void (*)()>(vendor, "FakeRelease");
++        PJRT_Program out = {};
++        out.struct_size = PJRT_Program_STRUCT_SIZE;
++        out.code = nullptr;
++        PJRT_Executable_OptimizedProgram_Args oa = {
++            PJRT_Executable_OptimizedProgram_Args_STRUCT_SIZE, nullptr,
++            executable, &out};
++        mode(9);
++        expect(&oa, sizeof oa);
++        ++expected_calls;
++        std::thread t([&] {
++          assert(api->PJRT_Executable_OptimizedProgram(&oa) == error());
++        });
++        while (!blocked())
++          std::this_thread::sleep_for(std::chrono::milliseconds(1));
++        exec();
++        assert(finalize() == 1);
++        release();
++        t.join();
++      } else if (scenario == "overlap") {''';assert harness.count(needle)==1;harness=harness.replace(needle,injection);(b/'private_harness.cpp').write_text(harness)
++ common=[shutil.which('clang++'),'-std=c++17','-Wall','-Wextra','-Werror','-pthread','-I',str(b),'-I',str(ROOT/'source')];shim=b/'recorder.dylib';fake=b/'fake.dylib';exe=b/'harness'
++ R.run(common+['-dynamiclib','-fPIC',ROOT/'source/recorder.cpp','-o',shim]);R.run(common+['-dynamiclib','-fPIC',b/'private_fake_provider.cpp','-o',fake]);R.run(common+[b/'private_harness.cpp','-o',exe]);capture=b/'capture';execution=R.run([exe,'optimized_interleaving',fake,shim,capture]);V.seal(capture,0);report=V.verify(capture)
++ evidence={'kind':'REAL_COMPILED_PRIVATE_PROVIDER_INTERLEAVING_COUNTEREXAMPLE','candidate_recorder_sha256':hashlib.sha256((ROOT/'source/recorder.cpp').read_bytes()).hexdigest(),'candidate_verifier_sha256':hashlib.sha256((ROOT/'source/verify.py').read_bytes()).hexdigest(),'private_provider_sha256':hashlib.sha256(provider.encode()).hexdigest(),'private_harness_sha256':hashlib.sha256(harness.encode()).hexdigest(),'stdout':execution.stdout,'journal':(capture/'journal.jsonl').read_text(),'footer':json.loads((capture/'footer.json').read_text()),'verifier':report,'bulk_bytes_deleted':sum(p.stat().st_size for p in b.rglob('*')if p.is_file()),'provider_calls':0,'TPU':'NOT_RUN','actual_linux':'NOT_RUN','source_modified':False}
++ # Baseline remains passing with the same compiled private provider/harness.
++ cold=b/'cold';correct=R.run([exe,'cold',fake,shim,cold]);V.seal(cold,0);evidence['correct_cold_status']=V.verify(cold)['status'];assert evidence['correct_cold_status']=='PASS'
++ assert report['status']=='UNKNOWN';evidence['expected_stale_payload_claim']='UNKNOWN';evidence['regression_status']='PASS'
++out.write_text(json.dumps(evidence,indent=2,sort_keys=True)+'\n');print(json.dumps({'correct_cold':'PASS','interleaving_actual':report['status'],'expected':'UNKNOWN','bulk_deleted':not Path(td).exists()}))
+--- v3/source/run_controls.py
++++ v4/source/run_controls.py
+@@ -21,12 +21,16 @@
+ HEADER_URL = 'https://raw.githubusercontent.com/openxla/xla/92f7b5952dd585c5be17c9a5caad27407005b513/xla/pjrt/c/pjrt_c_api.h'
+ HEADER_SHA = 'a946f54b0df19ecae28015b86e4c10fad23ba0ce6fc3f14941157db79c437cf6'
+ PASS_CASES = {'cold', 'warm_reuse', 'destroy_reuse', 'multiple_executables',
+-              'delete_after', 'inflight', 'entry_boundary', 'byte_boundary', 'capacity_larger'}
++              'delete_after', 'inflight', 'entry_boundary', 'byte_boundary', 'capacity_larger',
++              'unrelated_query_inflight', 'query_after_execute', 'error_after_execute',
++              'destroy_executable_before', 'destroy_executable_reuse'}
+ UNKNOWN_CASES = {'wrong_loaded', 'compile_error', 'execute_error', 'short_api',
+                  'short_args', 'deserialize', 'changed_length', 'changed_format',
+                  'oversize_query', 'unknown_fill', 'duplicate_loaded',
+                  'duplicate_executable', 'delete_before', 'entry_quota',
+-                 'byte_quota', 'expired', 'deadline_inflight', 'overlap', 'write_failure', 'existing_output', 'stale_optimized', 'changed_pointer', 'unsupported_abi', 'short_program', 'wrong_executable', 'overlap_destroy'}
++                 'byte_quota', 'expired', 'deadline_inflight', 'overlap', 'write_failure', 'existing_output', 'stale_optimized', 'changed_pointer', 'unsupported_abi', 'short_program', 'wrong_executable', 'overlap_destroy', 'optimized_query_error_inflight',
++                 'optimized_query_success_inflight', 'execute_then_query',
++                 'execute_then_fill', 'stale_short_program'}
+ 
+ 
+ def run(argv, **kwargs):
+@@ -90,6 +94,59 @@
+     return results
+ 
+ 
++def parent_controls(root):
++    """Reseal private ordered lineages with two known compiled parents."""
++    import copy
++    results = []
++    for wrong in (False, True):
++        name = 'existing_parent_mismatch' if wrong else 'existing_parent_matches_input'
++        with tempfile.TemporaryDirectory(prefix=name + '-', dir=root.parent) as td:
++            fixture = Path(td) / 'capture'
++            shutil.copytree(root, fixture)
++            def edit(records):
++                extra = copy.deepcopy(records[1])
++                extra.update(pre_seq=3, seq=4, call=2, created='fixture-L-4')
++                for c in records[2:]:
++                    c['pre_seq'] += 2
++                    c['seq'] += 2
++                    c['call'] += 1
++                    if c.get('op') == 'get_executable':
++                        c['created'] = 'fixture-E-6'
++                        c['parent'] = 'fixture-L-4'
++                        if not wrong:
++                            c['handle'] = 'fixture-L-4'
++                    if c['handle'].startswith('fixture-E-'):
++                        c['handle'] = 'fixture-E-6'
++                    if c.get('query_seq'):
++                        c['query_seq'] += 2
++                    if 'optimized_epoch' in c:
++                        c['optimized_epoch'] += 2
++                    if c['op'] == 'execute':
++                        c['handle'] = 'fixture-L-4'
++                records.insert(2, extra)
++            records = [json.loads(line) for line in (fixture / 'journal.jsonl').read_text().splitlines()]
++            edit(records)
++            (fixture / 'journal.jsonl').write_text(''.join(json.dumps(x) + '\n' for x in records))
++            footer = json.loads((fixture / 'footer.json').read_text())
++            footer['last_seq'] = 12
++            (fixture / 'footer.json').write_text(json.dumps(footer))
++            (fixture / 'closed.json').unlink()
++            seal(fixture, 0)
++            if wrong:
++                try:
++                    verify(fixture)
++                except AssertionError as error:
++                    assert 'parent differs from input' in str(error)
++                    result = 'REJECTED'
++                else:
++                    raise AssertionError('Existing wrong parent accepted')
++            else:
++                assert verify(fixture)['status'] == 'PASS'
++                result = 'PASS'
++            results.append({'name': name, 'result': result, 'test_status': 'PASS'})
++    return results
++
++
+ def controls(build, harness, provider, shim, cases):
+     results, mutation_results = [], []
+     for name in cases:
+@@ -124,7 +181,7 @@
+             if name == 'destroy_reuse':
+                 assert report['claims'][0]['loaded'] != 'fixture-L-2'
+             if name == 'cold':
+-                mutation_results = mutations(capture)
++                mutation_results = mutations(capture) + parent_controls(capture)
+                 fields = report['extracted_fields'][0]['fields']
+                 assert [(f['field'], f['offset'], f['bytes']) for f in fields] == [(1, 2, 3), (2, 7, 2)]
+                 assert fields[0]['sha256'] == hashlib.sha256(b'abc').hexdigest()
+@@ -173,7 +230,8 @@
+         run(sanitizer_common + [shared, '-fPIC', ROOT / 'fake_provider.cpp', '-o', san_provider])
+         run(sanitizer_common + [ROOT / 'harness.cpp', '-o', san_harness] + extra)
+         sanitizer_results, _ = controls(build, san_harness, san_provider, san_shim,
+-                                        ['cold', 'short_args', 'short_api', 'destroy_reuse', 'overlap', 'deadline_inflight'])
++                                        ['cold', 'short_args', 'short_api', 'destroy_reuse', 'overlap', 'deadline_inflight', 'optimized_query_error_inflight',
++                                         'execute_then_fill', 'unrelated_query_inflight'])
+         host_build = run([os.sys.executable, ROOT / 'build_recorder.py', '--header', build / 'pjrt_c_api.h', '--output', build / ('host-recorder' + extension)])
+         host_code = '''import ctypes,json,sys,time
+ from pathlib import Path
+@@ -193,7 +251,7 @@
+                                     text=True, capture_output=True, timeout=30)
+         msan = {'status': 'UNAVAILABLE' if msan_probe.returncode else 'AVAILABLE_NOT_RUN',
+                 'reason': msan_probe.stderr[-1000:] if msan_probe.returncode else 'Instrumented dependencies need separate qualification'}
+-        result = {'schema': 'M6_DIRECT_PJRT_TRACE_V3_LOCAL_CONTROLS', 'status': 'PASS',
++        result = {'schema': 'M6_DIRECT_PJRT_TRACE_V4_LOCAL_CONTROLS', 'status': 'PASS',
+                   'platform': platform.platform(), 'compiler': run([compiler, '--version']).stdout.splitlines()[0],
+                   'header_sha256': HEADER_SHA, 'cases': results,
+                   'independent_mutations': mutation_results,
+--- v3/source/verify.py
++++ v4/source/verify.py
+@@ -4,7 +4,7 @@
+ from pathlib import Path
+ 
+ MIB = 1024 * 1024
+-SCHEMA = 'M6_DIRECT_PJRT_TRACE_V3'
++SCHEMA = 'M6_DIRECT_PJRT_TRACE_V4'
+ 
+ 
+ def read_regular(path):
+@@ -133,14 +133,36 @@
+             seqs.add(seq)
+         steps.extend([(c['pre_seq'], 'begin', c), (c['seq'], 'end', c)])
+     assert seqs == set(range(1, len(calls) * 2 + 1)), 'Missing journal sequence'
+-    handles, active, bad, queries, fills, claims, extracted = {}, {}, set(), {}, {}, [], []
++    handles, active, bad, queries, fills = {}, {}, set(), {}, {}
++    epochs, query_snapshots, execute_snapshots, begin_valid = {}, {}, {}, {}
++    claims, extracted = [], []
++    operations = {'compile', 'deserialize', 'get_executable', 'optimized',
++                  'execute', 'loaded_destroy', 'loaded_delete', 'executable_destroy'}
+     for _, event, c in sorted(steps, key=lambda step: step[0]):
+         hid, op = c['handle'], c['op']
++        assert op in operations, 'Unknown creator or operation'
++        h = handles.get(hid)
++        if h:
++            expected_kind = 'E' if op in ('optimized', 'executable_destroy') else 'L'
++            assert h['kind'] == expected_kind, 'Handle kind mismatch'
+         if event == 'begin':
++            begin_valid[c['call']] = bool(h and h['alive'] and
++                                          not h['deleted'] and hid not in bad)
+             if hid:
+                 if active.get(hid):
+                     bad.add(hid)
+                 active.setdefault(hid, set()).add(c['call'])
++            if op == 'optimized':
++                # Every BEGIN supersedes the preceding payload, even on error.
++                assert c['optimized_epoch'] == c['pre_seq'], 'Invalid optimized epoch'
++                fills.pop(hid, None)
++                query_snapshots[c['call']] = queries.pop(hid, None)
++                epochs[hid] = c['pre_seq']
++            elif op == 'execute':
++                # Evidence completed during Execute cannot qualify that call.
++                execute_snapshots[c['call']] = {
++                    exe: (fill, epochs[exe]) for exe, fill in fills.items()
++                    if handles[exe]['parent'] == hid and exe not in bad}
+             continue
+         if hid:
+             active[hid].remove(c['call'])
+@@ -150,33 +172,42 @@
+             bad.add(c.get('created'))
+         created = c.get('created')
+         if created:
++            assert op in ('compile', 'deserialize', 'get_executable'), 'Invalid creator operation'
+             kind = 'L' if op in ('compile', 'deserialize') else 'E'
+             assert created == header['nonce'] + '-' + kind + '-' + str(c['seq'])
+             assert created not in handles
+             assert not c['error_returned']
+-            handles[created] = {'alive': True, 'deleted': False, 'origin': op,
++            if op == 'get_executable':
++                assert c['parent'] == hid, 'GetExecutable parent differs from input handle'
++                parent_valid = bool(h and h['kind'] == 'L' and
++                                    begin_valid[c['call']] and h['alive'] and
++                                    not h['deleted'] and hid not in bad and
++                                    c['pre_valid'] and c['post_valid'])
++                if not parent_valid:
++                    bad.add(created)
++            handles[created] = {'kind': kind, 'alive': True, 'deleted': False, 'origin': op,
+                                 'parent': c.get('parent'), 'source': c.get('submitted'),
+-                                'format_ref': c.get('format_ref'), 'creator_call': c['call'], 'creator_phase': c['phase']}
++                                'format_ref': c.get('format_ref'), 'creator_call': c['call'],
++                                'creator_phase': c['phase']}
+             if not c['created_valid']:
+                 bad.add(created)
+-        h = handles.get(hid)
+         if op in ('loaded_destroy', 'executable_destroy', 'loaded_delete') and not c['error_returned'] and h:
+             if op == 'loaded_delete':
+                 h['deleted'] = True
+             else:
+                 h['alive'] = False
+         valid = h and h['alive'] and not h['deleted'] and hid not in bad
+-        observed_valid = c['pre_valid'] and c['post_valid']
+-        if op == 'optimized':
+-            fills.pop(hid, None)
+-            if c['mode'] == 'query' or c['error_returned'] or c['capture_failure']:
+-                queries.pop(hid, None)
++        observed_valid = c['pre_valid'] and c['post_valid'] and begin_valid[c['call']]
+         if op == 'optimized' and not c['error_returned'] and valid and observed_valid:
++            assert c['mode'] in ('query', 'fill'), 'Unknown optimized mode'
++            if epochs[hid] != c['pre_seq']:
++                continue
+             if c['mode'] == 'query' and not c['capture_failure']:
+                 queries[hid] = c
+             elif c['mode'] == 'fill' and c['payload'] and not c['capture_failure']:
+-                query = queries.pop(hid, None)
++                query = query_snapshots.pop(c['call'], None)
+                 assert query and query['seq'] == c['query_seq']
++                assert query['seq'] < c['pre_seq'], 'Query not completed before fill'
+                 assert query['returned_size'] == c['query_size'] == c['payload']['bytes']
+                 assert c['query_size'] <= c['capacity'] == c['returned_size']
+                 assert query['format'] == c['format']
+@@ -190,9 +221,12 @@
+             if h['origin'] == 'compile' and h['source'] and h['format_ref']:
+                 assert h['source'] == identity(root / h['source']['file'])
+                 assert h['format_ref'] == identity(root / h['format_ref']['file'])
+-                for exe, fill in fills.items():
++                for exe, (fill, epoch) in execute_snapshots[c['call']].items():
+                     eh = handles[exe]
+-                    if eh['parent'] == hid and exe not in bad:
++                    # E destruction does not erase its historical link to live L.
++                    # An optimized BEGIN during Execute invalidates this candidate.
++                    if eh['parent'] == hid and exe not in bad and epochs[exe] == epoch:
++                        assert fill['seq'] < c['pre_seq']
+                         eligible.append(exe)
+             if eligible:
+                 claims.append({'call': c['call'], 'phase': c['phase'], 'loaded': hid,

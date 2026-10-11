@@ -1,0 +1,19 @@
+{
+  "certification": "NOT_CLAIMED",
+  "checks": [
+    {
+      "file": "README.md",
+      "limit": 25,
+      "maximum_words": 15,
+      "sentences": 99
+    },
+    {
+      "file": "CHANGELOG.md",
+      "limit": 25,
+      "maximum_words": 13,
+      "sentences": 8
+    }
+  ],
+  "dictionary_review": "NOT_RUN_FULL_DICTIONARY_UNAVAILABLE",
+  "status": "PASS_SENTENCE_LENGTH_ONLY"
+}

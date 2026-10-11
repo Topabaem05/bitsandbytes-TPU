@@ -1,0 +1,17 @@
+{
+  "url": "https://raw.githubusercontent.com/openxla/xla/92f7b5952dd585c5be17c9a5caad27407005b513/xla/xla.proto",
+  "path": "xla/xla.proto",
+  "revision": "92f7b5952dd585c5be17c9a5caad27407005b513",
+  "bytes": 71893,
+  "sha256": "10ac976e296d05c1755bdd44ec3311762d0e0c3219c583d921523dfeb90e66a9",
+  "verified_utc": "2026-10-11T07:19:40.584007+00:00",
+  "license": "Apache-2.0",
+  "sections": [
+    {
+      "start": 1612,
+      "end": 1615,
+      "text": "message HloModuleProtoWithConfig {\n  HloModuleProto hlo_module = 1;\n  HloModuleConfigProto config = 2;\n}\n",
+      "sha256": "647f00911f10e9f3e060056845f6a53fbf9e4a5ce65a80ed7fc59eb05bceeeb0"
+    }
+  ]
+}

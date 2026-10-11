@@ -1,5 +1,16 @@
 # Change log
 
+## 2026-10-11 — Passive PJRT source preparation
+
+- Invalidate superseded optimized payloads and verify the executable parent generation.
+- Preserve completed historical links and unrelated concurrent calls.
+- Adopt the inspected source with full sealed file and archive readback.
+
+Validation: Root compiled checks passed the correct case and retained UNKNOWN for the original overlapping replacement case.
+Independent review passed 46 provider scenarios, 12 lineage controls, and nine sanitizer scenarios.
+Linux and actual TPU execution remain incomplete; M6 remains unqualified.
+Refer to [the preparation record](docs/changes/pjrt-passive-v4-preparation.md).
+
 ## 2026-10-11 — M5 superseded preparation disposal
 
 - Preserve the reader v3 review findings and focused root checks.

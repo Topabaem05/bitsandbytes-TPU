@@ -1,0 +1,47 @@
+{
+  "c_api": {
+    "url": "https://raw.githubusercontent.com/openxla/xla/92f7b5952dd585c5be17c9a5caad27407005b513/xla/pjrt/c/pjrt_c_api.h",
+    "path": "xla/pjrt/c/pjrt_c_api.h",
+    "revision": "92f7b5952dd585c5be17c9a5caad27407005b513",
+    "bytes": 102174,
+    "sha256": "a946f54b0df19ecae28015b86e4c10fad23ba0ce6fc3f14941157db79c437cf6",
+    "verified_utc": "2026-10-11T07:19:40.582473+00:00",
+    "license": "Apache-2.0"
+  },
+  "wrapper": {
+    "url": "https://raw.githubusercontent.com/openxla/xla/92f7b5952dd585c5be17c9a5caad27407005b513/xla/pjrt/c/pjrt_c_api_wrapper_impl.cc",
+    "path": "xla/pjrt/c/pjrt_c_api_wrapper_impl.cc",
+    "revision": "92f7b5952dd585c5be17c9a5caad27407005b513",
+    "bytes": 122181,
+    "sha256": "7f0686cb8fcbc3f903d38e95e12a7b066efa8b9eebeb992fb27adab69efcd23b",
+    "verified_utc": "2026-10-11T07:19:40.583402+00:00",
+    "license": "Apache-2.0"
+  },
+  "client": {
+    "url": "https://raw.githubusercontent.com/openxla/xla/92f7b5952dd585c5be17c9a5caad27407005b513/xla/pjrt/pjrt_c_api_client.cc",
+    "path": "xla/pjrt/pjrt_c_api_client.cc",
+    "revision": "92f7b5952dd585c5be17c9a5caad27407005b513",
+    "bytes": 121076,
+    "sha256": "c56650e7a814e2ea40f2878664418e5acf2a86e003a45c3f8b62ecc5069a390f",
+    "verified_utc": "2026-10-11T07:19:40.583738+00:00",
+    "license": "Apache-2.0"
+  },
+  "envelope": {
+    "url": "https://raw.githubusercontent.com/openxla/xla/92f7b5952dd585c5be17c9a5caad27407005b513/xla/xla.proto",
+    "path": "xla/xla.proto",
+    "revision": "92f7b5952dd585c5be17c9a5caad27407005b513",
+    "bytes": 71893,
+    "sha256": "10ac976e296d05c1755bdd44ec3311762d0e0c3219c583d921523dfeb90e66a9",
+    "verified_utc": "2026-10-11T07:19:40.584007+00:00",
+    "license": "Apache-2.0"
+  },
+  "registry": {
+    "url": "https://raw.githubusercontent.com/pytorch/xla/5fab7053df86c8d503b98d9e7202ca8b8d4978c7/torch_xla/csrc/runtime/pjrt_registry.cpp",
+    "path": "torch_xla/csrc/runtime/pjrt_registry.cpp",
+    "revision": "5fab7053df86c8d503b98d9e7202ca8b8d4978c7",
+    "bytes": 7317,
+    "sha256": "54f039124a7c0acca92fb68e485d27dc8b34d084c493502cb1095f8752b052b3",
+    "verified_utc": "2026-10-11T07:19:40.584146+00:00",
+    "license": "Apache-2.0"
+  }
+}

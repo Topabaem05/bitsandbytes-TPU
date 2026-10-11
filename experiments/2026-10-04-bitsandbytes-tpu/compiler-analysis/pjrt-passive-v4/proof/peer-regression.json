@@ -1,0 +1,78 @@
+{
+  "TPU": "NOT_RUN",
+  "actual_linux": "NOT_RUN",
+  "bulk_bytes_deleted": 506608,
+  "candidate_recorder_sha256": "595a4a986df15da89eb66b46643065b474deba558369c15861da4149f5ad51ef",
+  "candidate_verifier_sha256": "2f0862b88afd0d8e88566f5a18fd0c14d2f70f296153d129be4b325b0ad66aae",
+  "correct_cold_status": "PASS",
+  "expected_stale_payload_claim": "UNKNOWN",
+  "footer": {
+    "capture_status": "OK",
+    "entries_reserved": 6,
+    "failure": "",
+    "inflight": 0,
+    "inventory": [
+      {
+        "bytes": 12,
+        "file": "1-submitted.bin",
+        "sha256": "46aa9809bd99a90836876404feab6592d6c9bde45fe525a78930826aba4e6f98"
+      },
+      {
+        "bytes": 4,
+        "file": "1-submit-format.bin",
+        "sha256": "e0acb49d6ec4a97460a1af5fe8f80abc39f04d172d6c9a08c33da1209115cd4b"
+      },
+      {
+        "bytes": 9,
+        "file": "7-optimized.bin",
+        "sha256": "ecbd08e6eb032c343d153f9f25c0b7a046ca45ea64199edc101ff322ac2f3913"
+      }
+    ],
+    "last_seq": 12,
+    "payload_reserved_bytes": 25,
+    "state": "API_FINALIZED"
+  },
+  "journal": "{\"type\":\"header\",\"schema\":\"M6_DIRECT_PJRT_TRACE_V4\",\"nonce\":\"fixture\",\"recorder_id\":\"fixture-recorder\",\"provider_sha256\":\"8b69bd0c58af44c07b71c1a20f9c6e45aa262bbb97e5e512d1a8e01a662298f8\",\"api_struct_size\":992,\"api_version\":{\"major\":0,\"minor\":75},\"deadline_ns\":22604416786000,\"limits\":{\"entries\":1024,\"total\":134217728,\"file\":16777216,\"metadata_reserve\":3145728},\"claim\":\"DIRECT_LOADED_HANDLE_EXECUTE_CALL\",\"extra_observer_probes\":false,\"clock\":\"CLOCK_MONOTONIC\"}\n{\"type\":\"call\",\"seq\":2,\"pre_seq\":1,\"call\":1,\"op\":\"compile\",\"pre_ns\":22574418020000,\"post_ns\":22574418460000,\"phase\":\"fixture-phase\",\"handle\":\"\",\"pre_valid\":false,\"post_valid\":false,\"error_returned\":false,\"created\":\"fixture-L-2\",\"created_valid\":true,\"replaced_alive\":\"\",\"origin\":\"compile\",\"submitted\":{\"file\":\"1-submitted.bin\",\"bytes\":12,\"sha256\":\"46aa9809bd99a90836876404feab6592d6c9bde45fe525a78930826aba4e6f98\"},\"format_ref\":{\"file\":\"1-submit-format.bin\",\"bytes\":4,\"sha256\":\"e0acb49d6ec4a97460a1af5fe8f80abc39f04d172d6c9a08c33da1209115cd4b\"}}\n{\"type\":\"call\",\"seq\":4,\"pre_seq\":3,\"call\":2,\"op\":\"get_executable\",\"pre_ns\":22574418477000,\"post_ns\":22574418477000,\"phase\":\"fixture-phase\",\"handle\":\"fixture-L-2\",\"pre_valid\":true,\"post_valid\":true,\"error_returned\":false,\"created\":\"fixture-E-4\",\"created_valid\":true,\"replaced_alive\":\"\",\"parent\":\"fixture-L-2\"}\n{\"type\":\"call\",\"seq\":6,\"pre_seq\":5,\"call\":3,\"op\":\"optimized\",\"pre_ns\":22574418487000,\"post_ns\":22574418488000,\"phase\":\"fixture-phase\",\"handle\":\"fixture-E-4\",\"pre_valid\":true,\"post_valid\":true,\"error_returned\":false,\"optimized_epoch\":5,\"mode\":\"query\",\"query_seq\":0,\"query_size\":0,\"capacity\":0,\"returned_size\":9,\"format\":\"hlo_with_config\",\"payload\":null,\"capture_failure\":\"\"}\n{\"type\":\"call\",\"seq\":8,\"pre_seq\":7,\"call\":4,\"op\":\"optimized\",\"pre_ns\":22574418496000,\"post_ns\":22574418496000,\"phase\":\"fixture-phase\",\"handle\":\"fixture-E-4\",\"pre_valid\":true,\"post_valid\":true,\"error_returned\":false,\"optimized_epoch\":7,\"mode\":\"fill\",\"query_seq\":6,\"query_size\":9,\"capacity\":9,\"returned_size\":9,\"format\":\"hlo_with_config\",\"payload\":{\"file\":\"7-optimized.bin\",\"bytes\":9,\"sha256\":\"ecbd08e6eb032c343d153f9f25c0b7a046ca45ea64199edc101ff322ac2f3913\"},\"capture_failure\":\"\"}\n{\"type\":\"call\",\"seq\":11,\"pre_seq\":10,\"call\":6,\"op\":\"execute\",\"pre_ns\":22574419893000,\"post_ns\":22574419894000,\"phase\":\"fixture-phase\",\"handle\":\"fixture-L-2\",\"pre_valid\":true,\"post_valid\":true,\"error_returned\":false}\n{\"type\":\"call\",\"seq\":12,\"pre_seq\":9,\"call\":5,\"op\":\"optimized\",\"pre_ns\":22574418641000,\"post_ns\":22574420933000,\"phase\":\"fixture-phase\",\"handle\":\"fixture-E-4\",\"pre_valid\":true,\"post_valid\":true,\"error_returned\":true,\"optimized_epoch\":9,\"mode\":\"query\",\"query_seq\":0,\"query_size\":0,\"capacity\":0,\"returned_size\":0,\"format\":\"\",\"payload\":null,\"capture_failure\":\"\"}\n",
+  "kind": "REAL_COMPILED_PRIVATE_PROVIDER_INTERLEAVING_COUNTEREXAMPLE",
+  "private_harness_sha256": "994f27c726e0d324d1d84ff129d3c4e11057b7eae850f75abfd600ce625410c0",
+  "private_provider_sha256": "4a00b5a8e5a8b66b4c20e1d587137bb23242545801b049d370ffeffc4ceb60b3",
+  "provider_calls": 0,
+  "regression_status": "PASS",
+  "source_modified": false,
+  "stdout": "PASS optimized_interleaving calls=6 finalize=0\n",
+  "verifier": {
+    "TPU_execution": "NOT_RUN",
+    "calls": 6,
+    "capture_status": "OK",
+    "claim": "DIRECT_LOADED_HANDLE_EXECUTE_CALL",
+    "claims": [],
+    "device_completion": "NOT_OBSERVED",
+    "extracted_fields": [
+      {
+        "executable": "fixture-E-4",
+        "fields": [
+          {
+            "bytes": 3,
+            "field": 1,
+            "offset": 2,
+            "sha256": "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad"
+          },
+          {
+            "bytes": 2,
+            "field": 2,
+            "offset": 7,
+            "sha256": "769a4e6d0003189c7e96c5d9b7e810a0d11c3a12832527ec94b0f86d277f51ca"
+          }
+        ],
+        "format": "hlo_with_config",
+        "payload": {
+          "bytes": 9,
+          "file": "7-optimized.bin",
+          "sha256": "ecbd08e6eb032c343d153f9f25c0b7a046ca45ea64199edc101ff322ac2f3913"
+        }
+      }
+    ],
+    "failure": "",
+    "status": "UNKNOWN"
+  }
+}

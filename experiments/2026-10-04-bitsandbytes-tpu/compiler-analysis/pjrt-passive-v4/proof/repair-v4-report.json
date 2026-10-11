@@ -1,0 +1,50 @@
+{
+  "Linux": "NOT_RUN",
+  "TPU": "NOT_RUN",
+  "bulk_cleanup": "Build binaries, full downloaded bodies, temporary captures deleted by fixture contexts. Retained archive contains only review source and compact evidence.",
+  "controls": {
+    "ASan_UBSan": 9,
+    "all_owned_runs": "PASS_NO_CLEANUP_ERRORS",
+    "host_helper_build_and_finalize": "PASS",
+    "malformed_envelopes_rejected": 5,
+    "mutation_or_lineage_controls": 12,
+    "pinned_primary_bodies": 5,
+    "provider_scenarios": 46,
+    "python_ast": "PASS"
+  },
+  "device_completion": "NOT_OBSERVED",
+  "frozen_v3_full_readback": "PASS_UNCHANGED",
+  "invariants": "Exact original calls, argument pointers, error pointers, outputs, API tail, provider identity, deadline, budgets, closed readback retained. No extra observer queries. No state mutex across vendor calls.",
+  "milestone": "M6_NOTQUALIFIED",
+  "peer_repair": {
+    "compiled_replacement_query_error_inflight": "UNKNOWN",
+    "exact_peer_private_harness_sha256": "994f27c726e0d324d1d84ff129d3c4e11057b7eae850f75abfd600ce625410c0",
+    "exact_peer_private_provider_sha256": "4a00b5a8e5a8b66b4c20e1d587137bb23242545801b049d370ffeffc4ceb60b3",
+    "get_executable_parent_mismatch": "REJECTED",
+    "same_compiled_peer_harness_cold": "PASS",
+    "same_existing_parent": "PASS"
+  },
+  "schema": "M6_DIRECT_PJRT_TRACE_V4_REPAIR_REPORT",
+  "scope_controls": {
+    "destroyed_address_reuse": "PASS",
+    "fill_completes_during_execute": "UNKNOWN",
+    "historical_destroyed_executable": "PASS",
+    "multiple_executables_per_loaded": "PASS",
+    "optimized_begin_during_execute": "UNKNOWN",
+    "query_after_completed_execute": "PASS",
+    "query_error_after_completed_execute": "PASS",
+    "replacement_query_success_inflight": "UNKNOWN",
+    "short_program_supersedes_old_fill": "UNKNOWN",
+    "unrelated_loaded_query_inflight": "PASS"
+  },
+  "status": "LOCAL_CONTROLS_PASS_PENDING_REVIEW",
+  "v3_seal_sha256": "ea6adabdaaa53189408bb5c497e624ff530142d5f4c6ef19add355bce0fbcbc2",
+  "verified_utc": "2026-10-11T07:55:05.824455+00:00",
+  "writes": {
+    "Git": 0,
+    "actual_provider": 0,
+    "canonical": 0,
+    "wiki": 0
+  },
+  "writing": "Sentence length PASS; full dictionary unavailable; no conformity certification."
+}

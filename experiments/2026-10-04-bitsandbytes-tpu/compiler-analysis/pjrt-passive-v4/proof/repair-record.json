@@ -1,0 +1,18 @@
+{
+  "status": "RESOLVED",
+  "scope": "PRIVATE_FAKE_PROVIDER_FIXTURES",
+  "retained_failures": [
+    {
+      "case": "changed_pointer",
+      "observed": "Fixture passed mode value as API struct_size; seven-byte table caused expected API rejection.",
+      "action": "Separated fixture mode selection from table size."
+    },
+    {
+      "case": "unsupported_abi",
+      "observed": "Fixture retained major version zero, so the control observed a valid ABI and a PASS claim.",
+      "action": "Set fake major version one for this case."
+    }
+  ],
+  "diagnosis": "Both failures came from fixture construction. Recorder success criteria were unchanged.",
+  "verification": "Complete final suite passed after direct source inspection and fixture correction."
+}

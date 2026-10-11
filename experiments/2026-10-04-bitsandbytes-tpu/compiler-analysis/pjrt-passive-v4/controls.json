@@ -1,0 +1,2780 @@
+{
+  "TPU": "NOT_RUN",
+  "asan_ubsan": [
+    {
+      "closed_inventory": {
+        "bytes": 935,
+        "file": "closed.json",
+        "sha256": "e8480ab2a9cf67e44f093afdff2d3472284460e177e2ead39601513ed68142fc"
+      },
+      "expected_claim_status": "PASS",
+      "name": "cold",
+      "report": {
+        "TPU_execution": "NOT_RUN",
+        "calls": 5,
+        "capture_status": "OK",
+        "claim": "DIRECT_LOADED_HANDLE_EXECUTE_CALL",
+        "claims": [
+          {
+            "call": 5,
+            "compile_call": 1,
+            "compile_phase": "fixture-phase",
+            "executables": [
+              "fixture-E-4"
+            ],
+            "format_ref": {
+              "bytes": 4,
+              "file": "1-submit-format.bin",
+              "sha256": "e0acb49d6ec4a97460a1af5fe8f80abc39f04d172d6c9a08c33da1209115cd4b"
+            },
+            "loaded": "fixture-L-2",
+            "phase": "fixture-phase",
+            "submitted": {
+              "bytes": 12,
+              "file": "1-submitted.bin",
+              "sha256": "46aa9809bd99a90836876404feab6592d6c9bde45fe525a78930826aba4e6f98"
+            }
+          }
+        ],
+        "device_completion": "NOT_OBSERVED",
+        "extracted_fields": [
+          {
+            "executable": "fixture-E-4",
+            "fields": [
+              {
+                "bytes": 3,
+                "field": 1,
+                "offset": 2,
+                "sha256": "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad"
+              },
+              {
+                "bytes": 2,
+                "field": 2,
+                "offset": 7,
+                "sha256": "769a4e6d0003189c7e96c5d9b7e810a0d11c3a12832527ec94b0f86d277f51ca"
+              }
+            ],
+            "format": "hlo_with_config",
+            "payload": {
+              "bytes": 9,
+              "file": "7-optimized.bin",
+              "sha256": "ecbd08e6eb032c343d153f9f25c0b7a046ca45ea64199edc101ff322ac2f3913"
+            }
+          }
+        ],
+        "failure": "",
+        "status": "PASS"
+      },
+      "result": "PASS",
+      "retention": "Fixture deleted after validation",
+      "stdout": "PASS cold calls=5 finalize=0"
+    },
+    {
+      "closed_inventory": {
+        "bytes": 489,
+        "file": "closed.json",
+        "sha256": "040aeaf2ae521f3207d0bc08f4c6f39a407e388b1064aab7b7b151bda3ddf89e"
+      },
+      "expected_claim_status": "UNKNOWN",
+      "name": "short_args",
+      "report": {
+        "TPU_execution": "NOT_RUN",
+        "calls": 2,
+        "capture_status": "OK",
+        "claim": "DIRECT_LOADED_HANDLE_EXECUTE_CALL",
+        "claims": [],
+        "device_completion": "NOT_OBSERVED",
+        "extracted_fields": [],
+        "failure": "",
+        "status": "UNKNOWN"
+      },
+      "result": "PASS",
+      "retention": "Fixture deleted after validation",
+      "stdout": "PASS short_args calls=2 finalize=0"
+    },
+    {
+      "closed_inventory": {
+        "bytes": 788,
+        "file": "closed.json",
+        "sha256": "46219271001e7bd247f3aec41376dfda84a90ba7dcb42d758b3571702963f36d"
+      },
+      "expected_claim_status": "UNKNOWN",
+      "name": "short_api",
+      "report": {
+        "TPU_execution": "NOT_RUN",
+        "calls": 1,
+        "capture_status": "OK",
+        "claim": "DIRECT_LOADED_HANDLE_EXECUTE_CALL",
+        "claims": [],
+        "device_completion": "NOT_OBSERVED",
+        "extracted_fields": [],
+        "failure": "",
+        "status": "UNKNOWN"
+      },
+      "result": "PASS",
+      "retention": "Fixture deleted after validation",
+      "stdout": "PASS short_api calls=1 finalize=0"
+    },
+    {
+      "closed_inventory": {
+        "bytes": 1384,
+        "file": "closed.json",
+        "sha256": "dc66b69a4b49e4114df1931240513976c603ded0f26b8df131845b657994fd13"
+      },
+      "expected_claim_status": "PASS",
+      "name": "destroy_reuse",
+      "report": {
+        "TPU_execution": "NOT_RUN",
+        "calls": 11,
+        "capture_status": "OK",
+        "claim": "DIRECT_LOADED_HANDLE_EXECUTE_CALL",
+        "claims": [
+          {
+            "call": 11,
+            "compile_call": 7,
+            "compile_phase": "fixture-phase",
+            "executables": [
+              "fixture-E-16"
+            ],
+            "format_ref": {
+              "bytes": 4,
+              "file": "13-submit-format.bin",
+              "sha256": "e0acb49d6ec4a97460a1af5fe8f80abc39f04d172d6c9a08c33da1209115cd4b"
+            },
+            "loaded": "fixture-L-14",
+            "phase": "fixture-phase",
+            "submitted": {
+              "bytes": 12,
+              "file": "13-submitted.bin",
+              "sha256": "46aa9809bd99a90836876404feab6592d6c9bde45fe525a78930826aba4e6f98"
+            }
+          }
+        ],
+        "device_completion": "NOT_OBSERVED",
+        "extracted_fields": [
+          {
+            "executable": "fixture-E-4",
+            "fields": [
+              {
+                "bytes": 3,
+                "field": 1,
+                "offset": 2,
+                "sha256": "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad"
+              },
+              {
+                "bytes": 2,
+                "field": 2,
+                "offset": 7,
+                "sha256": "769a4e6d0003189c7e96c5d9b7e810a0d11c3a12832527ec94b0f86d277f51ca"
+              }
+            ],
+            "format": "hlo_with_config",
+            "payload": {
+              "bytes": 9,
+              "file": "7-optimized.bin",
+              "sha256": "ecbd08e6eb032c343d153f9f25c0b7a046ca45ea64199edc101ff322ac2f3913"
+            }
+          },
+          {
+            "executable": "fixture-E-16",
+            "fields": [
+              {
+                "bytes": 3,
+                "field": 1,
+                "offset": 2,
+                "sha256": "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad"
+              },
+              {
+                "bytes": 2,
+                "field": 2,
+                "offset": 7,
+                "sha256": "769a4e6d0003189c7e96c5d9b7e810a0d11c3a12832527ec94b0f86d277f51ca"
+              }
+            ],
+            "format": "hlo_with_config",
+            "payload": {
+              "bytes": 9,
+              "file": "19-optimized.bin",
+              "sha256": "ecbd08e6eb032c343d153f9f25c0b7a046ca45ea64199edc101ff322ac2f3913"
+            }
+          }
+        ],
+        "failure": "",
+        "status": "PASS"
+      },
+      "result": "PASS",
+      "retention": "Fixture deleted after validation",
+      "stdout": "PASS destroy_reuse calls=11 finalize=0"
+    },
+    {
+      "closed_inventory": {
+        "bytes": 935,
+        "file": "closed.json",
+        "sha256": "853cd8c5d1eb253f253da1f9bf3ef9146d4317563fc0c181aa53cddd7cea5b66"
+      },
+      "expected_claim_status": "UNKNOWN",
+      "name": "overlap",
+      "report": {
+        "TPU_execution": "NOT_RUN",
+        "calls": 6,
+        "capture_status": "OK",
+        "claim": "DIRECT_LOADED_HANDLE_EXECUTE_CALL",
+        "claims": [],
+        "device_completion": "NOT_OBSERVED",
+        "extracted_fields": [
+          {
+            "executable": "fixture-E-4",
+            "fields": [
+              {
+                "bytes": 3,
+                "field": 1,
+                "offset": 2,
+                "sha256": "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad"
+              },
+              {
+                "bytes": 2,
+                "field": 2,
+                "offset": 7,
+                "sha256": "769a4e6d0003189c7e96c5d9b7e810a0d11c3a12832527ec94b0f86d277f51ca"
+              }
+            ],
+            "format": "hlo_with_config",
+            "payload": {
+              "bytes": 9,
+              "file": "7-optimized.bin",
+              "sha256": "ecbd08e6eb032c343d153f9f25c0b7a046ca45ea64199edc101ff322ac2f3913"
+            }
+          }
+        ],
+        "failure": "",
+        "status": "UNKNOWN"
+      },
+      "result": "PASS",
+      "retention": "Fixture deleted after validation",
+      "stdout": "PASS overlap calls=6 finalize=0"
+    },
+    {
+      "closed_inventory": {
+        "bytes": 936,
+        "file": "closed.json",
+        "sha256": "a3d5143ccc38485287e73ab16b983369f46456a12678d203ad5ad2343dce61c2"
+      },
+      "expected_claim_status": "UNKNOWN",
+      "name": "deadline_inflight",
+      "report": {
+        "TPU_execution": "NOT_RUN",
+        "calls": 5,
+        "capture_status": "UNKNOWN",
+        "claim": "DIRECT_LOADED_HANDLE_EXECUTE_CALL",
+        "claims": [
+          {
+            "call": 5,
+            "compile_call": 1,
+            "compile_phase": "fixture-phase",
+            "executables": [
+              "fixture-E-4"
+            ],
+            "format_ref": {
+              "bytes": 4,
+              "file": "1-submit-format.bin",
+              "sha256": "e0acb49d6ec4a97460a1af5fe8f80abc39f04d172d6c9a08c33da1209115cd4b"
+            },
+            "loaded": "fixture-L-2",
+            "phase": "fixture-phase",
+            "submitted": {
+              "bytes": 12,
+              "file": "1-submitted.bin",
+              "sha256": "46aa9809bd99a90836876404feab6592d6c9bde45fe525a78930826aba4e6f98"
+            }
+          }
+        ],
+        "device_completion": "NOT_OBSERVED",
+        "extracted_fields": [
+          {
+            "executable": "fixture-E-4",
+            "fields": [
+              {
+                "bytes": 3,
+                "field": 1,
+                "offset": 2,
+                "sha256": "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad"
+              },
+              {
+                "bytes": 2,
+                "field": 2,
+                "offset": 7,
+                "sha256": "769a4e6d0003189c7e96c5d9b7e810a0d11c3a12832527ec94b0f86d277f51ca"
+              }
+            ],
+            "format": "hlo_with_config",
+            "payload": {
+              "bytes": 9,
+              "file": "7-optimized.bin",
+              "sha256": "ecbd08e6eb032c343d153f9f25c0b7a046ca45ea64199edc101ff322ac2f3913"
+            }
+          }
+        ],
+        "failure": "DEADLINE",
+        "status": "UNKNOWN"
+      },
+      "result": "PASS",
+      "retention": "Fixture deleted after validation",
+      "stdout": "PASS deadline_inflight calls=5 finalize=-1"
+    },
+    {
+      "closed_inventory": {
+        "bytes": 935,
+        "file": "closed.json",
+        "sha256": "38909e22476c7d4331afd0f35928991913e2b3ad3c7a25c52488344279399a3e"
+      },
+      "expected_claim_status": "UNKNOWN",
+      "name": "optimized_query_error_inflight",
+      "report": {
+        "TPU_execution": "NOT_RUN",
+        "calls": 6,
+        "capture_status": "OK",
+        "claim": "DIRECT_LOADED_HANDLE_EXECUTE_CALL",
+        "claims": [],
+        "device_completion": "NOT_OBSERVED",
+        "extracted_fields": [
+          {
+            "executable": "fixture-E-4",
+            "fields": [
+              {
+                "bytes": 3,
+                "field": 1,
+                "offset": 2,
+                "sha256": "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad"
+              },
+              {
+                "bytes": 2,
+                "field": 2,
+                "offset": 7,
+                "sha256": "769a4e6d0003189c7e96c5d9b7e810a0d11c3a12832527ec94b0f86d277f51ca"
+              }
+            ],
+            "format": "hlo_with_config",
+            "payload": {
+              "bytes": 9,
+              "file": "7-optimized.bin",
+              "sha256": "ecbd08e6eb032c343d153f9f25c0b7a046ca45ea64199edc101ff322ac2f3913"
+            }
+          }
+        ],
+        "failure": "",
+        "status": "UNKNOWN"
+      },
+      "result": "PASS",
+      "retention": "Fixture deleted after validation",
+      "stdout": "PASS optimized_query_error_inflight calls=6 finalize=0"
+    },
+    {
+      "closed_inventory": {
+        "bytes": 935,
+        "file": "closed.json",
+        "sha256": "77ee3f5ad2bcc1f2caf9af693dcd2c1a27060097ed536c058679fb07d57c3d1d"
+      },
+      "expected_claim_status": "UNKNOWN",
+      "name": "execute_then_fill",
+      "report": {
+        "TPU_execution": "NOT_RUN",
+        "calls": 5,
+        "capture_status": "OK",
+        "claim": "DIRECT_LOADED_HANDLE_EXECUTE_CALL",
+        "claims": [],
+        "device_completion": "NOT_OBSERVED",
+        "extracted_fields": [
+          {
+            "executable": "fixture-E-4",
+            "fields": [
+              {
+                "bytes": 3,
+                "field": 1,
+                "offset": 2,
+                "sha256": "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad"
+              },
+              {
+                "bytes": 2,
+                "field": 2,
+                "offset": 7,
+                "sha256": "769a4e6d0003189c7e96c5d9b7e810a0d11c3a12832527ec94b0f86d277f51ca"
+              }
+            ],
+            "format": "hlo_with_config",
+            "payload": {
+              "bytes": 9,
+              "file": "8-optimized.bin",
+              "sha256": "ecbd08e6eb032c343d153f9f25c0b7a046ca45ea64199edc101ff322ac2f3913"
+            }
+          }
+        ],
+        "failure": "",
+        "status": "UNKNOWN"
+      },
+      "result": "PASS",
+      "retention": "Fixture deleted after validation",
+      "stdout": "PASS execute_then_fill calls=5 finalize=0"
+    },
+    {
+      "closed_inventory": {
+        "bytes": 1234,
+        "file": "closed.json",
+        "sha256": "643128d8ddf64fbc699945a051d9868d54c1c7814191971a77c1a0c446e8be98"
+      },
+      "expected_claim_status": "PASS",
+      "name": "unrelated_query_inflight",
+      "report": {
+        "TPU_execution": "NOT_RUN",
+        "calls": 8,
+        "capture_status": "OK",
+        "claim": "DIRECT_LOADED_HANDLE_EXECUTE_CALL",
+        "claims": [
+          {
+            "call": 8,
+            "compile_call": 1,
+            "compile_phase": "fixture-phase",
+            "executables": [
+              "fixture-E-4"
+            ],
+            "format_ref": {
+              "bytes": 4,
+              "file": "1-submit-format.bin",
+              "sha256": "e0acb49d6ec4a97460a1af5fe8f80abc39f04d172d6c9a08c33da1209115cd4b"
+            },
+            "loaded": "fixture-L-2",
+            "phase": "fixture-phase",
+            "submitted": {
+              "bytes": 12,
+              "file": "1-submitted.bin",
+              "sha256": "46aa9809bd99a90836876404feab6592d6c9bde45fe525a78930826aba4e6f98"
+            }
+          }
+        ],
+        "device_completion": "NOT_OBSERVED",
+        "extracted_fields": [
+          {
+            "executable": "fixture-E-4",
+            "fields": [
+              {
+                "bytes": 3,
+                "field": 1,
+                "offset": 2,
+                "sha256": "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad"
+              },
+              {
+                "bytes": 2,
+                "field": 2,
+                "offset": 7,
+                "sha256": "769a4e6d0003189c7e96c5d9b7e810a0d11c3a12832527ec94b0f86d277f51ca"
+              }
+            ],
+            "format": "hlo_with_config",
+            "payload": {
+              "bytes": 9,
+              "file": "7-optimized.bin",
+              "sha256": "ecbd08e6eb032c343d153f9f25c0b7a046ca45ea64199edc101ff322ac2f3913"
+            }
+          }
+        ],
+        "failure": "",
+        "status": "PASS"
+      },
+      "result": "PASS",
+      "retention": "Fixture deleted after validation",
+      "stdout": "PASS unrelated_query_inflight calls=8 finalize=0"
+    }
+  ],
+  "bulk_cleanup": "All temporary build files and fixture bodies deleted before result publication",
+  "cases": [
+    {
+      "closed_inventory": {
+        "bytes": 935,
+        "file": "closed.json",
+        "sha256": "ecfdeec99c402195cf5e0d5bd3a9c3e3f019eb9c0082662a6476a5e5f40309d1"
+      },
+      "expected_claim_status": "PASS",
+      "name": "byte_boundary",
+      "report": {
+        "TPU_execution": "NOT_RUN",
+        "calls": 5,
+        "capture_status": "OK",
+        "claim": "DIRECT_LOADED_HANDLE_EXECUTE_CALL",
+        "claims": [
+          {
+            "call": 5,
+            "compile_call": 1,
+            "compile_phase": "fixture-phase",
+            "executables": [
+              "fixture-E-4"
+            ],
+            "format_ref": {
+              "bytes": 4,
+              "file": "1-submit-format.bin",
+              "sha256": "e0acb49d6ec4a97460a1af5fe8f80abc39f04d172d6c9a08c33da1209115cd4b"
+            },
+            "loaded": "fixture-L-2",
+            "phase": "fixture-phase",
+            "submitted": {
+              "bytes": 12,
+              "file": "1-submitted.bin",
+              "sha256": "46aa9809bd99a90836876404feab6592d6c9bde45fe525a78930826aba4e6f98"
+            }
+          }
+        ],
+        "device_completion": "NOT_OBSERVED",
+        "extracted_fields": [
+          {
+            "executable": "fixture-E-4",
+            "fields": [
+              {
+                "bytes": 3,
+                "field": 1,
+                "offset": 2,
+                "sha256": "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad"
+              },
+              {
+                "bytes": 2,
+                "field": 2,
+                "offset": 7,
+                "sha256": "769a4e6d0003189c7e96c5d9b7e810a0d11c3a12832527ec94b0f86d277f51ca"
+              }
+            ],
+            "format": "hlo_with_config",
+            "payload": {
+              "bytes": 9,
+              "file": "7-optimized.bin",
+              "sha256": "ecbd08e6eb032c343d153f9f25c0b7a046ca45ea64199edc101ff322ac2f3913"
+            }
+          }
+        ],
+        "failure": "",
+        "status": "PASS"
+      },
+      "result": "PASS",
+      "retention": "Fixture deleted after validation",
+      "stdout": "PASS byte_boundary calls=5 finalize=0"
+    },
+    {
+      "closed_inventory": {
+        "bytes": 489,
+        "file": "closed.json",
+        "sha256": "7159b65869bea08a911532b32881f46297baf064b2208223964355eff17810e6"
+      },
+      "expected_claim_status": "UNKNOWN",
+      "name": "byte_quota",
+      "report": {
+        "TPU_execution": "NOT_RUN",
+        "calls": 1,
+        "capture_status": "UNKNOWN",
+        "claim": "DIRECT_LOADED_HANDLE_EXECUTE_CALL",
+        "claims": [],
+        "device_completion": "NOT_OBSERVED",
+        "extracted_fields": [],
+        "failure": "PAYLOAD_QUOTA_OR_NULL",
+        "status": "UNKNOWN"
+      },
+      "result": "PASS",
+      "retention": "Fixture deleted after validation",
+      "stdout": "PASS byte_quota calls=5 finalize=-1"
+    },
+    {
+      "closed_inventory": {
+        "bytes": 935,
+        "file": "closed.json",
+        "sha256": "d9eb888cf43ba016f429760fa0e1009fcd13dd9b8d1ce0d9aa939a65a270ebfc"
+      },
+      "expected_claim_status": "PASS",
+      "name": "capacity_larger",
+      "report": {
+        "TPU_execution": "NOT_RUN",
+        "calls": 5,
+        "capture_status": "OK",
+        "claim": "DIRECT_LOADED_HANDLE_EXECUTE_CALL",
+        "claims": [
+          {
+            "call": 5,
+            "compile_call": 1,
+            "compile_phase": "fixture-phase",
+            "executables": [
+              "fixture-E-4"
+            ],
+            "format_ref": {
+              "bytes": 4,
+              "file": "1-submit-format.bin",
+              "sha256": "e0acb49d6ec4a97460a1af5fe8f80abc39f04d172d6c9a08c33da1209115cd4b"
+            },
+            "loaded": "fixture-L-2",
+            "phase": "fixture-phase",
+            "submitted": {
+              "bytes": 12,
+              "file": "1-submitted.bin",
+              "sha256": "46aa9809bd99a90836876404feab6592d6c9bde45fe525a78930826aba4e6f98"
+            }
+          }
+        ],
+        "device_completion": "NOT_OBSERVED",
+        "extracted_fields": [
+          {
+            "executable": "fixture-E-4",
+            "fields": [
+              {
+                "bytes": 3,
+                "field": 1,
+                "offset": 2,
+                "sha256": "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad"
+              },
+              {
+                "bytes": 2,
+                "field": 2,
+                "offset": 7,
+                "sha256": "769a4e6d0003189c7e96c5d9b7e810a0d11c3a12832527ec94b0f86d277f51ca"
+              }
+            ],
+            "format": "hlo_with_config",
+            "payload": {
+              "bytes": 9,
+              "file": "7-optimized.bin",
+              "sha256": "ecbd08e6eb032c343d153f9f25c0b7a046ca45ea64199edc101ff322ac2f3913"
+            }
+          }
+        ],
+        "failure": "",
+        "status": "PASS"
+      },
+      "result": "PASS",
+      "retention": "Fixture deleted after validation",
+      "stdout": "PASS capacity_larger calls=5 finalize=0"
+    },
+    {
+      "closed_inventory": {
+        "bytes": 788,
+        "file": "closed.json",
+        "sha256": "058bec38c815a9975a61781adf082ad66e41d28ec01dc8d99977857765d53083"
+      },
+      "expected_claim_status": "UNKNOWN",
+      "name": "changed_format",
+      "report": {
+        "TPU_execution": "NOT_RUN",
+        "calls": 5,
+        "capture_status": "OK",
+        "claim": "DIRECT_LOADED_HANDLE_EXECUTE_CALL",
+        "claims": [],
+        "device_completion": "NOT_OBSERVED",
+        "extracted_fields": [],
+        "failure": "",
+        "status": "UNKNOWN"
+      },
+      "result": "PASS",
+      "retention": "Fixture deleted after validation",
+      "stdout": "PASS changed_format calls=5 finalize=0"
+    },
+    {
+      "closed_inventory": {
+        "bytes": 788,
+        "file": "closed.json",
+        "sha256": "4ef46d7c2319c56ccfd969853f0f668320887eee88206b85bb5c4025d0a28e76"
+      },
+      "expected_claim_status": "UNKNOWN",
+      "name": "changed_length",
+      "report": {
+        "TPU_execution": "NOT_RUN",
+        "calls": 5,
+        "capture_status": "OK",
+        "claim": "DIRECT_LOADED_HANDLE_EXECUTE_CALL",
+        "claims": [],
+        "device_completion": "NOT_OBSERVED",
+        "extracted_fields": [],
+        "failure": "",
+        "status": "UNKNOWN"
+      },
+      "result": "PASS",
+      "retention": "Fixture deleted after validation",
+      "stdout": "PASS changed_length calls=5 finalize=0"
+    },
+    {
+      "closed_inventory": {
+        "bytes": 788,
+        "file": "closed.json",
+        "sha256": "c63c278635d5325302b872eb9ddde2f4b70035643c25e03040456d5956a71f1a"
+      },
+      "expected_claim_status": "UNKNOWN",
+      "name": "changed_pointer",
+      "report": {
+        "TPU_execution": "NOT_RUN",
+        "calls": 5,
+        "capture_status": "OK",
+        "claim": "DIRECT_LOADED_HANDLE_EXECUTE_CALL",
+        "claims": [],
+        "device_completion": "NOT_OBSERVED",
+        "extracted_fields": [],
+        "failure": "",
+        "status": "UNKNOWN"
+      },
+      "result": "PASS",
+      "retention": "Fixture deleted after validation",
+      "stdout": "PASS changed_pointer calls=5 finalize=0"
+    },
+    {
+      "closed_inventory": {
+        "bytes": 935,
+        "file": "closed.json",
+        "sha256": "1e36495b5f31659c4bc398829b3b71fdcabeed3aadc72211dddc7dabf4ba591d"
+      },
+      "expected_claim_status": "PASS",
+      "name": "cold",
+      "report": {
+        "TPU_execution": "NOT_RUN",
+        "calls": 5,
+        "capture_status": "OK",
+        "claim": "DIRECT_LOADED_HANDLE_EXECUTE_CALL",
+        "claims": [
+          {
+            "call": 5,
+            "compile_call": 1,
+            "compile_phase": "fixture-phase",
+            "executables": [
+              "fixture-E-4"
+            ],
+            "format_ref": {
+              "bytes": 4,
+              "file": "1-submit-format.bin",
+              "sha256": "e0acb49d6ec4a97460a1af5fe8f80abc39f04d172d6c9a08c33da1209115cd4b"
+            },
+            "loaded": "fixture-L-2",
+            "phase": "fixture-phase",
+            "submitted": {
+              "bytes": 12,
+              "file": "1-submitted.bin",
+              "sha256": "46aa9809bd99a90836876404feab6592d6c9bde45fe525a78930826aba4e6f98"
+            }
+          }
+        ],
+        "device_completion": "NOT_OBSERVED",
+        "extracted_fields": [
+          {
+            "executable": "fixture-E-4",
+            "fields": [
+              {
+                "bytes": 3,
+                "field": 1,
+                "offset": 2,
+                "sha256": "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad"
+              },
+              {
+                "bytes": 2,
+                "field": 2,
+                "offset": 7,
+                "sha256": "769a4e6d0003189c7e96c5d9b7e810a0d11c3a12832527ec94b0f86d277f51ca"
+              }
+            ],
+            "format": "hlo_with_config",
+            "payload": {
+              "bytes": 9,
+              "file": "7-optimized.bin",
+              "sha256": "ecbd08e6eb032c343d153f9f25c0b7a046ca45ea64199edc101ff322ac2f3913"
+            }
+          }
+        ],
+        "failure": "",
+        "status": "PASS"
+      },
+      "result": "PASS",
+      "retention": "Fixture deleted after validation",
+      "stdout": "PASS cold calls=5 finalize=0"
+    },
+    {
+      "closed_inventory": {
+        "bytes": 787,
+        "file": "closed.json",
+        "sha256": "ac8716a5ef8646ef66263ad295421b2c891714ec36d3a509f6a65b141bf48c5d"
+      },
+      "expected_claim_status": "UNKNOWN",
+      "name": "compile_error",
+      "report": {
+        "TPU_execution": "NOT_RUN",
+        "calls": 1,
+        "capture_status": "OK",
+        "claim": "DIRECT_LOADED_HANDLE_EXECUTE_CALL",
+        "claims": [],
+        "device_completion": "NOT_OBSERVED",
+        "extracted_fields": [],
+        "failure": "",
+        "status": "UNKNOWN"
+      },
+      "result": "PASS",
+      "retention": "Fixture deleted after validation",
+      "stdout": "PASS compile_error calls=1 finalize=0"
+    },
+    {
+      "closed_inventory": {
+        "bytes": 936,
+        "file": "closed.json",
+        "sha256": "6e3b571dba2d76c2f19cedef6ae4b7d85ad4a61c3ac5271937ddb9e6129f368f"
+      },
+      "expected_claim_status": "UNKNOWN",
+      "name": "deadline_inflight",
+      "report": {
+        "TPU_execution": "NOT_RUN",
+        "calls": 5,
+        "capture_status": "UNKNOWN",
+        "claim": "DIRECT_LOADED_HANDLE_EXECUTE_CALL",
+        "claims": [
+          {
+            "call": 5,
+            "compile_call": 1,
+            "compile_phase": "fixture-phase",
+            "executables": [
+              "fixture-E-4"
+            ],
+            "format_ref": {
+              "bytes": 4,
+              "file": "1-submit-format.bin",
+              "sha256": "e0acb49d6ec4a97460a1af5fe8f80abc39f04d172d6c9a08c33da1209115cd4b"
+            },
+            "loaded": "fixture-L-2",
+            "phase": "fixture-phase",
+            "submitted": {
+              "bytes": 12,
+              "file": "1-submitted.bin",
+              "sha256": "46aa9809bd99a90836876404feab6592d6c9bde45fe525a78930826aba4e6f98"
+            }
+          }
+        ],
+        "device_completion": "NOT_OBSERVED",
+        "extracted_fields": [
+          {
+            "executable": "fixture-E-4",
+            "fields": [
+              {
+                "bytes": 3,
+                "field": 1,
+                "offset": 2,
+                "sha256": "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad"
+              },
+              {
+                "bytes": 2,
+                "field": 2,
+                "offset": 7,
+                "sha256": "769a4e6d0003189c7e96c5d9b7e810a0d11c3a12832527ec94b0f86d277f51ca"
+              }
+            ],
+            "format": "hlo_with_config",
+            "payload": {
+              "bytes": 9,
+              "file": "7-optimized.bin",
+              "sha256": "ecbd08e6eb032c343d153f9f25c0b7a046ca45ea64199edc101ff322ac2f3913"
+            }
+          }
+        ],
+        "failure": "DEADLINE",
+        "status": "UNKNOWN"
+      },
+      "result": "PASS",
+      "retention": "Fixture deleted after validation",
+      "stdout": "PASS deadline_inflight calls=5 finalize=-1"
+    },
+    {
+      "closed_inventory": {
+        "bytes": 935,
+        "file": "closed.json",
+        "sha256": "7738d4ef493055c5f552a545f56607c0de0c4713da6656aa058a05cb6821c503"
+      },
+      "expected_claim_status": "PASS",
+      "name": "delete_after",
+      "report": {
+        "TPU_execution": "NOT_RUN",
+        "calls": 6,
+        "capture_status": "OK",
+        "claim": "DIRECT_LOADED_HANDLE_EXECUTE_CALL",
+        "claims": [
+          {
+            "call": 5,
+            "compile_call": 1,
+            "compile_phase": "fixture-phase",
+            "executables": [
+              "fixture-E-4"
+            ],
+            "format_ref": {
+              "bytes": 4,
+              "file": "1-submit-format.bin",
+              "sha256": "e0acb49d6ec4a97460a1af5fe8f80abc39f04d172d6c9a08c33da1209115cd4b"
+            },
+            "loaded": "fixture-L-2",
+            "phase": "fixture-phase",
+            "submitted": {
+              "bytes": 12,
+              "file": "1-submitted.bin",
+              "sha256": "46aa9809bd99a90836876404feab6592d6c9bde45fe525a78930826aba4e6f98"
+            }
+          }
+        ],
+        "device_completion": "NOT_OBSERVED",
+        "extracted_fields": [
+          {
+            "executable": "fixture-E-4",
+            "fields": [
+              {
+                "bytes": 3,
+                "field": 1,
+                "offset": 2,
+                "sha256": "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad"
+              },
+              {
+                "bytes": 2,
+                "field": 2,
+                "offset": 7,
+                "sha256": "769a4e6d0003189c7e96c5d9b7e810a0d11c3a12832527ec94b0f86d277f51ca"
+              }
+            ],
+            "format": "hlo_with_config",
+            "payload": {
+              "bytes": 9,
+              "file": "7-optimized.bin",
+              "sha256": "ecbd08e6eb032c343d153f9f25c0b7a046ca45ea64199edc101ff322ac2f3913"
+            }
+          }
+        ],
+        "failure": "",
+        "status": "PASS"
+      },
+      "result": "PASS",
+      "retention": "Fixture deleted after validation",
+      "stdout": "PASS delete_after calls=6 finalize=0"
+    },
+    {
+      "closed_inventory": {
+        "bytes": 935,
+        "file": "closed.json",
+        "sha256": "90ee865feac91dc0ca0b328875d270e43c0ce64a68e5c0d83e8002abac8d0f6f"
+      },
+      "expected_claim_status": "UNKNOWN",
+      "name": "delete_before",
+      "report": {
+        "TPU_execution": "NOT_RUN",
+        "calls": 6,
+        "capture_status": "OK",
+        "claim": "DIRECT_LOADED_HANDLE_EXECUTE_CALL",
+        "claims": [],
+        "device_completion": "NOT_OBSERVED",
+        "extracted_fields": [
+          {
+            "executable": "fixture-E-4",
+            "fields": [
+              {
+                "bytes": 3,
+                "field": 1,
+                "offset": 2,
+                "sha256": "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad"
+              },
+              {
+                "bytes": 2,
+                "field": 2,
+                "offset": 7,
+                "sha256": "769a4e6d0003189c7e96c5d9b7e810a0d11c3a12832527ec94b0f86d277f51ca"
+              }
+            ],
+            "format": "hlo_with_config",
+            "payload": {
+              "bytes": 9,
+              "file": "7-optimized.bin",
+              "sha256": "ecbd08e6eb032c343d153f9f25c0b7a046ca45ea64199edc101ff322ac2f3913"
+            }
+          }
+        ],
+        "failure": "",
+        "status": "UNKNOWN"
+      },
+      "result": "PASS",
+      "retention": "Fixture deleted after validation",
+      "stdout": "PASS delete_before calls=6 finalize=0"
+    },
+    {
+      "closed_inventory": {
+        "bytes": 1232,
+        "file": "closed.json",
+        "sha256": "30eb7057c5effb7f25f92b611843cd180a34b5b24ae9fc72817462f6073f6dcd"
+      },
+      "expected_claim_status": "UNKNOWN",
+      "name": "deserialize",
+      "report": {
+        "TPU_execution": "NOT_RUN",
+        "calls": 9,
+        "capture_status": "OK",
+        "claim": "DIRECT_LOADED_HANDLE_EXECUTE_CALL",
+        "claims": [],
+        "device_completion": "NOT_OBSERVED",
+        "extracted_fields": [
+          {
+            "executable": "fixture-E-4",
+            "fields": [
+              {
+                "bytes": 3,
+                "field": 1,
+                "offset": 2,
+                "sha256": "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad"
+              },
+              {
+                "bytes": 2,
+                "field": 2,
+                "offset": 7,
+                "sha256": "769a4e6d0003189c7e96c5d9b7e810a0d11c3a12832527ec94b0f86d277f51ca"
+              }
+            ],
+            "format": "hlo_with_config",
+            "payload": {
+              "bytes": 9,
+              "file": "7-optimized.bin",
+              "sha256": "ecbd08e6eb032c343d153f9f25c0b7a046ca45ea64199edc101ff322ac2f3913"
+            }
+          },
+          {
+            "executable": "fixture-E-12",
+            "fields": [
+              {
+                "bytes": 3,
+                "field": 1,
+                "offset": 2,
+                "sha256": "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad"
+              },
+              {
+                "bytes": 2,
+                "field": 2,
+                "offset": 7,
+                "sha256": "769a4e6d0003189c7e96c5d9b7e810a0d11c3a12832527ec94b0f86d277f51ca"
+              }
+            ],
+            "format": "hlo_with_config",
+            "payload": {
+              "bytes": 9,
+              "file": "15-optimized.bin",
+              "sha256": "ecbd08e6eb032c343d153f9f25c0b7a046ca45ea64199edc101ff322ac2f3913"
+            }
+          }
+        ],
+        "failure": "",
+        "status": "UNKNOWN"
+      },
+      "result": "PASS",
+      "retention": "Fixture deleted after validation",
+      "stdout": "PASS deserialize calls=9 finalize=0"
+    },
+    {
+      "closed_inventory": {
+        "bytes": 935,
+        "file": "closed.json",
+        "sha256": "38baf48900ecb2f36b5531e2d42ba379e954a52fcf5c82d143b5629348e283f0"
+      },
+      "expected_claim_status": "PASS",
+      "name": "destroy_executable_before",
+      "report": {
+        "TPU_execution": "NOT_RUN",
+        "calls": 6,
+        "capture_status": "OK",
+        "claim": "DIRECT_LOADED_HANDLE_EXECUTE_CALL",
+        "claims": [
+          {
+            "call": 6,
+            "compile_call": 1,
+            "compile_phase": "fixture-phase",
+            "executables": [
+              "fixture-E-4"
+            ],
+            "format_ref": {
+              "bytes": 4,
+              "file": "1-submit-format.bin",
+              "sha256": "e0acb49d6ec4a97460a1af5fe8f80abc39f04d172d6c9a08c33da1209115cd4b"
+            },
+            "loaded": "fixture-L-2",
+            "phase": "fixture-phase",
+            "submitted": {
+              "bytes": 12,
+              "file": "1-submitted.bin",
+              "sha256": "46aa9809bd99a90836876404feab6592d6c9bde45fe525a78930826aba4e6f98"
+            }
+          }
+        ],
+        "device_completion": "NOT_OBSERVED",
+        "extracted_fields": [
+          {
+            "executable": "fixture-E-4",
+            "fields": [
+              {
+                "bytes": 3,
+                "field": 1,
+                "offset": 2,
+                "sha256": "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad"
+              },
+              {
+                "bytes": 2,
+                "field": 2,
+                "offset": 7,
+                "sha256": "769a4e6d0003189c7e96c5d9b7e810a0d11c3a12832527ec94b0f86d277f51ca"
+              }
+            ],
+            "format": "hlo_with_config",
+            "payload": {
+              "bytes": 9,
+              "file": "7-optimized.bin",
+              "sha256": "ecbd08e6eb032c343d153f9f25c0b7a046ca45ea64199edc101ff322ac2f3913"
+            }
+          }
+        ],
+        "failure": "",
+        "status": "PASS"
+      },
+      "result": "PASS",
+      "retention": "Fixture deleted after validation",
+      "stdout": "PASS destroy_executable_before calls=6 finalize=0"
+    },
+    {
+      "closed_inventory": {
+        "bytes": 1083,
+        "file": "closed.json",
+        "sha256": "687bbcae9b35befcf05a4c9f1241797d9c9468fb1836561ce20c074ebbfb55d3"
+      },
+      "expected_claim_status": "PASS",
+      "name": "destroy_executable_reuse",
+      "report": {
+        "TPU_execution": "NOT_RUN",
+        "calls": 9,
+        "capture_status": "OK",
+        "claim": "DIRECT_LOADED_HANDLE_EXECUTE_CALL",
+        "claims": [
+          {
+            "call": 9,
+            "compile_call": 1,
+            "compile_phase": "fixture-phase",
+            "executables": [
+              "fixture-E-12",
+              "fixture-E-4"
+            ],
+            "format_ref": {
+              "bytes": 4,
+              "file": "1-submit-format.bin",
+              "sha256": "e0acb49d6ec4a97460a1af5fe8f80abc39f04d172d6c9a08c33da1209115cd4b"
+            },
+            "loaded": "fixture-L-2",
+            "phase": "fixture-phase",
+            "submitted": {
+              "bytes": 12,
+              "file": "1-submitted.bin",
+              "sha256": "46aa9809bd99a90836876404feab6592d6c9bde45fe525a78930826aba4e6f98"
+            }
+          }
+        ],
+        "device_completion": "NOT_OBSERVED",
+        "extracted_fields": [
+          {
+            "executable": "fixture-E-4",
+            "fields": [
+              {
+                "bytes": 3,
+                "field": 1,
+                "offset": 2,
+                "sha256": "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad"
+              },
+              {
+                "bytes": 2,
+                "field": 2,
+                "offset": 7,
+                "sha256": "769a4e6d0003189c7e96c5d9b7e810a0d11c3a12832527ec94b0f86d277f51ca"
+              }
+            ],
+            "format": "hlo_with_config",
+            "payload": {
+              "bytes": 9,
+              "file": "7-optimized.bin",
+              "sha256": "ecbd08e6eb032c343d153f9f25c0b7a046ca45ea64199edc101ff322ac2f3913"
+            }
+          },
+          {
+            "executable": "fixture-E-12",
+            "fields": [
+              {
+                "bytes": 3,
+                "field": 1,
+                "offset": 2,
+                "sha256": "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad"
+              },
+              {
+                "bytes": 2,
+                "field": 2,
+                "offset": 7,
+                "sha256": "769a4e6d0003189c7e96c5d9b7e810a0d11c3a12832527ec94b0f86d277f51ca"
+              }
+            ],
+            "format": "hlo_with_config",
+            "payload": {
+              "bytes": 9,
+              "file": "15-optimized.bin",
+              "sha256": "ecbd08e6eb032c343d153f9f25c0b7a046ca45ea64199edc101ff322ac2f3913"
+            }
+          }
+        ],
+        "failure": "",
+        "status": "PASS"
+      },
+      "result": "PASS",
+      "retention": "Fixture deleted after validation",
+      "stdout": "PASS destroy_executable_reuse calls=9 finalize=0"
+    },
+    {
+      "closed_inventory": {
+        "bytes": 1384,
+        "file": "closed.json",
+        "sha256": "d7e77318ebb3a20bb9d4e7729f0367db319d794c921d1da18e293590445f38bd"
+      },
+      "expected_claim_status": "PASS",
+      "name": "destroy_reuse",
+      "report": {
+        "TPU_execution": "NOT_RUN",
+        "calls": 11,
+        "capture_status": "OK",
+        "claim": "DIRECT_LOADED_HANDLE_EXECUTE_CALL",
+        "claims": [
+          {
+            "call": 11,
+            "compile_call": 7,
+            "compile_phase": "fixture-phase",
+            "executables": [
+              "fixture-E-16"
+            ],
+            "format_ref": {
+              "bytes": 4,
+              "file": "13-submit-format.bin",
+              "sha256": "e0acb49d6ec4a97460a1af5fe8f80abc39f04d172d6c9a08c33da1209115cd4b"
+            },
+            "loaded": "fixture-L-14",
+            "phase": "fixture-phase",
+            "submitted": {
+              "bytes": 12,
+              "file": "13-submitted.bin",
+              "sha256": "46aa9809bd99a90836876404feab6592d6c9bde45fe525a78930826aba4e6f98"
+            }
+          }
+        ],
+        "device_completion": "NOT_OBSERVED",
+        "extracted_fields": [
+          {
+            "executable": "fixture-E-4",
+            "fields": [
+              {
+                "bytes": 3,
+                "field": 1,
+                "offset": 2,
+                "sha256": "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad"
+              },
+              {
+                "bytes": 2,
+                "field": 2,
+                "offset": 7,
+                "sha256": "769a4e6d0003189c7e96c5d9b7e810a0d11c3a12832527ec94b0f86d277f51ca"
+              }
+            ],
+            "format": "hlo_with_config",
+            "payload": {
+              "bytes": 9,
+              "file": "7-optimized.bin",
+              "sha256": "ecbd08e6eb032c343d153f9f25c0b7a046ca45ea64199edc101ff322ac2f3913"
+            }
+          },
+          {
+            "executable": "fixture-E-16",
+            "fields": [
+              {
+                "bytes": 3,
+                "field": 1,
+                "offset": 2,
+                "sha256": "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad"
+              },
+              {
+                "bytes": 2,
+                "field": 2,
+                "offset": 7,
+                "sha256": "769a4e6d0003189c7e96c5d9b7e810a0d11c3a12832527ec94b0f86d277f51ca"
+              }
+            ],
+            "format": "hlo_with_config",
+            "payload": {
+              "bytes": 9,
+              "file": "19-optimized.bin",
+              "sha256": "ecbd08e6eb032c343d153f9f25c0b7a046ca45ea64199edc101ff322ac2f3913"
+            }
+          }
+        ],
+        "failure": "",
+        "status": "PASS"
+      },
+      "result": "PASS",
+      "retention": "Fixture deleted after validation",
+      "stdout": "PASS destroy_reuse calls=11 finalize=0"
+    },
+    {
+      "closed_inventory": {
+        "bytes": 935,
+        "file": "closed.json",
+        "sha256": "849c10bd7188994e1acf66f7a34d2db758065a8925b5bef0d693621716f53116"
+      },
+      "expected_claim_status": "UNKNOWN",
+      "name": "duplicate_executable",
+      "report": {
+        "TPU_execution": "NOT_RUN",
+        "calls": 6,
+        "capture_status": "OK",
+        "claim": "DIRECT_LOADED_HANDLE_EXECUTE_CALL",
+        "claims": [],
+        "device_completion": "NOT_OBSERVED",
+        "extracted_fields": [
+          {
+            "executable": "fixture-E-4",
+            "fields": [
+              {
+                "bytes": 3,
+                "field": 1,
+                "offset": 2,
+                "sha256": "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad"
+              },
+              {
+                "bytes": 2,
+                "field": 2,
+                "offset": 7,
+                "sha256": "769a4e6d0003189c7e96c5d9b7e810a0d11c3a12832527ec94b0f86d277f51ca"
+              }
+            ],
+            "format": "hlo_with_config",
+            "payload": {
+              "bytes": 9,
+              "file": "7-optimized.bin",
+              "sha256": "ecbd08e6eb032c343d153f9f25c0b7a046ca45ea64199edc101ff322ac2f3913"
+            }
+          }
+        ],
+        "failure": "",
+        "status": "UNKNOWN"
+      },
+      "result": "PASS",
+      "retention": "Fixture deleted after validation",
+      "stdout": "PASS duplicate_executable calls=6 finalize=0"
+    },
+    {
+      "closed_inventory": {
+        "bytes": 1234,
+        "file": "closed.json",
+        "sha256": "39e64eeed7b09ea66b7822e5459088bef7891dd2729619832057c626bb4380c7"
+      },
+      "expected_claim_status": "UNKNOWN",
+      "name": "duplicate_loaded",
+      "report": {
+        "TPU_execution": "NOT_RUN",
+        "calls": 6,
+        "capture_status": "OK",
+        "claim": "DIRECT_LOADED_HANDLE_EXECUTE_CALL",
+        "claims": [],
+        "device_completion": "NOT_OBSERVED",
+        "extracted_fields": [
+          {
+            "executable": "fixture-E-4",
+            "fields": [
+              {
+                "bytes": 3,
+                "field": 1,
+                "offset": 2,
+                "sha256": "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad"
+              },
+              {
+                "bytes": 2,
+                "field": 2,
+                "offset": 7,
+                "sha256": "769a4e6d0003189c7e96c5d9b7e810a0d11c3a12832527ec94b0f86d277f51ca"
+              }
+            ],
+            "format": "hlo_with_config",
+            "payload": {
+              "bytes": 9,
+              "file": "7-optimized.bin",
+              "sha256": "ecbd08e6eb032c343d153f9f25c0b7a046ca45ea64199edc101ff322ac2f3913"
+            }
+          }
+        ],
+        "failure": "",
+        "status": "UNKNOWN"
+      },
+      "result": "PASS",
+      "retention": "Fixture deleted after validation",
+      "stdout": "PASS duplicate_loaded calls=6 finalize=0"
+    },
+    {
+      "closed_inventory": {
+        "bytes": 935,
+        "file": "closed.json",
+        "sha256": "2f36c6e0b611b8bf0bba5052777d92b569b314471a879b1326f6bdcd7500bb69"
+      },
+      "expected_claim_status": "PASS",
+      "name": "entry_boundary",
+      "report": {
+        "TPU_execution": "NOT_RUN",
+        "calls": 5,
+        "capture_status": "OK",
+        "claim": "DIRECT_LOADED_HANDLE_EXECUTE_CALL",
+        "claims": [
+          {
+            "call": 5,
+            "compile_call": 1,
+            "compile_phase": "fixture-phase",
+            "executables": [
+              "fixture-E-4"
+            ],
+            "format_ref": {
+              "bytes": 4,
+              "file": "1-submit-format.bin",
+              "sha256": "e0acb49d6ec4a97460a1af5fe8f80abc39f04d172d6c9a08c33da1209115cd4b"
+            },
+            "loaded": "fixture-L-2",
+            "phase": "fixture-phase",
+            "submitted": {
+              "bytes": 12,
+              "file": "1-submitted.bin",
+              "sha256": "46aa9809bd99a90836876404feab6592d6c9bde45fe525a78930826aba4e6f98"
+            }
+          }
+        ],
+        "device_completion": "NOT_OBSERVED",
+        "extracted_fields": [
+          {
+            "executable": "fixture-E-4",
+            "fields": [
+              {
+                "bytes": 3,
+                "field": 1,
+                "offset": 2,
+                "sha256": "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad"
+              },
+              {
+                "bytes": 2,
+                "field": 2,
+                "offset": 7,
+                "sha256": "769a4e6d0003189c7e96c5d9b7e810a0d11c3a12832527ec94b0f86d277f51ca"
+              }
+            ],
+            "format": "hlo_with_config",
+            "payload": {
+              "bytes": 9,
+              "file": "7-optimized.bin",
+              "sha256": "ecbd08e6eb032c343d153f9f25c0b7a046ca45ea64199edc101ff322ac2f3913"
+            }
+          }
+        ],
+        "failure": "",
+        "status": "PASS"
+      },
+      "result": "PASS",
+      "retention": "Fixture deleted after validation",
+      "stdout": "PASS entry_boundary calls=5 finalize=0"
+    },
+    {
+      "closed_inventory": {
+        "bytes": 637,
+        "file": "closed.json",
+        "sha256": "17dfff6cf22a362c3b99a4e18d96c9d7bccb362249ec75e53eabcce42b9c9b46"
+      },
+      "expected_claim_status": "UNKNOWN",
+      "name": "entry_quota",
+      "report": {
+        "TPU_execution": "NOT_RUN",
+        "calls": 1,
+        "capture_status": "UNKNOWN",
+        "claim": "DIRECT_LOADED_HANDLE_EXECUTE_CALL",
+        "claims": [],
+        "device_completion": "NOT_OBSERVED",
+        "extracted_fields": [],
+        "failure": "PAYLOAD_QUOTA_OR_NULL",
+        "status": "UNKNOWN"
+      },
+      "result": "PASS",
+      "retention": "Fixture deleted after validation",
+      "stdout": "PASS entry_quota calls=5 finalize=-1"
+    },
+    {
+      "closed_inventory": {
+        "bytes": 935,
+        "file": "closed.json",
+        "sha256": "c9107226dd5d4b2d2aae87d5b3e9f6e449e9f60d497f26877c0c1c848869d8f3"
+      },
+      "expected_claim_status": "PASS",
+      "name": "error_after_execute",
+      "report": {
+        "TPU_execution": "NOT_RUN",
+        "calls": 6,
+        "capture_status": "OK",
+        "claim": "DIRECT_LOADED_HANDLE_EXECUTE_CALL",
+        "claims": [
+          {
+            "call": 5,
+            "compile_call": 1,
+            "compile_phase": "fixture-phase",
+            "executables": [
+              "fixture-E-4"
+            ],
+            "format_ref": {
+              "bytes": 4,
+              "file": "1-submit-format.bin",
+              "sha256": "e0acb49d6ec4a97460a1af5fe8f80abc39f04d172d6c9a08c33da1209115cd4b"
+            },
+            "loaded": "fixture-L-2",
+            "phase": "fixture-phase",
+            "submitted": {
+              "bytes": 12,
+              "file": "1-submitted.bin",
+              "sha256": "46aa9809bd99a90836876404feab6592d6c9bde45fe525a78930826aba4e6f98"
+            }
+          }
+        ],
+        "device_completion": "NOT_OBSERVED",
+        "extracted_fields": [
+          {
+            "executable": "fixture-E-4",
+            "fields": [
+              {
+                "bytes": 3,
+                "field": 1,
+                "offset": 2,
+                "sha256": "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad"
+              },
+              {
+                "bytes": 2,
+                "field": 2,
+                "offset": 7,
+                "sha256": "769a4e6d0003189c7e96c5d9b7e810a0d11c3a12832527ec94b0f86d277f51ca"
+              }
+            ],
+            "format": "hlo_with_config",
+            "payload": {
+              "bytes": 9,
+              "file": "7-optimized.bin",
+              "sha256": "ecbd08e6eb032c343d153f9f25c0b7a046ca45ea64199edc101ff322ac2f3913"
+            }
+          }
+        ],
+        "failure": "",
+        "status": "PASS"
+      },
+      "result": "PASS",
+      "retention": "Fixture deleted after validation",
+      "stdout": "PASS error_after_execute calls=6 finalize=0"
+    },
+    {
+      "closed_inventory": {
+        "bytes": 935,
+        "file": "closed.json",
+        "sha256": "b2405b0b7504f85ef4a2869d1ba3126e0071a896281f2c84553a4e9be06f5f03"
+      },
+      "expected_claim_status": "UNKNOWN",
+      "name": "execute_error",
+      "report": {
+        "TPU_execution": "NOT_RUN",
+        "calls": 5,
+        "capture_status": "OK",
+        "claim": "DIRECT_LOADED_HANDLE_EXECUTE_CALL",
+        "claims": [],
+        "device_completion": "NOT_OBSERVED",
+        "extracted_fields": [
+          {
+            "executable": "fixture-E-4",
+            "fields": [
+              {
+                "bytes": 3,
+                "field": 1,
+                "offset": 2,
+                "sha256": "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad"
+              },
+              {
+                "bytes": 2,
+                "field": 2,
+                "offset": 7,
+                "sha256": "769a4e6d0003189c7e96c5d9b7e810a0d11c3a12832527ec94b0f86d277f51ca"
+              }
+            ],
+            "format": "hlo_with_config",
+            "payload": {
+              "bytes": 9,
+              "file": "7-optimized.bin",
+              "sha256": "ecbd08e6eb032c343d153f9f25c0b7a046ca45ea64199edc101ff322ac2f3913"
+            }
+          }
+        ],
+        "failure": "",
+        "status": "UNKNOWN"
+      },
+      "result": "PASS",
+      "retention": "Fixture deleted after validation",
+      "stdout": "PASS execute_error calls=5 finalize=0"
+    },
+    {
+      "closed_inventory": {
+        "bytes": 935,
+        "file": "closed.json",
+        "sha256": "10a23c78411793b3d21d1d8beae2e22648109462327c69f51df637d0f0f2b06c"
+      },
+      "expected_claim_status": "UNKNOWN",
+      "name": "execute_then_fill",
+      "report": {
+        "TPU_execution": "NOT_RUN",
+        "calls": 5,
+        "capture_status": "OK",
+        "claim": "DIRECT_LOADED_HANDLE_EXECUTE_CALL",
+        "claims": [],
+        "device_completion": "NOT_OBSERVED",
+        "extracted_fields": [
+          {
+            "executable": "fixture-E-4",
+            "fields": [
+              {
+                "bytes": 3,
+                "field": 1,
+                "offset": 2,
+                "sha256": "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad"
+              },
+              {
+                "bytes": 2,
+                "field": 2,
+                "offset": 7,
+                "sha256": "769a4e6d0003189c7e96c5d9b7e810a0d11c3a12832527ec94b0f86d277f51ca"
+              }
+            ],
+            "format": "hlo_with_config",
+            "payload": {
+              "bytes": 9,
+              "file": "8-optimized.bin",
+              "sha256": "ecbd08e6eb032c343d153f9f25c0b7a046ca45ea64199edc101ff322ac2f3913"
+            }
+          }
+        ],
+        "failure": "",
+        "status": "UNKNOWN"
+      },
+      "result": "PASS",
+      "retention": "Fixture deleted after validation",
+      "stdout": "PASS execute_then_fill calls=5 finalize=0"
+    },
+    {
+      "closed_inventory": {
+        "bytes": 935,
+        "file": "closed.json",
+        "sha256": "7c36f33527919dc31bd249fa4ac87e5cf512a7da76784fe7ad214bd572ed1cc9"
+      },
+      "expected_claim_status": "UNKNOWN",
+      "name": "execute_then_query",
+      "report": {
+        "TPU_execution": "NOT_RUN",
+        "calls": 6,
+        "capture_status": "OK",
+        "claim": "DIRECT_LOADED_HANDLE_EXECUTE_CALL",
+        "claims": [],
+        "device_completion": "NOT_OBSERVED",
+        "extracted_fields": [
+          {
+            "executable": "fixture-E-4",
+            "fields": [
+              {
+                "bytes": 3,
+                "field": 1,
+                "offset": 2,
+                "sha256": "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad"
+              },
+              {
+                "bytes": 2,
+                "field": 2,
+                "offset": 7,
+                "sha256": "769a4e6d0003189c7e96c5d9b7e810a0d11c3a12832527ec94b0f86d277f51ca"
+              }
+            ],
+            "format": "hlo_with_config",
+            "payload": {
+              "bytes": 9,
+              "file": "7-optimized.bin",
+              "sha256": "ecbd08e6eb032c343d153f9f25c0b7a046ca45ea64199edc101ff322ac2f3913"
+            }
+          }
+        ],
+        "failure": "",
+        "status": "UNKNOWN"
+      },
+      "result": "PASS",
+      "retention": "Fixture deleted after validation",
+      "stdout": "PASS execute_then_query calls=6 finalize=0"
+    },
+    {
+      "expected_claim_status": "UNKNOWN",
+      "name": "existing_output",
+      "result": "PASS",
+      "stdout": "PASS existing_output calls=5 finalize=-1"
+    },
+    {
+      "closed_inventory": {
+        "bytes": 489,
+        "file": "closed.json",
+        "sha256": "3801deaeb4fc05d2e8daee8233bca410019514b01827bb6164c81c5660861030"
+      },
+      "expected_claim_status": "UNKNOWN",
+      "name": "expired",
+      "report": {
+        "TPU_execution": "NOT_RUN",
+        "calls": 0,
+        "capture_status": "UNKNOWN",
+        "claim": "DIRECT_LOADED_HANDLE_EXECUTE_CALL",
+        "claims": [],
+        "device_completion": "NOT_OBSERVED",
+        "extracted_fields": [],
+        "failure": "DEADLINE",
+        "status": "UNKNOWN"
+      },
+      "result": "PASS",
+      "retention": "Fixture deleted after validation",
+      "stdout": "PASS expired calls=5 finalize=-1"
+    },
+    {
+      "closed_inventory": {
+        "bytes": 935,
+        "file": "closed.json",
+        "sha256": "e1130e9e6dc39532c0253a060b0c496c2ed8933adc7bc96333d820f052cf05a2"
+      },
+      "expected_claim_status": "PASS",
+      "name": "inflight",
+      "report": {
+        "TPU_execution": "NOT_RUN",
+        "calls": 5,
+        "capture_status": "OK",
+        "claim": "DIRECT_LOADED_HANDLE_EXECUTE_CALL",
+        "claims": [
+          {
+            "call": 5,
+            "compile_call": 1,
+            "compile_phase": "fixture-phase",
+            "executables": [
+              "fixture-E-4"
+            ],
+            "format_ref": {
+              "bytes": 4,
+              "file": "1-submit-format.bin",
+              "sha256": "e0acb49d6ec4a97460a1af5fe8f80abc39f04d172d6c9a08c33da1209115cd4b"
+            },
+            "loaded": "fixture-L-2",
+            "phase": "fixture-phase",
+            "submitted": {
+              "bytes": 12,
+              "file": "1-submitted.bin",
+              "sha256": "46aa9809bd99a90836876404feab6592d6c9bde45fe525a78930826aba4e6f98"
+            }
+          }
+        ],
+        "device_completion": "NOT_OBSERVED",
+        "extracted_fields": [
+          {
+            "executable": "fixture-E-4",
+            "fields": [
+              {
+                "bytes": 3,
+                "field": 1,
+                "offset": 2,
+                "sha256": "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad"
+              },
+              {
+                "bytes": 2,
+                "field": 2,
+                "offset": 7,
+                "sha256": "769a4e6d0003189c7e96c5d9b7e810a0d11c3a12832527ec94b0f86d277f51ca"
+              }
+            ],
+            "format": "hlo_with_config",
+            "payload": {
+              "bytes": 9,
+              "file": "7-optimized.bin",
+              "sha256": "ecbd08e6eb032c343d153f9f25c0b7a046ca45ea64199edc101ff322ac2f3913"
+            }
+          }
+        ],
+        "failure": "",
+        "status": "PASS"
+      },
+      "result": "PASS",
+      "retention": "Fixture deleted after validation",
+      "stdout": "PASS inflight calls=5 finalize=0"
+    },
+    {
+      "closed_inventory": {
+        "bytes": 1083,
+        "file": "closed.json",
+        "sha256": "6f27b352a6d375605cf8a8ddbde42d151ebb55ec5aa113d57923d4b96a2215a0"
+      },
+      "expected_claim_status": "PASS",
+      "name": "multiple_executables",
+      "report": {
+        "TPU_execution": "NOT_RUN",
+        "calls": 8,
+        "capture_status": "OK",
+        "claim": "DIRECT_LOADED_HANDLE_EXECUTE_CALL",
+        "claims": [
+          {
+            "call": 8,
+            "compile_call": 1,
+            "compile_phase": "fixture-phase",
+            "executables": [
+              "fixture-E-10",
+              "fixture-E-4"
+            ],
+            "format_ref": {
+              "bytes": 4,
+              "file": "1-submit-format.bin",
+              "sha256": "e0acb49d6ec4a97460a1af5fe8f80abc39f04d172d6c9a08c33da1209115cd4b"
+            },
+            "loaded": "fixture-L-2",
+            "phase": "fixture-phase",
+            "submitted": {
+              "bytes": 12,
+              "file": "1-submitted.bin",
+              "sha256": "46aa9809bd99a90836876404feab6592d6c9bde45fe525a78930826aba4e6f98"
+            }
+          }
+        ],
+        "device_completion": "NOT_OBSERVED",
+        "extracted_fields": [
+          {
+            "executable": "fixture-E-4",
+            "fields": [
+              {
+                "bytes": 3,
+                "field": 1,
+                "offset": 2,
+                "sha256": "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad"
+              },
+              {
+                "bytes": 2,
+                "field": 2,
+                "offset": 7,
+                "sha256": "769a4e6d0003189c7e96c5d9b7e810a0d11c3a12832527ec94b0f86d277f51ca"
+              }
+            ],
+            "format": "hlo_with_config",
+            "payload": {
+              "bytes": 9,
+              "file": "7-optimized.bin",
+              "sha256": "ecbd08e6eb032c343d153f9f25c0b7a046ca45ea64199edc101ff322ac2f3913"
+            }
+          },
+          {
+            "executable": "fixture-E-10",
+            "fields": [
+              {
+                "bytes": 3,
+                "field": 1,
+                "offset": 2,
+                "sha256": "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad"
+              },
+              {
+                "bytes": 2,
+                "field": 2,
+                "offset": 7,
+                "sha256": "769a4e6d0003189c7e96c5d9b7e810a0d11c3a12832527ec94b0f86d277f51ca"
+              }
+            ],
+            "format": "hlo_with_config",
+            "payload": {
+              "bytes": 9,
+              "file": "13-optimized.bin",
+              "sha256": "ecbd08e6eb032c343d153f9f25c0b7a046ca45ea64199edc101ff322ac2f3913"
+            }
+          }
+        ],
+        "failure": "",
+        "status": "PASS"
+      },
+      "result": "PASS",
+      "retention": "Fixture deleted after validation",
+      "stdout": "PASS multiple_executables calls=8 finalize=0"
+    },
+    {
+      "closed_inventory": {
+        "bytes": 935,
+        "file": "closed.json",
+        "sha256": "83ecfb8bb41998c440a4b3e90603a95b7e867c166658a840c3e68b03d98fe44b"
+      },
+      "expected_claim_status": "UNKNOWN",
+      "name": "optimized_query_error_inflight",
+      "report": {
+        "TPU_execution": "NOT_RUN",
+        "calls": 6,
+        "capture_status": "OK",
+        "claim": "DIRECT_LOADED_HANDLE_EXECUTE_CALL",
+        "claims": [],
+        "device_completion": "NOT_OBSERVED",
+        "extracted_fields": [
+          {
+            "executable": "fixture-E-4",
+            "fields": [
+              {
+                "bytes": 3,
+                "field": 1,
+                "offset": 2,
+                "sha256": "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad"
+              },
+              {
+                "bytes": 2,
+                "field": 2,
+                "offset": 7,
+                "sha256": "769a4e6d0003189c7e96c5d9b7e810a0d11c3a12832527ec94b0f86d277f51ca"
+              }
+            ],
+            "format": "hlo_with_config",
+            "payload": {
+              "bytes": 9,
+              "file": "7-optimized.bin",
+              "sha256": "ecbd08e6eb032c343d153f9f25c0b7a046ca45ea64199edc101ff322ac2f3913"
+            }
+          }
+        ],
+        "failure": "",
+        "status": "UNKNOWN"
+      },
+      "result": "PASS",
+      "retention": "Fixture deleted after validation",
+      "stdout": "PASS optimized_query_error_inflight calls=6 finalize=0"
+    },
+    {
+      "closed_inventory": {
+        "bytes": 935,
+        "file": "closed.json",
+        "sha256": "f861d59028d67f242eeb630d465258141e8aac478323238eddd7f1043f0af504"
+      },
+      "expected_claim_status": "UNKNOWN",
+      "name": "optimized_query_success_inflight",
+      "report": {
+        "TPU_execution": "NOT_RUN",
+        "calls": 6,
+        "capture_status": "OK",
+        "claim": "DIRECT_LOADED_HANDLE_EXECUTE_CALL",
+        "claims": [],
+        "device_completion": "NOT_OBSERVED",
+        "extracted_fields": [
+          {
+            "executable": "fixture-E-4",
+            "fields": [
+              {
+                "bytes": 3,
+                "field": 1,
+                "offset": 2,
+                "sha256": "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad"
+              },
+              {
+                "bytes": 2,
+                "field": 2,
+                "offset": 7,
+                "sha256": "769a4e6d0003189c7e96c5d9b7e810a0d11c3a12832527ec94b0f86d277f51ca"
+              }
+            ],
+            "format": "hlo_with_config",
+            "payload": {
+              "bytes": 9,
+              "file": "7-optimized.bin",
+              "sha256": "ecbd08e6eb032c343d153f9f25c0b7a046ca45ea64199edc101ff322ac2f3913"
+            }
+          }
+        ],
+        "failure": "",
+        "status": "UNKNOWN"
+      },
+      "result": "PASS",
+      "retention": "Fixture deleted after validation",
+      "stdout": "PASS optimized_query_success_inflight calls=6 finalize=0"
+    },
+    {
+      "closed_inventory": {
+        "bytes": 935,
+        "file": "closed.json",
+        "sha256": "3dcb13d52d679049a3a39ffd6e42d30be9c0b45ac6f65565b4d0427f5ac4f879"
+      },
+      "expected_claim_status": "UNKNOWN",
+      "name": "overlap",
+      "report": {
+        "TPU_execution": "NOT_RUN",
+        "calls": 6,
+        "capture_status": "OK",
+        "claim": "DIRECT_LOADED_HANDLE_EXECUTE_CALL",
+        "claims": [],
+        "device_completion": "NOT_OBSERVED",
+        "extracted_fields": [
+          {
+            "executable": "fixture-E-4",
+            "fields": [
+              {
+                "bytes": 3,
+                "field": 1,
+                "offset": 2,
+                "sha256": "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad"
+              },
+              {
+                "bytes": 2,
+                "field": 2,
+                "offset": 7,
+                "sha256": "769a4e6d0003189c7e96c5d9b7e810a0d11c3a12832527ec94b0f86d277f51ca"
+              }
+            ],
+            "format": "hlo_with_config",
+            "payload": {
+              "bytes": 9,
+              "file": "7-optimized.bin",
+              "sha256": "ecbd08e6eb032c343d153f9f25c0b7a046ca45ea64199edc101ff322ac2f3913"
+            }
+          }
+        ],
+        "failure": "",
+        "status": "UNKNOWN"
+      },
+      "result": "PASS",
+      "retention": "Fixture deleted after validation",
+      "stdout": "PASS overlap calls=6 finalize=0"
+    },
+    {
+      "closed_inventory": {
+        "bytes": 935,
+        "file": "closed.json",
+        "sha256": "6a95cd1647592a3995bdb560c367c39f4fab0ae2d52e22abb033ace328b3ce49"
+      },
+      "expected_claim_status": "UNKNOWN",
+      "name": "overlap_destroy",
+      "report": {
+        "TPU_execution": "NOT_RUN",
+        "calls": 6,
+        "capture_status": "OK",
+        "claim": "DIRECT_LOADED_HANDLE_EXECUTE_CALL",
+        "claims": [],
+        "device_completion": "NOT_OBSERVED",
+        "extracted_fields": [
+          {
+            "executable": "fixture-E-4",
+            "fields": [
+              {
+                "bytes": 3,
+                "field": 1,
+                "offset": 2,
+                "sha256": "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad"
+              },
+              {
+                "bytes": 2,
+                "field": 2,
+                "offset": 7,
+                "sha256": "769a4e6d0003189c7e96c5d9b7e810a0d11c3a12832527ec94b0f86d277f51ca"
+              }
+            ],
+            "format": "hlo_with_config",
+            "payload": {
+              "bytes": 9,
+              "file": "7-optimized.bin",
+              "sha256": "ecbd08e6eb032c343d153f9f25c0b7a046ca45ea64199edc101ff322ac2f3913"
+            }
+          }
+        ],
+        "failure": "",
+        "status": "UNKNOWN"
+      },
+      "result": "PASS",
+      "retention": "Fixture deleted after validation",
+      "stdout": "PASS overlap_destroy calls=6 finalize=0"
+    },
+    {
+      "closed_inventory": {
+        "bytes": 788,
+        "file": "closed.json",
+        "sha256": "07de1c49d627f65ade5913ae52afbe0a30dcc9ab7693da4a7df209d3d2bee00d"
+      },
+      "expected_claim_status": "UNKNOWN",
+      "name": "oversize_query",
+      "report": {
+        "TPU_execution": "NOT_RUN",
+        "calls": 4,
+        "capture_status": "OK",
+        "claim": "DIRECT_LOADED_HANDLE_EXECUTE_CALL",
+        "claims": [],
+        "device_completion": "NOT_OBSERVED",
+        "extracted_fields": [],
+        "failure": "",
+        "status": "UNKNOWN"
+      },
+      "result": "PASS",
+      "retention": "Fixture deleted after validation",
+      "stdout": "PASS oversize_query calls=4 finalize=0"
+    },
+    {
+      "closed_inventory": {
+        "bytes": 935,
+        "file": "closed.json",
+        "sha256": "b2fa0b10f9fc6acf8f972723dd6b2e99af74caf1d81f758d38325239d34b0437"
+      },
+      "expected_claim_status": "PASS",
+      "name": "query_after_execute",
+      "report": {
+        "TPU_execution": "NOT_RUN",
+        "calls": 6,
+        "capture_status": "OK",
+        "claim": "DIRECT_LOADED_HANDLE_EXECUTE_CALL",
+        "claims": [
+          {
+            "call": 5,
+            "compile_call": 1,
+            "compile_phase": "fixture-phase",
+            "executables": [
+              "fixture-E-4"
+            ],
+            "format_ref": {
+              "bytes": 4,
+              "file": "1-submit-format.bin",
+              "sha256": "e0acb49d6ec4a97460a1af5fe8f80abc39f04d172d6c9a08c33da1209115cd4b"
+            },
+            "loaded": "fixture-L-2",
+            "phase": "fixture-phase",
+            "submitted": {
+              "bytes": 12,
+              "file": "1-submitted.bin",
+              "sha256": "46aa9809bd99a90836876404feab6592d6c9bde45fe525a78930826aba4e6f98"
+            }
+          }
+        ],
+        "device_completion": "NOT_OBSERVED",
+        "extracted_fields": [
+          {
+            "executable": "fixture-E-4",
+            "fields": [
+              {
+                "bytes": 3,
+                "field": 1,
+                "offset": 2,
+                "sha256": "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad"
+              },
+              {
+                "bytes": 2,
+                "field": 2,
+                "offset": 7,
+                "sha256": "769a4e6d0003189c7e96c5d9b7e810a0d11c3a12832527ec94b0f86d277f51ca"
+              }
+            ],
+            "format": "hlo_with_config",
+            "payload": {
+              "bytes": 9,
+              "file": "7-optimized.bin",
+              "sha256": "ecbd08e6eb032c343d153f9f25c0b7a046ca45ea64199edc101ff322ac2f3913"
+            }
+          }
+        ],
+        "failure": "",
+        "status": "PASS"
+      },
+      "result": "PASS",
+      "retention": "Fixture deleted after validation",
+      "stdout": "PASS query_after_execute calls=6 finalize=0"
+    },
+    {
+      "closed_inventory": {
+        "bytes": 788,
+        "file": "closed.json",
+        "sha256": "203c55f276b6b519a96a64d08df801513bd6760e6c95395cfaf5fa8144f401d2"
+      },
+      "expected_claim_status": "UNKNOWN",
+      "name": "short_api",
+      "report": {
+        "TPU_execution": "NOT_RUN",
+        "calls": 1,
+        "capture_status": "OK",
+        "claim": "DIRECT_LOADED_HANDLE_EXECUTE_CALL",
+        "claims": [],
+        "device_completion": "NOT_OBSERVED",
+        "extracted_fields": [],
+        "failure": "",
+        "status": "UNKNOWN"
+      },
+      "result": "PASS",
+      "retention": "Fixture deleted after validation",
+      "stdout": "PASS short_api calls=1 finalize=0"
+    },
+    {
+      "closed_inventory": {
+        "bytes": 489,
+        "file": "closed.json",
+        "sha256": "c1aa3950b71e6a946b035e235c2644e631987cb1cd25f00826a5e49cb695cec9"
+      },
+      "expected_claim_status": "UNKNOWN",
+      "name": "short_args",
+      "report": {
+        "TPU_execution": "NOT_RUN",
+        "calls": 2,
+        "capture_status": "OK",
+        "claim": "DIRECT_LOADED_HANDLE_EXECUTE_CALL",
+        "claims": [],
+        "device_completion": "NOT_OBSERVED",
+        "extracted_fields": [],
+        "failure": "",
+        "status": "UNKNOWN"
+      },
+      "result": "PASS",
+      "retention": "Fixture deleted after validation",
+      "stdout": "PASS short_args calls=2 finalize=0"
+    },
+    {
+      "closed_inventory": {
+        "bytes": 788,
+        "file": "closed.json",
+        "sha256": "444cbc019603b8069f4f24693792afdda1bd2ed9d1889ce1bc4712e1384bbc8c"
+      },
+      "expected_claim_status": "UNKNOWN",
+      "name": "short_program",
+      "report": {
+        "TPU_execution": "NOT_RUN",
+        "calls": 4,
+        "capture_status": "OK",
+        "claim": "DIRECT_LOADED_HANDLE_EXECUTE_CALL",
+        "claims": [],
+        "device_completion": "NOT_OBSERVED",
+        "extracted_fields": [],
+        "failure": "",
+        "status": "UNKNOWN"
+      },
+      "result": "PASS",
+      "retention": "Fixture deleted after validation",
+      "stdout": "PASS short_program calls=4 finalize=0"
+    },
+    {
+      "closed_inventory": {
+        "bytes": 935,
+        "file": "closed.json",
+        "sha256": "ffd8e05a1079cf6909794bbffcc600f37d978db666cc90362a9cc5ceec005d6b"
+      },
+      "expected_claim_status": "UNKNOWN",
+      "name": "stale_optimized",
+      "report": {
+        "TPU_execution": "NOT_RUN",
+        "calls": 7,
+        "capture_status": "OK",
+        "claim": "DIRECT_LOADED_HANDLE_EXECUTE_CALL",
+        "claims": [],
+        "device_completion": "NOT_OBSERVED",
+        "extracted_fields": [
+          {
+            "executable": "fixture-E-4",
+            "fields": [
+              {
+                "bytes": 3,
+                "field": 1,
+                "offset": 2,
+                "sha256": "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad"
+              },
+              {
+                "bytes": 2,
+                "field": 2,
+                "offset": 7,
+                "sha256": "769a4e6d0003189c7e96c5d9b7e810a0d11c3a12832527ec94b0f86d277f51ca"
+              }
+            ],
+            "format": "hlo_with_config",
+            "payload": {
+              "bytes": 9,
+              "file": "7-optimized.bin",
+              "sha256": "ecbd08e6eb032c343d153f9f25c0b7a046ca45ea64199edc101ff322ac2f3913"
+            }
+          }
+        ],
+        "failure": "",
+        "status": "UNKNOWN"
+      },
+      "result": "PASS",
+      "retention": "Fixture deleted after validation",
+      "stdout": "PASS stale_optimized calls=7 finalize=0"
+    },
+    {
+      "closed_inventory": {
+        "bytes": 935,
+        "file": "closed.json",
+        "sha256": "d2caf982d4b21687dda42f154471a672693bfadb7905c06c6356dfb9ff8fbb5e"
+      },
+      "expected_claim_status": "UNKNOWN",
+      "name": "stale_short_program",
+      "report": {
+        "TPU_execution": "NOT_RUN",
+        "calls": 6,
+        "capture_status": "OK",
+        "claim": "DIRECT_LOADED_HANDLE_EXECUTE_CALL",
+        "claims": [],
+        "device_completion": "NOT_OBSERVED",
+        "extracted_fields": [
+          {
+            "executable": "fixture-E-4",
+            "fields": [
+              {
+                "bytes": 3,
+                "field": 1,
+                "offset": 2,
+                "sha256": "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad"
+              },
+              {
+                "bytes": 2,
+                "field": 2,
+                "offset": 7,
+                "sha256": "769a4e6d0003189c7e96c5d9b7e810a0d11c3a12832527ec94b0f86d277f51ca"
+              }
+            ],
+            "format": "hlo_with_config",
+            "payload": {
+              "bytes": 9,
+              "file": "7-optimized.bin",
+              "sha256": "ecbd08e6eb032c343d153f9f25c0b7a046ca45ea64199edc101ff322ac2f3913"
+            }
+          }
+        ],
+        "failure": "",
+        "status": "UNKNOWN"
+      },
+      "result": "PASS",
+      "retention": "Fixture deleted after validation",
+      "stdout": "PASS stale_short_program calls=6 finalize=0"
+    },
+    {
+      "closed_inventory": {
+        "bytes": 788,
+        "file": "closed.json",
+        "sha256": "6df426d5043920596a885f0af37990cfd7bc383ae23511cd6c9cc11369c3b616"
+      },
+      "expected_claim_status": "UNKNOWN",
+      "name": "unknown_fill",
+      "report": {
+        "TPU_execution": "NOT_RUN",
+        "calls": 4,
+        "capture_status": "OK",
+        "claim": "DIRECT_LOADED_HANDLE_EXECUTE_CALL",
+        "claims": [],
+        "device_completion": "NOT_OBSERVED",
+        "extracted_fields": [],
+        "failure": "",
+        "status": "UNKNOWN"
+      },
+      "result": "PASS",
+      "retention": "Fixture deleted after validation",
+      "stdout": "PASS unknown_fill calls=4 finalize=0"
+    },
+    {
+      "closed_inventory": {
+        "bytes": 1234,
+        "file": "closed.json",
+        "sha256": "dbb8b347a0a88c2df201824b64f0f2c295dbf9390abf8a1c7029e0a9d5cdd402"
+      },
+      "expected_claim_status": "PASS",
+      "name": "unrelated_query_inflight",
+      "report": {
+        "TPU_execution": "NOT_RUN",
+        "calls": 8,
+        "capture_status": "OK",
+        "claim": "DIRECT_LOADED_HANDLE_EXECUTE_CALL",
+        "claims": [
+          {
+            "call": 8,
+            "compile_call": 1,
+            "compile_phase": "fixture-phase",
+            "executables": [
+              "fixture-E-4"
+            ],
+            "format_ref": {
+              "bytes": 4,
+              "file": "1-submit-format.bin",
+              "sha256": "e0acb49d6ec4a97460a1af5fe8f80abc39f04d172d6c9a08c33da1209115cd4b"
+            },
+            "loaded": "fixture-L-2",
+            "phase": "fixture-phase",
+            "submitted": {
+              "bytes": 12,
+              "file": "1-submitted.bin",
+              "sha256": "46aa9809bd99a90836876404feab6592d6c9bde45fe525a78930826aba4e6f98"
+            }
+          }
+        ],
+        "device_completion": "NOT_OBSERVED",
+        "extracted_fields": [
+          {
+            "executable": "fixture-E-4",
+            "fields": [
+              {
+                "bytes": 3,
+                "field": 1,
+                "offset": 2,
+                "sha256": "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad"
+              },
+              {
+                "bytes": 2,
+                "field": 2,
+                "offset": 7,
+                "sha256": "769a4e6d0003189c7e96c5d9b7e810a0d11c3a12832527ec94b0f86d277f51ca"
+              }
+            ],
+            "format": "hlo_with_config",
+            "payload": {
+              "bytes": 9,
+              "file": "7-optimized.bin",
+              "sha256": "ecbd08e6eb032c343d153f9f25c0b7a046ca45ea64199edc101ff322ac2f3913"
+            }
+          }
+        ],
+        "failure": "",
+        "status": "PASS"
+      },
+      "result": "PASS",
+      "retention": "Fixture deleted after validation",
+      "stdout": "PASS unrelated_query_inflight calls=8 finalize=0"
+    },
+    {
+      "closed_inventory": {
+        "bytes": 489,
+        "file": "closed.json",
+        "sha256": "2d14907b0ce53e793529d91b6556b994bdb2fa60bd41c19743f6b6e414c7f519"
+      },
+      "expected_claim_status": "UNKNOWN",
+      "name": "unsupported_abi",
+      "report": {
+        "TPU_execution": "NOT_RUN",
+        "calls": 0,
+        "capture_status": "UNKNOWN",
+        "claim": "DIRECT_LOADED_HANDLE_EXECUTE_CALL",
+        "claims": [],
+        "device_completion": "NOT_OBSERVED",
+        "extracted_fields": [],
+        "failure": "UNSUPPORTED_ABI_MAJOR_OR_VERSION",
+        "status": "UNKNOWN"
+      },
+      "result": "PASS",
+      "retention": "Fixture deleted after validation",
+      "stdout": "PASS unsupported_abi calls=5 finalize=-1"
+    },
+    {
+      "closed_inventory": {
+        "bytes": 935,
+        "file": "closed.json",
+        "sha256": "4ad5425d2d7e41e3ce4cdf27121185605fbf53fef460a9aeb22a3698cec49c1e"
+      },
+      "expected_claim_status": "PASS",
+      "name": "warm_reuse",
+      "report": {
+        "TPU_execution": "NOT_RUN",
+        "calls": 6,
+        "capture_status": "OK",
+        "claim": "DIRECT_LOADED_HANDLE_EXECUTE_CALL",
+        "claims": [
+          {
+            "call": 5,
+            "compile_call": 1,
+            "compile_phase": "fixture-phase",
+            "executables": [
+              "fixture-E-4"
+            ],
+            "format_ref": {
+              "bytes": 4,
+              "file": "1-submit-format.bin",
+              "sha256": "e0acb49d6ec4a97460a1af5fe8f80abc39f04d172d6c9a08c33da1209115cd4b"
+            },
+            "loaded": "fixture-L-2",
+            "phase": "fixture-phase",
+            "submitted": {
+              "bytes": 12,
+              "file": "1-submitted.bin",
+              "sha256": "46aa9809bd99a90836876404feab6592d6c9bde45fe525a78930826aba4e6f98"
+            }
+          },
+          {
+            "call": 6,
+            "compile_call": 1,
+            "compile_phase": "fixture-phase",
+            "executables": [
+              "fixture-E-4"
+            ],
+            "format_ref": {
+              "bytes": 4,
+              "file": "1-submit-format.bin",
+              "sha256": "e0acb49d6ec4a97460a1af5fe8f80abc39f04d172d6c9a08c33da1209115cd4b"
+            },
+            "loaded": "fixture-L-2",
+            "phase": "fixture-phase",
+            "submitted": {
+              "bytes": 12,
+              "file": "1-submitted.bin",
+              "sha256": "46aa9809bd99a90836876404feab6592d6c9bde45fe525a78930826aba4e6f98"
+            }
+          }
+        ],
+        "device_completion": "NOT_OBSERVED",
+        "extracted_fields": [
+          {
+            "executable": "fixture-E-4",
+            "fields": [
+              {
+                "bytes": 3,
+                "field": 1,
+                "offset": 2,
+                "sha256": "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad"
+              },
+              {
+                "bytes": 2,
+                "field": 2,
+                "offset": 7,
+                "sha256": "769a4e6d0003189c7e96c5d9b7e810a0d11c3a12832527ec94b0f86d277f51ca"
+              }
+            ],
+            "format": "hlo_with_config",
+            "payload": {
+              "bytes": 9,
+              "file": "7-optimized.bin",
+              "sha256": "ecbd08e6eb032c343d153f9f25c0b7a046ca45ea64199edc101ff322ac2f3913"
+            }
+          }
+        ],
+        "failure": "",
+        "status": "PASS"
+      },
+      "result": "PASS",
+      "retention": "Fixture deleted after validation",
+      "stdout": "PASS warm_reuse calls=6 finalize=0"
+    },
+    {
+      "closed_inventory": {
+        "bytes": 489,
+        "file": "closed.json",
+        "sha256": "3a558293dac3735a79fd3499a9ef67d91037fdd5f5ecccf878b64c4571314789"
+      },
+      "expected_claim_status": "UNKNOWN",
+      "name": "write_failure",
+      "report": {
+        "TPU_execution": "NOT_RUN",
+        "calls": 1,
+        "capture_status": "UNKNOWN",
+        "claim": "DIRECT_LOADED_HANDLE_EXECUTE_CALL",
+        "claims": [],
+        "device_completion": "NOT_OBSERVED",
+        "extracted_fields": [],
+        "failure": "PAYLOAD_OPEN",
+        "status": "UNKNOWN"
+      },
+      "result": "PASS",
+      "retention": "Fixture deleted after validation",
+      "stdout": "PASS write_failure calls=5 finalize=-1"
+    },
+    {
+      "closed_inventory": {
+        "bytes": 1382,
+        "file": "closed.json",
+        "sha256": "c01e011f6da99935039a7665bf3d3d79c1ddb8a9f87857960bc22a450d254a6a"
+      },
+      "expected_claim_status": "UNKNOWN",
+      "name": "wrong_executable",
+      "report": {
+        "TPU_execution": "NOT_RUN",
+        "calls": 9,
+        "capture_status": "OK",
+        "claim": "DIRECT_LOADED_HANDLE_EXECUTE_CALL",
+        "claims": [],
+        "device_completion": "NOT_OBSERVED",
+        "extracted_fields": [
+          {
+            "executable": "fixture-E-4",
+            "fields": [
+              {
+                "bytes": 3,
+                "field": 1,
+                "offset": 2,
+                "sha256": "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad"
+              },
+              {
+                "bytes": 2,
+                "field": 2,
+                "offset": 7,
+                "sha256": "769a4e6d0003189c7e96c5d9b7e810a0d11c3a12832527ec94b0f86d277f51ca"
+              }
+            ],
+            "format": "hlo_with_config",
+            "payload": {
+              "bytes": 9,
+              "file": "7-optimized.bin",
+              "sha256": "ecbd08e6eb032c343d153f9f25c0b7a046ca45ea64199edc101ff322ac2f3913"
+            }
+          },
+          {
+            "executable": "fixture-E-4",
+            "fields": [
+              {
+                "bytes": 3,
+                "field": 1,
+                "offset": 2,
+                "sha256": "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad"
+              },
+              {
+                "bytes": 2,
+                "field": 2,
+                "offset": 7,
+                "sha256": "769a4e6d0003189c7e96c5d9b7e810a0d11c3a12832527ec94b0f86d277f51ca"
+              }
+            ],
+            "format": "hlo_with_config",
+            "payload": {
+              "bytes": 9,
+              "file": "15-optimized.bin",
+              "sha256": "ecbd08e6eb032c343d153f9f25c0b7a046ca45ea64199edc101ff322ac2f3913"
+            }
+          }
+        ],
+        "failure": "",
+        "status": "UNKNOWN"
+      },
+      "result": "PASS",
+      "retention": "Fixture deleted after validation",
+      "stdout": "PASS wrong_executable calls=9 finalize=0"
+    },
+    {
+      "closed_inventory": {
+        "bytes": 1234,
+        "file": "closed.json",
+        "sha256": "bb06f304052d3a08606d298e15ddd5d2a03bbf0853a2df4aeac195f5838cd948"
+      },
+      "expected_claim_status": "UNKNOWN",
+      "name": "wrong_loaded",
+      "report": {
+        "TPU_execution": "NOT_RUN",
+        "calls": 6,
+        "capture_status": "OK",
+        "claim": "DIRECT_LOADED_HANDLE_EXECUTE_CALL",
+        "claims": [],
+        "device_completion": "NOT_OBSERVED",
+        "extracted_fields": [
+          {
+            "executable": "fixture-E-4",
+            "fields": [
+              {
+                "bytes": 3,
+                "field": 1,
+                "offset": 2,
+                "sha256": "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad"
+              },
+              {
+                "bytes": 2,
+                "field": 2,
+                "offset": 7,
+                "sha256": "769a4e6d0003189c7e96c5d9b7e810a0d11c3a12832527ec94b0f86d277f51ca"
+              }
+            ],
+            "format": "hlo_with_config",
+            "payload": {
+              "bytes": 9,
+              "file": "7-optimized.bin",
+              "sha256": "ecbd08e6eb032c343d153f9f25c0b7a046ca45ea64199edc101ff322ac2f3913"
+            }
+          }
+        ],
+        "failure": "",
+        "status": "UNKNOWN"
+      },
+      "result": "PASS",
+      "retention": "Fixture deleted after validation",
+      "stdout": "PASS wrong_loaded calls=6 finalize=0"
+    },
+    {
+      "name": "self_recursion",
+      "result": "PASS",
+      "stdout": "PASS self_recursion"
+    }
+  ],
+  "claim": "LOCAL_FAKE_PROVIDER_PREPARATION_ONLY",
+  "compiler": "Apple clang version 21.0.0 (clang-2100.3.34.2)",
+  "header_sha256": "a946f54b0df19ecae28015b86e4c10fad23ba0ce6fc3f14941157db79c437cf6",
+  "host_helper": {
+    "build": {
+      "bytes": 198416,
+      "header_sha256": "a946f54b0df19ecae28015b86e4c10fad23ba0ce6fc3f14941157db79c437cf6",
+      "library": "/var/folders/5g/bhl5x7q93yvcfj2zngh_jg680000gn/T/m6-pjrt-controls-kosh5mla/host-recorder.dylib",
+      "retention": "Temporary header deleted",
+      "sha256": "e66657afbb24852986caf255dc6319f738c9c71ecd676f6d7df14bfcb4b3d506",
+      "source_sha256": "595a4a986df15da89eb66b46643065b474deba558369c15861da4149f5ad51ef"
+    },
+    "smoke": {
+      "TPU_execution": "NOT_RUN",
+      "calls": 0,
+      "capture_status": "OK",
+      "claim": "DIRECT_LOADED_HANDLE_EXECUTE_CALL",
+      "claims": [],
+      "closed": true,
+      "device_completion": "NOT_OBSERVED",
+      "extracted_fields": [],
+      "failure": "",
+      "status": "UNKNOWN"
+    }
+  },
+  "independent_mutations": [
+    {
+      "expected": "REJECT_OR_UNKNOWN",
+      "name": "wrong_executable_parent",
+      "result": "PASS"
+    },
+    {
+      "expected": "REJECT_OR_UNKNOWN",
+      "name": "missing_submit_bytes",
+      "result": "PASS"
+    },
+    {
+      "expected": "REJECT_OR_UNKNOWN",
+      "name": "failed_execute",
+      "result": "PASS"
+    },
+    {
+      "expected": "REJECT_OR_UNKNOWN",
+      "name": "wrong_query_link",
+      "result": "PASS"
+    },
+    {
+      "expected": "REJECT_OR_UNKNOWN",
+      "name": "false_query_size",
+      "result": "PASS"
+    },
+    {
+      "expected": "REJECT_OR_UNKNOWN",
+      "name": "missing_event",
+      "result": "PASS"
+    },
+    {
+      "expected": "REJECT_OR_UNKNOWN",
+      "name": "foreign_nonce",
+      "result": "PASS"
+    },
+    {
+      "expected": "REJECT",
+      "name": "payload_tamper",
+      "result": "PASS"
+    },
+    {
+      "expected": "REJECT",
+      "name": "unlisted_file",
+      "result": "PASS"
+    },
+    {
+      "expected": "REJECT",
+      "name": "unclosed",
+      "result": "PASS"
+    },
+    {
+      "name": "existing_parent_matches_input",
+      "result": "PASS",
+      "test_status": "PASS"
+    },
+    {
+      "name": "existing_parent_mismatch",
+      "result": "REJECTED",
+      "test_status": "PASS"
+    }
+  ],
+  "malformed_envelopes_rejected": 5,
+  "platform": "macOS-27.0-arm64-arm-64bit",
+  "schema": "M6_DIRECT_PJRT_TRACE_V4_LOCAL_CONTROLS",
+  "status": "PASS",
+  "uninitialized_read_sanitizer": {
+    "reason": "clang++: error: unsupported option '-fsanitize=memory' for target 'arm64-apple-darwin27.0.0'\n",
+    "status": "UNAVAILABLE"
+  }
+}

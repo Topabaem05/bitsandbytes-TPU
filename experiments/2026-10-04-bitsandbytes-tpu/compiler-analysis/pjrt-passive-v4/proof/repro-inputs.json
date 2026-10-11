@@ -1,0 +1,17 @@
+{
+  "files": [
+    {
+      "bytes": 5604,
+      "path": "proof/repro-inputs/fake_provider.cpp",
+      "sha256": "1bab576424774ee8aaa8d4db328f40c7fd4c7e073965f96e456947156a62123e"
+    },
+    {
+      "bytes": 13997,
+      "path": "proof/repro-inputs/harness.cpp",
+      "sha256": "917493d036d356c3873088f4367cac0d89926c6d8c3882a39c6739c5752c1eaf"
+    }
+  ],
+  "original_private_harness_sha256": "994f27c726e0d324d1d84ff129d3c4e11057b7eae850f75abfd600ce625410c0",
+  "original_private_provider_sha256": "4a00b5a8e5a8b66b4c20e1d587137bb23242545801b049d370ffeffc4ceb60b3",
+  "purpose": "Exact peer counterexample inputs from frozen v3; never recorder or verifier mutations"
+}

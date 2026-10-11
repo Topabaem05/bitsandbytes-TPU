@@ -1,0 +1,1 @@
+{"PJRT_Api_bytes":960,"PJRT_Program_bytes":48,"slots":{"PJRT_Client_Compile":200,"PJRT_LoadedExecutable_GetExecutable":448,"PJRT_Executable_OptimizedProgram":424,"PJRT_LoadedExecutable_Execute":480,"PJRT_LoadedExecutable_Destroy":440,"PJRT_Executable_Destroy":360,"PJRT_LoadedExecutable_Delete":464,"PJRT_Executable_DeserializeAndLoad":488}}

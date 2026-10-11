@@ -1,0 +1,35 @@
+{
+  "url": "https://raw.githubusercontent.com/openxla/xla/92f7b5952dd585c5be17c9a5caad27407005b513/xla/pjrt/pjrt_c_api_client.cc",
+  "path": "xla/pjrt/pjrt_c_api_client.cc",
+  "revision": "92f7b5952dd585c5be17c9a5caad27407005b513",
+  "bytes": 121076,
+  "sha256": "c56650e7a814e2ea40f2878664418e5acf2a86e003a45c3f8b62ecc5069a390f",
+  "verified_utc": "2026-10-11T07:19:40.583738+00:00",
+  "license": "Apache-2.0",
+  "sections": [
+    {
+      "start": 409,
+      "end": 448,
+      "text": "// Initializes `PJRT_Client_Compile_Args`, which will be used to call\n// API PJRT_Client_Compile().\nstatic absl::StatusOr<std::unique_ptr<PjRtLoadedExecutable>>\nInitializeArgsAndCompile(PjRtCApiClient* api_client, const PJRT_Api* c_api,\n                         PJRT_Client* client, const CompileOptions& options,\n                         const std::string& code, const std::string& format) {\n  PJRT_Client_Compile_Args args;\n  args.struct_size = PJRT_Client_Compile_Args_STRUCT_SIZE;\n  PJRT_Profiler_Extension profiler_extension =\n      pjrt::CreatePjrtProfilerExtension(\"PJRT_Client_Compile linkage\");\n  args.extension_start = &profiler_extension.base;\n  args.client = client;\n  TF_ASSIGN_OR_RETURN(const CompileOptionsProto options_proto,\n                      options.ToProto());\n  std::string options_str = options_proto.SerializeAsString();\n  args.compile_options = options_str.c_str();\n  args.compile_options_size = options_str.size();\n\n  PJRT_Program program;\n  program.struct_size = PJRT_Program_STRUCT_SIZE;\n  program.extension_start = nullptr;\n  program.code = const_cast<char*>(code.c_str());\n  program.code_size = code.size();\n  program.format = format.c_str();\n  program.format_size = format.size();\n  args.program = &program;\n\n  RETURN_STATUS_IF_PJRT_ERROR(c_api->PJRT_Client_Compile(&args), c_api);\n  std::unique_ptr<PjRtLoadedExecutable> ret =\n      std::make_unique<PjRtCApiLoadedExecutable>(api_client, args.executable);\n  return ret;\n}\n\nabsl::StatusOr<std::unique_ptr<PjRtLoadedExecutable>>\nPjRtCApiClient::CompileAndLoad(const XlaComputation& computation,\n                               CompileOptions options) {\n  std::string module_str = computation.proto().SerializeAsString();\n  std::string format(pjrt::kHloFormat);\n  return InitializeArgsAndCompile(this, c_api_, c_client_.get(), options,\n                                  module_str, format);\n",
+      "sha256": "6e7ef285450401b91cd35b929afdefaa6a2d00cf82cc16d12500a5272a80ae41"
+    },
+    {
+      "start": 1607,
+      "end": 1638,
+      "text": "absl::StatusOr<std::vector<std::shared_ptr<HloModule>>>\nPjRtCApiExecutable::GetHloModules() const {\n  auto* c_api = pjrt_c_api();\n  auto* executable = c_executable();\n  PJRT_Executable_OptimizedProgram_Args args;\n  args.struct_size = PJRT_Executable_OptimizedProgram_Args_STRUCT_SIZE;\n  args.extension_start = nullptr;\n  args.executable = executable;\n  PJRT_Program program;\n  program.struct_size = PJRT_Program_STRUCT_SIZE;\n  program.extension_start = nullptr;\n  program.code = nullptr;\n  args.program = &program;\n\n  RETURN_STATUS_IF_PJRT_ERROR(c_api->PJRT_Executable_OptimizedProgram(&args),\n                              c_api);\n\n  constexpr size_t TWO_GIBIBYTES = 2ull * 1024 * 1024 * 1024;\n  const size_t code_size = args.program->code_size;\n  CHECK(code_size < TWO_GIBIBYTES);\n  std::string code(code_size, ' ');\n  args.program->code = code.data();\n  RETURN_STATUS_IF_PJRT_ERROR(c_api->PJRT_Executable_OptimizedProgram(&args),\n                              c_api);\n\n  absl::string_view program_format(program.format, program.format_size);\n  if (program_format != ::pjrt::kHloWithConfigFormat &&\n      program_format != ::pjrt::kMlirFormat) {\n    return xla::Internal(\n        \"expected program format `hlo_with_config` or `mlir` but got %s\",\n        program_format);\n  }\n",
+      "sha256": "40a28aba2cb6ec7137a6a70ca733dfdaa57a9405e2b4e0421a93f7bbb356222c"
+    },
+    {
+      "start": 1701,
+      "end": 1715,
+      "text": "PjRtCApiLoadedExecutable::PjRtCApiLoadedExecutable(\n    PjRtCApiClient* client, PJRT_LoadedExecutable* executable)\n    : client_(client),\n      loaded_executable_(executable, ::pjrt::MakeLoadedExecutableDeleter(\n                                         client->pjrt_c_api())) {\n  PJRT_LoadedExecutable_GetExecutable_Args args;\n  args.struct_size = PJRT_LoadedExecutable_GetExecutable_Args_STRUCT_SIZE;\n  args.extension_start = nullptr;\n  args.loaded_executable = c_loaded_executable();\n  args.executable = nullptr;\n  pjrt::LogFatalIfPjrtError(\n      pjrt_c_api()->PJRT_LoadedExecutable_GetExecutable(&args), pjrt_c_api());\n  executable_ =\n      std::make_unique<PjRtCApiExecutable>(pjrt_c_api(), args.executable);\n  InitDevices();\n",
+      "sha256": "b2deeabeb6a7f2d55b4a6de517d2f0e9790551293ce00e6ec2546b6fb138f1bb"
+    },
+    {
+      "start": 2138,
+      "end": 2145,
+      "text": "  args.execute_device = nullptr;\n  PJRT_Profiler_Extension profiler_extension =\n      pjrt::CreatePjrtProfilerExtension(\n          \"PJRT_LoadedExecutable_Execute linkage\");\n  args.extension_start = &profiler_extension.base;\n\n  RETURN_STATUS_IF_PJRT_ERROR(\n      pjrt_c_api()->PJRT_LoadedExecutable_Execute(&args), pjrt_c_api());\n",
+      "sha256": "0373d0f985ba647a590d2d7a34fb9d7c01b0e6fd12f1ee184d02f3fb76cb8301"
+    }
+  ]
+}

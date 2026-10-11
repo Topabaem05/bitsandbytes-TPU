@@ -1,0 +1,17 @@
+{
+  "url": "https://raw.githubusercontent.com/openxla/xla/92f7b5952dd585c5be17c9a5caad27407005b513/xla/pjrt/c/pjrt_c_api_wrapper_impl.cc",
+  "path": "xla/pjrt/c/pjrt_c_api_wrapper_impl.cc",
+  "revision": "92f7b5952dd585c5be17c9a5caad27407005b513",
+  "bytes": 122181,
+  "sha256": "7f0686cb8fcbc3f903d38e95e12a7b066efa8b9eebeb992fb27adab69efcd23b",
+  "verified_utc": "2026-10-11T07:19:40.583402+00:00",
+  "license": "Apache-2.0",
+  "sections": [
+    {
+      "start": 1479,
+      "end": 1511,
+      "text": "PJRT_Error* PJRT_Executable_OptimizedProgram(\n    PJRT_Executable_OptimizedProgram_Args* args) {\n  PJRT_RETURN_IF_ERROR(VerifyOptimizedProgramArgs(args));\n  PJRT_Program* program = args->program;\n  program->format = kHloWithConfigFormat.data();\n  program->format_size = kHloWithConfigFormat.size();\n  PJRT_ASSIGN_OR_RETURN(std::shared_ptr<xla::HloModule> hlo_module,\n                        GetOptimizedProgramModule(args));\n  xla::HloModuleProtoWithConfig proto = hlo_module->ToProtoWithConfig();\n  if (program->code == nullptr) {\n    program->code_size = proto.ByteSizeLong();\n    if (program->code_size >= 2ull * 1024 * 1024 * 1024) {\n      return new PJRT_Error{xla::ResourceExhausted(\n          \"%s: HLO program serialization would require more than the max \"\n          \"supported protobuff size of 2 GiB.\",\n          __func__)};\n    }\n    return nullptr;\n  } else {\n    if (program->code_size < proto.ByteSizeLong()) {\n      return new PJRT_Error{\n          xla::InvalidArgument(\"`program->code_size` %d < required bytes %d\",\n                               program->code_size, proto.ByteSizeLong()),\n      };\n    }\n    bool succeeded = proto.SerializeToArray(program->code, program->code_size);\n    if (!succeeded) {\n      return new PJRT_Error{\n          xla::ResourceExhausted(\"%s: HLO program serialization exceeds max \"\n                                 \"supported protobuff size of 2 GiB.\",\n                                 __func__)};\n    }\n    return nullptr;\n",
+      "sha256": "f9d8a54e02b713791faa99694d4c7a93f0cbeb140caa08fe3072e9af4e38d9a7"
+    }
+  ]
+}
