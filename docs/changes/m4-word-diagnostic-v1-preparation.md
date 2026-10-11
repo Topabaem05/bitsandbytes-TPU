@@ -32,3 +32,9 @@ The [adopted source](../../experiments/2026-10-04-bitsandbytes-tpu/cloud/word-di
 and [review record](../../experiments/2026-10-04-bitsandbytes-tpu/results/m4-word-diagnostic-v1-preparation/root-review.json) contain the reproduction details.
 Pinned Linux CPU and actual TPU execution remain required.
 M4 remains unqualified.
+
+After source adoption, the reviewer deleted three completed temporary roots with 112 files.
+Selected review records remain in Git.
+The reproducible unqualified CPU output was discarded.
+The [disposal receipt](../../experiments/2026-10-04-bitsandbytes-tpu/results/m4-word-diagnostic-v1-preparation/source-disposal.json) records exact removal.
+One harmless extra final blank line remains in the sealed CLI display source to preserve its exact identity.

@@ -1,5 +1,15 @@
 # Change log
 
+## 2026-10-11 — Diagnostic preparation cleanup
+
+- Read back all 65 adopted source and recipe files.
+- Delete three completed preparation and review roots with 112 files.
+- Discard reproducible local CPU output after preserving selected review records.
+
+Validation: All deleted roots are absent, and no active process used them.
+The sealed packet retains one harmless extra final blank line for exact source identity.
+No new output was added to `.work`.
+
 ## 2026-10-11 — Exact word diagnostic preparation
 
 - Compare explicit Tensor shifts and flat tail reduction dimensions in isolated variants.

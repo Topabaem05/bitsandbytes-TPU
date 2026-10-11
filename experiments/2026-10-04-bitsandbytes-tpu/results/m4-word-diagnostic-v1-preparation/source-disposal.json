@@ -1,0 +1,26 @@
+{
+  "active_process_conflicts": 0,
+  "canonical_file_readback": 65,
+  "deleted_epoch": 1791709175.05986,
+  "m4_status": "NOT_QUALIFIED",
+  "roots": [
+    {
+      "bytes": 1174928,
+      "files": 77,
+      "path": "/tmp/bnb-tpu-m4-word-diagnostic-v1-20261011-sroPrk"
+    },
+    {
+      "bytes": 677317,
+      "files": 34,
+      "path": "/tmp/bnb-tpu-root-m4-word-diag-review-20261011"
+    },
+    {
+      "bytes": 2292,
+      "files": 1,
+      "path": "/tmp/m4-diagnostic-advisor-review-20261011-x69d822g"
+    }
+  ],
+  "status": "TESTED_SOURCE_AND_COMPACT_PROOFS_PRESERVED_DISPOSABLE_ROOTS_DELETED",
+  "unqualified_cpu_raw_output": "DISCARDED_REPRODUCIBLE_TEST_FIXTURE",
+  "whitespace_check": "One sealed extra final blank line in packet/control/cli_display.py was retained for exact packet identity."
+}
