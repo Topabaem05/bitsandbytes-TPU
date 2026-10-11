@@ -1,5 +1,17 @@
 # Change log
 
+## 2026-10-11 — Word diagnostic input boundary failure
+
+- Record 24 Linux CPU passes and four exact TPU bitcast results.
+- Identify 20 diagnostic input failures before arithmetic execution.
+- Verify runtime closure and the complete private archive before temporary disposal.
+
+Validation: All 48 row files and eight graph objects passed readback.
+All 61 local groups were absent; fresh sessions and assignments were empty.
+All 455 private archive members passed independent download checks.
+M4 remains unqualified.
+Refer to [the diagnostic result](docs/changes/m4-word-diagnostic-v1-actual.md).
+
 ## 2026-10-11 — Diagnostic preparation cleanup
 
 - Read back all 65 adopted source and recipe files.

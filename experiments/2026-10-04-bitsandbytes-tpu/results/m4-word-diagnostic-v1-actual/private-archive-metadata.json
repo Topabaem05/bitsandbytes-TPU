@@ -1,0 +1,28 @@
+{
+  "id": "1oy-C14kdB4re4U4L3xUKOTDLzxt6aYRz",
+  "title": "m4-word-diagnostic-v1-actual-20261011.zip",
+  "mime_type": null,
+  "size": "558379",
+  "url": null,
+  "file_or_folder": null,
+  "created_time": null,
+  "modified_time": null,
+  "parent_ids": [
+    "1Wj_aNLgxquksWtyHthccE7bpTnT5Z4Vz"
+  ],
+  "drive_id": null,
+  "current_user_can_share": null,
+  "has_augmented_permissions": null,
+  "shared": false,
+  "permissions": [
+    {
+      "type": "user",
+      "role": "owner",
+      "emailAddress": null,
+      "domain": null,
+      "displayName": null,
+      "allowFileDiscovery": null
+    }
+  ],
+  "source_visibility_status": "permission_metadata_available"
+}

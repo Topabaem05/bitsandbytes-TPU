@@ -1,0 +1,23 @@
+{
+  "archive_bytes": 558379,
+  "archive_sha256": "fbcb4107172f47e0312d4b6b63cadda575750a87aabe9cfb3ac5cae27b768445",
+  "created_epoch": 1791709820.847591,
+  "download_verified_epoch": 1791709846.029384,
+  "every_member_sha256_verified": true,
+  "input_entries": 454,
+  "inventory_sha256": "79ac7d2f12ea79486c1092cd563e65d6a2222db7bfb7c22661a8600ea6951c95",
+  "logical_bytes": 1542432,
+  "members": 455,
+  "remote_id": "1oy-C14kdB4re4U4L3xUKOTDLzxt6aYRz",
+  "roots": [
+    "/tmp/bnb-tpu-root-m4-word-diag-actual-20261011",
+    "/tmp/bnb-tpu-root-m4-word-diag-browser-20261011",
+    "/tmp/bnb-tpu-root-m4-word-diag-preconnect-20261011",
+    "/tmp/bnb-tpu-root-m4-word-diag-connecting-status-20261011",
+    "/tmp/bnb-tpu-root-m4-word-diag-postclosure-20261011",
+    "/tmp/bnb-tpu-root-m4-word-diag-review-actual-20261011"
+  ],
+  "status": "INDEPENDENT_DOWNLOAD_FULL_READBACK_PASS",
+  "symlinks": 0,
+  "zip_crc_verified": true
+}

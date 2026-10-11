@@ -1,0 +1,241 @@
+{
+  "deadline_epoch": 1791709716.36769,
+  "errors": 20,
+  "exact_matches": 4,
+  "finished_epoch": 1791709404.6668365,
+  "generation": "m4-word-lowering-diagnostic-v1",
+  "kind": "M4_WORD_DIAGNOSTIC_V1",
+  "m4_status": "NOT_QUALIFIED",
+  "mode": "tpu",
+  "physical_graphs": [
+    {
+      "gzip_bytes": 388,
+      "gzip_sha256": "0fb2101e7a1235131b9611a551f7736f3a521885b0d3b669bacd499d20d9fe89",
+      "path": "graphs/bitcast-raw-scalar.hlo.txt.gz",
+      "raw_bytes": 1014,
+      "raw_sha256": "ade53020fc71a4d87241c7b00dc32ca708531f162395053164a1e518d9754013"
+    },
+    {
+      "gzip_bytes": 422,
+      "gzip_sha256": "23436fb82152c705185245648e186a8065eae901edf59b52dd203d5c791d4ee0",
+      "path": "graphs/bitcast-raw-scalar.hlo.pb.gz",
+      "raw_bytes": 947,
+      "raw_sha256": "15deb2598848228b3b82683ece833112d66abe24eaac74318aa7cf1326f1fd2f"
+    },
+    {
+      "gzip_bytes": 343,
+      "gzip_sha256": "c46aaf312455864ad3efba77447c21d4eacb1abc3875a0f023b1b445128b6ab3",
+      "path": "graphs/bitcast-raw-vector.hlo.txt.gz",
+      "raw_bytes": 1015,
+      "raw_sha256": "953680e1ead436ccc194d0dbfbde434ffc926670cdc7fd5ad39485bd7834f2c5"
+    },
+    {
+      "gzip_bytes": 368,
+      "gzip_sha256": "de1e740e69261678c51413a1cd0aeb2dabadf47b8b86f3a8763727cd44228f3f",
+      "path": "graphs/bitcast-raw-vector.hlo.pb.gz",
+      "raw_bytes": 1034,
+      "raw_sha256": "c2560beb496e74747c42010a75794b7fc0db274acc7bd025592593cc9a1751e5"
+    },
+    {
+      "gzip_bytes": 388,
+      "gzip_sha256": "0fb2101e7a1235131b9611a551f7736f3a521885b0d3b669bacd499d20d9fe89",
+      "path": "graphs/bitcast-functional-scalar.hlo.txt.gz",
+      "raw_bytes": 1014,
+      "raw_sha256": "ade53020fc71a4d87241c7b00dc32ca708531f162395053164a1e518d9754013"
+    },
+    {
+      "gzip_bytes": 422,
+      "gzip_sha256": "23436fb82152c705185245648e186a8065eae901edf59b52dd203d5c791d4ee0",
+      "path": "graphs/bitcast-functional-scalar.hlo.pb.gz",
+      "raw_bytes": 947,
+      "raw_sha256": "15deb2598848228b3b82683ece833112d66abe24eaac74318aa7cf1326f1fd2f"
+    },
+    {
+      "gzip_bytes": 343,
+      "gzip_sha256": "c46aaf312455864ad3efba77447c21d4eacb1abc3875a0f023b1b445128b6ab3",
+      "path": "graphs/bitcast-functional-vector.hlo.txt.gz",
+      "raw_bytes": 1015,
+      "raw_sha256": "953680e1ead436ccc194d0dbfbde434ffc926670cdc7fd5ad39485bd7834f2c5"
+    },
+    {
+      "gzip_bytes": 368,
+      "gzip_sha256": "de1e740e69261678c51413a1cd0aeb2dabadf47b8b86f3a8763727cd44228f3f",
+      "path": "graphs/bitcast-functional-vector.hlo.pb.gz",
+      "raw_bytes": 1034,
+      "raw_sha256": "c2560beb496e74747c42010a75794b7fc0db274acc7bd025592593cc9a1751e5"
+    }
+  ],
+  "returned": 4,
+  "row_outcomes": [
+    {
+      "cpu_exact_match": true,
+      "label": "bitcast-raw-scalar",
+      "observation_status": "COMPLETE",
+      "status": "RETURNED"
+    },
+    {
+      "cpu_exact_match": true,
+      "label": "bitcast-raw-vector",
+      "observation_status": "COMPLETE",
+      "status": "RETURNED"
+    },
+    {
+      "cpu_exact_match": true,
+      "label": "bitcast-functional-scalar",
+      "observation_status": "COMPLETE",
+      "status": "RETURNED"
+    },
+    {
+      "cpu_exact_match": true,
+      "label": "bitcast-functional-vector",
+      "observation_status": "COMPLETE",
+      "status": "RETURNED"
+    },
+    {
+      "error_message": "Backend kernel inputs must be unwrapped tensors",
+      "error_type": "RuntimeError",
+      "label": "amax-1",
+      "status": "ERROR"
+    },
+    {
+      "error_message": "Backend kernel inputs must be unwrapped tensors",
+      "error_type": "RuntimeError",
+      "label": "amax-255",
+      "status": "ERROR"
+    },
+    {
+      "error_message": "Backend kernel inputs must be unwrapped tensors",
+      "error_type": "RuntimeError",
+      "label": "shift-left",
+      "status": "ERROR"
+    },
+    {
+      "error_message": "Backend kernel inputs must be unwrapped tensors",
+      "error_type": "RuntimeError",
+      "label": "shift-right",
+      "status": "ERROR"
+    },
+    {
+      "error_message": "Backend kernel inputs must be unwrapped tensors",
+      "error_type": "RuntimeError",
+      "label": "scalar-compare-select",
+      "status": "ERROR"
+    },
+    {
+      "error_message": "Backend kernel inputs must be unwrapped tensors",
+      "error_type": "RuntimeError",
+      "label": "original-addsub",
+      "status": "ERROR"
+    },
+    {
+      "error_message": "Backend kernel inputs must be unwrapped tensors",
+      "error_type": "RuntimeError",
+      "label": "original-muldiv",
+      "status": "ERROR"
+    },
+    {
+      "error_message": "Backend kernel inputs must be unwrapped tensors",
+      "error_type": "RuntimeError",
+      "label": "original-midpoints",
+      "status": "ERROR"
+    },
+    {
+      "error_message": "Backend kernel inputs must be unwrapped tensors",
+      "error_type": "RuntimeError",
+      "label": "original-zero-normalize",
+      "status": "ERROR"
+    },
+    {
+      "error_message": "Backend kernel inputs must be unwrapped tensors",
+      "error_type": "RuntimeError",
+      "label": "original-tail-1-255",
+      "status": "ERROR"
+    },
+    {
+      "error_message": "Backend kernel inputs must be unwrapped tensors",
+      "error_type": "RuntimeError",
+      "label": "true_shift-addsub",
+      "status": "ERROR"
+    },
+    {
+      "error_message": "Backend kernel inputs must be unwrapped tensors",
+      "error_type": "RuntimeError",
+      "label": "true_shift-muldiv",
+      "status": "ERROR"
+    },
+    {
+      "error_message": "Backend kernel inputs must be unwrapped tensors",
+      "error_type": "RuntimeError",
+      "label": "true_shift-midpoints",
+      "status": "ERROR"
+    },
+    {
+      "error_message": "Backend kernel inputs must be unwrapped tensors",
+      "error_type": "RuntimeError",
+      "label": "true_shift-zero-normalize",
+      "status": "ERROR"
+    },
+    {
+      "error_message": "Backend kernel inputs must be unwrapped tensors",
+      "error_type": "RuntimeError",
+      "label": "true_shift-tail-1-255",
+      "status": "ERROR"
+    },
+    {
+      "error_message": "Backend kernel inputs must be unwrapped tensors",
+      "error_type": "RuntimeError",
+      "label": "true_shift_amax-addsub",
+      "status": "ERROR"
+    },
+    {
+      "error_message": "Backend kernel inputs must be unwrapped tensors",
+      "error_type": "RuntimeError",
+      "label": "true_shift_amax-muldiv",
+      "status": "ERROR"
+    },
+    {
+      "error_message": "Backend kernel inputs must be unwrapped tensors",
+      "error_type": "RuntimeError",
+      "label": "true_shift_amax-midpoints",
+      "status": "ERROR"
+    },
+    {
+      "error_message": "Backend kernel inputs must be unwrapped tensors",
+      "error_type": "RuntimeError",
+      "label": "true_shift_amax-zero-normalize",
+      "status": "ERROR"
+    },
+    {
+      "error_message": "Backend kernel inputs must be unwrapped tensors",
+      "error_type": "RuntimeError",
+      "label": "true_shift_amax-tail-1-255",
+      "status": "ERROR"
+    }
+  ],
+  "runtime": {
+    "builder_sha256": "ee315ac0cfa9f052a5a437d693bc1d65aae7ea7bf7c3d0b661384bc6723a8772",
+    "devices": [
+      "TPU:0"
+    ],
+    "libtpu_sha256": "cdb7980d4332097b8e16576568e138ef54cf9fb8ed5aae2aeefbd0c5a425e94a",
+    "m4_status": "NOT_QUALIFIED",
+    "machine": "x86_64",
+    "observed_backend": "TPU",
+    "python": "3.12.14",
+    "requested_backend": "TPU",
+    "scope": "EXACT_WORD_DIAGNOSTIC_ONLY",
+    "status": "PINNED_TPU_DIAGNOSTIC_RUNTIME",
+    "system": "Linux",
+    "torch_git_version": "0fabc3ba44823f257e70ce397d989c8de5e362c1",
+    "versions": {
+      "jax": "0.7.1",
+      "jaxlib": "0.7.1",
+      "libtpu": "0.0.21",
+      "torch": "2.9.0+cpu",
+      "torch-xla": "2.9.0"
+    }
+  },
+  "source_manifest_sha256": "efdca2036587729027773eb276e3bff03f54fd8d10654750889c7be0cdce689a",
+  "started_epoch": 1791709394.9905016,
+  "status": "TPU_DIAGNOSTIC_COMPLETE_WITH_EXACT_COMPARISONS"
+}

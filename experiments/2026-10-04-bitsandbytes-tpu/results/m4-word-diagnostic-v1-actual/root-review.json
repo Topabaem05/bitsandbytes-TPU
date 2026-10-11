@@ -1,0 +1,87 @@
+{
+  "actual_intent_to_host_exit_seconds": 184.28613710403442,
+  "adviser": "GPT-6 Astra Max",
+  "allocation_attempts": 0,
+  "arithmetic_status": "UNKNOWN_BEFORE_KERNEL_BODY",
+  "billing_scope": "CLI_DISPLAYED_VALUES_ONLY",
+  "browser_disconnected_screenshot": "bnb-tpu-m4-word-diagnostic-v1-disconnected.jpg",
+  "cpu_report_sha256": "5e14bdfcb08b557332fec16ea0be9dd3d3af6934622724861d1280ac3f1b2b6d",
+  "cpu_rows_pass": 24,
+  "diagnosis": "Initial XLA input synchronization did not replace wrapped input dictionary. Serialization unwrapped only a local tensor. Kernel input rejection preceded arithmetic. Normalize synchronized inputs at the diagnostic caller boundary; preserve kernel rejection and math.",
+  "fresh_cli_active_assignments": 0,
+  "fresh_cli_sessions_empty": true,
+  "inspection": {
+    "errors": 20,
+    "exact_matches": 4,
+    "graph_objects": 8,
+    "kind": "M4_WORD_DIAGNOSTIC_HOST_INSPECTION_V1",
+    "m4_status": "NOT_QUALIFIED",
+    "qualification": "PINNED_LINUX_CPU_AND_TPU_DIAGNOSTIC",
+    "raw_graph_bytes": 8020,
+    "returned": 4,
+    "rows": 24,
+    "status": "COMPLETE_DIAGNOSTIC_EVIDENCE_RECOMPUTED"
+  },
+  "kind": "ROOT_INDEPENDENT_M4_WORD_DIAGNOSTIC_V1_ACTUAL_REVIEW",
+  "local_group_inventory_sha256": "709920824d23b88e1e263027f3aeca561ba42edd393eb068b299c1771d8f48de",
+  "local_owned_groups_checked": 61,
+  "m4_status": "NOT_QUALIFIED",
+  "milestones_accepted": 3,
+  "milestones_total": 8,
+  "original_intent_seconds": 600,
+  "packet_sha256": "a73c5b044ae981752e04a0a8b67706d1d21b8d9e94ac6044610bc1dc0ef984fc",
+  "provider_commands": 54,
+  "recovered_zip_full_member_readback": true,
+  "runtime_cpu": {
+    "builder_sha256": "ee315ac0cfa9f052a5a437d693bc1d65aae7ea7bf7c3d0b661384bc6723a8772",
+    "m4_status": "NOT_QUALIFIED",
+    "machine": "x86_64",
+    "python": "3.12.14",
+    "requested_backend": null,
+    "scope": "EXACT_WORD_DIAGNOSTIC_ONLY",
+    "status": "PINNED_LINUX_CPU_DIAGNOSTIC_ORACLE",
+    "system": "Linux",
+    "torch_git_version": "0fabc3ba44823f257e70ce397d989c8de5e362c1",
+    "versions": {
+      "jax": "0.7.1",
+      "jaxlib": "0.7.1",
+      "libtpu": "0.0.21",
+      "torch": "2.9.0+cpu",
+      "torch-xla": "2.9.0"
+    }
+  },
+  "runtime_tpu": {
+    "builder_sha256": "ee315ac0cfa9f052a5a437d693bc1d65aae7ea7bf7c3d0b661384bc6723a8772",
+    "devices": [
+      "TPU:0"
+    ],
+    "libtpu_sha256": "cdb7980d4332097b8e16576568e138ef54cf9fb8ed5aae2aeefbd0c5a425e94a",
+    "m4_status": "NOT_QUALIFIED",
+    "machine": "x86_64",
+    "observed_backend": "TPU",
+    "python": "3.12.14",
+    "requested_backend": "TPU",
+    "scope": "EXACT_WORD_DIAGNOSTIC_ONLY",
+    "status": "PINNED_TPU_DIAGNOSTIC_RUNTIME",
+    "system": "Linux",
+    "torch_git_version": "0fabc3ba44823f257e70ce397d989c8de5e362c1",
+    "versions": {
+      "jax": "0.7.1",
+      "jaxlib": "0.7.1",
+      "libtpu": "0.0.21",
+      "torch": "2.9.0+cpu",
+      "torch-xla": "2.9.0"
+    }
+  },
+  "source_manifest_sha256": "efdca2036587729027773eb276e3bff03f54fd8d10654750889c7be0cdce689a",
+  "status": "REVIEWED_HARNESS_BOUNDARY_FAILURE",
+  "tpu_exact_bitcast_rows": [
+    "bitcast-raw-scalar",
+    "bitcast-raw-vector",
+    "bitcast-functional-scalar",
+    "bitcast-functional-vector"
+  ],
+  "tpu_input_boundary_errors": 20,
+  "tpu_report_sha256": "d71aee020f778aaeab0cba3cc62e2525ff730fb7bd57c14ad40939bdd37e7ad8",
+  "verified_epoch": 1791709797.236537
+}

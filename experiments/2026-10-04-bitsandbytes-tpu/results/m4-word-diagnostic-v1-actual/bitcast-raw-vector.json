@@ -1,0 +1,136 @@
+{
+  "cpu_exact_comparison": {
+    "roundtrip": true,
+    "words": true
+  },
+  "cpu_exact_match": true,
+  "finished_epoch": 1791709404.6316378,
+  "label": "bitcast-raw-vector",
+  "metadata": {
+    "middle_native_functional": true,
+    "requested_functional": false,
+    "roundtrip_native_functional": true,
+    "source_native_functional": false
+  },
+  "observation_status": "COMPLETE",
+  "outputs": {
+    "roundtrip": {
+      "dtype": "float32",
+      "hex_words": [
+        "00000000",
+        "80000000",
+        "00000001",
+        "80000001",
+        "007fffff",
+        "00800000",
+        "3f800000",
+        "bf800000",
+        "3f000000",
+        "bf000000",
+        "7f7fffff",
+        "ff7fffff"
+      ],
+      "int_values": [
+        0,
+        -2147483648,
+        1,
+        -2147483647,
+        8388607,
+        8388608,
+        1065353216,
+        -1082130432,
+        1056964608,
+        -1090519040,
+        2139095039,
+        -8388609
+      ],
+      "shape": [
+        12
+      ],
+      "storage_sha256": "656c326292e1343d29247c0083bdeaecbfd2221fee61c655b4fd0ba99f507bc8"
+    },
+    "words": {
+      "dtype": "int32",
+      "hex_words": [
+        "00000000",
+        "80000000",
+        "00000001",
+        "80000001",
+        "007fffff",
+        "00800000",
+        "3f800000",
+        "bf800000",
+        "3f000000",
+        "bf000000",
+        "7f7fffff",
+        "ff7fffff"
+      ],
+      "int_values": [
+        0,
+        -2147483648,
+        1,
+        -2147483647,
+        8388607,
+        8388608,
+        1065353216,
+        -1082130432,
+        1056964608,
+        -1090519040,
+        2139095039,
+        -8388609
+      ],
+      "shape": [
+        12
+      ],
+      "storage_sha256": "656c326292e1343d29247c0083bdeaecbfd2221fee61c655b4fd0ba99f507bc8"
+    }
+  },
+  "parameter_metadata": {
+    "0": {
+      "device": "xla:0",
+      "dtype": "torch.int32",
+      "shape": [
+        12
+      ]
+    }
+  },
+  "parameters": {
+    "0": {
+      "dtype": "int32",
+      "hex_words": [
+        "00000000",
+        "80000000",
+        "00000001",
+        "80000001",
+        "007fffff",
+        "00800000",
+        "3f800000",
+        "bf800000",
+        "3f000000",
+        "bf000000",
+        "7f7fffff",
+        "ff7fffff"
+      ],
+      "int_values": [
+        0,
+        -2147483648,
+        1,
+        -2147483647,
+        8388607,
+        8388608,
+        1065353216,
+        -1082130432,
+        1056964608,
+        -1090519040,
+        2139095039,
+        -8388609
+      ],
+      "shape": [
+        12
+      ],
+      "storage_sha256": "656c326292e1343d29247c0083bdeaecbfd2221fee61c655b4fd0ba99f507bc8"
+    }
+  },
+  "started_epoch": 1791709404.6158154,
+  "status": "RETURNED"
+}
