@@ -17,18 +17,24 @@ BF16 forward gates passed; BF16 gradients remain untested.
 The accepted M3 Colab run passed all eight saved-state cases after restoration in a new TPU process.
 The reviewer compared 136 numerical gates and all eight checkpoint pairs.
 Refer to [the accepted M3 result](docs/changes/r3-state-colab.md), including the separate CLI exit correction.
-The next milestone requires nested quantization with the upstream default statistics option.
-The [first actual nested result](docs/changes/r4-nested-colab-failure.md) passed 52 cases and failed 27 cases under unchanged criteria.
-Arithmetic and state representation repairs remain necessary before saved-state execution.
-M4 and later milestones remain unqualified.
+The latest M4 Linux CPU run passed 79 cases and 540 array checks.
+Its TPU audit reported two passes, 12 failures, and 65 errors across the 79 required cases.
+Thirty cases have no returned record after the evidence limit stopped execution.
+Saved nested state did not run.
+Astra Max reviewed the tail dimension error and advised focused integer-operation comparisons before another complete experiment.
+Refer to [the latest M4 result](docs/changes/r4-functional-v4-failure-20261011.md).
 
-The [bounded Pallas experiment](docs/changes/r6-bf16-colab.md) passed five native and reference diagnostic cases on Colab.
-The [public API preparation](docs/changes/r6-public-cloud-preparation.md) passed 118 canonical controls for its separate 15-case experiment.
-The [first public attempt](docs/changes/r6-public-cpu-colab-failure.md) stopped at an exact CPU comparison before TPU execution.
-Actual public integration and compiler memory records remain required for M6.
-The [compiler flag failure](docs/changes/r6-compiler-flag-colab-failure.md) remains preserved with all five device cases unexecuted.
-The [compiler correction](docs/changes/r6-compiler-libtpu021-flags.md) passed 250 local controls before and after adoption.
-Its corrected TPU request still requires a new Colab experiment.
+The [M5 record reader](docs/changes/m5-reader-v4-preparation.md) passed independent resource and lifecycle checks.
+Its training math and checkpoint criteria remain unchanged.
+Genuine M4 acceptance, a separate plugin rebase, and actual TPU training remain required.
+
+Five native compiler diagnostic cases passed numerical checks on Colab.
+The [compiler readback](experiments/2026-10-04-bitsandbytes-tpu/results/resume-actual-20261011/compiler-independent-readback.json) records their exact scope.
+The [content diagnosis](experiments/2026-10-04-bitsandbytes-tpu/results/resume-actual-20261011/compiler-content-diagnosis.json) did not identify a valid selected executable chain.
+Compiler memory, public integration, and performance claims remain unqualified.
+The [passive PJRT source](docs/changes/pjrt-passive-v4-preparation.md) passed local compiled and independent review controls.
+A fresh Linux and TPU integration experiment remains required.
+M4 through M8 remain unqualified.
 
 The [October 8 source inspection](docs/research/2026-10-08/README.md) covers each design area before further implementation.
 It contains current documentation, original papers, fixed source revisions, and explicit version limits.

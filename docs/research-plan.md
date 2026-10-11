@@ -17,8 +17,8 @@ Port2TPU results do not count for these backend milestones.
 | M1 | Installable backend | Wheel installation, automatic registration, schema tests, and CPU differential tests | Completed: local CPU and package tests |
 | M2 | Actual TPU execution | Fixed runtime, TPU device test records, and upstream API output on Colab | Completed: 42 API cases and four public transfers on Colab V6E1 |
 | M3 | Upstream module state | Bias, gradients, saved state, and restoration in a new process | Completed: eight fixed cases restored in a new TPU process |
-| M4 | Nested quantization | Upstream default statistics option and matching saved nested state | In progress: actual 79-case run failed 27 cases; arithmetic repair and saved-state results required |
-| M5 | QLoRA execution | Twenty steps, frozen base weights, and restoration after step ten | In progress: private CPU preparation; TPU test required |
+| M4 | Nested quantization | Upstream default statistics option and matching saved nested state | In progress: latest TPU audit has two passes, 12 failures, and 65 errors; repair and saved state remain required |
+| M5 | QLoRA execution | Twenty steps, frozen base weights, and restoration after step ten | In progress: physical record reader adopted; genuine M4 acceptance, plugin rebase, and TPU training required |
 | M6 | Pallas NF4 kernel | Actual custom call, numerical tests, and compiler test records for memory use | In progress: five actual native diagnostic cases accepted; compiler memory and public integration required |
 | M7 | Measured performance | Raw time samples and memory measurements on the same TPU | In progress: local collector controls passed; actual measurements require accepted M6 |
 | M8 | Repeated cloud results | Matching source and inputs on Colab and Kaggle, with resource closure | In progress: exact Kaggle version canceled after queue deadline; scientific repetition remains required |
@@ -32,6 +32,30 @@ The [M2 result](changes/r2-transfer-colab.md) includes the fixed Linux runtime, 
 The reviewer accepted M3 on 2026-10-08 after all eight cases passed restoration in a new TPU process.
 The [M3 result](changes/r3-state-colab.md) includes 136 independent numerical comparisons, exact checkpoint pairs, and complete resource closure.
 Update this count only after inspection of the test records.
+
+## Current execution sequence
+
+1. Run a focused Colab diagnostic for tail reduction axes, integer shifts, typed scalars, and exact word intermediates.
+2. Review its CPU references, actual TPU arrays, source identity, and complete resource closure.
+3. Implement the supported M4 repair as a new source generation, then repeat the 79 cases under unchanged criteria.
+4. Accept all 79 cases before the separate saved-state experiment.
+5. Rebase the M5 plugin only after review, then run 20 training steps and the fixed checkpoint restoration.
+6. Verify the fresh M6 integration source, compile its passive recorder on Linux, and run the fixed numerical and public cases.
+7. Establish executable and memory evidence before M7 measurements and M8 cloud repetition.
+
+Workers use GPT-6.1 Sol High.
+The root reviewer examines their source and test records before each accepted commit and push.
+GPT-6 Astra Max advises on blocked technical decisions.
+Temporary tests use fresh `/tmp` directories.
+Preserve required evidence in Git or private Drive, verify it, then delete completed local test artifacts.
+No new test output belongs in `.work`.
+
+The latest [M4 experiment](changes/r4-functional-v4-failure-20261011.md) passed its new qualified Linux CPU gate.
+Its TPU run stopped on the unchanged 32 MiB evidence object limit after 49 retained case records.
+The tail reduction error is confirmed; the integer arithmetic mismatch remains under diagnosis.
+The [M5 reader preparation](changes/m5-reader-v4-preparation.md) is adopted with training science unchanged.
+The [passive PJRT preparation](changes/pjrt-passive-v4-preparation.md) is adopted for a separately reviewed actual integration.
+These preparations do not change the accepted milestone count.
 
 ## Source inspection before implementation
 

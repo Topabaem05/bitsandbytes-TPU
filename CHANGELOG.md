@@ -1,5 +1,14 @@
 # Change log
 
+## 2026-10-11 — Current research execution plan
+
+- Update the README and milestone table with the latest reviewed experiment results.
+- Order the next diagnostic, M4 repair, training, compiler, measurement, and repetition work.
+- Record Sol High workers, root review, Astra Max advice, and temporary artifact disposal.
+
+Validation: Linked results support each reported outcome.
+Accepted milestones remain three of eight.
+
 ## 2026-10-11 — M5 physical record reader preparation
 
 - Check physical resource closure and reconcile every lifecycle event.
